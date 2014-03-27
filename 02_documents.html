@@ -24,15 +24,19 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="New WARES Documentation 1.0 documentation" href="index.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="01_inventory.html" /> 
+    <link rel="next" title="System Code Lists" href="09_codelists.html" />
+    <link rel="prev" title="Inventory Concepts" href="01_inventory.html" /> 
   </head>
   <body>
     <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="01_inventory.html" title="&lt;no title&gt;"
-             accesskey="P">previous</a></li>
+          <a href="09_codelists.html" title="System Code Lists"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="01_inventory.html" title="Inventory Concepts"
+             accesskey="P">previous</a> |</li>
         <li><a href="index.html">New WARES Documentation 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
@@ -54,7 +58,10 @@
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="01_inventory.html"
-                        title="previous chapter">&lt;no title&gt;</a></p>
+                        title="previous chapter">Inventory Concepts</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="09_codelists.html"
+                        title="next chapter">System Code Lists</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/02_documents.txt"
@@ -340,19 +347,19 @@ data column is categorized within these four information types.</p>
 </tr>
 <tr class="row-odd"><td>1</td>
 <td>DATE_CODE</td>
-<td>A-CR</td>
+<td>A-C</td>
 <td>ARRAY</td>
 <td>DATE LIST</td>
 </tr>
 <tr class="row-even"><td>1</td>
 <td>DATETIME</td>
-<td>A-C</td>
+<td>A-CR</td>
 <td>DATE</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>1</td>
 <td>STATUS_CODE</td>
-<td>A-C</td>
+<td>M</td>
 <td>CODE</td>
 <td>STATUS LIST</td>
 </tr>
@@ -481,6 +488,8 @@ sign, the document type, the status, and the condition.</p>
 <div class="line">DATETIME</div>
 <div class="line">STATUS_CODE = INBOUND</div>
 <div class="line">PRODUCT</div>
+<div class="line">WEIGHTS &amp; MEASURES  (multiple entries)</div>
+<div class="line">CONTENTS (multiple entries)</div>
 </div>
 </li>
 <li><p class="first">ASN required information:</p>
@@ -524,11 +533,51 @@ sign, the document type, the status, and the condition.</p>
 </div>
 </li>
 </ul>
-<p>Issue: INBOUND unit could be reserved, but upon receipt the unit might be
-HELD or DAMAGED. A rebalance routine might not have enough inventory
-afterwards to account for the RESERVE.</p>
 <p>OUTBOUND:</p>
+<ul>
+<li><p class="first">Entered, received as Warehouse Order (940), or JSON import</p>
+</li>
+<li><p class="first">Lines added to locator as RESERVED, deducting from AVAILABLE</p>
+</li>
+<li><p class="first">Order required information:</p>
+<div class="line-block">
+<div class="line">LINE_KEY</div>
+<div class="line">DOCUMENT</div>
+<div class="line">DATE_CODE = RESERVED</div>
+<div class="line">DATETIME</div>
+<div class="line">STATUS_CODE = RESERVED</div>
+<div class="line">PRODUCT</div>
+<div class="line">WEIGHTS &amp; MEASURES (multiple entries)</div>
+<div class="line">CONTENTS (multiple entries)</div>
+</div>
+</li>
+</ul>
 <p>SHIPMENT:</p>
+<ul>
+<li><p class="first">Choice of completing an outbound order, or entering from scratch</p>
+</li>
+<li><p class="first">AVAILABLE (scratch entry) or RESERVED (outbound completion) lines updated
+to ALLOCATED</p>
+</li>
+<li><p class="first">DOCUMENT array updated to have OUTBOUND and SHIPMENT</p>
+</li>
+<li><p class="first">Shipment required information:</p>
+<div class="line-block">
+<div class="line">LINE_KEY</div>
+<div class="line">DOCUMENT</div>
+<div class="line">DATE_CODE = SHIPPED</div>
+<div class="line">DATETIME</div>
+<div class="line">STATUS_CODE = SHIPPED</div>
+<div class="line">PRODUCT</div>
+<div class="line">UNIT_IDENTIFIER</div>
+<div class="line">CONTROL_CODE</div>
+<div class="line">CONTROL_LOT</div>
+<div class="line">LOCATION</div>
+<div class="line">WEIGHTS &amp; MEASURES (multiple entries)</div>
+<div class="line">CONTENTS (multiple entries)</div>
+</div>
+</li>
+</ul>
 <p>ADJUSTMENT:</p>
 </div></blockquote>
 </div>
@@ -544,8 +593,11 @@ afterwards to account for the RESERVE.</p>
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="01_inventory.html" title="&lt;no title&gt;"
-             >previous</a></li>
+          <a href="09_codelists.html" title="System Code Lists"
+             >next</a></li>
+        <li class="right" >
+          <a href="01_inventory.html" title="Inventory Concepts"
+             >previous</a> |</li>
         <li><a href="index.html">New WARES Documentation 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>

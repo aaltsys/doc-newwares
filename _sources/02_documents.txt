@@ -123,11 +123,11 @@ data column is categorized within these four information types.
 +------+------------------+-----+--------+------------------+
 |   1  | DOCUMENT         | M   | ARRAY  |                  |
 +------+------------------+-----+--------+------------------+
-|   1  | DATE_CODE        | A-CR| ARRAY  | DATE LIST        |
+|   1  | DATE_CODE        | A-C | ARRAY  | DATE LIST        |
 +------+------------------+-----+--------+------------------+
-|   1  | DATETIME         | A-C | DATE   |                  |
+|   1  | DATETIME         | A-CR| DATE   |                  |
 +------+------------------+-----+--------+------------------+
-|   1  | STATUS_CODE      | A-C | CODE   | STATUS LIST      |
+|   1  | STATUS_CODE      | M   | CODE   | STATUS LIST      |
 +------+------------------+-----+--------+------------------+
 |   1  | CONDITION_CODE   | A-C | CODE   | CONDITION LIST   |
 +------+------------------+-----+--------+------------------+
@@ -186,7 +186,9 @@ POST:
       |  DATETIME
       |  STATUS_CODE = INBOUND
       |  PRODUCT
-      
+      |  WEIGHTS & MEASURES  (multiple entries)
+      |  CONTENTS (multiple entries)
+   
    *  ASN required information:
    
       |  LINE_KEY
@@ -221,12 +223,45 @@ POST:
       |  WEIGHTS & MEASURES (multiple entries)
       |  CONTENTS (multiple entries)
    
-   Issue: INBOUND unit could be reserved, but upon receipt the unit might be 
-   HELD or DAMAGED. A rebalance routine might not have enough inventory 
-   afterwards to account for the RESERVE.
+   .. note: 
+      An INBOUND unit could be reserved, but upon receipt the unit might be 
+      HELD or DAMAGED. A rebalance routine might not have enough inventory 
+      afterwards to account for the RESERVE.
    
    OUTBOUND:
    
+   *  Entered, received as Warehouse Order (940), or JSON import
+   *  Lines added to locator as RESERVED, deducting from AVAILABLE
+   *  Order required information:
+   
+      |  LINE_KEY
+      |  DOCUMENT
+      |  DATE_CODE = RESERVED
+      |  DATETIME
+      |  STATUS_CODE = RESERVED
+      |  PRODUCT
+      |  WEIGHTS & MEASURES (multiple entries)
+      |  CONTENTS (multiple entries)
+   
    SHIPMENT:
+   
+   *  Choice of completing an outbound order, or entering from scratch
+   *  AVAILABLE (scratch entry) or RESERVED (outbound completion) lines updated 
+      to ALLOCATED
+   *  DOCUMENT array updated to have OUTBOUND and SHIPMENT
+   *  Shipment required information:
+   
+      |  LINE_KEY
+      |  DOCUMENT
+      |  DATE_CODE = SHIPPED
+      |  DATETIME
+      |  STATUS_CODE = SHIPPED
+      |  PRODUCT
+      |  UNIT_IDENTIFIER
+      |  CONTROL_CODE
+      |  CONTROL_LOT
+      |  LOCATION
+      |  WEIGHTS & MEASURES (multiple entries)
+      |  CONTENTS (multiple entries)
    
    ADJUSTMENT:

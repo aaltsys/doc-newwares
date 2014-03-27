@@ -1,0 +1,473 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>System Code Lists &mdash; New WARES Documentation 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="New WARES Documentation 1.0 documentation" href="index.html" />
+    <link rel="prev" title="Inventory Documents" href="02_documents.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="02_documents.html" title="Inventory Documents"
+             accesskey="P">previous</a></li>
+        <li><a href="index.html">New WARES Documentation 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">System Code Lists</a><ul>
+<li><a class="reference internal" href="#product-setup-lists">Product Setup Lists</a><ul>
+<li><a class="reference internal" href="#product-identification-codes">Product Identification Codes</a></li>
+<li><a class="reference internal" href="#lot-and-batch-control-codes">Lot and Batch Control Codes</a></li>
+<li><a class="reference internal" href="#units-of-measure">Units of Measure</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#document-entry-lists">Document Entry Lists</a><ul>
+<li><a class="reference internal" href="#date-and-time-tracking-codes">Date and Time Tracking codes</a></li>
+<li><a class="reference internal" href="#document-status-codes">Document Status Codes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="02_documents.html"
+                        title="previous chapter">Inventory Documents</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/09_codelists.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="system-code-lists">
+<span id="codelists"></span><h1>System Code Lists<a class="headerlink" href="#system-code-lists" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="product-setup-lists">
+<h2>Product Setup Lists<a class="headerlink" href="#product-setup-lists" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="product-identification-codes">
+<span id="product-list"></span><h3>Product Identification Codes<a class="headerlink" href="#product-identification-codes" title="Permalink to this headline">¶</a></h3>
+<p>Source: ASC-X12 Data Element 235 - Product/Service ID Qualifier</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="79%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Code</strong></th>
+<th class="head"><strong>Value</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>CN</td>
+<td>Commodity name</td>
+</tr>
+<tr class="row-odd"><td>MG</td>
+<td>Manufacturer&#8217;s part number</td>
+</tr>
+<tr class="row-even"><td>PN</td>
+<td>Company part number</td>
+</tr>
+<tr class="row-odd"><td>SK</td>
+<td>Stock keeping unit (SKU)</td>
+</tr>
+<tr class="row-even"><td>VN</td>
+<td>Vendor&#8217;s (seller&#8217;s) item number</td>
+</tr>
+<tr class="row-odd"><td>BP</td>
+<td>Buyer&#8217;s part number</td>
+</tr>
+<tr class="row-even"><td>CB</td>
+<td>Buyer&#8217;s catalog number</td>
+</tr>
+<tr class="row-odd"><td>IN</td>
+<td>Buyer&#8217;s item number</td>
+</tr>
+<tr class="row-even"><td>PI</td>
+<td>Purchaser&#8217;s item code</td>
+</tr>
+<tr class="row-odd"><td>MN</td>
+<td>Model number</td>
+</tr>
+<tr class="row-even"><td>ST</td>
+<td>Style number</td>
+</tr>
+<tr class="row-odd"><td>BL</td>
+<td>Brand/label</td>
+</tr>
+<tr class="row-even"><td>SI</td>
+<td>Standard industrial classification code</td>
+</tr>
+<tr class="row-odd"><td>UA</td>
+<td>U.P.C./EAN case code (2-5-5)</td>
+</tr>
+<tr class="row-even"><td>UD</td>
+<td>U.P.C./EAN consumer package code (2-5-5)</td>
+</tr>
+<tr class="row-odd"><td>UN</td>
+<td>U.P.C. case code number (1-1-5-5)</td>
+</tr>
+<tr class="row-even"><td>UP</td>
+<td>U.P.C. consumer package code (1-5-5-1)</td>
+</tr>
+<tr class="row-odd"><td>ZZ</td>
+<td>Mutually defined</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="lot-and-batch-control-codes">
+<span id="control-list"></span><h3>Lot and Batch Control Codes<a class="headerlink" href="#lot-and-batch-control-codes" title="Permalink to this headline">¶</a></h3>
+<p>Source: ASC-X12 Data Element 235 - Product/Service ID Qualifier</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="72%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Code</strong></th>
+<th class="head"><strong>Value</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>A3</td>
+<td>Control number</td>
+</tr>
+<tr class="row-odd"><td>B8</td>
+<td>Batch number</td>
+</tr>
+<tr class="row-even"><td>HN</td>
+<td>Heat number</td>
+</tr>
+<tr class="row-odd"><td>JN</td>
+<td>Job number</td>
+</tr>
+<tr class="row-even"><td>LT</td>
+<td>Lot number</td>
+</tr>
+<tr class="row-odd"><td>RO</td>
+<td>Roll number</td>
+</tr>
+<tr class="row-even"><td>SN</td>
+<td>Serial number</td>
+</tr>
+<tr class="row-odd"><td>PJ</td>
+<td>Product date code</td>
+</tr>
+<tr class="row-even"><td>PO</td>
+<td>Purchase order number</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="units-of-measure">
+<span id="uom-list"></span><h3>Units of Measure<a class="headerlink" href="#units-of-measure" title="Permalink to this headline">¶</a></h3>
+<p>Source: ASC-X12 Data Element 355 - Unit or Basis for Measurement Code.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="72%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Code</strong></th>
+<th class="head"><strong>Value</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>EA</td>
+<td>Each</td>
+</tr>
+<tr class="row-odd"><td>PK</td>
+<td>Package</td>
+</tr>
+<tr class="row-even"><td>CA</td>
+<td>Case</td>
+</tr>
+<tr class="row-odd"><td>LR</td>
+<td>Layer</td>
+</tr>
+<tr class="row-even"><td>PL</td>
+<td>Pallet</td>
+</tr>
+<tr class="row-odd"><td>BA</td>
+<td>Bale</td>
+</tr>
+<tr class="row-even"><td>BD</td>
+<td>Bundle</td>
+</tr>
+<tr class="row-odd"><td>BG</td>
+<td>Bag</td>
+</tr>
+<tr class="row-even"><td>BN</td>
+<td>Bulk</td>
+</tr>
+<tr class="row-odd"><td>BR</td>
+<td>Barrel</td>
+</tr>
+<tr class="row-even"><td>BS</td>
+<td>Basket</td>
+</tr>
+<tr class="row-odd"><td>BX</td>
+<td>Box</td>
+</tr>
+<tr class="row-even"><td>CL</td>
+<td>Cylinder</td>
+</tr>
+<tr class="row-odd"><td>CN</td>
+<td>Can</td>
+</tr>
+<tr class="row-even"><td>CP</td>
+<td>Crate</td>
+</tr>
+<tr class="row-odd"><td>CT</td>
+<td>Carton</td>
+</tr>
+<tr class="row-even"><td>CX</td>
+<td>Coil</td>
+</tr>
+<tr class="row-odd"><td>DR</td>
+<td>Drum</td>
+</tr>
+<tr class="row-even"><td>GA</td>
+<td>Gallon</td>
+</tr>
+<tr class="row-odd"><td>GS</td>
+<td>Gross</td>
+</tr>
+<tr class="row-even"><td>HC</td>
+<td>Hundred Count</td>
+</tr>
+<tr class="row-odd"><td>KE</td>
+<td>Keg</td>
+</tr>
+<tr class="row-even"><td>PA</td>
+<td>Pail</td>
+</tr>
+<tr class="row-odd"><td>PC</td>
+<td>Piece</td>
+</tr>
+<tr class="row-even"><td>PH</td>
+<td>Pack</td>
+</tr>
+<tr class="row-odd"><td>RA</td>
+<td>Rack</td>
+</tr>
+<tr class="row-even"><td>RL</td>
+<td>Roll</td>
+</tr>
+<tr class="row-odd"><td>SH</td>
+<td>Sheet</td>
+</tr>
+<tr class="row-even"><td>SO</td>
+<td>Spool</td>
+</tr>
+<tr class="row-odd"><td>ST</td>
+<td>Set</td>
+</tr>
+<tr class="row-even"><td>SV</td>
+<td>Skid</td>
+</tr>
+<tr class="row-odd"><td>TB</td>
+<td>Tube</td>
+</tr>
+<tr class="row-even"><td>TE</td>
+<td>Tote</td>
+</tr>
+<tr class="row-odd"><td>TK</td>
+<td>Tank</td>
+</tr>
+<tr class="row-even"><td>TP</td>
+<td>Ten Pack</td>
+</tr>
+<tr class="row-odd"><td>TY</td>
+<td>Tray</td>
+</tr>
+<tr class="row-even"><td>1L</td>
+<td>Line</td>
+</tr>
+<tr class="row-odd"><td>1N</td>
+<td>Count</td>
+</tr>
+<tr class="row-even"><td>1R</td>
+<td>Transaction</td>
+</tr>
+<tr class="row-odd"><td>CF</td>
+<td>Cubic Foot</td>
+</tr>
+<tr class="row-even"><td>CH</td>
+<td>Container</td>
+</tr>
+<tr class="row-odd"><td>CR</td>
+<td>Cubic Meter</td>
+</tr>
+<tr class="row-even"><td>CW</td>
+<td>Hundredweight</td>
+</tr>
+<tr class="row-odd"><td>CY</td>
+<td>Cubic Yard</td>
+</tr>
+<tr class="row-even"><td>HR</td>
+<td>Hour</td>
+</tr>
+<tr class="row-odd"><td>JA</td>
+<td>Job</td>
+</tr>
+<tr class="row-even"><td>KG</td>
+<td>Kilogram</td>
+</tr>
+<tr class="row-odd"><td>KU</td>
+<td>Task</td>
+</tr>
+<tr class="row-even"><td>LB</td>
+<td>Pound</td>
+</tr>
+<tr class="row-odd"><td>LF</td>
+<td>Linear Foot</td>
+</tr>
+<tr class="row-even"><td>LH</td>
+<td>Labor Hour</td>
+</tr>
+<tr class="row-odd"><td>MP</td>
+<td>Metric Ton</td>
+</tr>
+<tr class="row-even"><td>MR</td>
+<td>Meter</td>
+</tr>
+<tr class="row-odd"><td>SF</td>
+<td>Square Foot</td>
+</tr>
+<tr class="row-even"><td>TN</td>
+<td>Ton</td>
+</tr>
+<tr class="row-odd"><td>YD</td>
+<td>Yard</td>
+</tr>
+<tr class="row-even"><td>ZZ</td>
+<td>Mutually Defined</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="document-entry-lists">
+<h2>Document Entry Lists<a class="headerlink" href="#document-entry-lists" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="date-and-time-tracking-codes">
+<h3>Date and Time Tracking codes<a class="headerlink" href="#date-and-time-tracking-codes" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="70%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Code</strong></th>
+<th class="head"><strong>Value</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>&nbsp;</td>
+<td>INBOUND
+RECEIVED
+OUTBOUND
+ALLOCATED
+SHIPPED
+MOVED
+UPDATED</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="document-status-codes">
+<h3>Document Status Codes<a class="headerlink" href="#document-status-codes" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="70%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Code</strong></th>
+<th class="head"><strong>Value</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>&nbsp;</td>
+<td>EXPECTED
+DAMAGED
+HELD
+AVAILABLE
+SAFETY
+RESERVED
+ALLOCATED
+SHIPPED
+ARCHIVED</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="02_documents.html" title="Inventory Documents"
+             >previous</a></li>
+        <li><a href="index.html">New WARES Documentation 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Gerald Lovel, Ben Hamilton.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b3.
+    </div>
+  </body>
+</html>
