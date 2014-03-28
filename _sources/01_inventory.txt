@@ -55,15 +55,15 @@ from smallest shippable quantity to largest handling unit. The master product
 record entry relates the standard set of units and weights for a product as 
 follows:
 
-+----------+---------+-----------+------------------------------+-------------+
-| **Qty**  | **UOM** | **Count** | **Net Weight**               | **Tare Wt** |
-+==========+=========+===========+==============================+=============+
-| INNER    | EA, ... | PCS       | WGHT                         | (N/A)       |
-+----------+---------+-----------+------------------------------+-------------+
-| CONTENT  | CA, ... | CNT       | NET = PCS X WGHT             | PKG         |
-+----------+---------+-----------+------------------------------+-------------+
-| UNIT     | PL, ... | 1         | UNET = CNT X ( NET + PKG )   | TARE        | 
-+----------+---------+-----------+------------------------------+-------------+
++----------+-------+-------+----------------------------+--------+-------------------+
+| **Qty**  | UOM   | Count | Net Weight                 | Tare Wt| Dimension         |
++==========+=======+=======+============================+========+===================+
+| INNER    | EA,...| PCS   | WGHT                       | (N/A)  | IDIM              |
++----------+-------+-------+----------------------------+--------+-------------------+
+| CONTENT  | CA,...| CNT   | NET = PCS X WGHT           | PKG    | CDIM = IDIM X PCS |
++----------+-------+-------+----------------------------+--------+-------------------+
+| UNIT     | PL,...| 1     | UNET = CNT X ( NET + PKG ) | TARE   | UDIM = CDIM X CNT |
++----------+-------+-------+----------------------------+--------+-------------------+
 
 Individual units may be received with unique values for the inner PCS count and
 WGHT, the content CNT, NET, and PKG, or handling/shipping unit UNET and TARE 
@@ -78,9 +78,9 @@ product setup values for a variety of product categories commonly stored in
 warehouse inventory:
 
 +--------------------+-----------------+-----------------------+-----------------+
-|                    | INNER ----------| CONTENT --------------| UNIT ---------- | 
+|                    | INNER -- -- --  | CONTENT -- -- -- -- --| UNIT -- -- --   | 
 +--------------------+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
-| **Description**    | UOM | PCS | WGHT| UOM | CNT | NET | PKG | UOM | UNET| TARE|
+| Description        | UOM | PCS | WGHT| UOM | CNT | NET | PKG | UOM | UNET| TARE|
 +====================+=====+=====+=====+=====+=====+=====+=====+=====+=====+=====+
 | innerpacked cartons| PK  | 12  | 1.2 | CA  | 96  | 14.4| 1.0 | PL  | 1382| 65  |
 +--------------------+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+

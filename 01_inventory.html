@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="New WARES Documentation 1.0 documentation" href="index.html" />
-    <link rel="next" title="Inventory Documents" href="02_documents.html" />
+    <link rel="next" title="Product Definition and Setup" href="02_products.html" />
     <link rel="prev" title="Welcome to New WARES Documentation’s documentation!" href="index.html" /> 
   </head>
   <body>
@@ -32,7 +32,7 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="02_documents.html" title="Inventory Documents"
+          <a href="02_products.html" title="Product Definition and Setup"
              accesskey="N">next</a></li>
         <li class="right" >
           <a href="index.html" title="Welcome to New WARES Documentation’s documentation!"
@@ -56,8 +56,8 @@
   <p class="topless"><a href="index.html"
                         title="previous chapter">Welcome to New WARES Documentation&#8217;s documentation!</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="02_documents.html"
-                        title="next chapter">Inventory Documents</a></p>
+  <p class="topless"><a href="02_products.html"
+                        title="next chapter">Product Definition and Setup</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/01_inventory.txt"
@@ -158,38 +158,43 @@ record entry relates the standard set of units and weights for a product as
 follows:</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="14%" />
-<col width="12%" />
-<col width="15%" />
-<col width="41%" />
-<col width="18%" />
+<col width="13%" />
+<col width="9%" />
+<col width="9%" />
+<col width="35%" />
+<col width="10%" />
+<col width="24%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head"><strong>Qty</strong></th>
-<th class="head"><strong>UOM</strong></th>
-<th class="head"><strong>Count</strong></th>
-<th class="head"><strong>Net Weight</strong></th>
-<th class="head"><strong>Tare Wt</strong></th>
+<th class="head">UOM</th>
+<th class="head">Count</th>
+<th class="head">Net Weight</th>
+<th class="head">Tare Wt</th>
+<th class="head">Dimension</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>INNER</td>
-<td>EA, ...</td>
+<td>EA,...</td>
 <td>PCS</td>
 <td>WGHT</td>
 <td>(N/A)</td>
+<td>IDIM</td>
 </tr>
 <tr class="row-odd"><td>CONTENT</td>
-<td>CA, ...</td>
+<td>CA,...</td>
 <td>CNT</td>
 <td>NET = PCS X WGHT</td>
 <td>PKG</td>
+<td>CDIM = IDIM X PCS</td>
 </tr>
 <tr class="row-even"><td>UNIT</td>
-<td>PL, ...</td>
+<td>PL,...</td>
 <td>1</td>
 <td>UNET = CNT X ( NET + PKG )</td>
 <td>TARE</td>
+<td>UDIM = CDIM X CNT</td>
 </tr>
 </tbody>
 </table>
@@ -219,11 +224,11 @@ warehouse inventory:</p>
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head" colspan="3">INNER &#8212;&#8212;&#8212;-</th>
-<th class="head" colspan="4">CONTENT &#8212;&#8212;&#8212;&#8212;&#8211;</th>
-<th class="head" colspan="3">UNIT &#8212;&#8212;&#8212;-</th>
+<th class="head" colspan="3">INNER &#8211; &#8211; &#8211;</th>
+<th class="head" colspan="4">CONTENT &#8211; &#8211; &#8211; &#8211; &#8211;</th>
+<th class="head" colspan="3">UNIT &#8211; &#8211; &#8211;</th>
 </tr>
-<tr class="row-even"><th class="head"><strong>Description</strong></th>
+<tr class="row-even"><th class="head">Description</th>
 <th class="head">UOM</th>
 <th class="head">PCS</th>
 <th class="head">WGHT</th>
@@ -393,7 +398,7 @@ are defaults of values which are entered separately for each received unit.</p>
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="02_documents.html" title="Inventory Documents"
+          <a href="02_products.html" title="Product Definition and Setup"
              >next</a></li>
         <li class="right" >
           <a href="index.html" title="Welcome to New WARES Documentation’s documentation!"
