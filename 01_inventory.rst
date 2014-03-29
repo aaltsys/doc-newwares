@@ -72,10 +72,9 @@ weights.
 Quantity Setup Considerations
 =============================
 
-There are exceptions to every inventory tracking system, but almost every type 
-of product can be tracked with proper setup. The following table shows example 
-product setup values for a variety of product categories commonly stored in 
-warehouse inventory:
+Almost every product can be tracked with proper setup, with rare exceptions. 
+The following table shows example product setup values for a variety of product 
+categories commonly stored in warehouse inventory:
 
 +--------------------+-----------------+-----------------------+-----------------+
 |                    | INNER -- -- --  | CONTENT -- -- -- -- --| UNIT -- -- --   | 
