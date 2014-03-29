@@ -324,6 +324,9 @@ Units of dimension
 | CR       | Cubic Meter              |
 +----------+--------------------------+ 
 
+Product Location Lists
+=============================
+
 .. _abc-list:
 
 Product turnover rating
@@ -341,25 +344,46 @@ Product turnover rating
 
 .. _mix-list:
 
+Unit / Location mixing 
+-----------------------------
+
 (to be done)
 
 .. _zone-list:
 
+Storage zone 
+-----------------------------
+
 (to be done)
 
+Product Setup Code Lists
+=============================
+
 .. _per-list:
+
+Rating and Valuation Per Unit
+-----------------------------
 
 (to be done)
 
 .. _freight-list:
 
+Freight classifications
+-----------------------------
+
 (to be done)
 
 .. _group-list:
 
+Product grouping
+-----------------------------
+
 (to be done)
 
 .. _msg-list:
+
+Document messages
+-----------------------------
 
 (to be done)
 
