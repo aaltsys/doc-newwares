@@ -89,12 +89,12 @@
 <h2>Product Data Definition<a class="headerlink" href="#product-data-definition" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
-<col width="31%" />
-<col width="10%" />
-<col width="24%" />
-<col width="7%" />
-<col width="14%" />
-<col width="14%" />
+<col width="28%" />
+<col width="9%" />
+<col width="32%" />
+<col width="6%" />
+<col width="12%" />
+<col width="12%" />
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td><strong>COLUMN NAME</strong></td>
@@ -125,7 +125,7 @@
 <td>&nbsp;</td>
 <td>L20</td>
 </tr>
-<tr class="row-odd"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Description Entries</td>
+<tr class="row-odd"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Description Entries</td>
 </tr>
 <tr class="row-even"><td>DESCRIPTION</td>
 <td>AN</td>
@@ -148,44 +148,30 @@
 <td>&nbsp;</td>
 <td>L20</td>
 </tr>
-<tr class="row-odd"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Dimension Entries</td>
+<tr class="row-odd"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Dimension Entries</td>
 </tr>
 <tr class="row-even"><td>WTM</td>
 <td>TP</td>
-<td>list=WTM</td>
+<td><a class="reference internal" href="09_codelists.html#wtm-list"><em>Units of Weight</em></a></td>
 <td>M</td>
 <td>LB</td>
 <td>L4</td>
 </tr>
-<tr class="row-odd"><td>DIM</td>
+<tr class="row-odd"><td>INNER</td>
 <td>TP</td>
-<td>list=DIM</td>
-<td>M</td>
-<td>CF</td>
-<td>L4</td>
-</tr>
-<tr class="row-even"><td>INNER</td>
-<td>TP</td>
-<td>list=UOM</td>
+<td><a class="reference internal" href="09_codelists.html#uom-list"><em>Units of Measure</em></a></td>
 <td>O</td>
 <td>(notes)</td>
 <td>L4</td>
 </tr>
-<tr class="row-odd"><td>PCS</td>
+<tr class="row-even"><td>PCS</td>
 <td>N.0</td>
 <td>&nbsp;</td>
 <td>O</td>
 <td>&nbsp;</td>
 <td>R6</td>
 </tr>
-<tr class="row-even"><td>WGHT</td>
-<td>N.4</td>
-<td>&nbsp;</td>
-<td>O</td>
-<td>&nbsp;</td>
-<td>R6</td>
-</tr>
-<tr class="row-odd"><td>IDIM</td>
+<tr class="row-odd"><td>WGHT</td>
 <td>N.4</td>
 <td>&nbsp;</td>
 <td>O</td>
@@ -194,7 +180,7 @@
 </tr>
 <tr class="row-even"><td>CONTENT</td>
 <td>TP</td>
-<td>list=UOM</td>
+<td><a class="reference internal" href="09_codelists.html#uom-list"><em>Units of Measure</em></a></td>
 <td>O</td>
 <td>(notes)</td>
 <td>L4</td>
@@ -220,6 +206,43 @@
 <td>&nbsp;</td>
 <td>R6</td>
 </tr>
+<tr class="row-even"><td>UNIT</td>
+<td>TP</td>
+<td><a class="reference internal" href="09_codelists.html#uom-list"><em>Units of Measure</em></a></td>
+<td>M</td>
+<td>(notes)</td>
+<td>L4</td>
+</tr>
+<tr class="row-odd"><td>UNET</td>
+<td>N.2</td>
+<td>&nbsp;</td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>R8</td>
+</tr>
+<tr class="row-even"><td>TARE</td>
+<td>N.2</td>
+<td>&nbsp;</td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>R8</td>
+</tr>
+<tr class="row-odd"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Dimension Options</td>
+</tr>
+<tr class="row-even"><td>DIM</td>
+<td>TP</td>
+<td><a class="reference internal" href="09_codelists.html#dim-list"><em>Units of dimension</em></a></td>
+<td>M</td>
+<td>CF</td>
+<td>L4</td>
+</tr>
+<tr class="row-odd"><td>IDIM</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>R6</td>
+</tr>
 <tr class="row-even"><td>CDIM</td>
 <td>N.4</td>
 <td>&nbsp;</td>
@@ -227,83 +250,60 @@
 <td>&nbsp;</td>
 <td>R6</td>
 </tr>
-<tr class="row-odd"><td>UNIT</td>
-<td>TP</td>
-<td>list=UOM</td>
-<td>M</td>
-<td>(notes)</td>
-<td>L4</td>
-</tr>
-<tr class="row-even"><td>UNET</td>
-<td>N.2</td>
-<td>&nbsp;</td>
-<td>O</td>
-<td>&nbsp;</td>
-<td>R8</td>
-</tr>
-<tr class="row-odd"><td>TARE</td>
-<td>N.2</td>
-<td>&nbsp;</td>
-<td>O</td>
-<td>&nbsp;</td>
-<td>R8</td>
-</tr>
-<tr class="row-even"><td>UDIM</td>
+<tr class="row-odd"><td>UDIM</td>
 <td>N.4</td>
 <td>&nbsp;</td>
 <td>O</td>
 <td>&nbsp;</td>
 <td>R8</td>
 </tr>
-<tr class="row-odd"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Dimension Options</td>
+<tr class="row-even"><td>CLONG</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>R6</td>
 </tr>
-<tr class="row-even"><td>STACK</td>
+<tr class="row-odd"><td>CWIDE</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>R6</td>
+</tr>
+<tr class="row-even"><td>CHIGH</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>R6</td>
+</tr>
+<tr class="row-odd"><td>STACK</td>
 <td>N.0</td>
 <td>&nbsp;</td>
 <td>O</td>
 <td>&nbsp;</td>
 <td>R2</td>
 </tr>
-<tr class="row-odd"><td>LONG</td>
-<td>N.4</td>
-<td>&nbsp;</td>
-<td>O</td>
-<td>&nbsp;</td>
-<td>R6</td>
-</tr>
-<tr class="row-even"><td>WIDE</td>
-<td>N.4</td>
-<td>&nbsp;</td>
-<td>O</td>
-<td>&nbsp;</td>
-<td>R6</td>
-</tr>
-<tr class="row-odd"><td>HIGH</td>
-<td>N.4</td>
-<td>&nbsp;</td>
-<td>O</td>
-<td>&nbsp;</td>
-<td>R6</td>
-</tr>
-<tr class="row-even"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Location Entries</td>
+<tr class="row-even"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Location Entries</td>
 </tr>
 <tr class="row-odd"><td>ABC</td>
 <td>TP</td>
-<td>list=ABC</td>
+<td><a class="reference internal" href="09_codelists.html#abc-list"><em>Product turnover rating</em></a></td>
 <td>O</td>
 <td>&nbsp;</td>
 <td>L2</td>
 </tr>
 <tr class="row-even"><td>MIX</td>
 <td>TP</td>
-<td>list=MIX</td>
+<td><em class="xref std std-ref">mix-list</em></td>
 <td>O</td>
 <td>&nbsp;</td>
 <td>L4</td>
 </tr>
 <tr class="row-odd"><td>ZONE</td>
 <td>TP</td>
-<td>list=ZONE</td>
+<td><em class="xref std std-ref">zone-list</em></td>
 <td>O</td>
 <td>&nbsp;</td>
 <td>L4</td>
@@ -315,7 +315,7 @@
 <td>&nbsp;</td>
 <td>L10</td>
 </tr>
-<tr class="row-odd"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Valuation Entries</td>
+<tr class="row-odd"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Valuation Entries</td>
 </tr>
 <tr class="row-even"><td>RATE</td>
 <td>A</td>
@@ -326,7 +326,7 @@
 </tr>
 <tr class="row-odd"><td>VALUEPER</td>
 <td>TP</td>
-<td>list=PER</td>
+<td><em class="xref std std-ref">per-list</em></td>
 <td>O</td>
 <td>&nbsp;</td>
 <td>L4</td>
@@ -340,7 +340,7 @@
 </tr>
 <tr class="row-odd"><td>COSTPER</td>
 <td>TP</td>
-<td>list=PER</td>
+<td><em class="xref std std-ref">per-list</em></td>
 <td>O</td>
 <td>&nbsp;</td>
 <td>L4</td>
@@ -352,11 +352,11 @@
 <td>&nbsp;</td>
 <td>R8</td>
 </tr>
-<tr class="row-odd"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Transportation Entries</td>
+<tr class="row-odd"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Transportation Entries</td>
 </tr>
 <tr class="row-even"><td>FREIGHT_CODE</td>
 <td>TP/A</td>
-<td>list=FREIGHT</td>
+<td><em class="xref std std-ref">freight-list</em></td>
 <td>O</td>
 <td>&nbsp;</td>
 <td>L4</td>
@@ -368,27 +368,27 @@
 <td>&nbsp;</td>
 <td>L10</td>
 </tr>
-<tr class="row-even"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Classification Entries</td>
+<tr class="row-even"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Classification Entries</td>
 </tr>
-<tr class="row-odd"><td>CLASS_CODE</td>
+<tr class="row-odd"><td>GROUP_CODE</td>
 <td>TP/A</td>
-<td>list=CLASS</td>
+<td><em class="xref std std-ref">group-list</em></td>
 <td>O</td>
 <td>&nbsp;</td>
 <td>L4</td>
 </tr>
-<tr class="row-even"><td>CLASSIFICATION</td>
+<tr class="row-even"><td>GROUPING</td>
 <td>AN/A</td>
 <td>&nbsp;</td>
 <td>O</td>
 <td>&nbsp;</td>
 <td>L20</td>
 </tr>
-<tr class="row-odd"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Classification Options</td>
+<tr class="row-odd"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Classification Options</td>
 </tr>
 <tr class="row-even"><td>MESSAGE_CODE</td>
 <td>TP/A</td>
-<td>list=MSG</td>
+<td><em class="xref std std-ref">msg-list</em></td>
 <td>O</td>
 <td>&nbsp;</td>
 <td>L4</td>
