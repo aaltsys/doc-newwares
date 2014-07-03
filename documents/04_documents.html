@@ -1,0 +1,589 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Inventory Documents &mdash; WARES Documents 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="WARES Documents 1.0 documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li><a href="index.html">WARES Documents 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Inventory Documents</a><ul>
+<li><a class="reference internal" href="#data-layout">Data Layout</a><ul>
+<li><a class="reference internal" href="#header-section">Header Section</a></li>
+<li><a class="reference internal" href="#detail-lines">Detail Lines</a></li>
+<li><a class="reference internal" href="#footer-summary">Footer Summary</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#transaction-posting">Transaction Posting</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/04_documents.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="inventory-documents">
+<span id="documents"></span><h1>Inventory Documents<a class="headerlink" href="#inventory-documents" title="Permalink to this headline">¶</a></h1>
+<p>WARES uses six standard warehousing business documents to record, maintain, and
+communicate inventory data. These documents also form the basis of data exchange
+with business trading partners, either through EDI, via direct exchange of JSON
+data, or using custom data import routines. Basic and alternative warehousing
+documents and their EDI transaction numbers are:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="62%" />
+<col width="11%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Document Name</td>
+<td>Title</td>
+<td>EDI ID</td>
+</tr>
+<tr class="row-even"><td>Inbound Receipt</td>
+<td>Warehouse Stock Transfer Advance Notice</td>
+<td>943</td>
+</tr>
+<tr class="row-odd"><td>Receipt Advice</td>
+<td>Warehouse Stock Transfer Receipt Advice</td>
+<td>944</td>
+</tr>
+<tr class="row-even"><td>Outbound Shipment</td>
+<td>Warehouse Shipping Order</td>
+<td>940</td>
+</tr>
+<tr class="row-odd"><td>Shipment Advice</td>
+<td>Warehouse Shipment Advice</td>
+<td>945</td>
+</tr>
+<tr class="row-even"><td>Adjustment Advice</td>
+<td>Warehouse Inventory Adjustment Advice</td>
+<td>947</td>
+</tr>
+<tr class="row-odd"><td>Inventory Report</td>
+<td>Inventory Inquiry/Advice Report</td>
+<td>846</td>
+</tr>
+<tr class="row-even"><td>Advance Ship Notice</td>
+<td><div class="first last line-block">
+<div class="line">Shipment Notice/Manifest (ASN)</div>
+<div class="line">(Substituted for 943 inbound or 945 outbound)</div>
+</div>
+</td>
+<td>856</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="data-layout">
+<h2>Data Layout<a class="headerlink" href="#data-layout" title="Permalink to this headline">¶</a></h2>
+<p>WARES stores all documents in a single database table. This means that all
+documents share a common data definition, although documents present information
+in views according to their purpose. Each document has a header section,
+repeating line detail, and a summary footer. The master layout of these sections
+is shown following, along with wireframe views of edit forms.</p>
+<div class="section" id="header-section">
+<h3>Header Section<a class="headerlink" href="#header-section" title="Permalink to this headline">¶</a></h3>
+<p>Data entries in the document header occur once per transaction.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="37%" />
+<col width="10%" />
+<col width="16%" />
+<col width="37%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>COLUMN NAME</strong></td>
+<td><strong>M</strong></td>
+<td><strong>TYPE</strong></td>
+<td><strong>CODE VALUES</strong></td>
+</tr>
+<tr class="row-even"><td>DOCUMENT TYPE</td>
+<td>M</td>
+<td>CODE</td>
+<td>R/W/O/S/A</td>
+</tr>
+<tr class="row-odd"><td>DOCUMENT ID</td>
+<td>M</td>
+<td>SEQ</td>
+<td>SEQ KEY</td>
+</tr>
+<tr class="row-even"><td>STATUS</td>
+<td>M</td>
+<td>CODE</td>
+<td>-1/0/1/2/3/4/5/6</td>
+</tr>
+<tr class="row-odd"><td>DATE/TIME</td>
+<td>M</td>
+<td>DT</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ACCOUNT</td>
+<td>M</td>
+<td>F-KEY</td>
+<td>ACCOUNTS</td>
+</tr>
+<tr class="row-odd"><td>BUILDING</td>
+<td>M</td>
+<td>F-KEY</td>
+<td>ADDRESSES*B</td>
+</tr>
+<tr class="row-even"><td>REFERENCE_CODE</td>
+<td>A-C</td>
+<td>CODE</td>
+<td>REFERENCE LIST</td>
+</tr>
+<tr class="row-odd"><td>REFERENCE</td>
+<td>A-CR</td>
+<td>STRING</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ADDRESS_CODE</td>
+<td>A-C</td>
+<td>CODE</td>
+<td>ADDRESS LIST</td>
+</tr>
+<tr class="row-odd"><td>ADDRESS</td>
+<td>A-CR</td>
+<td>F-KEY</td>
+<td>ADDRESSES</td>
+</tr>
+<tr class="row-even"><td>CONTACT</td>
+<td>O</td>
+<td>STRING</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>CARRIER_CODE</td>
+<td>O</td>
+<td>F-KEY</td>
+<td>ADDRESSES*CA</td>
+</tr>
+<tr class="row-even"><td>ROUTE</td>
+<td>O</td>
+<td>TEXT</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>FREIGHT_PAY</td>
+<td>C</td>
+<td>CODE</td>
+<td>PP/CC/TP</td>
+</tr>
+<tr class="row-even"><td>TRANSPORT_MODE</td>
+<td>C</td>
+<td>CODE</td>
+<td>TRANSPORT LIST</td>
+</tr>
+<tr class="row-odd"><td>LOADING_OPTION</td>
+<td>C</td>
+<td>CODE</td>
+<td>LOADING LIST</td>
+</tr>
+<tr class="row-even"><td>VEHICLE_CODE</td>
+<td>A-C</td>
+<td>CODE</td>
+<td>VEHICLE LIST</td>
+</tr>
+<tr class="row-odd"><td>VEHICLE_NUMBER</td>
+<td>A-CR</td>
+<td>STRING</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>DATE_CODE</td>
+<td>A-C</td>
+<td>CODE</td>
+<td>DATE LIST</td>
+</tr>
+<tr class="row-odd"><td>DATE</td>
+<td>A-CR</td>
+<td>DATE</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>TIME_CODE</td>
+<td>A-C</td>
+<td>CODE</td>
+<td>TIME LIST</td>
+</tr>
+<tr class="row-odd"><td>TIME</td>
+<td>A-CR</td>
+<td>TIME</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>TEMPERATURE_CODE</td>
+<td>A-C</td>
+<td>CODE</td>
+<td>TEMPERATURE LIST</td>
+</tr>
+<tr class="row-odd"><td>TEMPERATURE</td>
+<td>A-CR</td>
+<td>INT</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>QUANTITY_CODE</td>
+<td>A-C</td>
+<td>CODE</td>
+<td>QUANTITY LIST</td>
+</tr>
+<tr class="row-odd"><td>QUANTITY</td>
+<td>A-CR</td>
+<td>FLOAT</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>MESSAGE_CODE</td>
+<td>A-C</td>
+<td>CODE</td>
+<td>MESSAGE LIST</td>
+</tr>
+<tr class="row-odd"><td>MESSAGE</td>
+<td>A-CR</td>
+<td>TEXT</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="detail-lines">
+<h3>Detail Lines<a class="headerlink" href="#detail-lines" title="Permalink to this headline">¶</a></h3>
+<img alt="./_images/document-lines.png" src="./_images/document-lines.png" />
+<p>Transaction lines contain control, identifying, quantitative, and descriptive
+information. The SECT(ion) heading in the following table indicates how each
+data column is categorized within these four information types.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="33%" />
+<col width="9%" />
+<col width="15%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>SECT</td>
+<td><strong>COLUMN NAME</strong></td>
+<td><strong>M</strong></td>
+<td><strong>TYPE</strong></td>
+<td><strong>CODE VALUES</strong></td>
+</tr>
+<tr class="row-even"><td>1</td>
+<td>LINE_KEY</td>
+<td>M</td>
+<td>STRING</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>UNIT_IDENTIFIER</td>
+<td>M</td>
+<td>STRING</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>1</td>
+<td>DOCUMENT</td>
+<td>M</td>
+<td>ARRAY</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>DATE_CODE</td>
+<td>A-C</td>
+<td>ARRAY</td>
+<td>DATE LIST</td>
+</tr>
+<tr class="row-even"><td>1</td>
+<td>DATETIME</td>
+<td>A-CR</td>
+<td>DATE</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>STATUS_CODE</td>
+<td>M</td>
+<td>CODE</td>
+<td>STATUS LIST</td>
+</tr>
+<tr class="row-even"><td>1</td>
+<td>CONDITION_CODE</td>
+<td>A-C</td>
+<td>CODE</td>
+<td>CONDITION LIST</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>PRODUCT</td>
+<td>M</td>
+<td>F-KEY</td>
+<td>PRODUCTS</td>
+</tr>
+<tr class="row-even"><td>2</td>
+<td>SCAN CODE</td>
+<td>O</td>
+<td>STRING</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>IDENTIFIER_TYPE</td>
+<td>A-C</td>
+<td>CODE</td>
+<td>PRODUCT LIST</td>
+</tr>
+<tr class="row-even"><td>2</td>
+<td>IDENTIFIER</td>
+<td>A-CR</td>
+<td>STRING</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>CONTROL_CODE</td>
+<td>A-C</td>
+<td>CODE</td>
+<td>CONTROL LIST</td>
+</tr>
+<tr class="row-even"><td>2</td>
+<td>CONTROL_LOT</td>
+<td>A-CR</td>
+<td>STRING</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>LOCATION</td>
+<td>M</td>
+<td>F-KEY</td>
+<td>LOCATIONS</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>UNIT_NET</td>
+<td>O</td>
+<td>FLOAT</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>3</td>
+<td>UNIT_TARE</td>
+<td>O</td>
+<td>FLOAT</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>CONTENTS</td>
+<td>O</td>
+<td>INT.2</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>3</td>
+<td>CONTENTS_NET</td>
+<td>O</td>
+<td>FLOAT</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>CONTENTS_TARE</td>
+<td>O</td>
+<td>FLOAT</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>3</td>
+<td>INNERS</td>
+<td>O</td>
+<td>INT.4</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>INNERS_WEIGHT</td>
+<td>O</td>
+<td>FLOAT</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>4</td>
+<td>DESCRIPTION</td>
+<td>O</td>
+<td>TEXT</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="footer-summary">
+<h3>Footer Summary<a class="headerlink" href="#footer-summary" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="transaction-posting">
+<h2>Transaction Posting<a class="headerlink" href="#transaction-posting" title="Permalink to this headline">¶</a></h2>
+<p>Locator posting is determined by: the operation (POST, REVERSE), the quantity
+sign, the document type, the status, and the condition.</p>
+<p>POST:</p>
+<blockquote>
+<div><p>INBOUND:</p>
+<ul>
+<li><p class="first">Choice of entering from order, or from ASN</p>
+</li>
+<li><p class="first">Unit lines added to locator on status INBOUND</p>
+</li>
+<li><p class="first">Units can be RESERVED, cannot be allocated</p>
+</li>
+<li><p class="first">Order required information:</p>
+<div class="line-block">
+<div class="line">LINE_KEY</div>
+<div class="line">DOCUMENT</div>
+<div class="line">DATE_CODE = EXPECTED</div>
+<div class="line">DATETIME</div>
+<div class="line">STATUS_CODE = INBOUND</div>
+<div class="line">PRODUCT</div>
+<div class="line">WEIGHTS &amp; MEASURES  (multiple entries)</div>
+<div class="line">CONTENTS (multiple entries)</div>
+</div>
+</li>
+<li><p class="first">ASN required information:</p>
+<div class="line-block">
+<div class="line">LINE_KEY</div>
+<div class="line">DOCUMENT</div>
+<div class="line">DATE_CODE = EXPECTED</div>
+<div class="line">DATETIME</div>
+<div class="line">STATUS_CODE = INBOUND</div>
+<div class="line">PRODUCT</div>
+<div class="line">UNIT_IDENTIFIER</div>
+<div class="line">CONTROL_CODE</div>
+<div class="line">CONTROL_LOT</div>
+<div class="line">WEIGHTS &amp; MEASURES (multiple entries)</div>
+<div class="line">CONTENTS (multiple entries)</div>
+</div>
+</li>
+</ul>
+<p>RECEIPT:</p>
+<ul>
+<li><p class="first">Choice of completing an order, an ASN, or entering from scratch</p>
+</li>
+<li><p class="first">Unit lines updated or added to locator on status AVAILABLE, HELD, DAMAGED</p>
+</li>
+<li><p class="first">DOCUMENT array updated to have INBOUND and RECEIPT</p>
+</li>
+<li><p class="first">Receipt required information:</p>
+<div class="line-block">
+<div class="line">LINE_KEY</div>
+<div class="line">DOCUMENT</div>
+<div class="line">DATE_CODE = RECEIVED</div>
+<div class="line">DATETIME</div>
+<div class="line">STATUS_CODE = AVAILABLE, HELD, DAMAGED</div>
+<div class="line">PRODUCT</div>
+<div class="line">UNIT_IDENTIFIER</div>
+<div class="line">CONTROL_CODE</div>
+<div class="line">CONTROL_LOT</div>
+<div class="line">LOCATION</div>
+<div class="line">WEIGHTS &amp; MEASURES (multiple entries)</div>
+<div class="line">CONTENTS (multiple entries)</div>
+</div>
+</li>
+</ul>
+<p>OUTBOUND:</p>
+<ul>
+<li><p class="first">Entered, received as Warehouse Order (940), or JSON import</p>
+</li>
+<li><p class="first">Lines added to locator as RESERVED, deducting from AVAILABLE</p>
+</li>
+<li><p class="first">Order required information:</p>
+<div class="line-block">
+<div class="line">LINE_KEY</div>
+<div class="line">DOCUMENT</div>
+<div class="line">DATE_CODE = RESERVED</div>
+<div class="line">DATETIME</div>
+<div class="line">STATUS_CODE = RESERVED</div>
+<div class="line">PRODUCT</div>
+<div class="line">WEIGHTS &amp; MEASURES (multiple entries)</div>
+<div class="line">CONTENTS (multiple entries)</div>
+</div>
+</li>
+</ul>
+<p>SHIPMENT:</p>
+<ul>
+<li><p class="first">Choice of completing an outbound order, or entering from scratch</p>
+</li>
+<li><p class="first">AVAILABLE (scratch entry) or RESERVED (outbound completion) lines updated
+to ALLOCATED</p>
+</li>
+<li><p class="first">DOCUMENT array updated to have OUTBOUND and SHIPMENT</p>
+</li>
+<li><p class="first">Shipment required information:</p>
+<div class="line-block">
+<div class="line">LINE_KEY</div>
+<div class="line">DOCUMENT</div>
+<div class="line">DATE_CODE = SHIPPED</div>
+<div class="line">DATETIME</div>
+<div class="line">STATUS_CODE = SHIPPED</div>
+<div class="line">PRODUCT</div>
+<div class="line">UNIT_IDENTIFIER</div>
+<div class="line">CONTROL_CODE</div>
+<div class="line">CONTROL_LOT</div>
+<div class="line">LOCATION</div>
+<div class="line">WEIGHTS &amp; MEASURES (multiple entries)</div>
+<div class="line">CONTENTS (multiple entries)</div>
+</div>
+</li>
+</ul>
+<p>ADJUSTMENT:</p>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li><a href="index.html">WARES Documents 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Gerald Lovel.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b3.
+    </div>
+  </body>
+</html>

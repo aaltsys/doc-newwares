@@ -1,0 +1,421 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Product Definition and Setup &mdash; WARES Inventory 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="WARES Inventory 1.0 documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li><a href="index.html">WARES Inventory 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Product Definition and Setup</a><ul>
+<li><a class="reference internal" href="#product-data-definition">Product Data Definition</a></li>
+<li><a class="reference internal" href="#product-setup-view">Product Setup View</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/02_products.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="product-definition-and-setup">
+<span id="products"></span><h1>Product Definition and Setup<a class="headerlink" href="#product-definition-and-setup" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="product-data-definition">
+<h2>Product Data Definition<a class="headerlink" href="#product-data-definition" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="9%" />
+<col width="32%" />
+<col width="6%" />
+<col width="12%" />
+<col width="12%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>COLUMN NAME</td>
+<td>TYPE</td>
+<td>VALIDATE</td>
+<td>REQ</td>
+<td>DEFAULT</td>
+<td>DISPLAY</td>
+</tr>
+<tr class="row-even"><td>ACCOUNT</td>
+<td>A</td>
+<td>CONTACTS*A</td>
+<td>M</td>
+<td>&nbsp;</td>
+<td>L10</td>
+</tr>
+<tr class="row-odd"><td>IDENTIFIER</td>
+<td>AN</td>
+<td>case=U</td>
+<td>M</td>
+<td>&nbsp;</td>
+<td>L20</td>
+</tr>
+<tr class="row-even"><td>VARIETY</td>
+<td>AN</td>
+<td>case=U</td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>L20</td>
+</tr>
+<tr class="row-odd"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Description Entries</td>
+</tr>
+<tr class="row-even"><td>DESCRIPTION</td>
+<td>AN</td>
+<td>case=N</td>
+<td>M</td>
+<td>&nbsp;</td>
+<td>L40</td>
+</tr>
+<tr class="row-odd"><td>PRODUCT_CODE</td>
+<td>TP/A</td>
+<td>list=PRODUCTS</td>
+<td>C</td>
+<td>(notes)</td>
+<td>L4</td>
+</tr>
+<tr class="row-even"><td>PRODUCT</td>
+<td>AN/A</td>
+<td>case=U</td>
+<td>C</td>
+<td>&nbsp;</td>
+<td>L20</td>
+</tr>
+<tr class="row-odd"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Dimension Entries</td>
+</tr>
+<tr class="row-even"><td>WTM</td>
+<td>TP</td>
+<td><a class="reference external" href="codes/P_code-wtm.html#wtm-list" title="(in WARES Codes v1.0)"><em>Units of Weight</em></a></td>
+<td>M</td>
+<td>LB</td>
+<td>L4</td>
+</tr>
+<tr class="row-odd"><td>INNER</td>
+<td>TP</td>
+<td><a class="reference external" href="codes/P_code-uom.html#uom-list" title="(in WARES Codes v1.0)"><em>Units of Measure</em></a></td>
+<td>O</td>
+<td>(notes)</td>
+<td>L4</td>
+</tr>
+<tr class="row-even"><td>PCS</td>
+<td>N.0</td>
+<td>&nbsp;</td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>R6</td>
+</tr>
+<tr class="row-odd"><td>WGHT</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>R6</td>
+</tr>
+<tr class="row-even"><td>CONTENT</td>
+<td>TP</td>
+<td><a class="reference external" href="codes/P_code-uom.html#uom-list" title="(in WARES Codes v1.0)"><em>Units of Measure</em></a></td>
+<td>O</td>
+<td>(notes)</td>
+<td>L4</td>
+</tr>
+<tr class="row-odd"><td>CNT</td>
+<td>N.0</td>
+<td>&nbsp;</td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>R6</td>
+</tr>
+<tr class="row-even"><td>NET</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>R6</td>
+</tr>
+<tr class="row-odd"><td>PKG</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>R6</td>
+</tr>
+<tr class="row-even"><td>UNIT</td>
+<td>TP</td>
+<td><a class="reference external" href="codes/P_code-uom.html#uom-list" title="(in WARES Codes v1.0)"><em>Units of Measure</em></a></td>
+<td>M</td>
+<td>(notes)</td>
+<td>L4</td>
+</tr>
+<tr class="row-odd"><td>UNET</td>
+<td>N.2</td>
+<td>&nbsp;</td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>R8</td>
+</tr>
+<tr class="row-even"><td>TARE</td>
+<td>N.2</td>
+<td>&nbsp;</td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>R8</td>
+</tr>
+<tr class="row-odd"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Dimension Options</td>
+</tr>
+<tr class="row-even"><td>DIM</td>
+<td>TP</td>
+<td><a class="reference external" href="codes/P_code-dim.html#dim-list" title="(in WARES Codes v1.0)"><em>Units of dimension</em></a></td>
+<td>M</td>
+<td>CF</td>
+<td>L4</td>
+</tr>
+<tr class="row-odd"><td>IDIM</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>R6</td>
+</tr>
+<tr class="row-even"><td>CDIM</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>R6</td>
+</tr>
+<tr class="row-odd"><td>UDIM</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>R8</td>
+</tr>
+<tr class="row-even"><td>CLONG</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>R6</td>
+</tr>
+<tr class="row-odd"><td>CWIDE</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>R6</td>
+</tr>
+<tr class="row-even"><td>CHIGH</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>R6</td>
+</tr>
+<tr class="row-odd"><td>STACK</td>
+<td>N.0</td>
+<td>&nbsp;</td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>R2</td>
+</tr>
+<tr class="row-even"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Location Entries</td>
+</tr>
+<tr class="row-odd"><td>ABC</td>
+<td>TP</td>
+<td><a class="reference external" href="codes/L_abc.html#abc-list" title="(in WARES Codes v1.0)"><em>Product turnover rating</em></a></td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>L2</td>
+</tr>
+<tr class="row-even"><td>MIX</td>
+<td>TP</td>
+<td><a class="reference external" href="codes/L_mix.html#mix-list" title="(in WARES Codes v1.0)"><em>Unit / Location mixing</em></a></td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>L4</td>
+</tr>
+<tr class="row-odd"><td>ZONE</td>
+<td>TP</td>
+<td><a class="reference external" href="codes/L_zone.html#zone-list" title="(in WARES Codes v1.0)"><em>Storage zone</em></a></td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>L4</td>
+</tr>
+<tr class="row-even"><td>SLOT</td>
+<td>A</td>
+<td>LOCATIONS</td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>L10</td>
+</tr>
+<tr class="row-odd"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Valuation Entries</td>
+</tr>
+<tr class="row-even"><td>RATE</td>
+<td>A</td>
+<td>RATES</td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>L8</td>
+</tr>
+<tr class="row-odd"><td>VALUEPER</td>
+<td>TP</td>
+<td><a class="reference external" href="codes/S_per.html#per-list" title="(in WARES Codes v1.0)"><em>Rating and Valuation Per Unit</em></a></td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>L4</td>
+</tr>
+<tr class="row-even"><td>VALUE</td>
+<td>N.2</td>
+<td>&nbsp;</td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>R8</td>
+</tr>
+<tr class="row-odd"><td>COSTPER</td>
+<td>TP</td>
+<td><a class="reference external" href="codes/S_per.html#per-list" title="(in WARES Codes v1.0)"><em>Rating and Valuation Per Unit</em></a></td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>L4</td>
+</tr>
+<tr class="row-even"><td>COST</td>
+<td>N.2</td>
+<td>&nbsp;</td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>R8</td>
+</tr>
+<tr class="row-odd"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Transportation Entries</td>
+</tr>
+<tr class="row-even"><td>FREIGHT_CODE</td>
+<td>TP/A</td>
+<td><a class="reference external" href="codes/S_freight.html#freight-list" title="(in WARES Codes v1.0)"><em>Freight classifications</em></a></td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>L4</td>
+</tr>
+<tr class="row-odd"><td>FREIGHT_CLASS</td>
+<td>AN/A</td>
+<td>&nbsp;</td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>L10</td>
+</tr>
+<tr class="row-even"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Classification Entries</td>
+</tr>
+<tr class="row-odd"><td>GROUP_CODE</td>
+<td>TP/A</td>
+<td><a class="reference external" href="codes/S_group.html#group-list" title="(in WARES Codes v1.0)"><em>Product grouping</em></a></td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>L4</td>
+</tr>
+<tr class="row-even"><td>GROUPING</td>
+<td>AN/A</td>
+<td>&nbsp;</td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>L20</td>
+</tr>
+<tr class="row-odd"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Classification Options</td>
+</tr>
+<tr class="row-even"><td>MESSAGE_CODE</td>
+<td>TP/A</td>
+<td><a class="reference external" href="codes/S_msg.html#msg-list" title="(in WARES Codes v1.0)"><em>Document messages</em></a></td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>L4</td>
+</tr>
+<tr class="row-odd"><td>MESSAGE</td>
+<td>AN/A</td>
+<td>&nbsp;</td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>L80</td>
+</tr>
+<tr class="row-even"><td>MESSAGE_APPLY</td>
+<td>AN/A</td>
+<td>&nbsp;</td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>L4</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="product-setup-view">
+<h2>Product Setup View<a class="headerlink" href="#product-setup-view" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li><a href="index.html">WARES Inventory 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Gerald Lovel.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b3.
+    </div>
+  </body>
+</html>
