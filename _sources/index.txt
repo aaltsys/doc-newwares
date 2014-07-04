@@ -6,18 +6,15 @@
 WARES Documentation Master Index
 ========================================
 
-Contents:
+#. :ref:`inventory:index`.
+#. :ref:`locator:index`.
+#. :ref:`documents:index`.
+#. :ref:`exchange:index`.
+#. :ref:`billing:index`.
+#. :ref:`activity:index`.
+#. :ref:`codes:index`.
+#. :ref:`resources:index`.
 
 .. toctree::
-   :maxdepth: 2
-   :glob:
-   
-   [0-9]*
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
+   :hidden:
+   :maxdepth: 1

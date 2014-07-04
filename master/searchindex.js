@@ -1,1 +1,1 @@
-Search.setIndex({envversion:42,terms:{content:0,modul:0,search:0,page:0},objtypes:{},objnames:{},filenames:["index"],titles:["WARES Documentation Master Index"],objects:{},titleterms:{index:0,document:0,indic:0,master:0,tabl:0,ware:0}})
+Search.setIndex({envversion:42,terms:{},objtypes:{},objnames:{},filenames:["index"],titles:["WARES Documentation Master Index"],objects:{},titleterms:{index:0,ware:0,master:0,document:0}})
