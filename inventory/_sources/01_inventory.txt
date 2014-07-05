@@ -32,9 +32,9 @@ the item. Links to the code lists for products and lot control follow:
 +---------------+------------------------------------+
 | **Data Name** | **Code list**                      |
 +===============+====================================+
-| PRODUCT       | :ref:`../codes/product-list`       |
+| PRODUCT       | :ref:`product-list`       |
 +---------------+------------------------------------+
-| CONTROL       | :ref:`../codes/control-list`       |
+| CONTROL       | :ref:`control-list`       |
 +---------------+------------------------------------+
 
 Units of Measure
@@ -47,7 +47,7 @@ Products deviate from this configuration, and so the breakdown of UNIT, CONTENT,
 and INNER, along with weights and measures, must be specified for each product. 
 
 For further reference, see this Table of Industry Standard 
-:ref:`../codes/uom-list`.
+:ref:`uom-list`.
 
 
 As stated previously, inventory is measured or counted in units which build up 
