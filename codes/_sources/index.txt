@@ -4,6 +4,8 @@
 WARES Codes Table of Contents
 #############################
 
+.. _index:
+
 Product Setup Lists
 =============================
 
