@@ -32,9 +32,9 @@ the item. Links to the code lists for products and lot control follow:
 +---------------+------------------------------------+
 | **Data Name** | **Code list**                      |
 +===============+====================================+
-| PRODUCT       | :ref:`product-list`       |
+| PRODUCT       | :ref:`product-list`                |
 +---------------+------------------------------------+
-| CONTROL       | :ref:`control-list`       |
+| CONTROL       | :ref:`control-list`                |
 +---------------+------------------------------------+
 
 Units of Measure
