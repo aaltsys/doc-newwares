@@ -4,8 +4,6 @@
 Lot and Batch Control Codes
 #############################
 
-Source: ASC-X12 Data Element 235 - Product/Service ID Qualifier
-
 +-----------+----------------------------+
 | **Code**  | **Value**                  |
 +===========+============================+ 
@@ -27,3 +25,5 @@ Source: ASC-X12 Data Element 235 - Product/Service ID Qualifier
 +-----------+----------------------------+ 
 | PO        | Purchase order number      |
 +-----------+----------------------------+
+
+Source: ASC-X12 Data Element 235 - Product/Service ID Qualifier

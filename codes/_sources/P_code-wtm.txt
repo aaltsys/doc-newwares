@@ -23,3 +23,5 @@ Units of Weight
 +----------+--------------------------+ 
 | MT       | Metric tonne             |
 +----------+--------------------------+ 
+
+Source: ASC-X12 Data Element 355 - Unit or Basis for Measurement Code.

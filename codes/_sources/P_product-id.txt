@@ -4,8 +4,6 @@
 Product Identification Codes
 #############################
 
-Source: ASC-X12 Data Element 235 - Product/Service ID Qualifier
-
 +-----------+-----------------------------------------+
 | **Code**  | **Value**                               |
 +===========+=========================================+ 
@@ -45,3 +43,5 @@ Source: ASC-X12 Data Element 235 - Product/Service ID Qualifier
 +-----------+-----------------------------------------+ 
 | ZZ        | Mutually defined                        |
 +-----------+-----------------------------------------+
+
+Source: ASC-X12 Data Element 235 - Product/Service ID Qualifier
