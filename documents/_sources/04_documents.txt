@@ -43,7 +43,9 @@ Header Section
 
 Data entries in the document header occur once per transaction.
 
-.. image: ./_images/documents.png
+
+.. image:: _images/documents.png
+
 
 +------------------+-----+--------+------------------+
 | **COLUMN NAME**  |**M**|**TYPE**| **CODE VALUES**  |
@@ -108,7 +110,9 @@ Data entries in the document header occur once per transaction.
 Detail Lines
 -----------------------------
 
-.. image:: ./_images/document-lines.png
+
+.. image:: _images/document-lines.png
+
 
 Transaction lines contain control, identifying, quantitative, and descriptive 
 information. The SECT(ion) heading in the following table indicates how each 
