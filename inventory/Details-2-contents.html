@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Unit / Location mixing &mdash; WARES Codes 1.0 documentation</title>
+    <title>&lt;no title&gt; &mdash; WARES Inventory 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -23,34 +23,20 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="WARES Codes 1.0 documentation" href="index.html" />
-    <link rel="next" title="Storage zone" href="L_zone.html" />
-    <link rel="prev" title="Product turnover rating" href="L_abc.html" /> 
+    <link rel="top" title="WARES Inventory 1.0 documentation" href="index.html" /> 
   </head>
   <body>
     <div class="related">
       <h3>Navigation</h3>
       <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="L_zone.html" title="Storage zone"
-             accesskey="N">next</a></li>
-        <li class="right" >
-          <a href="L_abc.html" title="Product turnover rating"
-             accesskey="P">previous</a> |</li>
-        <li><a href="index.html">WARES Codes 1.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">WARES Inventory 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="L_abc.html"
-                        title="previous chapter">Product turnover rating</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="L_zone.html"
-                        title="next chapter">Storage zone</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="_sources/L_mix.txt"
+    <li><a href="_sources/Details-2-contents.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -74,36 +60,36 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="unit-location-mixing">
-<span id="mix-list"></span><h1>Unit / Location mixing<a class="headerlink" href="#unit-location-mixing" title="Permalink to this headline">¶</a></h1>
-<table border="1" class="docutils">
-<colgroup>
-<col width="28%" />
-<col width="72%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Code</th>
-<th class="head">Value</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>M</td>
-<td>Mixed</td>
-</tr>
-<tr class="row-odd"><td>A</td>
-<td>Account</td>
-</tr>
-<tr class="row-even"><td>P</td>
-<td>Product</td>
-</tr>
-<tr class="row-odd"><td>L</td>
-<td>Lot control</td>
-</tr>
-<tr class="row-even"><td>D</td>
-<td>Date code</td>
-</tr>
-</tbody>
-</table>
+  <p>Make_Unit:</p>
+<div class="highlight-python"><pre>* defined by convention
+Unit&lt;1,Un$Wt_UOM,row&gt; = UM_Weight
+Unit&lt;1,Un$In_UOM,row&gt; = UM_Inner
+
+*defined by product
+Unit&lt;1,Un$Un_Net,row&gt; = Fact_Weight
+Unit&lt;1,Un$Inner,row&gt; = Fact_Pack
+Unit&lt;1,Un$Un_Tare,row&gt; = Unit_Tare
+Unit&lt;1,Un$Un_UOM,row&gt; = UM_Unit
+Unit&lt;1,Un$Cn_UOM,row&gt; = UM_Cont
+Unit&lt;1,Un$Cn_Tare,row&gt; = Cont_Grs - Cont_Net
+
+* defined by lot
+Unit&lt;1,Un$Product,row&gt; = Product
+Unit&lt;1,Un$Control,row&gt; = Control
+Fact_Store
+
+* defined by line
+Unit&lt;1,Un$Status,row&gt; = Status
+Unit&lt;1,Un$Received,row&gt; = Received
+Unit&lt;1,Un$Document,row&gt; = Document
+
+* defined by unit through calculation or serialization
+Unit&lt;1,Un$Unit_ID,row&gt; = Unit_Id
+Unit&lt;1,Un$Description,row&gt; = Description
+Unit&lt;1,Un$Location,row&gt; = Location
+Unit&lt;1,Un$Content,row&gt; = Content
+Unit&lt;1,Un$Cn_Net,row&gt; = Wt_Net
+Unit&lt;1,Un$In_Wt,row&gt; = Wt_Net / Fact_Pack</pre>
 </div>
 
 
@@ -115,13 +101,7 @@
     <div class="related">
       <h3>Navigation</h3>
       <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="L_zone.html" title="Storage zone"
-             >next</a></li>
-        <li class="right" >
-          <a href="L_abc.html" title="Product turnover rating"
-             >previous</a> |</li>
-        <li><a href="index.html">WARES Codes 1.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">WARES Inventory 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

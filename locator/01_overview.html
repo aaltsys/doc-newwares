@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>webWARES Locator Overview &mdash; WARES Locator 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="WARES Locator 1.0 documentation" href="index.html" />
+    <link rel="next" title="Inventory Documents" href="02_documents.html" />
+    <link rel="prev" title="WARES Locator Table of Contents" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="02_documents.html" title="Inventory Documents"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="index.html" title="WARES Locator Table of Contents"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">WARES Locator 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">webWARES Locator Overview</a><ul>
+<li><a class="reference internal" href="#locator-purpose">Locator Purpose</a></li>
+<li><a class="reference internal" href="#facility-setup">Facility Setup</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">WARES Locator Table of Contents</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="02_documents.html"
+                        title="next chapter">Inventory Documents</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/01_overview.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="webwares-locator-overview">
+<span id="loc-overview"></span><h1>webWARES Locator Overview<a class="headerlink" href="#webwares-locator-overview" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><a class="reference external" href="http://webwares.aaltsys.com">http://webwares.aaltsys.com</a> displays a preliminary version of the webWARES
+locator. This is not intended as a completed application. Rather, it is a
+starting point for alpha-testing program design.</p>
+</div>
+<div class="section" id="locator-purpose">
+<h2>Locator Purpose<a class="headerlink" href="#locator-purpose" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>Locator</strong> displays warehouse inventory quantity and status information
+through a series of four views: documents, transaction lines, locator items,
+and product inventory.</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="02_documents.html#loc-documents"><em>Inventory Documents</em></a> form the basis of warehouse management. The locator
+lists documents and displays document details. Filter options for documents
+are by account, date or date range, product, and lot.</p>
+</li>
+<li><p class="first"><a class="reference internal" href="03_transactions.html#loc-transactions"><em>Transaction Lines</em></a> provide the basic information used to build locator
+balances. The transaction lines view may be filtered by account, product,
+lot, date or date range, document, and location or location range.</p>
+</li>
+<li><p class="first"><a class="reference internal" href="04_locator.html#loc-locator"><em>Locator Items</em></a> shows warehouse inventory and quantities organized by
+handling and shipping units. The locator view filter includes account,
+product, lot, location or location range, and on-hand/expected/undelivered.</p>
+<p>Fungible bulk goods which are not stored by unit are displayed by location or
+lot instead. Inventory quantities show on-hand, allocated/committed, reserved
+with hold codes, and resulting available. Optionally the locator may show
+goods in transit and shipped quantites where delivery has not been confirmed.</p>
+</li>
+<li><p class="first"><a class="reference internal" href="05_inventory.html#loc-inventory"><em>Inventory Balances</em></a> summarize locator information by product. The balances
+view is dynamic, created from the locator information. Inventory is filtered
+by account and product.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="facility-setup">
+<h2>Facility Setup<a class="headerlink" href="#facility-setup" title="Permalink to this headline">¶</a></h2>
+<p>The physical location for goods in storage is described in the facility setup.</p>
+<p>Setup buildings.</p>
+<p>Setup location codes.</p>
+<p>View inventory locations.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="02_documents.html" title="Inventory Documents"
+             >next</a></li>
+        <li class="right" >
+          <a href="index.html" title="WARES Locator Table of Contents"
+             >previous</a> |</li>
+        <li><a href="index.html">WARES Locator 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Gerald Lovel.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b3.
+    </div>
+  </body>
+</html>

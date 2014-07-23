@@ -1,15 +1,24 @@
 .. _products:
 
 #############################
-Product Definition and Setup
+Product Data Definition 
 #############################
 
-Product Data Definition
-=============================
+Product record entries are divided into the following sections:
+
+*  Identifier -- A combination of values which uniquely identify a product
+*  Description -- Alternate textual identification for a product
+*  Dimension -- The measures of packing for a product
+*  Location -- Information which controls location of items
+*  Valuation -- The services rating and valuation of a product
+*  Transportation -- Freight classification and description
+*  Classification -- Optional product classification information
+
+The following table lists column entries which define a product. 
 
 +------------------+------+---------------------+----+--------+--------+
 | COLUMN NAME      | TYPE | VALIDATE            | REQ| DEFAULT| DISPLAY|
-+------------------+------+---------------------+----+--------+--------+
++==================+======+=====================+====+========+========+
 | ACCOUNT          | A    | CONTACTS*A          | M  |        | L10    |
 +------------------+------+---------------------+----+--------+--------+
 | IDENTIFIER       | AN   | case=U              | M  |        | L20    |
@@ -108,7 +117,3 @@ Product Data Definition
 +------------------+------+---------------------+----+--------+--------+
 | MESSAGE_APPLY    | AN/A |                     | O  |        | L4     |
 +------------------+------+---------------------+----+--------+--------+
-
-
-Product Setup View
-=============================

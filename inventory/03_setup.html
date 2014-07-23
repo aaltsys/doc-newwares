@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Product Masterfile Views &mdash; WARES Inventory 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="WARES Inventory 1.0 documentation" href="index.html" />
+    <link rel="prev" title="Product Data Definition" href="02_products.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="02_products.html" title="Product Data Definition"
+             accesskey="P">previous</a></li>
+        <li><a href="index.html">WARES Inventory 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Product Masterfile Views</a><ul>
+<li><a class="reference internal" href="#product-setup-view">Product Setup View</a></li>
+<li><a class="reference internal" href="#product-inventory-view">Product Inventory View</a></li>
+<li><a class="reference internal" href="#product-filters">Product Filters</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="02_products.html"
+                        title="previous chapter">Product Data Definition</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/03_setup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="product-masterfile-views">
+<h1>Product Masterfile Views<a class="headerlink" href="#product-masterfile-views" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="product-setup-view">
+<h2>Product Setup View<a class="headerlink" href="#product-setup-view" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/products.png" src="_images/products.png" />
+<p>Notes:</p>
+<ol class="arabic simple">
+<li>Bulk products (unit UOM = BN) of non-fungible inventory track quantity by the
+location, fungible product inventory is tracked by the location and lot.</li>
+</ol>
+</div>
+<div class="section" id="product-inventory-view">
+<h2>Product Inventory View<a class="headerlink" href="#product-inventory-view" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/inventory.png" src="_images/inventory.png" />
+<p>Notes:</p>
+<ol class="arabic">
+<li><p class="first">Quantities are synthesized from locator entries as follows:</p>
+<div class="line-block">
+<div class="line">ARRIVING  = ON-ORDER + IN-TRANSIT</div>
+<div class="line">ON-HAND = ALL WAREHOUSE CONTENT</div>
+<div class="line">ALL-HELD = SAFETY STOCK + INSPECTION HOLD + PROCESS HOLD + DAMAGED</div>
+<div class="line">ALLOCATED = SHIP-RESERVED + PICK-ALLOCATED</div>
+<div class="line">AVAILABLE = ON-HAND - ALL-HELD - ALLOCATED</div>
+<div class="line">Ship reserve may be placed against ARRIVING stock, so AVAILABLE can be negative.</div>
+</div>
+</li>
+<li><p class="first">Product entries link to the PRODUCT information, displayed in a lightbox.
+Clicking (Double-clicking?) elsewhere on a line displays LOCATOR details for
+that product.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="product-filters">
+<h2>Product Filters<a class="headerlink" href="#product-filters" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/inventory-filter.png" src="_images/inventory-filter.png" />
+<p>Notes:</p>
+<ol class="arabic simple">
+<li>Filter items &#8220;Building&#8221; and &#8220;Accout&#8221; accept single entries only and do
+not display columns. When set by login, as with account connection, these
+items are grayed out and not selectable.</li>
+<li>PRODUCT and STOCK-NUMBER filters are multi-entry and use autocomplete.</li>
+<li>Products without locator quantities cannot be entered in the filter or
+displayed.</li>
+<li>For a mobile interface, tuneable columns would not display by default.</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="02_products.html" title="Product Data Definition"
+             >previous</a></li>
+        <li><a href="index.html">WARES Inventory 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Gerald Lovel.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b3.
+    </div>
+  </body>
+</html>

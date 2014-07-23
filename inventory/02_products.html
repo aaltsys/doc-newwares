@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Product Definition and Setup &mdash; WARES Inventory 1.0 documentation</title>
+    <title>Product Data Definition &mdash; WARES Inventory 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="WARES Inventory 1.0 documentation" href="index.html" />
-    <link rel="next" title="&lt;no title&gt;" href="10_Details-2-contents.html" />
+    <link rel="next" title="Product Masterfile Views" href="03_setup.html" />
     <link rel="prev" title="Inventory Concepts" href="01_inventory.html" /> 
   </head>
   <body>
@@ -32,7 +32,7 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="10_Details-2-contents.html" title="&lt;no title&gt;"
+          <a href="03_setup.html" title="Product Masterfile Views"
              accesskey="N">next</a></li>
         <li class="right" >
           <a href="01_inventory.html" title="Inventory Concepts"
@@ -42,21 +42,12 @@
     </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Product Definition and Setup</a><ul>
-<li><a class="reference internal" href="#product-data-definition">Product Data Definition</a></li>
-<li><a class="reference internal" href="#product-setup-view">Product Setup View</a></li>
-</ul>
-</li>
-</ul>
-
   <h4>Previous topic</h4>
   <p class="topless"><a href="01_inventory.html"
                         title="previous chapter">Inventory Concepts</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="10_Details-2-contents.html"
-                        title="next chapter">&lt;no title&gt;</a></p>
+  <p class="topless"><a href="03_setup.html"
+                        title="next chapter">Product Masterfile Views</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/02_products.txt"
@@ -83,10 +74,19 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="product-definition-and-setup">
-<span id="products"></span><h1>Product Definition and Setup<a class="headerlink" href="#product-definition-and-setup" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="product-data-definition">
-<h2>Product Data Definition<a class="headerlink" href="#product-data-definition" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="product-data-definition">
+<span id="products"></span><h1>Product Data Definition<a class="headerlink" href="#product-data-definition" title="Permalink to this headline">¶</a></h1>
+<p>Product record entries are divided into the following sections:</p>
+<ul class="simple">
+<li>Identifier &#8211; A combination of values which uniquely identify a product</li>
+<li>Description &#8211; Alternate textual identification for a product</li>
+<li>Dimension &#8211; The measures of packing for a product</li>
+<li>Location &#8211; Information which controls location of items</li>
+<li>Valuation &#8211; The services rating and valuation of a product</li>
+<li>Transportation &#8211; Freight classification and description</li>
+<li>Classification &#8211; Optional product classification information</li>
+</ul>
+<p>The following table lists column entries which define a product.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="28%" />
@@ -96,14 +96,16 @@
 <col width="12%" />
 <col width="12%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>COLUMN NAME</td>
-<td>TYPE</td>
-<td>VALIDATE</td>
-<td>REQ</td>
-<td>DEFAULT</td>
-<td>DISPLAY</td>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">COLUMN NAME</th>
+<th class="head">TYPE</th>
+<th class="head">VALIDATE</th>
+<th class="head">REQ</th>
+<th class="head">DEFAULT</th>
+<th class="head">DISPLAY</th>
 </tr>
+</thead>
+<tbody valign="top">
 <tr class="row-even"><td>ACCOUNT</td>
 <td>A</td>
 <td>CONTACTS*A</td>
@@ -410,10 +412,6 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="product-setup-view">
-<h2>Product Setup View<a class="headerlink" href="#product-setup-view" title="Permalink to this headline">¶</a></h2>
-</div>
-</div>
 
 
           </div>
@@ -425,7 +423,7 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="10_Details-2-contents.html" title="&lt;no title&gt;"
+          <a href="03_setup.html" title="Product Masterfile Views"
              >next</a></li>
         <li class="right" >
           <a href="01_inventory.html" title="Inventory Concepts"
