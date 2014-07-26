@@ -35,9 +35,9 @@ Document View
 Within the locator views, references to documents will link to the source 
 document viewed in the following form.
 
-.. _image:: ../documents/_images/documents.png
+.. image:: ../documents/_images/documents.png
 
 Transaction Lines
 =============================
 
-.. _image:: ../documents/_images/document-lines.png
+.. image:: ../documents/_images/document-lines.png
