@@ -12,7 +12,7 @@ clicking the document number link on a locator item, or by using the locator
 .. _note:: 
    #. The term **Document** refers to heading information for a group of 
       inventory transactions applied together.
-   #. Each document has a unique type, shown at :ref:`../codes/type-list`.
+   #. Each document has a unique type, shown at :ref:`type-list`.
 
 Documents Filter
 =============================
@@ -35,9 +35,9 @@ Document View
 Within the locator views, references to documents will link to the source 
 document viewed in the following form.
 
-.. _images ../documents/documents.png
+.. _image:: ../documents/_images/documents.png
 
 Transaction Lines
 =============================
 
-.. _images ../documents/document-lines.png
+.. _image:: ../documents/_images/document-lines.png
