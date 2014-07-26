@@ -10,10 +10,11 @@ clicking the document number link on a locator item, or by using the locator
 **Documents** view page. 
 
 .. _note::
-
+   The following notes apply to documents:
+   
    #. The term **Document** refers to heading information for a group of 
-      inventory transactions applied together.
-   #. Each document has a unique type, shown at :ref:`codes:type-list`.
+      inventory transaction lines applied together.
+   #. Each document has a unique type, listed at :ref:`codes:type-list`.
 
 Documents Filter
 =============================
