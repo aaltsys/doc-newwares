@@ -4,3 +4,35 @@
 Inventory Documents
 #############################
 
+WARES documents of all types have a common structure and are maintained in a 
+master documents table. Source documents can be selected and reviewed by 
+clicking the document number link on a locator item, or by using the locator 
+**Documents** view page. 
+
+.. _note:: 
+   #. The term **Document** refers to heading information for a group of 
+      inventory transactions applied together.
+   #. Each document has a unique type, shown at :ref:`type-list`.
+
+Documents Filter
+=============================
+
+Document filter selections include account, type, status, date or date range, 
+reference, address id (and product, and lot).
+
+The Documents filter selects rows for the list view. The default columns of this 
+view are:
+
++------------------------+-------------------------------------+
+| Column                 | Description                         |
++========================+=====================================+
+|                        |                                     |
++------------------------+-------------------------------------+
+
+Document View
+-----------------------------
+
+Within the locator views, references to documents will link to the source 
+document viewed in the following form.
+
+.. _images/documents.png
