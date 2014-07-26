@@ -9,9 +9,7 @@ master documents table. Source documents can be selected and reviewed by
 clicking the document number link on a locator item, or by using the locator 
 **Documents** view page. 
 
-.. _note::
-   The following notes apply to documents:
-   
+.. note::
    #. The term **Document** refers to heading information for a group of 
       inventory transaction lines applied together.
    #. Each document has a unique type, listed at :ref:`codes:type-list`.
