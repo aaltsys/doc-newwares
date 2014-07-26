@@ -12,7 +12,6 @@ clicking the document number link on a locator item, or by using the locator
 .. _note:: 
    #. The term **Document** refers to heading information for a group of 
       inventory transactions applied together.
-   #. Each document has a unique type, shown at :ref:`codes:type-list`.
 
 Documents Filter
 =============================
@@ -41,3 +40,6 @@ Transaction Lines
 =============================
 
 .. image:: ../documents/_images/document-lines.png
+
+
+#. Each document has a unique type, shown at :ref:`codes:type-list`.
