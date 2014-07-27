@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Transaction Posting &mdash; WARES Documents 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="WARES Documents 1.0 documentation" href="index.html" />
+    <link rel="prev" title="Transaction Line Entry" href="03_entry.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="03_entry.html" title="Transaction Line Entry"
+             accesskey="P">previous</a></li>
+        <li><a href="index.html">WARES Documents 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Transaction Posting</a><ul>
+<li><a class="reference internal" href="#inbound">INBOUND:</a></li>
+<li><a class="reference internal" href="#receipt">RECEIPT:</a></li>
+<li><a class="reference internal" href="#outbound">OUTBOUND:</a></li>
+<li><a class="reference internal" href="#shipment">SHIPMENT:</a></li>
+<li><a class="reference internal" href="#adjustment">ADJUSTMENT:</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="03_entry.html"
+                        title="previous chapter">Transaction Line Entry</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/04_posting.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="transaction-posting">
+<span id="posting"></span><h1>Transaction Posting<a class="headerlink" href="#transaction-posting" title="Permalink to this headline">¶</a></h1>
+<p>Transaction lines post to the locator based on a post-write database trigger.
+Each transaction line refers to a single locator entry. The post process
+collects all lines associated with a locator entry, and then adds the signed
+quantities to determine total locator entry quantities.</p>
+<div class="section" id="inbound">
+<h2>INBOUND:<a class="headerlink" href="#inbound" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul>
+<li><p class="first">Choice of entering from order, or from ASN</p>
+</li>
+<li><p class="first">Unit lines added to locator on status INBOUND</p>
+</li>
+<li><p class="first">Units can be RESERVED, cannot be allocated</p>
+</li>
+<li><p class="first">Order required information:</p>
+<div class="line-block">
+<div class="line">LINE_KEY</div>
+<div class="line">DOCUMENT</div>
+<div class="line">DATE_CODE = EXPECTED</div>
+<div class="line">DATETIME</div>
+<div class="line">STATUS_CODE = INBOUND</div>
+<div class="line">PRODUCT</div>
+<div class="line">WEIGHTS &amp; MEASURES  (multiple entries)</div>
+<div class="line">CONTENTS (multiple entries)</div>
+</div>
+</li>
+<li><p class="first">ASN required information:</p>
+<div class="line-block">
+<div class="line">LINE_KEY</div>
+<div class="line">DOCUMENT</div>
+<div class="line">DATE_CODE = EXPECTED</div>
+<div class="line">DATETIME</div>
+<div class="line">STATUS_CODE = INBOUND</div>
+<div class="line">PRODUCT</div>
+<div class="line">UNIT_IDENTIFIER</div>
+<div class="line">CONTROL_CODE</div>
+<div class="line">CONTROL_LOT</div>
+<div class="line">WEIGHTS &amp; MEASURES (multiple entries)</div>
+<div class="line">CONTENTS (multiple entries)</div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="receipt">
+<h2>RECEIPT:<a class="headerlink" href="#receipt" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul>
+<li><p class="first">Choice of completing an order, an ASN, or entering from scratch</p>
+</li>
+<li><p class="first">Unit lines updated or added to locator on status AVAILABLE, HELD, DAMAGED</p>
+</li>
+<li><p class="first">DOCUMENT array updated to have INBOUND and RECEIPT</p>
+</li>
+<li><p class="first">Receipt required information:</p>
+<div class="line-block">
+<div class="line">LINE_KEY</div>
+<div class="line">DOCUMENT</div>
+<div class="line">DATE_CODE = RECEIVED</div>
+<div class="line">DATETIME</div>
+<div class="line">STATUS_CODE = AVAILABLE, HELD, DAMAGED</div>
+<div class="line">PRODUCT</div>
+<div class="line">UNIT_IDENTIFIER</div>
+<div class="line">CONTROL_CODE</div>
+<div class="line">CONTROL_LOT</div>
+<div class="line">LOCATION</div>
+<div class="line">WEIGHTS &amp; MEASURES (multiple entries)</div>
+<div class="line">CONTENTS (multiple entries)</div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="outbound">
+<h2>OUTBOUND:<a class="headerlink" href="#outbound" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul>
+<li><p class="first">Entered, received as Warehouse Order (940), or JSON import</p>
+</li>
+<li><p class="first">Lines added to locator as RESERVED, deducting from AVAILABLE</p>
+</li>
+<li><p class="first">Order required information:</p>
+<div class="line-block">
+<div class="line">LINE_KEY</div>
+<div class="line">DOCUMENT</div>
+<div class="line">DATE_CODE = RESERVED</div>
+<div class="line">DATETIME</div>
+<div class="line">STATUS_CODE = RESERVED</div>
+<div class="line">PRODUCT</div>
+<div class="line">WEIGHTS &amp; MEASURES (multiple entries)</div>
+<div class="line">CONTENTS (multiple entries)</div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="shipment">
+<h2>SHIPMENT:<a class="headerlink" href="#shipment" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul>
+<li><p class="first">Choice of completing an outbound order, or entering from scratch</p>
+</li>
+<li><p class="first">AVAILABLE (scratch entry) or RESERVED (outbound completion) lines updated
+to ALLOCATED</p>
+</li>
+<li><p class="first">DOCUMENT array updated to have OUTBOUND and SHIPMENT</p>
+</li>
+<li><p class="first">Shipment required information:</p>
+<div class="line-block">
+<div class="line">LINE_KEY</div>
+<div class="line">DOCUMENT</div>
+<div class="line">DATE_CODE = SHIPPED</div>
+<div class="line">DATETIME</div>
+<div class="line">STATUS_CODE = SHIPPED</div>
+<div class="line">PRODUCT</div>
+<div class="line">UNIT_IDENTIFIER</div>
+<div class="line">CONTROL_CODE</div>
+<div class="line">CONTROL_LOT</div>
+<div class="line">LOCATION</div>
+<div class="line">WEIGHTS &amp; MEASURES (multiple entries)</div>
+<div class="line">CONTENTS (multiple entries)</div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="adjustment">
+<h2>ADJUSTMENT:<a class="headerlink" href="#adjustment" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="03_entry.html" title="Transaction Line Entry"
+             >previous</a></li>
+        <li><a href="index.html">WARES Documents 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Gerald Lovel.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b3.
+    </div>
+  </body>
+</html>

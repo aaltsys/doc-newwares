@@ -1,0 +1,21 @@
+.. _entry:
+
+#############################
+Transaction Line Entry
+#############################
+
+Transaction lines are displayed and entered in a multi-line list, where not all 
+of the entries for a line are displayed. Therefore
+
+
+.. image:: _images/1-lines.png
+
+.. image:: _images/1-detail.png
+
+.. image:: _images/2-lines.png
+
+.. image:: _images/2-detail.png
+
+.. image:: _images/3-lines.png
+
+.. image:: _images/3-detail.png
