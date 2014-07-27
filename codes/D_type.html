@@ -24,18 +24,18 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="WARES Codes 1.0 documentation" href="index.html" />
-    <link rel="next" title="Product turnover rating" href="L_abc.html" />
-    <link rel="prev" title="Document Status Codes" href="D_status.html" /> 
+    <link rel="next" title="Vehicle Equipment codes" href="D_vehicle.html" />
+    <link rel="prev" title="Transportation Method codes" href="D_transport.html" /> 
   </head>
   <body>
     <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="L_abc.html" title="Product turnover rating"
+          <a href="D_vehicle.html" title="Vehicle Equipment codes"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="D_status.html" title="Document Status Codes"
+          <a href="D_transport.html" title="Transportation Method codes"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">WARES Codes 1.0 documentation</a> &raquo;</li> 
       </ul>
@@ -43,11 +43,11 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="D_status.html"
-                        title="previous chapter">Document Status Codes</a></p>
+  <p class="topless"><a href="D_transport.html"
+                        title="previous chapter">Transportation Method codes</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="L_abc.html"
-                        title="next chapter">Product turnover rating</a></p>
+  <p class="topless"><a href="D_vehicle.html"
+                        title="next chapter">Vehicle Equipment codes</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/D_type.txt"
@@ -78,44 +78,73 @@
 <span id="type-list"></span><h1>Document Type codes<a class="headerlink" href="#document-type-codes" title="Permalink to this headline">¶</a></h1>
 <table border="1" class="docutils">
 <colgroup>
-<col width="16%" />
-<col width="84%" />
+<col width="10%" />
+<col width="9%" />
+<col width="81%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Type</th>
-<th class="head">Description</th>
+<tr class="row-odd"><th class="head">CODE</th>
+<th class="head">EDI</th>
+<th class="head">Document Title</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>PO</td>
-<td>Purchase Order (customer document)</td>
+<td>850</td>
+<td>Purchase Order</td>
 </tr>
-<tr class="row-odd"><td>IN</td>
-<td>Inbound Advance Shipping Notice</td>
+<tr class="row-odd"><td>AR</td>
+<td>943</td>
+<td>Warehouse Stock Transfer Shipment Advice</td>
 </tr>
-<tr class="row-even"><td>WR</td>
-<td>Warehouse Receipt</td>
+<tr class="row-even"><td>RE</td>
+<td>944</td>
+<td>Warehouse Stock Receipt Advice</td>
 </tr>
-<tr class="row-odd"><td>AJ</td>
-<td>Inventory Adjustment</td>
+<tr class="row-odd"><td>AW</td>
+<td>947</td>
+<td>Warehouse Inventory Adjustment Advice</td>
 </tr>
-<tr class="row-even"><td>SO</td>
-<td>Sales Order (customer document)</td>
+<tr class="row-even"><td>PR</td>
+<td>855</td>
+<td>Purchase Order Acknowledgment (Sales Order)</td>
 </tr>
-<tr class="row-odd"><td>OS</td>
+<tr class="row-odd"><td>OW</td>
+<td>940</td>
 <td>Warehouse Shipping Order</td>
 </tr>
-<tr class="row-even"><td>TK</td>
+<tr class="row-even"><td>PP</td>
+<td>&nbsp;</td>
 <td>Pick Ticket / Packing Slip</td>
 </tr>
-<tr class="row-odd"><td>BL</td>
-<td>Bill of Lading / Manifest</td>
+<tr class="row-odd"><td>SW</td>
+<td>945</td>
+<td>Warehouse Shipping Advice</td>
 </tr>
-<tr class="row-even"><td>DC</td>
-<td>Delivery Confirmation</td>
+<tr class="row-even"><td>BL</td>
+<td>211</td>
+<td>Motor Carrier Bill of Lading</td>
+</tr>
+<tr class="row-odd"><td>IB</td>
+<td>846</td>
+<td>Inventory Inquiry/Advice</td>
+</tr>
+<tr class="row-even"><td>SH</td>
+<td>856</td>
+<td><div class="first last line-block">
+<div class="line">Shipment Notice/Manifest (ASN)</div>
+<div class="line">(Substituted for 943 inbound or 945 outbound)</div>
+</div>
+</td>
 </tr>
 </tbody>
 </table>
+<p>Source: ASC-X12 Data Element 479 - Functional Identifier Code.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">There is no code &#8220;PP&#8221; in the EDI standards, as Pick Tickets and Packing slips
+are paper forms, not EDI documents.</p>
+</div>
 </div>
 
 
@@ -128,10 +157,10 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="L_abc.html" title="Product turnover rating"
+          <a href="D_vehicle.html" title="Vehicle Equipment codes"
              >next</a></li>
         <li class="right" >
-          <a href="D_status.html" title="Document Status Codes"
+          <a href="D_transport.html" title="Transportation Method codes"
              >previous</a> |</li>
         <li><a href="index.html">WARES Codes 1.0 documentation</a> &raquo;</li> 
       </ul>

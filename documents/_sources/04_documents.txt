@@ -4,108 +4,86 @@
 Inventory Documents
 #############################
 
-WARES uses six standard warehousing business documents to record, maintain, and 
-communicate inventory data. These documents also form the basis of data exchange 
+Standard warehousing business documents record, maintain, and communicate 
+inventory data in WARES. These documents also form the basis of data exchange 
 with business trading partners, either through EDI, via direct exchange of JSON 
-data, or using custom data import routines. Basic and alternative warehousing 
-documents and their EDI transaction numbers are:
-
-+---------------------+-----------------------------------------------+--------+
-| Document Name       | Title                                         | EDI ID |
-+---------------------+-----------------------------------------------+--------+
-| Inbound Receipt     | Warehouse Stock Transfer Advance Notice       |  943   |
-+---------------------+-----------------------------------------------+--------+
-| Receipt Advice      | Warehouse Stock Transfer Receipt Advice       |  944   |
-+---------------------+-----------------------------------------------+--------+
-| Outbound Shipment   | Warehouse Shipping Order                      |  940   |
-+---------------------+-----------------------------------------------+--------+
-| Shipment Advice     | Warehouse Shipment Advice                     |  945   |
-+---------------------+-----------------------------------------------+--------+
-| Adjustment Advice   | Warehouse Inventory Adjustment Advice         |  947   |
-+---------------------+-----------------------------------------------+--------+
-| Inventory Report    | Inventory Inquiry/Advice Report               |  846   |
-+---------------------+-----------------------------------------------+--------+
-| Advance Ship Notice || Shipment Notice/Manifest (ASN)               |  856   |
-|                     || (Substituted for 943 inbound or 945 outbound)|        |
-+---------------------+-----------------------------------------------+--------+
-
-Data Layout
-=============================
+data, or using custom data import routines. EDI titles and document codes are
+listed in :ref:`codes:type-list`.
 
 WARES stores all documents in a single database table. This means that all 
 documents share a common data definition, although documents present information 
-in views according to their purpose. Each document has a header section, 
-repeating line detail, and a summary footer. The master layout of these sections 
-is shown following, along with wireframe views of edit forms.
+in views according to their purpose. Each document has a header section, and
+repeating transaction line detail. 
 
 Header Section
------------------------------
+=============================
 
-Data entries in the document header occur once per transaction.
+Data entries in the document head occur once per transaction. Some entries may
+contain multiple values. The column 
 
+
++------------------+-----+--------+------------------------------+
+| COLUMN NAME      |  M  | TYPE   | CODE VALUES                  |
++==================+=====+========+==============================+
+| DOCUMENT TYPE    | M   | CODE   | :ref:`codes:type-list`       |
++------------------+-----+--------+------------------------------+
+| DOCUMENT ID      | M   | SEQ    | SEQ KEY                      |
++------------------+-----+--------+------------------------------+
+| STATUS           | M   | CODE   | :ref:`codes:status-list`     |
++------------------+-----+--------+------------------------------+
+| DATE/TIME        | M   | DT     |                              |
++------------------+-----+--------+------------------------------+
+| ACCOUNT          | M   | F-KEY  | ACCOUNTS                     |
++------------------+-----+--------+------------------------------+
+| BUILDING         | M   | F-KEY  | ADDRESSES*B                  |
++------------------+-----+--------+------------------------------+
+| REFERENCE_CODE   | A-C | CODE   | :ref:`codes:reference-list`  |  
++------------------+-----+--------+------------------------------+
+| REFERENCE        | A-CR| STRING |                              |
++------------------+-----+--------+------------------------------+
+| ADDRESS_CODE     | A-C | CODE   | ADDRESS LIST                 |
++------------------+-----+--------+------------------------------+
+| ADDRESS          | A-CR| F-KEY  | ADDRESSES                    |
++------------------+-----+--------+------------------------------+
+| CONTACT          | O   | STRING |                              |
++------------------+-----+--------+------------------------------+
+| CARRIER_CODE     | O   | F-KEY  | ADDRESSES*CA                 |
++------------------+-----+--------+------------------------------+
+| ROUTE            | O   | TEXT   |                              |
++------------------+-----+--------+------------------------------+
+| FREIGHT_PAY      | C   | CODE   | :ref:`codes:freightpay-list` |
++------------------+-----+--------+------------------------------+
+| TRANSPORT_MODE   | C   | CODE   | :ref:`codes:transport-list`  |             
++------------------+-----+--------+------------------------------+
+| LOADING_OPTION   | C   | CODE   | :ref:`codes:loading-list`    |
++------------------+-----+--------+------------------------------+
+| VEHICLE_CODE     | A-C | CODE   | :ref:`codes:vehicle-list`    |
++------------------+-----+--------+------------------------------+
+| VEHICLE_NUMBER   | A-CR| STRING |                              |
++------------------+-----+--------+------------------------------+
+| DATE_CODE        | A-C | CODE   | :ref:`codes:date-list`       |
++------------------+-----+--------+------------------------------+
+| DATE             | A-CR| DATE   |                              |
++------------------+-----+--------+------------------------------+
+| TIME_CODE        | A-C | CODE   | :ref:`codes:time-list`       |
++------------------+-----+--------+------------------------------+
+| TIME             | A-CR| TIME   |                              |
++------------------+-----+--------+------------------------------+
+| TEMPERATURE_CODE | A-C | CODE   | TEMPERATURE LIST             |
++------------------+-----+--------+------------------------------+
+| TEMPERATURE      | A-CR| INT    |                              |
++------------------+-----+--------+------------------------------+
+| QUANTITY_CODE    | A-C | CODE   | QUANTITY LIST                |
++------------------+-----+--------+------------------------------+
+| QUANTITY         | A-CR| FLOAT  |                              |
++------------------+-----+--------+------------------------------+
+| MESSAGE_CODE     | A-C | CODE   | MESSAGE LIST                 |
++------------------+-----+--------+------------------------------+
+| MESSAGE          | A-CR| TEXT   |                              |
++------------------+-----+--------+------------------------------+
 
 .. image:: _images/documents.png
 
-
-+------------------+-----+--------+------------------+
-| **COLUMN NAME**  |**M**|**TYPE**| **CODE VALUES**  |
-+------------------+-----+--------+------------------+
-| DOCUMENT TYPE    | M   | CODE   | R/W/O/S/A        |
-+------------------+-----+--------+------------------+
-| DOCUMENT ID      | M   | SEQ    | SEQ KEY          |
-+------------------+-----+--------+------------------+
-| STATUS           | M   | CODE   | -1/0/1/2/3/4/5/6 |
-+------------------+-----+--------+------------------+
-| DATE/TIME        | M   | DT     |                  |
-+------------------+-----+--------+------------------+
-| ACCOUNT          | M   | F-KEY  | ACCOUNTS         |
-+------------------+-----+--------+------------------+
-| BUILDING         | M   | F-KEY  | ADDRESSES*B      |
-+------------------+-----+--------+------------------+
-| REFERENCE_CODE   | A-C | CODE   | REFERENCE LIST   |  
-+------------------+-----+--------+------------------+
-| REFERENCE        | A-CR| STRING |                  |
-+------------------+-----+--------+------------------+
-| ADDRESS_CODE     | A-C | CODE   | ADDRESS LIST     |
-+------------------+-----+--------+------------------+
-| ADDRESS          | A-CR| F-KEY  | ADDRESSES        |
-+------------------+-----+--------+------------------+
-| CONTACT          | O   | STRING |                  |
-+------------------+-----+--------+------------------+
-| CARRIER_CODE     | O   | F-KEY  | ADDRESSES*CA     |
-+------------------+-----+--------+------------------+
-| ROUTE            | O   | TEXT   |                  |
-+------------------+-----+--------+------------------+
-| FREIGHT_PAY      | C   | CODE   | PP/CC/TP         |
-+------------------+-----+--------+------------------+
-| TRANSPORT_MODE   | C   | CODE   | TRANSPORT LIST   |             
-+------------------+-----+--------+------------------+
-| LOADING_OPTION   | C   | CODE   | LOADING LIST     |
-+------------------+-----+--------+------------------+
-| VEHICLE_CODE     | A-C | CODE   | VEHICLE LIST     |
-+------------------+-----+--------+------------------+
-| VEHICLE_NUMBER   | A-CR| STRING |                  |
-+------------------+-----+--------+------------------+
-| DATE_CODE        | A-C | CODE   | DATE LIST        |
-+------------------+-----+--------+------------------+
-| DATE             | A-CR| DATE   |                  |
-+------------------+-----+--------+------------------+
-| TIME_CODE        | A-C | CODE   | TIME LIST        |
-+------------------+-----+--------+------------------+
-| TIME             | A-CR| TIME   |                  |
-+------------------+-----+--------+------------------+
-| TEMPERATURE_CODE | A-C | CODE   | TEMPERATURE LIST |
-+------------------+-----+--------+------------------+
-| TEMPERATURE      | A-CR| INT    |                  |
-+------------------+-----+--------+------------------+
-| QUANTITY_CODE    | A-C | CODE   | QUANTITY LIST    |
-+------------------+-----+--------+------------------+
-| QUANTITY         | A-CR| FLOAT  |                  |
-+------------------+-----+--------+------------------+
-| MESSAGE_CODE     | A-C | CODE   | MESSAGE LIST     |
-+------------------+-----+--------+------------------+
-| MESSAGE          | A-CR| TEXT   |                  |
-+------------------+-----+--------+------------------+
 
 Detail Lines
 -----------------------------

@@ -41,8 +41,7 @@
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Inventory Documents</a><ul>
-<li><a class="reference internal" href="#data-layout">Data Layout</a><ul>
-<li><a class="reference internal" href="#header-section">Header Section</a></li>
+<li><a class="reference internal" href="#header-section">Header Section</a><ul>
 <li><a class="reference internal" href="#detail-lines">Detail Lines</a></li>
 <li><a class="reference internal" href="#footer-summary">Footer Summary</a></li>
 </ul>
@@ -83,84 +82,38 @@
             
   <div class="section" id="inventory-documents">
 <span id="documents"></span><h1>Inventory Documents<a class="headerlink" href="#inventory-documents" title="Permalink to this headline">¶</a></h1>
-<p>WARES uses six standard warehousing business documents to record, maintain, and
-communicate inventory data. These documents also form the basis of data exchange
+<p>Standard warehousing business documents record, maintain, and communicate
+inventory data in WARES. These documents also form the basis of data exchange
 with business trading partners, either through EDI, via direct exchange of JSON
-data, or using custom data import routines. Basic and alternative warehousing
-documents and their EDI transaction numbers are:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="28%" />
-<col width="62%" />
-<col width="11%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>Document Name</td>
-<td>Title</td>
-<td>EDI ID</td>
-</tr>
-<tr class="row-even"><td>Inbound Receipt</td>
-<td>Warehouse Stock Transfer Advance Notice</td>
-<td>943</td>
-</tr>
-<tr class="row-odd"><td>Receipt Advice</td>
-<td>Warehouse Stock Transfer Receipt Advice</td>
-<td>944</td>
-</tr>
-<tr class="row-even"><td>Outbound Shipment</td>
-<td>Warehouse Shipping Order</td>
-<td>940</td>
-</tr>
-<tr class="row-odd"><td>Shipment Advice</td>
-<td>Warehouse Shipment Advice</td>
-<td>945</td>
-</tr>
-<tr class="row-even"><td>Adjustment Advice</td>
-<td>Warehouse Inventory Adjustment Advice</td>
-<td>947</td>
-</tr>
-<tr class="row-odd"><td>Inventory Report</td>
-<td>Inventory Inquiry/Advice Report</td>
-<td>846</td>
-</tr>
-<tr class="row-even"><td>Advance Ship Notice</td>
-<td><div class="first last line-block">
-<div class="line">Shipment Notice/Manifest (ASN)</div>
-<div class="line">(Substituted for 943 inbound or 945 outbound)</div>
-</div>
-</td>
-<td>856</td>
-</tr>
-</tbody>
-</table>
-<div class="section" id="data-layout">
-<h2>Data Layout<a class="headerlink" href="#data-layout" title="Permalink to this headline">¶</a></h2>
+data, or using custom data import routines. EDI titles and document codes are
+listed in <a class="reference external" href="../codes/D_type.html#type-list" title="(in WARES Codes v1.0)"><em>Document Type codes</em></a>.</p>
 <p>WARES stores all documents in a single database table. This means that all
 documents share a common data definition, although documents present information
-in views according to their purpose. Each document has a header section,
-repeating line detail, and a summary footer. The master layout of these sections
-is shown following, along with wireframe views of edit forms.</p>
+in views according to their purpose. Each document has a header section, and
+repeating transaction line detail.</p>
 <div class="section" id="header-section">
-<h3>Header Section<a class="headerlink" href="#header-section" title="Permalink to this headline">¶</a></h3>
-<p>Data entries in the document header occur once per transaction.</p>
-<img alt="_images/documents.png" src="_images/documents.png" />
+<h2>Header Section<a class="headerlink" href="#header-section" title="Permalink to this headline">¶</a></h2>
+<p>Data entries in the document head occur once per transaction. Some entries may
+contain multiple values. The column</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="37%" />
-<col width="10%" />
-<col width="16%" />
-<col width="37%" />
+<col width="30%" />
+<col width="8%" />
+<col width="13%" />
+<col width="49%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><strong>COLUMN NAME</strong></td>
-<td><strong>M</strong></td>
-<td><strong>TYPE</strong></td>
-<td><strong>CODE VALUES</strong></td>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">COLUMN NAME</th>
+<th class="head">M</th>
+<th class="head">TYPE</th>
+<th class="head">CODE VALUES</th>
 </tr>
+</thead>
+<tbody valign="top">
 <tr class="row-even"><td>DOCUMENT TYPE</td>
 <td>M</td>
 <td>CODE</td>
-<td>R/W/O/S/A</td>
+<td><a class="reference external" href="../codes/D_type.html#type-list" title="(in WARES Codes v1.0)"><em>Document Type codes</em></a></td>
 </tr>
 <tr class="row-odd"><td>DOCUMENT ID</td>
 <td>M</td>
@@ -170,7 +123,7 @@ is shown following, along with wireframe views of edit forms.</p>
 <tr class="row-even"><td>STATUS</td>
 <td>M</td>
 <td>CODE</td>
-<td>-1/0/1/2/3/4/5/6</td>
+<td><a class="reference external" href="../codes/D_status.html#status-list" title="(in WARES Codes v1.0)"><em>Document Status Codes</em></a></td>
 </tr>
 <tr class="row-odd"><td>DATE/TIME</td>
 <td>M</td>
@@ -190,7 +143,7 @@ is shown following, along with wireframe views of edit forms.</p>
 <tr class="row-even"><td>REFERENCE_CODE</td>
 <td>A-C</td>
 <td>CODE</td>
-<td>REFERENCE LIST</td>
+<td><a class="reference external" href="../codes/D_reference.html#reference-list" title="(in WARES Codes v1.0)"><em>Document Reference codes</em></a></td>
 </tr>
 <tr class="row-odd"><td>REFERENCE</td>
 <td>A-CR</td>
@@ -225,22 +178,22 @@ is shown following, along with wireframe views of edit forms.</p>
 <tr class="row-odd"><td>FREIGHT_PAY</td>
 <td>C</td>
 <td>CODE</td>
-<td>PP/CC/TP</td>
+<td><a class="reference external" href="../codes/D_freightpay.html#freightpay-list" title="(in WARES Codes v1.0)"><em>Freight Payment codes</em></a></td>
 </tr>
 <tr class="row-even"><td>TRANSPORT_MODE</td>
 <td>C</td>
 <td>CODE</td>
-<td>TRANSPORT LIST</td>
+<td><a class="reference external" href="../codes/D_transport.html#transport-list" title="(in WARES Codes v1.0)"><em>Transportation Method codes</em></a></td>
 </tr>
 <tr class="row-odd"><td>LOADING_OPTION</td>
 <td>C</td>
 <td>CODE</td>
-<td>LOADING LIST</td>
+<td><a class="reference external" href="../codes/D_loading.html#loading-list" title="(in WARES Codes v1.0)"><em>Unit Load codes</em></a></td>
 </tr>
 <tr class="row-even"><td>VEHICLE_CODE</td>
 <td>A-C</td>
 <td>CODE</td>
-<td>VEHICLE LIST</td>
+<td><a class="reference external" href="../codes/D_vehicle.html#vehicle-list" title="(in WARES Codes v1.0)"><em>Vehicle Equipment codes</em></a></td>
 </tr>
 <tr class="row-odd"><td>VEHICLE_NUMBER</td>
 <td>A-CR</td>
@@ -250,7 +203,7 @@ is shown following, along with wireframe views of edit forms.</p>
 <tr class="row-even"><td>DATE_CODE</td>
 <td>A-C</td>
 <td>CODE</td>
-<td>DATE LIST</td>
+<td><a class="reference external" href="../codes/D_date.html#date-list" title="(in WARES Codes v1.0)"><em>Date Qualifier codes</em></a></td>
 </tr>
 <tr class="row-odd"><td>DATE</td>
 <td>A-CR</td>
@@ -260,7 +213,7 @@ is shown following, along with wireframe views of edit forms.</p>
 <tr class="row-even"><td>TIME_CODE</td>
 <td>A-C</td>
 <td>CODE</td>
-<td>TIME LIST</td>
+<td><a class="reference external" href="../codes/D_time.html#time-list" title="(in WARES Codes v1.0)"><em>Time Qualifier codes</em></a></td>
 </tr>
 <tr class="row-odd"><td>TIME</td>
 <td>A-CR</td>
@@ -299,7 +252,7 @@ is shown following, along with wireframe views of edit forms.</p>
 </tr>
 </tbody>
 </table>
-</div>
+<img alt="_images/documents.png" src="_images/documents.png" />
 <div class="section" id="detail-lines">
 <h3>Detail Lines<a class="headerlink" href="#detail-lines" title="Permalink to this headline">¶</a></h3>
 <img alt="_images/document-lines.png" src="_images/document-lines.png" />

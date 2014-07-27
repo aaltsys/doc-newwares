@@ -1,7 +1,7 @@
 .. _loc-documents: 
 
 #############################
-Inventory Documents
+Locator Documents
 #############################
 
 WARES documents of all types have a common structure and are maintained in a 
@@ -17,28 +17,30 @@ clicking the document number link on a locator item, or by using the locator
 Documents Filter
 =============================
 
-Document filter selections include account, type, status, date or date range, 
-reference, address id (and product, and lot).
+Document filter selections include facility, account, document type, status, 
+date or date range, reference, shipping address id (and product, and lot).
+The Documents filter page is shown following.
 
-The Documents filter selects rows for the list view. The default columns of this 
-view are:
+.. Tip::
+   Product and Lot Control entries are part of transaction lines, not documents. 
+   At least initially, these entries are not included in the documents filter.
 
-+------------------------+-------------------------------------+
-| Column                 | Description                         |
-+========================+=====================================+
-|                        |                                     |
-+------------------------+-------------------------------------+
+.. image:: ../documents/_images/filter.png
 
 Document View
 =============================
 
-Within the locator views, references to documents will link to the source 
-document viewed in the following form.
+Within the locator, document references link to source documents which are 
+viewed as forms to be printed or downloaded.  Document views in the locator are 
+read-only. A generic view of document heading information is shown following.
 
 .. image:: ../documents/_images/documents.png
 
 Transaction Lines
 =============================
+
+Each document includes one or more lines of inventory transactions. From the 
+list of lines, individual line detail may be displayed as shown following.
 
 .. image:: ../documents/_images/document-lines.png
 

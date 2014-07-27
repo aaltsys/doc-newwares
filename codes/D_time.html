@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Date and Time Tracking codes &mdash; WARES Codes 1.0 documentation</title>
+    <title>Time Qualifier codes &mdash; WARES Codes 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,18 +24,18 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="WARES Codes 1.0 documentation" href="index.html" />
-    <link rel="next" title="Freight Payment codes" href="D_freightpay.html" />
-    <link rel="prev" title="Date Qualifier codes" href="D_date.html" /> 
+    <link rel="next" title="Transportation Method codes" href="D_transport.html" />
+    <link rel="prev" title="Document Status Codes" href="D_status.html" /> 
   </head>
   <body>
     <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="D_freightpay.html" title="Freight Payment codes"
+          <a href="D_transport.html" title="Transportation Method codes"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="D_date.html" title="Date Qualifier codes"
+          <a href="D_status.html" title="Document Status Codes"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">WARES Codes 1.0 documentation</a> &raquo;</li> 
       </ul>
@@ -43,14 +43,14 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="D_date.html"
-                        title="previous chapter">Date Qualifier codes</a></p>
+  <p class="topless"><a href="D_status.html"
+                        title="previous chapter">Document Status Codes</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="D_freightpay.html"
-                        title="next chapter">Freight Payment codes</a></p>
+  <p class="topless"><a href="D_transport.html"
+                        title="next chapter">Transportation Method codes</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="_sources/D_dtm.txt"
+    <li><a href="_sources/D_time.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -74,45 +74,64 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="date-and-time-tracking-codes">
-<span id="dtm-list"></span><h1>Date and Time Tracking codes<a class="headerlink" href="#date-and-time-tracking-codes" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="time-qualifier-codes">
+<span id="time-list"></span><h1>Time Qualifier codes<a class="headerlink" href="#time-qualifier-codes" title="Permalink to this headline">¶</a></h1>
 <table border="1" class="docutils">
 <colgroup>
-<col width="30%" />
-<col width="70%" />
+<col width="11%" />
+<col width="89%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Code</th>
-<th class="head">Value</th>
+<tr class="row-odd"><th class="head">CODE</th>
+<th class="head">Document Title</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>I</td>
-<td>Inbound</td>
+<tr class="row-even"><td>2</td>
+<td>Pickup Appointment Scheduled Time</td>
 </tr>
-<tr class="row-odd"><td>R</td>
-<td>Received</td>
+<tr class="row-odd"><td>3</td>
+<td>Delivery Appointment Scheduled Time</td>
 </tr>
-<tr class="row-even"><td>O</td>
-<td>Outbound</td>
+<tr class="row-even"><td>4</td>
+<td>Pickup Requested Scheduled Time</td>
 </tr>
-<tr class="row-odd"><td>C</td>
-<td>Committed</td>
+<tr class="row-odd"><td>5</td>
+<td>Delivery Requested Scheduled Time</td>
 </tr>
-<tr class="row-even"><td>S</td>
-<td>Shipped</td>
+<tr class="row-even"><td>8</td>
+<td>Actual Pickup Time</td>
 </tr>
-<tr class="row-odd"><td>M</td>
-<td>Moved</td>
+<tr class="row-odd"><td>9</td>
+<td>Actual Delivery Time</td>
 </tr>
-<tr class="row-even"><td>U</td>
-<td>Updated</td>
+<tr class="row-even"><td>A</td>
+<td>Actual Departure Time</td>
 </tr>
-<tr class="row-odd"><td>A</td>
-<td>Adjusted</td>
+<tr class="row-odd"><td>S</td>
+<td>Scheduled Departure Time</td>
+</tr>
+<tr class="row-even"><td>T</td>
+<td>Scheduled Arrival Time</td>
+</tr>
+<tr class="row-odd"><td>U</td>
+<td>Scheduled Pickup Time</td>
+</tr>
+<tr class="row-even"><td>V</td>
+<td>Actual Unloading Started</td>
+</tr>
+<tr class="row-odd"><td>X</td>
+<td>Scheduled Delivery Time</td>
+</tr>
+<tr class="row-even"><td>Y</td>
+<td>Requested Pickup Time</td>
+</tr>
+<tr class="row-odd"><td>Z</td>
+<td>Requested Delivery Time</td>
 </tr>
 </tbody>
 </table>
+<p>Source: ASC-X12 Data Element 176 - Time Qualifier.</p>
 </div>
 
 
@@ -125,10 +144,10 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="D_freightpay.html" title="Freight Payment codes"
+          <a href="D_transport.html" title="Transportation Method codes"
              >next</a></li>
         <li class="right" >
-          <a href="D_date.html" title="Date Qualifier codes"
+          <a href="D_status.html" title="Document Status Codes"
              >previous</a> |</li>
         <li><a href="index.html">WARES Codes 1.0 documentation</a> &raquo;</li> 
       </ul>
