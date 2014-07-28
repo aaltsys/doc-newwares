@@ -53,7 +53,7 @@ contain multiple values. Columns are defined in the table following.
 +------------------+-----+--------+------------------------------+
 | FREIGHT_PAY      | C   | CODE   | :ref:`codes:freightpay-list` |
 +------------------+-----+--------+------------------------------+
-| TRANSPORT_MODE   | C   | CODE   | :ref:`codes:transport-list`  |             
+| TRANSPORT_MODE   | C   | CODE   | :ref:`codes:transport-list`  |
 +------------------+-----+--------+------------------------------+
 | LOADING_OPTION   | C   | CODE   | :ref:`codes:loading-list`    |
 +------------------+-----+--------+------------------------------+
