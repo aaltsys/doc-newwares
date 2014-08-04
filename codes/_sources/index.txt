@@ -36,6 +36,8 @@ Document Entry Lists
 | :ref:`dtm-list`
 | :ref:`status-list`
 
+Return to :ref:`master:index`
+
 .. toctree::
    :hidden:
    :maxdepth: 1

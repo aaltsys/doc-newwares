@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Document Head Columns &mdash; WARES Resources 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="WARES Resources 1.0 documentation" href="index.html" />
+    <link rel="next" title="Transaction Lines Columns" href="05_trlines.html" />
+    <link rel="prev" title="WARES Documentation Resources" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="05_trlines.html" title="Transaction Lines Columns"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="index.html" title="WARES Documentation Resources"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">WARES Resources 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">WARES Documentation Resources</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="05_trlines.html"
+                        title="next chapter">Transaction Lines Columns</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/04_dochead.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="document-head-columns">
+<span id="col-dochead"></span><h1>Document Head Columns<a class="headerlink" href="#document-head-columns" title="Permalink to this headline">¶</a></h1>
+<p>Data entries in the document head occur once per transaction. Some entries may
+contain multiple values. Columns are defined in the table following.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="8%" />
+<col width="13%" />
+<col width="49%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">COLUMN NAME</th>
+<th class="head">M</th>
+<th class="head">TYPE</th>
+<th class="head">CODE VALUES</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>DOCUMENT TYPE</td>
+<td>M</td>
+<td>CODE</td>
+<td><em class="xref std std-ref">codes:type-list</em></td>
+</tr>
+<tr class="row-odd"><td>DOCUMENT ID</td>
+<td>M</td>
+<td>SEQ</td>
+<td>SEQ KEY</td>
+</tr>
+<tr class="row-even"><td>REVISION</td>
+<td>M</td>
+<td>SEQ</td>
+<td>KEY PART</td>
+</tr>
+<tr class="row-odd"><td>STATUS</td>
+<td>M</td>
+<td>CODE</td>
+<td><em class="xref std std-ref">codes:status-list</em></td>
+</tr>
+<tr class="row-even"><td>DATE/TIME</td>
+<td>M</td>
+<td>DT</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ACCOUNT</td>
+<td>M</td>
+<td>F-KEY</td>
+<td>ACCOUNTS</td>
+</tr>
+<tr class="row-even"><td>BUILDING</td>
+<td>M</td>
+<td>F-KEY</td>
+<td>ADDRESSES*B</td>
+</tr>
+<tr class="row-odd"><td>REFERENCE_CODE</td>
+<td>A-C</td>
+<td>CODE</td>
+<td><em class="xref std std-ref">codes:reference-list</em></td>
+</tr>
+<tr class="row-even"><td>REFERENCE</td>
+<td>A-CR</td>
+<td>STRING</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ADDRESS_CODE</td>
+<td>A-C</td>
+<td>CODE</td>
+<td>ADDRESS LIST</td>
+</tr>
+<tr class="row-even"><td>ADDRESS</td>
+<td>A-CR</td>
+<td>F-KEY</td>
+<td>ADDRESSES</td>
+</tr>
+<tr class="row-odd"><td>CONTACT</td>
+<td>O</td>
+<td>STRING</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>CARRIER_CODE</td>
+<td>O</td>
+<td>F-KEY</td>
+<td>ADDRESSES*CA</td>
+</tr>
+<tr class="row-odd"><td>ROUTE</td>
+<td>O</td>
+<td>TEXT</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>FREIGHT_PAY</td>
+<td>C</td>
+<td>CODE</td>
+<td><em class="xref std std-ref">codes:freightpay-list</em></td>
+</tr>
+<tr class="row-odd"><td>TRANSPORT_METHOD</td>
+<td>C</td>
+<td>CODE</td>
+<td><em class="xref std std-ref">codes:transport-list</em></td>
+</tr>
+<tr class="row-even"><td>LOADING_OPTION</td>
+<td>C</td>
+<td>CODE</td>
+<td><em class="xref std std-ref">codes:loading-list</em></td>
+</tr>
+<tr class="row-odd"><td>VEHICLE_CODE</td>
+<td>A-C</td>
+<td>CODE</td>
+<td><em class="xref std std-ref">codes:vehicle-list</em></td>
+</tr>
+<tr class="row-even"><td>VEHICLE_NUMBER</td>
+<td>A-CR</td>
+<td>STRING</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>DATE_CODE</td>
+<td>A-C</td>
+<td>CODE</td>
+<td><em class="xref std std-ref">codes:date-list</em></td>
+</tr>
+<tr class="row-even"><td>DATE</td>
+<td>A-CR</td>
+<td>DATE</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>TIME_CODE</td>
+<td>A-C</td>
+<td>CODE</td>
+<td><em class="xref std std-ref">codes:time-list</em></td>
+</tr>
+<tr class="row-even"><td>TIME</td>
+<td>A-CR</td>
+<td>TIME</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>TEMPERATURE_CODE</td>
+<td>A-C</td>
+<td>CODE</td>
+<td><em class="xref std std-ref">codes:temperature-list</em></td>
+</tr>
+<tr class="row-even"><td>TEMPERATURE</td>
+<td>A-CR</td>
+<td>INT</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>QUANTITY_CODE</td>
+<td>A-C</td>
+<td>CODE</td>
+<td>QUANTITY LIST</td>
+</tr>
+<tr class="row-even"><td>QUANTITY</td>
+<td>A-CR</td>
+<td>FLOAT</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>MESSAGE_CODE</td>
+<td>A-C</td>
+<td>CODE</td>
+<td>MESSAGE LIST</td>
+</tr>
+<tr class="row-even"><td>MESSAGE</td>
+<td>A-CR</td>
+<td>TEXT</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="05_trlines.html" title="Transaction Lines Columns"
+             >next</a></li>
+        <li class="right" >
+          <a href="index.html" title="WARES Documentation Resources"
+             >previous</a> |</li>
+        <li><a href="index.html">WARES Resources 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Gerald Lovel.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b3.
+    </div>
+  </body>
+</html>

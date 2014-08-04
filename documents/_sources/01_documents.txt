@@ -18,71 +18,10 @@ repeating transaction line detail.
 Header Section
 =============================
 
-Data entries in the document head occur once per transaction. Some entries may
-contain multiple values. Columns are defined in the table following.
+WARES document head sections contain a variety of information as shown at 
+:ref:`resources:col-dochead`.
 
-
-+------------------+-----+--------+------------------------------+
-| COLUMN NAME      |  M  | TYPE   | CODE VALUES                  |
-+==================+=====+========+==============================+
-| DOCUMENT TYPE    | M   | CODE   | :ref:`codes:type-list`       |
-+------------------+-----+--------+------------------------------+
-| DOCUMENT ID      | M   | SEQ    | SEQ KEY                      |
-+------------------+-----+--------+------------------------------+
-| STATUS           | M   | CODE   | :ref:`codes:status-list`     |
-+------------------+-----+--------+------------------------------+
-| DATE/TIME        | M   | DT     |                              |
-+------------------+-----+--------+------------------------------+
-| ACCOUNT          | M   | F-KEY  | ACCOUNTS                     |
-+------------------+-----+--------+------------------------------+
-| BUILDING         | M   | F-KEY  | ADDRESSES*B                  |
-+------------------+-----+--------+------------------------------+
-| REFERENCE_CODE   | A-C | CODE   | :ref:`codes:reference-list`  |  
-+------------------+-----+--------+------------------------------+
-| REFERENCE        | A-CR| STRING |                              |
-+------------------+-----+--------+------------------------------+
-| ADDRESS_CODE     | A-C | CODE   | ADDRESS LIST                 |
-+------------------+-----+--------+------------------------------+
-| ADDRESS          | A-CR| F-KEY  | ADDRESSES                    |
-+------------------+-----+--------+------------------------------+
-| CONTACT          | O   | STRING |                              |
-+------------------+-----+--------+------------------------------+
-| CARRIER_CODE     | O   | F-KEY  | ADDRESSES*CA                 |
-+------------------+-----+--------+------------------------------+
-| ROUTE            | O   | TEXT   |                              |
-+------------------+-----+--------+------------------------------+
-| FREIGHT_PAY      | C   | CODE   | :ref:`codes:freightpay-list` |
-+------------------+-----+--------+------------------------------+
-| TRANSPORT_MODE   | C   | CODE   | :ref:`codes:transport-list`  |
-+------------------+-----+--------+------------------------------+
-| LOADING_OPTION   | C   | CODE   | :ref:`codes:loading-list`    |
-+------------------+-----+--------+------------------------------+
-| VEHICLE_CODE     | A-C | CODE   | :ref:`codes:vehicle-list`    |
-+------------------+-----+--------+------------------------------+
-| VEHICLE_NUMBER   | A-CR| STRING |                              |
-+------------------+-----+--------+------------------------------+
-| DATE_CODE        | A-C | CODE   | :ref:`codes:date-list`       |
-+------------------+-----+--------+------------------------------+
-| DATE             | A-CR| DATE   |                              |
-+------------------+-----+--------+------------------------------+
-| TIME_CODE        | A-C | CODE   | :ref:`codes:time-list`       |
-+------------------+-----+--------+------------------------------+
-| TIME             | A-CR| TIME   |                              |
-+------------------+-----+--------+------------------------------+
-| TEMPERATURE_CODE | A-C | CODE   | :ref:`codes:temperature-list`|
-+------------------+-----+--------+------------------------------+
-| TEMPERATURE      | A-CR| INT    |                              |
-+------------------+-----+--------+------------------------------+
-| QUANTITY_CODE    | A-C | CODE   | QUANTITY LIST                |
-+------------------+-----+--------+------------------------------+
-| QUANTITY         | A-CR| FLOAT  |                              |
-+------------------+-----+--------+------------------------------+
-| MESSAGE_CODE     | A-C | CODE   | MESSAGE LIST                 |
-+------------------+-----+--------+------------------------------+
-| MESSAGE          | A-CR| TEXT   |                              |
-+------------------+-----+--------+------------------------------+
-
-A generic view of all document heading entries follows.
+A generic view of document heading entries follows.
 
 .. image:: _images/documents.png
 
