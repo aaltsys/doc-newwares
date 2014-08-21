@@ -16,8 +16,6 @@ Contents:
    
    [0-9]*
 
-Return to :ref:`master:index`
-
 Indices and tables
 ==================
 
