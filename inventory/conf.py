@@ -330,6 +330,6 @@ epub_copyright = u'2014, Gerald Lovel'
 # Example configuration for intersphinx: refer to the Python standard library.
 
 intersphinx_mapping = {
-   'resources': ('../resources', '../_deploy/resources/objects.inv'),
    'codes': ('../codes', '../_deploy/codes/objects.inv'),
+   'resources': ('../resources', '../_deploy/resources/objects.inv'),
 }
