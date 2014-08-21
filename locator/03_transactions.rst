@@ -1,5 +1,6 @@
 .. _loc-transactions:
 
 #############################
-Transaction Lines
+Locator Transaction Lines
 #############################
+

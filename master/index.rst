@@ -5,8 +5,8 @@
 
 .. _index:
 
-WARES Documentation Master Index
-========================================
+WARES Master Index
+=============================
 
 #. :ref:`inventory:index`.
 #. :ref:`locator:index`.
