@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Date Qualifier codes &mdash; WARES Codes 1.0 documentation</title>
+    <title>Date, Time Qualifier codes &mdash; WARES Codes 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -27,8 +27,8 @@
     <link rel="next" title="Date and Time Tracking codes" href="D_dtm.html" />
     <link rel="prev" title="WARES Codes Table of Contents" href="index.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -40,7 +40,7 @@
         <li><a href="index.html">WARES Codes 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="index.html"
@@ -48,12 +48,14 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="D_dtm.html"
                         title="next chapter">Date and Time Tracking codes</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/D_date.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/D_date.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -72,10 +74,10 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
-  <div class="section" id="date-qualifier-codes">
-<span id="date-list"></span><h1>Date Qualifier codes<a class="headerlink" href="#date-qualifier-codes" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="date-time-qualifier-codes">
+<span id="date-list"></span><h1>Date, Time Qualifier codes<a class="headerlink" href="#date-time-qualifier-codes" title="Permalink to this headline">¶</a></h1>
 <table border="1" class="docutils">
 <colgroup>
 <col width="11%" />
@@ -120,9 +122,55 @@
 <tr class="row-even"><td>39</td>
 <td>Ship Week Of Date</td>
 </tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>2</td>
+<td>Pickup Appointment Scheduled Time</td>
+</tr>
+<tr class="row-odd"><td>3</td>
+<td>Delivery Appointment Scheduled Time</td>
+</tr>
+<tr class="row-even"><td>4</td>
+<td>Pickup Requested Scheduled Time</td>
+</tr>
+<tr class="row-odd"><td>5</td>
+<td>Delivery Requested Scheduled Time</td>
+</tr>
+<tr class="row-even"><td>8</td>
+<td>Actual Pickup Time</td>
+</tr>
+<tr class="row-odd"><td>9</td>
+<td>Actual Delivery Time</td>
+</tr>
+<tr class="row-even"><td>A</td>
+<td>Actual Departure Time</td>
+</tr>
+<tr class="row-odd"><td>S</td>
+<td>Scheduled Departure Time</td>
+</tr>
+<tr class="row-even"><td>T</td>
+<td>Scheduled Arrival Time</td>
+</tr>
+<tr class="row-odd"><td>U</td>
+<td>Scheduled Pickup Time</td>
+</tr>
+<tr class="row-even"><td>V</td>
+<td>Actual Unloading Started</td>
+</tr>
+<tr class="row-odd"><td>X</td>
+<td>Scheduled Delivery Time</td>
+</tr>
+<tr class="row-even"><td>Y</td>
+<td>Requested Pickup Time</td>
+</tr>
+<tr class="row-odd"><td>Z</td>
+<td>Requested Delivery Time</td>
+</tr>
 </tbody>
 </table>
-<p>Source: ASC-X12 Data Element 432 - Date Qualifier.</p>
+<p>Source: ASC-X12 Data Element 432 - Date Qualifier.
+Source: ASC-X12 Data Element 176 - Time Qualifier.</p>
 </div>
 
 
@@ -131,7 +179,7 @@
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -143,9 +191,9 @@
         <li><a href="index.html">WARES Codes 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2014, Gerald Lovel.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b1.
     </div>
   </body>
 </html>
