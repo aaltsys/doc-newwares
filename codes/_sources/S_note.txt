@@ -1,7 +1,7 @@
-.. _msg-list:
+.. _note-list:
 
 #############################
-Document messages
+Document Note & Message Codes
 #############################
 
 (to be done)
