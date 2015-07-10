@@ -28,7 +28,7 @@ Product Setup Code Lists
 | :ref:`per-list`
 | :ref:`freight-list`
 | :ref:`group-list`
-| :ref:`msg-list`
+| :ref:`note-list`
 
 Document Entry Lists
 =============================
