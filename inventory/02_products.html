@@ -196,21 +196,35 @@
 <td>LB</td>
 <td>L4</td>
 </tr>
-<tr class="row-even"><td>INNER_UOM</td>
+<tr class="row-even"><td>DIM_UM</td>
+<td>TP</td>
+<td><a class="reference external" href="../codes/P_code-dim.html#dim-list" title="(in WARES Codes v1.0)"><em>Units of dimension</em></a></td>
+<td>M</td>
+<td>CF</td>
+<td>L4</td>
+</tr>
+<tr class="row-odd"><td>INNER_UOM</td>
 <td>TP</td>
 <td><a class="reference external" href="../codes/P_code-uom.html#uom-list" title="(in WARES Codes v1.0)"><em>Units of Measure</em></a></td>
 <td>O</td>
 <td>(notes)</td>
 <td>L4</td>
 </tr>
-<tr class="row-odd"><td>INNER_COUNT</td>
+<tr class="row-even"><td>INNER_COUNT</td>
 <td>N.0</td>
 <td>&nbsp;</td>
 <td>O</td>
 <td>&nbsp;</td>
 <td>R6</td>
 </tr>
-<tr class="row-even"><td>INNER_WEIGHT</td>
+<tr class="row-odd"><td>INNER_WEIGHT</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>R6</td>
+</tr>
+<tr class="row-even"><td>INNER_DIM</td>
 <td>N.4</td>
 <td>&nbsp;</td>
 <td>O</td>
@@ -245,6 +259,34 @@
 <td>&nbsp;</td>
 <td>R6</td>
 </tr>
+<tr class="row-odd"><td>CONTENT_DIM</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>R6</td>
+</tr>
+<tr class="row-even"><td>C_LONG</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>R6</td>
+</tr>
+<tr class="row-odd"><td>C_WIDE</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>R6</td>
+</tr>
+<tr class="row-even"><td>C_HIGH</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>R6</td>
+</tr>
 <tr class="row-odd"><td>UNIT_UOM</td>
 <td>TP</td>
 <td><a class="reference external" href="../codes/P_code-uom.html#uom-list" title="(in WARES Codes v1.0)"><em>Units of Measure</em></a></td>
@@ -266,29 +308,6 @@
 <td>&nbsp;</td>
 <td>R8</td>
 </tr>
-<tr class="row-even"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Dimension Options</td>
-</tr>
-<tr class="row-odd"><td>DIM_UM</td>
-<td>TP</td>
-<td><a class="reference external" href="../codes/P_code-dim.html#dim-list" title="(in WARES Codes v1.0)"><em>Units of dimension</em></a></td>
-<td>M</td>
-<td>CF</td>
-<td>L4</td>
-</tr>
-<tr class="row-even"><td>INNER_DIM</td>
-<td>N.4</td>
-<td>&nbsp;</td>
-<td>O</td>
-<td>&nbsp;</td>
-<td>R6</td>
-</tr>
-<tr class="row-odd"><td>CONTENT_DIM</td>
-<td>N.4</td>
-<td>&nbsp;</td>
-<td>O</td>
-<td>&nbsp;</td>
-<td>R6</td>
-</tr>
 <tr class="row-even"><td>UNIT_DIM</td>
 <td>N.4</td>
 <td>&nbsp;</td>
@@ -296,134 +315,113 @@
 <td>&nbsp;</td>
 <td>R8</td>
 </tr>
-<tr class="row-odd"><td>C_LONG</td>
-<td>N.4</td>
-<td>&nbsp;</td>
-<td>O</td>
-<td>&nbsp;</td>
-<td>R6</td>
-</tr>
-<tr class="row-even"><td>C_WIDE</td>
-<td>N.4</td>
-<td>&nbsp;</td>
-<td>O</td>
-<td>&nbsp;</td>
-<td>R6</td>
-</tr>
-<tr class="row-odd"><td>C_HIGH</td>
-<td>N.4</td>
-<td>&nbsp;</td>
-<td>O</td>
-<td>&nbsp;</td>
-<td>R6</td>
-</tr>
-<tr class="row-even"><td>UNIT_STACK</td>
+<tr class="row-odd"><td>UNIT_STACK</td>
 <td>N.0</td>
 <td>&nbsp;</td>
 <td>O</td>
 <td>&nbsp;</td>
 <td>R2</td>
 </tr>
-<tr class="row-odd"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Location Entries</td>
+<tr class="row-even"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Location Entries</td>
 </tr>
-<tr class="row-even"><td>ABC</td>
+<tr class="row-odd"><td>ABC</td>
 <td>TP</td>
 <td><a class="reference external" href="../codes/L_abc.html#abc-list" title="(in WARES Codes v1.0)"><em>Product turnover rating</em></a></td>
 <td>O</td>
 <td>&nbsp;</td>
 <td>L2</td>
 </tr>
-<tr class="row-odd"><td>MIX</td>
+<tr class="row-even"><td>MIX</td>
 <td>TP</td>
 <td><a class="reference external" href="../codes/L_mix.html#mix-list" title="(in WARES Codes v1.0)"><em>Unit / Location mixing</em></a></td>
 <td>O</td>
 <td>&nbsp;</td>
 <td>L4</td>
 </tr>
-<tr class="row-even"><td>ZONE</td>
+<tr class="row-odd"><td>ZONE</td>
 <td>TP</td>
 <td><a class="reference external" href="../codes/L_zone.html#zone-list" title="(in WARES Codes v1.0)"><em>Storage zone</em></a></td>
 <td>O</td>
 <td>&nbsp;</td>
 <td>L4</td>
 </tr>
-<tr class="row-odd"><td>SLOT</td>
+<tr class="row-even"><td>SLOT</td>
 <td>A</td>
 <td>LOCATIONS</td>
 <td>O</td>
 <td>&nbsp;</td>
 <td>L10</td>
 </tr>
-<tr class="row-even"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Valuation Entries</td>
+<tr class="row-odd"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Valuation Entries</td>
 </tr>
-<tr class="row-odd"><td>RATE</td>
+<tr class="row-even"><td>RATE</td>
 <td>A</td>
 <td>RATES</td>
 <td>O</td>
 <td>&nbsp;</td>
 <td>L8</td>
 </tr>
-<tr class="row-even"><td>VALUEPER</td>
+<tr class="row-odd"><td>VALUEPER</td>
 <td>TP</td>
 <td><a class="reference external" href="../codes/S_per.html#per-list" title="(in WARES Codes v1.0)"><em>Rating and Valuation Per Unit</em></a></td>
 <td>O</td>
 <td>&nbsp;</td>
 <td>L4</td>
 </tr>
-<tr class="row-odd"><td>VALUE</td>
+<tr class="row-even"><td>VALUE</td>
 <td>N.2</td>
 <td>&nbsp;</td>
 <td>O</td>
 <td>&nbsp;</td>
 <td>R8</td>
 </tr>
-<tr class="row-even"><td>COSTPER</td>
+<tr class="row-odd"><td>COSTPER</td>
 <td>TP</td>
 <td><a class="reference external" href="../codes/S_per.html#per-list" title="(in WARES Codes v1.0)"><em>Rating and Valuation Per Unit</em></a></td>
 <td>O</td>
 <td>&nbsp;</td>
 <td>L4</td>
 </tr>
-<tr class="row-odd"><td>COST</td>
+<tr class="row-even"><td>COST</td>
 <td>N.2</td>
 <td>&nbsp;</td>
 <td>O</td>
 <td>&nbsp;</td>
 <td>R8</td>
 </tr>
-<tr class="row-even"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Transportation Entries</td>
+<tr class="row-odd"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Transportation Entries</td>
 </tr>
-<tr class="row-odd"><td>FREIGHT_CODE</td>
+<tr class="row-even"><td>FREIGHT_CODE</td>
 <td>TP/A</td>
 <td><a class="reference external" href="../codes/S_freight.html#freight-list" title="(in WARES Codes v1.0)"><em>Freight classifications</em></a></td>
 <td>O</td>
 <td>&nbsp;</td>
 <td>L4</td>
 </tr>
-<tr class="row-even"><td>FREIGHT_CLASS</td>
+<tr class="row-odd"><td>FREIGHT_CLASS</td>
 <td>AN/A</td>
 <td>&nbsp;</td>
 <td>O</td>
 <td>&nbsp;</td>
 <td>L10</td>
 </tr>
-<tr class="row-odd"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Classification Options</td>
+<tr class="row-even"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Classification Options</td>
 </tr>
-<tr class="row-even"><td>NOTE_CODE</td>
+<tr class="row-odd"><td>NOTE_CODE</td>
 <td>TP/A</td>
 <td><a class="reference external" href="../codes/S_note.html#note-list" title="(in WARES Codes v1.0)"><em>Document Note &amp; Message Codes</em></a></td>
 <td>O</td>
 <td>&nbsp;</td>
 <td>L4</td>
 </tr>
-<tr class="row-odd"><td>NOTE</td>
+<tr class="row-even"><td>NOTE</td>
 <td>AN/A</td>
 <td>&nbsp;</td>
 <td>O</td>
 <td>&nbsp;</td>
 <td>L80</td>
 </tr>
-<tr class="row-even"><td>NOTE_APPLY</td>
+<tr class="row-odd"><td>NOTE_APPLY</td>
 <td>AN/A</td>
 <td>&nbsp;</td>
 <td>O</td>
