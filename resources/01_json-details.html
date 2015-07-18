@@ -1,0 +1,493 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>JSON DOSWARES Export DETAILS &mdash; WARES Resources 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="WARES Resources 1.0 documentation" href="index.html" />
+    <link rel="next" title="JSON DOSWARES Export DOCUMENT" href="02_json-document.html" />
+    <link rel="prev" title="WARES Documentation Resources" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="02_json-document.html" title="JSON DOSWARES Export DOCUMENT"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="index.html" title="WARES Documentation Resources"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">WARES Resources 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">JSON DOSWARES Export DETAILS</a><ul>
+<li><a class="reference internal" href="#details">DETAILS</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">WARES Documentation Resources</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="02_json-document.html"
+                        title="next chapter">JSON DOSWARES Export DOCUMENT</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/01_json-details.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="json-doswares-export-details">
+<span id="export-details"></span><h1>JSON DOSWARES Export DETAILS<a class="headerlink" href="#json-doswares-export-details" title="Permalink to this headline">¶</a></h1>
+<p>The DOS WARES export utility writes lot details in sequentially numbered JSON
+transaction files. The export definition with JSON names and corresponding
+WARES dictionary columns which provide data conversion between record layouts
+in DOS WARES and webWARES are documented in the following table.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Column F/S/J indicates if a WARES data field (F), a synthetic field (S), or
+a synthetic column specific to the JSON export (J). Column S/M indicates
+whether a column is single-valued (S) or array multivalue (M). Column A/N
+refers to whether the data will be quoted string (A) or unquoted numeric (N).</p>
+</div>
+<div class="section" id="details">
+<h2>DETAILS<a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="25%" />
+<col width="7%" />
+<col width="7%" />
+<col width="30%" />
+<col width="22%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">F/S/J</th>
+<th class="head">JSON NAME</th>
+<th class="head">M/S</th>
+<th class="head">A/N</th>
+<th class="head">DICTIONARY (&#8220;value&#8221;)</th>
+<th class="head">COMMANDS</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>N/A</td>
+<td>keys</td>
+<td colspan="4">&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>N/A</td>
+<td>documentType</td>
+<td>S</td>
+<td>A</td>
+<td>&#8220;IB&#8221;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>document</td>
+<td>S</td>
+<td>A</td>
+<td>&#64;ID</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>N/A</td>
+<td>revision</td>
+<td>S</td>
+<td>A</td>
+<td>&#8220;00&#8221;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>postDate</td>
+<td>S</td>
+<td>A</td>
+<td>DATE</td>
+<td>(D-JS)</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>account</td>
+<td>S</td>
+<td>A</td>
+<td>ACCOUNT</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>product</td>
+<td>S</td>
+<td>A</td>
+<td>PRODUCT</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>N/A</td>
+<td>variety</td>
+<td>S</td>
+<td>A</td>
+<td>&#8220;null&#8221;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>N/A</td>
+<td>controlCode</td>
+<td>S</td>
+<td>A</td>
+<td>&#8220;NA&#8221;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>control</td>
+<td>S</td>
+<td>A</td>
+<td>CONTROL</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>description</td>
+<td>T</td>
+<td>A</td>
+<td>DESCRIPTION</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>S</td>
+<td>unitUom</td>
+<td>S</td>
+<td>A</td>
+<td>UOM_STORE</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>J</td>
+<td>unitNet</td>
+<td>S</td>
+<td>N</td>
+<td>PROD_WT_NET</td>
+<td>(MD2L)</td>
+</tr>
+<tr class="row-even"><td>J</td>
+<td>unitTare</td>
+<td>S</td>
+<td>N</td>
+<td>PROD_WT_TARE</td>
+<td>(MD2L)</td>
+</tr>
+<tr class="row-odd"><td>S</td>
+<td>contentsUom</td>
+<td>S</td>
+<td>A</td>
+<td>UOM_PIECE (&#8220;EA&#8221;)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>contentsFactor</td>
+<td>S</td>
+<td>N</td>
+<td>FACT_STORE</td>
+<td>(MD0)</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>contentsNet</td>
+<td>S</td>
+<td>N</td>
+<td>FACT_WEIGHT</td>
+<td>(MD2L)</td>
+</tr>
+<tr class="row-even"><td>J</td>
+<td>contentsTare</td>
+<td>S</td>
+<td>N</td>
+<td>FACT_TARE</td>
+<td>(MD2L)</td>
+</tr>
+<tr class="row-odd"><td>J</td>
+<td>innersUom</td>
+<td>S</td>
+<td>A</td>
+<td>UOM_INNER</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>J</td>
+<td>innersFactor</td>
+<td>S</td>
+<td>N</td>
+<td>PROD_PACK</td>
+<td>(MD0)</td>
+</tr>
+<tr class="row-odd"><td>J</td>
+<td>innersWeight</td>
+<td>S</td>
+<td>N</td>
+<td>INNERS_WEIGHT</td>
+<td>(MD2L)</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>N/A</td>
+<td>detail</td>
+<td colspan="4">&nbsp;</td>
+</tr>
+<tr class="row-even"><td>J</td>
+<td>sequenceKey</td>
+<td>M</td>
+<td>A</td>
+<td>SERIAL_LIST</td>
+<td>&lt;,,1&gt;</td>
+</tr>
+<tr class="row-odd"><td>J</td>
+<td>unitIdentifier</td>
+<td>M</td>
+<td>A</td>
+<td>SERIAL_LIST</td>
+<td>&lt;,,2&gt;</td>
+</tr>
+<tr class="row-even"><td>J</td>
+<td>transactionType</td>
+<td>M</td>
+<td>A</td>
+<td>SERIAL_LIST</td>
+<td>&lt;,,3&gt;</td>
+</tr>
+<tr class="row-odd"><td>J</td>
+<td>transaction</td>
+<td>M</td>
+<td>A</td>
+<td>SERIAL_LIST</td>
+<td>&lt;,,4&gt;</td>
+</tr>
+<tr class="row-even"><td>J</td>
+<td>lineKey</td>
+<td>M</td>
+<td>A</td>
+<td>SERIAL_LIST</td>
+<td>&lt;,,5&gt;</td>
+</tr>
+<tr class="row-odd"><td>J</td>
+<td>status</td>
+<td>M</td>
+<td>A</td>
+<td>SERIAL_LIST</td>
+<td>&lt;,,6&gt;</td>
+</tr>
+<tr class="row-even"><td>J</td>
+<td>postDate</td>
+<td>M</td>
+<td>A</td>
+<td>SERIAL_LIST</td>
+<td>&lt;,,7&gt; (D-JS)</td>
+</tr>
+<tr class="row-odd"><td>J</td>
+<td>condition</td>
+<td>M</td>
+<td>A</td>
+<td>SERIAL_LIST</td>
+<td>&lt;,,8&gt;</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>product</td>
+<td>S</td>
+<td>A</td>
+<td>PRODUCT</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>N/A</td>
+<td>variety</td>
+<td>S</td>
+<td>A</td>
+<td>&#8220;null&#8221;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>N/A</td>
+<td>controlCode</td>
+<td>S</td>
+<td>A</td>
+<td>&#8220;NA&#8221;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>control</td>
+<td>S</td>
+<td>A</td>
+<td>CONTROL</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>J</td>
+<td>location</td>
+<td>M</td>
+<td>A</td>
+<td>SERIAL_LIST</td>
+<td>&lt;,,13&gt;</td>
+</tr>
+<tr class="row-odd"><td>J</td>
+<td>description</td>
+<td>M</td>
+<td>A</td>
+<td>SERIAL_LIST</td>
+<td>&lt;,,14&gt;</td>
+</tr>
+<tr class="row-even"><td>J</td>
+<td>unitUom</td>
+<td>M</td>
+<td>A</td>
+<td>SERIAL_LIST</td>
+<td>&lt;,,15&gt;</td>
+</tr>
+<tr class="row-odd"><td>J</td>
+<td>unitNet</td>
+<td>M</td>
+<td>N</td>
+<td>SERIAL_LIST</td>
+<td>&lt;,,16&gt; (MD2L)</td>
+</tr>
+<tr class="row-even"><td>J</td>
+<td>unitTare</td>
+<td>M</td>
+<td>N</td>
+<td>SERIAL_LIST</td>
+<td>&lt;,,17&gt; (MD2L)</td>
+</tr>
+<tr class="row-odd"><td>J</td>
+<td>contents</td>
+<td>M</td>
+<td>N</td>
+<td>SERIAL_LIST</td>
+<td>&lt;,,18&gt; (MD0)</td>
+</tr>
+<tr class="row-even"><td>J</td>
+<td>contentsReserve</td>
+<td>M</td>
+<td>N</td>
+<td>SERIAL_LIST</td>
+<td>&lt;,,19&gt; (MD0)</td>
+</tr>
+<tr class="row-odd"><td>J</td>
+<td>contentsUom</td>
+<td>M</td>
+<td>A</td>
+<td>SERIAL_LIST</td>
+<td>&lt;,,20&gt;</td>
+</tr>
+<tr class="row-even"><td>J</td>
+<td>contentsNet</td>
+<td>M</td>
+<td>N</td>
+<td>SERIAL_LIST</td>
+<td>&lt;,,21&gt; (MD2L)</td>
+</tr>
+<tr class="row-odd"><td>J</td>
+<td>contentsTare</td>
+<td>M</td>
+<td>N</td>
+<td>SERIAL_LIST</td>
+<td>&lt;,,22&gt; (MD2L)</td>
+</tr>
+<tr class="row-even"><td>J</td>
+<td>inners</td>
+<td>M</td>
+<td>N</td>
+<td>SERIAL_LIST</td>
+<td>&lt;,,23&gt; (MD0)</td>
+</tr>
+<tr class="row-odd"><td>J</td>
+<td>innersReserve</td>
+<td>M</td>
+<td>N</td>
+<td>SERIAL_LIST</td>
+<td>&lt;,,24&gt; (MD0)</td>
+</tr>
+<tr class="row-even"><td>J</td>
+<td>innersUom</td>
+<td>M</td>
+<td>A</td>
+<td>SERIAL_LIST</td>
+<td>&lt;,,25&gt;</td>
+</tr>
+<tr class="row-odd"><td>J</td>
+<td>innersWeight</td>
+<td>M</td>
+<td>N</td>
+<td>SERIAL_LIST</td>
+<td>&lt;,,26&gt; (MD2L)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="02_json-document.html" title="JSON DOSWARES Export DOCUMENT"
+             >next</a></li>
+        <li class="right" >
+          <a href="index.html" title="WARES Documentation Resources"
+             >previous</a> |</li>
+        <li><a href="index.html">WARES Resources 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Gerald Lovel.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b1.
+    </div>
+  </body>
+</html>

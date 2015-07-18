@@ -1,0 +1,743 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>JSON DOSWARES Export MASTER &mdash; WARES Resources 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="WARES Resources 1.0 documentation" href="index.html" />
+    <link rel="next" title="Document Head Columns" href="04_dochead.html" />
+    <link rel="prev" title="JSON DOSWARES Export DOCUMENT" href="02_json-document.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="04_dochead.html" title="Document Head Columns"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="02_json-document.html" title="JSON DOSWARES Export DOCUMENT"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">WARES Resources 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">JSON DOSWARES Export MASTER</a><ul>
+<li><a class="reference internal" href="#addresses">ADDRESSES</a></li>
+<li><a class="reference internal" href="#accounts">ACCOUNTS</a></li>
+<li><a class="reference internal" href="#products">PRODUCTS</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="02_json-document.html"
+                        title="previous chapter">JSON DOSWARES Export DOCUMENT</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="04_dochead.html"
+                        title="next chapter">Document Head Columns</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/03_json-master.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="json-doswares-export-master">
+<span id="export-master"></span><h1>JSON DOSWARES Export MASTER<a class="headerlink" href="#json-doswares-export-master" title="Permalink to this headline">¶</a></h1>
+<p>The DOS WARES export utility writes masterfiles in JSON stream files. The files
+for ADDRESSES, ACCOUNTS, and PRODUCTS are documented below.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Column F/S/J indicates if a WARES data field (F), a synthetic field (S), or
+a synthetic column specific to the JSON export (J). Column S/M indicates
+whether a column is single-valued (S) or array multivalue (M). Column A/N
+refers to whether the data will be quoted string (A) or unquoted numeric (N).</p>
+</div>
+<div class="section" id="addresses">
+<span id="export-addresses"></span><h2>ADDRESSES<a class="headerlink" href="#addresses" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="25%" />
+<col width="7%" />
+<col width="7%" />
+<col width="30%" />
+<col width="22%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">F/S/J</th>
+<th class="head">JSON NAME</th>
+<th class="head">M/S</th>
+<th class="head">A/N</th>
+<th class="head">DICTIONARY (&#8220;value&#8221;)</th>
+<th class="head">COMMANDS</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>N/A</td>
+<td>keys</td>
+<td colspan="4">&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>addressType</td>
+<td>M</td>
+<td>A</td>
+<td>TYPE</td>
+<td>&lt;,&gt;</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>address</td>
+<td>S</td>
+<td>A</td>
+<td>&#64;ID</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>account</td>
+<td>S</td>
+<td>A</td>
+<td>ACCOUNT</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>name</td>
+<td>S</td>
+<td>A</td>
+<td>NAME</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>street</td>
+<td>M</td>
+<td>A</td>
+<td>STREET</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>city</td>
+<td>S</td>
+<td>A</td>
+<td>CITY</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>state</td>
+<td>S</td>
+<td>A</td>
+<td>STATE</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>postalCode</td>
+<td>S</td>
+<td>A</td>
+<td>ZIP</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>country</td>
+<td>S</td>
+<td>A</td>
+<td>COUNTRY</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>phone</td>
+<td>M</td>
+<td>A</td>
+<td>PHONE</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>contact</td>
+<td>M</td>
+<td>A</td>
+<td>CONTACT</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>salutation</td>
+<td>S</td>
+<td>A</td>
+<td>SALUTATION</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>position</td>
+<td>S</td>
+<td>A</td>
+<td>POSITION</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>email</td>
+<td>S</td>
+<td>A</td>
+<td>EMAIL</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>freightPay</td>
+<td>S</td>
+<td>A</td>
+<td>FREIGHT_PAY</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>fob</td>
+<td>S</td>
+<td>A</td>
+<td>FOB</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>cod</td>
+<td>S</td>
+<td>A</td>
+<td>COD</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>link</td>
+<td>s</td>
+<td>A</td>
+<td>LINK</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>userData</td>
+<td>S</td>
+<td>A</td>
+<td>USERDATA</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="accounts">
+<span id="export-accounts"></span><h2>ACCOUNTS<a class="headerlink" href="#accounts" title="Permalink to this headline">¶</a></h2>
+<p>(To be done)</p>
+</div>
+<div class="section" id="products">
+<span id="export-products"></span><h2>PRODUCTS<a class="headerlink" href="#products" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="25%" />
+<col width="7%" />
+<col width="7%" />
+<col width="30%" />
+<col width="22%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">F/S/J</th>
+<th class="head">JSON NAME</th>
+<th class="head">M/S</th>
+<th class="head">A/N</th>
+<th class="head">DICTIONARY (&#8220;value&#8221;)</th>
+<th class="head">COMMANDS</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>N/A</td>
+<td>keys</td>
+<td colspan="4">&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>account</td>
+<td>S</td>
+<td>A</td>
+<td>ACCOUNT</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>identifier</td>
+<td>S</td>
+<td>A</td>
+<td>&#64;ID</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>N/A</td>
+<td>variety</td>
+<td>S</td>
+<td>A</td>
+<td>&#8220;null&#8221;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>N/A</td>
+<td>identities</td>
+<td colspan="4">&nbsp;</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>productCode</td>
+<td>M</td>
+<td>A</td>
+<td>ID_QUAL (&#8220;null&#8217;)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>product</td>
+<td>M</td>
+<td>A</td>
+<td>IDENTIFIER (&#8220;null&#8221;)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>hazardous</td>
+<td>S</td>
+<td>A</td>
+<td>HAZARD (&#8220;null&#8221;)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>description</td>
+<td>S</td>
+<td>A</td>
+<td>DESCRIPTION (&#8220;null&#8221;)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>J</td>
+<td>packaging</td>
+<td>S</td>
+<td>A</td>
+<td>PACKAGE_DESC (&#8220;null&#8221;)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>J</td>
+<td>shippingName</td>
+<td>S</td>
+<td>A</td>
+<td>SHIPPING_NAME &#8220;null&#8221;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>N/A</td>
+<td>category</td>
+<td colspan="4">&nbsp;</td>
+</tr>
+<tr class="row-even"><td>J</td>
+<td>groupCode</td>
+<td>M</td>
+<td>A</td>
+<td>GROUP_CODE</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>J</td>
+<td>grouping</td>
+<td>M</td>
+<td>A</td>
+<td>GROUPING</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>N/A</td>
+<td>dimensions</td>
+<td colspan="4">&nbsp;</td>
+</tr>
+<tr class="row-even"><td>N/A</td>
+<td>weightUom</td>
+<td>S</td>
+<td>A</td>
+<td>&#8220;LB&#8221;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>N/A</td>
+<td>dimUom</td>
+<td>S</td>
+<td>A</td>
+<td>&#8220;CF&#8221;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>N/A</td>
+<td>inner</td>
+<td colspan="4">&nbsp;</td>
+</tr>
+<tr class="row-even"><td>J</td>
+<td>innerUom</td>
+<td>S</td>
+<td>A</td>
+<td>UOM_INNER</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>J</td>
+<td>innerCount</td>
+<td>S</td>
+<td>N</td>
+<td>COUNT_PIECE</td>
+<td>(MD0)</td>
+</tr>
+<tr class="row-even"><td>J</td>
+<td>innerWeight</td>
+<td>S</td>
+<td>N</td>
+<td>WT_PIECE</td>
+<td>(MD42L)</td>
+</tr>
+<tr class="row-odd"><td>J</td>
+<td>innerSize</td>
+<td>S</td>
+<td>N</td>
+<td>SIZE_PIECE</td>
+<td>(MD42L)</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>N/A</td>
+<td>content</td>
+<td colspan="4">&nbsp;</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>contentUom</td>
+<td>S</td>
+<td>A</td>
+<td>UOM_PIECE</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>contentCount</td>
+<td>S</td>
+<td>N</td>
+<td>FACT_STORE</td>
+<td>(MD0)</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>contentNet</td>
+<td>S</td>
+<td>N</td>
+<td>WT_NET</td>
+<td>(MD2L)</td>
+</tr>
+<tr class="row-odd"><td>J</td>
+<td>contentTare</td>
+<td>S</td>
+<td>N</td>
+<td>WT_CTARE</td>
+<td>(MD2L)</td>
+</tr>
+<tr class="row-even"><td>J</td>
+<td>contentSize</td>
+<td>S</td>
+<td>N</td>
+<td>FACT_VOLUME</td>
+<td>(MD2L)</td>
+</tr>
+<tr class="row-odd"><td>N/A</td>
+<td>contentLong</td>
+<td>S</td>
+<td>N</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>N/A</td>
+<td>contentWide</td>
+<td>S</td>
+<td>N</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>N/A</td>
+<td>contentHigh</td>
+<td>S</td>
+<td>N</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>N/A</td>
+<td>unit</td>
+<td colspan="4">&nbsp;</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>unitUom</td>
+<td>S</td>
+<td>A</td>
+<td>UOM_STORE</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>J</td>
+<td>unitNet</td>
+<td>S</td>
+<td>N</td>
+<td>WT_UNIT</td>
+<td>(MD2L)</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>unitTare</td>
+<td>S</td>
+<td>N</td>
+<td>WT_TARE</td>
+<td>(MD2L)</td>
+</tr>
+<tr class="row-odd"><td>J</td>
+<td>unitSize</td>
+<td>S</td>
+<td>N</td>
+<td>SIZE_UNIT</td>
+<td>(MD2L)</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>unitStack</td>
+<td>S</td>
+<td>N</td>
+<td>STACK</td>
+<td>(MD0)</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>N/A</td>
+<td>locator</td>
+<td colspan="4">&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>abc</td>
+<td>S</td>
+<td>A</td>
+<td>ABC (&#8220;null&#8221;)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>mix</td>
+<td>S</td>
+<td>A</td>
+<td>MIX_LOADS (&#8220;null&#8221;)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>N/A</td>
+<td>zone</td>
+<td>S</td>
+<td>A</td>
+<td>&#8220;null&#8221;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>slot</td>
+<td>S</td>
+<td>A</td>
+<td>SLOT (&#8220;null&#8221;)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>N/A</td>
+<td>valuation</td>
+<td colspan="4">&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>rate</td>
+<td>S</td>
+<td>A</td>
+<td>TARIFF (&#8220;null&#8221;)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>valuePer</td>
+<td>S</td>
+<td>A</td>
+<td>VALUE_PER (&#8220;null&#8221;)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>value</td>
+<td>S</td>
+<td>N</td>
+<td>VALUE (&#8220;null&#8221;)</td>
+<td>(MD2L)</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>costPer</td>
+<td>S</td>
+<td>A</td>
+<td>COST_PER (&#8220;null&#8221;)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>cost</td>
+<td>S</td>
+<td>N</td>
+<td>COST (&#8220;null&#8221;)</td>
+<td>(MD2L)</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>N/A</td>
+<td>freight</td>
+<td colspan="4">&nbsp;</td>
+</tr>
+<tr class="row-even"><td>J</td>
+<td>freightCode</td>
+<td>M</td>
+<td>A</td>
+<td>FREIGHT_CODE</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>J</td>
+<td>freightClass</td>
+<td>M</td>
+<td>A</td>
+<td>FREIGHT_CLASS</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>N/A</td>
+<td>notes</td>
+<td colspan="4">&nbsp;</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>noteCode</td>
+<td>M</td>
+<td>A</td>
+<td>NOTECODE</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>note</td>
+<td>M</td>
+<td>A</td>
+<td>NOTE</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>N/A</td>
+<td>noteApply</td>
+<td>M</td>
+<td>A</td>
+<td>&#8220;null&#8221;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="04_dochead.html" title="Document Head Columns"
+             >next</a></li>
+        <li class="right" >
+          <a href="02_json-document.html" title="JSON DOSWARES Export DOCUMENT"
+             >previous</a> |</li>
+        <li><a href="index.html">WARES Resources 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Gerald Lovel.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b1.
+    </div>
+  </body>
+</html>
