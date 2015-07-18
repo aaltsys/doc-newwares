@@ -55,4 +55,3 @@ data column is categorized within these four information types.
 +------+------------------+-----+--------+------------------+
 |   4  | DESCRIPTION      | O   | TEXT   |                  |
 +------+------------------+-----+--------+------------------+
- 
