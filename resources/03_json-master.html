@@ -267,7 +267,303 @@ refers to whether the data will be quoted string (A) or unquoted numeric (N).</p
 </div>
 <div class="section" id="accounts">
 <span id="export-accounts"></span><h2>ACCOUNTS<a class="headerlink" href="#accounts" title="Permalink to this headline">¶</a></h2>
-<p>(To be done)</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="25%" />
+<col width="7%" />
+<col width="7%" />
+<col width="30%" />
+<col width="22%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">F/S/J</th>
+<th class="head">JSON NAME</th>
+<th class="head">M/S</th>
+<th class="head">A/N</th>
+<th class="head">DICTIONARY (&#8220;value&#8221;)</th>
+<th class="head">COMMANDS</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>N/A</td>
+<td>keys</td>
+<td colspan="4">&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>account</td>
+<td>S</td>
+<td>A</td>
+<td>&#64;ID</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>name</td>
+<td>S</td>
+<td>A</td>
+<td>NAME</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>N/A</td>
+<td>addresses</td>
+<td colspan="4">&nbsp;</td>
+</tr>
+<tr class="row-even"><td>N/A</td>
+<td>addressCode</td>
+<td>S</td>
+<td>A</td>
+<td>&#8220;A&#8221;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>address</td>
+<td>S</td>
+<td>A</td>
+<td>ADDRESS</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>N/A</td>
+<td>addressCode</td>
+<td>S</td>
+<td>A</td>
+<td>&#8220;ST&#8221;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>address</td>
+<td>S</td>
+<td>A</td>
+<td>ADDRESS_ST (&#8220;null&#8221;)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>N/A</td>
+<td>addressCode</td>
+<td>S</td>
+<td>A</td>
+<td>&#8220;BT&#8221;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>address</td>
+<td>S</td>
+<td>A</td>
+<td>ADDRESS_BT (&#8220;null&#8221;)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>N/A</td>
+<td>addressCode</td>
+<td>S</td>
+<td>A</td>
+<td>&#8220;PF&#8221;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>address</td>
+<td>S</td>
+<td>A</td>
+<td>ADDRESS_PF (&#8220;null&#8221;)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>N/A</td>
+<td>billing</td>
+<td colspan="4">&nbsp;</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>terms</td>
+<td>S</td>
+<td>A</td>
+<td>TERMS         (&#8220;30&#8221;)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>invoicing</td>
+<td>S</td>
+<td>A</td>
+<td>INVOICING      (&#8220;0&#8221;)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>receiving</td>
+<td>S</td>
+<td>A</td>
+<td>RECEIVING      (&#8220;F&#8221;)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>freeDays</td>
+<td>S</td>
+<td>A</td>
+<td>FREEDAYS    (&#8220;null&#8221;)</td>
+<td>(MD0)</td>
+</tr>
+<tr class="row-even"><td>N/A</td>
+<td>graceDays</td>
+<td>S</td>
+<td>A</td>
+<td>(&#8220;null&#8221;)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>recurring</td>
+<td>S</td>
+<td>A</td>
+<td>RECURRING      (&#8220;E&#8221;)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>recurMinimum</td>
+<td>S</td>
+<td>A</td>
+<td>RECUR_MIN   (&#8220;null&#8221;)</td>
+<td>(MD2L)</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>recurCalendar</td>
+<td>M</td>
+<td>A</td>
+<td>CLOSE_DATE  (&#8220;null&#8221;)</td>
+<td>(D-JS)</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>recurClose</td>
+<td>M</td>
+<td>A</td>
+<td>PERIOD      (&#8220;null&#8221;)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>recurFlag</td>
+<td>S</td>
+<td>A</td>
+<td>RECUR_FLAG  (&#8220;null&#8221;)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>N/A</td>
+<td>accounting</td>
+<td colspan="4">&nbsp;</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>valueDeclared</td>
+<td>S</td>
+<td>A</td>
+<td>VALUE       (&#8220;null&#8221;)</td>
+<td>(MD2L)</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>valuePer</td>
+<td>S</td>
+<td>A</td>
+<td>VALUE_PER   (&#8220;null&#8221;)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>valueSurcharge</td>
+<td>S</td>
+<td>A</td>
+<td>VALUE_SUR   (&#8220;null&#8221;)</td>
+<td>(MD2L)</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>deferHandling</td>
+<td>S</td>
+<td>A</td>
+<td>DEFER        (&#8221;.50&#8221;)</td>
+<td>(MD2L)</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>N/A</td>
+<td>documents</td>
+<td colspan="4">&nbsp;</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>freightPay</td>
+<td>S</td>
+<td>A</td>
+<td>FREIGHT_PAY    (&#8220;P&#8221;)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>poNumber</td>
+<td>S</td>
+<td>A</td>
+<td>PO_NUMBER   (&#8220;null&#8221;)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>uniqueCheck</td>
+<td>S</td>
+<td>A</td>
+<td>UNIQCODE    (&#8220;null&#8221;)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>N/A</td>
+<td>notes</td>
+<td colspan="4">&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>noteCode</td>
+<td>M</td>
+<td>A</td>
+<td>NOTECODE</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>note</td>
+<td>M</td>
+<td>A</td>
+<td>NOTE</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>N/A</td>
+<td>noteApply</td>
+<td>M</td>
+<td>A</td>
+<td>&#8220;null&#8221;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="products">
 <span id="export-products"></span><h2>PRODUCTS<a class="headerlink" href="#products" title="Permalink to this headline">¶</a></h2>
