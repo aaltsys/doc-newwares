@@ -24,7 +24,6 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="WARES Resources 1.0 documentation" href="index.html" />
-    <link rel="next" title="Document Head Columns" href="04_dochead.html" />
     <link rel="prev" title="JSON DOSWARES Export DOCUMENT" href="02_json-document.html" /> 
   </head>
   <body role="document">
@@ -32,11 +31,8 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="04_dochead.html" title="Document Head Columns"
-             accesskey="N">next</a></li>
-        <li class="right" >
           <a href="02_json-document.html" title="JSON DOSWARES Export DOCUMENT"
-             accesskey="P">previous</a> |</li>
+             accesskey="P">previous</a></li>
         <li><a href="index.html">WARES Resources 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
@@ -47,7 +43,7 @@
 <li><a class="reference internal" href="#">JSON DOSWARES Export MASTER</a><ul>
 <li><a class="reference internal" href="#addresses">ADDRESSES</a></li>
 <li><a class="reference internal" href="#accounts">ACCOUNTS</a></li>
-<li><a class="reference internal" href="#products">PRODUCTS</a></li>
+<li><a class="reference internal" href="#products-masterfile">PRODUCTS Masterfile</a></li>
 </ul>
 </li>
 </ul>
@@ -55,9 +51,6 @@
   <h4>Previous topic</h4>
   <p class="topless"><a href="02_json-document.html"
                         title="previous chapter">JSON DOSWARES Export DOCUMENT</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="04_dochead.html"
-                        title="next chapter">Document Head Columns</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -489,14 +482,14 @@ refers to whether the data will be quoted string (A) or unquoted numeric (N).</p
 <td>S</td>
 <td>A</td>
 <td>VALUE_SUR   (&#8220;null&#8221;)</td>
-<td>(MD2L)</td>
+<td>(MD24L)</td>
 </tr>
 <tr class="row-odd"><td>F</td>
 <td>deferHandling</td>
 <td>S</td>
 <td>A</td>
 <td>DEFER        (&#8221;.50&#8221;)</td>
-<td>(MD2L)</td>
+<td>(MD24L)</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -565,8 +558,8 @@ refers to whether the data will be quoted string (A) or unquoted numeric (N).</p
 </tbody>
 </table>
 </div>
-<div class="section" id="products">
-<span id="export-products"></span><h2>PRODUCTS<a class="headerlink" href="#products" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="products-masterfile">
+<span id="export-products"></span><h2>PRODUCTS Masterfile<a class="headerlink" href="#products-masterfile" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
 <col width="10%" />
@@ -619,60 +612,57 @@ refers to whether the data will be quoted string (A) or unquoted numeric (N).</p
 <td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>N/A</td>
+<td>descriptors</td>
+<td colspan="4">&nbsp;</td>
+</tr>
+<tr class="row-even"><td>N/A</td>
 <td>identities</td>
 <td colspan="4">&nbsp;</td>
 </tr>
-<tr class="row-even"><td>F</td>
+<tr class="row-odd"><td>F</td>
 <td>productCode</td>
 <td>M</td>
 <td>A</td>
-<td>ID_QUAL (&#8220;null&#8217;)</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>F</td>
-<td>product</td>
-<td>M</td>
-<td>A</td>
-<td>IDENTIFIER (&#8220;null&#8221;)</td>
+<td>ID_QUAL     (&#8220;null&#8221;)</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>F</td>
-<td>hazardous</td>
-<td>S</td>
+<td>product</td>
+<td>M</td>
 <td>A</td>
-<td>HAZARD (&#8220;null&#8221;)</td>
+<td>IDENTIFIER  (&#8220;null&#8221;)</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>F</td>
+<td>hazardous</td>
+<td>S</td>
+<td>A</td>
+<td>HAZARD      (&#8220;null&#8221;)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>F</td>
 <td>description</td>
 <td>S</td>
 <td>A</td>
 <td>DESCRIPTION (&#8220;null&#8221;)</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>J</td>
+<tr class="row-odd"><td>J</td>
 <td>packaging</td>
 <td>S</td>
 <td>A</td>
 <td>PACKAGE_DESC (&#8220;null&#8221;)</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>J</td>
+<tr class="row-even"><td>J</td>
 <td>shippingName</td>
 <td>S</td>
 <td>A</td>
 <td>SHIPPING_NAME &#8220;null&#8221;</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
 <tr class="row-odd"><td>N/A</td>
-<td>category</td>
+<td>categories</td>
 <td colspan="4">&nbsp;</td>
 </tr>
 <tr class="row-even"><td>J</td>
@@ -714,51 +704,37 @@ refers to whether the data will be quoted string (A) or unquoted numeric (N).</p
 <td>&#8220;CF&#8221;</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>N/A</td>
+<tr class="row-even"><td>N/A</td>
 <td>inner</td>
 <td colspan="4">&nbsp;</td>
 </tr>
-<tr class="row-even"><td>J</td>
+<tr class="row-odd"><td>J</td>
 <td>innerUom</td>
 <td>S</td>
 <td>A</td>
-<td>UOM_INNER</td>
+<td>UOM_INNER   (&#8220;null&#8221;)</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>J</td>
+<tr class="row-even"><td>J</td>
 <td>innerCount</td>
 <td>S</td>
 <td>N</td>
-<td>COUNT_PIECE</td>
+<td>COUNT_PIECE (&#8220;null&#8221;)</td>
 <td>(MD0)</td>
 </tr>
-<tr class="row-even"><td>J</td>
+<tr class="row-odd"><td>J</td>
 <td>innerWeight</td>
 <td>S</td>
 <td>N</td>
-<td>WT_PIECE</td>
+<td>WT_PIECE    (&#8220;null&#8221;)</td>
 <td>(MD42L)</td>
 </tr>
-<tr class="row-odd"><td>J</td>
+<tr class="row-even"><td>J</td>
 <td>innerSize</td>
 <td>S</td>
 <td>N</td>
-<td>SIZE_PIECE</td>
+<td>SIZE_PIECE  (&#8220;null&#8221;)</td>
 <td>(MD42L)</td>
-</tr>
-<tr class="row-even"><td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>N/A</td>
 <td>content</td>
@@ -768,57 +744,96 @@ refers to whether the data will be quoted string (A) or unquoted numeric (N).</p
 <td>contentUom</td>
 <td>S</td>
 <td>A</td>
-<td>UOM_PIECE</td>
+<td>UOM_PIECE   (&#8220;null&#8221;)</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>F</td>
 <td>contentCount</td>
 <td>S</td>
 <td>N</td>
-<td>FACT_STORE</td>
+<td>FACT_STORE  (&#8220;null&#8221;)</td>
 <td>(MD0)</td>
 </tr>
 <tr class="row-even"><td>F</td>
 <td>contentNet</td>
 <td>S</td>
 <td>N</td>
-<td>WT_NET</td>
+<td>WT_NET      (&#8220;null&#8221;)</td>
 <td>(MD2L)</td>
 </tr>
 <tr class="row-odd"><td>J</td>
 <td>contentTare</td>
 <td>S</td>
 <td>N</td>
-<td>WT_CTARE</td>
+<td>WT_CTARE    (&#8220;null&#8221;)</td>
 <td>(MD2L)</td>
 </tr>
 <tr class="row-even"><td>J</td>
 <td>contentSize</td>
 <td>S</td>
 <td>N</td>
-<td>FACT_VOLUME</td>
+<td>FACT_VOLUME (&#8220;null&#8221;)</td>
 <td>(MD2L)</td>
 </tr>
 <tr class="row-odd"><td>N/A</td>
 <td>contentLong</td>
 <td>S</td>
 <td>N</td>
-<td>&nbsp;</td>
+<td>&#8220;null&#8221;</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>N/A</td>
 <td>contentWide</td>
 <td>S</td>
 <td>N</td>
-<td>&nbsp;</td>
+<td>&#8220;null&#8221;</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>N/A</td>
 <td>contentHigh</td>
 <td>S</td>
 <td>N</td>
+<td>&#8220;null&#8221;</td>
 <td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>N/A</td>
+<td>unit</td>
+<td colspan="4">&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>unitUom</td>
+<td>S</td>
+<td>A</td>
+<td>UOM_STORE   (&#8220;null&#8221;)</td>
 <td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>J</td>
+<td>unitNet</td>
+<td>S</td>
+<td>N</td>
+<td>WT_UNIT     (&#8220;null&#8221;)</td>
+<td>(MD2L)</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>unitTare</td>
+<td>S</td>
+<td>N</td>
+<td>WT_TARE     (&#8220;null&#8221;)</td>
+<td>(MD2L)</td>
+</tr>
+<tr class="row-even"><td>J</td>
+<td>unitSize</td>
+<td>S</td>
+<td>N</td>
+<td>SIZE_UNIT   (&#8220;null&#8221;)</td>
+<td>(MD2L)</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>unitStack</td>
+<td>S</td>
+<td>N</td>
+<td>STACK       (&#8220;null&#8221;)</td>
+<td>(MD0)</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -828,81 +843,106 @@ refers to whether the data will be quoted string (A) or unquoted numeric (N).</p
 <td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>N/A</td>
-<td>unit</td>
-<td colspan="4">&nbsp;</td>
-</tr>
-<tr class="row-even"><td>F</td>
-<td>unitUom</td>
-<td>S</td>
-<td>A</td>
-<td>UOM_STORE</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>J</td>
-<td>unitNet</td>
-<td>S</td>
-<td>N</td>
-<td>WT_UNIT</td>
-<td>(MD2L)</td>
-</tr>
-<tr class="row-even"><td>F</td>
-<td>unitTare</td>
-<td>S</td>
-<td>N</td>
-<td>WT_TARE</td>
-<td>(MD2L)</td>
-</tr>
-<tr class="row-odd"><td>J</td>
-<td>unitSize</td>
-<td>S</td>
-<td>N</td>
-<td>SIZE_UNIT</td>
-<td>(MD2L)</td>
-</tr>
-<tr class="row-even"><td>F</td>
-<td>unitStack</td>
-<td>S</td>
-<td>N</td>
-<td>STACK</td>
-<td>(MD0)</td>
-</tr>
-<tr class="row-odd"><td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>N/A</td>
 <td>locator</td>
 <td colspan="4">&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>F</td>
+<tr class="row-even"><td>F</td>
 <td>abc</td>
 <td>S</td>
 <td>A</td>
-<td>ABC (&#8220;null&#8221;)</td>
+<td>ABC         (&#8220;null&#8221;)</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>F</td>
+<tr class="row-odd"><td>F</td>
 <td>mix</td>
 <td>S</td>
 <td>A</td>
-<td>MIX_LOADS (&#8220;null&#8221;)</td>
+<td>MIX_LOADS   (&#8220;null&#8221;)</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>N/A</td>
+<tr class="row-even"><td>N/A</td>
 <td>zone</td>
 <td>S</td>
 <td>A</td>
 <td>&#8220;null&#8221;</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>F</td>
+<tr class="row-odd"><td>F</td>
 <td>slot</td>
 <td>S</td>
 <td>A</td>
-<td>SLOT (&#8220;null&#8221;)</td>
+<td>SLOT        (&#8220;null&#8221;)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>N/A</td>
+<td>valuation</td>
+<td colspan="4">&nbsp;</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>rate</td>
+<td>S</td>
+<td>A</td>
+<td>TARIFF      (&#8220;null&#8221;)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>valuePer</td>
+<td>S</td>
+<td>A</td>
+<td>VALUE_PER   (&#8220;null&#8221;)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>value</td>
+<td>S</td>
+<td>N</td>
+<td>VALUE       (&#8220;null&#8221;)</td>
+<td>(MD2L)</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>costPer</td>
+<td>S</td>
+<td>A</td>
+<td>COST_PER    (&#8220;null&#8221;)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>cost</td>
+<td>S</td>
+<td>N</td>
+<td>COST        (&#8220;null&#8221;)</td>
+<td>(MD2L)</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>N/A</td>
+<td>freight</td>
+<td colspan="4">&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>J</td>
+<td>freightCode</td>
+<td>M</td>
+<td>A</td>
+<td>FREIGHT_CODE</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>J</td>
+<td>freightClass</td>
+<td>M</td>
+<td>A</td>
+<td>FREIGHT_CLASS</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
@@ -913,95 +953,24 @@ refers to whether the data will be quoted string (A) or unquoted numeric (N).</p
 <td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>N/A</td>
-<td>valuation</td>
-<td colspan="4">&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>F</td>
-<td>rate</td>
-<td>S</td>
-<td>A</td>
-<td>TARIFF (&#8220;null&#8221;)</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>F</td>
-<td>valuePer</td>
-<td>S</td>
-<td>A</td>
-<td>VALUE_PER (&#8220;null&#8221;)</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>F</td>
-<td>value</td>
-<td>S</td>
-<td>N</td>
-<td>VALUE (&#8220;null&#8221;)</td>
-<td>(MD2L)</td>
-</tr>
-<tr class="row-even"><td>F</td>
-<td>costPer</td>
-<td>S</td>
-<td>A</td>
-<td>COST_PER (&#8220;null&#8221;)</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>F</td>
-<td>cost</td>
-<td>S</td>
-<td>N</td>
-<td>COST (&#8220;null&#8221;)</td>
-<td>(MD2L)</td>
-</tr>
-<tr class="row-even"><td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>N/A</td>
-<td>freight</td>
-<td colspan="4">&nbsp;</td>
-</tr>
-<tr class="row-even"><td>J</td>
-<td>freightCode</td>
-<td>M</td>
-<td>A</td>
-<td>FREIGHT_CODE</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>J</td>
-<td>freightClass</td>
-<td>M</td>
-<td>A</td>
-<td>FREIGHT_CLASS</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>N/A</td>
 <td>notes</td>
 <td colspan="4">&nbsp;</td>
 </tr>
-<tr class="row-even"><td>F</td>
+<tr class="row-odd"><td>F</td>
 <td>noteCode</td>
 <td>M</td>
 <td>A</td>
 <td>NOTECODE</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>F</td>
+<tr class="row-even"><td>F</td>
 <td>note</td>
 <td>M</td>
 <td>A</td>
 <td>NOTE</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>N/A</td>
+<tr class="row-odd"><td>N/A</td>
 <td>noteApply</td>
 <td>M</td>
 <td>A</td>
@@ -1023,11 +992,8 @@ refers to whether the data will be quoted string (A) or unquoted numeric (N).</p
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="04_dochead.html" title="Document Head Columns"
-             >next</a></li>
-        <li class="right" >
           <a href="02_json-document.html" title="JSON DOSWARES Export DOCUMENT"
-             >previous</a> |</li>
+             >previous</a></li>
         <li><a href="index.html">WARES Resources 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
