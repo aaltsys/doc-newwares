@@ -19,7 +19,7 @@ Header Section
 =============================
 
 WARES document head sections contain a variety of information as shown at 
-:ref:`resources:col-dochead`.
+:ref:`col-dochead`.
 
 A generic view of document heading entries follows.
 
