@@ -160,15 +160,15 @@ record entry relates the standard set of units and weights for a product as
 follows:</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="13%" />
-<col width="9%" />
-<col width="9%" />
-<col width="35%" />
+<col width="11%" />
+<col width="8%" />
+<col width="8%" />
+<col width="37%" />
 <col width="10%" />
-<col width="24%" />
+<col width="25%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head"><strong>Qty</strong></th>
+<tr class="row-odd"><th class="head">Qty</th>
 <th class="head">UOM</th>
 <th class="head">Count</th>
 <th class="head">Net Weight</th>
@@ -182,26 +182,26 @@ follows:</p>
 <td>PCS</td>
 <td>WGHT</td>
 <td>(N/A)</td>
-<td>IDIM</td>
+<td>ISIZE</td>
 </tr>
 <tr class="row-odd"><td>CONTENT</td>
 <td>CA,...</td>
 <td>CNT</td>
-<td>NET = PCS X WGHT</td>
-<td>PKG</td>
-<td>CDIM = IDIM X PCS</td>
+<td>CNET = PCS X WGHT</td>
+<td>CTARE</td>
+<td>CSIZE = ISIZE X PCS</td>
 </tr>
 <tr class="row-even"><td>UNIT</td>
 <td>PL,...</td>
 <td>1</td>
-<td>UNET = CNT X ( NET + PKG )</td>
-<td>TARE</td>
-<td>UDIM = CDIM X CNT</td>
+<td>UNET = CNT X ( CNET + CTARE )</td>
+<td>UTARE</td>
+<td>USIZE = CSIZE X CNT</td>
 </tr>
 </tbody>
 </table>
 <p>Individual units may be received with unique values for the inner PCS count and
-WGHT, the content CNT, NET, and PKG, or handling/shipping unit UNET and TARE
+WGHT, the content CNT, CNET, and CTARE, or handling/shipping unit UNET and UTARE
 weights.</p>
 </div>
 <div class="section" id="quantity-setup-considerations">
@@ -211,23 +211,23 @@ The following table shows example product setup values for a variety of product
 categories commonly stored in warehouse inventory:</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="29%" />
+<col width="28%" />
 <col width="7%" />
 <col width="7%" />
 <col width="7%" />
 <col width="7%" />
 <col width="7%" />
 <col width="7%" />
+<col width="8%" />
 <col width="7%" />
 <col width="7%" />
-<col width="7%" />
-<col width="7%" />
+<col width="8%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">&nbsp;</th>
 <th class="head" colspan="3">INNER &#8211; &#8211; &#8211;</th>
 <th class="head" colspan="4">CONTENT &#8211; &#8211; &#8211; &#8211; &#8211;</th>
-<th class="head" colspan="3">UNIT &#8211; &#8211; &#8211;</th>
+<th class="head" colspan="3">UNIT &#8211; &#8211; &#8211; &#8211;</th>
 </tr>
 <tr class="row-even"><th class="head">Description</th>
 <th class="head">UOM</th>
@@ -235,11 +235,11 @@ categories commonly stored in warehouse inventory:</p>
 <th class="head">WGHT</th>
 <th class="head">UOM</th>
 <th class="head">CNT</th>
-<th class="head">NET</th>
-<th class="head">PKG</th>
+<th class="head">CNET</th>
+<th class="head">CTARE</th>
 <th class="head">UOM</th>
 <th class="head">UNET</th>
-<th class="head">TARE</th>
+<th class="head">UTARE</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -413,9 +413,9 @@ categories commonly stored in warehouse inventory:</p>
 </tr>
 </tbody>
 </table>
-<p>The Unit of Measure (UOM) entries for a product are set on the masterfile
-record, but masterfile quantity entries (PCS, WGHT, CNT, NET, PKG, UNET, TARE)
-are defaults of values which are entered separately for each received unit.</p>
+<p>A product&#8217;s Unit of Measure (UOM) entries are set on the masterfile record, but
+masterfile quantity entries (PCS, WGHT, CNT, CNET, CTARE, UNET, UTARE) are
+defaults of values which maay be entered separately for each received unit.</p>
 </div>
 </div>
 

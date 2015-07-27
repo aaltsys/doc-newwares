@@ -42,6 +42,17 @@
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Product Data Definition</a><ul>
+<li><a class="reference internal" href="#product-masterfile-columns">Product Masterfile Columns</a><ul>
+<li><a class="reference internal" href="#legend">LEGEND:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="01_inventory.html"
                         title="previous chapter">Inventory Concepts</a></p>
@@ -80,360 +91,642 @@
 <span id="products"></span><h1>Product Data Definition<a class="headerlink" href="#product-data-definition" title="Permalink to this headline">¶</a></h1>
 <p>Product record entries are divided into the following sections:</p>
 <ul class="simple">
-<li>Identifier &#8211; A combination of values which uniquely identify a product</li>
-<li>Description &#8211; Alternate textual identification for a product</li>
+<li>Keys &#8211; A combination of values which uniquely identify a product</li>
+<li>Descriptors &#8211; Alternate textual product identification and categorization</li>
 <li>Dimension &#8211; The measures of packing for a product</li>
 <li>Location &#8211; Information which controls location of items</li>
 <li>Valuation &#8211; The services rating and valuation of a product</li>
 <li>Transportation &#8211; Freight classification and description</li>
-<li>Classification &#8211; Optional product classification information</li>
+<li>Information &#8211; Optional product notes information</li>
 </ul>
-<p>The following table lists column entries which define a product.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The following WARES product setup entries are not yet supported in webWARES:
+DATES, LIFE, REPACK, PICK_MIN and PICK_QTY, ORDER_MIN and ORDER_QTY.</p>
+</div>
+<div class="section" id="product-masterfile-columns">
+<h2>Product Masterfile Columns<a class="headerlink" href="#product-masterfile-columns" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
-<col width="28%" />
-<col width="9%" />
-<col width="32%" />
-<col width="6%" />
-<col width="12%" />
-<col width="12%" />
+<col width="4%" />
+<col width="4%" />
+<col width="23%" />
+<col width="7%" />
+<col width="4%" />
+<col width="31%" />
+<col width="11%" />
+<col width="7%" />
+<col width="7%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">COLUMN NAME</th>
+<tr class="row-odd"><th class="head">REQ</th>
+<th class="head">SM</th>
+<th class="head">COLUMN NAME</th>
 <th class="head">TYPE</th>
+<th class="head">UC</th>
 <th class="head">VALIDATE</th>
-<th class="head">REQ</th>
 <th class="head">DEFAULT</th>
-<th class="head">DISPLAY</th>
+<th class="head">JUST</th>
+<th class="head">NOTE</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>ACCOUNT</td>
+<tr class="row-even"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Key Entry</td>
+</tr>
+<tr class="row-odd"><td>M</td>
+<td>S</td>
+<td>ACCOUNT</td>
 <td>A</td>
-<td>CONTACTS*A</td>
-<td>M</td>
+<td>U</td>
+<td>VT=ACCOUNTS</td>
 <td>&nbsp;</td>
 <td>L10</td>
+<td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>IDENTIFIER</td>
+<tr class="row-even"><td>M</td>
+<td>S</td>
+<td>IDENTIFIER</td>
 <td>AN</td>
-<td>case=U</td>
-<td>M</td>
+<td>U</td>
+<td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>L20</td>
-</tr>
-<tr class="row-even"><td>VARIETY</td>
-<td>AN</td>
-<td>case=U</td>
-<td>O</td>
 <td>&nbsp;</td>
-<td>L20</td>
 </tr>
-<tr class="row-odd"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Description Entries</td>
+<tr class="row-odd"><td>M</td>
+<td>S</td>
+<td>VARIETY</td>
+<td>AN</td>
+<td>U</td>
+<td>&nbsp;</td>
+<td>null</td>
+<td>L10</td>
+<td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>PRODUCT_CODE</td>
-<td>TP/A</td>
-<td>list=PRODUCTS</td>
-<td>C</td>
-<td>(notes)</td>
+<tr class="row-even"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Description Entries</td>
+</tr>
+<tr class="row-odd"><td>P</td>
+<td>MA</td>
+<td>PRODUCTCODE</td>
+<td>LC</td>
+<td>U</td>
+<td><a class="reference external" href="../codes/P_product-id.html#product-list" title="(in WARES Codes v1.0)"><em>Product Identification Codes</em></a></td>
+<td>&nbsp;</td>
 <td>L4</td>
+<td><ol class="first last arabic simple">
+<li></li>
+</ol>
+</td>
 </tr>
-<tr class="row-odd"><td>PRODUCT</td>
-<td>AN/A</td>
-<td>case=U</td>
-<td>C</td>
+<tr class="row-even"><td>P</td>
+<td>MA</td>
+<td>PRODUCT</td>
+<td>AN</td>
+<td>U</td>
+<td>paired: PRODUCTCODE</td>
 <td>&nbsp;</td>
 <td>L20</td>
+<td><ol class="first last arabic simple" start="2">
+<li></li>
+</ol>
+</td>
 </tr>
-<tr class="row-even"><td>HAZARD</td>
+<tr class="row-odd"><td>O</td>
+<td>S</td>
+<td>HAZARDOUS</td>
 <td>B</td>
-<td>(&#8216;X&#8217; or &#8216;&#8217;)</td>
-<td>C</td>
+<td>&nbsp;</td>
+<td>(X,null)</td>
 <td>&nbsp;</td>
 <td>L1</td>
+<td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
 </tr>
-<tr class="row-odd"><td>DESCRIPTION</td>
-<td>AN</td>
-<td>case=N</td>
-<td>M</td>
+<tr class="row-even"><td>O</td>
+<td>S</td>
+<td>DESCRIPTION</td>
+<td>T</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>T40</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>O</td>
+<td>S</td>
+<td>PACKAGING</td>
+<td>T</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>L40</td>
+<td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>PACKAGING</td>
-<td>AN</td>
-<td>case=N</td>
-<td>O</td>
+<tr class="row-even"><td>C</td>
+<td>S</td>
+<td>SHIPPINGNAME</td>
+<td>T</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>L40</td>
-</tr>
-<tr class="row-odd"><td>SHIPPING</td>
-<td>AN</td>
-<td>case=N</td>
-<td>C</td>
 <td>&nbsp;</td>
-<td>L40</td>
 </tr>
-<tr class="row-even"><td>GROUP_CODE</td>
-<td>TP/A</td>
+<tr class="row-odd"><td>P</td>
+<td>MA</td>
+<td>GROUPCODE</td>
+<td>LC</td>
+<td>U</td>
 <td><a class="reference external" href="../codes/S_group.html#group-list" title="(in WARES Codes v1.0)"><em>Product grouping</em></a></td>
-<td>O</td>
 <td>&nbsp;</td>
 <td>L4</td>
+<td><ol class="first last arabic simple">
+<li></li>
+</ol>
+</td>
 </tr>
-<tr class="row-odd"><td>GROUPING</td>
-<td>AN/A</td>
-<td>&nbsp;</td>
-<td>O</td>
+<tr class="row-even"><td>P</td>
+<td>MA</td>
+<td>GROUPING</td>
+<td>AN</td>
+<td>U</td>
+<td>paired: GROUPCODE</td>
 <td>&nbsp;</td>
 <td>L20</td>
+<td><ol class="first last arabic simple" start="2">
+<li></li>
+</ol>
+</td>
 </tr>
-<tr class="row-even"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Dimension Entries</td>
+<tr class="row-odd"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Dimension Entries</td>
 </tr>
-<tr class="row-odd"><td>WEIGHT_UM</td>
-<td>TP</td>
+<tr class="row-even"><td>C</td>
+<td>S</td>
+<td>WEIGHTUOM</td>
+<td>LC</td>
+<td>U</td>
 <td><a class="reference external" href="../codes/P_code-wtm.html#wtm-list" title="(in WARES Codes v1.0)"><em>Units of Weight</em></a></td>
-<td>M</td>
 <td>LB</td>
 <td>L4</td>
+<td>(1,3)</td>
 </tr>
-<tr class="row-even"><td>DIM_UM</td>
-<td>TP</td>
+<tr class="row-odd"><td>C</td>
+<td>S</td>
+<td>DIMUOM</td>
+<td>LC</td>
+<td>U</td>
 <td><a class="reference external" href="../codes/P_code-dim.html#dim-list" title="(in WARES Codes v1.0)"><em>Units of dimension</em></a></td>
-<td>M</td>
 <td>CF</td>
 <td>L4</td>
+<td>(1,3)</td>
 </tr>
-<tr class="row-odd"><td>INNER_UOM</td>
-<td>TP</td>
+<tr class="row-even"><td>O</td>
+<td>S</td>
+<td>INNERUOM</td>
+<td>LC</td>
+<td>U</td>
 <td><a class="reference external" href="../codes/P_code-uom.html#uom-list" title="(in WARES Codes v1.0)"><em>Units of Measure</em></a></td>
-<td>O</td>
-<td>(notes)</td>
+<td>EA</td>
 <td>L4</td>
+<td><ol class="first last arabic simple">
+<li></li>
+</ol>
+</td>
 </tr>
-<tr class="row-even"><td>INNER_COUNT</td>
+<tr class="row-odd"><td>C</td>
+<td>S</td>
+<td>INNERCOUNT</td>
 <td>N.0</td>
 <td>&nbsp;</td>
-<td>O</td>
+<td>(MD0)</td>
 <td>&nbsp;</td>
 <td>R6</td>
+<td><ol class="first last arabic simple" start="4">
+<li></li>
+</ol>
+</td>
 </tr>
-<tr class="row-odd"><td>INNER_WEIGHT</td>
+<tr class="row-even"><td>O</td>
+<td>S</td>
+<td>INNERWEIGHT</td>
 <td>N.4</td>
 <td>&nbsp;</td>
-<td>O</td>
+<td>(MD4)</td>
 <td>&nbsp;</td>
 <td>R6</td>
+<td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>INNER_DIM</td>
+<tr class="row-odd"><td>O</td>
+<td>S</td>
+<td>INNERSIZE</td>
 <td>N.4</td>
 <td>&nbsp;</td>
-<td>O</td>
+<td>(MD4)</td>
 <td>&nbsp;</td>
 <td>R6</td>
+<td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>CONTENT_UOM</td>
-<td>TP</td>
+<tr class="row-even"><td>C</td>
+<td>S</td>
+<td>CONTENTUOM</td>
+<td>LC</td>
+<td>U</td>
 <td><a class="reference external" href="../codes/P_code-uom.html#uom-list" title="(in WARES Codes v1.0)"><em>Units of Measure</em></a></td>
-<td>O</td>
-<td>(notes)</td>
+<td>CA</td>
 <td>L4</td>
+<td>(1,3)</td>
 </tr>
-<tr class="row-even"><td>CONTENT_COUNT</td>
+<tr class="row-odd"><td>C</td>
+<td>S</td>
+<td>CONTENTCOUNT</td>
 <td>N.0</td>
 <td>&nbsp;</td>
-<td>O</td>
+<td>(MD0)</td>
 <td>&nbsp;</td>
 <td>R6</td>
+<td>(3,4)</td>
 </tr>
-<tr class="row-odd"><td>CONTENT_NET</td>
+<tr class="row-even"><td>C</td>
+<td>S</td>
+<td>CONTENTNET</td>
 <td>N.4</td>
 <td>&nbsp;</td>
-<td>O</td>
+<td>(MD4)</td>
 <td>&nbsp;</td>
 <td>R6</td>
+<td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
 </tr>
-<tr class="row-even"><td>CONTENT_TARE</td>
+<tr class="row-odd"><td>O</td>
+<td>S</td>
+<td>CONTENTTARE</td>
 <td>N.4</td>
 <td>&nbsp;</td>
-<td>O</td>
+<td>(MD4)</td>
 <td>&nbsp;</td>
 <td>R6</td>
+<td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>CONTENT_DIM</td>
+<tr class="row-even"><td>C</td>
+<td>S</td>
+<td>CONTENTSIZE</td>
 <td>N.4</td>
 <td>&nbsp;</td>
-<td>O</td>
+<td>(MD4)</td>
 <td>&nbsp;</td>
 <td>R6</td>
+<td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
 </tr>
-<tr class="row-even"><td>C_LONG</td>
+<tr class="row-odd"><td>O</td>
+<td>S</td>
+<td>CONTENTLONG</td>
 <td>N.4</td>
 <td>&nbsp;</td>
-<td>O</td>
+<td>(MD4)</td>
 <td>&nbsp;</td>
 <td>R6</td>
+<td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>C_WIDE</td>
+<tr class="row-even"><td>O</td>
+<td>S</td>
+<td>CONTENTWIDE</td>
 <td>N.4</td>
 <td>&nbsp;</td>
-<td>O</td>
+<td>(MD4)</td>
 <td>&nbsp;</td>
 <td>R6</td>
+<td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>C_HIGH</td>
+<tr class="row-odd"><td>O</td>
+<td>S</td>
+<td>CONTENTHIGH</td>
 <td>N.4</td>
 <td>&nbsp;</td>
-<td>O</td>
+<td>(MD4)</td>
 <td>&nbsp;</td>
 <td>R6</td>
+<td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>UNIT_UOM</td>
-<td>TP</td>
+<tr class="row-even"><td>M</td>
+<td>S</td>
+<td>UNITUOM</td>
+<td>LC</td>
+<td>U</td>
 <td><a class="reference external" href="../codes/P_code-uom.html#uom-list" title="(in WARES Codes v1.0)"><em>Units of Measure</em></a></td>
-<td>M</td>
-<td>(notes)</td>
+<td>PL</td>
 <td>L4</td>
+<td><ol class="first last arabic simple">
+<li></li>
+</ol>
+</td>
 </tr>
-<tr class="row-even"><td>UNIT_NET</td>
+<tr class="row-odd"><td>O</td>
+<td>S</td>
+<td>UNITNET</td>
 <td>N.2</td>
 <td>&nbsp;</td>
-<td>O</td>
+<td>(MD2)</td>
 <td>&nbsp;</td>
 <td>R8</td>
+<td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>UNIT_TARE</td>
+<tr class="row-even"><td>O</td>
+<td>S</td>
+<td>UNITTARE</td>
 <td>N.2</td>
 <td>&nbsp;</td>
-<td>O</td>
+<td>(MD2)</td>
 <td>&nbsp;</td>
 <td>R8</td>
+<td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>UNIT_DIM</td>
+<tr class="row-odd"><td>O</td>
+<td>S</td>
+<td>UNITSIZE</td>
 <td>N.4</td>
 <td>&nbsp;</td>
-<td>O</td>
+<td>(MD4)</td>
 <td>&nbsp;</td>
 <td>R8</td>
+<td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>UNIT_STACK</td>
+<tr class="row-even"><td>O</td>
+<td>S</td>
+<td>UNITSTACK</td>
 <td>N.0</td>
 <td>&nbsp;</td>
-<td>O</td>
+<td>(MD0)</td>
 <td>&nbsp;</td>
 <td>R2</td>
+<td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Location Entries</td>
+<tr class="row-odd"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Location Entries</td>
 </tr>
-<tr class="row-odd"><td>ABC</td>
-<td>TP</td>
+<tr class="row-even"><td>O</td>
+<td>S</td>
+<td>ABC</td>
+<td>LC</td>
+<td>U</td>
 <td><a class="reference external" href="../codes/L_abc.html#abc-list" title="(in WARES Codes v1.0)"><em>Product turnover rating</em></a></td>
-<td>O</td>
 <td>&nbsp;</td>
 <td>L2</td>
+<td><ol class="first last arabic simple">
+<li></li>
+</ol>
+</td>
 </tr>
-<tr class="row-even"><td>MIX</td>
-<td>TP</td>
+<tr class="row-odd"><td>O</td>
+<td>S</td>
+<td>MIX</td>
+<td>LC</td>
+<td>U</td>
 <td><a class="reference external" href="../codes/L_mix.html#mix-list" title="(in WARES Codes v1.0)"><em>Unit / Location mixing</em></a></td>
-<td>O</td>
 <td>&nbsp;</td>
 <td>L4</td>
+<td><ol class="first last arabic simple">
+<li></li>
+</ol>
+</td>
 </tr>
-<tr class="row-odd"><td>ZONE</td>
-<td>TP</td>
+<tr class="row-even"><td>O</td>
+<td>S</td>
+<td>ZONE</td>
+<td>LC</td>
+<td>U</td>
 <td><a class="reference external" href="../codes/L_zone.html#zone-list" title="(in WARES Codes v1.0)"><em>Storage zone</em></a></td>
-<td>O</td>
 <td>&nbsp;</td>
 <td>L4</td>
+<td><ol class="first last arabic simple">
+<li></li>
+</ol>
+</td>
 </tr>
-<tr class="row-even"><td>SLOT</td>
+<tr class="row-odd"><td>O</td>
+<td>S</td>
+<td>SLOT</td>
 <td>A</td>
-<td>LOCATIONS</td>
-<td>O</td>
+<td>U</td>
+<td>VT=LOCATIONS</td>
 <td>&nbsp;</td>
 <td>L10</td>
+<td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Valuation Entries</td>
+<tr class="row-even"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Valuation Entries</td>
 </tr>
-<tr class="row-even"><td>RATE</td>
+<tr class="row-odd"><td>O</td>
+<td>S</td>
+<td>RATE</td>
 <td>A</td>
-<td>RATES</td>
-<td>O</td>
+<td>U</td>
+<td>VT=RATES</td>
 <td>&nbsp;</td>
 <td>L8</td>
+<td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>VALUEPER</td>
-<td>TP</td>
+<tr class="row-even"><td>P</td>
+<td>SA</td>
+<td>VALUEPER</td>
+<td>LC</td>
+<td>U</td>
 <td><a class="reference external" href="../codes/S_per.html#per-list" title="(in WARES Codes v1.0)"><em>Rating and Valuation Per Unit</em></a></td>
-<td>O</td>
 <td>&nbsp;</td>
 <td>L4</td>
+<td><ol class="first last arabic simple">
+<li></li>
+</ol>
+</td>
 </tr>
-<tr class="row-even"><td>VALUE</td>
+<tr class="row-odd"><td>P</td>
+<td>SA</td>
+<td>VALUE</td>
 <td>N.2</td>
 <td>&nbsp;</td>
-<td>O</td>
+<td>paired: VALUEPER</td>
 <td>&nbsp;</td>
 <td>R8</td>
+<td><ol class="first last arabic simple" start="2">
+<li></li>
+</ol>
+</td>
 </tr>
-<tr class="row-odd"><td>COSTPER</td>
-<td>TP</td>
+<tr class="row-even"><td>P</td>
+<td>SA</td>
+<td>COSTPER</td>
+<td>LC</td>
+<td>U</td>
 <td><a class="reference external" href="../codes/S_per.html#per-list" title="(in WARES Codes v1.0)"><em>Rating and Valuation Per Unit</em></a></td>
-<td>O</td>
 <td>&nbsp;</td>
 <td>L4</td>
+<td><ol class="first last arabic simple">
+<li></li>
+</ol>
+</td>
 </tr>
-<tr class="row-even"><td>COST</td>
+<tr class="row-odd"><td>P</td>
+<td>SA</td>
+<td>COST</td>
 <td>N.2</td>
 <td>&nbsp;</td>
-<td>O</td>
+<td>paired: COSTPER</td>
 <td>&nbsp;</td>
 <td>R8</td>
+<td><ol class="first last arabic simple" start="2">
+<li></li>
+</ol>
+</td>
 </tr>
-<tr class="row-odd"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Transportation Entries</td>
+<tr class="row-even"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Transportation Entries</td>
 </tr>
-<tr class="row-even"><td>FREIGHT_CODE</td>
-<td>TP/A</td>
+<tr class="row-odd"><td>P</td>
+<td>MA</td>
+<td>FREIGHTCODE</td>
+<td>LC</td>
+<td>U</td>
 <td><a class="reference external" href="../codes/S_freight.html#freight-list" title="(in WARES Codes v1.0)"><em>Freight classifications</em></a></td>
-<td>O</td>
 <td>&nbsp;</td>
 <td>L4</td>
+<td><ol class="first last arabic simple">
+<li></li>
+</ol>
+</td>
 </tr>
-<tr class="row-odd"><td>FREIGHT_CLASS</td>
-<td>AN/A</td>
-<td>&nbsp;</td>
-<td>O</td>
+<tr class="row-even"><td>P</td>
+<td>MA</td>
+<td>FREIGHTCLASS</td>
+<td>AN</td>
+<td>U</td>
+<td>paired: FREIGHTCODE</td>
 <td>&nbsp;</td>
 <td>L10</td>
+<td><ol class="first last arabic simple" start="2">
+<li></li>
+</ol>
+</td>
 </tr>
-<tr class="row-even"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Classification Options</td>
+<tr class="row-odd"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Classification Options</td>
 </tr>
-<tr class="row-odd"><td>NOTE_CODE</td>
-<td>TP/A</td>
+<tr class="row-even"><td>P</td>
+<td>MA</td>
+<td>NOTECODE</td>
+<td>LC</td>
+<td>U</td>
 <td><a class="reference external" href="../codes/S_note.html#note-list" title="(in WARES Codes v1.0)"><em>Document Note &amp; Message Codes</em></a></td>
-<td>O</td>
 <td>&nbsp;</td>
 <td>L4</td>
+<td><ol class="first last arabic simple">
+<li></li>
+</ol>
+</td>
 </tr>
-<tr class="row-even"><td>NOTE</td>
-<td>AN/A</td>
+<tr class="row-odd"><td>P</td>
+<td>MA</td>
+<td>NOTE</td>
+<td>T</td>
 <td>&nbsp;</td>
-<td>O</td>
+<td>paired: NOTECODE</td>
 <td>&nbsp;</td>
 <td>L80</td>
+<td><ol class="first last arabic simple" start="2">
+<li></li>
+</ol>
+</td>
 </tr>
-<tr class="row-odd"><td>NOTE_APPLY</td>
-<td>AN/A</td>
-<td>&nbsp;</td>
-<td>O</td>
+<tr class="row-even"><td>CO</td>
+<td>MA</td>
+<td>NOTEAPPLY</td>
+<td>LC</td>
+<td>U</td>
+<td><em class="xref std std-ref">noteapply-list</em></td>
 <td>&nbsp;</td>
 <td>L4</td>
+<td><ol class="first last arabic simple">
+<li></li>
+</ol>
+</td>
 </tr>
 </tbody>
 </table>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">The following product setup entries are not supported in this version of
-WARES: DATES, LIFE, REPACK, PICK_MIN an PICK_QTY, ORDER_MIN and ORDER_QTY.</p>
+<ol class="last arabic simple">
+<li>Entries of type list code (TYPE=LC) are validated against the linked code
+option list.</li>
+<li>Entries with a paired requirement (REQ=P) are required when the associated
+paired entry or code is specified.</li>
+<li>When hazardous is marked (X), entries are required for: <strong>shippingName</strong>,
+<strong>weightUom</strong>, <strong>dimUom</strong>, <strong>contentNet</strong>, and <strong>contentSze</strong>.</li>
+<li>When a UOM is specified for inners or content, then the corresponding
+COUNT is required.</li>
+</ol>
+</div>
+<div class="section" id="legend">
+<h3>LEGEND:<a class="headerlink" href="#legend" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="79%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>REQ</td>
+<td><div class="first last line-block">
+<div class="line">O = optional</div>
+<div class="line">M = mandatory</div>
+<div class="line">P = pair required</div>
+<div class="line">C = conditional</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>SM</td>
+<td><div class="first last line-block">
+<div class="line">S = single valued</div>
+<div class="line">M = multiple values</div>
+<div class="line">A = associated (array member)</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>COLUMN NAME</td>
+<td>(not case specific)</td>
+</tr>
+<tr class="row-even"><td>TYPE</td>
+<td><div class="first last line-block">
+<div class="line">A = alpha</div>
+<div class="line">N.n = numeric with decimals</div>
+<div class="line">LC = list of codes</div>
+<div class="line">B = boolean</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>U</td>
+<td>Key values and codes are uppercase</td>
+</tr>
+<tr class="row-even"><td>VALIDATE</td>
+<td><div class="first last line-block">
+<div class="line">links refer to code validation lists</div>
+<div class="line">Tablenames (uppercase) refer to verifiles</div>
+<div class="line">(&#8216;values&#8217;) list allowed entries</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>DEFAULT</td>
+<td>a value default</td>
+</tr>
+<tr class="row-even"><td>JUST</td>
+<td><div class="first last line-block">
+<div class="line">Justify (L)eft, (C)enter, (R)ight, (T)ext</div>
+<div class="line">n = characters to show</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 
