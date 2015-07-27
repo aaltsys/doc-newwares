@@ -2,7 +2,6 @@
 Product Masterfile Views
 #############################
 
-
 Product Setup View
 =============================
  
@@ -31,7 +30,7 @@ Notes:
    
 #. Product entries link to the PRODUCT information, displayed in a lightbox. 
    Clicking (Double-clicking?) elsewhere on a line displays LOCATOR details for 
-   that product.
+   that product unit.
 
 Product Filters
 =============================
