@@ -13,9 +13,9 @@ for ADDRESSES, ACCOUNTS, and PRODUCTS are documented below.
    whether a column is single-valued (S) or array multivalue (M). Column A/N 
    refers to whether the data will be quoted string (A) or unquoted numeric (N).
 
-.. _export-addresses:
+.. _export-contacts:
 
-ADDRESSES
+CONTACTS
 =============================
 
 +-------+------------------+-----+-----+----------------------+----------------+
@@ -23,9 +23,9 @@ ADDRESSES
 +=======+==================+=====+=====+======================+================+
 |  N/A  | keys             |                                                   |
 +-------+------------------+-----+-----+----------------------+----------------+
-|   F   | addressType      | M   | A   | TYPE                 | <,>            |
+|   F   | contactType      | S   | A   | TYPE                 | <,>            |
 +-------+------------------+-----+-----+----------------------+----------------+
-|   F   | address          | S   | A   | @ID                  |                |
+|   F   | Identifier       | S   | A   | @ID                  |                |
 +-------+------------------+-----+-----+----------------------+----------------+
 +-------+------------------+-----+-----+----------------------+----------------+
 |   F   | account          | S   | A   | ACCOUNT              |                |
@@ -108,7 +108,7 @@ ACCOUNTS
 +-------+------------------+-----+-----+----------------------+----------------+
 |   F   | freeDays         | S   | A   | FREEDAYS    ("null") | (MD0)          |
 +-------+------------------+-----+-----+----------------------+----------------+
-|  N/A  | graceDays        | S   | A   | ("null")             |                |
+|  N/A  | graceDays        | S   | A   | ("null")             | (MD0)          |
 +-------+------------------+-----+-----+----------------------+----------------+
 |   F   | recurring        | S   | A   | RECURRING      ("E") |                |
 +-------+------------------+-----+-----+----------------------+----------------+
@@ -150,6 +150,11 @@ ACCOUNTS
 |  N/A  | noteApply        | M   | A   | "null"               |                |
 +-------+------------------+-----+-----+----------------------+----------------+
 
+.. note::
+   An element could be added to the account record (or maybe to the products) 
+   to indicate the type of control numbers used on the account/product. Where
+   The control type is DT (date), the control number would set the lot postdate,
+   otherwise the postdate would be set by the first date of receipt on the lot.
 
 .. _export-products:
 
@@ -159,7 +164,7 @@ PRODUCTS Masterfile
 +-------+------------------+-----+-----+----------------------+----------------+
 | F/S/J | JSON NAME        | M/S | A/N | DICTIONARY ("value") | COMMANDS       |
 +=======+==================+=====+=====+======================+================+
-|  N/A  | keys             |                                                   |
+|  N/A  | uniqueKey        |                                                   |
 +-------+------------------+-----+-----+----------------------+----------------+
 |   F   | account          | S   | A   | ACCOUNT              |                |
 +-------+------------------+-----+-----+----------------------+----------------+
