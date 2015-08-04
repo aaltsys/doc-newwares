@@ -120,7 +120,7 @@ refers to whether the data will be quoted string (A) or unquoted numeric (N).</p
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>N/A</td>
-<td>keys</td>
+<td>uniqueKey</td>
 <td colspan="4">&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>F</td>
@@ -144,11 +144,11 @@ refers to whether the data will be quoted string (A) or unquoted numeric (N).</p
 <td>&#8220;null&#8221;</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>N/A</td>
+<tr class="row-even"><td>J</td>
 <td>controlCode</td>
 <td>S</td>
 <td>A</td>
-<td>&#8220;NA&#8221;</td>
+<td>CONTROLCODE (&#8220;NA&#8221;)</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>F</td>
@@ -179,19 +179,19 @@ refers to whether the data will be quoted string (A) or unquoted numeric (N).</p
 <td>&#64;ID</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>F</td>
-<td>postDate</td>
-<td>S</td>
-<td>A</td>
-<td>DATE</td>
-<td>(D-JS)</td>
-</tr>
-<tr class="row-even"><td>N/A</td>
+<tr class="row-odd"><td>N/A</td>
 <td>revision</td>
 <td>S</td>
 <td>A</td>
 <td>&#8220;00&#8221;</td>
 <td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>postDate</td>
+<td>S</td>
+<td>A</td>
+<td>DATE</td>
+<td>(D-JS)</td>
 </tr>
 <tr class="row-odd"><td>F</td>
 <td>description</td>
@@ -201,322 +201,112 @@ refers to whether the data will be quoted string (A) or unquoted numeric (N).</p
 <td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+<td>dimensions</td>
+<td colspan="4">&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>J</td>
-<td>unitUom</td>
+<td>UnitUom</td>
 <td>S</td>
 <td>A</td>
-<td>UOM_STORE</td>
+<td>UOM_STORE (&#8220;PL&#8221;)</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>J</td>
-<td>unitNet</td>
+<td>UnitNet</td>
 <td>S</td>
 <td>N</td>
-<td>PROD_WT_NET</td>
+<td>PROD_WT_NET (&#8220;null&#8221;)</td>
 <td>(MD2L)</td>
 </tr>
 <tr class="row-odd"><td>J</td>
-<td>unitTare</td>
+<td>UnitTare</td>
 <td>S</td>
 <td>N</td>
-<td>PROD_WT_TARE</td>
+<td>PROD_WT_TARE (&#8220;null&#8221;)</td>
 <td>(MD2L)</td>
 </tr>
 <tr class="row-even"><td>J</td>
-<td>unitSize</td>
+<td>UnitSize</td>
 <td>S</td>
 <td>N</td>
-<td>&#8220;null&#8221;</td>
-<td>(MD4L)</td>
+<td>PROD_SIZE (&#8220;null&#8221;)</td>
+<td>(MD42L)</td>
 </tr>
 <tr class="row-odd"><td>J</td>
-<td>unitStack</td>
+<td>UnitStack</td>
 <td>S</td>
 <td>N</td>
-<td>(filled in)</td>
+<td>FACT_STACK (&#8220;null&#8221;)</td>
 <td>(MD0)</td>
 </tr>
 <tr class="row-even"><td>J</td>
-<td>contentUom</td>
+<td>ContentUom</td>
 <td>S</td>
 <td>A</td>
 <td>UOM_PIECE (&#8220;EA&#8221;)</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>F</td>
-<td>contentCount</td>
+<td>ContentCount</td>
 <td>S</td>
 <td>N</td>
-<td>FACT_STORE</td>
+<td>FACT_STORE (&#8220;null&#8221;)</td>
 <td>(MD0)</td>
 </tr>
 <tr class="row-even"><td>F</td>
-<td>contentNet</td>
+<td>ContentNet</td>
 <td>S</td>
 <td>N</td>
-<td>FACT_WEIGHT</td>
-<td>(MD22L)</td>
+<td>FACT_WEIGHT (&#8220;null&#8221;)</td>
+<td>(MD42L)</td>
 </tr>
 <tr class="row-odd"><td>J</td>
-<td>contentTare</td>
+<td>ContentTare</td>
 <td>S</td>
 <td>N</td>
-<td>FACT_TARE</td>
-<td>(MD22L)</td>
+<td>FACT_TARE (&#8220;null&#8221;)</td>
+<td>(MD42L)</td>
 </tr>
 <tr class="row-even"><td>J</td>
-<td>contentSize</td>
+<td>ContentSize</td>
 <td>S</td>
 <td>N</td>
-<td>FACT_VOLUME</td>
-<td>(MD24L)</td>
+<td>FACT_VOLUME (&#8220;null&#8221;)</td>
+<td>(MD42L)</td>
 </tr>
 <tr class="row-odd"><td>J</td>
-<td>innerUom</td>
+<td>InnerUom</td>
 <td>S</td>
 <td>A</td>
-<td>UOM_INNER</td>
+<td>UOM_INNER (&#8220;null&#8221;)</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>J</td>
-<td>innerCount</td>
+<td>InnerCount</td>
 <td>S</td>
 <td>N</td>
-<td>PROD_PACK</td>
+<td>PROD_PACK (&#8220;null&#8221;)</td>
 <td>(MD0)</td>
 </tr>
 <tr class="row-odd"><td>J</td>
-<td>innerWeight</td>
+<td>InnerWeight</td>
 <td>S</td>
 <td>N</td>
-<td>INNERS_WEIGHT</td>
-<td>(MD24L)</td>
+<td>INNERS_WEIGHT &#8220;null&#8221;</td>
+<td>(MD42L)</td>
 </tr>
 <tr class="row-even"><td>J</td>
-<td>innerSize</td>
+<td>InnerSize</td>
 <td>S</td>
 <td>N</td>
-<td>&#8220;null&#8221;</td>
-<td>(MD24L)</td>
+<td>INNERS_SIZE (&#8220;null&#8221;)</td>
+<td>(MD42L)</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="transaction-lines">
 <h2>TRANSACTION LINES<a class="headerlink" href="#transaction-lines" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="docutils">
-<colgroup>
-<col width="10%" />
-<col width="25%" />
-<col width="7%" />
-<col width="7%" />
-<col width="30%" />
-<col width="22%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">F/S/J</th>
-<th class="head">JSON NAME</th>
-<th class="head">M/S</th>
-<th class="head">A/N</th>
-<th class="head">DICTIONARY (&#8220;value&#8221;)</th>
-<th class="head">COMMANDS</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>N/A</td>
-<td>detail</td>
-<td colspan="4">&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>J</td>
-<td>sequenceKey</td>
-<td>M</td>
-<td>A</td>
-<td>SERIAL_LIST</td>
-<td>&lt;,,1&gt;</td>
-</tr>
-<tr class="row-even"><td>J</td>
-<td>unitIdentifier</td>
-<td>M</td>
-<td>A</td>
-<td>SERIAL_LIST</td>
-<td>&lt;,,2&gt;</td>
-</tr>
-<tr class="row-odd"><td>J</td>
-<td>transactionType</td>
-<td>M</td>
-<td>A</td>
-<td>SERIAL_LIST</td>
-<td>&lt;,,3&gt;</td>
-</tr>
-<tr class="row-even"><td>J</td>
-<td>transaction</td>
-<td>M</td>
-<td>A</td>
-<td>SERIAL_LIST</td>
-<td>&lt;,,4&gt;</td>
-</tr>
-<tr class="row-odd"><td>J</td>
-<td>lineKey</td>
-<td>M</td>
-<td>A</td>
-<td>SERIAL_LIST</td>
-<td>&lt;,,5&gt;</td>
-</tr>
-<tr class="row-even"><td>J</td>
-<td>status</td>
-<td>M</td>
-<td>A</td>
-<td>SERIAL_LIST</td>
-<td>&lt;,,6&gt;</td>
-</tr>
-<tr class="row-odd"><td>J</td>
-<td>postDate</td>
-<td>M</td>
-<td>A</td>
-<td>SERIAL_LIST</td>
-<td>&lt;,,7&gt; (D-JS)</td>
-</tr>
-<tr class="row-even"><td>J</td>
-<td>condition</td>
-<td>M</td>
-<td>A</td>
-<td>SERIAL_LIST</td>
-<td>&lt;,,8&gt;</td>
-</tr>
-<tr class="row-odd"><td>F</td>
-<td>product</td>
-<td>S</td>
-<td>A</td>
-<td>PRODUCT</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>N/A</td>
-<td>variety</td>
-<td>S</td>
-<td>A</td>
-<td>&#8220;null&#8221;</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>N/A</td>
-<td>controlCode</td>
-<td>S</td>
-<td>A</td>
-<td>&#8220;NA&#8221;</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>F</td>
-<td>control</td>
-<td>S</td>
-<td>A</td>
-<td>CONTROL</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>J</td>
-<td>location</td>
-<td>M</td>
-<td>A</td>
-<td>SERIAL_LIST</td>
-<td>&lt;,,13&gt;</td>
-</tr>
-<tr class="row-even"><td>J</td>
-<td>description</td>
-<td>M</td>
-<td>A</td>
-<td>SERIAL_LIST</td>
-<td>&lt;,,14&gt;</td>
-</tr>
-<tr class="row-odd"><td>J</td>
-<td>unitUom</td>
-<td>M</td>
-<td>A</td>
-<td>SERIAL_LIST</td>
-<td>&lt;,,15&gt;</td>
-</tr>
-<tr class="row-even"><td>J</td>
-<td>unitNet</td>
-<td>M</td>
-<td>N</td>
-<td>SERIAL_LIST</td>
-<td>&lt;,,16&gt; (MD2L)</td>
-</tr>
-<tr class="row-odd"><td>J</td>
-<td>unitTare</td>
-<td>M</td>
-<td>N</td>
-<td>SERIAL_LIST</td>
-<td>&lt;,,17&gt; (MD2L)</td>
-</tr>
-<tr class="row-even"><td>J</td>
-<td>contents</td>
-<td>M</td>
-<td>N</td>
-<td>SERIAL_LIST</td>
-<td>&lt;,,18&gt; (MD0)</td>
-</tr>
-<tr class="row-odd"><td>J</td>
-<td>contentsReserve</td>
-<td>M</td>
-<td>N</td>
-<td>SERIAL_LIST</td>
-<td>&lt;,,19&gt; (MD0)</td>
-</tr>
-<tr class="row-even"><td>J</td>
-<td>contentsUom</td>
-<td>M</td>
-<td>A</td>
-<td>SERIAL_LIST</td>
-<td>&lt;,,20&gt;</td>
-</tr>
-<tr class="row-odd"><td>J</td>
-<td>contentsNet</td>
-<td>M</td>
-<td>N</td>
-<td>SERIAL_LIST</td>
-<td>&lt;,,21&gt; (MD2L)</td>
-</tr>
-<tr class="row-even"><td>J</td>
-<td>contentsTare</td>
-<td>M</td>
-<td>N</td>
-<td>SERIAL_LIST</td>
-<td>&lt;,,22&gt; (MD2L)</td>
-</tr>
-<tr class="row-odd"><td>J</td>
-<td>inners</td>
-<td>M</td>
-<td>N</td>
-<td>SERIAL_LIST</td>
-<td>&lt;,,23&gt; (MD0)</td>
-</tr>
-<tr class="row-even"><td>J</td>
-<td>innersReserve</td>
-<td>M</td>
-<td>N</td>
-<td>SERIAL_LIST</td>
-<td>&lt;,,24&gt; (MD0)</td>
-</tr>
-<tr class="row-odd"><td>J</td>
-<td>innersUom</td>
-<td>M</td>
-<td>A</td>
-<td>SERIAL_LIST</td>
-<td>&lt;,,25&gt;</td>
-</tr>
-<tr class="row-even"><td>J</td>
-<td>innersWeight</td>
-<td>M</td>
-<td>N</td>
-<td>SERIAL_LIST</td>
-<td>&lt;,,26&gt; (MD24L)</td>
-</tr>
-</tbody>
-</table>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Transaction line detail is directly posted from transaction documents in

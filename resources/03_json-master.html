@@ -41,7 +41,7 @@
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">JSON DOSWARES Export MASTER</a><ul>
-<li><a class="reference internal" href="#addresses">ADDRESSES</a></li>
+<li><a class="reference internal" href="#contacts">CONTACTS</a></li>
 <li><a class="reference internal" href="#accounts">ACCOUNTS</a></li>
 <li><a class="reference internal" href="#products-masterfile">PRODUCTS Masterfile</a></li>
 </ul>
@@ -90,8 +90,8 @@ a synthetic column specific to the JSON export (J). Column S/M indicates
 whether a column is single-valued (S) or array multivalue (M). Column A/N
 refers to whether the data will be quoted string (A) or unquoted numeric (N).</p>
 </div>
-<div class="section" id="addresses">
-<span id="export-addresses"></span><h2>ADDRESSES<a class="headerlink" href="#addresses" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="contacts">
+<span id="export-contacts"></span><h2>CONTACTS<a class="headerlink" href="#contacts" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
 <col width="10%" />
@@ -116,14 +116,14 @@ refers to whether the data will be quoted string (A) or unquoted numeric (N).</p
 <td colspan="4">&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>F</td>
-<td>addressType</td>
-<td>M</td>
+<td>contactType</td>
+<td>S</td>
 <td>A</td>
 <td>TYPE</td>
 <td>&lt;,&gt;</td>
 </tr>
 <tr class="row-even"><td>F</td>
-<td>address</td>
+<td>Identifier</td>
 <td>S</td>
 <td>A</td>
 <td>&#64;ID</td>
@@ -415,7 +415,7 @@ refers to whether the data will be quoted string (A) or unquoted numeric (N).</p
 <td>S</td>
 <td>A</td>
 <td>(&#8220;null&#8221;)</td>
-<td>&nbsp;</td>
+<td>(MD0)</td>
 </tr>
 <tr class="row-odd"><td>F</td>
 <td>recurring</td>
@@ -557,6 +557,13 @@ refers to whether the data will be quoted string (A) or unquoted numeric (N).</p
 </tr>
 </tbody>
 </table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">An element could be added to the account record (or maybe to the products)
+to indicate the type of control numbers used on the account/product. Where
+The control type is DT (date), the control number would set the lot postdate,
+otherwise the postdate would be set by the first date of receipt on the lot.</p>
+</div>
 </div>
 <div class="section" id="products-masterfile">
 <span id="export-products"></span><h2>PRODUCTS Masterfile<a class="headerlink" href="#products-masterfile" title="Permalink to this headline">¶</a></h2>
@@ -580,7 +587,7 @@ refers to whether the data will be quoted string (A) or unquoted numeric (N).</p
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>N/A</td>
-<td>keys</td>
+<td>uniqueKey</td>
 <td colspan="4">&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>F</td>
