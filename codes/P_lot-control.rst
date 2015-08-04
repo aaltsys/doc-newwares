@@ -1,7 +1,7 @@
 .. _control-list:
 
 #############################
-Lot and Batch Control Codes
+Lot Control Codes
 #############################
 
 +-----------+----------------------------+
@@ -41,3 +41,6 @@ Lot and Batch Control Codes
 +-----------+----------------------------+
 
 Source: ASC-X12 Data Element 235 - Product/Service ID Qualifier
+
+.. note::
+   Codes `NA`, `WD`, and `WL` are not part of the ASC-X12 standards codes.
