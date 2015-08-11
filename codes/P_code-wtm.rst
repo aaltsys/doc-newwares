@@ -21,7 +21,7 @@ Units of Weight
 +----------+--------------------------+
 | KG       | Kilogram                 |
 +----------+--------------------------+ 
-| MT       | Metric tonne             |
+| MT       | Metric Tonne             |
 +----------+--------------------------+ 
 
 Source: ASC-X12 Data Element 355 - Unit or Basis for Measurement Code.
