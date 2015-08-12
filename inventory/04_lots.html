@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Document Transaction Lines &mdash; WARES Documents 1.0 documentation</title>
+    <title>Inventory Lot Details &mdash; WARES Inventory 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -23,36 +23,46 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="WARES Documents 1.0 documentation" href="index.html" />
-    <link rel="prev" title="Document Head Columns" href="05_dochead.html" /> 
+    <link rel="top" title="WARES Inventory 1.0 documentation" href="index.html" />
+    <link rel="next" title="Document Transaction Lines" href="05_lines.html" />
+    <link rel="prev" title="Product Masterfile Views" href="03_setup.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="05_dochead.html" title="Document Head Columns"
-             accesskey="P">previous</a></li>
-        <li><a href="index.html">WARES Documents 1.0 documentation</a> &raquo;</li> 
+          <a href="05_lines.html" title="Document Transaction Lines"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="03_setup.html" title="Product Masterfile Views"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">WARES Inventory 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Document Transaction Lines</a><ul>
-<li><a class="reference internal" href="#transaction-lines">Transaction Lines</a></li>
+<li><a class="reference internal" href="#">Inventory Lot Details</a><ul>
+<li><a class="reference internal" href="#detail-lot-header-columns">Detail Lot Header Columns</a><ul>
+<li><a class="reference internal" href="#legend">LEGEND:</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="05_dochead.html"
-                        title="previous chapter">Document Head Columns</a></p>
+  <p class="topless"><a href="03_setup.html"
+                        title="previous chapter">Product Masterfile Views</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="05_lines.html"
+                        title="next chapter">Document Transaction Lines</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/06_trlines.txt"
+      <li><a href="_sources/04_lots.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -77,10 +87,22 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="document-transaction-lines">
-<span id="lines"></span><span id="col-trlines"></span><h1>Document Transaction Lines<a class="headerlink" href="#document-transaction-lines" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="transaction-lines">
-<h2>Transaction Lines<a class="headerlink" href="#transaction-lines" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="inventory-lot-details">
+<span id="lots"></span><h1>Inventory Lot Details<a class="headerlink" href="#inventory-lot-details" title="Permalink to this headline">¶</a></h1>
+<p>Lot detail record entries are divided into the following sections:</p>
+<ul class="simple">
+<li>Keys &#8211; A combination of values which uniquely identify a product</li>
+<li>Descriptors &#8211; Alternate textual product identification and categorization</li>
+<li>Dimension &#8211; The measures of packing for a product</li>
+<li>Transactions &#8211; keys, Posting, Lot Identification, and quantitative entries.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The following WARES product setup entries are not yet supported in webWARES:
+DATES, LIFE, REPACK, PICK_MIN and PICK_QTY, ORDER_MIN and ORDER_QTY.</p>
+</div>
+<div class="section" id="detail-lot-header-columns">
+<h2>Detail Lot Header Columns<a class="headerlink" href="#detail-lot-header-columns" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
 <col width="4%" />
@@ -110,108 +132,6 @@
 </tr>
 <tr class="row-odd"><td>M</td>
 <td>S</td>
-<td>SEQUENCEKEY</td>
-<td>A</td>
-<td>U</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>R12</td>
-<td><ol class="first last arabic simple">
-<li></li>
-</ol>
-</td>
-</tr>
-<tr class="row-even"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Transaction Entries</td>
-</tr>
-<tr class="row-odd"><td>M</td>
-<td>S</td>
-<td>UNITIDENTIFIER</td>
-<td>A</td>
-<td>U</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>L20</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>M</td>
-<td>S</td>
-<td>TRANSACTIONTYPE</td>
-<td>A</td>
-<td>U</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>R2</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>M</td>
-<td>S</td>
-<td>TRANSACTION</td>
-<td>A</td>
-<td>U</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>R10</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>M</td>
-<td>S</td>
-<td>LINEKEY</td>
-<td>A</td>
-<td>U</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>R10</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Posting Control Entries</td>
-</tr>
-<tr class="row-even"><td>M</td>
-<td>S</td>
-<td>STATUS</td>
-<td>A</td>
-<td>U</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>R2</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>M</td>
-<td>S</td>
-<td>POSTDATE</td>
-<td>A</td>
-<td>U</td>
-<td>DATE</td>
-<td>TODAY</td>
-<td>R10</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>M</td>
-<td>S</td>
-<td>LOCATION</td>
-<td>A</td>
-<td>U</td>
-<td>VT=LOCATIONS</td>
-<td>WH</td>
-<td>L12</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>O</td>
-<td>M</td>
-<td>CONDITION</td>
-<td>LC</td>
-<td>U</td>
-<td><a class="reference external" href="../codes/D_condition.html#condition-list" title="(in WARES Codes v1.0)"><em>Unit Condition Codes</em></a></td>
-<td>&nbsp;</td>
-<td>L2</td>
-<td><ol class="first last arabic simple" start="2">
-<li></li>
-</ol>
-</td>
-</tr>
-<tr class="row-even"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Lot Identification Entries</td>
-</tr>
-<tr class="row-odd"><td>M</td>
-<td>S</td>
 <td>ACCOUNT</td>
 <td>A</td>
 <td>U</td>
@@ -225,9 +145,9 @@
 <td>PRODUCT</td>
 <td>A</td>
 <td>U</td>
-<td>VT=PRODUCTS key1</td>
+<td>VT=PRODUCTS, key1</td>
 <td>&nbsp;</td>
-<td>L12</td>
+<td>L20</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>M</td>
@@ -235,9 +155,9 @@
 <td>VARIETY</td>
 <td>A</td>
 <td>U</td>
-<td>VT=PRODUCTS key2</td>
+<td>VT=PRODUCTS, key2</td>
 <td>null</td>
-<td>&nbsp;</td>
+<td>L10</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>M</td>
@@ -247,7 +167,7 @@
 <td>U</td>
 <td><a class="reference external" href="../codes/P_lot-control.html#control-list" title="(in WARES Codes v1.0)"><em>Lot Control Codes</em></a></td>
 <td>NA</td>
-<td>L2</td>
+<td>L4</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>M</td>
@@ -256,14 +176,36 @@
 <td>A</td>
 <td>U</td>
 <td>&nbsp;</td>
-<td>(TBD)</td>
-<td>L16</td>
-<td><ol class="first last arabic simple" start="3">
+<td>&nbsp;</td>
+<td>L20</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Descriptive Entries</td>
+</tr>
+<tr class="row-odd"><td>M</td>
+<td>S</td>
+<td>REVISION</td>
+<td>A</td>
+<td>U</td>
+<td>&nbsp;</td>
+<td>00</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>M</td>
+<td>S</td>
+<td>POSTDATE</td>
+<td>A</td>
+<td>U</td>
+<td>DATE</td>
+<td>TODAY</td>
+<td>R10</td>
+<td><ol class="first last arabic simple">
 <li></li>
 </ol>
 </td>
 </tr>
-<tr class="row-even"><td>O</td>
+<tr class="row-odd"><td>O</td>
 <td>T</td>
 <td>DESCRIPTION</td>
 <td>A</td>
@@ -271,51 +213,54 @@
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>T40</td>
-<td>&nbsp;</td>
+<td><ol class="first last arabic simple" start="2">
+<li></li>
+</ol>
+</td>
 </tr>
-<tr class="row-odd"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Quantitative Entries</td>
+<tr class="row-even"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Dimensional Entries</td>
 </tr>
-<tr class="row-even"><td>M</td>
+<tr class="row-odd"><td>M</td>
 <td>S</td>
 <td>UNITUOM</td>
-<td>LC</td>
+<td>A</td>
 <td>U</td>
 <td><a class="reference external" href="../codes/P_code-uom.html#uom-list" title="(in WARES Codes v1.0)"><em>Units of Measure</em></a></td>
 <td>PL</td>
 <td>L4</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>O</td>
+<tr class="row-even"><td>O</td>
 <td>S</td>
 <td>UNITNET</td>
 <td>N.2</td>
 <td>&nbsp;</td>
 <td>(MD2)</td>
 <td>&nbsp;</td>
-<td>R8</td>
+<td>R9</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>O</td>
+<tr class="row-odd"><td>O</td>
 <td>S</td>
 <td>UNITTARE</td>
 <td>N.2</td>
 <td>&nbsp;</td>
 <td>(MD2)</td>
 <td>&nbsp;</td>
-<td>R8</td>
+<td>R9</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>O</td>
+<tr class="row-even"><td>O</td>
 <td>S</td>
 <td>UNITSIZE</td>
 <td>N.2</td>
 <td>&nbsp;</td>
 <td>(MD4)</td>
 <td>&nbsp;</td>
-<td>R8</td>
+<td>R9</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>O</td>
+<tr class="row-odd"><td>O</td>
 <td>S</td>
 <td>UNITSTACK</td>
 <td>N.0</td>
@@ -325,34 +270,24 @@
 <td>R1</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>O</td>
+<tr class="row-even"><td>O</td>
 <td>S</td>
 <td>CONTENTUOM</td>
-<td>LC</td>
+<td>A</td>
 <td>U</td>
 <td><a class="reference external" href="../codes/P_code-uom.html#uom-list" title="(in WARES Codes v1.0)"><em>Units of Measure</em></a></td>
 <td>CA</td>
 <td>L4</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>O</td>
+<tr class="row-odd"><td>O</td>
 <td>S</td>
 <td>CONTENTCOUNT</td>
 <td>N.0</td>
 <td>&nbsp;</td>
 <td>(MD0)</td>
 <td>&nbsp;</td>
-<td>R8</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>O</td>
-<td>S</td>
-<td>CONTENTRESERVE</td>
-<td>N.0</td>
-<td>&nbsp;</td>
-<td>(MD0)</td>
-<td>&nbsp;</td>
-<td>R8</td>
+<td>R6</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>O</td>
@@ -362,7 +297,7 @@
 <td>&nbsp;</td>
 <td>(MD4)</td>
 <td>&nbsp;</td>
-<td>R8</td>
+<td>R9</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>O</td>
@@ -372,7 +307,7 @@
 <td>&nbsp;</td>
 <td>(MD4)</td>
 <td>&nbsp;</td>
-<td>R8</td>
+<td>R9</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>O</td>
@@ -382,13 +317,13 @@
 <td>&nbsp;</td>
 <td>(MD4)</td>
 <td>&nbsp;</td>
-<td>R8</td>
+<td>R9</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>O</td>
 <td>S</td>
 <td>INNERUOM</td>
-<td>LC</td>
+<td>A</td>
 <td>U</td>
 <td><a class="reference external" href="../codes/P_code-uom.html#uom-list" title="(in WARES Codes v1.0)"><em>Units of Measure</em></a></td>
 <td>EA</td>
@@ -402,20 +337,10 @@
 <td>&nbsp;</td>
 <td>(MD0)</td>
 <td>&nbsp;</td>
-<td>R8</td>
+<td>R6</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>O</td>
-<td>S</td>
-<td>INNERRESERVE</td>
-<td>N.0</td>
-<td>&nbsp;</td>
-<td>(MD0)</td>
-<td>&nbsp;</td>
-<td>R8</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>O</td>
 <td>S</td>
 <td>INNERWEIGHT</td>
 <td>N.4</td>
@@ -425,7 +350,7 @@
 <td>R8</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>O</td>
+<tr class="row-even"><td>O</td>
 <td>S</td>
 <td>INNERSIZE</td>
 <td>N.4</td>
@@ -440,11 +365,72 @@
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <ol class="last arabic simple">
-<li>Transaction line detail is directly posted from transaction documents in
-receipts, shipments, and adjustments.</li>
-<li>An optional list of conditions may apply to units in a lot, such as
-damage, inspection hold, quality condition, etc.</li>
+<li>Default control codes and control numbers could be assigned based on an
+Account setting (WARES does part of this now). Where control codes
+reference a date for rotation or initial storage, this date should be
+used for the lot POSTDATE.</li>
 </ol>
+</div>
+<div class="section" id="legend">
+<h3>LEGEND:<a class="headerlink" href="#legend" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="79%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>REQ</td>
+<td><div class="first last line-block">
+<div class="line">O = optional</div>
+<div class="line">M = mandatory</div>
+<div class="line">P = pair required</div>
+<div class="line">C = conditional</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>SM</td>
+<td><div class="first last line-block">
+<div class="line">S = single valued</div>
+<div class="line">M = multiple values</div>
+<div class="line">A = associated (array member)</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>COLUMN NAME</td>
+<td>(not case specific)</td>
+</tr>
+<tr class="row-even"><td>TYPE</td>
+<td><div class="first last line-block">
+<div class="line">A = alpha</div>
+<div class="line">N.n = numeric with decimals</div>
+<div class="line">LC = list of codes</div>
+<div class="line">B = boolean</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>U</td>
+<td>Key values and codes are uppercase</td>
+</tr>
+<tr class="row-even"><td>VALIDATE</td>
+<td><div class="first last line-block">
+<div class="line">links refer to code validation lists</div>
+<div class="line">Tablenames (uppercase) refer to verifiles</div>
+<div class="line">(&#8216;values&#8217;) list allowed entries</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>DEFAULT</td>
+<td>a value default</td>
+</tr>
+<tr class="row-even"><td>JUST</td>
+<td><div class="first last line-block">
+<div class="line">Justify (L)eft, (C)enter, (R)ight, (T)ext</div>
+<div class="line">n = characters to show</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -459,9 +445,12 @@ damage, inspection hold, quality condition, etc.</li>
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="05_dochead.html" title="Document Head Columns"
-             >previous</a></li>
-        <li><a href="index.html">WARES Documents 1.0 documentation</a> &raquo;</li> 
+          <a href="05_lines.html" title="Document Transaction Lines"
+             >next</a></li>
+        <li class="right" >
+          <a href="03_setup.html" title="Product Masterfile Views"
+             >previous</a> |</li>
+        <li><a href="index.html">WARES Inventory 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
