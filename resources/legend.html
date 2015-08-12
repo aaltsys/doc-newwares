@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Document Head Columns &mdash; WARES Documents 1.0 documentation</title>
+    <title>LEGEND: &mdash; WARES Resources 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -23,35 +23,21 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="WARES Documents 1.0 documentation" href="index.html" />
-    <link rel="next" title="Document Transaction Lines" href="06_trlines.html" />
-    <link rel="prev" title="Transaction Posting" href="04_posting.html" /> 
+    <link rel="top" title="WARES Resources 1.0 documentation" href="index.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="06_trlines.html" title="Document Transaction Lines"
-             accesskey="N">next</a></li>
-        <li class="right" >
-          <a href="04_posting.html" title="Transaction Posting"
-             accesskey="P">previous</a> |</li>
-        <li><a href="index.html">WARES Documents 1.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">WARES Resources 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="04_posting.html"
-                        title="previous chapter">Transaction Posting</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="06_trlines.html"
-                        title="next chapter">Document Transaction Lines</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/05_dochead.txt"
+      <li><a href="_sources/legend.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -76,10 +62,70 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="document-head-columns">
-<span id="col-dochead"></span><h1>Document Head Columns<a class="headerlink" href="#document-head-columns" title="Permalink to this headline">¶</a></h1>
-<p>Data entries in the document head occur once per transaction. Some entries may
-contain multiple values. Columns are defined in the table following.</p>
+  <div class="section" id="legend">
+<span id="id1"></span><h1>LEGEND:<a class="headerlink" href="#legend" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="79%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>REQ</td>
+<td><div class="first last line-block">
+<div class="line">O = optional</div>
+<div class="line">M = mandatory</div>
+<div class="line">P = pair required</div>
+<div class="line">C = conditional</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>SM</td>
+<td><div class="first last line-block">
+<div class="line">S = single valued</div>
+<div class="line">M = multiple values</div>
+<div class="line">A = associated (array member)</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>COLUMN NAME</td>
+<td>(not case specific)</td>
+</tr>
+<tr class="row-even"><td>TYPE</td>
+<td><div class="first last line-block">
+<div class="line">A = alpha</div>
+<div class="line">N.n = numeric with decimals</div>
+<div class="line">LC = list of codes</div>
+<div class="line">B = boolean</div>
+<div class="line">D = datetime</div>
+<div class="line">SK = key sequence</div>
+<div class="line">S = sequence</div>
+<div class="line">U = UUID</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>U</td>
+<td>Key values and codes are uppercase</td>
+</tr>
+<tr class="row-even"><td>VALIDATE</td>
+<td><div class="first last line-block">
+<div class="line">links refer to code validation lists</div>
+<div class="line">Tablenames (uppercase) refer to verifiles</div>
+<div class="line">(&#8216;values&#8217;) list allowed entries</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>DEFAULT</td>
+<td>a value default</td>
+</tr>
+<tr class="row-even"><td>JUST</td>
+<td><div class="first last line-block">
+<div class="line">Justify (L)eft, (C)enter, (R)ight, (T)ext</div>
+<div class="line">n = characters to show</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 
 
@@ -91,13 +137,7 @@ contain multiple values. Columns are defined in the table following.</p>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="06_trlines.html" title="Document Transaction Lines"
-             >next</a></li>
-        <li class="right" >
-          <a href="04_posting.html" title="Transaction Posting"
-             >previous</a> |</li>
-        <li><a href="index.html">WARES Documents 1.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">WARES Resources 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
