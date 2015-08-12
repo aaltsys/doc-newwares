@@ -18,12 +18,12 @@ LEGEND:
 +------------+----------------------------------------------+
 | TYPE       || A = alpha                                   |
 |            || N.n = numeric with decimals                 |
-|            || LC = list of codes                          |
 |            || B = boolean                                 |
 |            || D = datetime                                |
+|            || U = UUID                                    |
+|            || LC = list of codes                          |
 |            || SK = key sequence                           |
 |            || S = sequence                                |
-|            || U = UUID                                    |
 +------------+----------------------------------------------+
 | U          | Key values and codes are uppercase           |
 +------------+----------------------------------------------+

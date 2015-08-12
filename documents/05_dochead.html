@@ -80,6 +80,335 @@
 <span id="col-dochead"></span><h1>Document Head Columns<a class="headerlink" href="#document-head-columns" title="Permalink to this headline">¶</a></h1>
 <p>Data entries in the document head occur once per transaction. Some entries may
 contain multiple values. Columns are defined in the table following.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="4%" />
+<col width="4%" />
+<col width="22%" />
+<col width="7%" />
+<col width="4%" />
+<col width="33%" />
+<col width="11%" />
+<col width="7%" />
+<col width="7%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">REQ</th>
+<th class="head">SM</th>
+<th class="head">COLUMN NAME</th>
+<th class="head">TYPE</th>
+<th class="head">UC</th>
+<th class="head">VALIDATE</th>
+<th class="head">DEFAULT</th>
+<th class="head">JUST</th>
+<th class="head">NOTE</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Keys</td>
+</tr>
+<tr class="row-odd"><td>M</td>
+<td>S</td>
+<td>TYPE</td>
+<td>LC</td>
+<td>U</td>
+<td><a class="reference external" href="../codes/D_type.html#type-list" title="(in WARES Codes v1.0)"><em>Document Type codes</em></a></td>
+<td>&nbsp;</td>
+<td>L4</td>
+<td><ol class="first last arabic simple">
+<li></li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td>M</td>
+<td>S</td>
+<td>IDENTIFIER</td>
+<td>SK</td>
+<td>U</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>L12</td>
+<td><ol class="first last arabic simple" start="2">
+<li></li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td>M</td>
+<td>S</td>
+<td>REVISION</td>
+<td>S</td>
+<td>U</td>
+<td>&nbsp;</td>
+<td>00</td>
+<td>L4</td>
+<td><ol class="first last arabic simple" start="2">
+<li></li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Posting &amp; Reference</td>
+</tr>
+<tr class="row-odd"><td>M</td>
+<td>S</td>
+<td>STATUS</td>
+<td>LC</td>
+<td>U</td>
+<td><a class="reference external" href="../codes/D_status.html#status-list" title="(in WARES Codes v1.0)"><em>Document Status Codes</em></a></td>
+<td>&nbsp;</td>
+<td>L2</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>M</td>
+<td>S</td>
+<td>DATE/TIME</td>
+<td>D</td>
+<td>U</td>
+<td>&nbsp;</td>
+<td>TODAY</td>
+<td>R10</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>M</td>
+<td>S</td>
+<td>ACCOUNT</td>
+<td>A</td>
+<td>U</td>
+<td>VT=ACCOUNTS</td>
+<td>&nbsp;</td>
+<td>L12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>O</td>
+<td>S</td>
+<td>BUILDING</td>
+<td>A</td>
+<td>U</td>
+<td>VT=CONTACTS*B</td>
+<td>&nbsp;</td>
+<td>L4</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>P</td>
+<td>AM</td>
+<td>REFERENCECODE</td>
+<td>LC</td>
+<td>U</td>
+<td><a class="reference external" href="../codes/D_reference.html#reference-list" title="(in WARES Codes v1.0)"><em>Document Reference codes</em></a></td>
+<td>&nbsp;</td>
+<td>L4</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>P</td>
+<td>AM</td>
+<td>REFERENCE</td>
+<td>A</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>L20</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Transportation</td>
+</tr>
+<tr class="row-even"><td>P</td>
+<td>AM</td>
+<td>ADDRESSCODE</td>
+<td>LC</td>
+<td>U</td>
+<td><em class="xref std std-ref">address-list</em></td>
+<td>ST,SF</td>
+<td>L4</td>
+<td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td>P</td>
+<td>AM</td>
+<td>ADDRESS</td>
+<td>A</td>
+<td>U</td>
+<td>VT=CONTACTS*ST,SF,PF</td>
+<td>&nbsp;</td>
+<td>L12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>O</td>
+<td>S</td>
+<td>CONTACT</td>
+<td>A</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>L20</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>O</td>
+<td>S</td>
+<td>CARRIERCODE</td>
+<td>A</td>
+<td>U</td>
+<td>VT=CONTACTS*CA</td>
+<td>&nbsp;</td>
+<td>L8</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>O</td>
+<td>S</td>
+<td>ROUTE</td>
+<td>A</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>L30</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>O</td>
+<td>S</td>
+<td>FREIGHTPAY</td>
+<td>LC</td>
+<td>U</td>
+<td><a class="reference external" href="../codes/D_freightpay.html#freightpay-list" title="(in WARES Codes v1.0)"><em>Freight Payment codes</em></a></td>
+<td>PP</td>
+<td>L4</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>O</td>
+<td>S</td>
+<td>TRANSPORTMETHOD</td>
+<td>LC</td>
+<td>U</td>
+<td><a class="reference external" href="../codes/D_transport.html#transport-list" title="(in WARES Codes v1.0)"><em>Transportation Method Codes</em></a></td>
+<td>M</td>
+<td>L4</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>O</td>
+<td>S</td>
+<td>LOADINGOPTION</td>
+<td>LC</td>
+<td>U</td>
+<td><a class="reference external" href="../codes/D_loading.html#loading-list" title="(in WARES Codes v1.0)"><em>Unit Load codes</em></a></td>
+<td>01</td>
+<td>L4</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>P</td>
+<td>AM</td>
+<td>VEHICLECODE</td>
+<td>LC</td>
+<td>U</td>
+<td><a class="reference external" href="../codes/D_vehicle.html#vehicle-list" title="(in WARES Codes v1.0)"><em>Vehicle Equipment codes</em></a></td>
+<td>&nbsp;</td>
+<td>L4</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>P</td>
+<td>AM</td>
+<td>VEHICLE</td>
+<td>A</td>
+<td>U</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>L20</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Qualitative Values</td>
+</tr>
+<tr class="row-odd"><td>P</td>
+<td>AM</td>
+<td>DATECODE</td>
+<td>LC</td>
+<td>U</td>
+<td><a class="reference external" href="../codes/D_date.html#date-list" title="(in WARES Codes v1.0)"><em>Date, Time Qualifier codes</em></a></td>
+<td>&nbsp;</td>
+<td>L4</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>P</td>
+<td>AM</td>
+<td>DATETIME</td>
+<td>DT</td>
+<td>U</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>R20</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>P</td>
+<td>AM</td>
+<td>TEMPERATURECODE</td>
+<td>LC</td>
+<td>U</td>
+<td><a class="reference external" href="../codes/D_temperature.html#temperature-list" title="(in WARES Codes v1.0)"><em>Temperature codes</em></a></td>
+<td>&nbsp;</td>
+<td>L4</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>P</td>
+<td>AM</td>
+<td>TEMPERATURE</td>
+<td>N</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>R6</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>P</td>
+<td>AM</td>
+<td>QUANTITYCODE</td>
+<td>LC</td>
+<td>U</td>
+<td><em class="xref std std-ref">quantity-list</em></td>
+<td>&nbsp;</td>
+<td>L4</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>P</td>
+<td>AM</td>
+<td>QUANTITY</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>R12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Notes and Messages</td>
+</tr>
+<tr class="row-even"><td>P</td>
+<td>AM</td>
+<td>NOTECODE</td>
+<td>LC</td>
+<td>U</td>
+<td><a class="reference external" href="../codes/S_note.html#note-list" title="(in WARES Codes v1.0)"><em>Document Note &amp; Message Codes</em></a></td>
+<td>&nbsp;</td>
+<td>L4</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>P</td>
+<td>AM</td>
+<td>NOTE</td>
+<td>A</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>T40</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>P</td>
+<td>AM</td>
+<td>NOTEAPPLY</td>
+<td>LC</td>
+<td>U</td>
+<td><em class="xref std std-ref">document-list</em></td>
+<td>&nbsp;</td>
+<td>L4</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
 </div>
 
 
