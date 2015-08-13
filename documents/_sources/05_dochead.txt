@@ -1,4 +1,4 @@
-.. _col-dochead:
+.. _dochead:
 
 #############################
 Document Head Columns

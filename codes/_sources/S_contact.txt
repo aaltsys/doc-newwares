@@ -1,4 +1,4 @@
-.. _contacts-list:
+.. _contact-list:
 
 #############################
 Contacts type codes
