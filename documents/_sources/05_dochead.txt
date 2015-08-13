@@ -12,7 +12,7 @@ contain multiple values. Columns are defined in the table following.
 +===+===+================+=====+===+========================+========+=====+=====+
 | -- -- -- -- -- -- -- -- -- -- -- -- Keys                                       |
 +---+---+----------------+-----+---+------------------------+--------+-----+-----+
-| M | S | TYPE           | LC  | U | :ref:`type-list`       |        | L4  | (1) |
+| M | S | TYPE           | LC  | U | :ref:`document-list`   |        | L4  | (1) |
 +---+---+----------------+-----+---+------------------------+--------+-----+-----+
 | M | S | IDENTIFIER     | SK  | U |                        |        | L12 | (2) |
 +---+---+----------------+-----+---+------------------------+--------+-----+-----+
@@ -28,13 +28,13 @@ contain multiple values. Columns are defined in the table following.
 +---+---+----------------+-----+---+------------------------+--------+-----+-----+
 | O | S | BUILDING       | A   | U | VT=CONTACTS*B          |        | L4  |     |
 +---+---+----------------+-----+---+------------------------+--------+-----+-----+
-| P | AM| REFERENCECODE  | LC  | U | :ref:`reference-list`  |        | L4  |     |
+| P | AM| REFERENCECODE  | LC  | U | :ref:`reference-list`  |        | L4  | (3) |
 +---+---+----------------+-----+---+------------------------+--------+-----+-----+
 | P | AM| REFERENCE      | A   |   |                        |        | L20 |     |
 +---+---+----------------+-----+---+------------------------+--------+-----+-----+
 | -- -- -- -- -- -- -- -- -- -- -- -- Transportation                             |
 +---+---+----------------+-----+---+------------------------+--------+-----+-----+
-| P | AM| ADDRESSCODE    | LC  | U | :REF:`address-list`    | ST,SF  | L4  | (3) |
+| P | AM| ADDRESSCODE    | LC  | U | :REF:`contact-list`    | ST,SF  | L4  | (4) |
 +---+---+----------------+-----+---+------------------------+--------+-----+-----+
 | P | AM| ADDRESS        | A   | U | VT=CONTACTS*ST,SF,PF   |        | L12 |     |
 +---+---+----------------+-----+---+------------------------+--------+-----+-----+
@@ -42,7 +42,7 @@ contain multiple values. Columns are defined in the table following.
 +---+---+----------------+-----+---+------------------------+--------+-----+-----+
 | O | S | CARRIERCODE    | A   | U | VT=CONTACTS*CA         |        | L8  |     |
 +---+---+----------------+-----+---+------------------------+--------+-----+-----+
-| O | S | ROUTE          | A   |   |                        |        | L30 |     |
+| O | S | ROUTE          | A   |   |                        |        | T30 |     |
 +---+---+----------------+-----+---+------------------------+--------+-----+-----+
 | O | S | FREIGHTPAY     | LC  | U | :ref:`freightpay-list` | PP     | L4  |     |
 +---+---+----------------+-----+---+------------------------+--------+-----+-----+
@@ -52,7 +52,7 @@ contain multiple values. Columns are defined in the table following.
 +---+---+----------------+-----+---+------------------------+--------+-----+-----+
 | P | AM| VEHICLECODE    | LC  | U | :ref:`vehicle-list`    |        | L4  |     |
 +---+---+----------------+-----+---+------------------------+--------+-----+-----+
-| P | AM| VEHICLE        | A   | U |                        |        | L20 |     |
+| P | AM| VEHICLE        | A   | U |                        |        | T20 |     |
 +---+---+----------------+-----+---+------------------------+--------+-----+-----+
 | -- -- -- -- -- -- -- -- -- -- -- -- Qualitative Values                         |
 +---+---+----------------+-----+---+------------------------+--------+-----+-----+
@@ -76,5 +76,13 @@ contain multiple values. Columns are defined in the table following.
 +---+---+----------------+-----+---+------------------------+--------+-----+-----+
 | P | AM| NOTEAPPLY      | LC  | U | :ref:`document-list`   |        | L4  |     |
 +---+---+----------------+-----+---+------------------------+--------+-----+-----+
- 
+
+.. note:
+   #. Document types are automatically selected according to the page where the 
+      document is entered: Receipts, Shipments, Adjustments, ....
+   #. Sequence Keys and revision sequence counters are applied to documents of
+      each type as described in the previous note.
+   #. A uniqueness check feature is applied to documents based on 
+   #.
+
 .. include: ../resources/legend.rst
