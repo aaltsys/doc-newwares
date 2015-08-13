@@ -1,11 +1,6 @@
-.. _lines:
-
 #############################
 Document Transaction Lines
 #############################
-
-Transaction Lines
-=============================
 
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 |REQ| SM| COLUMN NAME    | TYPE| UC|VALIDATE              | DEFAULT| JUST| NOTE|
