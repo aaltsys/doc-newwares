@@ -77,7 +77,7 @@ contain multiple values. Columns are defined in the table following.
 | P | AM| NOTEAPPLY      | LC  | U | :ref:`document-list`   |        | L4  |     |
 +---+---+----------------+-----+---+------------------------+--------+-----+-----+
 
-.. note:
+.. note::
    #. Document types are automatically selected according to the page where the 
       document is entered: Receipts, Shipments, Adjustments, ....
    #. Sequence Keys and revision sequence counters are applied to documents of
