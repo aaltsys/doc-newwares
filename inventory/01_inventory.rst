@@ -116,5 +116,5 @@ categories commonly stored in warehouse inventory:
 
 A product's Unit of Measure (UOM) entries are set on the masterfile record, but 
 masterfile quantity entries (PCS, WGHT, CNT, CNET, CTARE, UNET, UTARE) are
-defaults of values which maay be entered separately for each received unit.
+defaults of values which may be entered separately for each received unit.
  
