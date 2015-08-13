@@ -1,7 +1,7 @@
 .. _dtm-list:
 
 #############################
-Date and Time Tracking codes
+Date and Time Tracking Codes
 #############################
 
 +-----------+--------------------------+
