@@ -22,7 +22,7 @@ contain multiple values. Columns are defined in the table following.
 +---+---+----------------+-----+---+------------------------+--------+-----+-----+
 | M | S | STATUS         | LC  | U | :ref:`status-list`     |        | L2  |     |
 +---+---+----------------+-----+---+------------------------+--------+-----+-----+
-| M | S | DATE/TIME      | D   | U |                        | TODAY  | R10 |     |
+| M | S | DATETIME       | D   | U |                        | TODAY  | R10 |     |
 +---+---+----------------+-----+---+------------------------+--------+-----+-----+
 | M | S | ACCOUNT        | A   | U | VT=ACCOUNTS            |        | L12 |     |
 +---+---+----------------+-----+---+------------------------+--------+-----+-----+
@@ -77,12 +77,12 @@ contain multiple values. Columns are defined in the table following.
 | P | AM| NOTEAPPLY      | LC  | U | :ref:`document-list`   |        | L4  |     |
 +---+---+----------------+-----+---+------------------------+--------+-----+-----+
 
-.. note:
+.. note::
    #. Document types are automatically selected according to the page where the 
       document is entered: Receipts, Shipments, Adjustments, ....
    #. Sequence Keys and revision sequence counters are applied to documents of
       each type as described in the previous note.
-   #. A uniqueness check feature is applied to documents based on 
-   #.
+   #. Documents are checked for uniqueness of: ACCOUNT, ADDRESS, and REFERENCE.
+   #. ADDRESSCODE defaults are determined by document type.
 
-.. include: ../resources/legend.rst
+.. include:: ../resources/legend.rst

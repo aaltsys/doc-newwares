@@ -40,7 +40,7 @@ Document Entry Lists
 | :ref:`transport-list`
 | :ref:`loading-list`
 | :ref:`vehicle-list`
-| :ref:`dtm-list`
+| :ref:`datetime-list`
 | :ref:`temperature-list`
 | :ref:`Quantity-list`
 

@@ -1,3 +1,3 @@
-.. _col-trlines:
+.. _trlines:
 
 .. include:: ../inventory/05_lines.rst
