@@ -78,6 +78,6 @@ Detail Lot Header Columns
       reference a date for rotation or initial storage, this date should be 
       used for the lot POSTDATE.
 
-.. include: `../resources/legend.rst`
+.. include:: ../resources/legend.rst
 
-.. include: `05_lines.rst`
+.. include:: 05_lines.rst

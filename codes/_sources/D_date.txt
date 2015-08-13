@@ -7,6 +7,8 @@ Date/Time Qualifier Codes
 +------+-----------------------------------------------+
 | CODE | Date/Time Description                         |
 +======+===============================================+
+| -- -- Dates (Note 1)                                 |
++------+-----------------------------------------------+
 | 01   | Cancel After This Date                        |
 +------+-----------------------------------------------+
 | 02   | Delivery Requested on This Date               |
@@ -29,6 +31,7 @@ Date/Time Qualifier Codes
 +------+-----------------------------------------------+
 | 39   | Ship Week Of Date                             |
 +------+-----------------------------------------------+
+| -- -- Times (Note 2)                                 |
 +------+-----------------------------------------------+
 |  2   | Pickup Appointment Scheduled Time             |
 +------+-----------------------------------------------+
@@ -59,5 +62,6 @@ Date/Time Qualifier Codes
 |  Z   | Requested Delivery Time                       |
 +------+-----------------------------------------------+
 
-Source: ASC-X12 Data Element 432 - Date Qualifier.
-Source: ASC-X12 Data Element 176 - Time Qualifier.
+.. note::
+   #. Date source: ASC-X12 Data Element 432 - Date Qualifier.
+   #. Time source: ASC-X12 Data Element 176 - Time Qualifier.

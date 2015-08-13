@@ -137,4 +137,4 @@ Product Masterfile Columns
    #. When a UOM is specified for inners or content, then the corresponding 
       COUNT is required.
 
-.. include: `../resources/legend.rst`
+.. include:: ../resources/legend.rst

@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="WARES Codes 1.0 documentation" href="index.html" />
-    <link rel="next" title="Date and Time Tracking Codes" href="D_dtm.html" />
+    <link rel="next" title="Date/Time Tracking Codes" href="D_datetime.html" />
     <link rel="prev" title="Unit Condition Codes" href="D_condition.html" /> 
   </head>
   <body role="document">
@@ -32,7 +32,7 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="D_dtm.html" title="Date and Time Tracking Codes"
+          <a href="D_datetime.html" title="Date/Time Tracking Codes"
              accesskey="N">next</a></li>
         <li class="right" >
           <a href="D_condition.html" title="Unit Condition Codes"
@@ -46,8 +46,8 @@
   <p class="topless"><a href="D_condition.html"
                         title="previous chapter">Unit Condition Codes</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="D_dtm.html"
-                        title="next chapter">Date and Time Tracking Codes</a></p>
+  <p class="topless"><a href="D_datetime.html"
+                        title="next chapter">Date/Time Tracking Codes</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -89,88 +89,94 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>01</td>
+<tr class="row-even"><td colspan="2">&#8211; &#8211; Dates (Note 1)</td>
+</tr>
+<tr class="row-odd"><td>01</td>
 <td>Cancel After This Date</td>
 </tr>
-<tr class="row-odd"><td>02</td>
+<tr class="row-even"><td>02</td>
 <td>Delivery Requested on This Date</td>
 </tr>
-<tr class="row-even"><td>10</td>
+<tr class="row-odd"><td>10</td>
 <td>Requested Ship Date/Pickup Date</td>
 </tr>
-<tr class="row-odd"><td>11</td>
+<tr class="row-even"><td>11</td>
 <td>Shipped on This Date</td>
 </tr>
-<tr class="row-even"><td>17</td>
+<tr class="row-odd"><td>17</td>
 <td>Estimated Delivery Date</td>
 </tr>
-<tr class="row-odd"><td>19</td>
+<tr class="row-even"><td>19</td>
 <td>Date Unloaded</td>
 </tr>
-<tr class="row-even"><td>22</td>
+<tr class="row-odd"><td>22</td>
 <td>Freight Bill Date</td>
 </tr>
-<tr class="row-odd"><td>35</td>
+<tr class="row-even"><td>35</td>
 <td>Delivered on This Date</td>
 </tr>
-<tr class="row-even"><td>37</td>
+<tr class="row-odd"><td>37</td>
 <td>Ship Not Before Date</td>
 </tr>
-<tr class="row-odd"><td>38</td>
+<tr class="row-even"><td>38</td>
 <td>Ship Not Later Than Date</td>
 </tr>
-<tr class="row-even"><td>39</td>
+<tr class="row-odd"><td>39</td>
 <td>Ship Week Of Date</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
-<td>&nbsp;</td>
+<tr class="row-even"><td colspan="2">&#8211; &#8211; Times (Note 2)</td>
 </tr>
-<tr class="row-even"><td>2</td>
+<tr class="row-odd"><td>2</td>
 <td>Pickup Appointment Scheduled Time</td>
 </tr>
-<tr class="row-odd"><td>3</td>
+<tr class="row-even"><td>3</td>
 <td>Delivery Appointment Scheduled Time</td>
 </tr>
-<tr class="row-even"><td>4</td>
+<tr class="row-odd"><td>4</td>
 <td>Pickup Requested Scheduled Time</td>
 </tr>
-<tr class="row-odd"><td>5</td>
+<tr class="row-even"><td>5</td>
 <td>Delivery Requested Scheduled Time</td>
 </tr>
-<tr class="row-even"><td>8</td>
+<tr class="row-odd"><td>8</td>
 <td>Actual Pickup Time</td>
 </tr>
-<tr class="row-odd"><td>9</td>
+<tr class="row-even"><td>9</td>
 <td>Actual Delivery Time</td>
 </tr>
-<tr class="row-even"><td>A</td>
+<tr class="row-odd"><td>A</td>
 <td>Actual Departure Time</td>
 </tr>
-<tr class="row-odd"><td>S</td>
+<tr class="row-even"><td>S</td>
 <td>Scheduled Departure Time</td>
 </tr>
-<tr class="row-even"><td>T</td>
+<tr class="row-odd"><td>T</td>
 <td>Scheduled Arrival Time</td>
 </tr>
-<tr class="row-odd"><td>U</td>
+<tr class="row-even"><td>U</td>
 <td>Scheduled Pickup Time</td>
 </tr>
-<tr class="row-even"><td>V</td>
+<tr class="row-odd"><td>V</td>
 <td>Actual Unloading Started</td>
 </tr>
-<tr class="row-odd"><td>X</td>
+<tr class="row-even"><td>X</td>
 <td>Scheduled Delivery Time</td>
 </tr>
-<tr class="row-even"><td>Y</td>
+<tr class="row-odd"><td>Y</td>
 <td>Requested Pickup Time</td>
 </tr>
-<tr class="row-odd"><td>Z</td>
+<tr class="row-even"><td>Z</td>
 <td>Requested Delivery Time</td>
 </tr>
 </tbody>
 </table>
-<p>Source: ASC-X12 Data Element 432 - Date Qualifier.
-Source: ASC-X12 Data Element 176 - Time Qualifier.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ol class="last arabic simple">
+<li>Date source: ASC-X12 Data Element 432 - Date Qualifier.</li>
+<li>Time source: ASC-X12 Data Element 176 - Time Qualifier.</li>
+</ol>
+</div>
 </div>
 
 
@@ -183,7 +189,7 @@ Source: ASC-X12 Data Element 176 - Time Qualifier.</p>
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="D_dtm.html" title="Date and Time Tracking Codes"
+          <a href="D_datetime.html" title="Date/Time Tracking Codes"
              >next</a></li>
         <li class="right" >
           <a href="D_condition.html" title="Unit Condition Codes"
