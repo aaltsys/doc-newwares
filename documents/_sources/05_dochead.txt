@@ -82,7 +82,7 @@ contain multiple values. Columns are defined in the table following.
       document is entered: Receipts, Shipments, Adjustments, ....
    #. Sequence Keys and revision sequence counters are applied to documents of
       each type as described in the previous note.
-   #. A uniqueness check feature is applied to documents based on 
-   #.
+   #. Documents are checked for uniqueness of: ACCOUNT, ADDRESS, and REFERENCE.
+   #. ADDRESSCODE defaults are determined by document type.
 
-.. include: ../resources/legend.rst
+.. include: `../resources/legend.rst`
