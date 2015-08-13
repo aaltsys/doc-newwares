@@ -61,3 +61,6 @@ Rating and Valuation Per Unit
 +----------+--------------------------+
 | V+       | Volume Total             |
 +----------+--------------------------+
+
+.. note: 
+   These internal WARES codes are not intended for data communication.

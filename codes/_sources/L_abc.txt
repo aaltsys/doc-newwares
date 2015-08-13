@@ -13,3 +13,6 @@ Product turnover rating
 +----------+--------------------------+
 | C        | Slow                     |
 +----------+--------------------------+
+
+.. note: 
+   These internal WARES codes are not intended for data communication.

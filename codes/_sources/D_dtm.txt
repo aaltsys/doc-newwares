@@ -39,3 +39,6 @@ Date and Time Tracking codes
 +-----------+--------------------------+
 | J         | Adjusted                 |
 +-----------+--------------------------+
+
+.. note: 
+   These internal WARES codes are not intended for data communication.

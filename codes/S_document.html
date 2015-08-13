@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="WARES Codes 1.0 documentation" href="index.html" />
-    <link rel="next" title="Freight classifications" href="S_freight.html" />
+    <link rel="next" title="Freight Classifications" href="S_freight.html" />
     <link rel="prev" title="Contacts type codes" href="S_contact.html" /> 
   </head>
   <body role="document">
@@ -32,7 +32,7 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="S_freight.html" title="Freight classifications"
+          <a href="S_freight.html" title="Freight Classifications"
              accesskey="N">next</a></li>
         <li class="right" >
           <a href="S_contact.html" title="Contacts type codes"
@@ -47,7 +47,7 @@
                         title="previous chapter">Contacts type codes</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="S_freight.html"
-                        title="next chapter">Freight classifications</a></p>
+                        title="next chapter">Freight Classifications</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -77,67 +77,76 @@
           <div class="body" role="main">
             
   <div class="section" id="document-type-codes">
-<span id="type-list"></span><h1>Document Type codes<a class="headerlink" href="#document-type-codes" title="Permalink to this headline">¶</a></h1>
+<span id="document-list"></span><h1>Document Type codes<a class="headerlink" href="#document-type-codes" title="Permalink to this headline">¶</a></h1>
 <table border="1" class="docutils">
 <colgroup>
 <col width="10%" />
-<col width="9%" />
 <col width="81%" />
+<col width="9%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">CODE</th>
-<th class="head">EDI</th>
 <th class="head">Document Title</th>
+<th class="head">EDI</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>PO</td>
-<td>850</td>
-<td>Purchase Order</td>
+<tr class="row-even"><td>&#8211; &#8211;</td>
+<td colspan="2">General business documents</td>
 </tr>
-<tr class="row-odd"><td>AR</td>
-<td>943</td>
-<td>Warehouse Stock Transfer Shipment Advice</td>
-</tr>
-<tr class="row-even"><td>RE</td>
-<td>944</td>
-<td>Warehouse Stock Receipt Advice</td>
-</tr>
-<tr class="row-odd"><td>AW</td>
-<td>947</td>
-<td>Warehouse Inventory Adjustment Advice</td>
-</tr>
-<tr class="row-even"><td>PR</td>
-<td>855</td>
-<td>Purchase Order Acknowledgment (Sales Order)</td>
-</tr>
-<tr class="row-odd"><td>OW</td>
-<td>940</td>
-<td>Warehouse Shipping Order</td>
-</tr>
-<tr class="row-even"><td>PP</td>
-<td>&nbsp;</td>
-<td>Pick Ticket / Packing Slip</td>
-</tr>
-<tr class="row-odd"><td>SW</td>
-<td>945</td>
-<td>Warehouse Shipping Advice</td>
-</tr>
-<tr class="row-even"><td>BL</td>
-<td>211</td>
+<tr class="row-odd"><td>BL</td>
 <td>Motor Carrier Bill of Lading</td>
+<td>211</td>
 </tr>
-<tr class="row-odd"><td>IB</td>
-<td>846</td>
+<tr class="row-even"><td>PO</td>
+<td>Purchase Order</td>
+<td>850</td>
+</tr>
+<tr class="row-odd"><td>PR</td>
+<td>Purchase Order Acknowledgment (Sales Order)</td>
+<td>855</td>
+</tr>
+<tr class="row-even"><td>IB</td>
 <td>Inventory Inquiry/Advice</td>
+<td>846</td>
 </tr>
-<tr class="row-even"><td>SH</td>
-<td>856</td>
+<tr class="row-odd"><td>SH</td>
 <td><div class="first last line-block">
 <div class="line">Shipment Notice/Manifest (ASN)</div>
-<div class="line">(Substituted for 943 inbound or 945 outbound)</div>
+<div class="line">(Substitutes for 943 inbound or 945 outbound)</div>
 </div>
 </td>
+<td>856</td>
+</tr>
+<tr class="row-even"><td>&#8211; &#8211;</td>
+<td colspan="2">Bailment Warehouse documents</td>
+</tr>
+<tr class="row-odd"><td>AR</td>
+<td>Warehouse Stock Transfer Shipment Advice</td>
+<td>943</td>
+</tr>
+<tr class="row-even"><td>RE</td>
+<td>Warehouse Stock Receipt Advice</td>
+<td>944</td>
+</tr>
+<tr class="row-odd"><td>AW</td>
+<td>Warehouse Inventory Adjustment Advice</td>
+<td>947</td>
+</tr>
+<tr class="row-even"><td>OW</td>
+<td>Warehouse Shipping Order</td>
+<td>940</td>
+</tr>
+<tr class="row-odd"><td>SW</td>
+<td>Warehouse Shipping Advice</td>
+<td>945</td>
+</tr>
+<tr class="row-even"><td>&#8211; &#8211;</td>
+<td colspan="2">Other warehousing documents</td>
+</tr>
+<tr class="row-odd"><td>PP</td>
+<td>Pick Ticket / Packing Slip</td>
+<td>&nbsp;</td>
 </tr>
 </tbody>
 </table>
@@ -145,7 +154,7 @@
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">There is no code &#8220;PP&#8221; in the EDI standards, as Pick Tickets and Packing slips
-are paper forms, not EDI documents.</p>
+are paper forms, and not EDI documents.</p>
 </div>
 </div>
 
@@ -159,7 +168,7 @@ are paper forms, not EDI documents.</p>
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="S_freight.html" title="Freight classifications"
+          <a href="S_freight.html" title="Freight Classifications"
              >next</a></li>
         <li class="right" >
           <a href="S_contact.html" title="Contacts type codes"

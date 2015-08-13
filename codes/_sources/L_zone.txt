@@ -23,3 +23,6 @@ Storage zone
 +----------+--------------------------+
 | P        | Pick line                |
 +----------+--------------------------+
+
+.. note: 
+   These internal WARES codes are not intended for data communication.

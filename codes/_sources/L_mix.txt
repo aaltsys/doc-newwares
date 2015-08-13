@@ -1,7 +1,7 @@
 .. _mix-list:
 
 #############################
-Unit / Location mixing
+Unit / Location Mixing
 #############################
 
 +----------+--------------------------+
@@ -17,3 +17,6 @@ Unit / Location mixing
 +----------+--------------------------+
 | D        | Date code                |
 +----------+--------------------------+
+
+.. note: 
+   These internal WARES codes are not intended for data communication.
