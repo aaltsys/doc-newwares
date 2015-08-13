@@ -1,7 +1,10 @@
 .. _note-list:
 
 #############################
-Document Note & Message Codes
+Note & Message Codes
 #############################
 
 (to be done)
+
+.. note: 
+   These internal WARES codes are not intended for data communication.

@@ -19,8 +19,6 @@ Lot Control Codes
 +-----------+----------------------------+
 | LT        | Lot number                 |
 +-----------+----------------------------+
-| NA        | Not assigned               |
-+-----------+----------------------------+
 | PJ        | Product date code          |
 +-----------+----------------------------+ 
 | PO        | Purchase order number      |
@@ -33,11 +31,14 @@ Lot Control Codes
 +-----------+----------------------------+
 | SN        | Serial number              |
 +-----------+----------------------------+
+| ZZ        | Mutually defined           |
++-----------+----------------------------+
++-----------+----------------------------+
 | WD        | Warehouse date code        |
 +-----------+----------------------------+
 | WL        | Warehouse lot number       |
 +-----------+----------------------------+
-| ZZ        | Mutually defined           |
+| NA        | Not assigned               |
 +-----------+----------------------------+
 
 Source: ASC-X12 Data Element 235 - Product/Service ID Qualifier

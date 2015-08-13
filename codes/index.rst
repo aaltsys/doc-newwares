@@ -33,8 +33,16 @@ Product Setup Code Lists
 Document Entry Lists
 =============================
 
-| :ref:`dtm-list`
+| :ref:`document-list`
 | :ref:`status-list`
+| :ref:`reference-list`
+| :ref:`freightpay-list`
+| :ref:`transport-list`
+| :ref:`loading-list`
+| :ref:`vehicle-list`
+| :ref:`dtm-list`
+| :ref:`temperature-list`
+| :ref:`Quantity-list`
 
 .. note::
    Some code lists are taken from ASC-X12 EDI standards. Other codes are 

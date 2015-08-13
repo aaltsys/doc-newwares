@@ -25,3 +25,6 @@ Document Status Codes
 +-----------+--------------------------+
 |           | ARCHIVED                 |
 +-----------+--------------------------+
+
+.. note: 
+   These internal WARES codes are not intended for data communication.
