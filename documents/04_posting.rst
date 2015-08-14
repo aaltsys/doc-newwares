@@ -15,7 +15,7 @@ Posting
 Summary of document posting by status:
 
 +--------+---------------------------------------------------------------------+
-|        |  --  --  --  --  --  --  - Document Type -  --  --  --  --  --  --  |
+|        |  --   Document Type -->                                             |
 +--------+-------------+-------------+-------------+-------------+-------------+
 | STATUS | 2 Ship Order| 3 Receiving | 4 Shipment  | 5 Adjustment| 6 Financial |
 +========+=============+=============+=============+=============+=============+
@@ -27,7 +27,7 @@ Summary of document posting by status:
 +--------+-------------+-------------+-------------+-------------+-------------+
 |   2    | To Process  | In Transit  | Allocated   | Held/Alloc  | Entered     |
 +--------+-------------+-------------+-------------+-------------+-------------+
-|   3    | Processed   | Received OH | Shipped     | OH/ Shipped | Verified    |
+|   3    | Processed   | On-Hand     | Shipped     | OnHand/Ship | Verified    |
 +--------+-------------+-------------+-------------+-------------+-------------+
 |   4    | Charged     | Charged     | Charged     | Charged     | Charged     |
 +--------+-------------+-------------+-------------+-------------+-------------+
@@ -35,13 +35,6 @@ Summary of document posting by status:
 +--------+-------------+-------------+-------------+-------------+-------------+
 |   6    | Archived    | Archived    | Archived    | Archived    | Archived    |
 +--------+-------------+-------------+-------------+-------------+-------------+
-
-.. note::
-   *  Signed quantities: in-bound positive, outbound negative. 
-   *  Result: On-Hand + Reserve = Available.
-   *  Status 1 -- Expected is entered by product without Control and Identifier.
-   *  Status 2 -- In-Transit requires Control and Unit ID information.
-   *  Goods with condition issues may be shown or hidden by selection. 
 
 .. include:: ../codes/S_document.rst
 
@@ -83,6 +76,13 @@ Sorted by PRODUCT-VARIETY-CONTROL-IDENTIFIER by TYPE by STATUS by DATETIME.
 +---+---+-----------+---------+----+-----------+-----------+----+-+----+--+--------+--------+-+----+--------+--------+
 | 4 | 3 | 20150615TZ| PPPP    |    | CCCC      | 45678     |    | | CA | D|     -8 |        | |    |        |        |
 +---+---+-----------+---------+----+-----------+-----------+----+-+----+--+--------+--------+-+----+--------+--------+
+
+.. note::
+   *  Signed quantities: in-bound positive, outbound negative. 
+   *  Result: On-Hand + Reserve = Available.
+   *  Status 1 -- Expected is entered by product without Control and Identifier.
+   *  Status 2 -- In-Transit requires Control and Unit ID information.
+   *  Goods with condition issues may be shown or hidden by selection. 
 
 INBOUND:
 =============================
