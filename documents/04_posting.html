@@ -46,11 +46,11 @@
   <ul>
 <li><a class="reference internal" href="#">Transaction Posting</a><ul>
 <li><a class="reference internal" href="#id1">Posting</a></li>
+<li><a class="reference internal" href="#posting-example">Posting Example</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#document-type-codes">Document Type Codes</a></li>
 <li><a class="reference internal" href="#unit-condition-codes">Unit Condition Codes</a><ul>
-<li><a class="reference internal" href="#posting-example">Posting Example</a></li>
 <li><a class="reference internal" href="#inbound">INBOUND:</a></li>
 <li><a class="reference internal" href="#receipt">RECEIPT:</a></li>
 <li><a class="reference internal" href="#outbound">OUTBOUND:</a></li>
@@ -184,195 +184,6 @@ quantities to determine total locator entry quantities.</p>
 </tbody>
 </table>
 </div>
-</div>
-<div class="section" id="document-type-codes">
-<span id="document-list"></span><h1>Document Type Codes<a class="headerlink" href="#document-type-codes" title="Permalink to this headline">¶</a></h1>
-<table border="1" class="docutils">
-<colgroup>
-<col width="9%" />
-<col width="73%" />
-<col width="8%" />
-<col width="9%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">CODE</th>
-<th class="head">Document Title</th>
-<th class="head">EDI</th>
-<th class="head">TYPE</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>&#8211; &#8211;</td>
-<td colspan="3">General business documents</td>
-</tr>
-<tr class="row-odd"><td>BL</td>
-<td>Motor Carrier Bill of Lading</td>
-<td>211</td>
-<td>N/A</td>
-</tr>
-<tr class="row-even"><td>PO</td>
-<td>Purchase Order</td>
-<td>850</td>
-<td>N/A</td>
-</tr>
-<tr class="row-odd"><td>PR</td>
-<td>Purchase Order Acknowledgment (Sales Order)</td>
-<td>855</td>
-<td>N/A</td>
-</tr>
-<tr class="row-even"><td>IB</td>
-<td>Inventory Inquiry/Advice</td>
-<td>846</td>
-<td>N/A</td>
-</tr>
-<tr class="row-odd"><td>SH</td>
-<td><div class="first last line-block">
-<div class="line">Shipment Notice/Manifest (ASN)</div>
-<div class="line">(Substitutes for 943 inbound or 945 outbound)</div>
-</div>
-</td>
-<td>856</td>
-<td><div class="first last line-block">
-<div class="line">3</div>
-<div class="line">4</div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td>&#8211; &#8211;</td>
-<td colspan="3">Bailment Warehouse documents</td>
-</tr>
-<tr class="row-odd"><td>AR</td>
-<td>Warehouse Stock Transfer Shipment Advice</td>
-<td>943</td>
-<td>3</td>
-</tr>
-<tr class="row-even"><td>RE</td>
-<td>Warehouse Stock Receipt Advice</td>
-<td>944</td>
-<td>3</td>
-</tr>
-<tr class="row-odd"><td>AW</td>
-<td>Warehouse Inventory Adjustment Advice</td>
-<td>947</td>
-<td>5</td>
-</tr>
-<tr class="row-even"><td>OW</td>
-<td>Warehouse Shipping Order</td>
-<td>940</td>
-<td>2</td>
-</tr>
-<tr class="row-odd"><td>SW</td>
-<td>Warehouse Shipping Advice</td>
-<td>945</td>
-<td>4</td>
-</tr>
-<tr class="row-even"><td>&#8211; &#8211;</td>
-<td colspan="3">Other warehousing documents</td>
-</tr>
-<tr class="row-odd"><td>LT</td>
-<td>Rewarehousing Location Transfer</td>
-<td>&nbsp;</td>
-<td>1</td>
-</tr>
-<tr class="row-even"><td>&nbsp;</td>
-<td>Transaction Charges</td>
-<td>&nbsp;</td>
-<td>6</td>
-</tr>
-<tr class="row-odd"><td>&nbsp;</td>
-<td>Credit Memo / Payment Advice</td>
-<td>&nbsp;</td>
-<td>7</td>
-</tr>
-<tr class="row-even"><td>IN</td>
-<td>Warehouse Invoice</td>
-<td>810</td>
-<td>8</td>
-</tr>
-<tr class="row-odd"><td>PP</td>
-<td>Pick Ticket / Packing Slip</td>
-<td>&nbsp;</td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
-<p>Source: ASC-X12 Data Element 479 - Functional Identifier Code.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">There is no code &#8220;PP&#8221; in the EDI standards, as Pick Tickets and Packing slips
-are paper forms, and not EDI documents.</p>
-</div>
-</div>
-<div class="section" id="unit-condition-codes">
-<span id="condition-list"></span><h1>Unit Condition Codes<a class="headerlink" href="#unit-condition-codes" title="Permalink to this headline">¶</a></h1>
-<table border="1" class="docutils">
-<colgroup>
-<col width="24%" />
-<col width="63%" />
-<col width="12%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Code</th>
-<th class="head">Value</th>
-<th class="head">EDI</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>G</td>
-<td>Good</td>
-<td>01</td>
-</tr>
-<tr class="row-odd"><td>N</td>
-<td>New</td>
-<td>04</td>
-</tr>
-<tr class="row-even"><td>A</td>
-<td>Allocated</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>H</td>
-<td>Hold</td>
-<td>09</td>
-</tr>
-<tr class="row-even"><td>I</td>
-<td>Inspection</td>
-<td>09</td>
-</tr>
-<tr class="row-odd"><td>Q</td>
-<td>Quality Check</td>
-<td>09</td>
-</tr>
-<tr class="row-even"><td>D</td>
-<td>Damaged</td>
-<td>02</td>
-</tr>
-<tr class="row-odd"><td>R</td>
-<td>Recouped</td>
-<td>03</td>
-</tr>
-<tr class="row-even"><td>S</td>
-<td>Suitable w/o Recoup</td>
-<td>05</td>
-</tr>
-<tr class="row-odd"><td>T</td>
-<td>To Be Recouped</td>
-<td>06</td>
-</tr>
-<tr class="row-even"><td>U</td>
-<td>Unsuitable</td>
-<td>07</td>
-</tr>
-<tr class="row-odd"><td>J</td>
-<td>Junk</td>
-<td>08</td>
-</tr>
-<tr class="row-even"><td>O</td>
-<td>Other</td>
-<td>ZZ</td>
-</tr>
-</tbody>
-</table>
-<p>Source: ASC-X12 Data Element 286 - Product/Service Condition Code.</p>
 <div class="section" id="posting-example">
 <h2>Posting Example<a class="headerlink" href="#posting-example" title="Permalink to this headline">¶</a></h2>
 <p>Sorted by PRODUCT-VARIETY-CONTROL-IDENTIFIER by TYPE by STATUS by DATETIME.</p>
@@ -608,6 +419,195 @@ are paper forms, and not EDI documents.</p>
 </ul>
 </div>
 </div>
+</div>
+<div class="section" id="document-type-codes">
+<span id="document-list"></span><h1>Document Type Codes<a class="headerlink" href="#document-type-codes" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="73%" />
+<col width="8%" />
+<col width="9%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CODE</th>
+<th class="head">Document Title</th>
+<th class="head">EDI</th>
+<th class="head">TYPE</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>&#8211; &#8211;</td>
+<td colspan="3">General business documents</td>
+</tr>
+<tr class="row-odd"><td>BL</td>
+<td>Motor Carrier Bill of Lading</td>
+<td>211</td>
+<td>N/A</td>
+</tr>
+<tr class="row-even"><td>PO</td>
+<td>Purchase Order</td>
+<td>850</td>
+<td>N/A</td>
+</tr>
+<tr class="row-odd"><td>PR</td>
+<td>Purchase Order Acknowledgment (Sales Order)</td>
+<td>855</td>
+<td>N/A</td>
+</tr>
+<tr class="row-even"><td>IB</td>
+<td>Inventory Inquiry/Advice</td>
+<td>846</td>
+<td>N/A</td>
+</tr>
+<tr class="row-odd"><td>SH</td>
+<td><div class="first last line-block">
+<div class="line">Shipment Notice/Manifest (ASN)</div>
+<div class="line">(Substitutes for 943 inbound or 945 outbound)</div>
+</div>
+</td>
+<td>856</td>
+<td><div class="first last line-block">
+<div class="line">3</div>
+<div class="line">4</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>&#8211; &#8211;</td>
+<td colspan="3">Bailment Warehouse documents</td>
+</tr>
+<tr class="row-odd"><td>AR</td>
+<td>Warehouse Stock Transfer Shipment Advice</td>
+<td>943</td>
+<td>3</td>
+</tr>
+<tr class="row-even"><td>RE</td>
+<td>Warehouse Stock Receipt Advice</td>
+<td>944</td>
+<td>3</td>
+</tr>
+<tr class="row-odd"><td>AW</td>
+<td>Warehouse Inventory Adjustment Advice</td>
+<td>947</td>
+<td>5</td>
+</tr>
+<tr class="row-even"><td>OW</td>
+<td>Warehouse Shipping Order</td>
+<td>940</td>
+<td>2</td>
+</tr>
+<tr class="row-odd"><td>SW</td>
+<td>Warehouse Shipping Advice</td>
+<td>945</td>
+<td>4</td>
+</tr>
+<tr class="row-even"><td>&#8211; &#8211;</td>
+<td colspan="3">Other warehousing documents</td>
+</tr>
+<tr class="row-odd"><td>LT</td>
+<td>Rewarehousing Location Transfer</td>
+<td>&nbsp;</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>Transaction Charges</td>
+<td>&nbsp;</td>
+<td>6</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>Credit Memo / Payment Advice</td>
+<td>&nbsp;</td>
+<td>7</td>
+</tr>
+<tr class="row-even"><td>IN</td>
+<td>Warehouse Invoice</td>
+<td>810</td>
+<td>8</td>
+</tr>
+<tr class="row-odd"><td>PP</td>
+<td>Pick Ticket / Packing Slip</td>
+<td>&nbsp;</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<p>Source: ASC-X12 Data Element 479 - Functional Identifier Code.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">There is no code &#8220;PP&#8221; in the EDI standards, as Pick Tickets and Packing slips
+are paper forms, and not EDI documents.</p>
+</div>
+</div>
+<div class="section" id="unit-condition-codes">
+<span id="condition-list"></span><h1>Unit Condition Codes<a class="headerlink" href="#unit-condition-codes" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="63%" />
+<col width="12%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Code</th>
+<th class="head">Value</th>
+<th class="head">EDI</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>G</td>
+<td>Good</td>
+<td>01</td>
+</tr>
+<tr class="row-odd"><td>N</td>
+<td>New</td>
+<td>04</td>
+</tr>
+<tr class="row-even"><td>A</td>
+<td>Allocated</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>H</td>
+<td>Hold</td>
+<td>09</td>
+</tr>
+<tr class="row-even"><td>I</td>
+<td>Inspection</td>
+<td>09</td>
+</tr>
+<tr class="row-odd"><td>Q</td>
+<td>Quality Check</td>
+<td>09</td>
+</tr>
+<tr class="row-even"><td>D</td>
+<td>Damaged</td>
+<td>02</td>
+</tr>
+<tr class="row-odd"><td>R</td>
+<td>Recouped</td>
+<td>03</td>
+</tr>
+<tr class="row-even"><td>S</td>
+<td>Suitable w/o Recoup</td>
+<td>05</td>
+</tr>
+<tr class="row-odd"><td>T</td>
+<td>To Be Recouped</td>
+<td>06</td>
+</tr>
+<tr class="row-even"><td>U</td>
+<td>Unsuitable</td>
+<td>07</td>
+</tr>
+<tr class="row-odd"><td>J</td>
+<td>Junk</td>
+<td>08</td>
+</tr>
+<tr class="row-even"><td>O</td>
+<td>Other</td>
+<td>ZZ</td>
+</tr>
+</tbody>
+</table>
+<p>Source: ASC-X12 Data Element 286 - Product/Service Condition Code.</p>
 <div class="section" id="inbound">
 <h2>INBOUND:<a class="headerlink" href="#inbound" title="Permalink to this headline">¶</a></h2>
 <blockquote>

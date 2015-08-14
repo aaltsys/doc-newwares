@@ -36,10 +36,6 @@ Summary of document posting by status:
 |   6    | Archived    | Archived    | Archived    | Archived    | Archived    |
 +--------+-------------+-------------+-------------+-------------+-------------+
 
-.. include:: ../codes/S_document.rst
-
-.. include:: ../codes/D_condition.rst
-
 Posting Example
 =============================
 
@@ -83,6 +79,10 @@ Sorted by PRODUCT-VARIETY-CONTROL-IDENTIFIER by TYPE by STATUS by DATETIME.
    *  Status 1 -- Expected is entered by product without Control and Identifier.
    *  Status 2 -- In-Transit requires Control and Unit ID information.
    *  Goods with condition issues may be shown or hidden by selection. 
+
+.. include:: ../codes/S_document.rst
+
+.. include:: ../codes/D_condition.rst
 
 INBOUND:
 =============================
