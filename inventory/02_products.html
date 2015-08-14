@@ -472,7 +472,7 @@ DATES, LIFE, REPACK, PICK_MIN and PICK_QTY, ORDER_MIN and ORDER_QTY.</p>
 <td>ABC</td>
 <td>LC</td>
 <td>U</td>
-<td><a class="reference external" href="../codes/L_abc.html#abc-list" title="(in WARES Codes v1.0)"><em>Product turnover rating</em></a></td>
+<td><a class="reference external" href="../codes/L_abc.html#abc-list" title="(in WARES Codes v1.0)"><em>Product Turnover Rate</em></a></td>
 <td>&nbsp;</td>
 <td>L2</td>
 <td><ol class="first last arabic simple">
@@ -498,7 +498,7 @@ DATES, LIFE, REPACK, PICK_MIN and PICK_QTY, ORDER_MIN and ORDER_QTY.</p>
 <td>ZONE</td>
 <td>LC</td>
 <td>U</td>
-<td><a class="reference external" href="../codes/L_zone.html#zone-list" title="(in WARES Codes v1.0)"><em>Storage zone</em></a></td>
+<td><a class="reference external" href="../codes/L_zone.html#zone-list" title="(in WARES Codes v1.0)"><em>Storage Zone</em></a></td>
 <td>&nbsp;</td>
 <td>L4</td>
 <td><ol class="first last arabic simple">
@@ -654,10 +654,6 @@ DATES, LIFE, REPACK, PICK_MIN and PICK_QTY, ORDER_MIN and ORDER_QTY.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <ol class="last arabic simple">
-<li>Entries of type list code (TYPE=LC) are validated against the linked code
-option list.</li>
-<li>Entries with a paired requirement (REQ=P) are required when the associated
-paired entry or code is specified.</li>
 <li>When hazardous is marked (X), entries are required for: <strong>shippingName</strong>,
 <strong>weightUom</strong>, <strong>dimUom</strong>, <strong>contentNet</strong>, and <strong>contentSze</strong>.</li>
 <li>When a UOM is specified for inners or content, then the corresponding
@@ -730,6 +726,15 @@ COUNT is required.</li>
 </tr>
 </tbody>
 </table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ol class="last arabic simple">
+<li>Entries of type list code (TYPE=LC) are validated against the associated
+linked code option list.</li>
+<li>Entries with a paired requirement (REQ=P) are required when the associated
+paired entry or code is specified.</li>
+</ol>
+</div>
 </div>
 
 

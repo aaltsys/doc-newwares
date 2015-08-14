@@ -45,6 +45,8 @@
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Transaction Posting</a><ul>
+<li><a class="reference internal" href="#id1">Posting</a></li>
+<li><a class="reference internal" href="#posting-example">Posting Example</a></li>
 <li><a class="reference internal" href="#inbound">INBOUND:</a></li>
 <li><a class="reference internal" href="#receipt">RECEIPT:</a></li>
 <li><a class="reference internal" href="#outbound">OUTBOUND:</a></li>
@@ -94,6 +96,266 @@
 Each transaction line refers to a single locator entry. The post process
 collects all lines associated with a locator entry, and then adds the signed
 quantities to determine total locator entry quantities.</p>
+<div class="section" id="id1">
+<h2>Posting<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Summary of document posting by status:
++&#8212;&#8212;&#8211;+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;+
+|        |  &#8211;  &#8211;  &#8211;  &#8211;  &#8211;  &#8211;  - Document Type -  &#8211;  &#8211;  &#8211;  &#8211;  &#8211;  &#8211;  |
++&#8212;&#8212;&#8211;+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+
+| STATUS | 2 Ship Order| 3 Receiving | 4 Shipment  | 5 Adjustment| 6 Financial |
++========+=============+=============+=============+=============+=============+
+|  -1    | Deleted     | Deleted     | Deleted     | Deleted     | Deleted     |
++&#8212;&#8212;&#8211;+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+
+|   0    | Data Error  | Unposted    | Unposted    | Unposted    | Unposted    |
++&#8212;&#8212;&#8211;+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+
+|   1    | Reserved    | Expected    | Reserved    | Reserved    | N/A         |
++&#8212;&#8212;&#8211;+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+
+|   2    | To Process  | In Transit  | Allocated   | Held/Alloc  | Entered     |
++&#8212;&#8212;&#8211;+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+
+|   3    | Processed   | Received OH | Shipped     | OH/ Shipped | Verified    |
++&#8212;&#8212;&#8211;+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+
+|   4    | Charged     | Charged     | Charged     | Charged     | Charged     |
++&#8212;&#8212;&#8211;+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+
+|   5    | Invoiced    | Invoiced    | Invoiced    | Invoiced    | Invoiced    |
++&#8212;&#8212;&#8211;+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+
+|   6    | Archived    | Archived    | Archived    | Archived    | Archived    |
++&#8212;&#8212;&#8211;+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>Signed quantities: in-bound positive, outbound negative.</li>
+<li>Result: On-Hand + Reserve = Available.</li>
+<li>Status 1 &#8211; Expected is entered by product without Control and Identifier.</li>
+<li>Status 2 &#8211; In-Transit requires Control and Unit ID information.</li>
+<li>Goods with condition issues may be shown or hidden by selection.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="posting-example">
+<h2>Posting Example<a class="headerlink" href="#posting-example" title="Permalink to this headline">¶</a></h2>
+<p>Sorted by PRODUCT-VARIETY-CONTROL-IDENTIFIER by TYPE by STATUS by DATETIME.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="3%" />
+<col width="3%" />
+<col width="11%" />
+<col width="9%" />
+<col width="4%" />
+<col width="11%" />
+<col width="11%" />
+<col width="4%" />
+<col width="1%" />
+<col width="4%" />
+<col width="2%" />
+<col width="8%" />
+<col width="8%" />
+<col width="1%" />
+<col width="4%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="3">Posting Control</th>
+<th class="head" colspan="3">Lot Identification</th>
+<th class="head" colspan="2">Unit</th>
+<th class="head">&nbsp;</th>
+<th class="head" colspan="4">Content</th>
+<th class="head">&nbsp;</th>
+<th class="head" colspan="3">Inner</th>
+</tr>
+<tr class="row-even"><th class="head">TP</th>
+<th class="head">SS</th>
+<th class="head">DATETIME</th>
+<th class="head">PRODUCT</th>
+<th class="head">VAR</th>
+<th class="head">CONTROL</th>
+<th class="head">IDENTIFIER</th>
+<th class="head">UOM</th>
+<th class="head">&nbsp;</th>
+<th class="head">UOM</th>
+<th class="head">C</th>
+<th class="head">ON-HAND</th>
+<th class="head">RESERVE</th>
+<th class="head">&nbsp;</th>
+<th class="head">UOM</th>
+<th class="head">ON-HAND</th>
+<th class="head">RESERVE</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-odd"><td colspan="17">&#8211; An expected (SS=1) Receipt may be reserved (SS=1) by a Shipment.</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>1</td>
+<td>20150615TZ</td>
+<td>PPPP</td>
+<td>&nbsp;</td>
+<td>CCCC</td>
+<td>&nbsp;</td>
+<td>PL</td>
+<td>&nbsp;</td>
+<td>CA</td>
+<td>G</td>
+<td>&nbsp;</td>
+<td>54</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>4</td>
+<td>1</td>
+<td>20150615TZ</td>
+<td>PPPP</td>
+<td>&nbsp;</td>
+<td>CCCC</td>
+<td>&nbsp;</td>
+<td>PL</td>
+<td>&nbsp;</td>
+<td>CA</td>
+<td>G</td>
+<td>&nbsp;</td>
+<td>-54</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td colspan="17">&#8211; An in-bound (SS=2) Receipt must have control numbers and unit identifiers.</td>
+</tr>
+<tr class="row-odd"><td>3</td>
+<td>2</td>
+<td>20150615TZ</td>
+<td>PPPP</td>
+<td>&nbsp;</td>
+<td>CCCC</td>
+<td>23456</td>
+<td>PL</td>
+<td>&nbsp;</td>
+<td>CA</td>
+<td>D</td>
+<td>&nbsp;</td>
+<td>54</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td colspan="17">&#8211; An on-hand (SS=3) Receipt may be allocated (SS=2) to a Shipment in process.</td>
+</tr>
+<tr class="row-odd"><td>3</td>
+<td>3</td>
+<td>20150615TZ</td>
+<td>PPPP</td>
+<td>&nbsp;</td>
+<td>CCCC</td>
+<td>34567</td>
+<td>PL</td>
+<td>&nbsp;</td>
+<td>CA</td>
+<td>G</td>
+<td>54</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>4</td>
+<td>2</td>
+<td>20150615TZ</td>
+<td>PPPP</td>
+<td>&nbsp;</td>
+<td>CCCC</td>
+<td>34567</td>
+<td>PL</td>
+<td>&nbsp;</td>
+<td>CA</td>
+<td>G</td>
+<td>&nbsp;</td>
+<td>-54</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td colspan="17">&#8211; Multiple content records will exist for a mixed unit, which must be withdrawn by similar records.</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>3</td>
+<td>20150615TZ</td>
+<td>PPPP</td>
+<td>&nbsp;</td>
+<td>CCCC</td>
+<td>45678</td>
+<td>PL</td>
+<td>&nbsp;</td>
+<td>CA</td>
+<td>G</td>
+<td>46</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>3</td>
+<td>3</td>
+<td>20150615TZ</td>
+<td>PPPP</td>
+<td>&nbsp;</td>
+<td>CCCC</td>
+<td>45678</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>CA</td>
+<td>D</td>
+<td>8</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>4</td>
+<td>3</td>
+<td>20150615TZ</td>
+<td>PPPP</td>
+<td>&nbsp;</td>
+<td>CCCC</td>
+<td>45678</td>
+<td>PL</td>
+<td>&nbsp;</td>
+<td>CA</td>
+<td>G</td>
+<td>-46</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>4</td>
+<td>3</td>
+<td>20150615TZ</td>
+<td>PPPP</td>
+<td>&nbsp;</td>
+<td>CCCC</td>
+<td>45678</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>CA</td>
+<td>D</td>
+<td>-8</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="section" id="inbound">
 <h2>INBOUND:<a class="headerlink" href="#inbound" title="Permalink to this headline">¶</a></h2>
 <blockquote>
