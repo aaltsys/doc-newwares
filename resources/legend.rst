@@ -34,3 +34,9 @@ LEGEND:
 | JUST       || Justify (L)eft, (C)enter, (R)ight, (T)ext   |
 |            || n = characters to show                      |
 +------------+----------------------------------------------+
+
+.. note::
+   #. Entries of type list code (TYPE=LC) are validated against the associated 
+      linked code option list.
+   #. Entries with a paired requirement (REQ=P) are required when the associated 
+      paired entry or code is specified.

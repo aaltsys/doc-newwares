@@ -128,10 +128,6 @@ Product Masterfile Columns
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 
 .. note::
-   #. Entries of type list code (TYPE=LC) are validated against the linked code 
-      option list.
-   #. Entries with a paired requirement (REQ=P) are required when the associated 
-      paired entry or code is specified.
    #. When hazardous is marked (X), entries are required for: **shippingName**, 
       **weightUom**, **dimUom**, **contentNet**, and **contentSze**.
    #. When a UOM is specified for inners or content, then the corresponding 
