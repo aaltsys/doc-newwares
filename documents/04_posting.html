@@ -102,28 +102,87 @@ collects all lines associated with a locator entry, and then adds the signed
 quantities to determine total locator entry quantities.</p>
 <div class="section" id="id1">
 <h2>Posting<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>Summary of document posting by status:
-+&#8212;&#8212;&#8211;+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;+
-|        |  &#8211;  &#8211;  &#8211;  &#8211;  &#8211;  &#8211;  - Document Type -  &#8211;  &#8211;  &#8211;  &#8211;  &#8211;  &#8211;  |
-+&#8212;&#8212;&#8211;+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+
-| STATUS | 2 Ship Order| 3 Receiving | 4 Shipment  | 5 Adjustment| 6 Financial |
-+========+=============+=============+=============+=============+=============+
-|  -1    | Deleted     | Deleted     | Deleted     | Deleted     | Deleted     |
-+&#8212;&#8212;&#8211;+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+
-|   0    | Data Error  | Unposted    | Unposted    | Unposted    | Unposted    |
-+&#8212;&#8212;&#8211;+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+
-|   1    | Reserved    | Expected    | Reserved    | Reserved    | N/A         |
-+&#8212;&#8212;&#8211;+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+
-|   2    | To Process  | In Transit  | Allocated   | Held/Alloc  | Entered     |
-+&#8212;&#8212;&#8211;+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+
-|   3    | Processed   | Received OH | Shipped     | OH/ Shipped | Verified    |
-+&#8212;&#8212;&#8211;+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+
-|   4    | Charged     | Charged     | Charged     | Charged     | Charged     |
-+&#8212;&#8212;&#8211;+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+
-|   5    | Invoiced    | Invoiced    | Invoiced    | Invoiced    | Invoiced    |
-+&#8212;&#8212;&#8211;+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+
-|   6    | Archived    | Archived    | Archived    | Archived    | Archived    |
-+&#8212;&#8212;&#8211;+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;-+</p>
+<p>Summary of document posting by status:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="18%" />
+<col width="18%" />
+<col width="18%" />
+<col width="18%" />
+<col width="18%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">&nbsp;</th>
+<th class="head" colspan="5">&#8211;  &#8211;  &#8211;  &#8211;  &#8211;  &#8211;  - Document Type -  &#8211;  &#8211;  &#8211;  &#8211;  &#8211;  &#8211;</th>
+</tr>
+<tr class="row-even"><th class="head">STATUS</th>
+<th class="head">2 Ship Order</th>
+<th class="head">3 Receiving</th>
+<th class="head">4 Shipment</th>
+<th class="head">5 Adjustment</th>
+<th class="head">6 Financial</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-odd"><td>-1</td>
+<td>Deleted</td>
+<td>Deleted</td>
+<td>Deleted</td>
+<td>Deleted</td>
+<td>Deleted</td>
+</tr>
+<tr class="row-even"><td>0</td>
+<td>Data Error</td>
+<td>Unposted</td>
+<td>Unposted</td>
+<td>Unposted</td>
+<td>Unposted</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>Reserved</td>
+<td>Expected</td>
+<td>Reserved</td>
+<td>Reserved</td>
+<td>N/A</td>
+</tr>
+<tr class="row-even"><td>2</td>
+<td>To Process</td>
+<td>In Transit</td>
+<td>Allocated</td>
+<td>Held/Alloc</td>
+<td>Entered</td>
+</tr>
+<tr class="row-odd"><td>3</td>
+<td>Processed</td>
+<td>Received OH</td>
+<td>Shipped</td>
+<td>OH/ Shipped</td>
+<td>Verified</td>
+</tr>
+<tr class="row-even"><td>4</td>
+<td>Charged</td>
+<td>Charged</td>
+<td>Charged</td>
+<td>Charged</td>
+<td>Charged</td>
+</tr>
+<tr class="row-odd"><td>5</td>
+<td>Invoiced</td>
+<td>Invoiced</td>
+<td>Invoiced</td>
+<td>Invoiced</td>
+<td>Invoiced</td>
+</tr>
+<tr class="row-even"><td>6</td>
+<td>Archived</td>
+<td>Archived</td>
+<td>Archived</td>
+<td>Archived</td>
+<td>Archived</td>
+</tr>
+</tbody>
+</table>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <ul class="last simple">
