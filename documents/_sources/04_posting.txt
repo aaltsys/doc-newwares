@@ -42,9 +42,9 @@ Summary of document posting by status:
    *  Status 2 -- In-Transit requires Control and Unit ID information.
    *  Goods with condition issues may be shown or hidden by selection. 
 
-.. insert:: ../codes/S_document.rst
+.. include:: ../codes/S_document.rst
 
-.. insert:: ../codes/D_condition.rst
+.. include:: ../codes/D_condition.rst
 
 Posting Example
 =============================
