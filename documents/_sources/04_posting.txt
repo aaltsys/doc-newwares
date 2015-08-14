@@ -53,9 +53,9 @@ Posting Example
 Sorted by PRODUCT-VARIETY-CONTROL-IDENTIFIER by TYPE by STATUS by DATETIME.
 
 +---+---+-----------+---------+----+-----------+-----------+----+-+----+--+--------+--------+-+----+--------+--------+
-|  Posting Control  |   Lot Identification     |   Unit         | |   Content               | |   Inner              |
+| -- Posting Control| -- Lot Identification -- | -- Unit -- --  | | -- Content -- -- -- --  | | -- Inner -- -- -- -- |
 +---+---+-----------+---------+----+-----------+-----------+----+-+----+--+--------+--------+-+----+--------+--------+
-| TP| SS| DATETIME  | PRODUCT | VAR| CONTROL   | IDENTIFIER| UOM| | UOM| C| ON-HAND| RESERVE| | UOM| ON-HAND| RESERVE|
+| TP| SS| DATETIME  | PRODUCT | VAR| CONTROL   | IDENTIFIER| UOM| | UOM| C| ONHAND | RESERVE| | UOM| ONHAND | RESERVE|
 +===+===+===========+=========+====+===========+===========+====+=+====+==+========+========+=+====+========+========+
 | -- An expected (SS=1) Receipt may be reserved (SS=1) by a Shipment.                                                |
 +---+---+-----------+---------+----+-----------+-----------+----+-+----+--+--------+--------+-+----+--------+--------+
