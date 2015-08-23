@@ -65,21 +65,21 @@ Document Heading Requirements
 +----------------+----------+----------+----------+----------+----------+----------+
 | IDENTIFIER     | sequence | sequence | sequence | sequence | sequence | sequence |
 +----------------+----------+----------+----------+----------+----------+----------+
-| REVISION       |      (1) |      (1) |      (1) |      (1) |      (1) |      (1) |
+| REVISION       |      {1} |      {1} |      {1} |      {1} |      {1} |      {1} |
 +----------------+----------+----------+----------+----------+----------+----------+
 | STATUS         |        1 |        2 |       3+ |        1 |        2 |       3+ |
 +----------------+----------+----------+----------+----------+----------+----------+
-| DATETIME       |      (2) |      (2) |      (2) |      (2) |      (2) |      (2) |
+| DATETIME       |      {2} |      {2} |      {2} |      {2} |      {2} |      {2} |
 +----------------+----------+----------+----------+----------+----------+----------+
 | ACCOUNT        | required | required | required | required | required | required |
 +----------------+----------+----------+----------+----------+----------+----------+
 | BUILDING       |          |          | required |          | required | required |
 +----------------+----------+----------+----------+----------+----------+----------+
-| REFERENCECODE  |      (3) |      (3) |      (3) |      (3) |      (3) |      (3) |
+| REFERENCECODE  |      {3} |      {3} |      {3} |      {3} |      {3} |      {3} |
 +----------------+----------+----------+----------+----------+----------+----------+
-| REFERENCE      |      (3) |      (3) |      (3) |      (3) |      (3) |      (3) |
+| REFERENCE      |      {3} |      {3} |      {3} |      {3} |      {3} |      {3} |
 +----------------+----------+----------+----------+----------+----------+----------+
-| ADDRESSCODE    |       SF |       SF |       SF | ST   (4) | ST   (4) | ST   (4) |
+| ADDRESSCODE    |       SF |       SF |       SF | ST   {4} | ST   {4} | ST   {4} |
 +----------------+----------+----------+----------+----------+----------+----------+
 | ADDRESS        | required | required | required | required | required | required |
 +----------------+----------+----------+----------+----------+----------+----------+
@@ -89,20 +89,20 @@ Document Heading Requirements
 +----------------+----------+----------+----------+----------+----------+----------+
 | ROUTE          | optional | optional | optional | optional | optional | optional |
 +----------------+----------+----------+----------+----------+----------+----------+
-| FREIGHTPAY     |          |          |          | req'd (4)| req'd (4)| req'd (4)|
+| FREIGHTPAY     |          |          |          | req'd {4}| req'd {4}| req'd {4}|
 +----------------+----------+----------+----------+----------+----------+----------+
 | other entries  | optional | optional | optional | optional | optional | optional |
 +----------------+----------+----------+----------+----------+----------+----------+
 
 .. note::
    #. REVISION version is incremented each time a transaction is posted.
-   #. DATETIME, a required value, represents the expected date of completion for 
+   #. DATETIME, a required value, represents the anticipated completion date for
       Expected, Inbound, Reserved, Allocated. When status changes to Received or
       Shipped, DATETIME records the actual date and time of the change.
    #. Account settings determine REFERENCECODE defaults. Where REFERENCECODE 
       entries exist, the corresponding REFERENCE entries are required.
    #. When FREIGHTPAY shows 3rd party, a corresponding ADDRESSCODE of 'PF' and
-      an address are required.
+      an ADDRESS are required.
 
 Document Line Requirements
 =============================
@@ -164,13 +164,13 @@ Document Line Requirements
 +----------------+----------+----------+----------+----------+----------+----------+
 | INNERUOM       | (product)| (product)| (product)| (product)| (product)| (product)|
 +----------------+----------+----------+----------+----------+----------+----------+
-| INNERONHAND    |      (3) |      (3) |      (3) |      (3) |      (3) |      (3) |
+| INNERONHAND    |      {3} |      {3} |      {3} |      {3} |      {3} |      {3} |
 +----------------+----------+----------+----------+----------+----------+----------+
-| INNERRESERVE   |      (3) |      (3) |      (3) |      (3) |      (3) |      (3) |
+| INNERRESERVE   |      {3} |      {3} |      {3} |      {3} |      {3} |      {3} |
 +----------------+----------+----------+----------+----------+----------+----------+
-| INNERWEIGHT    |      (3) |      (3) |      (3) |      (3) |      (3) |      (3) |
+| INNERWEIGHT    |      {3} |      {3} |      {3} |      {3} |      {3} |      {3} |
 +----------------+----------+----------+----------+----------+----------+----------+
-| INNERSIZE      |      (3) |      (3) |      (3) |      (3) |      (3) |      (3) |
+| INNERSIZE      |      {3} |      {3} |      {3} |      {3} |      {3} |      {3} |
 +----------------+----------+----------+----------+----------+----------+----------+
 
 .. legend::
