@@ -65,21 +65,21 @@ Document Heading Requirements
 +----------------+----------+----------+----------+----------+----------+----------+
 | IDENTIFIER     | sequence | sequence | sequence | sequence | sequence | sequence |
 +----------------+----------+----------+----------+----------+----------+----------+
-| REVISION       |      {1} |      {1} |      {1} |      {1} |      {1} |      {1} |
+| REVISION       |   [#f1]_ |   [#f1]_ |   [#f1]_ |   [#f1]_ |   [#f1]_ |   [#f1]_ |
 +----------------+----------+----------+----------+----------+----------+----------+
 | STATUS         |        1 |        2 |       3+ |        1 |        2 |       3+ |
 +----------------+----------+----------+----------+----------+----------+----------+
-| DATETIME       |      {2} |      {2} |      {2} |      {2} |      {2} |      {2} |
+| DATETIME       |   [#f2]_ |   [#f2]_ |   [#f2]_ |   [#f2]_ |   [#f2]_ |   [#f2]_ |
 +----------------+----------+----------+----------+----------+----------+----------+
 | ACCOUNT        | required | required | required | required | required | required |
 +----------------+----------+----------+----------+----------+----------+----------+
 | BUILDING       |          |          | required |          | required | required |
 +----------------+----------+----------+----------+----------+----------+----------+
-| REFERENCECODE  |      {3} |      {3} |      {3} |      {3} |      {3} |      {3} |
+| REFERENCECODE  |   [#f3]_ |   [#f3]_ |   [#f3]_ |   [#f3]_ |   [#f3]_ |   [#f3]_ |
 +----------------+----------+----------+----------+----------+----------+----------+
-| REFERENCE      |      {3} |      {3} |      {3} |      {3} |      {3} |      {3} |
+| REFERENCE      |   [#f3]_ |   [#f3]_ |   [#f3]_ |   [#f3]_ |   [#f3]_ |   [#f3]_ |
 +----------------+----------+----------+----------+----------+----------+----------+
-| ADDRESSCODE    |       SF |       SF |       SF | ST   {4} | ST   {4} | ST   {4} |
+| ADDRESSCODE    |       SF |       SF |       SF | ST[#f4]_ | ST[#f4]_ | ST[#f4]_ |
 +----------------+----------+----------+----------+----------+----------+----------+
 | ADDRESS        | required | required | required | required | required | required |
 +----------------+----------+----------+----------+----------+----------+----------+
@@ -89,20 +89,21 @@ Document Heading Requirements
 +----------------+----------+----------+----------+----------+----------+----------+
 | ROUTE          | optional | optional | optional | optional | optional | optional |
 +----------------+----------+----------+----------+----------+----------+----------+
-| FREIGHTPAY     |          |          |          | req'd {4}| req'd {4}| req'd {4}|
+| FREIGHTPAY     |          |          |          | req[#f4]_| req[#f4]_| req[#f4]_|
 +----------------+----------+----------+----------+----------+----------+----------+
 | other entries  | optional | optional | optional | optional | optional | optional |
 +----------------+----------+----------+----------+----------+----------+----------+
 
-.. note::
-   #. REVISION version is incremented each time a transaction is posted.
-   #. DATETIME, a required value, represents the anticipated completion date for
-      Expected, Inbound, Reserved, Allocated. When status changes to Received or
-      Shipped, DATETIME records the actual date and time of the change.
-   #. Account settings determine REFERENCECODE defaults. Where REFERENCECODE 
-      entries exist, the corresponding REFERENCE entries are required.
-   #. When FREIGHTPAY shows 3rd party, a corresponding ADDRESSCODE of 'PF' and
-      an ADDRESS are required.
+.. rubric:: Footnotes
+
+.. [#f1] REVISION version is incremented each time a transaction is posted.
+.. [#f2] DATETIME, a required value, represents the anticipated completion date for
+         Expected, Inbound, Reserved, Allocated. When status changes to Received or
+         Shipped, DATETIME records the actual date and time of the change.
+.. [#f3] Account settings determine REFERENCECODE defaults. Where REFERENCECODE 
+         entries exist, the corresponding REFERENCE entries are required.
+.. [#f4] When FREIGHTPAY shows 3rd party, a corresponding ADDRESSCODE of 'PF' and
+         an ADDRESS are required.
 
 Document Line Requirements
 =============================
@@ -164,24 +165,25 @@ Document Line Requirements
 +----------------+----------+----------+----------+----------+----------+----------+
 | INNERUOM       | (product)| (product)| (product)| (product)| (product)| (product)|
 +----------------+----------+----------+----------+----------+----------+----------+
-| INNERONHAND    |      {3} |      {3} |      {3} |      {3} |      {3} |      {3} |
+| INNERONHAND    |   [#f3]_ |   [#f3]_ |   [#f3]_ |   [#f3]_ |   [#f3]_ |   [#f3]_ |
 +----------------+----------+----------+----------+----------+----------+----------+
-| INNERRESERVE   |      {3} |      {3} |      {3} |      {3} |      {3} |      {3} |
+| INNERRESERVE   |   [#f3]_ |   [#f3]_ |   [#f3]_ |   [#f3]_ |   [#f3]_ |   [#f3]_ |
 +----------------+----------+----------+----------+----------+----------+----------+
-| INNERWEIGHT    |      {3} |      {3} |      {3} |      {3} |      {3} |      {3} |
+| INNERWEIGHT    |   [#f3]_ |   [#f3]_ |   [#f3]_ |   [#f3]_ |   [#f3]_ |   [#f3]_ |
 +----------------+----------+----------+----------+----------+----------+----------+
-| INNERSIZE      |      {3} |      {3} |      {3} |      {3} |      {3} |      {3} |
+| INNERSIZE      |   [#f3]_ |   [#f3]_ |   [#f3]_ |   [#f3]_ |   [#f3]_ |   [#f3]_ |
 +----------------+----------+----------+----------+----------+----------+----------+
 
-.. legend::
-   #. (header), (product), and (unit) **parentheses** indicate unchanged values 
-      copied from the respective source.
-   #. [product] **brackets** indicate the source of a default value.
-   #. If a product INNERUOM is null, associated INNER entries are prohibited. 
-      Otherwise, INNERWEIGHT and INNERSIZE default to product values.
-   #. INBOUND units can be reserved by outbound shipments. Upon receipt a unit 
-      might be separately reserved as held or damaged. A rebalance routine might 
-      not have enough inventory afterwards to account for the outbound RESERVE.
+.. rubric:: Footnotes
+
+.. [#f1] (header), (product), and (unit) **parentheses** indicate unchanged values 
+         copied from the respective source.
+.. [#f2] [product] **brackets** indicate the source of a default value.
+.. [#f3]  If a product INNERUOM is null, associated INNER entries are prohibited. 
+          Otherwise, INNERWEIGHT and INNERSIZE default to product values.
+.. [#f4] INBOUND units can be reserved by outbound shipments. Upon receipt a unit 
+         might be separately reserved as held or damaged. A rebalance routine might 
+         not have enough inventory afterwards to account for the outbound RESERVE.
 
 Posting Quantity Example
 =============================
