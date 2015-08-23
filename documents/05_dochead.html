@@ -25,7 +25,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="WARES Documents 1.0 documentation" href="index.html" />
     <link rel="next" title="Document Transaction Lines" href="06_trlines.html" />
-    <link rel="prev" title="Transaction Posting" href="04_posting.html" /> 
+    <link rel="prev" title="Transaction Activity" href="04_posting.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -35,7 +35,7 @@
           <a href="06_trlines.html" title="Document Transaction Lines"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="04_posting.html" title="Transaction Posting"
+          <a href="04_posting.html" title="Transaction Activity"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">WARES Documents 1.0 documentation</a> &raquo;</li> 
       </ul>
@@ -46,11 +46,12 @@
   <ul>
 <li><a class="reference internal" href="#">Document Head Columns</a></li>
 <li><a class="reference internal" href="#legend">LEGEND:</a></li>
+<li><a class="reference internal" href="#document-type-codes">Document Type Codes</a></li>
 </ul>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="04_posting.html"
-                        title="previous chapter">Transaction Posting</a></p>
+                        title="previous chapter">Transaction Activity</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="06_trlines.html"
                         title="next chapter">Document Transaction Lines</a></p>
@@ -118,7 +119,7 @@ contain multiple values. Columns are defined in the table following.</p>
 <td>TYPE</td>
 <td>LC</td>
 <td>U</td>
-<td><a class="reference internal" href="04_posting.html#document-list"><em>Document Type Codes</em></a></td>
+<td><a class="reference internal" href="#document-list"><em>Document Type Codes</em></a></td>
 <td>&nbsp;</td>
 <td>L4</td>
 <td><ol class="first last arabic simple">
@@ -145,7 +146,10 @@ contain multiple values. Columns are defined in the table following.</p>
 <td>S</td>
 <td>U</td>
 <td>&nbsp;</td>
-<td>00</td>
+<td><ol class="first last arabic simple">
+<li></li>
+</ol>
+</td>
 <td>L4</td>
 <td><ol class="first last arabic simple" start="2">
 <li></li>
@@ -411,7 +415,7 @@ contain multiple values. Columns are defined in the table following.</p>
 <td>NOTEAPPLY</td>
 <td>LC</td>
 <td>U</td>
-<td><a class="reference internal" href="04_posting.html#document-list"><em>Document Type Codes</em></a></td>
+<td><a class="reference internal" href="#document-list"><em>Document Type Codes</em></a></td>
 <td>&nbsp;</td>
 <td>L4</td>
 <td>&nbsp;</td>
@@ -504,6 +508,124 @@ paired entry or code is specified.</li>
 </ol>
 </div>
 </div>
+<div class="section" id="document-type-codes">
+<span id="document-list"></span><h1>Document Type Codes<a class="headerlink" href="#document-type-codes" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="73%" />
+<col width="8%" />
+<col width="9%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CODE</th>
+<th class="head">Document Title</th>
+<th class="head">EDI</th>
+<th class="head">TYPE</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>&#8211; &#8211;</td>
+<td colspan="3">General business documents</td>
+</tr>
+<tr class="row-odd"><td>BL</td>
+<td>Motor Carrier Bill of Lading</td>
+<td>211</td>
+<td>N/A</td>
+</tr>
+<tr class="row-even"><td>PO</td>
+<td>Purchase Order</td>
+<td>850</td>
+<td>N/A</td>
+</tr>
+<tr class="row-odd"><td>PR</td>
+<td>Purchase Order Acknowledgment (Sales Order)</td>
+<td>855</td>
+<td>N/A</td>
+</tr>
+<tr class="row-even"><td>IB</td>
+<td>Inventory Inquiry/Advice</td>
+<td>846</td>
+<td>N/A</td>
+</tr>
+<tr class="row-odd"><td>SH</td>
+<td><div class="first last line-block">
+<div class="line">Shipment Notice/Manifest (ASN)</div>
+<div class="line">(Substitutes for 943 inbound or 945 outbound)</div>
+</div>
+</td>
+<td>856</td>
+<td><div class="first last line-block">
+<div class="line">3</div>
+<div class="line">4</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>&#8211; &#8211;</td>
+<td colspan="3">Bailment Warehouse documents</td>
+</tr>
+<tr class="row-odd"><td>AR</td>
+<td>Warehouse Stock Transfer Shipment Advice</td>
+<td>943</td>
+<td>3</td>
+</tr>
+<tr class="row-even"><td>RE</td>
+<td>Warehouse Stock Receipt Advice</td>
+<td>944</td>
+<td>3</td>
+</tr>
+<tr class="row-odd"><td>AW</td>
+<td>Warehouse Inventory Adjustment Advice</td>
+<td>947</td>
+<td>5</td>
+</tr>
+<tr class="row-even"><td>OW</td>
+<td>Warehouse Shipping Order</td>
+<td>940</td>
+<td>2</td>
+</tr>
+<tr class="row-odd"><td>SW</td>
+<td>Warehouse Shipping Advice</td>
+<td>945</td>
+<td>4</td>
+</tr>
+<tr class="row-even"><td>&#8211; &#8211;</td>
+<td colspan="3">Other warehousing documents</td>
+</tr>
+<tr class="row-odd"><td>LT</td>
+<td>Rewarehousing Location Transfer</td>
+<td>&nbsp;</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>Transaction Charges</td>
+<td>&nbsp;</td>
+<td>6</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>Credit Memo / Payment Advice</td>
+<td>&nbsp;</td>
+<td>7</td>
+</tr>
+<tr class="row-even"><td>IN</td>
+<td>Warehouse Invoice</td>
+<td>810</td>
+<td>8</td>
+</tr>
+<tr class="row-odd"><td>PP</td>
+<td>Pick Ticket / Packing Slip</td>
+<td>&nbsp;</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<p>Source: ASC-X12 Data Element 479 - Functional Identifier Code.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">There is no code &#8220;PP&#8221; in the EDI standards, as Pick Tickets and Packing slips
+are paper forms, and not EDI documents.</p>
+</div>
+</div>
 
 
           </div>
@@ -518,7 +640,7 @@ paired entry or code is specified.</li>
           <a href="06_trlines.html" title="Document Transaction Lines"
              >next</a></li>
         <li class="right" >
-          <a href="04_posting.html" title="Transaction Posting"
+          <a href="04_posting.html" title="Transaction Activity"
              >previous</a> |</li>
         <li><a href="index.html">WARES Documents 1.0 documentation</a> &raquo;</li> 
       </ul>

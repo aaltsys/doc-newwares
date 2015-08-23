@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Transaction Posting &mdash; WARES Documents 1.0 documentation</title>
+    <title>Transaction Activity &mdash; WARES Documents 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -44,18 +44,12 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Transaction Posting</a><ul>
-<li><a class="reference internal" href="#id1">Posting</a></li>
-<li><a class="reference internal" href="#posting-example">Posting Example</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#document-type-codes">Document Type Codes</a></li>
+<li><a class="reference internal" href="#">Transaction Activity</a></li>
 <li><a class="reference internal" href="#unit-condition-codes">Unit Condition Codes</a><ul>
-<li><a class="reference internal" href="#inbound">INBOUND:</a></li>
-<li><a class="reference internal" href="#receipt">RECEIPT:</a></li>
-<li><a class="reference internal" href="#outbound">OUTBOUND:</a></li>
-<li><a class="reference internal" href="#shipment">SHIPMENT:</a></li>
-<li><a class="reference internal" href="#adjustment">ADJUSTMENT:</a></li>
+<li><a class="reference internal" href="#posting-status-codes">Posting Status Codes</a></li>
+<li><a class="reference internal" href="#document-heading-requirements">Document Heading Requirements</a></li>
+<li><a class="reference internal" href="#document-line-requirements">Document Line Requirements</a></li>
+<li><a class="reference internal" href="#posting-quantity-example">Posting Quantity Example</a></li>
 </ul>
 </li>
 </ul>
@@ -94,15 +88,105 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="transaction-posting">
-<span id="posting"></span><h1>Transaction Posting<a class="headerlink" href="#transaction-posting" title="Permalink to this headline">¶</a></h1>
-<p>Transaction lines post to the locator based on a post-write database trigger.
-Each transaction line refers to a single locator entry. The post process
-collects all lines associated with a locator entry, and then adds the signed
-quantities to determine total locator entry quantities.</p>
-<div class="section" id="id1">
-<h2>Posting<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>Summary of document posting by status:</p>
+  <div class="section" id="transaction-activity">
+<span id="posting"></span><h1>Transaction Activity<a class="headerlink" href="#transaction-activity" title="Permalink to this headline">¶</a></h1>
+<p>Transactions are posted by line. The following rules apply to transactions:</p>
+<ul class="simple">
+<li>Transaction lines are written to an activity file.</li>
+<li>Each line references a single product/variety, lot control, unit identifier,
+and locator value.</li>
+<li>Lines may contain either Reserved or On-Hand quantites, and quantities are
+signed (+/-) indicating the effect of the transaction on inventory.</li>
+<li>Available = On-Hand + Reserve: Adding On-hand and Reserve transaction
+quantities for a product, lot, unit, or location gives all available.</li>
+<li>Selecting only transactions with condition G(ood) and adding On-hand and
+Reserve will give shippable available products, lots, locations. or units.</li>
+</ul>
+</div>
+<div class="section" id="unit-condition-codes">
+<span id="condition-list"></span><h1>Unit Condition Codes<a class="headerlink" href="#unit-condition-codes" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="63%" />
+<col width="12%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Code</th>
+<th class="head">Value</th>
+<th class="head">EDI</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>G</td>
+<td>Good</td>
+<td>01</td>
+</tr>
+<tr class="row-odd"><td>N</td>
+<td>New</td>
+<td>04</td>
+</tr>
+<tr class="row-even"><td>A</td>
+<td>Allocated</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>H</td>
+<td>Hold</td>
+<td>09</td>
+</tr>
+<tr class="row-even"><td>I</td>
+<td>Inspection</td>
+<td>09</td>
+</tr>
+<tr class="row-odd"><td>Q</td>
+<td>Quality Check</td>
+<td>09</td>
+</tr>
+<tr class="row-even"><td>D</td>
+<td>Damaged</td>
+<td>02</td>
+</tr>
+<tr class="row-odd"><td>R</td>
+<td>Recouped</td>
+<td>03</td>
+</tr>
+<tr class="row-even"><td>S</td>
+<td>Suitable w/o Recoup</td>
+<td>05</td>
+</tr>
+<tr class="row-odd"><td>T</td>
+<td>To Be Recouped</td>
+<td>06</td>
+</tr>
+<tr class="row-even"><td>U</td>
+<td>Unsuitable</td>
+<td>07</td>
+</tr>
+<tr class="row-odd"><td>J</td>
+<td>Junk</td>
+<td>08</td>
+</tr>
+<tr class="row-even"><td>O</td>
+<td>Other</td>
+<td>ZZ</td>
+</tr>
+</tbody>
+</table>
+<p>Source: ASC-X12 Data Element 286 - Product/Service Condition Code.</p>
+<div class="section" id="posting-status-codes">
+<h2>Posting Status Codes<a class="headerlink" href="#posting-status-codes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Posting Status codes work in conjunction with Reserved and On-hand quantities
+to manage Unit, Lot, and Product availability at the main database level.</li>
+<li>Reserved and Allocated shipments, and also Expected and In-transit receipts
+all have Reserved quantity.</li>
+<li>A transaction line cannot be changed from Reserved to Allocated, or from
+Expected to In-transit, without adding validated Unit and Lot information.</li>
+<li>A transaction line may have either Reserved or On-hand quantity; not both.
+When an expected unit is received or an allocated unit is shipped, the
+status changes to 3 and the quantity moves from Reserved to On-hand.</li>
+</ul>
+<p>Table: Summary of status codes by document type.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="11%" />
@@ -184,28 +268,612 @@ quantities to determine total locator entry quantities.</p>
 </tbody>
 </table>
 </div>
-<div class="section" id="posting-example">
-<h2>Posting Example<a class="headerlink" href="#posting-example" title="Permalink to this headline">¶</a></h2>
-<p>Sorted by PRODUCT-VARIETY-CONTROL-IDENTIFIER by TYPE by STATUS by DATETIME.</p>
+<div class="section" id="document-heading-requirements">
+<h2>Document Heading Requirements<a class="headerlink" href="#document-heading-requirements" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
-<col width="3%" />
-<col width="3%" />
-<col width="11%" />
-<col width="9%" />
+<col width="21%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Column Name</th>
+<th class="head">Expected</th>
+<th class="head">Inbound</th>
+<th class="head">Received</th>
+<th class="head">Reserved</th>
+<th class="head">Allocated</th>
+<th class="head">Shipped</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>TYPE</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="row-odd"><td>IDENTIFIER</td>
+<td>sequence</td>
+<td>sequence</td>
+<td>sequence</td>
+<td>sequence</td>
+<td>sequence</td>
+<td>sequence</td>
+</tr>
+<tr class="row-even"><td>REVISION</td>
+<td><ol class="first last arabic simple">
+<li></li>
+</ol>
+</td>
+<td><ol class="first last arabic simple">
+<li></li>
+</ol>
+</td>
+<td><ol class="first last arabic simple">
+<li></li>
+</ol>
+</td>
+<td><ol class="first last arabic simple">
+<li></li>
+</ol>
+</td>
+<td><ol class="first last arabic simple">
+<li></li>
+</ol>
+</td>
+<td><ol class="first last arabic simple">
+<li></li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td>STATUS</td>
+<td>1</td>
+<td>2</td>
+<td>3+</td>
+<td>1</td>
+<td>2</td>
+<td>3+</td>
+</tr>
+<tr class="row-even"><td>DATETIME</td>
+<td><ol class="first last arabic simple" start="2">
+<li></li>
+</ol>
+</td>
+<td><ol class="first last arabic simple" start="2">
+<li></li>
+</ol>
+</td>
+<td><ol class="first last arabic simple" start="2">
+<li></li>
+</ol>
+</td>
+<td><ol class="first last arabic simple" start="2">
+<li></li>
+</ol>
+</td>
+<td><ol class="first last arabic simple" start="2">
+<li></li>
+</ol>
+</td>
+<td><ol class="first last arabic simple" start="2">
+<li></li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td>ACCOUNT</td>
+<td>required</td>
+<td>required</td>
+<td>required</td>
+<td>required</td>
+<td>required</td>
+<td>required</td>
+</tr>
+<tr class="row-even"><td>BUILDING</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>required</td>
+<td>&nbsp;</td>
+<td>required</td>
+<td>required</td>
+</tr>
+<tr class="row-odd"><td>REFERENCECODE</td>
+<td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+<td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+<td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+<td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+<td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+<td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td>REFERENCE</td>
+<td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+<td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+<td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+<td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+<td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+<td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td>ADDRESSCODE</td>
+<td>SF</td>
+<td>SF</td>
+<td>SF</td>
+<td>ST   (4)</td>
+<td>ST   (4)</td>
+<td>ST   (4)</td>
+</tr>
+<tr class="row-even"><td>ADDRESS</td>
+<td>required</td>
+<td>required</td>
+<td>required</td>
+<td>required</td>
+<td>required</td>
+<td>required</td>
+</tr>
+<tr class="row-odd"><td>CONTACT</td>
+<td>optional</td>
+<td>optional</td>
+<td>optional</td>
+<td>optional</td>
+<td>optional</td>
+<td>optional</td>
+</tr>
+<tr class="row-even"><td>CARRIERCODE</td>
+<td>optional</td>
+<td>optional</td>
+<td>optional</td>
+<td>optional</td>
+<td>optional</td>
+<td>required</td>
+</tr>
+<tr class="row-odd"><td>ROUTE</td>
+<td>optional</td>
+<td>optional</td>
+<td>optional</td>
+<td>optional</td>
+<td>optional</td>
+<td>optional</td>
+</tr>
+<tr class="row-even"><td>FREIGHTPAY</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>req&#8217;d (4)</td>
+<td>req&#8217;d (4)</td>
+<td>req&#8217;d (4)</td>
+</tr>
+<tr class="row-odd"><td>other entries</td>
+<td>optional</td>
+<td>optional</td>
+<td>optional</td>
+<td>optional</td>
+<td>optional</td>
+<td>optional</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ol class="last arabic simple">
+<li>REVISION version is incremented each time a transaction is posted.</li>
+<li>DATETIME, a required value, represents the expected date of completion for
+Expected, Inbound, Reserved, Allocated. When status changes to Received or
+Shipped, DATETIME records the actual date and time of the change.</li>
+<li>Account settings determine REFERENCECODE defaults. Where REFERENCECODE
+entries exist, the corresponding REFERENCE entries are required.</li>
+<li>When FREIGHTPAY shows 3rd party, a corresponding ADDRESSCODE of &#8216;PF&#8217; and
+an address are required.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="document-line-requirements">
+<h2>Document Line Requirements<a class="headerlink" href="#document-line-requirements" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Column Name</th>
+<th class="head">Expected</th>
+<th class="head">Inbound</th>
+<th class="head">Received</th>
+<th class="head">Reserved</th>
+<th class="head">Allocated</th>
+<th class="head">Shipped</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>SEQUENCEKEY</td>
+<td>sequence</td>
+<td>sequence</td>
+<td>sequence</td>
+<td>sequence</td>
+<td>sequence</td>
+<td>sequence</td>
+</tr>
+<tr class="row-odd"><td>UNITIDENTIFIER</td>
+<td>&nbsp;</td>
+<td>required</td>
+<td>required</td>
+<td>&nbsp;</td>
+<td>required</td>
+<td>required</td>
+</tr>
+<tr class="row-even"><td>TRANSACTIONTYPE</td>
+<td>3 or 5</td>
+<td>3 or 5</td>
+<td>3 or 5</td>
+<td>4 or 5</td>
+<td>4 or 5</td>
+<td>4 or 5</td>
+</tr>
+<tr class="row-odd"><td>TRANSACTION</td>
+<td>(header)</td>
+<td>(header)</td>
+<td>(header)</td>
+<td>(header)</td>
+<td>(header)</td>
+<td>(header)</td>
+</tr>
+<tr class="row-even"><td>LINEKEY</td>
+<td>sequence</td>
+<td>sequence</td>
+<td>sequence</td>
+<td>sequence</td>
+<td>sequence</td>
+<td>sequence</td>
+</tr>
+<tr class="row-odd"><td>STATUS</td>
+<td>1</td>
+<td>2</td>
+<td>3+</td>
+<td>1</td>
+<td>2</td>
+<td>3+</td>
+</tr>
+<tr class="row-even"><td>POSTDATE</td>
+<td>now</td>
+<td>now</td>
+<td>now</td>
+<td>now</td>
+<td>now</td>
+<td>now</td>
+</tr>
+<tr class="row-odd"><td>LOCATION</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>directed</td>
+<td>&nbsp;</td>
+<td>(unit)</td>
+<td>(unit)</td>
+</tr>
+<tr class="row-even"><td>CONDITION</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>required</td>
+<td>required</td>
+<td>(unit)</td>
+<td>(unit)</td>
+</tr>
+<tr class="row-odd"><td>ACCOUNT</td>
+<td>(header)</td>
+<td>(header)</td>
+<td>(header)</td>
+<td>(header)</td>
+<td>(header)</td>
+<td>(header)</td>
+</tr>
+<tr class="row-even"><td>PRODUCT</td>
+<td>required</td>
+<td>required</td>
+<td>required</td>
+<td>required</td>
+<td>required</td>
+<td>required</td>
+</tr>
+<tr class="row-odd"><td>VARIETY</td>
+<td>required</td>
+<td>required</td>
+<td>required</td>
+<td>required</td>
+<td>required</td>
+<td>required</td>
+</tr>
+<tr class="row-even"><td>CONTROLCODE</td>
+<td>&nbsp;</td>
+<td>required</td>
+<td>required</td>
+<td>&nbsp;</td>
+<td>(unit)</td>
+<td>(unit)</td>
+</tr>
+<tr class="row-odd"><td>CONTROL</td>
+<td>&nbsp;</td>
+<td>required</td>
+<td>required</td>
+<td>&nbsp;</td>
+<td>(unit)</td>
+<td>(unit)</td>
+</tr>
+<tr class="row-even"><td>DESCRIPTION</td>
+<td>[product]</td>
+<td>[product]</td>
+<td>[product]</td>
+<td>[product]</td>
+<td>[product]</td>
+<td>[product]</td>
+</tr>
+<tr class="row-odd"><td>UNITUOM</td>
+<td>(product)</td>
+<td>(product)</td>
+<td>(product)</td>
+<td>(product)</td>
+<td>(product)</td>
+<td>(product)</td>
+</tr>
+<tr class="row-even"><td>UNITNET</td>
+<td>[product]</td>
+<td>[product]</td>
+<td>[product]</td>
+<td>[product]</td>
+<td>(unit)</td>
+<td>(unit)</td>
+</tr>
+<tr class="row-odd"><td>UNITTARE</td>
+<td>[product]</td>
+<td>[product]</td>
+<td>[product]</td>
+<td>[product]</td>
+<td>(unit)</td>
+<td>(unit)</td>
+</tr>
+<tr class="row-even"><td>UNITSIZE</td>
+<td>[product]</td>
+<td>[product]</td>
+<td>[product]</td>
+<td>[product]</td>
+<td>(unit)</td>
+<td>(unit)</td>
+</tr>
+<tr class="row-odd"><td>UNITSTACK</td>
+<td>[product]</td>
+<td>[product]</td>
+<td>[product]</td>
+<td>[product]</td>
+<td>(unit)</td>
+<td>(unit)</td>
+</tr>
+<tr class="row-even"><td>CONTENTUOM</td>
+<td>(product)</td>
+<td>(product)</td>
+<td>(product)</td>
+<td>(product)</td>
+<td>(product)</td>
+<td>(product)</td>
+</tr>
+<tr class="row-odd"><td>CONTENTONHAND</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>required</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>required</td>
+</tr>
+<tr class="row-even"><td>CONTENTRESERVE</td>
+<td>required</td>
+<td>required</td>
+<td>&nbsp;</td>
+<td>required</td>
+<td>required</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>CONTENTNET</td>
+<td>[product]</td>
+<td>[product]</td>
+<td>[product]</td>
+<td>[product]</td>
+<td>[product]</td>
+<td>[product]</td>
+</tr>
+<tr class="row-even"><td>CONTENTTARE</td>
+<td>[product]</td>
+<td>[product]</td>
+<td>[product]</td>
+<td>[product]</td>
+<td>[product]</td>
+<td>[product]</td>
+</tr>
+<tr class="row-odd"><td>CONTENTSIZE</td>
+<td>[product]</td>
+<td>[product]</td>
+<td>[product]</td>
+<td>[product]</td>
+<td>[product]</td>
+<td>[product]</td>
+</tr>
+<tr class="row-even"><td>INNERUOM</td>
+<td>(product)</td>
+<td>(product)</td>
+<td>(product)</td>
+<td>(product)</td>
+<td>(product)</td>
+<td>(product)</td>
+</tr>
+<tr class="row-odd"><td>INNERONHAND</td>
+<td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+<td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+<td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+<td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+<td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+<td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td>INNERRESERVE</td>
+<td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+<td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+<td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+<td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+<td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+<td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td>INNERWEIGHT</td>
+<td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+<td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+<td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+<td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+<td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+<td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td>INNERSIZE</td>
+<td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+<td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+<td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+<td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+<td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+<td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="posting-quantity-example">
+<h2>Posting Quantity Example<a class="headerlink" href="#posting-quantity-example" title="Permalink to this headline">¶</a></h2>
+<p>Following is an example set of transaction lines illustrating the effect of
+Inbound/Outbound (+/-), Posting to Reserve and On-hand, and Condition.
+In this example, transaction lines were selected and then sorted by
+PRODUCT-VARIETY-CONTROL by UNIT-IDENTIFIER by TYPE by STATUS by DATETIME.</p>
+<table border="1" class="docutils">
+<colgroup>
 <col width="4%" />
-<col width="11%" />
-<col width="11%" />
 <col width="4%" />
+<col width="14%" />
+<col width="11%" />
+<col width="5%" />
+<col width="14%" />
+<col width="14%" />
+<col width="5%" />
 <col width="1%" />
-<col width="4%" />
-<col width="2%" />
-<col width="8%" />
-<col width="8%" />
-<col width="1%" />
-<col width="4%" />
-<col width="8%" />
-<col width="8%" />
+<col width="5%" />
+<col width="3%" />
+<col width="10%" />
+<col width="10%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head" colspan="3">&#8211; Posting Control</th>
@@ -213,8 +881,6 @@ quantities to determine total locator entry quantities.</p>
 <th class="head" colspan="2">&#8211; Unit &#8211; &#8211;</th>
 <th class="head">&nbsp;</th>
 <th class="head" colspan="4">&#8211; Content &#8211; &#8211; &#8211; &#8211;</th>
-<th class="head">&nbsp;</th>
-<th class="head" colspan="3">&#8211; Inner &#8211; &#8211; &#8211; &#8211;</th>
 </tr>
 <tr class="row-even"><th class="head">TP</th>
 <th class="head">SS</th>
@@ -229,14 +895,10 @@ quantities to determine total locator entry quantities.</p>
 <th class="head">C</th>
 <th class="head">ONHAND</th>
 <th class="head">RESERVE</th>
-<th class="head">&nbsp;</th>
-<th class="head">UOM</th>
-<th class="head">ONHAND</th>
-<th class="head">RESERVE</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-odd"><td colspan="17">&#8211; An expected (SS=1) Receipt may be reserved (SS=1) by a Shipment.</td>
+<tr class="row-odd"><td colspan="13">&#8211; An expected (SS=1) Receipt may be reserved (SS=1) by a Shipment.</td>
 </tr>
 <tr class="row-even"><td>3</td>
 <td>1</td>
@@ -251,10 +913,6 @@ quantities to determine total locator entry quantities.</p>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>54</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>4</td>
 <td>1</td>
@@ -269,12 +927,8 @@ quantities to determine total locator entry quantities.</p>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>-54</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td colspan="17">&#8211; An in-bound (SS=2) Receipt must have control numbers and unit identifiers.</td>
+<tr class="row-even"><td colspan="13">&#8211; An in-bound (SS=2) Receipt must have control numbers and unit identifiers.</td>
 </tr>
 <tr class="row-odd"><td>3</td>
 <td>2</td>
@@ -289,12 +943,8 @@ quantities to determine total locator entry quantities.</p>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>54</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td colspan="17">&#8211; An on-hand (SS=3) Receipt may be allocated (SS=2) to a Shipment in process.</td>
+<tr class="row-even"><td colspan="13">&#8211; An on-hand (SS=3) Receipt may be allocated (SS=2) to a Shipment in process.</td>
 </tr>
 <tr class="row-odd"><td>3</td>
 <td>3</td>
@@ -308,10 +958,6 @@ quantities to determine total locator entry quantities.</p>
 <td>CA</td>
 <td>G</td>
 <td>54</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>4</td>
@@ -327,12 +973,8 @@ quantities to determine total locator entry quantities.</p>
 <td>G</td>
 <td>&nbsp;</td>
 <td>-54</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td colspan="17">&#8211; Multiple content records will exist for a mixed unit, which must be withdrawn by similar records.</td>
+<tr class="row-odd"><td colspan="13">&#8211; Mixed units will have multiple content records which must be withdrawn by content.</td>
 </tr>
 <tr class="row-even"><td>3</td>
 <td>3</td>
@@ -347,10 +989,6 @@ quantities to determine total locator entry quantities.</p>
 <td>G</td>
 <td>46</td>
 <td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>3</td>
 <td>3</td>
@@ -364,10 +1002,6 @@ quantities to determine total locator entry quantities.</p>
 <td>CA</td>
 <td>D</td>
 <td>8</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>4</td>
@@ -383,10 +1017,6 @@ quantities to determine total locator entry quantities.</p>
 <td>G</td>
 <td>-46</td>
 <td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>4</td>
 <td>3</td>
@@ -401,337 +1031,20 @@ quantities to determine total locator entry quantities.</p>
 <td>D</td>
 <td>-8</td>
 <td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
 </tr>
 </tbody>
 </table>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <ul class="last simple">
+<li>Inner quantity posting is omitted from the above example for clarity.</li>
 <li>Signed quantities: in-bound positive, outbound negative.</li>
-<li>Result: On-Hand + Reserve = Available.</li>
-<li>Status 1 &#8211; Expected is entered by product without Control and Identifier.</li>
-<li>Status 2 &#8211; In-Transit requires Control and Unit ID information.</li>
-<li>Goods with condition issues may be shown or hidden by selection.</li>
+<li>On-Hand + Reserve = Available.</li>
+<li>Status 1 &#8211; For Expected/Reserved status, Control Numbers and Unit
+Identifiers are optional and may be omitted.</li>
+<li>Status 2 &#8211; In-Transit/Allocated requires Control and Unit ID information.</li>
 </ul>
 </div>
-</div>
-</div>
-<div class="section" id="document-type-codes">
-<span id="document-list"></span><h1>Document Type Codes<a class="headerlink" href="#document-type-codes" title="Permalink to this headline">¶</a></h1>
-<table border="1" class="docutils">
-<colgroup>
-<col width="9%" />
-<col width="73%" />
-<col width="8%" />
-<col width="9%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">CODE</th>
-<th class="head">Document Title</th>
-<th class="head">EDI</th>
-<th class="head">TYPE</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>&#8211; &#8211;</td>
-<td colspan="3">General business documents</td>
-</tr>
-<tr class="row-odd"><td>BL</td>
-<td>Motor Carrier Bill of Lading</td>
-<td>211</td>
-<td>N/A</td>
-</tr>
-<tr class="row-even"><td>PO</td>
-<td>Purchase Order</td>
-<td>850</td>
-<td>N/A</td>
-</tr>
-<tr class="row-odd"><td>PR</td>
-<td>Purchase Order Acknowledgment (Sales Order)</td>
-<td>855</td>
-<td>N/A</td>
-</tr>
-<tr class="row-even"><td>IB</td>
-<td>Inventory Inquiry/Advice</td>
-<td>846</td>
-<td>N/A</td>
-</tr>
-<tr class="row-odd"><td>SH</td>
-<td><div class="first last line-block">
-<div class="line">Shipment Notice/Manifest (ASN)</div>
-<div class="line">(Substitutes for 943 inbound or 945 outbound)</div>
-</div>
-</td>
-<td>856</td>
-<td><div class="first last line-block">
-<div class="line">3</div>
-<div class="line">4</div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td>&#8211; &#8211;</td>
-<td colspan="3">Bailment Warehouse documents</td>
-</tr>
-<tr class="row-odd"><td>AR</td>
-<td>Warehouse Stock Transfer Shipment Advice</td>
-<td>943</td>
-<td>3</td>
-</tr>
-<tr class="row-even"><td>RE</td>
-<td>Warehouse Stock Receipt Advice</td>
-<td>944</td>
-<td>3</td>
-</tr>
-<tr class="row-odd"><td>AW</td>
-<td>Warehouse Inventory Adjustment Advice</td>
-<td>947</td>
-<td>5</td>
-</tr>
-<tr class="row-even"><td>OW</td>
-<td>Warehouse Shipping Order</td>
-<td>940</td>
-<td>2</td>
-</tr>
-<tr class="row-odd"><td>SW</td>
-<td>Warehouse Shipping Advice</td>
-<td>945</td>
-<td>4</td>
-</tr>
-<tr class="row-even"><td>&#8211; &#8211;</td>
-<td colspan="3">Other warehousing documents</td>
-</tr>
-<tr class="row-odd"><td>LT</td>
-<td>Rewarehousing Location Transfer</td>
-<td>&nbsp;</td>
-<td>1</td>
-</tr>
-<tr class="row-even"><td>&nbsp;</td>
-<td>Transaction Charges</td>
-<td>&nbsp;</td>
-<td>6</td>
-</tr>
-<tr class="row-odd"><td>&nbsp;</td>
-<td>Credit Memo / Payment Advice</td>
-<td>&nbsp;</td>
-<td>7</td>
-</tr>
-<tr class="row-even"><td>IN</td>
-<td>Warehouse Invoice</td>
-<td>810</td>
-<td>8</td>
-</tr>
-<tr class="row-odd"><td>PP</td>
-<td>Pick Ticket / Packing Slip</td>
-<td>&nbsp;</td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
-<p>Source: ASC-X12 Data Element 479 - Functional Identifier Code.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">There is no code &#8220;PP&#8221; in the EDI standards, as Pick Tickets and Packing slips
-are paper forms, and not EDI documents.</p>
-</div>
-</div>
-<div class="section" id="unit-condition-codes">
-<span id="condition-list"></span><h1>Unit Condition Codes<a class="headerlink" href="#unit-condition-codes" title="Permalink to this headline">¶</a></h1>
-<table border="1" class="docutils">
-<colgroup>
-<col width="24%" />
-<col width="63%" />
-<col width="12%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Code</th>
-<th class="head">Value</th>
-<th class="head">EDI</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>G</td>
-<td>Good</td>
-<td>01</td>
-</tr>
-<tr class="row-odd"><td>N</td>
-<td>New</td>
-<td>04</td>
-</tr>
-<tr class="row-even"><td>A</td>
-<td>Allocated</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>H</td>
-<td>Hold</td>
-<td>09</td>
-</tr>
-<tr class="row-even"><td>I</td>
-<td>Inspection</td>
-<td>09</td>
-</tr>
-<tr class="row-odd"><td>Q</td>
-<td>Quality Check</td>
-<td>09</td>
-</tr>
-<tr class="row-even"><td>D</td>
-<td>Damaged</td>
-<td>02</td>
-</tr>
-<tr class="row-odd"><td>R</td>
-<td>Recouped</td>
-<td>03</td>
-</tr>
-<tr class="row-even"><td>S</td>
-<td>Suitable w/o Recoup</td>
-<td>05</td>
-</tr>
-<tr class="row-odd"><td>T</td>
-<td>To Be Recouped</td>
-<td>06</td>
-</tr>
-<tr class="row-even"><td>U</td>
-<td>Unsuitable</td>
-<td>07</td>
-</tr>
-<tr class="row-odd"><td>J</td>
-<td>Junk</td>
-<td>08</td>
-</tr>
-<tr class="row-even"><td>O</td>
-<td>Other</td>
-<td>ZZ</td>
-</tr>
-</tbody>
-</table>
-<p>Source: ASC-X12 Data Element 286 - Product/Service Condition Code.</p>
-<div class="section" id="inbound">
-<h2>INBOUND:<a class="headerlink" href="#inbound" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><ul>
-<li><p class="first">Choice of entering from order, or from ASN</p>
-</li>
-<li><p class="first">Unit lines added to locator on status INBOUND</p>
-</li>
-<li><p class="first">Units can be RESERVED, cannot be allocated</p>
-</li>
-<li><p class="first">Order required information:</p>
-<div class="line-block">
-<div class="line">LINE_KEY</div>
-<div class="line">DOCUMENT</div>
-<div class="line">DATE_CODE = EXPECTED</div>
-<div class="line">DATETIME</div>
-<div class="line">STATUS_CODE = INBOUND</div>
-<div class="line">PRODUCT</div>
-<div class="line">WEIGHTS &amp; MEASURES  (multiple entries)</div>
-<div class="line">CONTENTS (multiple entries)</div>
-</div>
-</li>
-<li><p class="first">ASN required information:</p>
-<div class="line-block">
-<div class="line">LINE_KEY</div>
-<div class="line">DOCUMENT</div>
-<div class="line">DATE_CODE = EXPECTED</div>
-<div class="line">DATETIME</div>
-<div class="line">STATUS_CODE = INBOUND</div>
-<div class="line">PRODUCT</div>
-<div class="line">UNIT_IDENTIFIER</div>
-<div class="line">CONTROL_CODE</div>
-<div class="line">CONTROL_LOT</div>
-<div class="line">WEIGHTS &amp; MEASURES (multiple entries)</div>
-<div class="line">CONTENTS (multiple entries)</div>
-</div>
-</li>
-</ul>
-</div></blockquote>
-</div>
-<div class="section" id="receipt">
-<h2>RECEIPT:<a class="headerlink" href="#receipt" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><ul>
-<li><p class="first">Choice of completing an order, an ASN, or entering from scratch</p>
-</li>
-<li><p class="first">Unit lines updated or added to locator on status AVAILABLE, HELD, DAMAGED</p>
-</li>
-<li><p class="first">DOCUMENT array updated to have INBOUND and RECEIPT</p>
-</li>
-<li><p class="first">Receipt required information:</p>
-<div class="line-block">
-<div class="line">LINE_KEY</div>
-<div class="line">DOCUMENT</div>
-<div class="line">DATE_CODE = RECEIVED</div>
-<div class="line">DATETIME</div>
-<div class="line">STATUS_CODE = AVAILABLE, HELD, DAMAGED</div>
-<div class="line">PRODUCT</div>
-<div class="line">UNIT_IDENTIFIER</div>
-<div class="line">CONTROL_CODE</div>
-<div class="line">CONTROL_LOT</div>
-<div class="line">LOCATION</div>
-<div class="line">WEIGHTS &amp; MEASURES (multiple entries)</div>
-<div class="line">CONTENTS (multiple entries)</div>
-</div>
-</li>
-</ul>
-</div></blockquote>
-</div>
-<div class="section" id="outbound">
-<h2>OUTBOUND:<a class="headerlink" href="#outbound" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><ul>
-<li><p class="first">Entered, received as Warehouse Order (940), or JSON import</p>
-</li>
-<li><p class="first">Lines added to locator as RESERVED, deducting from AVAILABLE</p>
-</li>
-<li><p class="first">Order required information:</p>
-<div class="line-block">
-<div class="line">LINE_KEY</div>
-<div class="line">DOCUMENT</div>
-<div class="line">DATE_CODE = RESERVED</div>
-<div class="line">DATETIME</div>
-<div class="line">STATUS_CODE = RESERVED</div>
-<div class="line">PRODUCT</div>
-<div class="line">WEIGHTS &amp; MEASURES (multiple entries)</div>
-<div class="line">CONTENTS (multiple entries)</div>
-</div>
-</li>
-</ul>
-</div></blockquote>
-</div>
-<div class="section" id="shipment">
-<h2>SHIPMENT:<a class="headerlink" href="#shipment" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><ul>
-<li><p class="first">Choice of completing an outbound order, or entering from scratch</p>
-</li>
-<li><p class="first">AVAILABLE (scratch entry) or RESERVED (outbound completion) lines updated
-to ALLOCATED</p>
-</li>
-<li><p class="first">DOCUMENT array updated to have OUTBOUND and SHIPMENT</p>
-</li>
-<li><p class="first">Shipment required information:</p>
-<div class="line-block">
-<div class="line">LINE_KEY</div>
-<div class="line">DOCUMENT</div>
-<div class="line">DATE_CODE = SHIPPED</div>
-<div class="line">DATETIME</div>
-<div class="line">STATUS_CODE = SHIPPED</div>
-<div class="line">PRODUCT</div>
-<div class="line">UNIT_IDENTIFIER</div>
-<div class="line">CONTROL_CODE</div>
-<div class="line">CONTROL_LOT</div>
-<div class="line">LOCATION</div>
-<div class="line">WEIGHTS &amp; MEASURES (multiple entries)</div>
-<div class="line">CONTENTS (multiple entries)</div>
-</div>
-</li>
-</ul>
-</div></blockquote>
-</div>
-<div class="section" id="adjustment">
-<h2>ADJUSTMENT:<a class="headerlink" href="#adjustment" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 

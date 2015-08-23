@@ -16,7 +16,7 @@ contain multiple values. Columns are defined in the table following.
 +---+---+----------------+-----+---+------------------------+--------+-----+-----+
 | M | S | IDENTIFIER     | SK  | U |                        |        | L12 | (2) |
 +---+---+----------------+-----+---+------------------------+--------+-----+-----+
-| M | S | REVISION       | S   | U |                        | 00     | L4  | (2) |
+| M | S | REVISION       | S   | U |                        |(1)     | L4  | (2) |
 +---+---+----------------+-----+---+------------------------+--------+-----+-----+
 | -- -- -- -- -- -- -- -- -- -- -- -- Posting & Reference                        |
 +---+---+----------------+-----+---+------------------------+--------+-----+-----+
@@ -86,3 +86,5 @@ contain multiple values. Columns are defined in the table following.
    #. ADDRESSCODE defaults are determined by document type.
 
 .. include:: ../resources/legend.rst
+
+.. include:: ../codes/S_document.rst
