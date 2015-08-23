@@ -94,15 +94,14 @@ Document Heading Requirements
 | other entries  | optional | optional | optional | optional | optional | optional |
 +----------------+----------+----------+----------+----------+----------+----------+
 
-.. rubric:: Footnotes
-
-.. [1] REVISION version is incremented each time a transaction is posted.
-.. [2] DATETIME, a required value, represents the anticipated completion date for
+.. note::
+   [1] REVISION version is incremented each time a transaction is posted.
+   [2] DATETIME, a required value, represents the anticipated completion date for
        Expected, Inbound, Reserved, Allocated. When status changes to Received or
        Shipped, DATETIME records the actual date and time of the change.
-.. [3] Account settings determine REFERENCECODE defaults. Where REFERENCECODE 
+   [3] Account settings determine REFERENCECODE defaults. Where REFERENCECODE 
        entries exist, the corresponding REFERENCE entries are required.
-.. [4] When FREIGHTPAY shows 3rd party, a corresponding ADDRESSCODE of 'PF' and
+   [4] When FREIGHTPAY shows 3rd party, a corresponding ADDRESSCODE of 'PF' and
        an ADDRESS are required.
 
 Document Line Requirements
