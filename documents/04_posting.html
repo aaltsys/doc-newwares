@@ -308,30 +308,12 @@ status changes to 3 and the quantity moves from Reserved to On-hand.</li>
 <td>sequence</td>
 </tr>
 <tr class="row-even"><td>REVISION</td>
-<td><ol class="first last arabic simple">
-<li></li>
-</ol>
-</td>
-<td><ol class="first last arabic simple">
-<li></li>
-</ol>
-</td>
-<td><ol class="first last arabic simple">
-<li></li>
-</ol>
-</td>
-<td><ol class="first last arabic simple">
-<li></li>
-</ol>
-</td>
-<td><ol class="first last arabic simple">
-<li></li>
-</ol>
-</td>
-<td><ol class="first last arabic simple">
-<li></li>
-</ol>
-</td>
+<td>{1}</td>
+<td>{1}</td>
+<td>{1}</td>
+<td>{1}</td>
+<td>{1}</td>
+<td>{1}</td>
 </tr>
 <tr class="row-odd"><td>STATUS</td>
 <td>1</td>
@@ -342,30 +324,12 @@ status changes to 3 and the quantity moves from Reserved to On-hand.</li>
 <td>3+</td>
 </tr>
 <tr class="row-even"><td>DATETIME</td>
-<td><ol class="first last arabic simple" start="2">
-<li></li>
-</ol>
-</td>
-<td><ol class="first last arabic simple" start="2">
-<li></li>
-</ol>
-</td>
-<td><ol class="first last arabic simple" start="2">
-<li></li>
-</ol>
-</td>
-<td><ol class="first last arabic simple" start="2">
-<li></li>
-</ol>
-</td>
-<td><ol class="first last arabic simple" start="2">
-<li></li>
-</ol>
-</td>
-<td><ol class="first last arabic simple" start="2">
-<li></li>
-</ol>
-</td>
+<td>{2}</td>
+<td>{2}</td>
+<td>{2}</td>
+<td>{2}</td>
+<td>{2}</td>
+<td>{2}</td>
 </tr>
 <tr class="row-odd"><td>ACCOUNT</td>
 <td>required</td>
@@ -384,64 +348,28 @@ status changes to 3 and the quantity moves from Reserved to On-hand.</li>
 <td>required</td>
 </tr>
 <tr class="row-odd"><td>REFERENCECODE</td>
-<td><ol class="first last arabic simple" start="3">
-<li></li>
-</ol>
-</td>
-<td><ol class="first last arabic simple" start="3">
-<li></li>
-</ol>
-</td>
-<td><ol class="first last arabic simple" start="3">
-<li></li>
-</ol>
-</td>
-<td><ol class="first last arabic simple" start="3">
-<li></li>
-</ol>
-</td>
-<td><ol class="first last arabic simple" start="3">
-<li></li>
-</ol>
-</td>
-<td><ol class="first last arabic simple" start="3">
-<li></li>
-</ol>
-</td>
+<td>{3}</td>
+<td>{3}</td>
+<td>{3}</td>
+<td>{3}</td>
+<td>{3}</td>
+<td>{3}</td>
 </tr>
 <tr class="row-even"><td>REFERENCE</td>
-<td><ol class="first last arabic simple" start="3">
-<li></li>
-</ol>
-</td>
-<td><ol class="first last arabic simple" start="3">
-<li></li>
-</ol>
-</td>
-<td><ol class="first last arabic simple" start="3">
-<li></li>
-</ol>
-</td>
-<td><ol class="first last arabic simple" start="3">
-<li></li>
-</ol>
-</td>
-<td><ol class="first last arabic simple" start="3">
-<li></li>
-</ol>
-</td>
-<td><ol class="first last arabic simple" start="3">
-<li></li>
-</ol>
-</td>
+<td>{3}</td>
+<td>{3}</td>
+<td>{3}</td>
+<td>{3}</td>
+<td>{3}</td>
+<td>{3}</td>
 </tr>
 <tr class="row-odd"><td>ADDRESSCODE</td>
 <td>SF</td>
 <td>SF</td>
 <td>SF</td>
-<td>ST   (4)</td>
-<td>ST   (4)</td>
-<td>ST   (4)</td>
+<td>ST   {4}</td>
+<td>ST   {4}</td>
+<td>ST   {4}</td>
 </tr>
 <tr class="row-even"><td>ADDRESS</td>
 <td>required</td>
@@ -479,9 +407,9 @@ status changes to 3 and the quantity moves from Reserved to On-hand.</li>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td>req&#8217;d (4)</td>
-<td>req&#8217;d (4)</td>
-<td>req&#8217;d (4)</td>
+<td>req&#8217;d {4}</td>
+<td>req&#8217;d {4}</td>
+<td>req&#8217;d {4}</td>
 </tr>
 <tr class="row-odd"><td>other entries</td>
 <td>optional</td>
@@ -497,13 +425,13 @@ status changes to 3 and the quantity moves from Reserved to On-hand.</li>
 <p class="first admonition-title">Note</p>
 <ol class="last arabic simple">
 <li>REVISION version is incremented each time a transaction is posted.</li>
-<li>DATETIME, a required value, represents the expected date of completion for
+<li>DATETIME, a required value, represents the anticipated completion date for
 Expected, Inbound, Reserved, Allocated. When status changes to Received or
 Shipped, DATETIME records the actual date and time of the change.</li>
 <li>Account settings determine REFERENCECODE defaults. Where REFERENCECODE
 entries exist, the corresponding REFERENCE entries are required.</li>
 <li>When FREIGHTPAY shows 3rd party, a corresponding ADDRESSCODE of &#8216;PF&#8217; and
-an address are required.</li>
+an ADDRESS are required.</li>
 </ol>
 </div>
 </div>
@@ -747,108 +675,36 @@ an address are required.</li>
 <td>(product)</td>
 </tr>
 <tr class="row-odd"><td>INNERONHAND</td>
-<td><ol class="first last arabic simple" start="3">
-<li></li>
-</ol>
-</td>
-<td><ol class="first last arabic simple" start="3">
-<li></li>
-</ol>
-</td>
-<td><ol class="first last arabic simple" start="3">
-<li></li>
-</ol>
-</td>
-<td><ol class="first last arabic simple" start="3">
-<li></li>
-</ol>
-</td>
-<td><ol class="first last arabic simple" start="3">
-<li></li>
-</ol>
-</td>
-<td><ol class="first last arabic simple" start="3">
-<li></li>
-</ol>
-</td>
+<td>{3}</td>
+<td>{3}</td>
+<td>{3}</td>
+<td>{3}</td>
+<td>{3}</td>
+<td>{3}</td>
 </tr>
 <tr class="row-even"><td>INNERRESERVE</td>
-<td><ol class="first last arabic simple" start="3">
-<li></li>
-</ol>
-</td>
-<td><ol class="first last arabic simple" start="3">
-<li></li>
-</ol>
-</td>
-<td><ol class="first last arabic simple" start="3">
-<li></li>
-</ol>
-</td>
-<td><ol class="first last arabic simple" start="3">
-<li></li>
-</ol>
-</td>
-<td><ol class="first last arabic simple" start="3">
-<li></li>
-</ol>
-</td>
-<td><ol class="first last arabic simple" start="3">
-<li></li>
-</ol>
-</td>
+<td>{3}</td>
+<td>{3}</td>
+<td>{3}</td>
+<td>{3}</td>
+<td>{3}</td>
+<td>{3}</td>
 </tr>
 <tr class="row-odd"><td>INNERWEIGHT</td>
-<td><ol class="first last arabic simple" start="3">
-<li></li>
-</ol>
-</td>
-<td><ol class="first last arabic simple" start="3">
-<li></li>
-</ol>
-</td>
-<td><ol class="first last arabic simple" start="3">
-<li></li>
-</ol>
-</td>
-<td><ol class="first last arabic simple" start="3">
-<li></li>
-</ol>
-</td>
-<td><ol class="first last arabic simple" start="3">
-<li></li>
-</ol>
-</td>
-<td><ol class="first last arabic simple" start="3">
-<li></li>
-</ol>
-</td>
+<td>{3}</td>
+<td>{3}</td>
+<td>{3}</td>
+<td>{3}</td>
+<td>{3}</td>
+<td>{3}</td>
 </tr>
 <tr class="row-even"><td>INNERSIZE</td>
-<td><ol class="first last arabic simple" start="3">
-<li></li>
-</ol>
-</td>
-<td><ol class="first last arabic simple" start="3">
-<li></li>
-</ol>
-</td>
-<td><ol class="first last arabic simple" start="3">
-<li></li>
-</ol>
-</td>
-<td><ol class="first last arabic simple" start="3">
-<li></li>
-</ol>
-</td>
-<td><ol class="first last arabic simple" start="3">
-<li></li>
-</ol>
-</td>
-<td><ol class="first last arabic simple" start="3">
-<li></li>
-</ol>
-</td>
+<td>{3}</td>
+<td>{3}</td>
+<td>{3}</td>
+<td>{3}</td>
+<td>{3}</td>
+<td>{3}</td>
 </tr>
 </tbody>
 </table>
