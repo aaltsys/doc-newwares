@@ -94,7 +94,6 @@ Document Heading Requirements
 | other entries  | optional | optional | optional | optional | optional | optional |
 +----------------+----------+----------+----------+----------+----------+----------+
 
-.. note::
 .. [1] REVISION version is incremented each time a transaction is posted.
 .. [2] DATETIME, a required value, represents the anticipated completion date for
        Expected, Inbound, Reserved, Allocated. When status changes to Received or
@@ -181,10 +180,8 @@ Document Line Requirements
       might be separately reserved as held or damaged. A rebalance routine might 
       not have enough inventory afterwards to account for the outbound RESERVE.
 
-.. rubric:: Footnotes
-
-..   [5]  If a product INNERUOM is null, associated INNER entries are prohibited. 
-          Otherwise, INNERWEIGHT and INNERSIZE default to product values.
+.. [5] If a product INNERUOM is null, associated INNER entries are prohibited. 
+       Otherwise, INNERWEIGHT and INNERSIZE default to product values.
 
 Posting Quantity Example
 =============================
