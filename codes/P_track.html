@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Product Identification Codes &mdash; WARES Codes 1.0 documentation</title>
+    <title>Tracking Codes &mdash; WARES Codes 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,18 +24,18 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="WARES Codes 1.0 documentation" href="index.html" />
-    <link rel="next" title="Tracking Codes" href="P_track.html" />
-    <link rel="prev" title="Lot Control Codes" href="P_control.html" /> 
+    <link rel="next" title="Contacts type Codes" href="S_contact.html" />
+    <link rel="prev" title="Product Identification Codes" href="P_product.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="P_track.html" title="Tracking Codes"
+          <a href="S_contact.html" title="Contacts type Codes"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="P_control.html" title="Lot Control Codes"
+          <a href="P_product.html" title="Product Identification Codes"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">WARES Codes 1.0 documentation</a> &raquo;</li> 
       </ul>
@@ -43,15 +43,15 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="P_control.html"
-                        title="previous chapter">Lot Control Codes</a></p>
+  <p class="topless"><a href="P_product.html"
+                        title="previous chapter">Product Identification Codes</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="P_track.html"
-                        title="next chapter">Tracking Codes</a></p>
+  <p class="topless"><a href="S_contact.html"
+                        title="next chapter">Contacts type Codes</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/P_product.txt"
+      <li><a href="_sources/P_track.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -76,12 +76,12 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="product-identification-codes">
-<span id="product-list"></span><h1>Product Identification Codes<a class="headerlink" href="#product-identification-codes" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="tracking-codes">
+<span id="track-list"></span><h1>Tracking Codes<a class="headerlink" href="#tracking-codes" title="Permalink to this headline">¶</a></h1>
 <table border="1" class="docutils">
 <colgroup>
-<col width="21%" />
-<col width="79%" />
+<col width="28%" />
+<col width="72%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Code</th>
@@ -89,63 +89,22 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>BL</td>
-<td>Brand/label</td>
+<tr class="row-even"><td>P</td>
+<td>Track Product</td>
 </tr>
-<tr class="row-odd"><td>BP</td>
-<td>Buyer&#8217;s part number</td>
+<tr class="row-odd"><td>C</td>
+<td>Track Lot Control</td>
 </tr>
-<tr class="row-even"><td>CB</td>
-<td>Buyer&#8217;s catalog number</td>
-</tr>
-<tr class="row-odd"><td>CN</td>
-<td>Commodity name</td>
-</tr>
-<tr class="row-even"><td>IN</td>
-<td>Buyer&#8217;s item number</td>
-</tr>
-<tr class="row-odd"><td>MG</td>
-<td>Manufacturer&#8217;s part number</td>
-</tr>
-<tr class="row-even"><td>MN</td>
-<td>Model number</td>
-</tr>
-<tr class="row-odd"><td>PI</td>
-<td>Purchaser&#8217;s item code</td>
-</tr>
-<tr class="row-even"><td>PN</td>
-<td>Company part number</td>
-</tr>
-<tr class="row-odd"><td>SI</td>
-<td>Standard Industrial Classification code</td>
-</tr>
-<tr class="row-even"><td>SK</td>
-<td>Stock keeping unit (SKU)</td>
-</tr>
-<tr class="row-odd"><td>ST</td>
-<td>Style number</td>
-</tr>
-<tr class="row-even"><td>UA</td>
-<td>U.P.C./EAN case code (2-5-5)</td>
-</tr>
-<tr class="row-odd"><td>UD</td>
-<td>U.P.C./EAN consumer package code (2-5-5)</td>
-</tr>
-<tr class="row-even"><td>UN</td>
-<td>U.P.C. case code number (1-1-5-5)</td>
-</tr>
-<tr class="row-odd"><td>UP</td>
-<td>U.P.C. consumer package code (1-5-5-1)</td>
-</tr>
-<tr class="row-even"><td>VN</td>
-<td>Vendor&#8217;s (seller&#8217;s) item number</td>
-</tr>
-<tr class="row-odd"><td>ZZ</td>
-<td>Mutually defined</td>
+<tr class="row-even"><td>U</td>
+<td>Track Storage Units</td>
 </tr>
 </tbody>
 </table>
-<p>Source: ASC-X12 Data Element 235 - Product/Service ID Qualifier</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">These codes are internal to WARES operation and are not intended for data
+exchange.</p>
+</div>
 </div>
 
 
@@ -158,10 +117,10 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="P_track.html" title="Tracking Codes"
+          <a href="S_contact.html" title="Contacts type Codes"
              >next</a></li>
         <li class="right" >
-          <a href="P_control.html" title="Lot Control Codes"
+          <a href="P_product.html" title="Product Identification Codes"
              >previous</a> |</li>
         <li><a href="index.html">WARES Codes 1.0 documentation</a> &raquo;</li> 
       </ul>
