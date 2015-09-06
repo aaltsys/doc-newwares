@@ -29,19 +29,19 @@ Detail Lot Header Columns
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | M | S | VARIETY        | A   | U | VT=PRODUCTS, key2    | null   | L10 |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| M | S | CONTROLCODE    | LC  | U | :ref:`control-list`  | NA     | L4  | [1]_|
+| M | S | CONTROLCODE    | LC  | U | :ref:`control-list`  | NA     | L4  | [A]_|
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| M | S | CONTROL        | A   | U |                      |        | L20 | [1]_|
+| M | S | CONTROL        | A   | U |                      |        | L20 | [A]_|
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | -- -- -- -- -- -- -- -- -- -- -- -- Descriptive Entries                      |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | M | S | REVISION       | A   | U |                      | 00     |     |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| M | S | POSTDATE       | A   | U | DATE                 | TODAY  | R10 | [1]_|
+| M | S | POSTDATE       | A   | U | DATE                 | TODAY  | R10 | [A]_|
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | O | T | DESCRIPTION    | A   |   |                      |        | T40 |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| [2]_  -- -- -- -- -- -- -- -- -- -- Dimensional Entries                      |
+| [B]_  -- -- -- -- -- -- -- -- -- -- Dimensional Entries                      |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | M | S | UNITUOM        | A   | U | :ref:`uom-list`      | PL     | L4  |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
@@ -72,10 +72,10 @@ Detail Lot Header Columns
 | O | S | INNERSIZE      | N.4 |   | (MD4)                |        | R8  |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 
-.. [1] CONTROLCODE may be assigned automatically based on the associated product 
+.. [A] CONTROLCODE may be assigned automatically based on the associated product 
        record. Control codes may determine the default values of control, such 
        as rotation dates or warehouse sequential lot numbers.
-.. [2] Defaults for lot dimensional values are copied from product entries when
+.. [B] Defaults for lot dimensional values are copied from product entries when
        a document is entered. These values may be changed during document entry.
 
 .. include:: ../resources/legend.rst
