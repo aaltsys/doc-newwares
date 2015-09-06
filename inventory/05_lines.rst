@@ -2,16 +2,25 @@
 Document Transaction Lines
 #############################
 
+Inventory balances are maintained by product, lot, and unit. When goods are 
+expected to be received or are ordered in advance, lot and unit information is 
+not available and only product reserved quantities may be updated. When goods 
+are inbound and received, or picked and shipped, then unit and lot transaction 
+information may be included depending on product tracking requirements.
+
+Lot and  Unit Transactions
+=============================
+
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 |REQ| SM| COLUMN NAME    | TYPE| UC|VALIDATE              | DEFAULT| JUST| NOTE|
 +===+===+================+=====+===+======================+========+=====+=====+
 | -- -- -- -- -- -- -- -- -- -- -- -- Keys                                     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| M | S | SEQUENCEKEY    | A   | U |                      |        | R12 | (1) |
+| M | S | SEQUENCEKEY    | A   | U |                      |        | R12 | [1]_|
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | -- -- -- -- -- -- -- -- -- -- -- -- Transaction Entries                      |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| M | S | UNITIDENTIFIER | A   | U |                      |        | L20 |     |
+| M | S | UNITIDENTIFIER | A   | U |                      |        | L20 | [5]_|
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | M | S | TRANSACTIONTYPE| A   | U |                      |        | R2  |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
@@ -27,7 +36,7 @@ Document Transaction Lines
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | M | S | LOCATION       | A   | U | VT=LOCATIONS         | WH     | L12 |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| O | M | CONDITION      | LC  | U | :ref:`condition-list`| G      | L2  | (2) |
+| O | M | CONDITION      | LC  | U | :ref:`condition-list`| G      | L2  | [2]_|
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | -- -- -- -- -- -- -- -- -- -- -- -- Lot Identification Entries               |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
@@ -37,9 +46,9 @@ Document Transaction Lines
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | M | S | VARIETY        | A   | U | VT=PRODUCTS key2     | null   |     |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| M | S | CONTROLCODE    | LC  | U | :ref:`control-list`  | NA     | L2  |     |
+| M | S | CONTROLCODE    | LC  | U | :ref:`control-list`  | [3]_   | L2  | [4]_|
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| M | S | CONTROL        | A   | U |                      | (TBD)  | L16 | (3) |
+| M | S | CONTROL        | A   | U |                      | [3]_   | L16 | [4]_|
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | O | T | DESCRIPTION    | A   |   |                      |        | T40 |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
@@ -78,9 +87,21 @@ Document Transaction Lines
 | O | S | INNERSIZE      | N.4 |   | (MD4)                |        | R8  |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 
+.. [1] Transaction line detail is directly posted from transaction documents in
+       receipts, shipments, and adjustments.
+.. [2] An optional list of conditions may apply to units in a lot, such as 
+       damage, inspection hold, quality condition, etc.
+.. [3] Control codes may determine default values for lot control, such as 
+       rotation date or warehouse lot sequences.
+.. [4] CONTROLCODE and CONTROL are optional when tracking is product only (P).
+.. [5] UNITIDENTIFIER will be *null* unless tracking is by unit (U).
+
 .. note::
-   #. Transaction line detail is directly posted from transaction documents in
-      receipts, shipments, and adjustments.
-   #. An optional list of conditions may apply to units in a lot, such as 
-      damage, inspection hold, quality condition, etc.
- 
+   *  Tracking requirements are set by product and are not reflected in the 
+      transaction line data.
+   *  Where lots are fungible and multiple units are received on a single line, 
+      there is no way to determine the unit count directly from the transaction 
+      line because the CONTENTCOUNT factor is maintained on the product or lot
+      record.
+   *  When products or lots are fungible then storage units must be uniform. 
+      This is a necessary concequence of not tracking individual units.
