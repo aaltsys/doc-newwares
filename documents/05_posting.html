@@ -1,0 +1,409 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Transaction Activity &mdash; WARES Documents 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="WARES Documents 1.0 documentation" href="index.html" />
+    <link rel="next" title="Inventory Balances Posting" href="06_balances.html" />
+    <link rel="prev" title="Entry Requirement Checks" href="04_requirements.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="06_balances.html" title="Inventory Balances Posting"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="04_requirements.html" title="Entry Requirement Checks"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">WARES Documents 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Transaction Activity</a><ul>
+<li><a class="reference internal" href="#posting-status-codes">Posting Status Codes</a></li>
+<li><a class="reference internal" href="#posting-quantity-example">Posting Quantity Example</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="04_requirements.html"
+                        title="previous chapter">Entry Requirement Checks</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="06_balances.html"
+                        title="next chapter">Inventory Balances Posting</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/05_posting.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="transaction-activity">
+<span id="posting"></span><h1>Transaction Activity<a class="headerlink" href="#transaction-activity" title="Permalink to this headline">¶</a></h1>
+<p>Transactions are posted by line. However, all the lines of an entire document
+must be posted before the status of the document can change to indicate the
+document is posted.</p>
+<p>The following rules apply to transactions:</p>
+<ul class="simple">
+<li>Transaction lines are written to an activity file.</li>
+<li>Each line references a single value of product/variety, lot control,
+unit identifier, and locator entry.</li>
+<li>Quantities are signed (+/-) to indicate the effect of the transaction on
+inventory.</li>
+<li>Available = On-Hand + Reserve: Adding On-hand and Reserve transaction
+quantities for a product, lot, unit, or location gives all available.</li>
+<li>Selecting only transactions with condition G(ood) and adding On-hand and
+Reserve will give shippable available products, lots, locations. or units.</li>
+</ul>
+<div class="section" id="posting-status-codes">
+<h2>Posting Status Codes<a class="headerlink" href="#posting-status-codes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Posting <a class="reference external" href="../codes/D_status.html#status-list" title="(in WARES Codes v1.0)"><em>Document Status Codes</em></a> work in conjunction with Reserved and On-hand
+quantities to manage Unit, Lot, and Product availability at the main database
+level.</li>
+<li>Reserved and Allocated shipments, and also Expected and In-transit receipts
+all have Reserved quantity.</li>
+<li>A transaction line cannot be changed from Reserved to Allocated, or from
+Expected to In-transit, without adding validated Unit and Lot information
+when it is required.</li>
+<li>A transaction line may have either Reserved or On-hand quantity; not both.
+When an expected unit is received or an allocated unit is shipped, the
+status changes to 3 and the quantity moves from Reserved to On-hand.</li>
+<li>All lines included on a document must change to a higher status level
+(e.g., moving from status 2 to 3) before the overall document status can
+change to the higher status.</li>
+</ul>
+<p>Table: Summary of status codes by document type.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="18%" />
+<col width="18%" />
+<col width="18%" />
+<col width="18%" />
+<col width="18%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">&nbsp;</th>
+<th class="head" colspan="5">&#8211;   Document Type &#8211;&gt;</th>
+</tr>
+<tr class="row-even"><th class="head">STATUS</th>
+<th class="head">2 Ship Order</th>
+<th class="head">3 Receiving</th>
+<th class="head">4 Shipment</th>
+<th class="head">5 Adjustment</th>
+<th class="head">6 Financial</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-odd"><td>-1</td>
+<td>Deleted</td>
+<td>Deleted</td>
+<td>Deleted</td>
+<td>Deleted</td>
+<td>Deleted</td>
+</tr>
+<tr class="row-even"><td>0</td>
+<td>Data Error</td>
+<td>Unposted</td>
+<td>Unposted</td>
+<td>Unposted</td>
+<td>Unposted</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>Reserved</td>
+<td>Expected</td>
+<td>Reserved</td>
+<td>Reserved</td>
+<td>N/A</td>
+</tr>
+<tr class="row-even"><td>2</td>
+<td>To Process</td>
+<td>In Transit</td>
+<td>Allocated</td>
+<td>Held/Alloc</td>
+<td>Entered</td>
+</tr>
+<tr class="row-odd"><td>3</td>
+<td>Processed</td>
+<td>On-Hand</td>
+<td>Shipped</td>
+<td>OnHand/Ship</td>
+<td>Verified</td>
+</tr>
+<tr class="row-even"><td>4</td>
+<td>Charged</td>
+<td>Charged</td>
+<td>Charged</td>
+<td>Charged</td>
+<td>Charged</td>
+</tr>
+<tr class="row-odd"><td>5</td>
+<td>Invoiced</td>
+<td>Invoiced</td>
+<td>Invoiced</td>
+<td>Invoiced</td>
+<td>Invoiced</td>
+</tr>
+<tr class="row-even"><td>6</td>
+<td>Archived</td>
+<td>Archived</td>
+<td>Archived</td>
+<td>Archived</td>
+<td>Archived</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="posting-quantity-example">
+<h2>Posting Quantity Example<a class="headerlink" href="#posting-quantity-example" title="Permalink to this headline">¶</a></h2>
+<p>Following is an example set of transaction lines illustrating the effect of
+Inbound/Outbound (+/-), use of Reserve and On-hand, and Condition.
+In this example, transaction lines were selected and then sorted by
+PRODUCT-VARIETY-CONTROL by UNIT-IDENTIFIER by TYPE by STATUS by DATETIME.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="4%" />
+<col width="4%" />
+<col width="14%" />
+<col width="11%" />
+<col width="5%" />
+<col width="12%" />
+<col width="2%" />
+<col width="9%" />
+<col width="2%" />
+<col width="5%" />
+<col width="10%" />
+<col width="11%" />
+<col width="11%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">TP</th>
+<th class="head">SS</th>
+<th class="head">POSTDATE</th>
+<th class="head">PRODUCT</th>
+<th class="head">VAR</th>
+<th class="head">CONTROL</th>
+<th class="head" colspan="3">UNIT ID  | C</th>
+<th class="head">UOM</th>
+<th class="head">ONHAND</th>
+<th class="head">RESERVED</th>
+<th class="head">COUNTPER</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td colspan="13">&#8211; An expected (SS=1) Receipt may be reserved (SS=1) by a Shipment.</td>
+</tr>
+<tr class="row-odd"><td>RE</td>
+<td>1</td>
+<td>20150615TZ</td>
+<td>PPPP</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td colspan="2">&nbsp;</td>
+<td>&nbsp;</td>
+<td>CA</td>
+<td>&nbsp;</td>
+<td>54</td>
+<td>54</td>
+</tr>
+<tr class="row-even"><td>SH</td>
+<td>1</td>
+<td>20150615TZ</td>
+<td>PPPP</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td colspan="2">&nbsp;</td>
+<td>&nbsp;</td>
+<td>CA</td>
+<td>&nbsp;</td>
+<td>-54</td>
+<td>54</td>
+</tr>
+<tr class="row-odd"><td colspan="13">&#8211; An in-bound (SS=2) Receipt must have control numbers and unit identifiers.</td>
+</tr>
+<tr class="row-even"><td>RE</td>
+<td>2</td>
+<td>20150615TZ</td>
+<td>PPPP</td>
+<td>&nbsp;</td>
+<td>CCCC</td>
+<td colspan="2">23456</td>
+<td>&nbsp;</td>
+<td>CA</td>
+<td>&nbsp;</td>
+<td>54</td>
+<td>54</td>
+</tr>
+<tr class="row-odd"><td colspan="13">&#8211; An on-hand (SS=3) Receipt may be allocated (SS=2) to a Shipment in process.</td>
+</tr>
+<tr class="row-even"><td>RE</td>
+<td>3</td>
+<td>20150615TZ</td>
+<td>PPPP</td>
+<td>&nbsp;</td>
+<td>CCCC</td>
+<td colspan="2">34567</td>
+<td>G</td>
+<td>CA</td>
+<td>54</td>
+<td>&nbsp;</td>
+<td>54</td>
+</tr>
+<tr class="row-odd"><td>SH</td>
+<td>2</td>
+<td>20150615TZ</td>
+<td>PPPP</td>
+<td>&nbsp;</td>
+<td>CCCC</td>
+<td colspan="2">34567</td>
+<td>G</td>
+<td>CA</td>
+<td>&nbsp;</td>
+<td>-54</td>
+<td>54</td>
+</tr>
+<tr class="row-even"><td colspan="13">&#8211; Mixed units will have multiple content records which must be withdrawn by content.</td>
+</tr>
+<tr class="row-odd"><td>RE</td>
+<td>3</td>
+<td>20150615TZ</td>
+<td>PPPP</td>
+<td>&nbsp;</td>
+<td>CCCC</td>
+<td colspan="2">45678</td>
+<td>G</td>
+<td>CA</td>
+<td>46</td>
+<td>&nbsp;</td>
+<td>54</td>
+</tr>
+<tr class="row-even"><td>RE</td>
+<td>3</td>
+<td>20150615TZ</td>
+<td>PPPP</td>
+<td>&nbsp;</td>
+<td>CCCC</td>
+<td colspan="2">45678</td>
+<td>D</td>
+<td>CA</td>
+<td>8</td>
+<td>&nbsp;</td>
+<td>54</td>
+</tr>
+<tr class="row-odd"><td>SH</td>
+<td>3</td>
+<td>20150615TZ</td>
+<td>PPPP</td>
+<td>&nbsp;</td>
+<td>CCCC</td>
+<td colspan="2">45678</td>
+<td>G</td>
+<td>CA</td>
+<td>-46</td>
+<td>&nbsp;</td>
+<td>54</td>
+</tr>
+<tr class="row-even"><td>SH</td>
+<td>3</td>
+<td>20150615TZ</td>
+<td>PPPP</td>
+<td>&nbsp;</td>
+<td>CCCC</td>
+<td colspan="2">45678</td>
+<td>D</td>
+<td>CA</td>
+<td>-8</td>
+<td>&nbsp;</td>
+<td>54</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>Column <strong>TP</strong> shows document type RE(ceipt) or SH(ipment). Column <strong>SS</strong>
+contains posting status codes, and column <strong>C</strong> shows product condition.</li>
+<li>Inner quantity posting is omitted from the above example for clarity.</li>
+<li>Signed quantities: in-bound positive, outbound negative.</li>
+<li>On-Hand + Reserve = Available.</li>
+<li>Status 1 &#8211; For Expected/Reserved status, Control Numbers and Unit
+Identifiers are optional and may be omitted.</li>
+<li>Status 2 &#8211; In-Transit/Allocated requires Control and Unit ID information
+when tracked by lot (C) or unit (U).</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="06_balances.html" title="Inventory Balances Posting"
+             >next</a></li>
+        <li class="right" >
+          <a href="04_requirements.html" title="Entry Requirement Checks"
+             >previous</a> |</li>
+        <li><a href="index.html">WARES Documents 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Gerald Lovel.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b1.
+    </div>
+  </body>
+</html>

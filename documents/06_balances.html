@@ -1,0 +1,1037 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Inventory Balances Posting &mdash; WARES Documents 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="WARES Documents 1.0 documentation" href="index.html" />
+    <link rel="next" title="Document Head Columns" href="07_dochead.html" />
+    <link rel="prev" title="Transaction Activity" href="05_posting.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="07_dochead.html" title="Document Head Columns"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="05_posting.html" title="Transaction Activity"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">WARES Documents 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Inventory Balances Posting</a><ul>
+<li><a class="reference internal" href="#posting-lot-balances-example">Posting Lot Balances Example</a></li>
+<li><a class="reference internal" href="#uab123-transaction-balances">UAB123 Transaction Balances</a><ul>
+<li><a class="reference internal" href="#uab123-transactions">UAB123 Transactions</a></li>
+<li><a class="reference internal" href="#uab123-lot-balances">UAB123 Lot Balances</a></li>
+<li><a class="reference internal" href="#cde456-transactions">CDE456 Transactions</a></li>
+<li><a class="reference internal" href="#cde456-balances">CDE456 Balances</a></li>
+<li><a class="reference internal" href="#pfg789-transactions">PFG789 Transactions</a></li>
+<li><a class="reference internal" href="#pfg789-balances">PFG789 Balances</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="05_posting.html"
+                        title="previous chapter">Transaction Activity</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="07_dochead.html"
+                        title="next chapter">Document Head Columns</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/06_balances.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="inventory-balances-posting">
+<span id="balances"></span><h1>Inventory Balances Posting<a class="headerlink" href="#inventory-balances-posting" title="Permalink to this headline">¶</a></h1>
+<p>WARES accumulates, or totals, posting quantity information by lot and product.
+The effect of this accumulation depends on the product <a class="reference external" href="../codes/P_track.html#track-list" title="(in WARES Codes v1.0)"><em>Tracking Codes</em></a>.</p>
+<p>Inventory product and lot balances are stored in a balances table. Fungible
+items which are product-tracked (tracking=&#8217;P&#8217;) have one balances record, as
+these items do not use lot control. Items which are tracked by lot and unit will
+have a record for each lot control value in the inventory, plus one master
+balances record for the product itself, since product balance records omit lot
+control codes and values.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Classic DOS WARES optionally includes unit information, but it tracks product
+quantity exclusively by lot control (tracking=&#8217;C&#8217;). In DOS WARES inventory
+balances are stored in the lot transaction details file.</p>
+</div>
+<div class="section" id="posting-lot-balances-example">
+<h2>Posting Lot Balances Example<a class="headerlink" href="#posting-lot-balances-example" title="Permalink to this headline">¶</a></h2>
+<p>Suppose an account has the three products shown:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="24%" />
+<col width="10%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Product</th>
+<th class="head">Variety</th>
+<th class="head">Description</th>
+<th class="head">Track</th>
+<th class="head"><div class="first last line-block">
+<div class="line">Content</div>
+<div class="line">UOM</div>
+</div>
+</th>
+<th class="head"><div class="first last line-block">
+<div class="line">Content</div>
+<div class="line">Count</div>
+</div>
+</th>
+<th class="head"><div class="first last line-block">
+<div class="line">Unit</div>
+<div class="line">UOM</div>
+</div>
+</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>UAB123</td>
+<td>(null)</td>
+<td>12/16OZ Beans</td>
+<td>U</td>
+<td>CA</td>
+<td>96</td>
+<td>PL</td>
+</tr>
+<tr class="row-odd"><td>CDE456</td>
+<td>(null)</td>
+<td>11x7x9 KDCarton</td>
+<td>C</td>
+<td>PC</td>
+<td>270</td>
+<td>BD</td>
+</tr>
+<tr class="row-even"><td>PFG789</td>
+<td>(null)</td>
+<td>4-way pallets</td>
+<td>P</td>
+<td>PC</td>
+<td>1</td>
+<td>EA</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="uab123-transaction-balances">
+<h2>UAB123 Transaction Balances<a class="headerlink" href="#uab123-transaction-balances" title="Permalink to this headline">¶</a></h2>
+<p>Product UAB123 has 4 lots in inventory, each consisting of 3 pallet units with
+96 cases per pallet. One lot has two damaged units, and one lot is in transit.
+The oldest lot has two pallet units reserved for shipment. Transactions for this
+inventory might look like the following:</p>
+<div class="section" id="uab123-transactions">
+<h3>UAB123 Transactions<a class="headerlink" href="#uab123-transactions" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="4%" />
+<col width="14%" />
+<col width="11%" />
+<col width="13%" />
+<col width="13%" />
+<col width="3%" />
+<col width="5%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">TP</th>
+<th class="head">SS</th>
+<th class="head">POSTDATE</th>
+<th class="head">PRODUCT</th>
+<th class="head">CONTROL</th>
+<th class="head">UNIT ID</th>
+<th class="head">C</th>
+<th class="head">UOM</th>
+<th class="head">ON-HAND</th>
+<th class="head">RESERVED</th>
+<th class="head">COUNTPER</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td colspan="11">&#8212; 3 sequentially identified good units received on 08-17-2015 &#8212;</td>
+</tr>
+<tr class="row-odd"><td>RE</td>
+<td>3</td>
+<td>08-17-2015</td>
+<td>UAB123</td>
+<td>20150817</td>
+<td>55555001</td>
+<td>G</td>
+<td>CA</td>
+<td>96</td>
+<td>0</td>
+<td>96</td>
+</tr>
+<tr class="row-even"><td>RE</td>
+<td>3</td>
+<td>08-17-2015</td>
+<td>UAB123</td>
+<td>20150817</td>
+<td>55555002</td>
+<td>G</td>
+<td>CA</td>
+<td>96</td>
+<td>0</td>
+<td>96</td>
+</tr>
+<tr class="row-odd"><td>RE</td>
+<td>3</td>
+<td>08-17-2015</td>
+<td>UAB123</td>
+<td>20150817</td>
+<td>55555003</td>
+<td>G</td>
+<td>CA</td>
+<td>96</td>
+<td>0</td>
+<td>96</td>
+</tr>
+<tr class="row-even"><td colspan="11">&#8212; 3 sequentially identified good units received on 08-27-2015 &#8212;</td>
+</tr>
+<tr class="row-odd"><td>RE</td>
+<td>3</td>
+<td>08-27-2015</td>
+<td>UAB123</td>
+<td>20150827</td>
+<td>55566001</td>
+<td>G</td>
+<td>CA</td>
+<td>96</td>
+<td>0</td>
+<td>96</td>
+</tr>
+<tr class="row-even"><td>RE</td>
+<td>3</td>
+<td>08-27-2015</td>
+<td>UAB123</td>
+<td>20150827</td>
+<td>55566002</td>
+<td>G</td>
+<td>CA</td>
+<td>96</td>
+<td>0</td>
+<td>96</td>
+</tr>
+<tr class="row-odd"><td>RE</td>
+<td>3</td>
+<td>08-27-2015</td>
+<td>UAB123</td>
+<td>20150827</td>
+<td>55566003</td>
+<td>G</td>
+<td>CA</td>
+<td>96</td>
+<td>0</td>
+<td>96</td>
+</tr>
+<tr class="row-even"><td colspan="11">&#8212; 1 good unit received on 09-15-2015 &#8212;</td>
+</tr>
+<tr class="row-odd"><td>RE</td>
+<td>3</td>
+<td>09-15-2015</td>
+<td>UAB123</td>
+<td>20150915</td>
+<td>55574001</td>
+<td>G</td>
+<td>CA</td>
+<td>96</td>
+<td>0</td>
+<td>96</td>
+</tr>
+<tr class="row-even"><td colspan="11">&#8212; along with 2 damaged units in the same 09-15-2015 receipt &#8212;</td>
+</tr>
+<tr class="row-odd"><td>RE</td>
+<td>3</td>
+<td>09-15-2015</td>
+<td>UAB123</td>
+<td>20150915</td>
+<td>55574021</td>
+<td>D</td>
+<td>CA</td>
+<td>96</td>
+<td>0</td>
+<td>96</td>
+</tr>
+<tr class="row-even"><td>RE</td>
+<td>3</td>
+<td>09-15-2015</td>
+<td>UAB123</td>
+<td>20150915</td>
+<td>55574022</td>
+<td>D</td>
+<td>CA</td>
+<td>96</td>
+<td>0</td>
+<td>96</td>
+</tr>
+<tr class="row-odd"><td colspan="11">&#8212; an order for 2 units to ship on 09-22-2015, from oldest available lot &#8212;</td>
+</tr>
+<tr class="row-even"><td>SH</td>
+<td>1</td>
+<td>09-22-2015</td>
+<td>UAB123</td>
+<td>21050817</td>
+<td>&nbsp;</td>
+<td>G</td>
+<td>CA</td>
+<td>0</td>
+<td>-192</td>
+<td>96</td>
+</tr>
+<tr class="row-odd"><td colspan="11">&#8212; an in-transit receipt for 3 units to arrive on 09-21-2015 &#8212;</td>
+</tr>
+<tr class="row-even"><td>RE</td>
+<td>2</td>
+<td>09-21-2015</td>
+<td>UAB123</td>
+<td>20150921</td>
+<td>55588003</td>
+<td>G</td>
+<td>CA</td>
+<td>96</td>
+<td>0</td>
+<td>96</td>
+</tr>
+<tr class="row-odd"><td>RE</td>
+<td>2</td>
+<td>09-21-2015</td>
+<td>UAB123</td>
+<td>20150921</td>
+<td>55588003</td>
+<td>G</td>
+<td>CA</td>
+<td>96</td>
+<td>0</td>
+<td>96</td>
+</tr>
+<tr class="row-even"><td>RE</td>
+<td>2</td>
+<td>09-21-2015</td>
+<td>UAB123</td>
+<td>20150921</td>
+<td>55588003</td>
+<td>G</td>
+<td>CA</td>
+<td>96</td>
+<td>0</td>
+<td>96</td>
+</tr>
+</tbody>
+</table>
+<p>The preceding transactions would post into inventory balances as shown following.</p>
+</div>
+<div class="section" id="uab123-lot-balances">
+<h3>UAB123 Lot Balances<a class="headerlink" href="#uab123-lot-balances" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="11%" />
+<col width="2%" />
+<col width="0%" />
+<col width="5%" />
+<col width="10%" />
+<col width="11%" />
+<col width="12%" />
+<col width="0%" />
+<col width="5%" />
+<col width="10%" />
+<col width="11%" />
+<col width="12%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Product</th>
+<th class="head">Control</th>
+<th class="head">C</th>
+<th class="head">&nbsp;</th>
+<th class="head">UOM</th>
+<th class="head">On-Hand</th>
+<th class="head">Reserved</th>
+<th class="head">Available</th>
+<th class="head">&nbsp;</th>
+<th class="head">UOM</th>
+<th class="head">On-Hand</th>
+<th class="head">Reserved</th>
+<th class="head">Available</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>UAB123</td>
+<td>&nbsp;</td>
+<td>G</td>
+<td>&nbsp;</td>
+<td>CA</td>
+<td>672</td>
+<td>96</td>
+<td>768</td>
+<td>&nbsp;</td>
+<td>PL</td>
+<td>7</td>
+<td>1</td>
+<td>8</td>
+</tr>
+<tr class="row-odd"><td>UAB123</td>
+<td>&nbsp;</td>
+<td>D</td>
+<td>&nbsp;</td>
+<td>CA</td>
+<td>192</td>
+<td>0</td>
+<td>0</td>
+<td>&nbsp;</td>
+<td>PL</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td>UAB123</td>
+<td>20150817</td>
+<td>G</td>
+<td>&nbsp;</td>
+<td>CA</td>
+<td>288</td>
+<td>-192</td>
+<td>0</td>
+<td>&nbsp;</td>
+<td>PL</td>
+<td>3</td>
+<td>-3</td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td>UAB123</td>
+<td>20150827</td>
+<td>G</td>
+<td>&nbsp;</td>
+<td>CA</td>
+<td>288</td>
+<td>0</td>
+<td>288</td>
+<td>&nbsp;</td>
+<td>PL</td>
+<td>3</td>
+<td>0</td>
+<td>3</td>
+</tr>
+<tr class="row-even"><td>UAB123</td>
+<td>20150915</td>
+<td>G</td>
+<td>&nbsp;</td>
+<td>CA</td>
+<td>96</td>
+<td>0</td>
+<td>96</td>
+<td>&nbsp;</td>
+<td>PL</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td>UAB123</td>
+<td>20150915</td>
+<td>D</td>
+<td>&nbsp;</td>
+<td>CA</td>
+<td>192</td>
+<td>0</td>
+<td>0</td>
+<td>&nbsp;</td>
+<td>PL</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td>UAB123</td>
+<td>20150921</td>
+<td>G</td>
+<td>&nbsp;</td>
+<td>CA</td>
+<td>0</td>
+<td>288</td>
+<td>288</td>
+<td>&nbsp;</td>
+<td>PL</td>
+<td>0</td>
+<td>3</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ol class="last arabic simple">
+<li>Each unit transaction posted twice: first to the product, lot control,
+and condition record, and then to the summary product and condition
+record.</li>
+<li>Column <strong>C</strong> shows the condition code of goods in inventory. Balances
+with condition other than &#8220;G(ood)&#8221; are not included in availability.</li>
+</ol>
+</div>
+<p>&#8212;
+CDE456 Transaction Balances
+=============================</p>
+<p>Product CDE456, which is tracked by lot control but not by unit number, has 22
+unit bundles in inventory. Two bundles have odd counts due to printing overruns
+or underruns.</p>
+</div>
+<div class="section" id="cde456-transactions">
+<h3>CDE456 Transactions<a class="headerlink" href="#cde456-transactions" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="4%" />
+<col width="14%" />
+<col width="11%" />
+<col width="13%" />
+<col width="13%" />
+<col width="3%" />
+<col width="5%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">TP</th>
+<th class="head">SS</th>
+<th class="head">POSTDATE</th>
+<th class="head">PRODUCT</th>
+<th class="head">CONTROL</th>
+<th class="head">UNIT ID</th>
+<th class="head">C</th>
+<th class="head">UOM</th>
+<th class="head">ON-HAND</th>
+<th class="head">RESERVED</th>
+<th class="head">COUNTPER</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td colspan="11">&#8212; 10 uniform bundles and one overrun received on 08-20-2015 &#8212;</td>
+</tr>
+<tr class="row-odd"><td>RE</td>
+<td>3</td>
+<td>08-20-2015</td>
+<td>CDE456</td>
+<td>JOB1259</td>
+<td>&nbsp;</td>
+<td>G</td>
+<td>PC</td>
+<td>2700</td>
+<td>0</td>
+<td>270</td>
+</tr>
+<tr class="row-even"><td>RE</td>
+<td>3</td>
+<td>08-20-2015</td>
+<td>CDE456</td>
+<td>JOB1259A</td>
+<td>282</td>
+<td>G</td>
+<td>PC</td>
+<td>282</td>
+<td>0</td>
+<td>282</td>
+</tr>
+<tr class="row-odd"><td colspan="11">&#8212; 10 uniform bundles and one underrun received on 08-23-2015 &#8212;</td>
+</tr>
+<tr class="row-even"><td>RE</td>
+<td>3</td>
+<td>08-23-2015</td>
+<td>CDE456</td>
+<td>JOB1342</td>
+<td>&nbsp;</td>
+<td>G</td>
+<td>PC</td>
+<td>2700</td>
+<td>0</td>
+<td>270</td>
+</tr>
+<tr class="row-odd"><td>RE</td>
+<td>3</td>
+<td>08-23-2015</td>
+<td>CDE456</td>
+<td>JOB1342A</td>
+<td>259</td>
+<td>G</td>
+<td>PC</td>
+<td>259</td>
+<td>0</td>
+<td>259</td>
+</tr>
+<tr class="row-even"><td colspan="11">&#8212; 1 shipments of a full bundle and a partial bundle &#8212;</td>
+</tr>
+<tr class="row-odd"><td>SH</td>
+<td>3</td>
+<td>08-25-2015</td>
+<td>CDE456</td>
+<td>JOB1259</td>
+<td>&nbsp;</td>
+<td>G</td>
+<td>PC</td>
+<td>-270</td>
+<td>0</td>
+<td>270</td>
+</tr>
+<tr class="row-even"><td>SH</td>
+<td>3</td>
+<td>08-25-2015</td>
+<td>CDE456</td>
+<td>JOB1259A</td>
+<td>282</td>
+<td>G</td>
+<td>PC</td>
+<td>-130</td>
+<td>0</td>
+<td>282</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ol class="last arabic simple">
+<li>Each transaction line represents one or more bundle units with a uniform
+condition code and count.</li>
+<li>Where the count per unit was over or under, a new lot control number was
+required to differentiate the count (e.g., JOB1342A versus JOB1342).</li>
+<li>To preserve the maximum number of uniform units, the partial withdrawal
+was taken from the overrun bundle. At most one unit should be partial at
+a time in any lot.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="cde456-balances">
+<h3>CDE456 Balances<a class="headerlink" href="#cde456-balances" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="11%" />
+<col width="2%" />
+<col width="1%" />
+<col width="5%" />
+<col width="10%" />
+<col width="11%" />
+<col width="12%" />
+<col width="1%" />
+<col width="5%" />
+<col width="10%" />
+<col width="11%" />
+<col width="12%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Product</th>
+<th class="head">Control</th>
+<th class="head">C</th>
+<th class="head">&nbsp;</th>
+<th class="head">UOM</th>
+<th class="head">On-Hand</th>
+<th class="head">Reserved</th>
+<th class="head">Available</th>
+<th class="head">&nbsp;</th>
+<th class="head">UOM</th>
+<th class="head">On-Hand</th>
+<th class="head">Reserved</th>
+<th class="head">Available</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>CDE456</td>
+<td>&nbsp;</td>
+<td>G</td>
+<td>&nbsp;</td>
+<td>PC</td>
+<td>5541</td>
+<td>0</td>
+<td>5541</td>
+<td>&nbsp;</td>
+<td>BD</td>
+<td>21</td>
+<td>0</td>
+<td>21</td>
+</tr>
+<tr class="row-odd"><td>CDE456</td>
+<td>JOB1259</td>
+<td>G</td>
+<td>&nbsp;</td>
+<td>PC</td>
+<td>2430</td>
+<td>0</td>
+<td>2430</td>
+<td>&nbsp;</td>
+<td>BD</td>
+<td>9</td>
+<td>0</td>
+<td>9</td>
+</tr>
+<tr class="row-even"><td>CDE456</td>
+<td>JOB1259A</td>
+<td>G</td>
+<td>&nbsp;</td>
+<td>PC</td>
+<td>152</td>
+<td>0</td>
+<td>152</td>
+<td>&nbsp;</td>
+<td>BD</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td>CDE456</td>
+<td>JOB1342</td>
+<td>G</td>
+<td>&nbsp;</td>
+<td>PC</td>
+<td>2700</td>
+<td>0</td>
+<td>2700</td>
+<td>&nbsp;</td>
+<td>BD</td>
+<td>10</td>
+<td>0</td>
+<td>10</td>
+</tr>
+<tr class="row-even"><td>CDE456</td>
+<td>JOB1342A</td>
+<td>G</td>
+<td>&nbsp;</td>
+<td>PC</td>
+<td>259</td>
+<td>0</td>
+<td>259</td>
+<td>&nbsp;</td>
+<td>BD</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ol class="last arabic simple">
+<li>Each transaction line posted twice: first to the product and lot control
+record, and then to the summary product record.</li>
+</ol>
+</div>
+<p>&#8212;
+PFG789 Transaction Balances
+=============================</p>
+<p>Product PFG789 is 4-way whitewood pallets which are used to store and ship
+goods that are received floor-stacked in ocean containers. The warehouse
+receives pallets in truckloads of 400 each, while each ocean container they
+unload needs 40 pallets for product segregation and storage.</p>
+</div>
+<div class="section" id="pfg789-transactions">
+<h3>PFG789 Transactions<a class="headerlink" href="#pfg789-transactions" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="4%" />
+<col width="14%" />
+<col width="11%" />
+<col width="13%" />
+<col width="13%" />
+<col width="3%" />
+<col width="5%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">TP</th>
+<th class="head">SS</th>
+<th class="head">POSTDATE</th>
+<th class="head">PRODUCT</th>
+<th class="head">CONTROL</th>
+<th class="head">UNIT ID</th>
+<th class="head">C</th>
+<th class="head">UOM</th>
+<th class="head">ON-HAND</th>
+<th class="head">RESERVED</th>
+<th class="head">COUNTPER</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td colspan="11">&#8212; 400 empty pallets received on 08-16-2015 &#8212;</td>
+</tr>
+<tr class="row-odd"><td>RE</td>
+<td>3</td>
+<td>08-16-2015</td>
+<td>PFG789</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>G</td>
+<td>PC</td>
+<td>400</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td colspan="11">&#8212; pallets consumed 40 at a time &#8212;</td>
+</tr>
+<tr class="row-odd"><td>SH</td>
+<td>3</td>
+<td>08-17-2015</td>
+<td>PFG789</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>G</td>
+<td>PC</td>
+<td>-40</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td>SH</td>
+<td>3</td>
+<td>08-17-2015</td>
+<td>PFG789</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>G</td>
+<td>PC</td>
+<td>-40</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td>SH</td>
+<td>3</td>
+<td>08-17-2015</td>
+<td>PFG789</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>G</td>
+<td>PC</td>
+<td>-40</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td>SH</td>
+<td>3</td>
+<td>08-18-2015</td>
+<td>PFG789</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>G</td>
+<td>PC</td>
+<td>-40</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td>SH</td>
+<td>3</td>
+<td>08-18-2015</td>
+<td>PFG789</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>G</td>
+<td>PC</td>
+<td>-40</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td>SH</td>
+<td>3</td>
+<td>08-18-2015</td>
+<td>PFG789</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>G</td>
+<td>PC</td>
+<td>-40</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td>SH</td>
+<td>3</td>
+<td>08-19-2015</td>
+<td>PFG789</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>G</td>
+<td>PC</td>
+<td>-40</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td>SH</td>
+<td>3</td>
+<td>08-19-2015</td>
+<td>PFG789</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>G</td>
+<td>PC</td>
+<td>-40</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td>SH</td>
+<td>3</td>
+<td>08-19-2015</td>
+<td>PFG789</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>G</td>
+<td>PC</td>
+<td>-40</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td colspan="11">&#8212; 400 empty pallets received on 08-19-2015 &#8212;</td>
+</tr>
+<tr class="row-odd"><td>RE</td>
+<td>3</td>
+<td>08-19-2015</td>
+<td>PFG789</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>G</td>
+<td>PC</td>
+<td>400</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="pfg789-balances">
+<h3>PFG789 Balances<a class="headerlink" href="#pfg789-balances" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="11%" />
+<col width="2%" />
+<col width="1%" />
+<col width="5%" />
+<col width="10%" />
+<col width="11%" />
+<col width="12%" />
+<col width="1%" />
+<col width="5%" />
+<col width="10%" />
+<col width="11%" />
+<col width="12%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Product</th>
+<th class="head">Control</th>
+<th class="head">C</th>
+<th class="head">&nbsp;</th>
+<th class="head">UOM</th>
+<th class="head">On-Hand</th>
+<th class="head">Reserved</th>
+<th class="head">Available</th>
+<th class="head">&nbsp;</th>
+<th class="head">UOM</th>
+<th class="head">On-Hand</th>
+<th class="head">Reserved</th>
+<th class="head">Available</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>PFG789</td>
+<td>&nbsp;</td>
+<td>G</td>
+<td>&nbsp;</td>
+<td>PC</td>
+<td>440</td>
+<td>&nbsp;</td>
+<td>440</td>
+<td>&nbsp;</td>
+<td>EA</td>
+<td>440</td>
+<td>&nbsp;</td>
+<td>440</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Each transaction line posted to the product balance record. Lots and control
+numbers are not used and do not exist for this product.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="07_dochead.html" title="Document Head Columns"
+             >next</a></li>
+        <li class="right" >
+          <a href="05_posting.html" title="Transaction Activity"
+             >previous</a> |</li>
+        <li><a href="index.html">WARES Documents 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Gerald Lovel.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b1.
+    </div>
+  </body>
+</html>
