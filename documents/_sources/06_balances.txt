@@ -35,7 +35,7 @@ Suppose an account has the three products shown:
 | PFG789  | (null)  | 4-way pallets   |  P    | PC       | 1        | EA       |
 +---------+---------+-----------------+-------+----------+----------+----------+
 
-UAB123 Transaction Balances
+UAB123 Transaction Posting
 =============================
 
 Product UAB123 has 4 lots in inventory, each consisting of 3 pallet units with 
@@ -118,9 +118,9 @@ UAB123 Lot Balances
    #. Column **C** shows the condition code of goods in inventory. Balances 
       with condition other than "G(ood)" are not included in availability.
 
----
+-----
 
-CDE456 Transaction Balances
+CDE456 Transaction Posting
 =============================
 
 Product CDE456, which is tracked by lot control but not by unit number, has 22 
@@ -161,7 +161,7 @@ CDE456 Transactions
       was taken from the overrun bundle. At most one unit should be partial at 
       a time in any lot.
 
-CDE456 Balances
+CDE456 Lot Balances
 -----------------------------
 
 +--------+---------+--++----+--------+---------+----------++----+--------+---------+----------+
@@ -182,9 +182,9 @@ CDE456 Balances
    #. Each transaction line posted twice: first to the product and lot control 
       record, and then to the summary product record.
 
----
+-----
 
-PFG789 Transaction Balances
+PFG789 Transaction Posting
 =============================
 
 Product PFG789 is 4-way whitewood pallets which are used to store and ship 
