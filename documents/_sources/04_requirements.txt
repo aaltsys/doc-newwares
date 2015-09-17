@@ -77,7 +77,7 @@ Transactions are entered by line. The following rules apply to transactions:
 *  The document status and the data content of a line determine whether the 
    entry quantity will be Reserved or On-Hand.
 *  A condition code is required for each entry line. The default is "G" (good).
-   See :ref:`../codes/D_condition.rst`.
+   See :ref:`condition-list`.
 
 +-----------------+----------+----------+----------+----------+----------+----------+
 | Column Name     | Expected |  Inbound | Received | Reserved | Allocated|  Shipped |
