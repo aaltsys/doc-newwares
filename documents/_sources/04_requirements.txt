@@ -59,11 +59,12 @@ the document header are limited as shown in the following table.
 .. [4] Account settings determine REFERENCECODE defaults. Where REFERENCECODE 
        entries exist, the corresponding REFERENCE entries are required.
 .. [5] FREIGHTPAY results depend on the first letter of the code.
-       +  **P_** prepaid. A 'PF' ADDRESSCODE for the account's billing address
+
+       *  **P_** prepaid. A 'PF' ADDRESSCODE for the account's billing address
           or freight payment address will be applied.
-       +  **C_** collect. The consignee (ship-to) ADDRESSCODE will be used for 
+       *  **C_** collect. The consignee (ship-to) ADDRESSCODE will be used for 
           freight payment as well.
-       +  **T_** 3rd party. A corresponding ADDRESSCODE of 'PF' and an aditional 
+       *  **T_** 3rd party. A corresponding ADDRESSCODE of 'PF' and an aditional 
           associated ADDRESS identifier entry is required. 
 
 Document Line Requirements
