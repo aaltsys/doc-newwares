@@ -14,10 +14,6 @@ Product record entries are divided into the following sections:
 *  Transportation -- Freight classification and description
 *  Information -- Optional product notes information
 
-.. note::
-   The following WARES product setup entries are not yet supported in webWARES:
-   DATES, LIFE, REPACK, PICK_MIN and PICK_QTY, ORDER_MIN and ORDER_QTY.
-
 Product Masterfile Columns
 =============================
 
@@ -34,7 +30,7 @@ Product Masterfile Columns
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | -- -- -- -- -- -- -- -- -- -- -- -- Description Entries                      |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| P | MA| PRODUCTCODE    | LC  | U | :ref:`product-list`  |        | L4  | (2) |
+| P | MA| PRODUCTCODE    | LC  | U | :ref:`product-list`  |        | L4  | [2]_|
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | P | MA| PRODUCT        | AN  | U | paired: PRODUCTCODE  |        | L20 | [2]_|
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
@@ -131,26 +127,29 @@ Product Masterfile Columns
 | CO| MA| NOTEAPPLY      | LC  | U | :ref:`noteapply-list`|        | L4  | [2]_|
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 
-
 .. [1] When hazardous is marked (X), entries are required for: SHIPPNGNAME, 
        WEIGHTUOM, DIMUOM, CONTENTUOM, CONTENTCOUNT, CONTENTNET, and CONTENTSIZE.
 .. [2] Paired entries are required when the corresponding codes are entered.
 .. [3] When a UOM is specified for inners or content, then a corresponding COUNT 
        is required, and INNERCOUNT must be greater than 1.
 .. [4] Entering INNERWEIGHT or INNERSIZE will set the following default values:
-       | CONTENTNET = INNERCOUNT * INNERWIEGHT and 
-       | CONTENTSIZE = INNERCOUNT * INNERSIZE.
+       * CONTENTNET = INNERCOUNT * INNERWIEGHT and 
+       * CONTENTSIZE = INNERCOUNT * INNERSIZE.
 .. [5] Entries for CONTENTNET, CONTENTTARE, and CONTENTSIZE set default values:
-       | UNITNET = CONTENTCOUNT * ( CONTENTNET + CONTENTTARE ) and
-       | UNITSIZE = CONTENTCOUNT * CONTENTSIZE.
+       * UNITNET = CONTENTCOUNT * ( CONTENTNET + CONTENTTARE ) and
+       * UNITSIZE = CONTENTCOUNT * CONTENTSIZE.
 .. [6] TRACKCODE determines the level of inventory tracking information required
        to post transaction lines to STATUS=2 and above. Options are:
-       | **P** Lot control is ignored, all product is fungible.
-       | **C** Requires control numbers, all product within a lot is fungible.
-       | **U** Storage unit numbers are required for tracking.
+       * **P** Lot control is ignored, all product is fungible.
+       * **C** Requires control numbers, all product within a lot is fungible.
+       * **U** Storage unit numbers are required for tracking.
 .. [7] When CONTROLCODE is entered, it becomes a mandatory value on lots
        associated with this product. Control codes may determine default values
        for lot control, such as rotation date or warehouse lot sequences. 
        CONTROLCODE cannot be set if TRACKCODE = "P".
 
 .. include:: ../resources/legend.rst
+
+.. note::
+   The following WARES product setup entries are not yet supported in webWARES:
+   DATES, LIFE, REPACK, PICK_MIN and PICK_QTY, ORDER_MIN and ORDER_QTY.

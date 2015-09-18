@@ -11,10 +11,6 @@ Lot detail record entries are divided into the following sections:
 *  Dimension -- The measures of packing for a product
 *  Transactions -- keys, Posting, Lot Identification, and quantitative entries.
 
-.. note::
-   The following WARES product setup entries are not yet supported in webWARES:
-   DATES, LIFE, REPACK, PICK_MIN and PICK_QTY, ORDER_MIN and ORDER_QTY.
-
 Detail Lot Header Columns
 =============================
 
@@ -29,15 +25,13 @@ Detail Lot Header Columns
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | M | S | VARIETY        | A   | U | VT=PRODUCTS, key2    | null   | L10 |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| M | S | CONTROLCODE    | LC  | U | :ref:`control-list`  | NA     | L4  | [A]_|
-+---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| M | S | CONTROL        | A   | U |                      |        | L20 | [A]_|
+| M | S | CONTROL        | A   | U | paired: CONTROLCODE  |        | L20 | [A]_|
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | -- -- -- -- -- -- -- -- -- -- -- -- Descriptive Entries                      |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| M | S | REVISION       | A   | U |                      | 00     |     |     |
-+---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | M | S | POSTDATE       | A   | U | DATE                 | TODAY  | R10 | [A]_|
++---+---+----------------+-----+---+----------------------+--------+-----+-----+
+| M | S | CONTROLCODE    | LC  | U | :ref:`control-list`  | NA     | L4  | [A]_|
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | O | T | DESCRIPTION    | A   |   |                      |        | T40 |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
@@ -75,9 +69,8 @@ Detail Lot Header Columns
 .. [A] CONTROLCODE may be assigned automatically based on the associated product 
        record. Control codes may determine the default values of control, such 
        as rotation dates or warehouse sequential lot numbers.
-.. [B] Defaults for lot dimensional values are copied from product entries when
-       a document is entered. These values may be changed during document entry.
+.. [B] When a document is entered, defaults for lot dimensional values are 
+       copied from the current values of the product master. These values may 
+       be changed during document entry.
 
 .. include:: ../resources/legend.rst
-
-.. include:: 05_lines.rst

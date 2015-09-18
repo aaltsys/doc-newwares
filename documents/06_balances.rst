@@ -22,10 +22,12 @@ control codes and values.
 Posting Lot Balances Example
 =============================
 
-Suppose an account has the three products shown:
+Suppose an account has the following three products:
+
+.. tabularcolumns:: |l|l|l|l|l|r|l|
 
 +---------+---------+-----------------+-------+----------+----------+----------+
-| Product | Variety | Description     | Track || Content || Content || Unit    |
+|| Product|| Variety|| Description    || Track|| Content || Content || Unit    |
 |         |         |                 |       || UOM     || Count   || UOM     |
 +=========+=========+=================+=======+==========+==========+==========+
 | UAB123  | (null)  | 12/16OZ Beans   |  U    | CA       | 96       | PL       |
@@ -34,6 +36,8 @@ Suppose an account has the three products shown:
 +---------+---------+-----------------+-------+----------+----------+----------+
 | PFG789  | (null)  | 4-way pallets   |  P    | PC       | 1        | EA       |
 +---------+---------+-----------------+-------+----------+----------+----------+
+
+Sample transaction line entries and the resulting balances are shown below.
 
 UAB123 Transaction Posting
 =============================
@@ -45,6 +49,8 @@ inventory might look like the following:
 
 UAB123 Transactions
 -----------------------------
+
+.. tabularcolumns:: |l|l|r|l|l|l|l|l|r|r|r|
 
 +----+---+-----------+---------+----------+----------+--+----+---------+---------+---------+
 | TP | SS| POSTDATE  | PRODUCT | CONTROL  | UNIT ID  | C| UOM| ON-HAND | RESERVED| COUNTPER|
@@ -88,10 +94,12 @@ UAB123 Transactions
 | RE | 2 | 09-21-2015| UAB123  | 20150921 | 55588003 | G| CA | 96      | 0       | 96      |
 +----+---+-----------+---------+----------+----------+--+----+---------+---------+---------+
 
-The preceding transactions would post into inventory balances as shown following.
+These transactions would post into inventory balances as shown following.
 
 UAB123 Lot Balances
 -----------------------------
+
+.. tabularcolumns:: |l|l|l|l|l|r|r|r|l|l|r|r|r|
 
 +--------+---------+--++----+--------+---------+----------++----+--------+---------+----------+
 | Product| Control | C|| UOM| On-Hand| Reserved| Available|| UOM| On-Hand| Reserved| Available|
@@ -115,8 +123,10 @@ UAB123 Lot Balances
    #. Each unit transaction posted twice: first to the product, lot control, 
       and condition record, and then to the summary product and condition
       record.
-   #. Column **C** shows the condition code of goods in inventory. Balances 
-      with condition other than "G(ood)" are not included in availability.
+   #. Column **C** shows the condition code of goods in inventory. Each used 
+      condition will have its own line in the balances.
+   #. Balances with condition other than "G(ood)" are not included in product 
+      availability.
 
 -----
 
@@ -129,6 +139,8 @@ or underruns.
 
 CDE456 Transactions
 -----------------------------
+
+.. tabularcolumns:: |l|l|r|l|l|l|l|l|r|r|r|
 
 +----+---+-----------+---------+----------+----------+--+----+---------+---------+---------+
 | TP | SS| POSTDATE  | PRODUCT | CONTROL  | UNIT ID  | C| UOM| ON-HAND | RESERVED| COUNTPER|
@@ -145,7 +157,7 @@ CDE456 Transactions
 +----+---+-----------+---------+----------+----------+--+----+---------+---------+---------+
 | RE | 3 | 08-23-2015| CDE456  | JOB1342A | 259      | G| PC | 259     | 0       | 259     |
 +----+---+-----------+---------+----------+----------+--+----+---------+---------+---------+
-| --- 1 shipments of a full bundle and a partial bundle ---                                |
+| --- 1 shipment of a full bundle and a partial bundle ---                                 |
 +----+---+-----------+---------+----------+----------+--+----+---------+---------+---------+
 | SH | 3 | 08-25-2015| CDE456  | JOB1259  |          | G| PC | -270    | 0       | 270     |
 +----+---+-----------+---------+----------+----------+--+----+---------+---------+---------+
@@ -164,6 +176,8 @@ CDE456 Transactions
 CDE456 Lot Balances
 -----------------------------
 
+.. tabularcolumns:: |l|l|l|l|l|r|r|r|l|l|r|r|r|
+
 +--------+---------+--++----+--------+---------+----------++----+--------+---------+----------+
 | Product| Control | C|| UOM| On-Hand| Reserved| Available|| UOM| On-Hand| Reserved| Available|
 +========+=========+==++====+========+=========+==========++====+========+=========+==========+
@@ -179,7 +193,7 @@ CDE456 Lot Balances
 +--------+---------+--++----+--------+---------+----------++----+--------+---------+----------+
 
 .. note::
-   #. Each transaction line posted twice: first to the product and lot control 
+   #. Each transaction line posted twice: first to a product and lot control 
       record, and then to the summary product record.
 
 -----
@@ -195,6 +209,8 @@ unload needs 40 pallets for product segregation and storage.
 PFG789 Transactions
 -----------------------------
 
+.. tabularcolumns:: |l|l|r|l|l|l|l|l|r|r|r|
+
 +----+---+-----------+---------+----------+----------+--+----+---------+---------+---------+
 | TP | SS| POSTDATE  | PRODUCT | CONTROL  | UNIT ID  | C| UOM| ON-HAND | RESERVED| COUNTPER|
 +====+===+===========+=========+==========+==========+==+====+=========+=========+=========+
@@ -204,23 +220,23 @@ PFG789 Transactions
 +----+---+-----------+---------+----------+----------+--+----+---------+---------+---------+
 | --- pallets consumed 40 at a time ---                                                    |
 +----+---+-----------+---------+----------+----------+--+----+---------+---------+---------+
-| SH | 3 | 08-17-2015| PFG789  |          |          | G| PC | -40     | 0       | 1       |
+| AW | 3 | 08-17-2015| PFG789  |          |          | G| PC | -40     | 0       | 1       |
 +----+---+-----------+---------+----------+----------+--+----+---------+---------+---------+
-| SH | 3 | 08-17-2015| PFG789  |          |          | G| PC | -40     | 0       | 1       |
+| AW | 3 | 08-17-2015| PFG789  |          |          | G| PC | -40     | 0       | 1       |
 +----+---+-----------+---------+----------+----------+--+----+---------+---------+---------+
-| SH | 3 | 08-17-2015| PFG789  |          |          | G| PC | -40     | 0       | 1       |
+| AW | 3 | 08-17-2015| PFG789  |          |          | G| PC | -40     | 0       | 1       |
 +----+---+-----------+---------+----------+----------+--+----+---------+---------+---------+
-| SH | 3 | 08-18-2015| PFG789  |          |          | G| PC | -40     | 0       | 1       |
+| AW | 3 | 08-18-2015| PFG789  |          |          | G| PC | -40     | 0       | 1       |
 +----+---+-----------+---------+----------+----------+--+----+---------+---------+---------+
-| SH | 3 | 08-18-2015| PFG789  |          |          | G| PC | -40     | 0       | 1       |
+| AW | 3 | 08-18-2015| PFG789  |          |          | G| PC | -40     | 0       | 1       |
 +----+---+-----------+---------+----------+----------+--+----+---------+---------+---------+
-| SH | 3 | 08-18-2015| PFG789  |          |          | G| PC | -40     | 0       | 1       |
+| AW | 3 | 08-18-2015| PFG789  |          |          | G| PC | -40     | 0       | 1       |
 +----+---+-----------+---------+----------+----------+--+----+---------+---------+---------+
-| SH | 3 | 08-19-2015| PFG789  |          |          | G| PC | -40     | 0       | 1       |
+| AW | 3 | 08-19-2015| PFG789  |          |          | G| PC | -40     | 0       | 1       |
 +----+---+-----------+---------+----------+----------+--+----+---------+---------+---------+
-| SH | 3 | 08-19-2015| PFG789  |          |          | G| PC | -40     | 0       | 1       |
+| AW | 3 | 08-19-2015| PFG789  |          |          | G| PC | -40     | 0       | 1       |
 +----+---+-----------+---------+----------+----------+--+----+---------+---------+---------+
-| SH | 3 | 08-19-2015| PFG789  |          |          | G| PC | -40     | 0       | 1       |
+| AW | 3 | 08-19-2015| PFG789  |          |          | G| PC | -40     | 0       | 1       |
 +----+---+-----------+---------+----------+----------+--+----+---------+---------+---------+
 | --- 400 empty pallets received on 08-19-2015 ---                                         |
 +----+---+-----------+---------+----------+----------+--+----+---------+---------+---------+
@@ -229,6 +245,8 @@ PFG789 Transactions
 
 PFG789 Balances
 -----------------------------
+
+.. tabularcolumns:: |l|l|l|l|l|r|r|r|l|l|r|r|r|
 
 +--------+---------+--++----+--------+---------+----------++----+--------+---------+----------+
 | Product| Control | C|| UOM| On-Hand| Reserved| Available|| UOM| On-Hand| Reserved| Available|
