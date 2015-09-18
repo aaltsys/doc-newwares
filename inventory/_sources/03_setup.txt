@@ -27,7 +27,7 @@ Notes:
    | ALLOCATED = SHIP-RESERVED + PICK-ALLOCATED
    | AVAILABLE = ON-HAND - ALL-HELD - ALLOCATED
    | Ship reserve may be placed against ARRIVING stock, so AVAILABLE can be negative.
-   
+
 #. Product entries link to the PRODUCT information, displayed in a lightbox. 
    Clicking (Double-clicking?) elsewhere on a line displays LOCATOR details for 
    that product unit.

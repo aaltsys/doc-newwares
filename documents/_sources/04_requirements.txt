@@ -58,11 +58,13 @@ the document header are limited as shown in the following table.
        date and time when the status changes to Received or Shipped.
 .. [4] Account settings determine REFERENCECODE defaults. Where REFERENCECODE 
        entries exist, the corresponding REFERENCE entries are required.
-.. [5] When FREIGHTPAY shows 3rd party, a corresponding ADDRESSCODE of 'PF' and
-       an aditional associated ADDRESS identifier entry is required. If
-       FREIGHTPAY is prepaid, the 'PF' ADDRESSCODE is associated with the 
-       ACCOUNT's freight payment address identifer. A FREIGHTPAY of collect uses
-       the consignee (ship-to) address for freight payment.
+.. [5] FREIGHTPAY results depend on the first letter of the code.
+       +  **P_** prepaid. A 'PF' ADDRESSCODE for the account's billing address
+          or freight payment address will be applied.
+       +  **C_** collect. The consignee (ship-to) ADDRESSCODE will be used for 
+          freight payment as well.
+       +  **T_** 3rd party. A corresponding ADDRESSCODE of 'PF' and an aditional 
+          associated ADDRESS identifier entry is required. 
 
 Document Line Requirements
 =============================
@@ -76,8 +78,8 @@ Transactions are entered by line. The following rules apply to transactions:
 *  Lines contain either Reserved or On-Hand quantites, but not both. 
 *  The document status and the data content of a line determine whether the 
    entry quantity will be Reserved or On-Hand.
-*  A condition code is required for each entry line. The default is "G" (good).
-   See :ref:`condition-list`.
+*  A condition code is required for each entry line. The default is G(ood),
+   see :ref:`condition-list`.
 
 +-----------------+----------+----------+----------+----------+----------+----------+
 | Column Name     | Expected |  Inbound | Received | Reserved | Allocated|  Shipped |
@@ -164,7 +166,7 @@ Transactions are entered by line. The following rules apply to transactions:
       copied from the respective source.
    #. [product] **brackets** indicate the source of a default value.
 
-.. attention::
+.. warning::
    Inbound units can be reserved by outbound shipments. Upon receipt a reserved
    unit might be unavailable due to condition. A method for resolving this 
    quandry is required.

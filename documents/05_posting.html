@@ -87,20 +87,17 @@
             
   <div class="section" id="transaction-activity">
 <span id="posting"></span><h1>Transaction Activity<a class="headerlink" href="#transaction-activity" title="Permalink to this headline">¶</a></h1>
-<p>Transactions are posted by line. However, all the lines of an entire document
-must be posted before the status of the document can change to indicate the
-document is posted.</p>
 <p>The following rules apply to transactions:</p>
 <ul class="simple">
 <li>Transaction lines are written to an activity file.</li>
-<li>Each line references a single value of product/variety, lot control,
-unit identifier, and locator entry.</li>
+<li>Each line references single values of product/variety, lot control,
+unit identifier, and locator entries.</li>
 <li>Quantities are signed (+/-) to indicate the effect of the transaction on
 inventory.</li>
 <li>Available = On-Hand + Reserve: Adding On-hand and Reserve transaction
 quantities for a product, lot, unit, or location gives all available.</li>
 <li>Selecting only transactions with condition G(ood) and adding On-hand and
-Reserve will give shippable available products, lots, locations. or units.</li>
+Reserve will give shippable available products, lots, locations, or units.</li>
 </ul>
 <div class="section" id="posting-status-codes">
 <h2>Posting Status Codes<a class="headerlink" href="#posting-status-codes" title="Permalink to this headline">¶</a></h2>
@@ -201,6 +198,12 @@ change to the higher status.</li>
 </tr>
 </tbody>
 </table>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Transactions are posted by line. However, all the lines of an entire document
+must be posted before the status of the document can change to indicate the
+document is posted.</p>
+</div>
 </div>
 <div class="section" id="posting-quantity-example">
 <h2>Posting Quantity Example<a class="headerlink" href="#posting-quantity-example" title="Permalink to this headline">¶</a></h2>
@@ -231,7 +234,8 @@ PRODUCT by VARIETY by CONTROL by UNITIDENTIFIER by TYPE by STATUS by POSTDATE.</
 <th class="head">PRODUCT</th>
 <th class="head">VAR</th>
 <th class="head">CONTROL</th>
-<th class="head" colspan="3">UNIT ID  | C</th>
+<th class="head" colspan="2">UNIT ID</th>
+<th class="head">C</th>
 <th class="head">UOM</th>
 <th class="head">ONHAND</th>
 <th class="head">RESERVED</th>

@@ -271,11 +271,17 @@ entries exist, the corresponding REFERENCE entries are required.</td></tr>
 <table class="docutils footnote" frame="void" id="id32" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[5]</td><td><em>(<a class="fn-backref" href="#id22">1</a>, <a class="fn-backref" href="#id23">2</a>, <a class="fn-backref" href="#id24">3</a>, <a class="fn-backref" href="#id25">4</a>, <a class="fn-backref" href="#id26">5</a>, <a class="fn-backref" href="#id27">6</a>)</em> When FREIGHTPAY shows 3rd party, a corresponding ADDRESSCODE of &#8216;PF&#8217; and
-an aditional associated ADDRESS identifier entry is required. If
-FREIGHTPAY is prepaid, the &#8216;PF&#8217; ADDRESSCODE is associated with the
-ACCOUNT&#8217;s freight payment address identifer. A FREIGHTPAY of collect uses
-the consignee (ship-to) address for freight payment.</td></tr>
+<tr><td class="label">[5]</td><td><em>(<a class="fn-backref" href="#id22">1</a>, <a class="fn-backref" href="#id23">2</a>, <a class="fn-backref" href="#id24">3</a>, <a class="fn-backref" href="#id25">4</a>, <a class="fn-backref" href="#id26">5</a>, <a class="fn-backref" href="#id27">6</a>)</em> <p>FREIGHTPAY results depend on the first letter of the code.
++  <strong>P_</strong> prepaid. A &#8216;PF&#8217; ADDRESSCODE for the account&#8217;s billing address</p>
+<blockquote>
+<div>or freight payment address will be applied.</div></blockquote>
+<ul class="last simple">
+<li><strong>C_</strong> collect. The consignee (ship-to) ADDRESSCODE will be used for
+freight payment as well.</li>
+<li><strong>T_</strong> 3rd party. A corresponding ADDRESSCODE of &#8216;PF&#8217; and an aditional
+associated ADDRESS identifier entry is required.</li>
+</ul>
+</td></tr>
 </tbody>
 </table>
 </div>
@@ -290,8 +296,8 @@ inventory.</li>
 <li>Lines contain either Reserved or On-Hand quantites, but not both.</li>
 <li>The document status and the data content of a line determine whether the
 entry quantity will be Reserved or On-Hand.</li>
-<li>A condition code is required for each entry line. The default is &#8220;G&#8221; (good).
-See <a class="reference external" href="../codes/D_condition.html#condition-list" title="(in WARES Codes v1.0)"><em>Unit Condition Codes</em></a>.</li>
+<li>A condition code is required for each entry line. The default is G(ood),
+see <a class="reference external" href="../codes/D_condition.html#condition-list" title="(in WARES Codes v1.0)"><em>Unit Condition Codes</em></a>.</li>
 </ul>
 <table border="1" class="docutils">
 <colgroup>
@@ -605,8 +611,8 @@ copied from the respective source.</li>
 <li>[product] <strong>brackets</strong> indicate the source of a default value.</li>
 </ol>
 </div>
-<div class="admonition attention">
-<p class="first admonition-title">Attention</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
 <p class="last">Inbound units can be reserved by outbound shipments. Upon receipt a reserved
 unit might be unavailable due to condition. A method for resolving this
 quandry is required.</p>

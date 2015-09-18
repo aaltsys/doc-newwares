@@ -4,21 +4,17 @@
 Transaction Activity
 #############################
 
-Transactions are posted by line. However, all the lines of an entire document 
-must be posted before the status of the document can change to indicate the 
-document is posted. 
-
 The following rules apply to transactions:
 
 *  Transaction lines are written to an activity file. 
-*  Each line references a single value of product/variety, lot control, 
-   unit identifier, and locator entry.
+*  Each line references single values of product/variety, lot control, 
+   unit identifier, and locator entries.
 *  Quantities are signed (+/-) to indicate the effect of the transaction on 
    inventory.
 *  Available = On-Hand + Reserve: Adding On-hand and Reserve transaction 
    quantities for a product, lot, unit, or location gives all available.
 *  Selecting only transactions with condition G(ood) and adding On-hand and 
-   Reserve will give shippable available products, lots, locations. or units.
+   Reserve will give shippable available products, lots, locations, or units.
 
 Posting Status Codes
 =============================
@@ -62,6 +58,11 @@ Table: Summary of status codes by document type.
 |   6    | Archived    | Archived    | Archived    | Archived    | Archived    |
 +--------+-------------+-------------+-------------+-------------+-------------+
 
+.. warning::
+   Transactions are posted by line. However, all the lines of an entire document 
+   must be posted before the status of the document can change to indicate the 
+   document is posted. 
+
 Posting Quantity Example
 =============================
 
@@ -70,11 +71,11 @@ Inbound/Outbound (+/-), use of Reserve and On-hand, and Condition.
 In this example, transaction lines were selected and then sorted by
 PRODUCT by VARIETY by CONTROL by UNITIDENTIFIER by TYPE by STATUS by POSTDATE.
 
-.. tabularcolumns:: |l|l|r|l|l|l|l|l|l|r|r|r|
+.. tabularcolumns:: |L|L|R|L|L|L|L|L|L|R|R|R|
 
 +---+---+-----------+---------+----+----------+----------+--+----+--------+---------+---------+
 | TP| SS| POSTDATE  | PRODUCT | VAR| CONTROL  | UNIT ID  | C| UOM| ONHAND | RESERVED| COUNTPER|
-+===+===+===========+=========+====+==========+==+==========+====+========+=========+=========+
++===+===+===========+=========+====+==========+==+=======+==+====+========+=========+=========+
 | -- An expected (SS=1) Receipt may be reserved (SS=1) by a Shipment.                         |
 +---+---+-----------+---------+----+----------+----------+--+----+--------+---------+---------+
 | RE| 1 | 20150615TZ| PPPP    |    |          |          |  | CA |        |     54  |      54 |
