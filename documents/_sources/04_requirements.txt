@@ -50,9 +50,9 @@ the document header are limited as shown in the following table.
 
 .. [1] The entry page for a document determines the document TYPE, and new 
        document sequence numbers are programmatically assigned.
-.. [2] REVISION version is incremented each time a transaction is posted. The 
-       current version of a document is always displayed as revision "000". Only 
-       the current version is actually posted.
+.. [2] REVISION version is incremented each time a transaction is changed. The 
+       current version of a document is always displayed as revision "000". The 
+       current version is posted; previous versions will have status '0'.
 .. [3] DATETIME, a required value, represents the anticipated completion date
        for Expected, Inbound, Reserved, Allocated. DATETIME records the actual 
        date and time when the status changes to Received or Shipped.
@@ -163,6 +163,8 @@ Transactions are entered by line. The following rules apply to transactions:
    #. (header), (product), and (unit) **parentheses** indicate unchanged values 
       copied from the respective source.
    #. [product] **brackets** indicate the source of a default value.
-   #. INBOUND units can be reserved by outbound shipments. Upon receipt a unit 
-      might be separately reserved as held or damaged. A rebalance routine might 
-      not have enough inventory afterwards to account for the outbound RESERVE.
+
+.. attention::
+   Inbound units can be reserved by outbound shipments. Upon receipt a reserved
+   unit might be unavailable due to condition. A method for resolving this 
+   quandry is required.

@@ -248,9 +248,9 @@ document sequence numbers are programmatically assigned.</td></tr>
 <table class="docutils footnote" frame="void" id="id29" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[2]</a></td><td>REVISION version is incremented each time a transaction is posted. The
-current version of a document is always displayed as revision &#8220;000&#8221;. Only
-the current version is actually posted.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id3">[2]</a></td><td>REVISION version is incremented each time a transaction is changed. The
+current version of a document is always displayed as revision &#8220;000&#8221;. The
+current version is posted; previous versions will have status &#8216;0&#8217;.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="id30" rules="none">
@@ -603,10 +603,13 @@ Otherwise, INNERWEIGHT and INNERSIZE default to product values.</td></tr>
 <li>(header), (product), and (unit) <strong>parentheses</strong> indicate unchanged values
 copied from the respective source.</li>
 <li>[product] <strong>brackets</strong> indicate the source of a default value.</li>
-<li>INBOUND units can be reserved by outbound shipments. Upon receipt a unit
-might be separately reserved as held or damaged. A rebalance routine might
-not have enough inventory afterwards to account for the outbound RESERVE.</li>
 </ol>
+</div>
+<div class="admonition attention">
+<p class="first admonition-title">Attention</p>
+<p class="last">Inbound units can be reserved by outbound shipments. Upon receipt a reserved
+unit might be unavailable due to condition. A method for resolving this
+quandry is required.</p>
 </div>
 </div>
 </div>

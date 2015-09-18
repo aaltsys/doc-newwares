@@ -8,6 +8,8 @@ not available and only product reserved quantities may be updated. When goods
 are inbound and received, or picked and shipped, then unit and lot transaction 
 information may be included depending on product tracking requirements.
 
+.. _trlines:
+
 Lot and  Unit Transactions
 =============================
 
@@ -20,7 +22,7 @@ Lot and  Unit Transactions
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | -- -- -- -- -- -- -- -- -- -- -- -- Transaction Entries                      |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| M | S | UNITIDENTIFIER | A   | U |                      |        | L20 | [5]_|
+| M | S | UNITIDENTIFIER | A   | U |                      |        | L20 | [2]_|
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | M | S | TRANSACTIONTYPE| A   | U |                      |        | R2  |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
@@ -36,8 +38,6 @@ Lot and  Unit Transactions
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | M | S | LOCATION       | A   | U | VT=LOCATIONS         | WH     | L12 |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| O | M | CONDITION      | LC  | U | :ref:`condition-list`| G      | L2  | [2]_|
-+---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | -- -- -- -- -- -- -- -- -- -- -- -- Lot Identification Entries               |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | M | S | ACCOUNT        | A   | U | VT=ACCOUNTS          |        | L10 |     |
@@ -46,9 +46,11 @@ Lot and  Unit Transactions
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | M | S | VARIETY        | A   | U | VT=PRODUCTS key2     | null   |     |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| M | S | CONTROLCODE    | LC  | U | :ref:`control-list`  | [3]_   | L2  | [4]_|
+| C | S | CONTROL        | A   | U |                      | [3]_   | L16 | [4]_|
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| M | S | CONTROL        | A   | U |                      | [3]_   | L16 | [4]_|
+| O | S | CONDITION      | LC  | U | :ref:`condition-list`| G      | L2  | [5]_|
++---+---+----------------+-----+---+----------------------+--------+-----+-----+
+| -- -- -- -- -- -- -- -- -- -- -- -- Other Entries                            |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | O | T | DESCRIPTION    | A   |   |                      |        | T40 |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
@@ -64,7 +66,9 @@ Lot and  Unit Transactions
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | O | S | UNITSTACK      | N.0 |   | (MD0)                |        | R1  |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| O | S | CONTENTUOM     | LC  | U | :ref:`uom-list`      | CA     | L4  |     |
+| M | S | CONTENTUOM     | LC  | U | :ref:`uom-list`      | CA     | L4  |     |
++---+---+----------------+-----+---+----------------------+--------+-----+-----+
+| M | S | CONTENTCOUNT   | N.0 |   | (MD0)                |        | R8  |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | O | S | CONTENTONHAND  | N.0 |   | (MD0)                |        | R8  |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
@@ -87,21 +91,27 @@ Lot and  Unit Transactions
 | O | S | INNERSIZE      | N.4 |   | (MD4)                |        | R8  |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 
-.. [1] Transaction line detail is directly posted from transaction documents in
+.. [1] Transaction lines are directly written from transaction documents in
        receipts, shipments, and adjustments.
-.. [2] An optional list of conditions may apply to units in a lot, such as 
-       damage, inspection hold, quality condition, etc.
-.. [3] Control codes may determine default values for lot control, such as 
-       rotation date or warehouse lot sequences.
-.. [4] CONTROLCODE and CONTROL are optional when tracking is product only (P).
-.. [5] UNITIDENTIFIER will be *null* unless tracking is by unit (U).
+.. [2] UNITIDENTIFIER is required when tracking is by (U)nit; it is optional 
+       when tracking by (C)ontrol.
+.. [3] A CONTROLCODE (on the product master) may determine default values for 
+       lot control, such as a rotation date or a warehouse lot sequence. 
+.. [4] CONTROL may be entered optionally when tracking is by (P)roduct.
+.. [5] Inventory control allows a single primary condition code which is used 
+       with balance identifiers, where only lot balances which are (G)ood are 
+       considered available. Additional conditions which may apply to units in 
+       a lot: quality check, inspection hold, freezer hold, and so forth, are 
+       considered descriptive and are ignored for posting purposes.
 
 .. note::
    *  Tracking requirements are set by product and are not reflected in the 
       transaction line data.
-   *  Where lots are fungible and multiple units are received on a single line, 
-      there is no way to determine the unit count directly from the transaction 
-      line because the CONTENTCOUNT factor is maintained on the product or lot
-      record.
+   *  When multiple fungible units are received on a line, the number of units
+      is determined from the CONTENTCOUNT and the quantity. Where units are not 
+      uniform, separate lot control values or unit identifiers should be 
+      assigned to manage the inventory.
    *  When products or lots are fungible then storage units must be uniform. 
-      This is a necessary concequence of not tracking individual units.
+      This is a necessary consequence of not tracking individual units.
+
+.. include:: ../resources/legend.rst

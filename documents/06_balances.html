@@ -24,7 +24,6 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="WARES Documents 1.0 documentation" href="index.html" />
-    <link rel="next" title="Document Head Columns" href="07_dochead.html" />
     <link rel="prev" title="Transaction Activity" href="05_posting.html" /> 
   </head>
   <body role="document">
@@ -32,11 +31,8 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="07_dochead.html" title="Document Head Columns"
-             accesskey="N">next</a></li>
-        <li class="right" >
           <a href="05_posting.html" title="Transaction Activity"
-             accesskey="P">previous</a> |</li>
+             accesskey="P">previous</a></li>
         <li><a href="index.html">WARES Documents 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
@@ -68,9 +64,6 @@
   <h4>Previous topic</h4>
   <p class="topless"><a href="05_posting.html"
                         title="previous chapter">Transaction Activity</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="07_dochead.html"
-                        title="next chapter">Document Head Columns</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -117,7 +110,7 @@ balances are stored in the lot transaction details file.</p>
 </div>
 <div class="section" id="posting-lot-balances-example">
 <h2>Posting Lot Balances Example<a class="headerlink" href="#posting-lot-balances-example" title="Permalink to this headline">¶</a></h2>
-<p>Suppose an account has the three products shown:</p>
+<p>Suppose an account has the following three products:</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="13%" />
@@ -129,10 +122,22 @@ balances are stored in the lot transaction details file.</p>
 <col width="14%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Product</th>
-<th class="head">Variety</th>
-<th class="head">Description</th>
-<th class="head">Track</th>
+<tr class="row-odd"><th class="head"><div class="first last line-block">
+<div class="line">Product</div>
+</div>
+</th>
+<th class="head"><div class="first last line-block">
+<div class="line">Variety</div>
+</div>
+</th>
+<th class="head"><div class="first last line-block">
+<div class="line">Description</div>
+</div>
+</th>
+<th class="head"><div class="first last line-block">
+<div class="line">Track</div>
+</div>
+</th>
 <th class="head"><div class="first last line-block">
 <div class="line">Content</div>
 <div class="line">UOM</div>
@@ -177,6 +182,7 @@ balances are stored in the lot transaction details file.</p>
 </tr>
 </tbody>
 </table>
+<p>Sample transaction line entries and the resulting balances are shown below.</p>
 </div>
 <div class="section" id="uab123-transaction-posting">
 <h2>UAB123 Transaction Posting<a class="headerlink" href="#uab123-transaction-posting" title="Permalink to this headline">¶</a></h2>
@@ -385,7 +391,7 @@ inventory might look like the following:</p>
 </tr>
 </tbody>
 </table>
-<p>The preceding transactions would post into inventory balances as shown following.</p>
+<p>These transactions would post into inventory balances as shown following.</p>
 </div>
 <div class="section" id="uab123-lot-balances">
 <h3>UAB123 Lot Balances<a class="headerlink" href="#uab123-lot-balances" title="Permalink to this headline">¶</a></h3>
@@ -528,8 +534,10 @@ inventory might look like the following:</p>
 <li>Each unit transaction posted twice: first to the product, lot control,
 and condition record, and then to the summary product and condition
 record.</li>
-<li>Column <strong>C</strong> shows the condition code of goods in inventory. Balances
-with condition other than &#8220;G(ood)&#8221; are not included in availability.</li>
+<li>Column <strong>C</strong> shows the condition code of goods in inventory. Each used
+condition will have its own line in the balances.</li>
+<li>Balances with condition other than &#8220;G(ood)&#8221; are not included in product
+availability.</li>
 </ol>
 </div>
 </div>
@@ -623,7 +631,7 @@ or underruns.</p>
 <td>0</td>
 <td>259</td>
 </tr>
-<tr class="row-even"><td colspan="11">&#8212; 1 shipments of a full bundle and a partial bundle &#8212;</td>
+<tr class="row-even"><td colspan="11">&#8212; 1 shipment of a full bundle and a partial bundle &#8212;</td>
 </tr>
 <tr class="row-odd"><td>SH</td>
 <td>3</td>
@@ -774,7 +782,7 @@ a time in any lot.</li>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <ol class="last arabic simple">
-<li>Each transaction line posted twice: first to the product and lot control
+<li>Each transaction line posted twice: first to a product and lot control
 record, and then to the summary product record.</li>
 </ol>
 </div>
@@ -834,7 +842,7 @@ unload needs 40 pallets for product segregation and storage.</p>
 </tr>
 <tr class="row-even"><td colspan="11">&#8212; pallets consumed 40 at a time &#8212;</td>
 </tr>
-<tr class="row-odd"><td>SH</td>
+<tr class="row-odd"><td>AW</td>
 <td>3</td>
 <td>08-17-2015</td>
 <td>PFG789</td>
@@ -846,7 +854,7 @@ unload needs 40 pallets for product segregation and storage.</p>
 <td>0</td>
 <td>1</td>
 </tr>
-<tr class="row-even"><td>SH</td>
+<tr class="row-even"><td>AW</td>
 <td>3</td>
 <td>08-17-2015</td>
 <td>PFG789</td>
@@ -858,7 +866,7 @@ unload needs 40 pallets for product segregation and storage.</p>
 <td>0</td>
 <td>1</td>
 </tr>
-<tr class="row-odd"><td>SH</td>
+<tr class="row-odd"><td>AW</td>
 <td>3</td>
 <td>08-17-2015</td>
 <td>PFG789</td>
@@ -870,7 +878,7 @@ unload needs 40 pallets for product segregation and storage.</p>
 <td>0</td>
 <td>1</td>
 </tr>
-<tr class="row-even"><td>SH</td>
+<tr class="row-even"><td>AW</td>
 <td>3</td>
 <td>08-18-2015</td>
 <td>PFG789</td>
@@ -882,7 +890,7 @@ unload needs 40 pallets for product segregation and storage.</p>
 <td>0</td>
 <td>1</td>
 </tr>
-<tr class="row-odd"><td>SH</td>
+<tr class="row-odd"><td>AW</td>
 <td>3</td>
 <td>08-18-2015</td>
 <td>PFG789</td>
@@ -894,7 +902,7 @@ unload needs 40 pallets for product segregation and storage.</p>
 <td>0</td>
 <td>1</td>
 </tr>
-<tr class="row-even"><td>SH</td>
+<tr class="row-even"><td>AW</td>
 <td>3</td>
 <td>08-18-2015</td>
 <td>PFG789</td>
@@ -906,7 +914,7 @@ unload needs 40 pallets for product segregation and storage.</p>
 <td>0</td>
 <td>1</td>
 </tr>
-<tr class="row-odd"><td>SH</td>
+<tr class="row-odd"><td>AW</td>
 <td>3</td>
 <td>08-19-2015</td>
 <td>PFG789</td>
@@ -918,7 +926,7 @@ unload needs 40 pallets for product segregation and storage.</p>
 <td>0</td>
 <td>1</td>
 </tr>
-<tr class="row-even"><td>SH</td>
+<tr class="row-even"><td>AW</td>
 <td>3</td>
 <td>08-19-2015</td>
 <td>PFG789</td>
@@ -930,7 +938,7 @@ unload needs 40 pallets for product segregation and storage.</p>
 <td>0</td>
 <td>1</td>
 </tr>
-<tr class="row-odd"><td>SH</td>
+<tr class="row-odd"><td>AW</td>
 <td>3</td>
 <td>08-19-2015</td>
 <td>PFG789</td>
@@ -1029,11 +1037,8 @@ numbers are not used and do not exist for this product.</p>
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="07_dochead.html" title="Document Head Columns"
-             >next</a></li>
-        <li class="right" >
           <a href="05_posting.html" title="Transaction Activity"
-             >previous</a> |</li>
+             >previous</a></li>
         <li><a href="index.html">WARES Documents 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>

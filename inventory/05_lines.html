@@ -44,6 +44,7 @@
 <li><a class="reference internal" href="#lot-and-unit-transactions">Lot and  Unit Transactions</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#legend">LEGEND:</a></li>
 </ul>
 
   <h4>Previous topic</h4>
@@ -85,7 +86,7 @@ not available and only product reserved quantities may be updated. When goods
 are inbound and received, or picked and shipped, then unit and lot transaction
 information may be included depending on product tracking requirements.</p>
 <div class="section" id="lot-and-unit-transactions">
-<h2>Lot and  Unit Transactions<a class="headerlink" href="#lot-and-unit-transactions" title="Permalink to this headline">¶</a></h2>
+<span id="trlines"></span><h2>Lot and  Unit Transactions<a class="headerlink" href="#lot-and-unit-transactions" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
 <col width="4%" />
@@ -121,7 +122,7 @@ information may be included depending on product tracking requirements.</p>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>R12</td>
-<td><a class="footnote-reference" href="#id8" id="id1">[1]</a></td>
+<td><a class="footnote-reference" href="#id6" id="id1">[1]</a></td>
 </tr>
 <tr class="row-even"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Transaction Entries</td>
 </tr>
@@ -133,7 +134,7 @@ information may be included depending on product tracking requirements.</p>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>L20</td>
-<td><a class="footnote-reference" href="#id12" id="id2">[5]</a></td>
+<td><a class="footnote-reference" href="#id7" id="id2">[2]</a></td>
 </tr>
 <tr class="row-even"><td>M</td>
 <td>S</td>
@@ -197,19 +198,9 @@ information may be included depending on product tracking requirements.</p>
 <td>L12</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>O</td>
-<td>M</td>
-<td>CONDITION</td>
-<td>LC</td>
-<td>U</td>
-<td><a class="reference external" href="../codes/D_condition.html#condition-list" title="(in WARES Codes v1.0)"><em>Unit Condition Codes</em></a></td>
-<td>G</td>
-<td>L2</td>
-<td><a class="footnote-reference" href="#id9" id="id3">[2]</a></td>
+<tr class="row-odd"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Lot Identification Entries</td>
 </tr>
-<tr class="row-even"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Lot Identification Entries</td>
-</tr>
-<tr class="row-odd"><td>M</td>
+<tr class="row-even"><td>M</td>
 <td>S</td>
 <td>ACCOUNT</td>
 <td>A</td>
@@ -219,7 +210,7 @@ information may be included depending on product tracking requirements.</p>
 <td>L10</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>M</td>
+<tr class="row-odd"><td>M</td>
 <td>S</td>
 <td>PRODUCT</td>
 <td>A</td>
@@ -229,7 +220,7 @@ information may be included depending on product tracking requirements.</p>
 <td>L12</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>M</td>
+<tr class="row-even"><td>M</td>
 <td>S</td>
 <td>VARIETY</td>
 <td>A</td>
@@ -239,25 +230,27 @@ information may be included depending on product tracking requirements.</p>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>M</td>
-<td>S</td>
-<td>CONTROLCODE</td>
-<td>LC</td>
-<td>U</td>
-<td><a class="reference external" href="../codes/P_control.html#control-list" title="(in WARES Codes v1.0)"><em>Lot Control Codes</em></a></td>
-<td><a class="footnote-reference" href="#id10" id="id4">[3]</a></td>
-<td>L2</td>
-<td><a class="footnote-reference" href="#id11" id="id5">[4]</a></td>
-</tr>
-<tr class="row-odd"><td>M</td>
+<tr class="row-odd"><td>C</td>
 <td>S</td>
 <td>CONTROL</td>
 <td>A</td>
 <td>U</td>
 <td>&nbsp;</td>
-<td><a class="footnote-reference" href="#id10" id="id6">[3]</a></td>
+<td><a class="footnote-reference" href="#id8" id="id3">[3]</a></td>
 <td>L16</td>
-<td><a class="footnote-reference" href="#id11" id="id7">[4]</a></td>
+<td><a class="footnote-reference" href="#id9" id="id4">[4]</a></td>
+</tr>
+<tr class="row-even"><td>O</td>
+<td>S</td>
+<td>CONDITION</td>
+<td>LC</td>
+<td>U</td>
+<td><a class="reference external" href="../codes/D_condition.html#condition-list" title="(in WARES Codes v1.0)"><em>Unit Condition Codes</em></a></td>
+<td>G</td>
+<td>L2</td>
+<td><a class="footnote-reference" href="#id10" id="id5">[5]</a></td>
+</tr>
+<tr class="row-odd"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Other Entries</td>
 </tr>
 <tr class="row-even"><td>O</td>
 <td>T</td>
@@ -321,7 +314,7 @@ information may be included depending on product tracking requirements.</p>
 <td>R1</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>O</td>
+<tr class="row-odd"><td>M</td>
 <td>S</td>
 <td>CONTENTUOM</td>
 <td>LC</td>
@@ -331,7 +324,17 @@ information may be included depending on product tracking requirements.</p>
 <td>L4</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>O</td>
+<tr class="row-even"><td>M</td>
+<td>S</td>
+<td>CONTENTCOUNT</td>
+<td>N.0</td>
+<td>&nbsp;</td>
+<td>(MD0)</td>
+<td>&nbsp;</td>
+<td>R8</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>O</td>
 <td>S</td>
 <td>CONTENTONHAND</td>
 <td>N.0</td>
@@ -341,7 +344,7 @@ information may be included depending on product tracking requirements.</p>
 <td>R8</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>O</td>
+<tr class="row-even"><td>O</td>
 <td>S</td>
 <td>CONTENTRESERVE</td>
 <td>N.0</td>
@@ -351,7 +354,7 @@ information may be included depending on product tracking requirements.</p>
 <td>R8</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>O</td>
+<tr class="row-odd"><td>O</td>
 <td>S</td>
 <td>CONTENTNET</td>
 <td>N.4</td>
@@ -361,7 +364,7 @@ information may be included depending on product tracking requirements.</p>
 <td>R8</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>O</td>
+<tr class="row-even"><td>O</td>
 <td>S</td>
 <td>CONTENTTARE</td>
 <td>N.4</td>
@@ -371,7 +374,7 @@ information may be included depending on product tracking requirements.</p>
 <td>R8</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>O</td>
+<tr class="row-odd"><td>O</td>
 <td>S</td>
 <td>CONTENTSIZE</td>
 <td>N.4</td>
@@ -381,7 +384,7 @@ information may be included depending on product tracking requirements.</p>
 <td>R8</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>O</td>
+<tr class="row-even"><td>O</td>
 <td>S</td>
 <td>INNERUOM</td>
 <td>LC</td>
@@ -391,7 +394,7 @@ information may be included depending on product tracking requirements.</p>
 <td>L4</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>O</td>
+<tr class="row-odd"><td>O</td>
 <td>S</td>
 <td>INNERONHAND</td>
 <td>N.0</td>
@@ -401,7 +404,7 @@ information may be included depending on product tracking requirements.</p>
 <td>R8</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>O</td>
+<tr class="row-even"><td>O</td>
 <td>S</td>
 <td>INNERRESERVE</td>
 <td>N.0</td>
@@ -411,7 +414,7 @@ information may be included depending on product tracking requirements.</p>
 <td>R8</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>O</td>
+<tr class="row-odd"><td>O</td>
 <td>S</td>
 <td>INNERWEIGHT</td>
 <td>N.4</td>
@@ -421,7 +424,7 @@ information may be included depending on product tracking requirements.</p>
 <td>R8</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>O</td>
+<tr class="row-even"><td>O</td>
 <td>S</td>
 <td>INNERSIZE</td>
 <td>N.4</td>
@@ -433,37 +436,41 @@ information may be included depending on product tracking requirements.</p>
 </tr>
 </tbody>
 </table>
+<table class="docutils footnote" frame="void" id="id6" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Transaction lines are directly written from transaction documents in
+receipts, shipments, and adjustments.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id7" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>UNITIDENTIFIER is required when tracking is by (U)nit; it is optional
+when tracking by (C)ontrol.</td></tr>
+</tbody>
+</table>
 <table class="docutils footnote" frame="void" id="id8" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Transaction line detail is directly posted from transaction documents in
-receipts, shipments, and adjustments.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>A CONTROLCODE (on the product master) may determine default values for
+lot control, such as a rotation date or a warehouse lot sequence.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="id9" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[2]</a></td><td>An optional list of conditions may apply to units in a lot, such as
-damage, inspection hold, quality condition, etc.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id4">[4]</a></td><td>CONTROL may be entered optionally when tracking is by (P)roduct.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="id10" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[3]</td><td><em>(<a class="fn-backref" href="#id4">1</a>, <a class="fn-backref" href="#id6">2</a>)</em> Control codes may determine default values for lot control, such as
-rotation date or warehouse lot sequences.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id11" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[4]</td><td><em>(<a class="fn-backref" href="#id5">1</a>, <a class="fn-backref" href="#id7">2</a>)</em> CONTROLCODE and CONTROL are optional when tracking is product only (P).</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id12" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[5]</a></td><td>UNITIDENTIFIER will be <em>null</em> unless tracking is by unit (U).</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id5">[5]</a></td><td>Inventory control allows a single primary condition code which is used
+with balance identifiers, where only lot balances which are (G)ood are
+considered available. Additional conditions which may apply to units in
+a lot: quality check, inspection hold, freezer hold, and so forth, are
+considered descriptive and are ignored for posting purposes.</td></tr>
 </tbody>
 </table>
 <div class="admonition note">
@@ -471,14 +478,88 @@ rotation date or warehouse lot sequences.</td></tr>
 <ul class="last simple">
 <li>Tracking requirements are set by product and are not reflected in the
 transaction line data.</li>
-<li>Where lots are fungible and multiple units are received on a single line,
-there is no way to determine the unit count directly from the transaction
-line because the CONTENTCOUNT factor is maintained on the product or lot
-record.</li>
+<li>When multiple fungible units are received on a line, the number of units
+is determined from the CONTENTCOUNT and the quantity. Where units are not
+uniform, separate lot control values or unit identifiers should be
+assigned to manage the inventory.</li>
 <li>When products or lots are fungible then storage units must be uniform.
-This is a necessary concequence of not tracking individual units.</li>
+This is a necessary consequence of not tracking individual units.</li>
 </ul>
 </div>
+</div>
+</div>
+<div class="section" id="legend">
+<h1>LEGEND:<a class="headerlink" href="#legend" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="79%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>REQ</td>
+<td><div class="first last line-block">
+<div class="line">O = optional</div>
+<div class="line">M = mandatory</div>
+<div class="line">P = pair required</div>
+<div class="line">C = conditional</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>SM</td>
+<td><div class="first last line-block">
+<div class="line">S = single valued</div>
+<div class="line">M = multiple values</div>
+<div class="line">A = associated (array member)</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>COLUMN NAME</td>
+<td>(not case specific)</td>
+</tr>
+<tr class="row-even"><td>TYPE</td>
+<td><div class="first last line-block">
+<div class="line">A = alpha</div>
+<div class="line">N.n = numeric with decimals</div>
+<div class="line">B = boolean</div>
+<div class="line">D = datetime</div>
+<div class="line">U = UUID</div>
+<div class="line">LC = list of codes</div>
+<div class="line">SK = key sequence</div>
+<div class="line">S = sequence</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>U</td>
+<td>Key values and codes are uppercase</td>
+</tr>
+<tr class="row-even"><td>VALIDATE</td>
+<td><div class="first last line-block">
+<div class="line">links refer to code validation lists</div>
+<div class="line">Tablenames (uppercase) refer to verifiles</div>
+<div class="line">(&#8216;values&#8217;) list allowed entries</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>DEFAULT</td>
+<td>a value default</td>
+</tr>
+<tr class="row-even"><td>JUST</td>
+<td><div class="first last line-block">
+<div class="line">Justify (L)eft, (C)enter, (R)ight, (T)ext</div>
+<div class="line">n = characters to show</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ol class="last arabic simple">
+<li>Entries of type list code (TYPE=LC) are validated against the associated
+linked code option list.</li>
+<li>Entries with a paired requirement (REQ=P) are required when the associated
+paired entry or code is specified.</li>
+</ol>
 </div>
 </div>
 

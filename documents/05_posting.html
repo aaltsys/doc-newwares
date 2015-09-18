@@ -207,7 +207,7 @@ change to the higher status.</li>
 <p>Following is an example set of transaction lines illustrating the effect of
 Inbound/Outbound (+/-), use of Reserve and On-hand, and Condition.
 In this example, transaction lines were selected and then sorted by
-PRODUCT-VARIETY-CONTROL by UNIT-IDENTIFIER by TYPE by STATUS by DATETIME.</p>
+PRODUCT by VARIETY by CONTROL by UNITIDENTIFIER by TYPE by STATUS by POSTDATE.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="4%" />
@@ -369,15 +369,20 @@ PRODUCT-VARIETY-CONTROL by UNIT-IDENTIFIER by TYPE by STATUS by DATETIME.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <ul class="last simple">
-<li>Column <strong>TP</strong> shows document type RE(ceipt) or SH(ipment). Column <strong>SS</strong>
-contains posting status codes, and column <strong>C</strong> shows product condition.</li>
+<li><ul class="first">
+<li><strong>TP</strong> column shows <a class="reference external" href="../codes/S_document.html#document-list" title="(in WARES Codes v1.0)"><em>Document Type Codes</em></a> entries RE(ceipt) or SH(ipment).</li>
+<li><strong>SS</strong> column contains posting <a class="reference external" href="../codes/D_status.html#status-list" title="(in WARES Codes v1.0)"><em>Document Status Codes</em></a>.</li>
+<li><strong>C</strong> column shows product <a class="reference external" href="../codes/D_condition.html#condition-list" title="(in WARES Codes v1.0)"><em>Unit Condition Codes</em></a>.</li>
+</ul>
+</li>
 <li>Inner quantity posting is omitted from the above example for clarity.</li>
 <li>Signed quantities: in-bound positive, outbound negative.</li>
 <li>On-Hand + Reserve = Available.</li>
 <li>Status 1 &#8211; For Expected/Reserved status, Control Numbers and Unit
 Identifiers are optional and may be omitted.</li>
-<li>Status 2 &#8211; In-Transit/Allocated requires Control and Unit ID information
-when tracked by lot (C) or unit (U).</li>
+<li>Status 2 &#8211; In-Transit/Allocated requires Control entries when tracked
+by lot (C)ontrol, and both Control numbers and Unit IDs when tracked by
+(U)nit.</li>
 </ul>
 </div>
 </div>

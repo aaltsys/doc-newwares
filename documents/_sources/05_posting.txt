@@ -68,7 +68,9 @@ Posting Quantity Example
 Following is an example set of transaction lines illustrating the effect of 
 Inbound/Outbound (+/-), use of Reserve and On-hand, and Condition. 
 In this example, transaction lines were selected and then sorted by
-PRODUCT-VARIETY-CONTROL by UNIT-IDENTIFIER by TYPE by STATUS by DATETIME.
+PRODUCT by VARIETY by CONTROL by UNITIDENTIFIER by TYPE by STATUS by POSTDATE.
+
+.. tabularcolumns:: |l|l|r|l|l|l|l|l|l|r|r|r|
 
 +---+---+-----------+---------+----+----------+----------+--+----+--------+---------+---------+
 | TP| SS| POSTDATE  | PRODUCT | VAR| CONTROL  | UNIT ID  | C| UOM| ONHAND | RESERVED| COUNTPER|
@@ -101,12 +103,14 @@ PRODUCT-VARIETY-CONTROL by UNIT-IDENTIFIER by TYPE by STATUS by DATETIME.
 +---+---+-----------+---------+----+----------+----------+--+----+--------+---------+---------+
 
 .. note::
-   *  Column **TP** shows document type RE(ceipt) or SH(ipment). Column **SS**
-      contains posting status codes, and column **C** shows product condition.
+   *  +  **TP** column shows :ref:`document-list` entries RE(ceipt) or SH(ipment).
+      +  **SS** column contains posting :ref:`status-list`.
+      +  **C** column shows product :ref:`condition-list`.
    *  Inner quantity posting is omitted from the above example for clarity.
    *  Signed quantities: in-bound positive, outbound negative. 
    *  On-Hand + Reserve = Available.
    *  Status 1 -- For Expected/Reserved status, Control Numbers and Unit 
       Identifiers are optional and may be omitted.
-   *  Status 2 -- In-Transit/Allocated requires Control and Unit ID information
-      when tracked by lot (C) or unit (U).
+   *  Status 2 -- In-Transit/Allocated requires Control entries when tracked
+      by lot (C)ontrol, and both Control numbers and Unit IDs when tracked by 
+      (U)nit.
