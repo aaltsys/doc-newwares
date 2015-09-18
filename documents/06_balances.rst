@@ -24,7 +24,7 @@ Posting Lot Balances Example
 
 Suppose an account has the following three products:
 
-.. tabularcolumns:: |l|l|l|l|l|r|l|
+.. tabularcolumns:: |L|L|L|L|L|R|L|
 
 +---------+---------+-----------------+-------+----------+----------+----------+
 || Product|| Variety|| Description    || Track|| Content || Content || Unit    |
@@ -50,7 +50,7 @@ inventory might look like the following:
 UAB123 Transactions
 -----------------------------
 
-.. tabularcolumns:: |l|l|r|l|l|l|l|l|r|r|r|
+.. tabularcolumns:: |L|L|R|L|L|L|L|L|R|R|R|
 
 +----+---+-----------+---------+----------+----------+--+----+---------+---------+---------+
 | TP | SS| POSTDATE  | PRODUCT | CONTROL  | UNIT ID  | C| UOM| ON-HAND | RESERVED| COUNTPER|
@@ -99,7 +99,7 @@ These transactions would post into inventory balances as shown following.
 UAB123 Lot Balances
 -----------------------------
 
-.. tabularcolumns:: |l|l|l|l|l|r|r|r|l|l|r|r|r|
+.. tabularcolumns:: |L|L|L|L|L|R|R|R|L|L|R|R|R|
 
 +--------+---------+--++----+--------+---------+----------++----+--------+---------+----------+
 | Product| Control | C|| UOM| On-Hand| Reserved| Available|| UOM| On-Hand| Reserved| Available|
@@ -140,7 +140,7 @@ or underruns.
 CDE456 Transactions
 -----------------------------
 
-.. tabularcolumns:: |l|l|r|l|l|l|l|l|r|r|r|
+.. tabularcolumns:: |L|L|R|L|L|L|L|L|R|R|R|
 
 +----+---+-----------+---------+----------+----------+--+----+---------+---------+---------+
 | TP | SS| POSTDATE  | PRODUCT | CONTROL  | UNIT ID  | C| UOM| ON-HAND | RESERVED| COUNTPER|
@@ -176,7 +176,7 @@ CDE456 Transactions
 CDE456 Lot Balances
 -----------------------------
 
-.. tabularcolumns:: |l|l|l|l|l|r|r|r|l|l|r|r|r|
+.. tabularcolumns:: |L|L|L|L|L|R|R|R|L|L|R|R|R|
 
 +--------+---------+--++----+--------+---------+----------++----+--------+---------+----------+
 | Product| Control | C|| UOM| On-Hand| Reserved| Available|| UOM| On-Hand| Reserved| Available|
@@ -209,7 +209,7 @@ unload needs 40 pallets for product segregation and storage.
 PFG789 Transactions
 -----------------------------
 
-.. tabularcolumns:: |l|l|r|l|l|l|l|l|r|r|r|
+.. tabularcolumns:: |L|L|R|L|L|L|L|L|R|R|R|
 
 +----+---+-----------+---------+----------+----------+--+----+---------+---------+---------+
 | TP | SS| POSTDATE  | PRODUCT | CONTROL  | UNIT ID  | C| UOM| ON-HAND | RESERVED| COUNTPER|
@@ -246,7 +246,7 @@ PFG789 Transactions
 PFG789 Balances
 -----------------------------
 
-.. tabularcolumns:: |l|l|l|l|l|r|r|r|l|l|r|r|r|
+.. tabularcolumns:: |L|L|L|L|L|R|R|R|L|L|R|R|R|
 
 +--------+---------+--++----+--------+---------+----------++----+--------+---------+----------+
 | Product| Control | C|| UOM| On-Hand| Reserved| Available|| UOM| On-Hand| Reserved| Available|
