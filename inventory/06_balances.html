@@ -42,9 +42,6 @@
   <ul>
 <li><a class="reference internal" href="#">Inventory Balances Posting</a><ul>
 <li><a class="reference internal" href="#lot-balances-columns">Lot Balances Columns</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#legend">LEGEND:</a><ul>
 <li><a class="reference internal" href="#posting-lot-balances-example">Posting Lot Balances Example</a></li>
 <li><a class="reference internal" href="#uab123-transaction-posting">UAB123 Transaction Posting</a><ul>
 <li><a class="reference internal" href="#uab123-transactions">UAB123 Transactions</a></li>
@@ -333,10 +330,7 @@ control codes and values.</p>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="section" id="legend">
-<h1>LEGEND:<a class="headerlink" href="#legend" title="Permalink to this headline">¶</a></h1>
+<p>LEGEND:</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="21%" />
@@ -408,12 +402,13 @@ linked code option list.</li>
 paired entry or code is specified.</li>
 </ol>
 </div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
 <p class="last">Classic DOS WARES optionally includes unit information, but it tracks product
 quantity exclusively by lot control (tracking=&#8217;C&#8217;). In DOS WARES lot
 balances are stored in the lot transaction details table, Product balances
 are written in the PRODUCT_POST table.</p>
+</div>
 </div>
 <div class="section" id="posting-lot-balances-example">
 <h2>Posting Lot Balances Example<a class="headerlink" href="#posting-lot-balances-example" title="Permalink to this headline">¶</a></h2>
@@ -1088,10 +1083,8 @@ a time in any lot.</li>
 </table>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<ol class="last arabic simple">
-<li>Each transaction line posted twice: first to a product and lot control
-record, and then to the summary product record.</li>
-</ol>
+<p class="last">Each transaction line posted twice: first to a product and lot control
+record, and then to the summary product record.</p>
 </div>
 </div>
 </div>

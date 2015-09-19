@@ -68,9 +68,8 @@ Lot Balances Columns
 +---+---+-----------------+-----+---+----------------------+--------+-----+-----+
 
 .. include:: ../resources/legend.rst
- 
 
-.. note::
+.. warning::
    Classic DOS WARES optionally includes unit information, but it tracks product 
    quantity exclusively by lot control (tracking='C'). In DOS WARES lot
    balances are stored in the lot transaction details table, Product balances
@@ -250,8 +249,8 @@ CDE456 Lot Balances
 +--------+---------+--++----+--------+---------+----------++----+--------+---------+----------+
 
 .. note::
-   #. Each transaction line posted twice: first to a product and lot control 
-      record, and then to the summary product record.
+   Each transaction line posted twice: first to a product and lot control 
+   record, and then to the summary product record.
 
 -----
 
