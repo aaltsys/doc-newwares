@@ -42,7 +42,7 @@
   <ul>
 <li><a class="reference internal" href="#">Inventory Balances Posting</a><ul>
 <li><a class="reference internal" href="#lot-balances-columns">Lot Balances Columns</a></li>
-<li><a class="reference internal" href="#posting-lot-balances-example">Posting Lot Balances Example</a></li>
+<li><a class="reference internal" href="#posting-lot-balances-example">Posting Lot Balances Example</a><ul>
 <li><a class="reference internal" href="#uab123-transaction-posting">UAB123 Transaction Posting</a><ul>
 <li><a class="reference internal" href="#uab123-transactions">UAB123 Transactions</a></li>
 <li><a class="reference internal" href="#uab123-lot-balances">UAB123 Lot Balances</a></li>
@@ -56,6 +56,8 @@
 <li><a class="reference internal" href="#pfg789-transaction-posting">PFG789 Transaction Posting</a><ul>
 <li><a class="reference internal" href="#pfg789-transactions">PFG789 Transactions</a></li>
 <li><a class="reference internal" href="#pfg789-balances">PFG789 Balances</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -485,15 +487,14 @@ are written in the PRODUCT_POST table.</p>
 </tbody>
 </table>
 <p>Sample transaction line entries and the resulting balances are shown below.</p>
-</div>
 <div class="section" id="uab123-transaction-posting">
-<h2>UAB123 Transaction Posting<a class="headerlink" href="#uab123-transaction-posting" title="Permalink to this headline">¶</a></h2>
+<h3>UAB123 Transaction Posting<a class="headerlink" href="#uab123-transaction-posting" title="Permalink to this headline">¶</a></h3>
 <p>Product UAB123 has 4 lots in inventory, each consisting of 3 pallet units with
 96 cases per pallet. One lot has two damaged units, and one lot is in transit.
 The oldest lot has two pallet units reserved for shipment. Transactions for this
 inventory might look like the following:</p>
 <div class="section" id="uab123-transactions">
-<h3>UAB123 Transactions<a class="headerlink" href="#uab123-transactions" title="Permalink to this headline">¶</a></h3>
+<h4>UAB123 Transactions<a class="headerlink" href="#uab123-transactions" title="Permalink to this headline">¶</a></h4>
 <table border="1" class="docutils">
 <colgroup>
 <col width="5%" />
@@ -696,7 +697,7 @@ inventory might look like the following:</p>
 <p>These transactions would post into inventory balances as shown following.</p>
 </div>
 <div class="section" id="uab123-lot-balances">
-<h3>UAB123 Lot Balances<a class="headerlink" href="#uab123-lot-balances" title="Permalink to this headline">¶</a></h3>
+<h4>UAB123 Lot Balances<a class="headerlink" href="#uab123-lot-balances" title="Permalink to this headline">¶</a></h4>
 <table border="1" class="docutils">
 <colgroup>
 <col width="10%" />
@@ -846,12 +847,12 @@ availability.</li>
 </div>
 <hr class="docutils" />
 <div class="section" id="cde456-transaction-posting">
-<h2>CDE456 Transaction Posting<a class="headerlink" href="#cde456-transaction-posting" title="Permalink to this headline">¶</a></h2>
+<h3>CDE456 Transaction Posting<a class="headerlink" href="#cde456-transaction-posting" title="Permalink to this headline">¶</a></h3>
 <p>Product CDE456, which is tracked by lot control but not by unit number, has 22
 unit bundles in inventory. Two bundles have odd counts due to printing overruns
 or underruns.</p>
 <div class="section" id="cde456-transactions">
-<h3>CDE456 Transactions<a class="headerlink" href="#cde456-transactions" title="Permalink to this headline">¶</a></h3>
+<h4>CDE456 Transactions<a class="headerlink" href="#cde456-transactions" title="Permalink to this headline">¶</a></h4>
 <table border="1" class="docutils">
 <colgroup>
 <col width="5%" />
@@ -975,7 +976,7 @@ a time in any lot.</li>
 </div>
 </div>
 <div class="section" id="cde456-lot-balances">
-<h3>CDE456 Lot Balances<a class="headerlink" href="#cde456-lot-balances" title="Permalink to this headline">¶</a></h3>
+<h4>CDE456 Lot Balances<a class="headerlink" href="#cde456-lot-balances" title="Permalink to this headline">¶</a></h4>
 <table border="1" class="docutils">
 <colgroup>
 <col width="10%" />
@@ -1090,13 +1091,13 @@ record, and then to the summary product record.</p>
 </div>
 <hr class="docutils" />
 <div class="section" id="pfg789-transaction-posting">
-<h2>PFG789 Transaction Posting<a class="headerlink" href="#pfg789-transaction-posting" title="Permalink to this headline">¶</a></h2>
+<h3>PFG789 Transaction Posting<a class="headerlink" href="#pfg789-transaction-posting" title="Permalink to this headline">¶</a></h3>
 <p>Product PFG789 is 4-way whitewood pallets which are used to store and ship
 goods that are received floor-stacked in ocean containers. The warehouse
 receives pallets in truckloads of 400 each, while each ocean container they
 unload needs 40 pallets for product segregation and storage.</p>
 <div class="section" id="pfg789-transactions">
-<h3>PFG789 Transactions<a class="headerlink" href="#pfg789-transactions" title="Permalink to this headline">¶</a></h3>
+<h4>PFG789 Transactions<a class="headerlink" href="#pfg789-transactions" title="Permalink to this headline">¶</a></h4>
 <table border="1" class="docutils">
 <colgroup>
 <col width="5%" />
@@ -1268,7 +1269,7 @@ unload needs 40 pallets for product segregation and storage.</p>
 </table>
 </div>
 <div class="section" id="pfg789-balances">
-<h3>PFG789 Balances<a class="headerlink" href="#pfg789-balances" title="Permalink to this headline">¶</a></h3>
+<h4>PFG789 Balances<a class="headerlink" href="#pfg789-balances" title="Permalink to this headline">¶</a></h4>
 <table border="1" class="docutils">
 <colgroup>
 <col width="10%" />
@@ -1322,6 +1323,7 @@ unload needs 40 pallets for product segregation and storage.</p>
 <p class="first admonition-title">Note</p>
 <p class="last">Each transaction line is posted to the product balance record only. Lots and
 control numbers are not used and do not exist for this product.</p>
+</div>
 </div>
 </div>
 </div>
