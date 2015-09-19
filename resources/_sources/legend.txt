@@ -1,4 +1,4 @@
-:fieldname: orphan yes
+:fieldname: orphan
 
 LEGEND:
 
