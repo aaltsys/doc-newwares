@@ -152,6 +152,6 @@ Product Masterfile Columns
 
 .. include:: ../resources/legend.rst
 
-.. note::
+.. warning::
    The following WARES product setup entries are not yet supported in webWARES:
    DATES, LIFE, REPACK, PICK_MIN and PICK_QTY, ORDER_MIN and ORDER_QTY.

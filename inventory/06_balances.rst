@@ -68,9 +68,8 @@ Lot Balances Columns
 +---+---+-----------------+-----+---+----------------------+--------+-----+-----+
 
 .. include:: ../resources/legend.rst
- 
 
-.. note::
+.. warning::
    Classic DOS WARES optionally includes unit information, but it tracks product 
    quantity exclusively by lot control (tracking='C'). In DOS WARES lot
    balances are stored in the lot transaction details table, Product balances
@@ -97,7 +96,7 @@ Suppose an account has the following three products:
 Sample transaction line entries and the resulting balances are shown below.
 
 UAB123 Transaction Posting
-=============================
+-----------------------------
 
 Product UAB123 has 4 lots in inventory, each consisting of 3 pallet units with 
 96 cases per pallet. One lot has two damaged units, and one lot is in transit. 
@@ -105,7 +104,7 @@ The oldest lot has two pallet units reserved for shipment. Transactions for this
 inventory might look like the following:
 
 UAB123 Transactions
------------------------------
+'''''''''''''''''''''''''''''
 
 .. tabularcolumns:: |L|L|R|L|L|L|L|L|R|R|R|
 
@@ -154,7 +153,7 @@ UAB123 Transactions
 These transactions would post into inventory balances as shown following.
 
 UAB123 Lot Balances
------------------------------
+'''''''''''''''''''''''''''''
 
 .. tabularcolumns:: |L|L|L|L|L|R|R|R|L|L|R|R|R|
 
@@ -188,14 +187,14 @@ UAB123 Lot Balances
 -----
 
 CDE456 Transaction Posting
-=============================
+-----------------------------
 
 Product CDE456, which is tracked by lot control but not by unit number, has 22 
 unit bundles in inventory. Two bundles have odd counts due to printing overruns 
 or underruns. 
 
 CDE456 Transactions
------------------------------
+'''''''''''''''''''''''''''''
 
 .. tabularcolumns:: |L|L|R|L|L|L|L|L|R|R|R|
 
@@ -231,7 +230,7 @@ CDE456 Transactions
       a time in any lot.
 
 CDE456 Lot Balances
------------------------------
+'''''''''''''''''''''''''''''
 
 .. tabularcolumns:: |L|L|L|L|L|R|R|R|L|L|R|R|R|
 
@@ -250,13 +249,13 @@ CDE456 Lot Balances
 +--------+---------+--++----+--------+---------+----------++----+--------+---------+----------+
 
 .. note::
-   #. Each transaction line posted twice: first to a product and lot control 
-      record, and then to the summary product record.
+   Each transaction line posted twice: first to a product and lot control 
+   record, and then to the summary product record.
 
 -----
 
 PFG789 Transaction Posting
-=============================
+-----------------------------
 
 Product PFG789 is 4-way whitewood pallets which are used to store and ship 
 goods that are received floor-stacked in ocean containers. The warehouse 
@@ -264,7 +263,7 @@ receives pallets in truckloads of 400 each, while each ocean container they
 unload needs 40 pallets for product segregation and storage.
 
 PFG789 Transactions
------------------------------
+'''''''''''''''''''''''''''''
 
 .. tabularcolumns:: |L|L|R|L|L|L|L|L|R|R|R|
 
@@ -301,7 +300,7 @@ PFG789 Transactions
 +----+---+-----------+---------+----------+----------+--+----+---------+---------+---------+
 
 PFG789 Balances
------------------------------
+'''''''''''''''''''''''''''''
 
 .. tabularcolumns:: |L|L|L|L|L|R|R|R|L|L|R|R|R|
 
