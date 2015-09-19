@@ -306,7 +306,7 @@ refers to whether the data will be quoted string (A) or unquoted numeric (N).</p
 </table>
 </div>
 <div class="section" id="transaction-lines">
-<h2>TRANSACTION LINES<a class="headerlink" href="#transaction-lines" title="Permalink to this headline">¶</a></h2>
+<span id="export-lines"></span><h2>TRANSACTION LINES<a class="headerlink" href="#transaction-lines" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
 <col width="10%" />
@@ -386,40 +386,26 @@ refers to whether the data will be quoted string (A) or unquoted numeric (N).</p
 <td>SERIAL_LIST   (null)</td>
 <td>&lt;,,8&gt;</td>
 </tr>
-<tr class="row-odd"><td>J</td>
-<td>condition</td>
-<td>M</td>
-<td>A</td>
-<td>SERIAL_LIST    (&#8220;G&#8221;)</td>
-<td>&lt;,,9&gt;</td>
-</tr>
-<tr class="row-even"><td>F</td>
+<tr class="row-odd"><td>F</td>
 <td>account</td>
 <td>S</td>
 <td>A</td>
 <td>ACCOUNT</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>F</td>
+<tr class="row-even"><td>F</td>
 <td>product</td>
 <td>S</td>
 <td>A</td>
 <td>PRODUCT</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>N/A</td>
+<tr class="row-odd"><td>N/A</td>
 <td>variety</td>
 <td>S</td>
 <td>A</td>
 <td>&#8220;null&#8221;</td>
 <td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>J</td>
-<td>controlCode</td>
-<td>S</td>
-<td>A</td>
-<td>SERIAL_LIST   (null)</td>
-<td>&lt;,,13&gt;</td>
 </tr>
 <tr class="row-even"><td>F</td>
 <td>control</td>
@@ -429,53 +415,67 @@ refers to whether the data will be quoted string (A) or unquoted numeric (N).</p
 <td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>J</td>
+<td>condition</td>
+<td>M</td>
+<td>A</td>
+<td>SERIAL_LIST    (&#8220;G&#8221;)</td>
+<td>&lt;,,13&gt;</td>
+</tr>
+<tr class="row-even"><td>J</td>
 <td>description</td>
+<td>M</td>
+<td>A</td>
+<td>SERIAL_LIST   (null)</td>
+<td>&lt;,,14&gt;</td>
+</tr>
+<tr class="row-odd"><td>J</td>
+<td>unitUom</td>
 <td>M</td>
 <td>A</td>
 <td>SERIAL_LIST   (null)</td>
 <td>&lt;,,15&gt;</td>
 </tr>
 <tr class="row-even"><td>J</td>
-<td>unitUom</td>
+<td>unitNet</td>
 <td>M</td>
-<td>A</td>
+<td>N</td>
 <td>SERIAL_LIST   (null)</td>
-<td>&lt;,,16&gt;</td>
+<td>&lt;,,16&gt; (MD2L)</td>
 </tr>
 <tr class="row-odd"><td>J</td>
-<td>unitNet</td>
+<td>unitTare</td>
 <td>M</td>
 <td>N</td>
 <td>SERIAL_LIST   (null)</td>
 <td>&lt;,,17&gt; (MD2L)</td>
 </tr>
 <tr class="row-even"><td>J</td>
-<td>unitTare</td>
-<td>M</td>
-<td>N</td>
-<td>SERIAL_LIST   (null)</td>
-<td>&lt;,,18&gt; (MD2L)</td>
-</tr>
-<tr class="row-odd"><td>J</td>
 <td>unitSize</td>
 <td>M</td>
 <td>N</td>
 <td>SERIAL_LIST   (null)</td>
-<td>&lt;,,19&gt; (MD42L)</td>
+<td>&lt;,,18&gt; (MD42L)</td>
 </tr>
-<tr class="row-even"><td>J</td>
+<tr class="row-odd"><td>J</td>
 <td>unitStack</td>
 <td>M</td>
 <td>N</td>
 <td>SERIAL_LIST   (null)</td>
-<td>&lt;,,20&gt; (MD0)</td>
+<td>&lt;,,19&gt; (MD0)</td>
 </tr>
-<tr class="row-odd"><td>J</td>
+<tr class="row-even"><td>J</td>
 <td>contentUom</td>
 <td>M</td>
 <td>A</td>
 <td>SERIAL_LIST   (null)</td>
-<td>&lt;,,21&gt;</td>
+<td>&lt;,,20&gt;</td>
+</tr>
+<tr class="row-odd"><td>J</td>
+<td>contentCount</td>
+<td>M</td>
+<td>N</td>
+<td>SERIAL_LIST   (null)</td>
+<td>&lt;,,21&gt; (MD0)</td>
 </tr>
 <tr class="row-even"><td>J</td>
 <td>contentOnHand</td>
@@ -520,32 +520,39 @@ refers to whether the data will be quoted string (A) or unquoted numeric (N).</p
 <td>&lt;,,27&gt;</td>
 </tr>
 <tr class="row-even"><td>J</td>
-<td>innerOnHand</td>
+<td>innerCount</td>
 <td>M</td>
 <td>N</td>
 <td>SERIAL_LIST   (null)</td>
 <td>&lt;,,28&gt; (MD0)</td>
 </tr>
 <tr class="row-odd"><td>J</td>
-<td>innerReserve</td>
+<td>innerOnHand</td>
 <td>M</td>
 <td>N</td>
 <td>SERIAL_LIST   (null)</td>
 <td>&lt;,,29&gt; (MD0)</td>
 </tr>
 <tr class="row-even"><td>J</td>
+<td>innerReserve</td>
+<td>M</td>
+<td>N</td>
+<td>SERIAL_LIST   (null)</td>
+<td>&lt;,,30&gt; (MD0)</td>
+</tr>
+<tr class="row-odd"><td>J</td>
 <td>innerWeight</td>
 <td>M</td>
 <td>N</td>
 <td>SERIAL_LIST   (null)</td>
-<td>&lt;,,30&gt; (MD42L)</td>
+<td>&lt;,,31&gt; (MD42L)</td>
 </tr>
-<tr class="row-odd"><td>J</td>
+<tr class="row-even"><td>J</td>
 <td>innerSize</td>
 <td>M</td>
 <td>N</td>
 <td>SERIAL_LIST   (null)</td>
-<td>&lt;,,31&gt; (MD42L)</td>
+<td>&lt;,,32&gt; (MD42L)</td>
 </tr>
 </tbody>
 </table>

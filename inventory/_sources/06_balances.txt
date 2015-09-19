@@ -14,10 +14,67 @@ have a record for each lot control value in the inventory, plus one master
 balances record for the product itself, since product balance records omit lot
 control codes and values. 
 
+Lot Balances Columns
+=============================
+
++---+---+-----------------+-----+---+----------------------+--------+-----+-----+
+|REQ| SM| COLUMN NAME     | TYPE| UC|VALIDATE              | DEFAULT| JUST| NOTE|
++===+===+=================+=====+===+======================+========+=====+=====+
+| -- -- -- -- -- -- -- -- -- -- -- -- Key Entry                                 |
++---+---+-----------------+-----+---+----------------------+--------+-----+-----+
+| M | S | ACCOUNT         | A   | U | VT=ACCOUNTS          |        | L10 |     |
++---+---+-----------------+-----+---+----------------------+--------+-----+-----+
+| M | S | PRODUCT         | AN  | U |                      |        | L20 |     |
++---+---+-----------------+-----+---+----------------------+--------+-----+-----+
+| M | S | VARIETY         | AN  | U |                      | null   | L10 |     |
++---+---+-----------------+-----+---+----------------------+--------+-----+-----+
+| O | S | CONTROL         | AN  | U |                      |        | L20 |     |
++---+---+-----------------+-----+---+----------------------+--------+-----+-----+
+| O | S | CONDITION       | AN  | U | :ref:`condition-list`| G      | L4  |     |
++---+---+-----------------+-----+---+----------------------+--------+-----+-----+
+| -- -- -- -- -- -- -- -- -- -- -- -- Unit Entries                              |
++---+---+-----------------+-----+---+----------------------+--------+-----+-----+
+| M | S | UNITUOM         | LC  | U | :ref:`uom-list`      | PL     | L4  |     |
++---+---+-----------------+-----+---+----------------------+--------+-----+-----+
+| O | S | UNITONHAND      | N.0 |   | (MD0)                |        | R8  |     |
++---+---+-----------------+-----+---+----------------------+--------+-----+-----+
+| O | S | UNITRESERVED    | N.0 |   | (MD0)                |        | R8  |     |
++---+---+-----------------+-----+---+----------------------+--------+-----+-----+
+| O | S | UNITAVAILABLE   | N.0 |   | (MD0)                |        | R8  |     |
++---+---+-----------------+-----+---+----------------------+--------+-----+-----+
+| -- -- -- -- -- -- -- -- -- -- -- -- Content Entries                           |
++---+---+-----------------+-----+---+----------------------+--------+-----+-----+
+| M | S | CONTENTUOM      | LC  | U | :ref:`uom-list`      | CA     | L4  |     |
++---+---+-----------------+-----+---+----------------------+--------+-----+-----+
+| O | S | CONTENTCOUNT    | N.0 |   | (MD0)                |        | R8  |     |
++---+---+-----------------+-----+---+----------------------+--------+-----+-----+
+| O | S | CONTENTONHAND   | N.0 |   | (MD0)                |        | R10 |     |
++---+---+-----------------+-----+---+----------------------+--------+-----+-----+
+| O | S | CONTENTRESERVED | N.0 |   | (MD0)                |        | R10 |     |
++---+---+-----------------+-----+---+----------------------+--------+-----+-----+
+| 0 | S | CONTENTAVAILABLE| N.0 |   | (MD0)                |        | R10 |     |
++---+---+-----------------+-----+---+----------------------+--------+-----+-----+
+| -- -- -- -- -- -- -- -- -- -- -- -- Inner Entries                             |
++---+---+-----------------+-----+---+----------------------+--------+-----+-----+
+| O | S | INNERUOM        | LC  | U | :ref:`uom-list`      |        | L4  |     |
++---+---+-----------------+-----+---+----------------------+--------+-----+-----+
+| O | S | INNERCOUNT      | N.0 |   | (MD0)                |        | R8  |     |
++---+---+-----------------+-----+---+----------------------+--------+-----+-----+
+| O | S | INNERONHAND     | N.0 |   | (MD0)                |        | R12 |     |
++---+---+-----------------+-----+---+----------------------+--------+-----+-----+
+| O | S | INNERRESERVED   | N.0 |   | (MD0)                |        | R12 |     |
++---+---+-----------------+-----+---+----------------------+--------+-----+-----+
+| O | S | INNERAVAILABLE  | N.0 |   | (MD0)                |        | R12 |     |
++---+---+-----------------+-----+---+----------------------+--------+-----+-----+
+
+.. include:: ../resources/legend.rst
+ 
+
 .. note::
    Classic DOS WARES optionally includes unit information, but it tracks product 
-   quantity exclusively by lot control (tracking='C'). In DOS WARES inventory
-   balances are stored in the lot transaction details file.
+   quantity exclusively by lot control (tracking='C'). In DOS WARES lot
+   balances are stored in the lot transaction details table, Product balances
+   are written in the PRODUCT_POST table.
 
 Posting Lot Balances Example
 =============================
@@ -255,6 +312,6 @@ PFG789 Balances
 +--------+---------+--++----+--------+---------+----------++----+--------+---------+----------+
 
 .. note::
-   Each transaction line posted to the product balance record. Lots and control 
-   numbers are not used and do not exist for this product.
+   Each transaction line is posted to the product balance record only. Lots and 
+   control numbers are not used and do not exist for this product.
  
