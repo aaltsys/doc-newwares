@@ -5,7 +5,7 @@ webWARES Locator Overview
 #############################
 
 .. note::
-   http://webwares.aaltsys.com displays a preliminary version of the webWARES 
+   http://newwares.aaltsys.com displays a preliminary version of the webWARES 
    locator. This is not intended as a completed application. Rather, it is a 
    starting point for alpha-testing program design.
 

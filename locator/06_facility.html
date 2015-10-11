@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Facility &mdash; WARES Locator 1.0 documentation</title>
+    <title>Facility Definition &mdash; WARES Locator 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -40,7 +40,8 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Facility</a><ul>
+<li><a class="reference internal" href="#">Facility Definition</a><ul>
+<li><a class="reference internal" href="#company">Company</a></li>
 <li><a class="reference internal" href="#buildings">Buildings</a></li>
 <li><a class="reference internal" href="#locations">Locations</a></li>
 </ul>
@@ -78,14 +79,221 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="facility">
-<h1>Facility<a class="headerlink" href="#facility" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="facility-definition">
+<span id="loc-facility"></span><h1>Facility Definition<a class="headerlink" href="#facility-definition" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="company">
+<span id="loc-company"></span><h2>Company<a class="headerlink" href="#company" title="Permalink to this headline">¶</a></h2>
+</div>
 <div class="section" id="buildings">
-<h2>Buildings<a class="headerlink" href="#buildings" title="Permalink to this headline">¶</a></h2>
+<span id="loc-buildings"></span><h2>Buildings<a class="headerlink" href="#buildings" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="locations">
-<h2>Locations<a class="headerlink" href="#locations" title="Permalink to this headline">¶</a></h2>
-<p>BLDG    LOCATION        ZONE    ACCESS  ABC     MIX     PLAN    STACK   VARIANCE        SPACE   AVAIL</p>
+<span id="loc-locations"></span><h2>Locations<a class="headerlink" href="#locations" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="4%" />
+<col width="4%" />
+<col width="23%" />
+<col width="7%" />
+<col width="4%" />
+<col width="31%" />
+<col width="11%" />
+<col width="7%" />
+<col width="7%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">REQ</th>
+<th class="head">SM</th>
+<th class="head">COLUMN NAME</th>
+<th class="head">TYPE</th>
+<th class="head">UC</th>
+<th class="head">VALIDATE</th>
+<th class="head">DEFAULT</th>
+<th class="head">JUST</th>
+<th class="head">NOTE</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Keys</td>
+</tr>
+<tr class="row-odd"><td>M</td>
+<td>S</td>
+<td>BUILDING</td>
+<td>A</td>
+<td>U</td>
+<td>VT=ADDRESSES*B</td>
+<td>&nbsp;</td>
+<td>L8</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>M</td>
+<td>S</td>
+<td>LOCATIONCODE</td>
+<td>A</td>
+<td>U</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>L12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Dimensional Entries</td>
+</tr>
+<tr class="row-even"><td>M</td>
+<td>S</td>
+<td>PLAN</td>
+<td>N.0</td>
+<td>U</td>
+<td>(MD0)</td>
+<td>&nbsp;</td>
+<td>R4</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>M</td>
+<td>S</td>
+<td>STACK</td>
+<td>N.0</td>
+<td>U</td>
+<td>(MD0)</td>
+<td>&nbsp;</td>
+<td>R4</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>M</td>
+<td>S</td>
+<td>VARIANCE</td>
+<td>N.0</td>
+<td>U</td>
+<td>(MD0)</td>
+<td>&nbsp;</td>
+<td>R4</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>O</td>
+<td>S</td>
+<td>SPACE</td>
+<td>N.0</td>
+<td>&nbsp;</td>
+<td>(MD0)</td>
+<td>&nbsp;</td>
+<td>R4</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Descriptive Entries</td>
+</tr>
+<tr class="row-odd"><td>O</td>
+<td>T</td>
+<td>ZONE</td>
+<td>LC</td>
+<td>U</td>
+<td><a class="reference external" href="../codes/L_zone.html#zone-list" title="(in WARES Codes v1.0)"><em>Storage Zone</em></a></td>
+<td>&nbsp;</td>
+<td>L4</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>O</td>
+<td>S</td>
+<td>ACCESS</td>
+<td>LC</td>
+<td>U</td>
+<td><em class="xref std std-ref">access-list</em></td>
+<td>&nbsp;</td>
+<td>L4</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>O</td>
+<td>T</td>
+<td>ABC</td>
+<td>LC</td>
+<td>U</td>
+<td><a class="reference external" href="../codes/L_abc.html#abc-list" title="(in WARES Codes v1.0)"><em>Product Turnover Rate</em></a></td>
+<td>&nbsp;</td>
+<td>L4</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>O</td>
+<td>S</td>
+<td>MIX</td>
+<td>LC</td>
+<td>U</td>
+<td><a class="reference external" href="../codes/L_mix.html#mix-list" title="(in WARES Codes v1.0)"><em>Unit / Location Mixing</em></a></td>
+<td>&nbsp;</td>
+<td>L4</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p><strong>LEGEND:</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="79%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>REQ</td>
+<td><div class="first last line-block">
+<div class="line">O = optional</div>
+<div class="line">M = mandatory</div>
+<div class="line">P = pair required</div>
+<div class="line">C = conditional</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>SM</td>
+<td><div class="first last line-block">
+<div class="line">S = single valued</div>
+<div class="line">M = multiple values</div>
+<div class="line">A = associated (array member)</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>COLUMN NAME</td>
+<td>(not case specific)</td>
+</tr>
+<tr class="row-even"><td>TYPE</td>
+<td><div class="first last line-block">
+<div class="line">A = alpha</div>
+<div class="line">N.n = numeric with decimals</div>
+<div class="line">B = boolean</div>
+<div class="line">D = datetime</div>
+<div class="line">U = UUID</div>
+<div class="line">LC = list of codes</div>
+<div class="line">SK = key sequence</div>
+<div class="line">S = sequence</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>U</td>
+<td>Key values and codes are uppercase</td>
+</tr>
+<tr class="row-even"><td>VALIDATE</td>
+<td><div class="first last line-block">
+<div class="line">links refer to code validation lists</div>
+<div class="line">Tablenames (uppercase) refer to verifiles</div>
+<div class="line">(&#8216;values&#8217;) list allowed entries</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>DEFAULT</td>
+<td>a value default</td>
+</tr>
+<tr class="row-even"><td>JUST</td>
+<td><div class="first last line-block">
+<div class="line">Justify (L)eft, (C)enter, (R)ight, (T)ext</div>
+<div class="line">n = characters to show</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ol class="last arabic simple">
+<li>Entries of type list code (TYPE=LC) are validated against the associated
+linked code option list.</li>
+<li>Entries with a paired requirement (REQ=P) are required when the associated
+paired entry or code is specified.</li>
+</ol>
+</div>
 </div>
 </div>
 

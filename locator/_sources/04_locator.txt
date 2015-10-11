@@ -1,6 +1,6 @@
 .. _loc-locator:
 
 #############################
-Locator Items
+Locator Views
 #############################
 

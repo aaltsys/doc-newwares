@@ -2,15 +2,80 @@
 Product Masterfile Views
 #############################
 
-Product Setup View
+Product Setup Views
 =============================
- 
-.. image:: _images/products.png
 
-Notes:
+The product record masterfile entry consists of 5 sections described as 
+follows.
 
-#. Bulk products (unit UOM = BN) of non-fungible inventory track quantity by the 
-   location, fungible product inventory is tracked by the location and lot.
+.. note::
+   In each section, a rule line separates basic entries (above the line) from
+   advanced entries (below the rule). In the DIMENSIONS section, The INNER 
+   column is also in the advanced area, and the entirety of LOCATOR CONTROLS and 
+   NOTES AND MESSAGES are part of advanced entries.
+
+.. sidebar:: Product Identification
+
+   Required entries **Account** and **Product**, and optional **Variety**, 
+   combine to form a unique identifier for each product. Other indexed entries 
+   which link to the product identifier for categories and search are included 
+   in this section: **Stock Number** alternatives, **Description** text, and a 
+   **Hazard** flag.
+
+   .. tip::
+      When **Hazard** is checked, a **Proper Shipping Name** entry is required. 
+      Checking **Hazard** when in basic entry will cause a warning message:
+      *this feature is available only in advanced mode*.
+
+.. image:: _images/product-1ident.png
+
+.. sidebar:: Product Classification
+
+   Some entries classify products according to functions and features of WARES, 
+   meaning by the requirements of product usage in industry. The following
+   three are primary classification entries:
+   
+   *  **Tracking** defines whether a product is fungible, or uses lot control, 
+      or is tracked by individual units.
+   *  **Lot Control** specifies the interpretation of lot numbers, provided they 
+      are used.
+   *  **Rate** identifies the set of rates used to calculate charges for 
+      warehouse services of storage and handling.
+
+   .. Note::
+      Bulk products (unit UOM = BN) of fungible inventory track quantity by 
+      location, non-fungible product inventory is tracked by location and lot.
+
+.. image:: _images/product-2class.png
+
+.. sidebar:: Dimensions
+
+   Dimension entries determine the uints of measure to display for goods, and 
+   the counts and factors to extend or extrapolate from weights, sizes, and
+   unit counts from the basic inventory content (or inner) quantities.
+
+.. image:: _images/product-3dim.png
+
+.. sidebar:: Location Control
+
+   Advanced WARES settings allow warehouse location control with features for:
+   
+   *  Directed putaway and automated pick assignment 
+   *  Re-warehousing calculation for space and travel optimization 
+   *  Cycle counting and bulk inventory collection for inventory accuracy.
+   
+   These features are accessed through an Android-based application, available
+   for free from the Google store for use with Advanced WARES.
+
+.. image:: _images/product-4locate.png
+
+.. sidebar::
+
+   Notes allow product information which is intended for clerical use, warehouse
+   laborers, transportation, or recipient consumption to be recorded and then 
+   displayed on appropriate documents or other venues.
+
+.. image:: _images/product-5notes.png
 
 Product Inventory View
 =============================

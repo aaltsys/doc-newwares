@@ -45,7 +45,7 @@
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Product Masterfile Views</a><ul>
-<li><a class="reference internal" href="#product-setup-view">Product Setup View</a></li>
+<li><a class="reference internal" href="#product-setup-views">Product Setup Views</a></li>
 <li><a class="reference internal" href="#product-inventory-view">Product Inventory View</a></li>
 <li><a class="reference internal" href="#product-filters">Product Filters</a></li>
 </ul>
@@ -88,14 +88,72 @@
             
   <div class="section" id="product-masterfile-views">
 <h1>Product Masterfile Views<a class="headerlink" href="#product-masterfile-views" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="product-setup-view">
-<h2>Product Setup View<a class="headerlink" href="#product-setup-view" title="Permalink to this headline">¶</a></h2>
-<img alt="_images/products.png" src="_images/products.png" />
-<p>Notes:</p>
-<ol class="arabic simple">
-<li>Bulk products (unit UOM = BN) of non-fungible inventory track quantity by the
-location, fungible product inventory is tracked by the location and lot.</li>
-</ol>
+<div class="section" id="product-setup-views">
+<h2>Product Setup Views<a class="headerlink" href="#product-setup-views" title="Permalink to this headline">¶</a></h2>
+<p>The product record masterfile entry consists of 5 sections described as
+follows.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In each section, a rule line separates basic entries (above the line) from
+advanced entries (below the rule). In the DIMENSIONS section, The INNER
+column is also in the advanced area, and the entirety of LOCATOR CONTROLS and
+NOTES AND MESSAGES are part of advanced entries.</p>
+</div>
+<div class="sidebar">
+<p class="first sidebar-title">Product Identification</p>
+<p>Required entries <strong>Account</strong> and <strong>Product</strong>, and optional <strong>Variety</strong>,
+combine to form a unique identifier for each product. Other indexed entries
+which link to the product identifier for categories and search are included
+in this section: <strong>Stock Number</strong> alternatives, <strong>Description</strong> text, and a
+<strong>Hazard</strong> flag.</p>
+<div class="last admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">When <strong>Hazard</strong> is checked, a <strong>Proper Shipping Name</strong> entry is required.
+Checking <strong>Hazard</strong> when in basic entry will cause a warning message:
+<em>this feature is available only in advanced mode</em>.</p>
+</div>
+</div>
+<img alt="_images/product-1ident.png" src="_images/product-1ident.png" />
+<div class="sidebar">
+<p class="first sidebar-title">Product Classification</p>
+<p>Some entries classify products according to functions and features of WARES,
+meaning by the requirements of product usage in industry. The following
+three are primary classification entries:</p>
+<ul class="simple">
+<li><strong>Tracking</strong> defines whether a product is fungible, or uses lot control,
+or is tracked by individual units.</li>
+<li><strong>Lot Control</strong> specifies the interpretation of lot numbers, provided they
+are used.</li>
+<li><strong>Rate</strong> identifies the set of rates used to calculate charges for
+warehouse services of storage and handling.</li>
+</ul>
+<div class="last admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Bulk products (unit UOM = BN) of fungible inventory track quantity by
+location, non-fungible product inventory is tracked by location and lot.</p>
+</div>
+</div>
+<img alt="_images/product-2class.png" src="_images/product-2class.png" />
+<div class="sidebar">
+<p class="first sidebar-title">Dimensions</p>
+<p class="last">Dimension entries determine the uints of measure to display for goods, and
+the counts and factors to extend or extrapolate from weights, sizes, and
+unit counts from the basic inventory content (or inner) quantities.</p>
+</div>
+<img alt="_images/product-3dim.png" src="_images/product-3dim.png" />
+<div class="sidebar">
+<p class="first sidebar-title">Location Control</p>
+<p>Advanced WARES settings allow warehouse location control with features for:</p>
+<ul class="simple">
+<li>Directed putaway and automated pick assignment</li>
+<li>Re-warehousing calculation for space and travel optimization</li>
+<li>Cycle counting and bulk inventory collection for inventory accuracy.</li>
+</ul>
+<p class="last">These features are accessed through an Android-based application, available
+for free from the Google store for use with Advanced WARES.</p>
+</div>
+<img alt="_images/product-4locate.png" src="_images/product-4locate.png" />
+<img alt="_images/product-5notes.png" src="_images/product-5notes.png" />
 </div>
 <div class="section" id="product-inventory-view">
 <h2>Product Inventory View<a class="headerlink" href="#product-inventory-view" title="Permalink to this headline">¶</a></h2>
