@@ -35,16 +35,16 @@ follows.
    Three are primary classification entries are:
    
    *  **Tracking** defines whether a product is fungible, or uses lot control, 
-      or is tracked by individual units. Fungible bulk products (unit UOM = BN)
-      track inventory by location, non-fungible inventory is tracked by location 
-      and lot.
+      or is tracked by individual units. 
    *  **Lot Control** specifies the type of information used for lot numbers.
    *  **Rate** identifies the rate calculations for warehouse services charges 
       of storage and handling.
 
-   
-
 .. image:: _images/product-2class.png
+
+.. note::
+   Fungible bulk products (unit UOM = BN) track inventory by location, 
+   non-fungible inventory is tracked by location and lot.
 
 .. sidebar:: Dimensions
 
@@ -62,16 +62,14 @@ follows.
    *  Re-warehousing calculation for space and travel optimization 
    *  Cycle counting and bulk inventory collection for inventory accuracy.
    
-   These features are accessed through an Android-based application, available
+   Locator features take advantage of an Android-based application, available
    for free from the Google store for use with Advanced WARES.
-
-.. image:: _images/product-4locate.png
-
-.. sidebar::
 
    Notes allow product information which is intended for clerical use, warehouse
    laborers, transportation, or recipient consumption to be recorded and then 
    displayed on appropriate documents or other venues.
+
+.. image:: _images/product-4locate.png
 
 .. image:: _images/product-5notes.png
 
