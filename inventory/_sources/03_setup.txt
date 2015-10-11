@@ -73,6 +73,8 @@ follows.
 
 .. image:: _images/product-5notes.png
 
+----------
+
 Product Inventory View
 =============================
 
