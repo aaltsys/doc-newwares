@@ -31,20 +31,18 @@ follows.
 
 .. sidebar:: Product Classification
 
-   Some entries classify products according to functions and features of WARES, 
-   meaning by the requirements of product usage in industry. The following
-   three are primary classification entries:
+   Entries classify products according to functions and features of WARES. 
+   Three are primary classification entries are:
    
    *  **Tracking** defines whether a product is fungible, or uses lot control, 
-      or is tracked by individual units.
-   *  **Lot Control** specifies the interpretation of lot numbers, provided they 
-      are used.
-   *  **Rate** identifies the set of rates used to calculate charges for 
-      warehouse services of storage and handling.
+      or is tracked by individual units. Fungible bulk products (unit UOM = BN)
+      track inventory by location, non-fungible inventory is tracked by location 
+      and lot.
+   *  **Lot Control** specifies the type of information used for lot numbers.
+   *  **Rate** identifies the rate calculations for warehouse services charges 
+      of storage and handling.
 
-   .. Note::
-      Bulk products (unit UOM = BN) of fungible inventory track quantity by 
-      location, non-fungible product inventory is tracked by location and lot.
+   
 
 .. image:: _images/product-2class.png
 
