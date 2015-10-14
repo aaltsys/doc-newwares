@@ -152,10 +152,18 @@ shipping and receiving documentation.</p>
 </li>
 <li><p class="first"><strong>Variety</strong>: An optional adjunct of the product identifier can be used to
 distinguish between variants of a product which are reported together.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">When creating new variety records of a base product, the Qualifiers,
+Hazardous, and Description entries will default to the values from the
+base product. Use unique packaging descriptions to distinguish between
+varieties. If there are only varieties of a product without a base
+record, no defaults will be generated.</p>
+</div>
 </li>
-<li><p class="first"><strong>Stock Numbers</strong>: Each product may have several auxiliary identifiers such
-as a buyer code, UPC code, SKU number, and the like. These entries require
-qualifiers to categorize the associated identifiers.</p>
+<li><p class="first"><strong>Qualifiers</strong> and <strong>Stock Numbers</strong>: Each product may have several auxiliary
+identifiers such as a buyer code, UPC code, SKU number, and the like. These
+entries require qualifiers to categorize the associated identifiers.</p>
 </li>
 <li><p class="first"><strong>Hazardous</strong> must be checked if a product requires DOT HAZMAT labeling.</p>
 <div class="admonition warning">
@@ -179,7 +187,8 @@ products.</p>
 product or variety. For example, &#8220;24/12 oz. cans&#8221; versus &#8220;6/48 oz. cans,&#8221;
 where either description represents a case with 288 ounces of product.</li>
 <li><strong>Shipping Name</strong> is an alternative description specific to shipping
-documentation. This entry is required for hazardous materials.</li>
+documents such as the Bill of Lading. This entry is required for hazardous
+materials.</li>
 </ul>
 </div>
 </div>
@@ -206,7 +215,7 @@ product in standard rating systems such as TL or NMFC.</li>
 <h4>Basic Entries<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
 <ul>
 <li><p class="first"><strong>Tracking Code</strong> Determines whether inventory balances are presented by
-by product only (<strong>P</strong>), or separated into lots (<strong>C</strong>), or tracked by
+product only (<strong>P</strong>), or separated into lots (<strong>C</strong>), or tracked by
 individual handling units (<strong>U</strong>).</p>
 <p>Product inventory which is not broken down into lots is referred to as
 fungible. Fungible bulk products (unit UOM = BN) track inventory by location;
@@ -217,7 +226,7 @@ number. Other numbers tied to a lot or shipment should be included in
 receiving descriptions, or tracked with individual units.</p>
 </li>
 <li><p class="first"><strong>Rate Group</strong> identifies a set of rate records used in calculating the
-storage and handling fees for (a group of) products.</p>
+storage and handling fees for a group of products.</p>
 </li>
 <li><p class="first"><strong>Freight Class</strong> specifies the classification system and transportation
 rating for a product. Classification systems include TL, LTL, and NMFC.</p>
@@ -234,11 +243,13 @@ when a carrier agrees to a single transportation rate for Freight All Kinds
 <ul class="simple">
 <li><strong>Declared Value</strong> specifies the loss coverage per unit of product a customer
 requests for his goods under warehouse responsibility. Leave this entry blank
-when an account accepts the warehouse standard limitation of liability.</li>
+when an account accepts the warehouse standard limitation of liability for
+negligence.</li>
 <li><strong>Unit Cost</strong> or price is used to calculate rates for charges related to
 sales pricing.</li>
-<li><strong>Grouping Code</strong> lists and values are optional assignment codes for
-products.</li>
+<li><strong>Grouping Code</strong> lists and values are optional codes for classifying and
+grouping products. These codes may be used in product selection or reporting
+filters.</li>
 </ul>
 </div>
 </div>

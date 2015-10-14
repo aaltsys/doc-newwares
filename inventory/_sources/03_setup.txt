@@ -48,9 +48,17 @@ Basic Entries:
    shipping and receiving documentation.
 *  **Variety**: An optional adjunct of the product identifier can be used to
    distinguish between variants of a product which are reported together.
-*  **Stock Numbers**: Each product may have several auxiliary identifiers such 
-   as a buyer code, UPC code, SKU number, and the like. These entries require
-   qualifiers to categorize the associated identifiers.
+
+   .. tip::
+      When creating new variety records of a base product, the Qualifiers, 
+      Hazardous, and Description entries will default to the values from the 
+      base product. Use unique packaging descriptions to distinguish between
+      varieties. If there are only varieties of a product without a base
+      record, no defaults will be generated.
+
+*  **Qualifiers** and **Stock Numbers**: Each product may have several auxiliary 
+   identifiers such as a buyer code, UPC code, SKU number, and the like. These 
+   entries require qualifiers to categorize the associated identifiers.
 *  **Hazardous** must be checked if a product requires DOT HAZMAT labeling.
 
    .. warning::
@@ -70,7 +78,8 @@ Advanced Entries:
    product or variety. For example, "24/12 oz. cans" versus "6/48 oz. cans,"
    where either description represents a case with 288 ounces of product.
 *  **Shipping Name** is an alternative description specific to shipping 
-   documentation. This entry is required for hazardous materials.
+   documents such as the Bill of Lading. This entry is required for hazardous 
+   materials.
 
 Product Classification
 -----------------------------
@@ -94,7 +103,7 @@ Basic Entries
 '''''''''''''''''''''''''''''
 
 *  **Tracking Code** Determines whether inventory balances are presented by
-   by product only (**P**), or separated into lots (**C**), or tracked by
+   product only (**P**), or separated into lots (**C**), or tracked by
    individual handling units (**U**). 
 
    Product inventory which is not broken down into lots is referred to as 
@@ -104,7 +113,7 @@ Basic Entries
    number. Other numbers tied to a lot or shipment should be included in 
    receiving descriptions, or tracked with individual units.
 *  **Rate Group** identifies a set of rate records used in calculating the 
-   storage and handling fees for (a group of) products.
+   storage and handling fees for a group of products.
 *  **Freight Class** specifies the classification system and transportation 
    rating for a product. Classification systems include TL, LTL, and NMFC. 
 
@@ -119,11 +128,13 @@ Advanced Entries
 
 *  **Declared Value** specifies the loss coverage per unit of product a customer 
    requests for his goods under warehouse responsibility. Leave this entry blank
-   when an account accepts the warehouse standard limitation of liability.
+   when an account accepts the warehouse standard limitation of liability for
+   negligence.
 *  **Unit Cost** or price is used to calculate rates for charges related to 
    sales pricing.
-*  **Grouping Code** lists and values are optional assignment codes for 
-   products.
+*  **Grouping Code** lists and values are optional codes for classifying and
+   grouping products. These codes may be used in product selection or reporting
+   filters.
 
 Product Dimensions
 -----------------------------
