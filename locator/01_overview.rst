@@ -5,7 +5,7 @@ webWARES Locator Overview
 #############################
 
 .. note::
-   http://webwares.aaltsys.com displays a preliminary version of the webWARES 
+   http://newwares.aaltsys.com displays a preliminary version of the webWARES 
    locator. This is not intended as a completed application. Rather, it is a 
    starting point for alpha-testing program design.
 
@@ -36,6 +36,16 @@ and product inventory.
 *  :ref:`loc-inventory` summarize locator information by product. The balances 
    view is dynamic, created from the locator information. Inventory is filtered 
    by account and product.
+
+Locator Features
+=============================
+
+*  Directed putaway and automated pick assignment 
+*  Re-warehousing calculation for space and travel optimization 
+*  Cycle counting and bulk inventory collection for inventory accuracy.
+
+Locator features take advantage of an Android-based application, available
+for free from the Google store for use with Advanced WARES.
 
 Facility Setup
 =============================
