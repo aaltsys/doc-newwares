@@ -37,6 +37,16 @@ and product inventory.
    view is dynamic, created from the locator information. Inventory is filtered 
    by account and product.
 
+Locator Features
+=============================
+
+*  Directed putaway and automated pick assignment 
+*  Re-warehousing calculation for space and travel optimization 
+*  Cycle counting and bulk inventory collection for inventory accuracy.
+
+Locator features take advantage of an Android-based application, available
+for free from the Google store for use with Advanced WARES.
+
 Facility Setup
 =============================
 

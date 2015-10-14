@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Product Masterfile Views &mdash; WARES Inventory 1.0 documentation</title>
+    <title>Entering and Viewing Products &mdash; WARES Inventory 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -44,10 +44,29 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Product Masterfile Views</a><ul>
-<li><a class="reference internal" href="#product-setup-views">Product Setup Views</a></li>
-<li><a class="reference internal" href="#product-inventory-view">Product Inventory View</a></li>
-<li><a class="reference internal" href="#product-filters">Product Filters</a></li>
+<li><a class="reference internal" href="#">Entering and Viewing Products</a><ul>
+<li><a class="reference internal" href="#product-setup">Product Setup</a><ul>
+<li><a class="reference internal" href="#product-identification">Product Identification</a><ul>
+<li><a class="reference internal" href="#basic-entries">Basic Entries:</a></li>
+<li><a class="reference internal" href="#advanced-entries">Advanced Entries:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#product-classification">Product Classification</a><ul>
+<li><a class="reference internal" href="#id1">Basic Entries</a></li>
+<li><a class="reference internal" href="#id2">Advanced Entries</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#product-dimensions">Product Dimensions</a><ul>
+<li><a class="reference internal" href="#id3">Basic Entries</a></li>
+<li><a class="reference internal" href="#id4">Advanced Entries</a></li>
+<li><a class="reference internal" href="#dimension-example">Dimension Example</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#locator-controls">Locator Controls</a></li>
+<li><a class="reference internal" href="#notes-and-messages">Notes and Messages</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#using-basic-mode">Using Basic Mode</a></li>
 </ul>
 </li>
 </ul>
@@ -86,111 +105,348 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="product-masterfile-views">
-<h1>Product Masterfile Views<a class="headerlink" href="#product-masterfile-views" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="product-setup-views">
-<h2>Product Setup Views<a class="headerlink" href="#product-setup-views" title="Permalink to this headline">¶</a></h2>
-<p>The product record masterfile entry consists of 5 sections described as
-follows.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">In each section, a rule line separates basic entries (above the line) from
-advanced entries (below the rule). In the DIMENSIONS section, The INNER
-column is also in the advanced area, and the entirety of LOCATOR CONTROLS and
-NOTES AND MESSAGES are part of advanced entries.</p>
+  <div class="section" id="entering-and-viewing-products">
+<span id="product-view"></span><h1>Entering and Viewing Products<a class="headerlink" href="#entering-and-viewing-products" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="product-setup">
+<h2>Product Setup<a class="headerlink" href="#product-setup" title="Permalink to this headline">¶</a></h2>
+<p>Entries for product records are grouped into the following five sections:</p>
+<ul class="simple">
+<li>PRODUCT IDENTIFICATION</li>
+<li>CLASSIFICATION</li>
+<li>DIMENSIONS</li>
+<li>LOCATOR CONTROLS</li>
+<li>NOTES AND MESSAGES</li>
+</ul>
+<p>In each section, a rule line separates basic mode entries (above the line) from
+advanced entries (below the rule). The sections for LOCATOR CONTROLS and
+NOTES AND MESSAGES are available in advanced mode only.</p>
+<div class="section" id="product-identification">
+<h3>Product Identification<a class="headerlink" href="#product-identification" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><br /></div>
 </div>
 <div class="sidebar">
 <p class="first sidebar-title">Product Identification</p>
-<p>Required entries <strong>Account</strong> and <strong>Product</strong>, and optional <strong>Variety</strong>,
+<p>Required entries <strong>Account</strong> and <strong>Product</strong>, and optionally <strong>Variety</strong>,
 combine to form a unique identifier for each product. Other indexed entries
 which link to the product identifier for categories and search are included
 in this section: <strong>Stock Number</strong> alternatives, <strong>Description</strong> text, and a
 <strong>Hazard</strong> flag.</p>
 <div class="last admonition tip">
 <p class="first admonition-title">Tip</p>
-<p class="last">When <strong>Hazard</strong> is checked, a <strong>Proper Shipping Name</strong> entry is required.
-Checking <strong>Hazard</strong> when in basic entry will cause a warning message:
-<em>this feature is available only in advanced mode</em>.</p>
+<p class="last">Special characters, spaces, or punctuation are not allowed in identifiers.
+These entries are limited to the 26 upper-case letters of ISO basic Latin
+alphabet along with numerals 0 through 9.</p>
 </div>
 </div>
 <img alt="_images/product-1ident.png" src="_images/product-1ident.png" />
+<div class="section" id="basic-entries">
+<h4>Basic Entries:<a class="headerlink" href="#basic-entries" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p class="first"><strong>Account</strong>: Each product must be associated with an account. For private
+warehousing, this could be a department identifier or similar entry.</p>
+</li>
+<li><p class="first"><strong>Product</strong>: A single alphanumeric entry will identify each tracked product.
+This entry should be used in reporting with the customer as well as in
+shipping and receiving documentation.</p>
+</li>
+<li><p class="first"><strong>Variety</strong>: An optional adjunct of the product identifier can be used to
+distinguish between variants of a product which are reported together.</p>
+</li>
+<li><p class="first"><strong>Stock Numbers</strong>: Each product may have several auxiliary identifiers such
+as a buyer code, UPC code, SKU number, and the like. These entries require
+qualifiers to categorize the associated identifiers.</p>
+</li>
+<li><p class="first"><strong>Hazardous</strong> must be checked if a product requires DOT HAZMAT labeling.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Checking <strong>Hazard</strong> requires the <strong>Proper Shipping Name</strong>. In basic mode,
+a <strong>Hazard</strong> check will produce the warning message, <em>This feature is
+available only in advanced mode.</em></p>
+</div>
+</li>
+<li><p class="first"><strong>Description</strong> text appears on shipping documents and other forms which
+members of the public are likely to read. Characters used in the description
+are not limited. Individual description words are indexed for searching
+products.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="advanced-entries">
+<h4>Advanced Entries:<a class="headerlink" href="#advanced-entries" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><strong>Packaging</strong> description spells out distinctive aspects of a particular
+product or variety. For example, &#8220;24/12 oz. cans&#8221; versus &#8220;6/48 oz. cans,&#8221;
+where either description represents a case with 288 ounces of product.</li>
+<li><strong>Shipping Name</strong> is an alternative description specific to shipping
+documentation. This entry is required for hazardous materials.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="product-classification">
+<h3>Product Classification<a class="headerlink" href="#product-classification" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 <div class="sidebar">
 <p class="first sidebar-title">Product Classification</p>
-<p>Entries classify products according to functions and features of WARES.
-Three are primary classification entries are:</p>
+<p>Products are classified according to WARES features or the conventions of
+warehousing and logistics.</p>
 <ul class="last simple">
-<li><strong>Tracking</strong> defines whether a product is fungible, or uses lot control,
-or is tracked by individual units.</li>
-<li><strong>Lot Control</strong> specifies the type of information used for lot numbers.</li>
-<li><strong>Rate</strong> identifies the rate calculations for warehouse services charges
-of storage and handling.</li>
+<li><strong>Tracking</strong> and <strong>Lot Control</strong> define the way inventory is tracked and
+reported within <strong class="program">WARES</strong>.</li>
+<li><strong>Rate</strong> identifies the basis for warehouse storage and handling services
+charges calculated within <strong class="program">WARES</strong>.</li>
+<li><strong>Freight Class</strong> specifies the transportation classification for a
+product in standard rating systems such as TL or NMFC.</li>
 </ul>
 </div>
 <img alt="_images/product-2class.png" src="_images/product-2class.png" />
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Fungible bulk products (unit UOM = BN) track inventory by location,
+<div class="section" id="id1">
+<h4>Basic Entries<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p class="first"><strong>Tracking Code</strong> Determines whether inventory balances are presented by
+by product only (<strong>P</strong>), or separated into lots (<strong>C</strong>), or tracked by
+individual handling units (<strong>U</strong>).</p>
+<p>Product inventory which is not broken down into lots is referred to as
+fungible. Fungible bulk products (unit UOM = BN) track inventory by location;
 non-fungible inventory is tracked by location and lot.</p>
+</li>
+<li><p class="first"><strong>Lot Control Code</strong> specifies which piece of information to use for a lot
+number. Other numbers tied to a lot or shipment should be included in
+receiving descriptions, or tracked with individual units.</p>
+</li>
+<li><p class="first"><strong>Rate Group</strong> identifies a set of rate records used in calculating the
+storage and handling fees for (a group of) products.</p>
+</li>
+<li><p class="first"><strong>Freight Class</strong> specifies the classification system and transportation
+rating for a product. Classification systems include TL, LTL, and NMFC.</p>
+<p>Carriers consider shipment bulk density, product durability, temperature
+control, and other factors when assigning a rate, but TL and LTL classes
+refer to density only. Carrier contracts may also specify a freight class, as
+when a carrier agrees to a single transportation rate for Freight All Kinds
+(FAK).</p>
+</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h4>Advanced Entries<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><strong>Declared Value</strong> specifies the loss coverage per unit of product a customer
+requests for his goods under warehouse responsibility. Leave this entry blank
+when an account accepts the warehouse standard limitation of liability.</li>
+<li><strong>Unit Cost</strong> or price is used to calculate rates for charges related to
+sales pricing.</li>
+<li><strong>Grouping Code</strong> lists and values are optional assignment codes for
+products.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="product-dimensions">
+<h3>Product Dimensions<a class="headerlink" href="#product-dimensions" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><br /></div>
 </div>
 <div class="sidebar">
 <p class="first sidebar-title">Dimensions</p>
-<p class="last">Dimension entries determine the uints of measure to display for goods, and
+<p>Dimension entries determine the uints of measure to display for goods, and
 the counts and factors to extend or extrapolate from weights, sizes, and
-unit counts from the basic inventory content (or inner) quantities.</p>
+counts of (inner or) contents entries up to unit inventory quantities and
+measures. Default values for a column are calculated once entries are made
+in the column preceding it (to its left).</p>
+<div class="last admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">Inner counts and measures, content linear dimensions, and unit stacking
+are not included in base mode.</p>
+</div>
 </div>
 <img alt="_images/product-3dim.png" src="_images/product-3dim.png" />
+<div class="section" id="id3">
+<h4>Basic Entries<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p class="first"><strong>UOM</strong>: Each inventory level in a product SKU has a Unit Of Measure (UOM).
+For example, an item might come with 12 blister-pack eaches (EA) packed in
+each case (CA), and 64 cases stack on a pallet (PL). Then UOMs for the
+product would be INNER=EA, CONTENT=CA, and UNIT=PL.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last"><strong>INNER UOM</strong> is optional in advanced mode, and if open-case picking will
+not happen, it should be left blank. Other entries in the INNER column are
+prohibited when the INNER UOM is blank.</p>
+</div>
+</li>
+<li><p class="first"><strong>Count</strong> represents the standard number of pieces which make up the next
+larger unit of inventory. In the previous example, a count of 12 blister-pack
+eaches make up one case, and a count of 64 cases comprise a pallet unit.</p>
+</li>
+<li><p class="first"><strong>Weight</strong>: The weight of an inner piece, times the inner count, should equal
+the weight net of a content container. The weights (Net + Tare) of a content
+container times the content count should equal the weight net of a unit.</p>
+</li>
+<li><p class="first"><strong>Tare Weight</strong> entries represent the extra packaging weight of content
+containers and shipping units.</p>
+</li>
+<li><p class="first"><strong>Size</strong> tracks the volume of a piece or a container. Liquid sizes may be
+stated in gallons or liters, while dry sizes are usually expressed in cubic
+feet or cubic meters.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h4>Advanced Entries<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><strong>Unit Stack</strong> determines the usage of location stack height. When a product
+is stored to a location, the minimum of the product&#8217;s unit stacking and the
+location&#8217;s stack height limit is used to calculate the location capacity.</li>
+<li><strong>Content Long</strong>, <strong>Content Wide</strong>, and <strong>Content High</strong> are used when
+shipping via package carrier, where the carton dimensions are required.</li>
+</ul>
+</div>
+<div class="section" id="dimension-example">
+<h4>Dimension Example<a class="headerlink" href="#dimension-example" title="Permalink to this headline">¶</a></h4>
+<div class="sidebar">
+<p class="first sidebar-title">Dimensions Example</p>
+<p>Six values (un-highlighted entries in the figure) must be entered to
+calculate from inner pieces to unit pallets, as shown in the following table.</p>
+<table border="1" class="last docutils">
+<colgroup>
+<col width="37%" />
+<col width="32%" />
+<col width="32%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Entry Name</th>
+<th class="head">Entry Value</th>
+<th class="head">Dimensions</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Inner Count</td>
+<td>12</td>
+<td>PC/CA</td>
+</tr>
+<tr class="row-odd"><td>Inner Weight</td>
+<td>1.0000</td>
+<td>LB/PC</td>
+</tr>
+<tr class="row-even"><td>Inner Size</td>
+<td>0.0417</td>
+<td>CF/PC</td>
+</tr>
+<tr class="row-odd"><td>Content Count</td>
+<td>64</td>
+<td>CA/PL</td>
+</tr>
+<tr class="row-even"><td>Content Tare</td>
+<td>0.5000</td>
+<td>LB/CA</td>
+</tr>
+<tr class="row-odd"><td>Unit Tare</td>
+<td>50.00</td>
+<td>LB/PL</td>
+</tr>
+</tbody>
+</table>
+</div>
+<img alt="_images/product-3dim-d.png" src="_images/product-3dim-d.png" />
+<p>Calculated default values are highlighted in the Dimensions example figure. The
+calculations and analysis of units is shown below.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="70%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Default Entry</th>
+<th class="head">Calculation</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Content Weight</td>
+<td><div class="first last line-block">
+<div class="line"><cite>12 X 1.0 = 12.0</cite></div>
+<div class="line"><cite>(PC/CA) X (LB/PC) = (LB/CA)</cite></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>Content Size</td>
+<td><div class="first last line-block">
+<div class="line"><cite>12 X 0.0417 = 0.5004</cite></div>
+<div class="line"><cite>(PC/CA) X (CF/PC) = (CF/CA)</cite></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>Unit Weight</td>
+<td><div class="first last line-block">
+<div class="line"><cite>64 X (12.00 + 0.50) = 800.00</cite></div>
+<div class="line"><cite>(CA/PL) X (LB/CA) = (LB/PL)</cite></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>Unit Size</td>
+<td><div class="first last line-block">
+<div class="line"><cite>64 X 0.5004  = 32.0256</cite></div>
+<div class="line"><cite>(CA/PL) X (CF/CA) = (CF/PL)</cite></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="locator-controls">
+<h3>Locator Controls<a class="headerlink" href="#locator-controls" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 <div class="sidebar">
 <p class="first sidebar-title">Location Control</p>
-<p>Advanced WARES settings allow warehouse location control with features for:</p>
+<p class="last">Products interact with the Locator system through these settings, and through
+the <strong>Unit Stack</strong> dimension entry.</p>
+</div>
+<img alt="_images/product-4locate.png" src="_images/product-4locate.png" />
 <ul class="simple">
-<li>Directed putaway and automated pick assignment</li>
-<li>Re-warehousing calculation for space and travel optimization</li>
-<li>Cycle counting and bulk inventory collection for inventory accuracy.</li>
+<li><strong>A-B-C Turn Rate</strong>, or product velocity, describes how quickly products move
+through the warehouse.</li>
+<li><strong>Unit Mixing</strong> indicates whether other products (for the same account) may
+be stored on the same pallet unit, or content of other lots.</li>
+<li><strong>Storage Zone</strong> describes the warehouse area used to store this product.
+This entry could be a storage specification such as Dry/Cooler/Freezer, or it
+could refer to a warehouse area dedicated to the product&#8217;s account.</li>
+<li><strong>Pick Line Slot</strong> specifies a location for picking individual pieces of a
+product.</li>
 </ul>
-<p>Locator features take advantage of an Android-based application, available
-for free from the Google store for use with Advanced WARES.</p>
+</div>
+<div class="section" id="notes-and-messages">
+<h3>Notes and Messages<a class="headerlink" href="#notes-and-messages" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="sidebar">
+<p class="first sidebar-title">Document Messages</p>
 <p class="last">Notes allow product information which is intended for clerical use, warehouse
 laborers, transportation, or recipient consumption to be recorded and then
 displayed on appropriate documents or other venues.</p>
 </div>
-<img alt="_images/product-4locate.png" src="_images/product-4locate.png" />
 <img alt="_images/product-5notes.png" src="_images/product-5notes.png" />
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The entirety of <strong>LOCATOR CONTROLS</strong> and <strong>NOTES AND MESSAGES</strong> are part of
+advanced mode.</p>
+</div>
+</div>
 </div>
 <hr class="docutils" />
-<div class="section" id="product-inventory-view">
-<h2>Product Inventory View<a class="headerlink" href="#product-inventory-view" title="Permalink to this headline">¶</a></h2>
-<img alt="_images/inventory.png" src="_images/inventory.png" />
-<p>Notes:</p>
-<ol class="arabic">
-<li><p class="first">Quantities are synthesized from locator entries as follows:</p>
-<div class="line-block">
-<div class="line">ARRIVING  = ON-ORDER + IN-TRANSIT</div>
-<div class="line">ON-HAND = ALL WAREHOUSE CONTENT</div>
-<div class="line">ALL-HELD = SAFETY STOCK + INSPECTION HOLD + PROCESS HOLD + DAMAGED</div>
-<div class="line">ALLOCATED = SHIP-RESERVED + PICK-ALLOCATED</div>
-<div class="line">AVAILABLE = ON-HAND - ALL-HELD - ALLOCATED</div>
-<div class="line">Ship reserve may be placed against ARRIVING stock, so AVAILABLE can be negative.</div>
-</div>
-</li>
-<li><p class="first">Product entries link to the PRODUCT information, displayed in a lightbox.
-Clicking (Double-clicking?) elsewhere on a line displays LOCATOR details for
-that product unit.</p>
-</li>
-</ol>
-</div>
-<div class="section" id="product-filters">
-<h2>Product Filters<a class="headerlink" href="#product-filters" title="Permalink to this headline">¶</a></h2>
-<img alt="_images/inventory-filter.png" src="_images/inventory-filter.png" />
-<p>Notes:</p>
-<ol class="arabic simple">
-<li>Filter items &#8220;Building&#8221; and &#8220;Accout&#8221; accept single entries only and do
-not display columns. When set by login, as with account connection, these
-items are grayed out and not selectable.</li>
-<li>PRODUCT and STOCK-NUMBER filters are multi-entry and use autocomplete.</li>
-<li>Products without locator quantities cannot be entered in the filter or
-displayed.</li>
-<li>For a mobile interface, tuneable columns would not display by default.</li>
-</ol>
+<div class="section" id="using-basic-mode">
+<h2>Using Basic Mode<a class="headerlink" href="#using-basic-mode" title="Permalink to this headline">¶</a></h2>
+<p>The nature of web pages makes data entry difficult for large forms, and this
+is particularly a problem on hand-held devices. Basic mode exists to reduce
+page sizes to a minimum while providing all commonly used features.</p>
+<p>Basic mode displays only three form sections, and these sections are reduced to
+the components displayed below.</p>
+<img alt="_images/product-1ident-b.png" src="_images/product-1ident-b.png" />
+<img alt="_images/product-2class-b.png" src="_images/product-2class-b.png" />
+<img alt="_images/product-3dim-b.png" src="_images/product-3dim-b.png" />
 </div>
 </div>
 
