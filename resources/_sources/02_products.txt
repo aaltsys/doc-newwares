@@ -6,13 +6,13 @@ Product Data Definition
 
 Product record entries are divided into the following sections:
 
-*  Keys -- A combination of values which uniquely identify a product
-*  Descriptors -- Alternate textual product identification and categorization
+*  Keys & Descriptors-- The entries which uniquely identify a product, and
+   any alternate textual product identification and description
+*  Classification & Valuation -- Categorization and classification codes, 
+   including associated billing rates and product declared value
 *  Dimension -- The measures of packing for a product
 *  Location -- Information which controls location of items
-*  Valuation -- The services rating and valuation of a product
-*  Transportation -- Freight classification and description
-*  Information -- Optional product notes information
+*  Notes and Messages -- Optional product notes information
 
 Product Masterfile Columns
 =============================
@@ -20,15 +20,13 @@ Product Masterfile Columns
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 |REQ| SM| COLUMN NAME    | TYPE| UC|VALIDATE              | DEFAULT| JUST| NOTE|
 +===+===+================+=====+===+======================+========+=====+=====+
-| -- -- -- -- -- -- -- -- -- -- -- -- Key Entry                                |
+| -- -- -- -- -- -- -- -- -- -- -- -- Keys and Descriptions                    |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | M | S | ACCOUNT        | A   | U | VT=ACCOUNTS          |        | L10 |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | M | S | IDENTIFIER     | AN  | U |                      |        | L20 |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | M | S | VARIETY        | AN  | U |                      | null   | L10 |     |
-+---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| -- -- -- -- -- -- -- -- -- -- -- -- Description Entries                      |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | P | MA| PRODUCTCODE    | LC  | U | :ref:`product-list`  |        | L4  | [2]_|
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
@@ -47,6 +45,20 @@ Product Masterfile Columns
 | O | S | TRACKCODE      | LC  | U | :ref:`track-list`    | C      | L4  | [6]_|
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | O | S | CONTROLCODE    | LC  | U | :ref:`control-list`  | NA     | L4  | [7]_|
++---+---+----------------+-----+---+----------------------+--------+-----+-----+
+| O | S | RATE           | A   | U | VT=RATES             |        | L8  |     |
++---+---+----------------+-----+---+----------------------+--------+-----+-----+
+| P | MA| FREIGHTCODE    | LC  | U | :ref:`freight-list`  |        | L4  | [2]_|
++---+---+----------------+-----+---+----------------------+--------+-----+-----+
+| P | MA| FREIGHTCLASS   | AN  | U | paired: FREIGHTCODE  |        | L10 | [2]_|
++---+---+----------------+-----+---+----------------------+--------+-----+-----+
+| P | SA| VALUEPER       | LC  | U | :ref:`per-list`      |        | L4  | [2]_|
++---+---+----------------+-----+---+----------------------+--------+-----+-----+
+| P | SA| VALUE          | N.2 |   | paired: VALUEPER     |        | R8  | [2]_|
++---+---+----------------+-----+---+----------------------+--------+-----+-----+
+| P | SA| COSTPER        | LC  | U | :ref:`per-list`      |        | L4  | [2]_|
++---+---+----------------+-----+---+----------------------+--------+-----+-----+
+| P | SA| COST           | N.2 |   | paired: COSTPER      |        | R8  | [2]_|
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | P | MA| GROUPCODE      | LC  | U | :ref:`group-list`    |        | L4  | [2]_|
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
@@ -101,24 +113,6 @@ Product Masterfile Columns
 | O | S | ZONE           | LC  | U | :ref:`zone-list`     |        | L4  |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | O | S | SLOT           | A   | U | VT=LOCATIONS         |        | L10 |     |
-+---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| -- -- -- -- -- -- -- -- -- -- -- -- Valuation Entries                        |
-+---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| O | S | RATE           | A   | U | VT=RATES             |        | L8  |     |
-+---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| P | SA| VALUEPER       | LC  | U | :ref:`per-list`      |        | L4  | [2]_|
-+---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| P | SA| VALUE          | N.2 |   | paired: VALUEPER     |        | R8  | [2]_|
-+---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| P | SA| COSTPER        | LC  | U | :ref:`per-list`      |        | L4  | [2]_|
-+---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| P | SA| COST           | N.2 |   | paired: COSTPER      |        | R8  | [2]_|
-+---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| -- -- -- -- -- -- -- -- -- -- -- -- Transportation Entries                   |
-+---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| P | MA| FREIGHTCODE    | LC  | U | :ref:`freight-list`  |        | L4  | [2]_|
-+---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| P | MA| FREIGHTCLASS   | AN  | U | paired: FREIGHTCODE  |        | L10 | [2]_|
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | -- -- -- -- -- -- -- -- -- -- -- -- Notes and Messages Entries               |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+

@@ -4,9 +4,6 @@
 Entering and Viewing Products
 #############################
 
-Product Setup 
-=============================
-
 Entries for product records are grouped into the following five sections:
 
 *  PRODUCT IDENTIFICATION
@@ -20,7 +17,7 @@ advanced entries (below the rule). The sections for LOCATOR CONTROLS and
 NOTES AND MESSAGES are available in advanced mode only.
 
 Product Identification
------------------------------
+=============================
 |
 
 .. sidebar:: Product Identification
@@ -39,7 +36,7 @@ Product Identification
 .. image:: _images/product-1ident.png
 
 Basic Entries:
-'''''''''''''''''''''''''''''
+-----------------------------
 
 *  **Account**: Each product must be associated with an account. For private 
    warehousing, this could be a department identifier or similar entry.
@@ -72,7 +69,7 @@ Basic Entries:
    products.
 
 Advanced Entries:
-'''''''''''''''''''''''''''''
+-----------------------------
 
 *  **Packaging** description spells out distinctive aspects of a particular
    product or variety. For example, "24/12 oz. cans" versus "6/48 oz. cans,"
@@ -82,7 +79,7 @@ Advanced Entries:
    materials.
 
 Product Classification
------------------------------
+=============================
 |
 
 .. sidebar:: Product Classification
@@ -100,7 +97,7 @@ Product Classification
 .. image:: _images/product-2class.png
 
 Basic Entries
-'''''''''''''''''''''''''''''
+-----------------------------
 
 *  **Tracking Code** Determines whether inventory balances are presented by
    product only (**P**), or separated into lots (**C**), or tracked by
@@ -124,7 +121,7 @@ Basic Entries
    (FAK).
 
 Advanced Entries
-'''''''''''''''''''''''''''''
+-----------------------------
 
 *  **Declared Value** specifies the loss coverage per unit of product a customer 
    requests for his goods under warehouse responsibility. Leave this entry blank
@@ -137,7 +134,7 @@ Advanced Entries
    filters.
 
 Product Dimensions
------------------------------
+=============================
 |
 
 .. sidebar:: Dimensions
@@ -155,7 +152,7 @@ Product Dimensions
 .. image:: _images/product-3dim.png
 
 Basic Entries
-'''''''''''''''''''''''''''''
+-----------------------------
 
 *  **UOM**: Each inventory level in a product SKU has a Unit Of Measure (UOM).
    For example, an item might come with 12 blister-pack eaches (EA) packed in 
@@ -180,7 +177,7 @@ Basic Entries
    feet or cubic meters.
 
 Advanced Entries
-'''''''''''''''''''''''''''''
+-----------------------------
 
 *  **Unit Stack** determines the usage of location stack height. When a product
    is stored to a location, the minimum of the product's unit stacking and the 
@@ -189,7 +186,7 @@ Advanced Entries
    shipping via package carrier, where the carton dimensions are required.
 
 Dimension Example
-'''''''''''''''''''''''''''''
+-----------------------------
 
 .. sidebar:: Dimensions Example
 
@@ -217,24 +214,24 @@ Dimension Example
 Calculated default values are highlighted in the Dimensions example figure. The
 calculations and analysis of units is shown below.
 
-+----------------+--------------------------------------+
++----------------+=============================---------+
 | Default Entry  | Calculation                          |
 +================+======================================+
 | Content Weight || `12 X 1.0 = 12.0`                   |
 |                || `(PC/CA) X (LB/PC) = (LB/CA)`       |
-+----------------+--------------------------------------+
++----------------+=============================---------+
 | Content Size   || `12 X 0.0417 = 0.5004`              |
 |                || `(PC/CA) X (CF/PC) = (CF/CA)`       |
-+----------------+--------------------------------------+
++----------------+=============================---------+
 | Unit Weight    || `64 X (12.00 + 0.50) = 800.00`      |
 |                || `(CA/PL) X (LB/CA) = (LB/PL)`       |
-+----------------+--------------------------------------+
++----------------+=============================---------+
 | Unit Size      || `64 X 0.5004  = 32.0256`            |
 |                || `(CA/PL) X (CF/CA) = (CF/PL)`       |
-+----------------+--------------------------------------+
++----------------+=============================---------+
 
 Locator Controls
------------------------------
+=============================
 |
 
 .. sidebar:: Location Control
@@ -255,7 +252,7 @@ Locator Controls
    product.
 
 Notes and Messages
------------------------------
+=============================
 |
 
 .. sidebar:: Document Messages

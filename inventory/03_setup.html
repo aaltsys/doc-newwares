@@ -24,18 +24,18 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="WARES Inventory 1.0 documentation" href="index.html" />
-    <link rel="next" title="Inventory Lot Details" href="04_lots.html" />
-    <link rel="prev" title="Product Data Definition" href="02_products.html" /> 
+    <link rel="next" title="Inventory Balances Posting" href="06_balances.html" />
+    <link rel="prev" title="Inventory Concepts" href="01_inventory.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="04_lots.html" title="Inventory Lot Details"
+          <a href="06_balances.html" title="Inventory Balances Posting"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="02_products.html" title="Product Data Definition"
+          <a href="01_inventory.html" title="Inventory Concepts"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">WARES Inventory 1.0 documentation</a> &raquo;</li> 
       </ul>
@@ -45,7 +45,6 @@
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Entering and Viewing Products</a><ul>
-<li><a class="reference internal" href="#product-setup">Product Setup</a><ul>
 <li><a class="reference internal" href="#product-identification">Product Identification</a><ul>
 <li><a class="reference internal" href="#basic-entries">Basic Entries:</a></li>
 <li><a class="reference internal" href="#advanced-entries">Advanced Entries:</a></li>
@@ -64,19 +63,17 @@
 </li>
 <li><a class="reference internal" href="#locator-controls">Locator Controls</a></li>
 <li><a class="reference internal" href="#notes-and-messages">Notes and Messages</a></li>
-</ul>
-</li>
 <li><a class="reference internal" href="#using-basic-mode">Using Basic Mode</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="02_products.html"
-                        title="previous chapter">Product Data Definition</a></p>
+  <p class="topless"><a href="01_inventory.html"
+                        title="previous chapter">Inventory Concepts</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="04_lots.html"
-                        title="next chapter">Inventory Lot Details</a></p>
+  <p class="topless"><a href="06_balances.html"
+                        title="next chapter">Inventory Balances Posting</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -107,8 +104,6 @@
             
   <div class="section" id="entering-and-viewing-products">
 <span id="product-view"></span><h1>Entering and Viewing Products<a class="headerlink" href="#entering-and-viewing-products" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="product-setup">
-<h2>Product Setup<a class="headerlink" href="#product-setup" title="Permalink to this headline">¶</a></h2>
 <p>Entries for product records are grouped into the following five sections:</p>
 <ul class="simple">
 <li>PRODUCT IDENTIFICATION</li>
@@ -121,7 +116,7 @@
 advanced entries (below the rule). The sections for LOCATOR CONTROLS and
 NOTES AND MESSAGES are available in advanced mode only.</p>
 <div class="section" id="product-identification">
-<h3>Product Identification<a class="headerlink" href="#product-identification" title="Permalink to this headline">¶</a></h3>
+<h2>Product Identification<a class="headerlink" href="#product-identification" title="Permalink to this headline">¶</a></h2>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
@@ -141,7 +136,7 @@ alphabet along with numerals 0 through 9.</p>
 </div>
 <img alt="_images/product-1ident.png" src="_images/product-1ident.png" />
 <div class="section" id="basic-entries">
-<h4>Basic Entries:<a class="headerlink" href="#basic-entries" title="Permalink to this headline">¶</a></h4>
+<h3>Basic Entries:<a class="headerlink" href="#basic-entries" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first"><strong>Account</strong>: Each product must be associated with an account. For private
 warehousing, this could be a department identifier or similar entry.</p>
@@ -181,7 +176,7 @@ products.</p>
 </ul>
 </div>
 <div class="section" id="advanced-entries">
-<h4>Advanced Entries:<a class="headerlink" href="#advanced-entries" title="Permalink to this headline">¶</a></h4>
+<h3>Advanced Entries:<a class="headerlink" href="#advanced-entries" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><strong>Packaging</strong> description spells out distinctive aspects of a particular
 product or variety. For example, &#8220;24/12 oz. cans&#8221; versus &#8220;6/48 oz. cans,&#8221;
@@ -193,7 +188,7 @@ materials.</li>
 </div>
 </div>
 <div class="section" id="product-classification">
-<h3>Product Classification<a class="headerlink" href="#product-classification" title="Permalink to this headline">¶</a></h3>
+<h2>Product Classification<a class="headerlink" href="#product-classification" title="Permalink to this headline">¶</a></h2>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
@@ -212,7 +207,7 @@ product in standard rating systems such as TL or NMFC.</li>
 </div>
 <img alt="_images/product-2class.png" src="_images/product-2class.png" />
 <div class="section" id="id1">
-<h4>Basic Entries<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<h3>Basic Entries<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first"><strong>Tracking Code</strong> Determines whether inventory balances are presented by
 product only (<strong>P</strong>), or separated into lots (<strong>C</strong>), or tracked by
@@ -239,7 +234,7 @@ when a carrier agrees to a single transportation rate for Freight All Kinds
 </ul>
 </div>
 <div class="section" id="id2">
-<h4>Advanced Entries<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<h3>Advanced Entries<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><strong>Declared Value</strong> specifies the loss coverage per unit of product a customer
 requests for his goods under warehouse responsibility. Leave this entry blank
@@ -254,7 +249,7 @@ filters.</li>
 </div>
 </div>
 <div class="section" id="product-dimensions">
-<h3>Product Dimensions<a class="headerlink" href="#product-dimensions" title="Permalink to this headline">¶</a></h3>
+<h2>Product Dimensions<a class="headerlink" href="#product-dimensions" title="Permalink to this headline">¶</a></h2>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
@@ -273,7 +268,7 @@ are not included in base mode.</p>
 </div>
 <img alt="_images/product-3dim.png" src="_images/product-3dim.png" />
 <div class="section" id="id3">
-<h4>Basic Entries<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<h3>Basic Entries<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first"><strong>UOM</strong>: Each inventory level in a product SKU has a Unit Of Measure (UOM).
 For example, an item might come with 12 blister-pack eaches (EA) packed in
@@ -304,7 +299,7 @@ feet or cubic meters.</p>
 </ul>
 </div>
 <div class="section" id="id4">
-<h4>Advanced Entries<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<h3>Advanced Entries<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><strong>Unit Stack</strong> determines the usage of location stack height. When a product
 is stored to a location, the minimum of the product&#8217;s unit stacking and the
@@ -314,7 +309,7 @@ shipping via package carrier, where the carton dimensions are required.</li>
 </ul>
 </div>
 <div class="section" id="dimension-example">
-<h4>Dimension Example<a class="headerlink" href="#dimension-example" title="Permalink to this headline">¶</a></h4>
+<h3>Dimension Example<a class="headerlink" href="#dimension-example" title="Permalink to this headline">¶</a></h3>
 <div class="sidebar">
 <p class="first sidebar-title">Dimensions Example</p>
 <p>Six values (un-highlighted entries in the figure) must be entered to
@@ -362,51 +357,25 @@ calculate from inner pieces to unit pallets, as shown in the following table.</p
 <img alt="_images/product-3dim-d.png" src="_images/product-3dim-d.png" />
 <p>Calculated default values are highlighted in the Dimensions example figure. The
 calculations and analysis of units is shown below.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="30%" />
-<col width="70%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Default Entry</th>
-<th class="head">Calculation</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>Content Weight</td>
-<td><div class="first last line-block">
-<div class="line"><cite>12 X 1.0 = 12.0</cite></div>
-<div class="line"><cite>(PC/CA) X (LB/PC) = (LB/CA)</cite></div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td>Content Size</td>
-<td><div class="first last line-block">
-<div class="line"><cite>12 X 0.0417 = 0.5004</cite></div>
-<div class="line"><cite>(PC/CA) X (CF/PC) = (CF/CA)</cite></div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td>Unit Weight</td>
-<td><div class="first last line-block">
-<div class="line"><cite>64 X (12.00 + 0.50) = 800.00</cite></div>
-<div class="line"><cite>(CA/PL) X (LB/CA) = (LB/PL)</cite></div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td>Unit Size</td>
-<td><div class="first last line-block">
-<div class="line"><cite>64 X 0.5004  = 32.0256</cite></div>
-<div class="line"><cite>(CA/PL) X (CF/CA) = (CF/PL)</cite></div>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
+<p>+&#8212;&#8212;&#8212;&#8212;&#8212;-+=============================&#8212;&#8212;&#8212;+
+| Default Entry  | Calculation                          |
++================+======================================+
+| Content Weight || <cite>12 X 1.0 = 12.0</cite>                   |
+|                || <cite>(PC/CA) X (LB/PC) = (LB/CA)</cite>       |
++&#8212;&#8212;&#8212;&#8212;&#8212;-+=============================&#8212;&#8212;&#8212;+
+| Content Size   || <cite>12 X 0.0417 = 0.5004</cite>              |
+|                || <cite>(PC/CA) X (CF/PC) = (CF/CA)</cite>       |
++&#8212;&#8212;&#8212;&#8212;&#8212;-+=============================&#8212;&#8212;&#8212;+
+| Unit Weight    || <cite>64 X (12.00 + 0.50) = 800.00</cite>      |
+|                || <cite>(CA/PL) X (LB/CA) = (LB/PL)</cite>       |
++&#8212;&#8212;&#8212;&#8212;&#8212;-+=============================&#8212;&#8212;&#8212;+
+| Unit Size      || <cite>64 X 0.5004  = 32.0256</cite>            |
+|                || <cite>(CA/PL) X (CF/CA) = (CF/PL)</cite>       |
++&#8212;&#8212;&#8212;&#8212;&#8212;-+=============================&#8212;&#8212;&#8212;+</p>
 </div>
 </div>
 <div class="section" id="locator-controls">
-<h3>Locator Controls<a class="headerlink" href="#locator-controls" title="Permalink to this headline">¶</a></h3>
+<h2>Locator Controls<a class="headerlink" href="#locator-controls" title="Permalink to this headline">¶</a></h2>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
@@ -429,7 +398,7 @@ product.</li>
 </ul>
 </div>
 <div class="section" id="notes-and-messages">
-<h3>Notes and Messages<a class="headerlink" href="#notes-and-messages" title="Permalink to this headline">¶</a></h3>
+<h2>Notes and Messages<a class="headerlink" href="#notes-and-messages" title="Permalink to this headline">¶</a></h2>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
@@ -444,7 +413,6 @@ displayed on appropriate documents or other venues.</p>
 <p class="first admonition-title">Note</p>
 <p class="last">The entirety of <strong>LOCATOR CONTROLS</strong> and <strong>NOTES AND MESSAGES</strong> are part of
 advanced mode.</p>
-</div>
 </div>
 </div>
 <hr class="docutils" />
@@ -471,10 +439,10 @@ the components displayed below.</p>
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="04_lots.html" title="Inventory Lot Details"
+          <a href="06_balances.html" title="Inventory Balances Posting"
              >next</a></li>
         <li class="right" >
-          <a href="02_products.html" title="Product Data Definition"
+          <a href="01_inventory.html" title="Inventory Concepts"
              >previous</a> |</li>
         <li><a href="index.html">WARES Inventory 1.0 documentation</a> &raquo;</li> 
       </ul>

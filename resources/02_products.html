@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Product Data Definition &mdash; WARES Inventory 1.0 documentation</title>
+    <title>Product Data Definition &mdash; WARES Resources 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -23,21 +23,21 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="WARES Inventory 1.0 documentation" href="index.html" />
-    <link rel="next" title="Entering and Viewing Products" href="03_setup.html" />
-    <link rel="prev" title="Inventory Concepts" href="01_inventory.html" /> 
+    <link rel="top" title="WARES Resources 1.0 documentation" href="index.html" />
+    <link rel="next" title="JSON DOSWARES Export DETAILS" href="03_json-lot-details.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="01_account.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="03_setup.html" title="Entering and Viewing Products"
+          <a href="03_json-lot-details.html" title="JSON DOSWARES Export DETAILS"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="01_inventory.html" title="Inventory Concepts"
+          <a href="01_account.html" title="&lt;no title&gt;"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">WARES Inventory 1.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">WARES Resources 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -51,11 +51,11 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="01_inventory.html"
-                        title="previous chapter">Inventory Concepts</a></p>
+  <p class="topless"><a href="01_account.html"
+                        title="previous chapter">&lt;no title&gt;</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="03_setup.html"
-                        title="next chapter">Entering and Viewing Products</a></p>
+  <p class="topless"><a href="03_json-lot-details.html"
+                        title="next chapter">JSON DOSWARES Export DETAILS</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -88,13 +88,13 @@
 <span id="products"></span><h1>Product Data Definition<a class="headerlink" href="#product-data-definition" title="Permalink to this headline">¶</a></h1>
 <p>Product record entries are divided into the following sections:</p>
 <ul class="simple">
-<li>Keys &#8211; A combination of values which uniquely identify a product</li>
-<li>Descriptors &#8211; Alternate textual product identification and categorization</li>
+<li>Keys &amp; Descriptors&#8211; The entries which uniquely identify a product, and
+any alternate textual product identification and description</li>
+<li>Classification &amp; Valuation &#8211; Categorization and classification codes,
+including associated billing rates and product declared value</li>
 <li>Dimension &#8211; The measures of packing for a product</li>
 <li>Location &#8211; Information which controls location of items</li>
-<li>Valuation &#8211; The services rating and valuation of a product</li>
-<li>Transportation &#8211; Freight classification and description</li>
-<li>Information &#8211; Optional product notes information</li>
+<li>Notes and Messages &#8211; Optional product notes information</li>
 </ul>
 <div class="section" id="product-masterfile-columns">
 <h2>Product Masterfile Columns<a class="headerlink" href="#product-masterfile-columns" title="Permalink to this headline">¶</a></h2>
@@ -123,7 +123,7 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Key Entry</td>
+<tr class="row-even"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Keys and Descriptions</td>
 </tr>
 <tr class="row-odd"><td>M</td>
 <td>S</td>
@@ -155,9 +155,7 @@
 <td>L10</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Description Entries</td>
-</tr>
-<tr class="row-odd"><td>P</td>
+<tr class="row-even"><td>P</td>
 <td>MA</td>
 <td>PRODUCTCODE</td>
 <td>LC</td>
@@ -167,7 +165,7 @@
 <td>L4</td>
 <td><a class="footnote-reference" href="#id29" id="id1">[2]</a></td>
 </tr>
-<tr class="row-even"><td>P</td>
+<tr class="row-odd"><td>P</td>
 <td>MA</td>
 <td>PRODUCT</td>
 <td>AN</td>
@@ -177,7 +175,7 @@
 <td>L20</td>
 <td><a class="footnote-reference" href="#id29" id="id2">[2]</a></td>
 </tr>
-<tr class="row-odd"><td>O</td>
+<tr class="row-even"><td>O</td>
 <td>S</td>
 <td>HAZARDOUS</td>
 <td>B</td>
@@ -187,7 +185,7 @@
 <td>L1</td>
 <td><a class="footnote-reference" href="#id28" id="id3">[1]</a></td>
 </tr>
-<tr class="row-even"><td>O</td>
+<tr class="row-odd"><td>O</td>
 <td>S</td>
 <td>DESCRIPTION</td>
 <td>T</td>
@@ -197,7 +195,7 @@
 <td>T40</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>O</td>
+<tr class="row-even"><td>O</td>
 <td>S</td>
 <td>PACKAGING</td>
 <td>T</td>
@@ -207,7 +205,7 @@
 <td>L40</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>C</td>
+<tr class="row-odd"><td>C</td>
 <td>S</td>
 <td>SHIPPINGNAME</td>
 <td>T</td>
@@ -217,9 +215,9 @@
 <td>L40</td>
 <td><a class="footnote-reference" href="#id28" id="id4">[1]</a></td>
 </tr>
-<tr class="row-odd"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Category Entries</td>
+<tr class="row-even"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Category Entries</td>
 </tr>
-<tr class="row-even"><td>O</td>
+<tr class="row-odd"><td>O</td>
 <td>S</td>
 <td>TRACKCODE</td>
 <td>LC</td>
@@ -229,7 +227,7 @@
 <td>L4</td>
 <td><a class="footnote-reference" href="#id33" id="id5">[6]</a></td>
 </tr>
-<tr class="row-odd"><td>O</td>
+<tr class="row-even"><td>O</td>
 <td>S</td>
 <td>CONTROLCODE</td>
 <td>LC</td>
@@ -239,6 +237,76 @@
 <td>L4</td>
 <td><a class="footnote-reference" href="#id34" id="id6">[7]</a></td>
 </tr>
+<tr class="row-odd"><td>O</td>
+<td>S</td>
+<td>RATE</td>
+<td>A</td>
+<td>U</td>
+<td>VT=RATES</td>
+<td>&nbsp;</td>
+<td>L8</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>P</td>
+<td>MA</td>
+<td>FREIGHTCODE</td>
+<td>LC</td>
+<td>U</td>
+<td><a class="reference external" href="../codes/S_freight.html#freight-list" title="(in WARES Codes v1.0)"><em>Freight Classifications</em></a></td>
+<td>&nbsp;</td>
+<td>L4</td>
+<td><a class="footnote-reference" href="#id29" id="id7">[2]</a></td>
+</tr>
+<tr class="row-odd"><td>P</td>
+<td>MA</td>
+<td>FREIGHTCLASS</td>
+<td>AN</td>
+<td>U</td>
+<td>paired: FREIGHTCODE</td>
+<td>&nbsp;</td>
+<td>L10</td>
+<td><a class="footnote-reference" href="#id29" id="id8">[2]</a></td>
+</tr>
+<tr class="row-even"><td>P</td>
+<td>SA</td>
+<td>VALUEPER</td>
+<td>LC</td>
+<td>U</td>
+<td><a class="reference external" href="../codes/S_per.html#per-list" title="(in WARES Codes v1.0)"><em>Rating and Valuation Per Unit</em></a></td>
+<td>&nbsp;</td>
+<td>L4</td>
+<td><a class="footnote-reference" href="#id29" id="id9">[2]</a></td>
+</tr>
+<tr class="row-odd"><td>P</td>
+<td>SA</td>
+<td>VALUE</td>
+<td>N.2</td>
+<td>&nbsp;</td>
+<td>paired: VALUEPER</td>
+<td>&nbsp;</td>
+<td>R8</td>
+<td><a class="footnote-reference" href="#id29" id="id10">[2]</a></td>
+</tr>
+<tr class="row-even"><td>P</td>
+<td>SA</td>
+<td>COSTPER</td>
+<td>LC</td>
+<td>U</td>
+<td><a class="reference external" href="../codes/S_per.html#per-list" title="(in WARES Codes v1.0)"><em>Rating and Valuation Per Unit</em></a></td>
+<td>&nbsp;</td>
+<td>L4</td>
+<td><a class="footnote-reference" href="#id29" id="id11">[2]</a></td>
+</tr>
+<tr class="row-odd"><td>P</td>
+<td>SA</td>
+<td>COST</td>
+<td>N.2</td>
+<td>&nbsp;</td>
+<td>paired: COSTPER</td>
+<td>&nbsp;</td>
+<td>R8</td>
+<td><a class="footnote-reference" href="#id29" id="id12">[2]</a></td>
+</tr>
 <tr class="row-even"><td>P</td>
 <td>MA</td>
 <td>GROUPCODE</td>
@@ -247,7 +315,7 @@
 <td><a class="reference external" href="../codes/S_group.html#group-list" title="(in WARES Codes v1.0)"><em>Product Grouping</em></a></td>
 <td>&nbsp;</td>
 <td>L4</td>
-<td><a class="footnote-reference" href="#id29" id="id7">[2]</a></td>
+<td><a class="footnote-reference" href="#id29" id="id13">[2]</a></td>
 </tr>
 <tr class="row-odd"><td>P</td>
 <td>MA</td>
@@ -257,7 +325,7 @@
 <td>paired: GROUPCODE</td>
 <td>&nbsp;</td>
 <td>L20</td>
-<td><a class="footnote-reference" href="#id29" id="id8">[2]</a></td>
+<td><a class="footnote-reference" href="#id29" id="id14">[2]</a></td>
 </tr>
 <tr class="row-even"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Dimension Entries</td>
 </tr>
@@ -269,7 +337,7 @@
 <td><a class="reference external" href="../codes/P_code-wtm.html#wtm-list" title="(in WARES Codes v1.0)"><em>Units of Weight</em></a></td>
 <td>LB</td>
 <td>L4</td>
-<td><a class="footnote-reference" href="#id28" id="id9">[1]</a></td>
+<td><a class="footnote-reference" href="#id28" id="id15">[1]</a></td>
 </tr>
 <tr class="row-even"><td>C</td>
 <td>S</td>
@@ -279,7 +347,7 @@
 <td><a class="reference external" href="../codes/P_code-dim.html#dim-list" title="(in WARES Codes v1.0)"><em>Units of Dimension</em></a></td>
 <td>CF</td>
 <td>L4</td>
-<td><a class="footnote-reference" href="#id28" id="id10">[1]</a></td>
+<td><a class="footnote-reference" href="#id28" id="id16">[1]</a></td>
 </tr>
 <tr class="row-odd"><td>O</td>
 <td>S</td>
@@ -289,7 +357,7 @@
 <td><a class="reference external" href="../codes/P_code-uom.html#uom-list" title="(in WARES Codes v1.0)"><em>Units of Measure</em></a></td>
 <td>EA</td>
 <td>L4</td>
-<td><a class="footnote-reference" href="#id30" id="id11">[3]</a></td>
+<td><a class="footnote-reference" href="#id30" id="id17">[3]</a></td>
 </tr>
 <tr class="row-even"><td>C</td>
 <td>S</td>
@@ -299,7 +367,7 @@
 <td>(MD0)</td>
 <td>&nbsp;</td>
 <td>R6</td>
-<td><a class="footnote-reference" href="#id30" id="id12">[3]</a></td>
+<td><a class="footnote-reference" href="#id30" id="id18">[3]</a></td>
 </tr>
 <tr class="row-odd"><td>O</td>
 <td>S</td>
@@ -329,7 +397,7 @@
 <td><a class="reference external" href="../codes/P_code-uom.html#uom-list" title="(in WARES Codes v1.0)"><em>Units of Measure</em></a></td>
 <td>CA</td>
 <td>L4</td>
-<td><a class="footnote-reference" href="#id28" id="id13">[1]</a></td>
+<td><a class="footnote-reference" href="#id28" id="id19">[1]</a></td>
 </tr>
 <tr class="row-even"><td>C</td>
 <td>S</td>
@@ -339,7 +407,7 @@
 <td>(MD0)</td>
 <td>&nbsp;</td>
 <td>R6</td>
-<td><a class="footnote-reference" href="#id28" id="id14">[1]</a></td>
+<td><a class="footnote-reference" href="#id28" id="id20">[1]</a></td>
 </tr>
 <tr class="row-odd"><td>C</td>
 <td>S</td>
@@ -349,7 +417,7 @@
 <td>(MD4)</td>
 <td>&nbsp;</td>
 <td>R6</td>
-<td><a class="footnote-reference" href="#id28" id="id15">[1]</a></td>
+<td><a class="footnote-reference" href="#id28" id="id21">[1]</a></td>
 </tr>
 <tr class="row-even"><td>O</td>
 <td>S</td>
@@ -369,7 +437,7 @@
 <td>(MD4)</td>
 <td>&nbsp;</td>
 <td>R6</td>
-<td><a class="footnote-reference" href="#id28" id="id16">[1]</a></td>
+<td><a class="footnote-reference" href="#id28" id="id22">[1]</a></td>
 </tr>
 <tr class="row-even"><td>O</td>
 <td>S</td>
@@ -419,7 +487,7 @@
 <td>(MD2)</td>
 <td>&nbsp;</td>
 <td>R8</td>
-<td><a class="footnote-reference" href="#id32" id="id17">[5]</a></td>
+<td><a class="footnote-reference" href="#id32" id="id23">[5]</a></td>
 </tr>
 <tr class="row-odd"><td>O</td>
 <td>S</td>
@@ -439,7 +507,7 @@
 <td>(MD4)</td>
 <td>&nbsp;</td>
 <td>R8</td>
-<td><a class="footnote-reference" href="#id32" id="id18">[5]</a></td>
+<td><a class="footnote-reference" href="#id32" id="id24">[5]</a></td>
 </tr>
 <tr class="row-odd"><td>O</td>
 <td>S</td>
@@ -493,83 +561,9 @@
 <td>L10</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Valuation Entries</td>
-</tr>
-<tr class="row-even"><td>O</td>
-<td>S</td>
-<td>RATE</td>
-<td>A</td>
-<td>U</td>
-<td>VT=RATES</td>
-<td>&nbsp;</td>
-<td>L8</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>P</td>
-<td>SA</td>
-<td>VALUEPER</td>
-<td>LC</td>
-<td>U</td>
-<td><a class="reference external" href="../codes/S_per.html#per-list" title="(in WARES Codes v1.0)"><em>Rating and Valuation Per Unit</em></a></td>
-<td>&nbsp;</td>
-<td>L4</td>
-<td><a class="footnote-reference" href="#id29" id="id19">[2]</a></td>
+<tr class="row-odd"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Notes and Messages Entries</td>
 </tr>
 <tr class="row-even"><td>P</td>
-<td>SA</td>
-<td>VALUE</td>
-<td>N.2</td>
-<td>&nbsp;</td>
-<td>paired: VALUEPER</td>
-<td>&nbsp;</td>
-<td>R8</td>
-<td><a class="footnote-reference" href="#id29" id="id20">[2]</a></td>
-</tr>
-<tr class="row-odd"><td>P</td>
-<td>SA</td>
-<td>COSTPER</td>
-<td>LC</td>
-<td>U</td>
-<td><a class="reference external" href="../codes/S_per.html#per-list" title="(in WARES Codes v1.0)"><em>Rating and Valuation Per Unit</em></a></td>
-<td>&nbsp;</td>
-<td>L4</td>
-<td><a class="footnote-reference" href="#id29" id="id21">[2]</a></td>
-</tr>
-<tr class="row-even"><td>P</td>
-<td>SA</td>
-<td>COST</td>
-<td>N.2</td>
-<td>&nbsp;</td>
-<td>paired: COSTPER</td>
-<td>&nbsp;</td>
-<td>R8</td>
-<td><a class="footnote-reference" href="#id29" id="id22">[2]</a></td>
-</tr>
-<tr class="row-odd"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Transportation Entries</td>
-</tr>
-<tr class="row-even"><td>P</td>
-<td>MA</td>
-<td>FREIGHTCODE</td>
-<td>LC</td>
-<td>U</td>
-<td><a class="reference external" href="../codes/S_freight.html#freight-list" title="(in WARES Codes v1.0)"><em>Freight Classifications</em></a></td>
-<td>&nbsp;</td>
-<td>L4</td>
-<td><a class="footnote-reference" href="#id29" id="id23">[2]</a></td>
-</tr>
-<tr class="row-odd"><td>P</td>
-<td>MA</td>
-<td>FREIGHTCLASS</td>
-<td>AN</td>
-<td>U</td>
-<td>paired: FREIGHTCODE</td>
-<td>&nbsp;</td>
-<td>L10</td>
-<td><a class="footnote-reference" href="#id29" id="id24">[2]</a></td>
-</tr>
-<tr class="row-even"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Notes and Messages Entries</td>
-</tr>
-<tr class="row-odd"><td>P</td>
 <td>MA</td>
 <td>NOTECODE</td>
 <td>LC</td>
@@ -579,7 +573,7 @@
 <td>L4</td>
 <td><a class="footnote-reference" href="#id29" id="id25">[2]</a></td>
 </tr>
-<tr class="row-even"><td>P</td>
+<tr class="row-odd"><td>P</td>
 <td>MA</td>
 <td>NOTE</td>
 <td>T</td>
@@ -589,7 +583,7 @@
 <td>L80</td>
 <td><a class="footnote-reference" href="#id29" id="id26">[2]</a></td>
 </tr>
-<tr class="row-odd"><td>CO</td>
+<tr class="row-even"><td>CO</td>
 <td>MA</td>
 <td>NOTEAPPLY</td>
 <td>LC</td>
@@ -604,20 +598,20 @@
 <table class="docutils footnote" frame="void" id="id28" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[1]</td><td><em>(<a class="fn-backref" href="#id3">1</a>, <a class="fn-backref" href="#id4">2</a>, <a class="fn-backref" href="#id9">3</a>, <a class="fn-backref" href="#id10">4</a>, <a class="fn-backref" href="#id13">5</a>, <a class="fn-backref" href="#id14">6</a>, <a class="fn-backref" href="#id15">7</a>, <a class="fn-backref" href="#id16">8</a>)</em> When hazardous is marked (X), entries are required for: SHIPPNGNAME,
+<tr><td class="label">[1]</td><td><em>(<a class="fn-backref" href="#id3">1</a>, <a class="fn-backref" href="#id4">2</a>, <a class="fn-backref" href="#id15">3</a>, <a class="fn-backref" href="#id16">4</a>, <a class="fn-backref" href="#id19">5</a>, <a class="fn-backref" href="#id20">6</a>, <a class="fn-backref" href="#id21">7</a>, <a class="fn-backref" href="#id22">8</a>)</em> When hazardous is marked (X), entries are required for: SHIPPNGNAME,
 WEIGHTUOM, DIMUOM, CONTENTUOM, CONTENTCOUNT, CONTENTNET, and CONTENTSIZE.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="id29" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[2]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id2">2</a>, <a class="fn-backref" href="#id7">3</a>, <a class="fn-backref" href="#id8">4</a>, <a class="fn-backref" href="#id19">5</a>, <a class="fn-backref" href="#id20">6</a>, <a class="fn-backref" href="#id21">7</a>, <a class="fn-backref" href="#id22">8</a>, <a class="fn-backref" href="#id23">9</a>, <a class="fn-backref" href="#id24">10</a>, <a class="fn-backref" href="#id25">11</a>, <a class="fn-backref" href="#id26">12</a>, <a class="fn-backref" href="#id27">13</a>)</em> Paired entries are required when the corresponding codes are entered.</td></tr>
+<tr><td class="label">[2]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id2">2</a>, <a class="fn-backref" href="#id7">3</a>, <a class="fn-backref" href="#id8">4</a>, <a class="fn-backref" href="#id9">5</a>, <a class="fn-backref" href="#id10">6</a>, <a class="fn-backref" href="#id11">7</a>, <a class="fn-backref" href="#id12">8</a>, <a class="fn-backref" href="#id13">9</a>, <a class="fn-backref" href="#id14">10</a>, <a class="fn-backref" href="#id25">11</a>, <a class="fn-backref" href="#id26">12</a>, <a class="fn-backref" href="#id27">13</a>)</em> Paired entries are required when the corresponding codes are entered.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="id30" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[3]</td><td><em>(<a class="fn-backref" href="#id11">1</a>, <a class="fn-backref" href="#id12">2</a>)</em> When a UOM is specified for inners or content, then a corresponding COUNT
+<tr><td class="label">[3]</td><td><em>(<a class="fn-backref" href="#id17">1</a>, <a class="fn-backref" href="#id18">2</a>)</em> When a UOM is specified for inners or content, then a corresponding COUNT
 is required, and INNERCOUNT must be greater than 1.</td></tr>
 </tbody>
 </table>
@@ -632,7 +626,7 @@ is required, and INNERCOUNT must be greater than 1.</td></tr>
 <table class="docutils footnote" frame="void" id="id32" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[5]</td><td><em>(<a class="fn-backref" href="#id17">1</a>, <a class="fn-backref" href="#id18">2</a>)</em> Entries for CONTENTNET, CONTENTTARE, and CONTENTSIZE set default values:
+<tr><td class="label">[5]</td><td><em>(<a class="fn-backref" href="#id23">1</a>, <a class="fn-backref" href="#id24">2</a>)</em> Entries for CONTENTNET, CONTENTTARE, and CONTENTSIZE set default values:
 * UNITNET = CONTENTCOUNT * ( CONTENTNET + CONTENTTARE ) and
 * UNITSIZE = CONTENTCOUNT * CONTENTSIZE.</td></tr>
 </tbody>
@@ -746,12 +740,12 @@ DATES, LIFE, REPACK, PICK_MIN and PICK_QTY, ORDER_MIN and ORDER_QTY.</p>
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="03_setup.html" title="Entering and Viewing Products"
+          <a href="03_json-lot-details.html" title="JSON DOSWARES Export DETAILS"
              >next</a></li>
         <li class="right" >
-          <a href="01_inventory.html" title="Inventory Concepts"
+          <a href="01_account.html" title="&lt;no title&gt;"
              >previous</a> |</li>
-        <li><a href="index.html">WARES Inventory 1.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">WARES Resources 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

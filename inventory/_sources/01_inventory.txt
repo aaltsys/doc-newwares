@@ -52,7 +52,7 @@ For further reference, see this Table of Industry Standard
 
 As stated previously, inventory is measured or counted in units which build up 
 from smallest shippable quantity to largest handling unit. The master product 
-record entry relates the standard set of units and weights for a product as 
+record entry generates default values for content and unit weights and sizes as 
 follows:
 
 +---------+-------+-------+-------------------------------+--------+---------------------+

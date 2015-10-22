@@ -1,3 +1,6 @@
 .. _loc-transactions:
 
-.. include:: ../inventory/05_lines.rst
+Locator Transactions
+=============================
+
+.. include:: ../resources/05_lot-lines.rst

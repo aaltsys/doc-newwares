@@ -45,8 +45,17 @@
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Inventory Documents</a><ul>
+<li><a class="reference internal" href="#document-heading">Document Heading</a></li>
+<li><a class="reference internal" href="#document-identification">Document Identification</a></li>
+<li><a class="reference internal" href="#document-addresses">Document Addresses</a></li>
+<li><a class="reference internal" href="#document-transportation">Document Transportation</a></li>
+<li><a class="reference internal" href="#qualifiers-and-quantities">Qualifiers and Quantities</a></li>
+<li><a class="reference internal" href="#notes-and-messages">Notes and Messages</a></li>
+<li><a class="reference internal" href="#data-validation-rules">Data Validation Rules</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id12">Inventory Documents</a><ul>
 <li><a class="reference internal" href="#header-columns">Header Columns</a></li>
-<li><a class="reference internal" href="#header-views">Header Views</a></li>
 </ul>
 </li>
 </ul>
@@ -96,20 +105,314 @@ listed in <a class="reference external" href="../codes/S_document.html#document-
 documents share a common data definition, although documents present information
 in views according to their purpose. Each document has a header section, and
 repeating transaction line detail.</p>
+<div class="section" id="document-heading">
+<h2>Document Heading<a class="headerlink" href="#document-heading" title="Permalink to this headline">¶</a></h2>
+<p>Data entries in the document head occur once per transaction. Some entries may
+contain multiple values.</p>
+</div>
+<div class="section" id="document-identification">
+<span id="dochead"></span><h2>Document Identification<a class="headerlink" href="#document-identification" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="sidebar">
+<p class="first sidebar-title">Document Identification</p>
+<p class="last">Documents are identified by their unique sequence number, and by associated
+reference numbers for sales orders, purchase orders, PRO numbers, and other
+coded document identifiers.</p>
+</div>
+<img alt="_images/document-1ident.png" src="_images/document-1ident.png" />
+<ul class="simple">
+<li><strong>Sequence Number</strong></li>
+<li><strong>Posting Status</strong></li>
+<li><strong>Posting Datetime</strong></li>
+<li><strong>Qualifiers</strong> and <strong>Reference Numbers</strong></li>
+<li><strong>Freight Payment</strong> is included in the identifier section due to dependencies
+which follow.</li>
+</ul>
+</div>
+<div class="section" id="document-addresses">
+<h2>Document Addresses<a class="headerlink" href="#document-addresses" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="sidebar">
+<p class="first sidebar-title">Document Addresses</p>
+<p class="last">Documents for carriage in private warehouses require three addresses, but for
+third-party warehousing four addresses may be required. A standard Bill of
+Lading for a third-party warehouse would show addresses for: Ship To, Ship
+From, For Account of, and Send Freight Bill To.</p>
+</div>
+<img alt="_images/document-2address.png" src="_images/document-2address.png" />
+</div>
+<div class="section" id="document-transportation">
+<h2>Document Transportation<a class="headerlink" href="#document-transportation" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="sidebar">
+<p class="first sidebar-title">Transportation Entries</p>
+<p class="last">Use the Transportation section to enter the carrier of record, vehicle
+numbers, the transport PRO number, seal numbers, and other information as
+needed to back-trace a shipment in case a problem is discovered.</p>
+</div>
+<img alt="_images/document-3transport.png" src="_images/document-3transport.png" />
+<img alt="_images/document-3transport-b.png" src="_images/document-3transport-b.png" />
+</div>
+<div class="section" id="qualifiers-and-quantities">
+<h2>Qualifiers and Quantities<a class="headerlink" href="#qualifiers-and-quantities" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="sidebar">
+<p class="first sidebar-title">Quantitative Values</p>
+<p class="last">Quantitative values may be entered to document ...</p>
+</div>
+<img alt="_images/document-4values.png" src="_images/document-4values.png" />
+</div>
+<div class="section" id="notes-and-messages">
+<h2>Notes and Messages<a class="headerlink" href="#notes-and-messages" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="sidebar">
+<p class="first sidebar-title">Document Messages</p>
+<p class="last">Notes allow product information which is intended for clerical use, warehouse
+laborers, transportation, or recipient consumption to be recorded and then
+displayed on appropriate documents or other venues.</p>
+</div>
+<img alt="_images/document-5notes.png" src="_images/document-5notes.png" />
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The entirety of <strong>QUANTITATIVE VALUES</strong> and <strong>NOTES AND MESSAGES</strong> are part
+of advanced mode.</p>
+</div>
+</div>
+<div class="section" id="data-validation-rules">
+<h2>Data Validation Rules<a class="headerlink" href="#data-validation-rules" title="Permalink to this headline">¶</a></h2>
+<p>Specific entry requirements and data usage is provided in the following table
+and in associated notes.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="18%" />
+<col width="0%" />
+<col width="17%" />
+<col width="18%" />
+<col width="7%" />
+<col width="8%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Entry Name</th>
+<th class="head">Receiving</th>
+<th class="head" colspan="2">Shipping</th>
+<th class="head">Adjusting</th>
+<th class="head">M/S</th>
+<th class="head">Note</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Sequence Number</td>
+<td>Mandatory</td>
+<td colspan="2">Mandatory</td>
+<td>Mandatory</td>
+<td>S</td>
+<td><a class="footnote-reference" href="#id8" id="id1">[1]</a></td>
+</tr>
+<tr class="row-odd"><td>Posting Status</td>
+<td>Mandatory</td>
+<td colspan="2">Mandatory</td>
+<td>Mandatory</td>
+<td>S</td>
+<td><a class="footnote-reference" href="#id9" id="id2">[2]</a></td>
+</tr>
+<tr class="row-even"><td>Posting DateTime</td>
+<td>Mandatory</td>
+<td colspan="2">Mandatory</td>
+<td>Mandatory</td>
+<td>S</td>
+<td><a class="footnote-reference" href="#id9" id="id3">[2]</a></td>
+</tr>
+<tr class="row-odd"><td>Qualifier/ Reference</td>
+<td colspan="3">Optional    | Optional</td>
+<td>Optional</td>
+<td>M</td>
+<td><a class="footnote-reference" href="#id10" id="id4">[3]</a></td>
+</tr>
+<tr class="row-even"><td>Freight Payment</td>
+<td colspan="3">Not Used    | Mandatory</td>
+<td>Not Used</td>
+<td>S</td>
+<td><a class="footnote-reference" href="#id11" id="id5">[4]</a></td>
+</tr>
+<tr class="row-odd"><td>Account</td>
+<td>Mandatory</td>
+<td colspan="2">Mandatory</td>
+<td>Mandatory</td>
+<td>S</td>
+<td><a class="footnote-reference" href="#id10" id="id6">[3]</a></td>
+</tr>
+<tr class="row-even"><td>Warehouse Building</td>
+<td>Mandatory</td>
+<td colspan="2">Mandatory</td>
+<td>Mandatory</td>
+<td>S</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Ship From / To</td>
+<td>Mandatory</td>
+<td colspan="2">Mandatory</td>
+<td>Not Used</td>
+<td>S</td>
+<td><a class="footnote-reference" href="#id11" id="id7">[4]</a></td>
+</tr>
+<tr class="row-even"><td>Freight Billing</td>
+<td>Not Used</td>
+<td colspan="2">Conditional</td>
+<td>Not Used</td>
+<td>S</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Carrier SCAC</td>
+<td>Mandatory</td>
+<td colspan="2">Mandatory</td>
+<td>Not Used</td>
+<td>S</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Route</td>
+<td>Not Used</td>
+<td colspan="2">Optional</td>
+<td>Not Used</td>
+<td>S</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Contact</td>
+<td>Optional</td>
+<td colspan="2">Optional</td>
+<td>Not Used</td>
+<td>S</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Qualifier / Vehicle</td>
+<td>Optional</td>
+<td colspan="2">Optional</td>
+<td>Not Used</td>
+<td>M</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Transport Mode</td>
+<td>Optional</td>
+<td colspan="2">Optional</td>
+<td>Not Used</td>
+<td>S</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Loading Option</td>
+<td>Optional</td>
+<td colspan="2">Optional</td>
+<td>Not Used</td>
+<td>S</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Codes / Datetimes</td>
+<td>Optional</td>
+<td colspan="2">Optional</td>
+<td>Not Used</td>
+<td>M</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Codes / Temperatures</td>
+<td>Optional</td>
+<td colspan="2">Optional</td>
+<td>Not Used</td>
+<td>M</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Codes / Quantities</td>
+<td>Optional</td>
+<td colspan="2">Optional</td>
+<td>Not Used</td>
+<td>M</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Code/ Note / Apply</td>
+<td>Optional</td>
+<td colspan="2">Optional</td>
+<td>Optional</td>
+<td>M</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id8" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>When saving a new document, a key <strong>sequence number</strong> is assigned based
+on the document type: Receipt, Shipment, or Adjustment. The document
+type is set by the corresponding page where the document is entered.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id9" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[2]</td><td><em>(<a class="fn-backref" href="#id2">1</a>, <a class="fn-backref" href="#id3">2</a>)</em> When <strong>Datetime</strong> is in the future, the posting status changes to a
+maximum of 2 (inbound/allocated). If any transaction lines are incomplete
+when a document is saved, the status will move to 1 (expected/reserved).</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id10" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[3]</td><td><em>(<a class="fn-backref" href="#id4">1</a>, <a class="fn-backref" href="#id6">2</a>)</em> <p>When saving, documents are checked for a duplicate combination of:
+<strong>Account</strong>, <strong>Ship To/From</strong>, and <strong>Reference</strong>. The status will change
+to 0 (unposted) on duplicated documents.</p>
+<p class="last">When line detail exists on a document, the <strong>Account</strong> value cannot be
+changed. Only products matching the document <strong>Account</strong> may be used on
+a shipment or a receipt. Adjustments allow products with mixed accounts
+when entering an ownership transfer.</p>
+</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id11" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[4]</td><td><em>(<a class="fn-backref" href="#id5">1</a>, <a class="fn-backref" href="#id7">2</a>)</em> <strong>Address Code</strong> defaults are determined by document type: SF for
+receipts and ST for shipments. On shipments, a Third-Party value for
+<strong>Freight Payment</strong> requires an address code of type PF for
+<strong>Freight Billing</strong>. Otherwise, the Freight Billing address is filled
+with the Account&#8217;s freight billing address for Prepaid shipments, or
+with the Consignee (Ship To) address for Collect.</td></tr>
+</tbody>
+</table>
+<p>The Resources listing for the Documents table database schema is listed
+following.</p>
+</div>
+</div>
+<div class="section" id="id12">
+<h1>Inventory Documents<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h1>
+<p>Standard warehousing business documents record, maintain, and communicate
+inventory data in WARES. These documents also form the basis of data exchange
+with business trading partners, either through EDI, via direct exchange of JSON
+data, or using custom data import routines. EDI titles and document codes are
+listed in <a class="reference external" href="../codes/S_document.html#document-list" title="(in WARES Codes v1.0)"><em>Document Type Codes</em></a>.</p>
+<p>WARES stores all documents in a single database table. This means that all
+documents share a common data definition, although documents present information
+in views according to their purpose. Each document has a header section, and
+repeating transaction line detail.</p>
 <div class="section" id="header-columns">
-<span id="dochead"></span><h2>Header Columns<a class="headerlink" href="#header-columns" title="Permalink to this headline">¶</a></h2>
+<h2>Header Columns<a class="headerlink" href="#header-columns" title="Permalink to this headline">¶</a></h2>
 <p>Data entries in the document head occur once per transaction. Some entries may
 contain multiple values. Columns are defined in the table following.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="4%" />
 <col width="4%" />
-<col width="22%" />
+<col width="24%" />
 <col width="7%" />
 <col width="4%" />
-<col width="33%" />
-<col width="11%" />
-<col width="7%" />
+<col width="36%" />
+<col width="12%" />
 <col width="7%" />
 </colgroup>
 <thead valign="bottom">
@@ -121,11 +424,10 @@ contain multiple values. Columns are defined in the table following.</p>
 <th class="head">VALIDATE</th>
 <th class="head">DEFAULT</th>
 <th class="head">JUST</th>
-<th class="head">NOTE</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Keys</td>
+<tr class="row-even"><td colspan="8">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Keys</td>
 </tr>
 <tr class="row-odd"><td>M</td>
 <td>S</td>
@@ -135,7 +437,6 @@ contain multiple values. Columns are defined in the table following.</p>
 <td><a class="reference external" href="../codes/S_document.html#document-list" title="(in WARES Codes v1.0)"><em>Document Type Codes</em></a></td>
 <td>&nbsp;</td>
 <td>L4</td>
-<td><a class="footnote-reference" href="#id7" id="id1">[1]</a></td>
 </tr>
 <tr class="row-even"><td>M</td>
 <td>S</td>
@@ -145,7 +446,6 @@ contain multiple values. Columns are defined in the table following.</p>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>L12</td>
-<td><a class="footnote-reference" href="#id8" id="id2">[2]</a></td>
 </tr>
 <tr class="row-odd"><td>M</td>
 <td>S</td>
@@ -153,11 +453,10 @@ contain multiple values. Columns are defined in the table following.</p>
 <td>S</td>
 <td>U</td>
 <td>&nbsp;</td>
-<td><a class="footnote-reference" href="#id7" id="id3">[1]</a></td>
+<td>&nbsp;</td>
 <td>L4</td>
-<td><a class="footnote-reference" href="#id8" id="id4">[2]</a></td>
 </tr>
-<tr class="row-even"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Posting &amp; Reference</td>
+<tr class="row-even"><td colspan="8">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Posting &amp; Reference</td>
 </tr>
 <tr class="row-odd"><td>M</td>
 <td>S</td>
@@ -167,7 +466,6 @@ contain multiple values. Columns are defined in the table following.</p>
 <td><a class="reference external" href="../codes/D_status.html#status-list" title="(in WARES Codes v1.0)"><em>Document Status Codes</em></a></td>
 <td>&nbsp;</td>
 <td>L2</td>
-<td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>M</td>
 <td>S</td>
@@ -177,7 +475,6 @@ contain multiple values. Columns are defined in the table following.</p>
 <td>&nbsp;</td>
 <td>TODAY</td>
 <td>R10</td>
-<td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>M</td>
 <td>S</td>
@@ -187,7 +484,6 @@ contain multiple values. Columns are defined in the table following.</p>
 <td>VT=ACCOUNTS</td>
 <td>&nbsp;</td>
 <td>L12</td>
-<td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>O</td>
 <td>S</td>
@@ -197,7 +493,6 @@ contain multiple values. Columns are defined in the table following.</p>
 <td>VT=CONTACTS*B</td>
 <td>&nbsp;</td>
 <td>L4</td>
-<td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>P</td>
 <td>AM</td>
@@ -207,7 +502,6 @@ contain multiple values. Columns are defined in the table following.</p>
 <td><a class="reference external" href="../codes/D_reference.html#reference-list" title="(in WARES Codes v1.0)"><em>Document Reference Codes</em></a></td>
 <td>&nbsp;</td>
 <td>L4</td>
-<td><a class="footnote-reference" href="#id9" id="id5">[3]</a></td>
 </tr>
 <tr class="row-even"><td>P</td>
 <td>AM</td>
@@ -217,9 +511,8 @@ contain multiple values. Columns are defined in the table following.</p>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>L20</td>
-<td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Transportation</td>
+<tr class="row-odd"><td colspan="8">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Transportation</td>
 </tr>
 <tr class="row-even"><td>P</td>
 <td>AM</td>
@@ -229,7 +522,6 @@ contain multiple values. Columns are defined in the table following.</p>
 <td><a class="reference external" href="../codes/S_contact.html#contact-list" title="(in WARES Codes v1.0)"><em>Contacts type Codes</em></a></td>
 <td>ST,SF</td>
 <td>L4</td>
-<td><a class="footnote-reference" href="#id10" id="id6">[4]</a></td>
 </tr>
 <tr class="row-odd"><td>P</td>
 <td>AM</td>
@@ -239,7 +531,6 @@ contain multiple values. Columns are defined in the table following.</p>
 <td>VT=CONTACTS*ST,SF,PF</td>
 <td>&nbsp;</td>
 <td>L12</td>
-<td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>O</td>
 <td>S</td>
@@ -249,7 +540,6 @@ contain multiple values. Columns are defined in the table following.</p>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>L20</td>
-<td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>O</td>
 <td>S</td>
@@ -259,7 +549,6 @@ contain multiple values. Columns are defined in the table following.</p>
 <td>VT=CONTACTS*CA</td>
 <td>&nbsp;</td>
 <td>L8</td>
-<td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>O</td>
 <td>S</td>
@@ -269,7 +558,6 @@ contain multiple values. Columns are defined in the table following.</p>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>T30</td>
-<td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>O</td>
 <td>S</td>
@@ -279,7 +567,6 @@ contain multiple values. Columns are defined in the table following.</p>
 <td><a class="reference external" href="../codes/D_freightpay.html#freightpay-list" title="(in WARES Codes v1.0)"><em>Freight Payor Codes</em></a></td>
 <td>PP</td>
 <td>L4</td>
-<td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>O</td>
 <td>S</td>
@@ -289,7 +576,6 @@ contain multiple values. Columns are defined in the table following.</p>
 <td><a class="reference external" href="../codes/D_transport.html#transport-list" title="(in WARES Codes v1.0)"><em>Transportation Methods</em></a></td>
 <td>M</td>
 <td>L4</td>
-<td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>O</td>
 <td>S</td>
@@ -299,7 +585,6 @@ contain multiple values. Columns are defined in the table following.</p>
 <td><a class="reference external" href="../codes/D_loading.html#loading-list" title="(in WARES Codes v1.0)"><em>Loading Option Codes</em></a></td>
 <td>01</td>
 <td>L4</td>
-<td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>P</td>
 <td>AM</td>
@@ -309,7 +594,6 @@ contain multiple values. Columns are defined in the table following.</p>
 <td><a class="reference external" href="../codes/D_vehicle.html#vehicle-list" title="(in WARES Codes v1.0)"><em>Vehicle Equipment Codes</em></a></td>
 <td>&nbsp;</td>
 <td>L4</td>
-<td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>P</td>
 <td>AM</td>
@@ -319,9 +603,8 @@ contain multiple values. Columns are defined in the table following.</p>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>T20</td>
-<td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Qualitative Values</td>
+<tr class="row-even"><td colspan="8">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Qualitative Values</td>
 </tr>
 <tr class="row-odd"><td>P</td>
 <td>AM</td>
@@ -331,7 +614,6 @@ contain multiple values. Columns are defined in the table following.</p>
 <td><a class="reference external" href="../codes/D_date.html#date-list" title="(in WARES Codes v1.0)"><em>Date/Time Qualifier Codes</em></a></td>
 <td>&nbsp;</td>
 <td>L4</td>
-<td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>P</td>
 <td>AM</td>
@@ -341,7 +623,6 @@ contain multiple values. Columns are defined in the table following.</p>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>R20</td>
-<td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>P</td>
 <td>AM</td>
@@ -351,7 +632,6 @@ contain multiple values. Columns are defined in the table following.</p>
 <td><a class="reference external" href="../codes/D_temperature.html#temperature-list" title="(in WARES Codes v1.0)"><em>Temperature Codes</em></a></td>
 <td>&nbsp;</td>
 <td>L4</td>
-<td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>P</td>
 <td>AM</td>
@@ -361,7 +641,6 @@ contain multiple values. Columns are defined in the table following.</p>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>R6</td>
-<td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>P</td>
 <td>AM</td>
@@ -371,7 +650,6 @@ contain multiple values. Columns are defined in the table following.</p>
 <td><a class="reference external" href="../codes/D_quantity.html#quantity-list" title="(in WARES Codes v1.0)"><em>Quantity Codes</em></a></td>
 <td>&nbsp;</td>
 <td>L4</td>
-<td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>P</td>
 <td>AM</td>
@@ -381,9 +659,8 @@ contain multiple values. Columns are defined in the table following.</p>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>R12</td>
-<td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Notes and Messages</td>
+<tr class="row-odd"><td colspan="8">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Notes and Messages</td>
 </tr>
 <tr class="row-even"><td>P</td>
 <td>AM</td>
@@ -393,7 +670,6 @@ contain multiple values. Columns are defined in the table following.</p>
 <td><a class="reference external" href="../codes/S_note.html#note-list" title="(in WARES Codes v1.0)"><em>Note &amp; Message Codes</em></a></td>
 <td>&nbsp;</td>
 <td>L4</td>
-<td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>P</td>
 <td>AM</td>
@@ -403,7 +679,6 @@ contain multiple values. Columns are defined in the table following.</p>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>T40</td>
-<td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>P</td>
 <td>AM</td>
@@ -413,34 +688,7 @@ contain multiple values. Columns are defined in the table following.</p>
 <td><a class="reference external" href="../codes/S_document.html#document-list" title="(in WARES Codes v1.0)"><em>Document Type Codes</em></a></td>
 <td>&nbsp;</td>
 <td>L4</td>
-<td>&nbsp;</td>
 </tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id7" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[1]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id3">2</a>)</em> Document types are automatically selected according to the page where the
-document is entered: Receipts, Shipments, Adjustments, ....</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id8" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[2]</td><td><em>(<a class="fn-backref" href="#id2">1</a>, <a class="fn-backref" href="#id4">2</a>)</em> Sequence Keys and revision sequence counters are applied to documents of
-each type as described in the previous note.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id9" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id5">[3]</a></td><td>Documents are checked for uniqueness of: ACCOUNT, ADDRESS, and REFERENCE.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id10" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id6">[4]</a></td><td>ADDRESSCODE defaults are determined by document type.</td></tr>
 </tbody>
 </table>
 <p><strong>LEGEND:</strong></p>
@@ -515,11 +763,6 @@ linked code option list.</li>
 paired entry or code is specified.</li>
 </ol>
 </div>
-</div>
-<div class="section" id="header-views">
-<h2>Header Views<a class="headerlink" href="#header-views" title="Permalink to this headline">¶</a></h2>
-<p>A generic view of document heading entries follows.</p>
-<img alt="_images/documents.png" src="_images/documents.png" />
 </div>
 </div>
 
