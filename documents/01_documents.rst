@@ -49,7 +49,9 @@ Document Addresses
 .. sidebar:: Document Addresses
 
    Documents for carriage in private warehouses require three addresses, but for 
-   third-party warehousing four addresses are required.
+   third-party warehousing four addresses may be required. A standard Bill of 
+   Lading for a third-party warehouse would show addresses for: Ship To, Ship 
+   From, For Account of, and Send Freight Bill To.
 
 .. image:: _images/document-2address.png
 
@@ -58,6 +60,10 @@ Document Transportation
 |
 
 .. sidebar:: Transportation Entries
+
+   Use the Transportation section to enter the carrier of record, vehicle 
+   numbers, the transport PRO number, seal numbers, and other information as 
+   needed to back-trace a shipment in case a problem is discovered.
 
 .. image:: _images/document-3transport.png
 
@@ -93,7 +99,8 @@ Notes and Messages
 Data Validation Rules
 =============================
 
-
+Specific entry requirements and data usage is provided in the following table 
+and in associated notes.
 
 +-----------------------+-------------+-------------+-------------+-----+------+
 | Entry Name            | Receiving   | Shipping    | Adjusting   | M/S | Note |
