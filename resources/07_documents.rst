@@ -1,5 +1,3 @@
-.. _documents:
-
 #############################
 Inventory Documents
 #############################
@@ -14,8 +12,6 @@ WARES stores all documents in a single database table. This means that all
 documents share a common data definition, although documents present information 
 in views according to their purpose. Each document has a header section, and
 repeating transaction line detail. 
-
-.. _dochead:
 
 Header Columns
 =============================
