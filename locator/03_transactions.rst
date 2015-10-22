@@ -3,4 +3,4 @@
 Locator Transactions
 =============================
 
-.. include:: ../inventory/05_lines.rst
+.. include:: ../resources/05_lot-lines.rst
