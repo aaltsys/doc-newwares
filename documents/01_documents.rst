@@ -21,7 +21,6 @@ Document Heading
 Data entries in the document head occur once per transaction. Some entries may
 contain multiple values. 
 
-
 .. _dochead:
 
 Document Identification
@@ -91,6 +90,11 @@ Notes and Messages
    The entirety of **QUANTITATIVE VALUES** and **NOTES AND MESSAGES** are part
    of advanced mode.
 
+Data Validation Rules
+=============================
+
+
+
 +-----------------------+-------------+-------------+-------------+-----+------+
 | Entry Name            | Receiving   | Shipping    | Adjusting   | M/S | Note |
 +=======================+=============+=============+=============+=====+======+
@@ -98,13 +102,13 @@ Notes and Messages
 +-----------------------+-------------+-------------+-------------+-----+------+
 | Posting Status        | Mandatory   | Mandatory   | Mandatory   |  S  | [2]_ |
 +-----------------------+-------------+-------------+-------------+-----+------+
-| Posting DateTime      | Mandatory   | Mandatory   | Mandatory   |  S  | [3]_ |
+| Posting DateTime      | Mandatory   | Mandatory   | Mandatory   |  S  | [2]_ |
 +-----------------------+-------------+-------------+-------------+-----+------+
-| Qualifier/ Reference  | Optional    | Optional    | Optional    |  M  | [4]_ |
+| Qualifier/ Reference  | Optional    | Optional    | Optional    |  M  | [3]_ |
 +-----------------------+--------------+------------+-------------+-----+------+
-| Freight Payment       | Not Used    | Mandatory   | Not Used    |  S  |      |
+| Freight Payment       | Not Used    | Mandatory   | Not Used    |  S  | [4]_ |
 +-----------------------+-------------+-------------+-------------+-----+------+
-| Account               | Mandatory   | Mandatory   | Mandatory   |  S  | [4]_ |
+| Account               | Mandatory   | Mandatory   | Mandatory   |  S  | [3]_ |
 +-----------------------+-------------+-------------+-------------+-----+------+
 | Warehouse Building    | Mandatory   | Mandatory   | Mandatory   |  S  |      |
 +-----------------------+-------------+-------------+-------------+-----+------+
@@ -133,12 +137,28 @@ Notes and Messages
 | Code/ Note / Apply    | Optional    | Optional    | Optional    |  M  |      |
 +-----------------------+-------------+-------------+-------------+-----+------+
 
------
+.. [1] When saving a new document, a key **sequence number** is assigned based
+       on the document type: Receipt, Shipment, or Adjustment. The document 
+       type is set by the corresponding page where the document is entered.
+.. [2] When **Datetime** is in the future, the posting status changes to a
+       maximum of 2 (inbound/allocated). If any transaction lines are incomplete 
+       when a document is saved, the status will move to 1 (expected/reserved).
+.. [3] When saving, documents are checked for a duplicate combination of: 
+       **Account**, **Ship To/From**, and **Reference**. The status will change
+       to 0 (unposted) on duplicated documents. 
+       
+       When line detail exists on a document, the **Account** value cannot be 
+       changed. Only products matching the document **Account** may be used on 
+       a shipment or a receipt. Adjustments allow products with mixed accounts
+       when entering an ownership transfer.
+.. [4] **Address Code** defaults are determined by document type: SF for 
+       receipts and ST for shipments. On shipments, a Third-Party value for 
+       **Freight Payment** requires an address code of type PF for 
+       **Freight Billing**. Otherwise, the Freight Billing address is filled 
+       with the Account's freight billing address for Prepaid shipments, or 
+       with the Consignee (Ship To) address for Collect.
 
-.. [1] Document types are automatically selected according to the page where the 
-       document is entered: Receipts, Shipments, Adjustments, ....
-.. [2] Sequence Keys and revision sequence counters are applied to documents of
-       each type as described in the previous note.
-.. [3] Documents are checked for uniqueness of: ACCOUNT, ADDRESS, and REFERENCE.
-.. [4] ADDRESSCODE defaults are determined by document type.
+The Resources listing for the Documents table database schema is listed 
+following.
 
+.. include:: ../resources/07_documents.rst
