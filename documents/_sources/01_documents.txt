@@ -165,7 +165,5 @@ and in associated notes.
        with the Account's freight billing address for Prepaid shipments, or 
        with the Consignee (Ship To) address for Collect.
 
-The Resources listing for the Documents table database schema is listed 
-following.
-
-.. include:: ../resources/07_documents.rst
+The Resources listing for the Documents table database schema is found at 
+:ref:`document-head`.

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Inventory Documents &mdash; WARES Resources 1.0 documentation</title>
+    <title>Inventory Document Head &mdash; WARES Resources 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -40,7 +40,7 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Inventory Documents</a><ul>
+<li><a class="reference internal" href="#">Inventory Document Head</a><ul>
 <li><a class="reference internal" href="#header-columns">Header Columns</a></li>
 </ul>
 </li>
@@ -77,17 +77,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="inventory-documents">
-<h1>Inventory Documents<a class="headerlink" href="#inventory-documents" title="Permalink to this headline">¶</a></h1>
-<p>Standard warehousing business documents record, maintain, and communicate
-inventory data in WARES. These documents also form the basis of data exchange
-with business trading partners, either through EDI, via direct exchange of JSON
-data, or using custom data import routines. EDI titles and document codes are
-listed in <a class="reference external" href="../codes/S_document.html#document-list" title="(in WARES Codes v1.0)"><em>Document Type Codes</em></a>.</p>
-<p>WARES stores all documents in a single database table. This means that all
-documents share a common data definition, although documents present information
-in views according to their purpose. Each document has a header section, and
-repeating transaction line detail.</p>
+  <div class="section" id="inventory-document-head">
+<span id="document-head"></span><h1>Inventory Document Head<a class="headerlink" href="#inventory-document-head" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="header-columns">
 <h2>Header Columns<a class="headerlink" href="#header-columns" title="Permalink to this headline">¶</a></h2>
 <p>Data entries in the document head occur once per transaction. Some entries may

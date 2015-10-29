@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Transaction Lines Detail &mdash; WARES Documents 1.0 documentation</title>
+    <title>Document Lines Detail &mdash; WARES Documents 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -44,9 +44,14 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Transaction Lines Detail</a></li>
-<li><a class="reference internal" href="#document-transaction-lines">Document Transaction Lines</a><ul>
-<li><a class="reference internal" href="#lot-and-unit-transactions">Lot and  Unit Transactions</a></li>
+<li><a class="reference internal" href="#">Document Lines Detail</a><ul>
+<li><a class="reference internal" href="#unit-weights-and-measures">Unit Weights and Measures</a></li>
+<li><a class="reference internal" href="#partial-and-mixed-pallets">Partial and Mixed Pallets</a></li>
+<li><a class="reference internal" href="#unit-tracking">Unit Tracking</a></li>
+<li><a class="reference internal" href="#bulk-versus-unit-entry">Bulk Versus Unit Entry</a></li>
+<li><a class="reference internal" href="#using-line-detail-entries">Using Line Detail Entries</a></li>
+<li><a class="reference internal" href="#line-data-not-displayed">Line Data not Displayed</a></li>
+<li><a class="reference internal" href="#document-lines-column-data">Document Lines Column Data</a></li>
 </ul>
 </li>
 </ul>
@@ -85,498 +90,206 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="transaction-lines-detail">
-<span id="transactions"></span><h1>Transaction Lines Detail<a class="headerlink" href="#transaction-lines-detail" title="Permalink to this headline">¶</a></h1>
-<p>Transaction lines provide the basis for inventory control and location tracking.
-These lines contain identifying, control, quantitative, and descriptive
-information for each product, lot, and (optionally) storage unit in a facility.</p>
-</div>
-<div class="section" id="document-transaction-lines">
-<h1>Document Transaction Lines<a class="headerlink" href="#document-transaction-lines" title="Permalink to this headline">¶</a></h1>
-<p>Inventory balances are maintained by product, lot, and unit. When goods are
-expected to be received or are ordered in advance, lot and unit information is
-not available and only product reserved quantities may be updated. When goods
-are inbound and received, or picked and shipped, then unit and lot transaction
-information may be included depending on product tracking requirements.</p>
-<div class="section" id="lot-and-unit-transactions">
-<span id="trlines"></span><h2>Lot and  Unit Transactions<a class="headerlink" href="#lot-and-unit-transactions" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="docutils">
-<colgroup>
-<col width="4%" />
-<col width="4%" />
-<col width="23%" />
-<col width="7%" />
-<col width="4%" />
-<col width="31%" />
-<col width="11%" />
-<col width="7%" />
-<col width="7%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">REQ</th>
-<th class="head">SM</th>
-<th class="head">COLUMN NAME</th>
-<th class="head">TYPE</th>
-<th class="head">UC</th>
-<th class="head">VALIDATE</th>
-<th class="head">DEFAULT</th>
-<th class="head">JUST</th>
-<th class="head">NOTE</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Keys</td>
-</tr>
-<tr class="row-odd"><td>M</td>
-<td>S</td>
-<td>SEQUENCEKEY</td>
-<td>A</td>
-<td>U</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>R12</td>
-<td><a class="footnote-reference" href="#id6" id="id1">[1]</a></td>
-</tr>
-<tr class="row-even"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Transaction Entries</td>
-</tr>
-<tr class="row-odd"><td>M</td>
-<td>S</td>
-<td>UNITIDENTIFIER</td>
-<td>A</td>
-<td>U</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>L20</td>
-<td><a class="footnote-reference" href="#id7" id="id2">[2]</a></td>
-</tr>
-<tr class="row-even"><td>M</td>
-<td>S</td>
-<td>TRANSACTIONTYPE</td>
-<td>A</td>
-<td>U</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>R2</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>M</td>
-<td>S</td>
-<td>TRANSACTION</td>
-<td>A</td>
-<td>U</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>R10</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>M</td>
-<td>S</td>
-<td>LINEKEY</td>
-<td>A</td>
-<td>U</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>R10</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Posting Control Entries</td>
-</tr>
-<tr class="row-even"><td>M</td>
-<td>S</td>
-<td>STATUS</td>
-<td>A</td>
-<td>U</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>R2</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>M</td>
-<td>S</td>
-<td>POSTDATE</td>
-<td>A</td>
-<td>U</td>
-<td>DATE</td>
-<td>TODAY</td>
-<td>R10</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>M</td>
-<td>S</td>
-<td>LOCATION</td>
-<td>A</td>
-<td>U</td>
-<td>VT=LOCATIONS</td>
-<td>WH</td>
-<td>L12</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Lot Identification Entries</td>
-</tr>
-<tr class="row-even"><td>M</td>
-<td>S</td>
-<td>ACCOUNT</td>
-<td>A</td>
-<td>U</td>
-<td>VT=ACCOUNTS</td>
-<td>&nbsp;</td>
-<td>L10</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>M</td>
-<td>S</td>
-<td>PRODUCT</td>
-<td>A</td>
-<td>U</td>
-<td>VT=PRODUCTS key1</td>
-<td>&nbsp;</td>
-<td>L12</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>M</td>
-<td>S</td>
-<td>VARIETY</td>
-<td>A</td>
-<td>U</td>
-<td>VT=PRODUCTS key2</td>
-<td>null</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>C</td>
-<td>S</td>
-<td>CONTROL</td>
-<td>A</td>
-<td>U</td>
-<td>&nbsp;</td>
-<td><a class="footnote-reference" href="#id8" id="id3">[3]</a></td>
-<td>L16</td>
-<td><a class="footnote-reference" href="#id9" id="id4">[4]</a></td>
-</tr>
-<tr class="row-even"><td>O</td>
-<td>S</td>
-<td>CONDITION</td>
-<td>LC</td>
-<td>U</td>
-<td><a class="reference external" href="../codes/D_condition.html#condition-list" title="(in WARES Codes v1.0)"><em>Unit Condition Codes</em></a></td>
-<td>G</td>
-<td>L2</td>
-<td><a class="footnote-reference" href="#id10" id="id5">[5]</a></td>
-</tr>
-<tr class="row-odd"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Other Entries</td>
-</tr>
-<tr class="row-even"><td>O</td>
-<td>T</td>
-<td>DESCRIPTION</td>
-<td>A</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>T40</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Quantitative Entries</td>
-</tr>
-<tr class="row-even"><td>M</td>
-<td>S</td>
-<td>UNITUOM</td>
-<td>LC</td>
-<td>U</td>
-<td><a class="reference external" href="../codes/P_code-uom.html#uom-list" title="(in WARES Codes v1.0)"><em>Units of Measure</em></a></td>
-<td>PL</td>
-<td>L4</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>O</td>
-<td>S</td>
-<td>UNITNET</td>
-<td>N.2</td>
-<td>&nbsp;</td>
-<td>(MD2)</td>
-<td>&nbsp;</td>
-<td>R8</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>O</td>
-<td>S</td>
-<td>UNITTARE</td>
-<td>N.2</td>
-<td>&nbsp;</td>
-<td>(MD2)</td>
-<td>&nbsp;</td>
-<td>R8</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>O</td>
-<td>S</td>
-<td>UNITSIZE</td>
-<td>N.2</td>
-<td>&nbsp;</td>
-<td>(MD4)</td>
-<td>&nbsp;</td>
-<td>R8</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>O</td>
-<td>S</td>
-<td>UNITSTACK</td>
-<td>N.0</td>
-<td>&nbsp;</td>
-<td>(MD0)</td>
-<td>&nbsp;</td>
-<td>R1</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>M</td>
-<td>S</td>
-<td>CONTENTUOM</td>
-<td>LC</td>
-<td>U</td>
-<td><a class="reference external" href="../codes/P_code-uom.html#uom-list" title="(in WARES Codes v1.0)"><em>Units of Measure</em></a></td>
-<td>CA</td>
-<td>L4</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>M</td>
-<td>S</td>
-<td>CONTENTCOUNT</td>
-<td>N.0</td>
-<td>&nbsp;</td>
-<td>(MD0)</td>
-<td>&nbsp;</td>
-<td>R8</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>O</td>
-<td>S</td>
-<td>CONTENTONHAND</td>
-<td>N.0</td>
-<td>&nbsp;</td>
-<td>(MD0)</td>
-<td>&nbsp;</td>
-<td>R8</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>O</td>
-<td>S</td>
-<td>CONTENTRESERVE</td>
-<td>N.0</td>
-<td>&nbsp;</td>
-<td>(MD0)</td>
-<td>&nbsp;</td>
-<td>R8</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>O</td>
-<td>S</td>
-<td>CONTENTNET</td>
-<td>N.4</td>
-<td>&nbsp;</td>
-<td>(MD4)</td>
-<td>&nbsp;</td>
-<td>R8</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>O</td>
-<td>S</td>
-<td>CONTENTTARE</td>
-<td>N.4</td>
-<td>&nbsp;</td>
-<td>(MD4)</td>
-<td>&nbsp;</td>
-<td>R8</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>O</td>
-<td>S</td>
-<td>CONTENTSIZE</td>
-<td>N.4</td>
-<td>&nbsp;</td>
-<td>(MD4)</td>
-<td>&nbsp;</td>
-<td>R8</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>O</td>
-<td>S</td>
-<td>INNERUOM</td>
-<td>LC</td>
-<td>U</td>
-<td><a class="reference external" href="../codes/P_code-uom.html#uom-list" title="(in WARES Codes v1.0)"><em>Units of Measure</em></a></td>
-<td>EA</td>
-<td>L4</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>O</td>
-<td>S</td>
-<td>INNERONHAND</td>
-<td>N.0</td>
-<td>&nbsp;</td>
-<td>(MD0)</td>
-<td>&nbsp;</td>
-<td>R8</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>O</td>
-<td>S</td>
-<td>INNERRESERVE</td>
-<td>N.0</td>
-<td>&nbsp;</td>
-<td>(MD0)</td>
-<td>&nbsp;</td>
-<td>R8</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>O</td>
-<td>S</td>
-<td>INNERWEIGHT</td>
-<td>N.4</td>
-<td>&nbsp;</td>
-<td>(MD4)</td>
-<td>&nbsp;</td>
-<td>R8</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>O</td>
-<td>S</td>
-<td>INNERSIZE</td>
-<td>N.4</td>
-<td>&nbsp;</td>
-<td>(MD4)</td>
-<td>&nbsp;</td>
-<td>R8</td>
-<td>&nbsp;</td>
-</tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id6" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Transaction lines are directly written from transaction documents in
-receipts, shipments, and adjustments.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id7" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>UNITIDENTIFIER is required when tracking is by (U)nit; it is optional
-when tracking by (C)ontrol.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id8" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>A CONTROLCODE (on the product master) may determine default values for
-lot control, such as a rotation date or a warehouse lot sequence.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id9" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id4">[4]</a></td><td>CONTROL may be entered optionally when tracking is by (P)roduct.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id10" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id5">[5]</a></td><td>Inventory control allows a single primary condition code which is used
-with balance identifiers, where only lot balances which are (G)ood are
-considered available. Additional conditions which may apply to units in
-a lot: quality check, inspection hold, freezer hold, and so forth, are
-considered descriptive and are ignored for posting purposes.</td></tr>
-</tbody>
-</table>
+  <div class="section" id="document-lines-detail">
+<span id="transactions"></span><h1>Document Lines Detail<a class="headerlink" href="#document-lines-detail" title="Permalink to this headline">¶</a></h1>
+<p>Document lines provide the transactions for inventory control and location
+tracking. These lines contain identifying, control, descriptive, and
+quantitative information for each product, lot, and (optionally) storage unit
+in a facility.</p>
+<p>A subset of document line columns is used for summary lines entry, as shown in
+the following view.</p>
+<img alt="_images/lines-1blank.png" src="_images/lines-1blank.png" />
+<p>The sumary document line entry uses product record default values for most
+values. When received goods require specific information different from
+these defaults, a document line detail view is required.</p>
+<p>Document line detail entry is divided into two sections: descriptive entries,
+and quantities. The following sections of this topic give examples of summary
+line entries, and corresponding detail entries which add to individual lines.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
+<p>The summary and detail lines which follow use the following conventions:</p>
 <ul class="last simple">
-<li>Tracking requirements are set by product and are not reflected in the
-transaction line data.</li>
-<li>When multiple fungible units are received on a line, the number of units
-is determined from the CONTENTCOUNT and the quantity. Where units are not
-uniform, separate lot control values or unit identifiers should be
-assigned to manage the inventory.</li>
-<li>When products or lots are fungible then storage units must be uniform.
-This is a necessary consequence of not tracking individual units.</li>
+<li>Yellow &#8211; highlights summary lines which are selected for detail display.</li>
+<li>Dark Green &#8211; indicates entries which are pulled from the Product, or
+which could not be changed in this example.</li>
+<li>When INNER UOM is left blank on a product, INNER quantities will not be
+enterable on transaction lines.</li>
+<li>Dark Gray &#8211; indicates default values which could have been changed if
+need be, but were not changed in the displayed example.</li>
 </ul>
 </div>
-<p><strong>LEGEND:</strong></p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="21%" />
-<col width="79%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>REQ</td>
-<td><div class="first last line-block">
-<div class="line">O = optional</div>
-<div class="line">M = mandatory</div>
-<div class="line">P = pair required</div>
-<div class="line">C = conditional</div>
+<div class="section" id="unit-weights-and-measures">
+<h2>Unit Weights and Measures<a class="headerlink" href="#unit-weights-and-measures" title="Permalink to this headline">¶</a></h2>
+<p>The classic individual unit entry is roll paper, where accurate unit weights and
+measures are required for shipping and billing. Below is an entry lines list,
+where each roll has a unique foot linear measure and a unique net weight.</p>
+<img alt="_images/lines-2rolls.png" src="_images/lines-2rolls.png" />
+<p>The details for one line are shown below. Every entry for the roll was
+available in the summaary line entry, and no changes were made in the detail.
+The roll net weight of 2611 Lbs, entered in the summaary list view, is close to
+a default weight of 2616.38 lbs, calculated from the content value of .58
+lbs/ft.</p>
+<img alt="_images/lines-2-detail.png" src="_images/lines-2-detail.png" />
 </div>
-</td>
-</tr>
-<tr class="row-even"><td>SM</td>
-<td><div class="first last line-block">
-<div class="line">S = single valued</div>
-<div class="line">M = multiple values</div>
-<div class="line">A = associated (array member)</div>
+<div class="section" id="partial-and-mixed-pallets">
+<h2>Partial and Mixed Pallets<a class="headerlink" href="#partial-and-mixed-pallets" title="Permalink to this headline">¶</a></h2>
+<p>When goods are handled pallet-in, pallet-out, tracking mixed pallets may seem
+unnecessary. However, a number of circumstances result in mixed units or
+pallets in every warehouse:</p>
+<ul class="simple">
+<li>Part of a unit may have damage. Damaged and whole goods must be listed with
+separate content lines.</li>
+<li>If damaged content is replaced with make-up goods from a different lot, then
+separate content lines are needed to track the two lots.</li>
+<li>Pallet units may be received with mixed lots, especially if the inventory
+is lot remainders transferred in from a production line or even from another
+distribution center.</li>
+<li>Multiple products may be shipped on mixed pallets to reduce shipping costs.
+The warehouse may choose to lump the goods and not segregate them if picking
+from mixed pallets is not problematic.</li>
+<li>Inconsistent pallets may be received due to storage requirements in previous
+warehousing.</li>
+<li>Stripping a floor-loaded container may result in a hand-full of remainders
+for multiple products or lots, which get lumped on a mixed pallet.</li>
+</ul>
+<p>So we talk about not having mixed pallets, when actually we do have them.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">By default, webWARES combines unit and content data in a single record.
+Where a mixed pallet unit occurs, entering a line repeating a <strong>UnitID</strong>
+will trigger the identification of a master &#8220;unit only&#8221; primary line and the
+elimination of unit information from secondary content lines which share the
+<strong>UnitID</strong>.</p>
 </div>
-</td>
-</tr>
-<tr class="row-odd"><td>COLUMN NAME</td>
-<td>(not case specific)</td>
-</tr>
-<tr class="row-even"><td>TYPE</td>
-<td><div class="first last line-block">
-<div class="line">A = alpha</div>
-<div class="line">N.n = numeric with decimals</div>
-<div class="line">B = boolean</div>
-<div class="line">D = datetime</div>
-<div class="line">U = UUID</div>
-<div class="line">LC = list of codes</div>
-<div class="line">SK = key sequence</div>
-<div class="line">S = sequence</div>
+<p>A mixed pallet or unit requires two types of document line entries. The first
+line entry would contain a (mandatory) unit number. This entry should not
+include <strong>Product</strong> and <strong>Lot Control</strong> values, so that there will be no
+&#8220;content&#8221; on the initial line.</p>
+<p>Following the unit line would be one or more content lines which share the same
+unit number (and the same <strong>LineKey</strong>, see <a class="reference internal" href="#cryptic-data"><em>Line Data not Displayed</em></a>). Content lines
+which repeat the unit number cannot include <strong>UnitNet</strong> and <strong>Location</strong>
+entries, as these values are specific to the unit. The summaary line entries for
+an example mixed pallet follow:</p>
+<img alt="_images/lines-3mixed.png" src="_images/lines-3mixed.png" />
+<p>Detail for the highlighted line is shown below. Every entry but one, the
+<strong>Condition</strong>, came from either product default values or the summaary line
+entry.</p>
+<img alt="_images/lines-3-detail.png" src="_images/lines-3-detail.png" />
 </div>
-</td>
-</tr>
-<tr class="row-odd"><td>U</td>
-<td>Key values and codes are uppercase</td>
-</tr>
-<tr class="row-even"><td>VALIDATE</td>
-<td><div class="first last line-block">
-<div class="line">links refer to code validation lists</div>
-<div class="line">Tablenames (uppercase) refer to verifiles</div>
-<div class="line">(&#8216;values&#8217;) list allowed entries</div>
+<div class="section" id="unit-tracking">
+<h2>Unit Tracking<a class="headerlink" href="#unit-tracking" title="Permalink to this headline">¶</a></h2>
+<p>Where each unit of a truck load is tied to unique information, the units must
+be entered separately in the lines summary. Values which make individual line
+entries necessary include varying <strong>Lot Control</strong> numbers and <strong>Location</strong>,
+individual <strong>Unit ID</strong>, and varying weights or measures per unit. An example
+truck load unit entry is shown in the following figure.</p>
+<img alt="_images/lines-4units.png" src="_images/lines-4units.png" />
+<p>The details for the highlighted line are displayed to demonstrate the entries
+which commonly change from unit to unit. Each unit in the example has a unique
+<strong>NetWeight</strong>, for example.</p>
+<img alt="_images/lines-4-detail.png" src="_images/lines-4-detail.png" />
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">Sometimes unique values are required for both <strong>NetWeight</strong> and
+<strong>GrossWeight</strong>, but the program does not store gross weight. Since gross
+weight is by definition greated than net weight, entering gross weight in the
+unit <strong>TareWeight</strong> field will calculate the <strong>TareWeight</strong> as the difference
+between the two weights. Then the gross weight can be rederived from the two
+entries at any time.</p>
 </div>
-</td>
-</tr>
-<tr class="row-odd"><td>DEFAULT</td>
-<td>a value default</td>
-</tr>
-<tr class="row-even"><td>JUST</td>
-<td><div class="first last line-block">
-<div class="line">Justify (L)eft, (C)enter, (R)ight, (T)ext</div>
-<div class="line">n = characters to show</div>
 </div>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
+<div class="section" id="bulk-versus-unit-entry">
+<h2>Bulk Versus Unit Entry<a class="headerlink" href="#bulk-versus-unit-entry" title="Permalink to this headline">¶</a></h2>
+<p>Many truck loads consist of 20 or more units, all uniform, to be stored in a
+single bay location and moved load-in load-out. The work of entering each unit
+on a line is unnecessary in that case. In the previous example, if the units
+had been uniform, the load could have been entered as a single bulk line as
+shown below.</p>
+<img alt="_images/lines-5bulk.png" src="_images/lines-5bulk.png" />
+</div>
+<div class="section" id="using-line-detail-entries">
+<h2>Using Line Detail Entries<a class="headerlink" href="#using-line-detail-entries" title="Permalink to this headline">¶</a></h2>
+<p>Line detail entries are necessary to enter unique values for a content cannot
+be entered in the summary. Specific cases where this might occur are listed
+here.</p>
+<ul class="simple">
+<li>Damaged goods must be entered in separate content records which are marked
+in the details.</li>
+<li>Marks, variable descriptions, or special lot notes are entered in details.</li>
+<li>Broken cases or sampled bags should be entered separately, noting the shorted
+inner quantities.</li>
+<li>Content count discrepancies on receiving are entered in the <strong>Over/Short</strong>
+detail.</li>
+<li>Variable tare weights or gross weights are entered in the details view,
+unlike consistent tare weights which are entered on the product setup.</li>
+<li>When unit weight varies, linear counts or volumetric measures probably vary
+too. This is especially import with hazardous materials, where both weights
+and volume measures are used on the Bill of Lading.</li>
+</ul>
+</div>
+<div class="section" id="line-data-not-displayed">
+<span id="cryptic-data"></span><h2>Line Data not Displayed<a class="headerlink" href="#line-data-not-displayed" title="Permalink to this headline">¶</a></h2>
+<p>Some document line data may not be included in a view, but is required for
+program operation. These columns are described in the following list.</p>
+<ul>
+<li><p class="first"><strong>SequenceKey</strong> &#8211; Each transaction line is assigned a unique sequential key.</p>
+</li>
+<li><p class="first"><strong>TransactionType</strong> and <strong>Transaction</strong> &#8211; These are required back references
+from the document header, and these columns organize lines in lot or location
+detail displays.</p>
+</li>
+<li><p class="first"><strong>LineKey</strong> &#8211; is necessary to maintain the original document structure for
+for shipping and receiving documents. Pick tickets are printed with lines
+sorted by Location, but Warehouse Receipts and Bills of Lading are sorted in
+the original document order, that is, by <strong>Linekey</strong>.</p>
+<p><strong>LineKey</strong> values are the initial entry position of units in a document:</p>
+<blockquote>
+<div><p><cite>LINEKEY = ( TRANSACTION * 1000 ) + LINEPOS</cite></p>
+</div></blockquote>
+<p>Where units (pallets) with mixed lots are received or shipped, or where
+fungible order quantities are expanded to be filled by multiple unit picks,
+several transaction lines with unique <strong>SequenceKey</strong> and varying
+<strong>Location</strong> entries may have the same <strong>LineKey</strong>.</p>
+</li>
+<li><p class="first"><strong>Status</strong> &#8211; is determined from assigning unit numbers when unit tracking
+is used, from picking, staging and loading activities, and from releasing
+completed documents, applying charges, and inviocing.</p>
+</li>
+<li><p class="first"><strong>PostDate</strong> &#8211; is copied from the transaction header and applies to all
+lines in a document. The <strong>Postdate</strong> of a document should be finalized at
+the date and time that the warehouse signs a receipt or a carrier signs for
+a shipment.</p>
+</li>
+<li><p class="first"><strong>ContentOnHand</strong>, <strong>InnerOnHand</strong>, <strong>ContentReserve</strong>, <strong>InnerReserve</strong> &#8211;
+The user interface shows Content and Inner Quantities, but these quantities
+are actually represented in the data as either <strong>_Reserve</strong> or <strong>_OnHand</strong>
+depending on the line status. The appearance of a single data field is
+deceptive from the standpoint of data definition.</p>
+</li>
+<li><p class="first"><strong>Account</strong> &#8211; is copied from the transaction header. New lots on a document
+are assigned to the account for that document. An error is generated when a
+product record with the Account, Product, and Variety does not exist. The
+Account may be entered on negative-quantity Adjustment lines when making
+ownership transfers. That is, something may be withdrawn from an existing
+lot of one account and moved to a new lot under the document&#8217;s Account.</p>
+</li>
+<li><p class="first"><strong>UnitUOM</strong>, <strong>ContentUOM</strong>, and <strong>InnerUOM</strong> &#8211; are display-only values
+copied from the current product record.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="document-lines-column-data">
+<h2>Document Lines Column Data<a class="headerlink" href="#document-lines-column-data" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
 <ol class="last arabic simple">
-<li>Entries of type list code (TYPE=LC) are validated against the associated
-linked code option list.</li>
-<li>Entries with a paired requirement (REQ=P) are required when the associated
-paired entry or code is specified.</li>
+<li><strong>Over/Short</strong> quantity entry is not reflected in Transaction Line Column
+data definition.</li>
+<li><strong>Over/Short</strong> applies to content only, and only on receipt, because this
+is a visually countable quantity (cartons, cases, bags, etc.).</li>
 </ol>
 </div>
-<p>A subset of transaction line columns is used for lines entry, as shown in
-the following view.</p>
-<img alt="_images/2-lines.png" src="_images/2-lines.png" />
-<p>Individual entry lines may be expanded into a detail view when default
-description or other information is required.</p>
-<img alt="_images/2-detail.png" src="_images/2-detail.png" />
+<p>Documentation resources include the data column definitions for <a class="reference external" href="../resources/05_lot-lines.html#trlines" title="(in WARES Resources v1.0)"><em>Lot and  Unit Transactions</em></a>.</p>
 </div>
 </div>
 
