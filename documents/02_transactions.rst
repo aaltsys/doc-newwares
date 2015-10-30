@@ -137,9 +137,8 @@ shown below.
 Using Line Detail Entries
 =============================
 
-Line detail entries are necessary to enter unique values for a content cannot 
-be entered in the summary. Specific cases where this might occur are listed 
-here.
+Line detail entries are necessary when entering unique values which are not 
+visible in the summary. Specific cases where this might occur are listed here.
 
 *  Damaged goods must be entered in separate content records which are marked 
    in the details.
@@ -147,12 +146,12 @@ here.
 *  Broken cases or sampled bags should be entered separately, noting the shorted 
    inner quantities.
 *  Content count discrepancies on receiving are entered in the **Over/Short** 
-   detail.
+   value, as positive or negative numbers.
 *  Variable tare weights or gross weights are entered in the details view, 
    unlike consistent tare weights which are entered on the product setup.
 *  When unit weight varies, linear counts or volumetric measures probably vary 
-   too. This is especially import with hazardous materials, where both weights
-   and volume measures are used on the Bill of Lading.
+   too. This is especially important with hazardous materials, where both 
+   weights and volume measures are used on the Bill of Lading.
 
 .. _cryptic-data:
 
@@ -173,7 +172,7 @@ program operation. These columns are described in the following list.
    sorted by Location, but Warehouse Receipts and Bills of Lading are sorted in 
    the original document order, that is, by **Linekey**.
 
-   **LineKey** values are the initial entry position of units in a document:
+   **LineKey** tracks the initial entry sequence of lines in a document:
 
       `LINEKEY = ( TRANSACTION * 1000 ) + LINEPOS`
 
@@ -197,12 +196,17 @@ program operation. These columns are described in the following list.
    depending on the line status. The appearance of a single data field is 
    deceptive from the standpoint of data definition.
 
-*  **Account** -- is copied from the transaction header. New lots on a document 
-   are assigned to the account for that document. An error is generated when a 
-   product record with the Account, Product, and Variety does not exist. The
-   Account may be entered on negative-quantity Adjustment lines when making
-   ownership transfers. That is, something may be withdrawn from an existing 
-   lot of one account and moved to a new lot under the document's Account.
+*  **Account** -- is copied from the transaction header for positive-quantity
+   lines (receipts and adjustments), and an error is generated when a product 
+   record with the Account, Product, and Variety does not exist. Therefore new 
+   lots on a document always belong to the master account of the document. 
+
+   Shipments may withdraw only from lots belonging to the document's account.
+
+   Adjustments may withdraw from any lot regardless of the account in the 
+   document heading. Therefore adjustments can effect ownership transfers, where 
+   negative-quantity adjustment lines deduct from one owner account and positive 
+   lines add to the owner account listed in the adjustment header.
 
 *  **UnitUOM**, **ContentUOM**, and **InnerUOM** -- are display-only values 
    copied from the current product record.
@@ -211,9 +215,7 @@ Document Lines Column Data
 =============================
 
 .. warning::
-   #. **Over/Short** quantity entry is not reflected in Transaction Line Column 
-      data definition.
-   #. **Over/Short** applies to content only, and only on receipt, because this 
-      is a visually countable quantity (cartons, cases, bags, etc.).
+   **Over/Short** applies to content only, and only on receipt, where content
+   is a visually countable quantity (cartons, cases, bags, etc.).
 
 Documentation resources include the data column definitions for :ref:`trlines`.
