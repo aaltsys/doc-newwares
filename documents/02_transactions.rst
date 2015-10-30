@@ -43,8 +43,8 @@ where each roll has a unique foot linear measure and a unique net weight.
 .. image:: _images/lines-2rolls.png
 
 The details for one line are shown below. Every entry for the roll was
-available in the summaary line entry, and no changes were made in the detail. 
-The roll net weight of 2611 Lbs, entered in the summaary list view, is close to 
+available in the summary line entry, and no changes were made in the detail. 
+The roll net weight of 2611 Lbs, entered in the summary list view, is close to 
 a default weight of 2616.38 lbs, calculated from the content value of .58 
 lbs/ft.
 
@@ -61,9 +61,8 @@ pallets in every warehouse:
    separate content lines.
 *  If damaged content is replaced with make-up goods from a different lot, then 
    separate content lines are needed to track the two lots.
-*  Pallet units may be received with mixed lots, especially if the inventory 
-   is lot remainders transferred in from a production line or even from another 
-   distribution center.
+*  Pallet units may contain lot remainders transferred in from a production 
+   line or even from another distribution center.
 *  Multiple products may be shipped on mixed pallets to reduce shipping costs. 
    The warehouse may choose to lump the goods and not segregate them if picking 
    from mixed pallets is not problematic.
@@ -72,31 +71,30 @@ pallets in every warehouse:
 *  Stripping a floor-loaded container may result in a hand-full of remainders 
    for multiple products or lots, which get lumped on a mixed pallet.
 
-So we talk about not having mixed pallets, when actually we do have them. 
+We talk about not having mixed pallets when actually we do have them. 
+
+By default, webWARES combines unit and content data in a single entry line. In
+contrast, mixed pallet units start with a line that omits content values for 
+**Product**, **Variety**, or Lot **Control**, but includes **UnitID** which is 
+required. 
+
+Subsequent content lines will include **Product**, **Variety**, or Lot 
+**Control** values, followed by the **UnitID**. Repeating the **UnitID** 
+triggers the association of the mixed content to the master "unit only" primary 
+line.
 
 .. tip::
-   By default, webWARES combines unit and content data in a single record. 
-   Where a mixed pallet unit occurs, entering a line repeating a **UnitID** 
-   will trigger the identification of a master "unit only" primary line and the 
-   elimination of unit information from secondary content lines which share the 
-   **UnitID**.
-
-A mixed pallet or unit requires two types of document line entries. The first 
-line entry would contain a (mandatory) unit number. This entry should not 
-include **Product** and **Lot Control** values, so that there will be no 
-"content" on the initial line.
-
-Following the unit line would be one or more content lines which share the same 
-unit number (and the same **LineKey**, see :ref:`cryptic-data`). Content lines
-which repeat the unit number cannot include **UnitNet** and **Location** 
-entries, as these values are specific to the unit. The summaary line entries for 
-an example mixed pallet follow:
+   In addition to sharing **UnitID** and **Location**, mixed unit and content
+   lines have the same **LineKey** (see :ref:`cryptic-data`). Every document 
+   line has an entry for **LineKey**, while the **UnitID** value is optional on
+   lines and is surely missing with bulk entries.
 
 .. image:: _images/lines-3mixed.png
 
-Detail for the highlighted line is shown below. Every entry but one, the 
-**Condition**, came from either product default values or the summaary line 
-entry.
+Detail for the highlighted line is shown below. Unit partial weights and partial 
+measures are auto-calculated on the content lines, and these values and the 
+location are filled and protected. Every entry but one, the **Condition**, came 
+from either product default values or the summary line entry.
 
 .. image:: _images/lines-3-detail.png
 
