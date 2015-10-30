@@ -125,8 +125,8 @@ measures are required for shipping and billing. Below is an entry lines list,
 where each roll has a unique foot linear measure and a unique net weight.</p>
 <img alt="_images/lines-2rolls.png" src="_images/lines-2rolls.png" />
 <p>The details for one line are shown below. Every entry for the roll was
-available in the summaary line entry, and no changes were made in the detail.
-The roll net weight of 2611 Lbs, entered in the summaary list view, is close to
+available in the summary line entry, and no changes were made in the detail.
+The roll net weight of 2611 Lbs, entered in the summary list view, is close to
 a default weight of 2616.38 lbs, calculated from the content value of .58
 lbs/ft.</p>
 <img alt="_images/lines-2-detail.png" src="_images/lines-2-detail.png" />
@@ -141,9 +141,8 @@ pallets in every warehouse:</p>
 separate content lines.</li>
 <li>If damaged content is replaced with make-up goods from a different lot, then
 separate content lines are needed to track the two lots.</li>
-<li>Pallet units may be received with mixed lots, especially if the inventory
-is lot remainders transferred in from a production line or even from another
-distribution center.</li>
+<li>Pallet units may contain lot remainders transferred in from a production
+line or even from another distribution center.</li>
 <li>Multiple products may be shipped on mixed pallets to reduce shipping costs.
 The warehouse may choose to lump the goods and not segregate them if picking
 from mixed pallets is not problematic.</li>
@@ -152,28 +151,27 @@ warehousing.</li>
 <li>Stripping a floor-loaded container may result in a hand-full of remainders
 for multiple products or lots, which get lumped on a mixed pallet.</li>
 </ul>
-<p>So we talk about not having mixed pallets, when actually we do have them.</p>
+<p>We talk about not having mixed pallets when actually we do have them.</p>
+<p>By default, webWARES combines unit and content data in a single entry line. In
+contrast, mixed pallet units start with a line that omits content values for
+<strong>Product</strong>, <strong>Variety</strong>, or Lot <strong>Control</strong>, but includes <strong>UnitID</strong> which is
+required.</p>
+<p>Subsequent content lines will include <strong>Product</strong>, <strong>Variety</strong>, or Lot
+<strong>Control</strong> values, followed by the <strong>UnitID</strong>. Repeating the <strong>UnitID</strong>
+triggers the association of the mixed content to the master &#8220;unit only&#8221; primary
+line.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
-<p class="last">By default, webWARES combines unit and content data in a single record.
-Where a mixed pallet unit occurs, entering a line repeating a <strong>UnitID</strong>
-will trigger the identification of a master &#8220;unit only&#8221; primary line and the
-elimination of unit information from secondary content lines which share the
-<strong>UnitID</strong>.</p>
+<p class="last">In addition to sharing <strong>UnitID</strong> and <strong>Location</strong>, mixed unit and content
+lines have the same <strong>LineKey</strong> (see <a class="reference internal" href="#cryptic-data"><em>Line Data not Displayed</em></a>). Every document
+line has an entry for <strong>LineKey</strong>, while the <strong>UnitID</strong> value is optional on
+lines and is surely missing with bulk entries.</p>
 </div>
-<p>A mixed pallet or unit requires two types of document line entries. The first
-line entry would contain a (mandatory) unit number. This entry should not
-include <strong>Product</strong> and <strong>Lot Control</strong> values, so that there will be no
-&#8220;content&#8221; on the initial line.</p>
-<p>Following the unit line would be one or more content lines which share the same
-unit number (and the same <strong>LineKey</strong>, see <a class="reference internal" href="#cryptic-data"><em>Line Data not Displayed</em></a>). Content lines
-which repeat the unit number cannot include <strong>UnitNet</strong> and <strong>Location</strong>
-entries, as these values are specific to the unit. The summaary line entries for
-an example mixed pallet follow:</p>
 <img alt="_images/lines-3mixed.png" src="_images/lines-3mixed.png" />
-<p>Detail for the highlighted line is shown below. Every entry but one, the
-<strong>Condition</strong>, came from either product default values or the summaary line
-entry.</p>
+<p>Detail for the highlighted line is shown below. Unit partial weights and partial
+measures are auto-calculated on the content lines, and these values and the
+location are filled and protected. Every entry but one, the <strong>Condition</strong>, came
+from either product default values or the summary line entry.</p>
 <img alt="_images/lines-3-detail.png" src="_images/lines-3-detail.png" />
 </div>
 <div class="section" id="unit-tracking">
