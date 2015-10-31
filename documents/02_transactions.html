@@ -153,26 +153,59 @@ for multiple products or lots, which get lumped on a mixed pallet.</li>
 </ul>
 <p>We talk about not having mixed pallets when actually we do have them.</p>
 <p>By default, webWARES combines unit and content data in a single entry line. In
-contrast, mixed pallet units start with a line that omits content values for
-<strong>Product</strong>, <strong>Variety</strong>, or Lot <strong>Control</strong>, but includes <strong>UnitID</strong> which is
-required.</p>
-<p>Subsequent content lines will include <strong>Product</strong>, <strong>Variety</strong>, or Lot
+contrast, mixed pallet units start with a parent line that omits content values
+for <strong>Product</strong>, <strong>Variety</strong>, or Lot <strong>Control</strong>, but includes a required parent
+<strong>UnitID</strong>. (Without the <strong>UnitID</strong>, there would be no way to distinguish a
+mixed unit from a series of partial units.)</p>
+<p>Subsequent child content lines will include <strong>Product</strong>, <strong>Variety</strong>, or Lot
 <strong>Control</strong> values, followed by the <strong>UnitID</strong>. Repeating the <strong>UnitID</strong>
-triggers the association of the mixed content to the master &#8220;unit only&#8221; primary
+triggers the association of the mixed child content to the parent &#8220;unit only&#8221;
 line.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
 <p class="last">In addition to sharing <strong>UnitID</strong> and <strong>Location</strong>, mixed unit and content
 lines have the same <strong>LineKey</strong> (see <a class="reference internal" href="#cryptic-data"><em>Line Data not Displayed</em></a>). Every document
 line has an entry for <strong>LineKey</strong>, while the <strong>UnitID</strong> value is optional on
-lines and is surely missing with bulk entries.</p>
+other lines and is surely missing with bulk entries.</p>
 </div>
 <img alt="_images/lines-3mixed.png" src="_images/lines-3mixed.png" />
-<p>Detail for the highlighted line is shown below. Unit partial weights and partial
-measures are auto-calculated on the content lines, and these values and the
-location are filled and protected. Every entry but one, the <strong>Condition</strong>, came
-from either product default values or the summary line entry.</p>
+<p>Repeating the <strong>UnitID</strong> causes the following changes to line detail values.</p>
+<ul class="simple">
+<li>Child content <strong>Location</strong> is filled from the parent unit and protected.</li>
+<li><strong>Count Per</strong> on child content is cleared and protected; this does not apply
+to mixed pallets.</li>
+<li>Unit <strong>Tare Weight</strong> and unit <strong>Quantity</strong> are cleared and protected on child
+content lines.</li>
+<li>Entries for unit partial weights and partial measures are auto-calculated
+based on the content quantity, and these entries are filled and protected.</li>
+</ul>
+<p>In addition, the parent unit line will have the following entries:</p>
+<ul class="simple">
+<li>The unit <strong>Quantity</strong>, which is always filled/protected, will show &#8220;1&#8221;.</li>
+<li>The unit <strong>Tare Weight</strong> will be taken from the product for the first child
+content line.</li>
+<li>The unit <strong>Net Weight</strong>, <strong>Volume</strong>, and <strong>Quantity</strong> entries will be the sum
+of these entries from the child content lines.</li>
+<li>The parent unit line entries for <strong>Product</strong>, <strong>Variety</strong>, and <strong>Control</strong>
+will be cleared and protected.</li>
+</ul>
+<p>Detail for the highlighted line is shown below. Every entry but one, the
+<strong>Condition</strong>, came from either product default values or the summary line
+entry.</p>
 <img alt="_images/lines-3-detail.png" src="_images/lines-3-detail.png" />
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p>There seem to be two entry procedures for lines, but actually:</p>
+<ul class="last simple">
+<li>Entering two consecutive content lines with the same <strong>UnitID</strong> will
+trigger a question, &#8220;Do these entries belong to the same unit? (Yes/no).&#8221;
+Answering &#8220;Yes&#8221; will create the parent unit line and update the child
+content lines as described previously.</li>
+<li>Enterig a unit record without product content information, followed by
+child content records repeating the <strong>UnitID</strong>, will produce the same
+result without having to ask the question.</li>
+</ul>
+</div>
 </div>
 <div class="section" id="unit-tracking">
 <h2>Unit Tracking<a class="headerlink" href="#unit-tracking" title="Permalink to this headline">¶</a></h2>
@@ -204,6 +237,11 @@ on a line is unnecessary in that case. In the previous example, if the units
 had been uniform, the load could have been entered as a single bulk line as
 shown below.</p>
 <img alt="_images/lines-5bulk.png" src="_images/lines-5bulk.png" />
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">On bulk entry lines, the line detail will show the unit count as the content
+<strong>Quantity</strong> divided by the content <strong>Count Per</strong>, plus 1 for any remainder.</p>
+</div>
 </div>
 <div class="section" id="using-line-detail-entries">
 <h2>Using Line Detail Entries<a class="headerlink" href="#using-line-detail-entries" title="Permalink to this headline">¶</a></h2>
@@ -229,9 +267,9 @@ weights and volume measures are used on the Bill of Lading.</li>
 <p>Some document line data may not be included in a view, but is required for
 program operation. These columns are described in the following list.</p>
 <ul>
-<li><p class="first"><strong>SequenceKey</strong> &#8211; Each transaction line is assigned a unique sequential key.</p>
+<li><p class="first"><strong>SequenceKey</strong> &#8211; The program assigns a unique key to each document line.</p>
 </li>
-<li><p class="first"><strong>TransactionType</strong> and <strong>Transaction</strong> &#8211; These are required back references
+<li><p class="first"><strong>TransactionType</strong> and <strong>Transaction</strong> &#8211; are required back references
 from the document header, and these columns organize lines in lot or location
 detail displays.</p>
 </li>
