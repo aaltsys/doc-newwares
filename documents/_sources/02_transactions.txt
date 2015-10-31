@@ -181,7 +181,9 @@ visible in the summary. Specific cases where this might occur are listed here.
 *  Broken cases or sampled bags should be entered separately, noting the shorted 
    inner quantities.
 *  Content count discrepancies on receiving are entered in the **Over/Short** 
-   value, as positive or negative numbers.
+   value, as positive or negative numbers. **Over/Short** applies to content 
+   only, and only on receipt, where content is a visually countable quantity 
+   (cartons, cases, bags, etc.).
 *  Variable tare weights or gross weights are entered in the details view, 
    unlike consistent tare weights which are entered on the product setup.
 *  When unit weight varies, linear counts or volumetric measures probably vary 
@@ -248,9 +250,5 @@ program operation. These columns are described in the following list.
 
 Document Lines Column Data
 =============================
-
-.. warning::
-   **Over/Short** applies to content only, and only on receipt, where content
-   is a visually countable quantity (cartons, cases, bags, etc.).
 
 Documentation resources include the data column definitions for :ref:`trlines`.
