@@ -167,7 +167,8 @@ shown below.
 
 .. tip::
    On bulk entry lines, the line detail will show the unit count as the content 
-   **Quantity** divided by the content **Count Per**, plus 1 for any remainder.
+   **Quantity** divided by the content **Count Per**, plus 1 for any remainder. 
+   Where the content **Count Per** is blank, the unit count will be blank also.
 
 Using Line Detail Entries
 =============================
