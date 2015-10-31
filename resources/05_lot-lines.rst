@@ -80,6 +80,8 @@ Lot and  Unit Transactions
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | O | S | CONTENTSIZE    | N.4 |   | (MD4)                |        | R8  |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
+| O | S | OVERSHORT      | N.0 |   | (MD0)                |        | R8  | [6]_|
++---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | O | S | INNERUOM       | LC  | U | :ref:`uom-list`      | EA     | L4  |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | O | S | INNERONHAND    | N.0 |   | (MD0)                |        | R8  |     |
@@ -103,6 +105,7 @@ Lot and  Unit Transactions
        considered available. Additional conditions which may apply to units in 
        a lot: quality check, inspection hold, freezer hold, and so forth, are 
        considered descriptive and are ignored for posting purposes.
+.. [6] OVERSHORT quantity applies to content of receipts only.
 
 .. note::
    *  Tracking requirements are set by product and are not reflected in the 
