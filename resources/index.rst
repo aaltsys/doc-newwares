@@ -1,14 +1,14 @@
-.. WARES Resources documentation master file, created by
-   sphinx-quickstart on Mon Jun 30 16:01:29 2014.
+.. WARES Resources, created by sphinx-quickstart on Mon Jun 30 16:01:29 2014.
 
 .. _index:
    
-WARES Documentation Resources
-===========================================
+WARES Resources
+=============================
 
 Contents:
 
 .. toctree::
+   :hidden: legend.rst
    :maxdepth: 2
    :glob:
    

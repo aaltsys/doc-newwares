@@ -1,17 +1,9 @@
+
+.. _lot-lines:
+
 #############################
-Document Transaction Lines
+Lot Transaction Lines
 #############################
-
-Inventory balances are maintained by product, lot, and unit. When goods are 
-expected to be received or are ordered in advance, lot and unit information is 
-not available and only product reserved quantities may be updated. When goods 
-are inbound and received, or picked and shipped, then unit and lot transaction 
-information may be included depending on product tracking requirements.
-
-.. _trlines:
-
-Lot and  Unit Transactions
-=============================
 
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 |REQ| SM| COLUMN NAME    | TYPE| UC|VALIDATE              | DEFAULT| JUST| NOTE|
@@ -111,10 +103,14 @@ Lot and  Unit Transactions
    *  Tracking requirements are set by product and are not reflected in the 
       transaction line data.
    *  When multiple fungible units are received on a line, the number of units
-      is determined from the CONTENTCOUNT and the quantity. Where units are not 
-      uniform, separate lot control values or unit identifiers should be 
-      assigned to manage the inventory.
+      is determined from QUANTITY divided by CONTENTCOUNT, plus 1 for a
+      remainder.
+   *  Unit counts may not make sense for some bulk products, such as a piled 
+      sand or liquid in a storage tank. Such products should have a null 
+      CONTENTCOUNT entry.
    *  When products or lots are fungible then storage units must be uniform. 
       This is a necessary consequence of not tracking individual units.
+      Non-uniform units require separate lot control values or unit identifiers 
+      to manage inventory.
 
 .. include:: ../resources/legend.rst

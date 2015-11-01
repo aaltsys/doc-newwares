@@ -149,10 +149,10 @@ which commonly change from unit to unit. Each unit in the example has a unique
 .. tip::
    Sometimes unique values are required for both **NetWeight** and 
    **GrossWeight**, but the program does not store gross weight. Since gross
-   weight is by definition greated than net weight, entering gross weight in the 
+   weight is by definition greater than net weight, entering gross weight in the 
    unit **TareWeight** field will calculate the **TareWeight** as the difference 
-   between the two weights. Then the gross weight can be rederived from the two 
-   entries at any time.
+   between the two weights. Then the gross weight can be derived from the two 
+   entries at any later time.
 
 Bulk Versus Unit Entry
 =============================
@@ -190,6 +190,111 @@ visible in the summary. Specific cases where this might occur are listed here.
 *  When unit weight varies, linear counts or volumetric measures probably vary 
    too. This is especially important with hazardous materials, where both 
    weights and volume measures are used on the Bill of Lading.
+
+Document Line Requirements
+=============================
+
+Transactions are entered by line. The following rules apply to transactions:
+
+*  Each line references a single product/variety, lot control, unit identifier, 
+   and locator value.
+*  Quantities are signed (+/-) to indicating the effect of the transaction on 
+   inventory.
+*  Lines contain either Reserved or On-Hand quantites, but not both. 
+*  The document status and the data content of a line determine whether the 
+   entry quantity will be Reserved or On-Hand.
+*  A condition code is required for each entry line. The default is G(ood),
+   see :ref:`condition-list`.
+
++------------------+----------+----------+----------+----------+----------+----------+
+| Column Name      | Expected |  Inbound | Received | Reserved | Allocated|  Shipped |
++==================+==========+==========+==========+==========+==========+==========+
+| SEQUENCEKEY [2]_ | sequence | sequence | sequence | sequence | sequence | sequence |
++------------------+----------+----------+----------+----------+----------+----------+
+| UNITIDENTIFIER   |          |     [3]_ |     [3]_ |          |     [3]_ |     [3]_ |
++------------------+----------+----------+----------+----------+----------+----------+
+| TRANSACTIONTYPE  |   3 or 5 |   3 or 5 |   3 or 5 |   4 or 5 |   4 or 5 |   4 or 5 |
++------------------+----------+----------+----------+----------+----------+----------+
+| TRANSACTION [1]_ | (header) | (header) | (header) | (header) | (header) | (header) |
++------------------+----------+----------+----------+----------+----------+----------+
+| LINEKEY     [2]_ | sequence | sequence | sequence | sequence | sequence | sequence |
++------------------+----------+----------+----------+----------+----------+----------+
+| STATUS           |        1 |        2 |       3+ |        1 |        2 |       3+ |
++------------------+----------+----------+----------+----------+----------+----------+
+| POSTDATE         |      now |      now |      now |      now |      now |      now |
++------------------+----------+----------+----------+----------+----------+----------+
+| LOCATION         |          |          | directed |          |   (unit) |   (unit) |
++------------------+----------+----------+----------+----------+----------+----------+
+| CONDITION        |          |          | required | required |   (unit) |   (unit) |
++------------------+----------+----------+----------+----------+----------+----------+
+| ACCOUNT          | (header) | (header) | (header) | (header) | (header) | (header) |
++------------------+----------+----------+----------+----------+----------+----------+
+| PRODUCT          | required | required | required | required | required | required |
++------------------+----------+----------+----------+----------+----------+----------+
+| VARIETY          | required | required | required | required | required | required |
++------------------+----------+----------+----------+----------+----------+----------+
+| CONTROLCODE      |          | required | required |          |   (unit) |   (unit) |
++------------------+----------+----------+----------+----------+----------+----------+
+| CONTROL          |          | required | required |          |   (unit) |   (unit) |
++------------------+----------+----------+----------+----------+----------+----------+
+| DESCRIPTION      | [product]| [product]| [product]| [product]| [product]| [product]|
++------------------+----------+----------+----------+----------+----------+----------+
+| UNITUOM          | (product)| (product)| (product)| (product)| (product)| (product)|
++------------------+----------+----------+----------+----------+----------+----------+
+| UNITNET          | [product]| [product]| [product]| [product]|   (unit) |   (unit) |
++------------------+----------+----------+----------+----------+----------+----------+
+| UNITTARE         | [product]| [product]| [product]| [product]|   (unit) |   (unit) |
++------------------+----------+----------+----------+----------+----------+----------+
+| UNITSIZE         | [product]| [product]| [product]| [product]|   (unit) |   (unit) |
++------------------+----------+----------+----------+----------+----------+----------+
+| UNITSTACK        | [product]| [product]| [product]| [product]|   (unit) |   (unit) |
++------------------+----------+----------+----------+----------+----------+----------+
+| CONTENTUOM       | (product)| (product)| (product)| (product)| (product)| (product)|
++------------------+----------+----------+----------+----------+----------+----------+
+| CONTENTONHAND    |          |          | required |          |          | required |
++------------------+----------+----------+----------+----------+----------+----------+
+| CONTENTRESERVE   | required | required |          | required | required |          |
++------------------+----------+----------+----------+----------+----------+----------+
+| CONTENTNET       | [product]| [product]| [product]| [product]| [product]| [product]|
++------------------+----------+----------+----------+----------+----------+----------+
+| CONTENTTARE      | [product]| [product]| [product]| [product]| [product]| [product]|
++------------------+----------+----------+----------+----------+----------+----------+
+| CONTENTSIZE      | [product]| [product]| [product]| [product]| [product]| [product]|
++------------------+----------+----------+----------+----------+----------+----------+
+| INNERUOM         | (product)| (product)| (product)| (product)| (product)| (product)|
++------------------+----------+----------+----------+----------+----------+----------+
+| INNERONHAND [4]_ | (product)| (product)| (product)| (product)| (product)| (product)|
++------------------+----------+----------+----------+----------+----------+----------+
+| INNERRESERVE [4]_| (product)| (product)| (product)| (product)| (product)| (product)|
++------------------+----------+----------+----------+----------+----------+----------+
+| INNERWEIGHT [4]_ | (product)| (product)| (product)| (product)| (product)| (product)|
++------------------+----------+----------+----------+----------+----------+----------+
+| INNERSIZE   [4]_ | (product)| (product)| (product)| (product)| (product)| (product)|
++------------------+----------+----------+----------+----------+----------+----------+
+
+.. [1] TRANSACTIONTYPE and TRANSACTION numbers are copied from the document
+       header.
+.. [2] A LINEKEY is assigned to track posting to a product/variety/control lot 
+       combination on reserved quantities. Where unit identifiers are required, 
+       and the quantity is on-hand, then LINEKEY is programmatically expanded 
+       to unique SEQUENCEKEY entries for each unit transaction line. 
+.. [3] UNITIDENTIFIER entries are not required to be unique. Unit numbers repeat
+       where skids which are sequentially numbered 1, 2, ... in a production 
+       batch, or where materials are loaded on prenumbered reusable skids in a 
+       closed manufacturing environment. 
+       Where goods are fungible, UNITIDENTIFIER entries are not even required.
+.. [4] If a product INNERUOM is null, associated INNER entries are prohibited. 
+       Otherwise, INNERWEIGHT and INNERSIZE default to product values.
+
+.. note::
+   #. (header), (product), and (unit) **parentheses** indicate values copied
+      from the respective source without change.
+   #. [product] **brackets** indicate the source of a default value.
+
+.. warning::
+   Inbound units can be reserved by outbound shipments. Upon receipt a reserved
+   unit might be unavailable due to condition. A method for resolving this 
+   quandry is required.
 
 .. _cryptic-data:
 
