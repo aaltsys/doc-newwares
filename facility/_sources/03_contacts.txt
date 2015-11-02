@@ -1,4 +1,4 @@
-.. _fac-contacts::
+.. _fac-contacts:
 
 #############################
 Contacts
