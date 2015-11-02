@@ -11,6 +11,9 @@ Contents:
    :maxdepth: 2
    :glob: [0-9]*
 
+.. toctree::
+   :hidden:
+   :glob: *
 
 Indices and tables
 ==================

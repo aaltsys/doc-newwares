@@ -190,6 +190,22 @@ visible in the summary. Specific cases where this might occur are listed here.
 *  When unit weight varies, linear counts or volumetric measures probably vary 
    too. This is especially important with hazardous materials, where both 
    weights and volume measures are used on the Bill of Lading.
+*  **Account** is inherited from the document header for all positive-quantity
+   lines (receipts and adjustments). An error is generated when a product 
+   record matching the Account, Product, and Variety does not exist. 
+
+   Shipments withdraw only from lots belonging to the document header account, 
+   and shipment quantities are automatically negated.
+*  Adjustments may withdraw from any lot regardless of the account in 
+   the document header, so that adjustments can effect ownership transfers.
+   In ownership transfers, negative-quantity adjustment lines deduct lots from 
+   one owner account and positive lines add to the owner account listed in the 
+   adjustment header.
+
+   To enter an ownership transfer adjustment,the line details view is used to 
+   choose the original **Account** to deduct from, and then the product and lot. 
+   When a lot account does not match the document header account, the subsequent 
+   line quantity entries will be negated, just as quantities are for a shipment.
 
 Document Line Requirements
 =============================
@@ -225,8 +241,6 @@ Transactions are entered by line. The following rules apply to transactions:
 +------------------+----------+----------+----------+----------+----------+----------+
 | LOCATION         |          |          | directed |          |   (unit) |   (unit) |
 +------------------+----------+----------+----------+----------+----------+----------+
-| CONDITION        |          |          | required | required |   (unit) |   (unit) |
-+------------------+----------+----------+----------+----------+----------+----------+
 | ACCOUNT          | (header) | (header) | (header) | (header) | (header) | (header) |
 +------------------+----------+----------+----------+----------+----------+----------+
 | PRODUCT          | required | required | required | required | required | required |
@@ -238,6 +252,8 @@ Transactions are entered by line. The following rules apply to transactions:
 | CONTROL          |          | required | required |          |   (unit) |   (unit) |
 +------------------+----------+----------+----------+----------+----------+----------+
 | DESCRIPTION      | [product]| [product]| [product]| [product]| [product]| [product]|
++------------------+----------+----------+----------+----------+----------+----------+
+| CONDITION        |          |          | required | required |   (unit) |   (unit) |
 +------------------+----------+----------+----------+----------+----------+----------+
 | UNITUOM          | (product)| (product)| (product)| (product)| (product)| (product)|
 +------------------+----------+----------+----------+----------+----------+----------+
@@ -261,15 +277,17 @@ Transactions are entered by line. The following rules apply to transactions:
 +------------------+----------+----------+----------+----------+----------+----------+
 | CONTENTSIZE      | [product]| [product]| [product]| [product]| [product]| [product]|
 +------------------+----------+----------+----------+----------+----------+----------+
+| OVERSHORT        |          |          |          |          |          |          |
++------------------+----------+----------+----------+----------+----------+----------+
 | INNERUOM         | (product)| (product)| (product)| (product)| (product)| (product)|
 +------------------+----------+----------+----------+----------+----------+----------+
-| INNERONHAND [4]_ | (product)| (product)| (product)| (product)| (product)| (product)|
+| INNERONHAND [4]_ |          |          | [product]|          |          | [product]|
 +------------------+----------+----------+----------+----------+----------+----------+
-| INNERRESERVE [4]_| (product)| (product)| (product)| (product)| (product)| (product)|
+| INNERRESERVE [4]_| [product]| [product]|          | [product]| [product]|          |
 +------------------+----------+----------+----------+----------+----------+----------+
-| INNERWEIGHT [4]_ | (product)| (product)| (product)| (product)| (product)| (product)|
+| INNERWEIGHT [4]_ | [product]| [product]| [product]| [product]| [product]| [product]|
 +------------------+----------+----------+----------+----------+----------+----------+
-| INNERSIZE   [4]_ | (product)| (product)| (product)| (product)| (product)| (product)|
+| INNERSIZE   [4]_ | [product]| [product]| [product]| [product]| [product]| [product]|
 +------------------+----------+----------+----------+----------+----------+----------+
 
 .. [1] TRANSACTIONTYPE and TRANSACTION numbers are copied from the document
@@ -311,11 +329,11 @@ program operation. These columns are described in the following list.
    detail displays.
 
 *  **LineKey** -- is necessary to maintain the original document structure for 
-   for shipping and receiving documents. Pick tickets are printed with lines 
+   for shipping and receiving documents. Pick tickets are presented with lines 
    sorted by Location, but Warehouse Receipts and Bills of Lading are sorted in 
    the original document order, that is, by **Linekey**.
 
-   **LineKey** tracks the initial entry sequence of lines in a document:
+   **LineKey** tracks the initial entry sequence of unit lines in a document:
 
       `LINEKEY = ( TRANSACTION * 1000 ) + LINEPOS`
 
@@ -339,22 +357,10 @@ program operation. These columns are described in the following list.
    depending on the line status. The appearance of a single data field is 
    deceptive from the standpoint of data definition.
 
-*  **Account** -- is copied from the transaction header for positive-quantity
-   lines (receipts and adjustments), and an error is generated when a product 
-   record with the Account, Product, and Variety does not exist. Therefore new 
-   lots on a document always belong to the master account of the document. 
-
-   Shipments may withdraw only from lots belonging to the document's account.
-
-   Adjustments may withdraw from any lot regardless of the account in the 
-   document heading. Therefore adjustments can effect ownership transfers, where 
-   negative-quantity adjustment lines deduct from one owner account and positive 
-   lines add to the owner account listed in the adjustment header.
-
 *  **UnitUOM**, **ContentUOM**, and **InnerUOM** -- are display-only values 
    copied from the current product record.
 
 Document Lines Column Data
 =============================
 
-Documentation resources include the data column definitions for :ref:`trlines`.
+Documentation resources include the data column definitions for :ref:`lot-lines`.
