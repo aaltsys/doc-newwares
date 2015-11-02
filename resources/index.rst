@@ -8,11 +8,9 @@ WARES Resources
 Contents:
 
 .. toctree::
-   :hidden: legend.rst
    :maxdepth: 2
-   :glob:
-   
-   [0-9]*
+   :glob: [0-9]*
+
 
 Indices and tables
 ==================

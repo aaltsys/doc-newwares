@@ -1,10 +1,19 @@
 .. _codelists:
 
 #############################
-WARES Codes Table of Contents
+WARES Codes Lists
 #############################
 
 .. _index:
+
+Account Setup Lists
+=============================
+
+:ref:`contacts-list`
+:ref:`state-list`
+:ref:`country-list`
+:ref:`fob-list`
+:ref:`cod-list`
 
 Product Setup Lists
 =============================
