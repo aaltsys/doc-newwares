@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>webWARES Locator Overview &mdash; WARES Locator 1.0 documentation</title>
+    <title>Locator Views &mdash; WARES Facility 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -23,45 +23,46 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="WARES Locator 1.0 documentation" href="index.html" />
-    <link rel="next" title="Locator Documents" href="02_documents.html" />
-    <link rel="prev" title="WARES Locator Table of Contents" href="index.html" /> 
+    <link rel="top" title="WARES Facility 1.0 documentation" href="index.html" />
+    <link rel="next" title="Inventory Balances" href="06_inventory.html" />
+    <link rel="prev" title="Accounts" href="04_accounts.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="02_documents.html" title="Locator Documents"
+          <a href="06_inventory.html" title="Inventory Balances"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="index.html" title="WARES Locator Table of Contents"
+          <a href="04_accounts.html" title="Accounts"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">WARES Locator 1.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">WARES Facility 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">webWARES Locator Overview</a><ul>
+<li><a class="reference internal" href="#">Locator Views</a><ul>
 <li><a class="reference internal" href="#locator-purpose">Locator Purpose</a></li>
 <li><a class="reference internal" href="#locator-features">Locator Features</a></li>
 <li><a class="reference internal" href="#facility-setup">Facility Setup</a></li>
+<li><a class="reference internal" href="#locator-transaction-columns">Locator Transaction Columns</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="index.html"
-                        title="previous chapter">WARES Locator Table of Contents</a></p>
+  <p class="topless"><a href="04_accounts.html"
+                        title="previous chapter">Accounts</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="02_documents.html"
-                        title="next chapter">Locator Documents</a></p>
+  <p class="topless"><a href="06_inventory.html"
+                        title="next chapter">Inventory Balances</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/01_overview.txt"
+      <li><a href="_sources/05_locator.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -86,29 +87,23 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="webwares-locator-overview">
-<span id="loc-overview"></span><h1>webWARES Locator Overview<a class="headerlink" href="#webwares-locator-overview" title="Permalink to this headline">¶</a></h1>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last"><a class="reference external" href="http://newwares.aaltsys.com">http://newwares.aaltsys.com</a> displays a preliminary version of the webWARES
-locator. This is not intended as a completed application. Rather, it is a
-starting point for alpha-testing program design.</p>
-</div>
+  <div class="section" id="locator-views">
+<span id="loc-locator"></span><h1>Locator Views<a class="headerlink" href="#locator-views" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="locator-purpose">
 <h2>Locator Purpose<a class="headerlink" href="#locator-purpose" title="Permalink to this headline">¶</a></h2>
 <p>The <strong>Locator</strong> displays warehouse inventory quantity and status information
 through a series of four views: documents, transaction lines, locator items,
 and product inventory.</p>
 <ul>
-<li><p class="first"><a class="reference internal" href="02_documents.html#loc-documents"><em>Locator Documents</em></a> form the basis of warehouse management. The locator
+<li><p class="first"><em class="xref std std-ref">loc-documents</em> form the basis of warehouse management. The locator
 lists documents and displays document details. Filter options for documents
 are by account, date or date range, product, and lot.</p>
 </li>
-<li><p class="first"><a class="reference internal" href="03_transactions.html#loc-transactions"><em>Locator Transaction Columns</em></a> provide the basic information used to build locator
+<li><p class="first"><em class="xref std std-ref">loc-transactions</em> provide the basic information used to build locator
 balances. The transaction lines view may be filtered by account, product,
 lot, date or date range, document, and location or location range.</p>
 </li>
-<li><p class="first"><a class="reference internal" href="04_locator.html#loc-locator"><em>Locator Views</em></a> shows warehouse inventory and quantities organized by
+<li><p class="first"><a class="reference internal" href="#loc-locator"><em>Locator Views</em></a> shows warehouse inventory and quantities organized by
 handling and shipping units. The locator view filter includes account,
 product, lot, location or location range, and on-hand/expected/undelivered.</p>
 <p>Fungible bulk goods which are not stored by unit are displayed by location or
@@ -116,7 +111,7 @@ lot instead. Inventory quantities show on-hand, allocated/committed, reserved
 with hold codes, and resulting available. Optionally the locator may show
 goods in transit and shipped quantites where delivery has not been confirmed.</p>
 </li>
-<li><p class="first"><a class="reference internal" href="05_inventory.html#loc-inventory"><em>Inventory Balances</em></a> summarize locator information by product. The balances
+<li><p class="first"><a class="reference internal" href="06_inventory.html#loc-inventory"><em>Inventory Balances</em></a> summarize locator information by product. The balances
 view is dynamic, created from the locator information. Inventory is filtered
 by account and product.</p>
 </li>
@@ -139,6 +134,12 @@ for free from the Google store for use with Advanced WARES.</p>
 <p>Setup location codes.</p>
 <p>View inventory locations.</p>
 </div>
+<div class="section" id="locator-transaction-columns">
+<h2>Locator Transaction Columns<a class="headerlink" href="#locator-transaction-columns" title="Permalink to this headline">¶</a></h2>
+<p>Excluding location transfers, locator transaction lines are identically the
+inventory document line transactions. The database column layout for these
+transactions is available in documentation resources at <a class="reference external" href="../resources/03_lotdetails_lines.html#lot-lines" title="(in WARES Resources v1.0)"><em>Lot Transaction Lines</em></a>.</p>
+</div>
 </div>
 
 
@@ -151,12 +152,12 @@ for free from the Google store for use with Advanced WARES.</p>
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="02_documents.html" title="Locator Documents"
+          <a href="06_inventory.html" title="Inventory Balances"
              >next</a></li>
         <li class="right" >
-          <a href="index.html" title="WARES Locator Table of Contents"
+          <a href="04_accounts.html" title="Accounts"
              >previous</a> |</li>
-        <li><a href="index.html">WARES Locator 1.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">WARES Facility 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
