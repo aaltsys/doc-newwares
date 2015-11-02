@@ -9,7 +9,7 @@ WARES Master Index
 =============================
 
 #. :ref:`inventory:index`.
-#. :ref:`locator:index`.
+#. :ref:`facility:index`.
 #. :ref:`documents:index`.
 #. :ref:`exchange:index`.
 #. :ref:`billing:index`.
