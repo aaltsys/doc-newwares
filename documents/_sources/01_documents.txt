@@ -165,5 +165,69 @@ and in associated notes.
        with the Account's freight billing address for Prepaid shipments, or 
        with the Consignee (Ship To) address for Collect.
 
+Document Heading Requirements
+=============================
+
+Warehouse inventory documents in WARES follow a consistent structure for header 
+information and transaction line detail. The requirements presented here cover
+Inbound (receiving) and Outbound (shipping) documents; adjustments to inventory 
+need somewhat less information since shipping is not involved.
+
++----------------+----------+----------+----------+----------+----------+----------+
+| Column Name    | Expected |  Inbound | Received | Reserved | Allocated|  Shipped |
++================+==========+==========+==========+==========+==========+==========+
+| TYPE       [5]_|        3 |        3 |        3 |        4 |        4 |        4 |
++----------------+----------+----------+----------+----------+----------+----------+
+| IDENTIFIER [5]_| sequence | sequence | sequence | sequence | sequence | sequence |
++----------------+----------+----------+----------+----------+----------+----------+
+| REVISION   [6]_|      000 |      000 |      000 |      000 |      000 |      000 |
++----------------+----------+----------+----------+----------+----------+----------+
+| STATUS         |        1 |        2 |       3+ |        1 |        2 |       3+ |
++----------------+----------+----------+----------+----------+----------+----------+
+| DATETIME       |     [7]_ |     [7]_ |     [7]_ |     [7]_ |     [7]_ |     [7]_ |
++----------------+----------+----------+----------+----------+----------+----------+
+| ACCOUNT        | required | required | required | required | required | required |
++----------------+----------+----------+----------+----------+----------+----------+
+| BUILDING       |          |          | required |          | required | required |
++----------------+----------+----------+----------+----------+----------+----------+
+| REFERENCECODE  |     [8]_ |     [8]_ |     [8]_ |     [8]_ |     [8]_ |     [8]_ |
++----------------+----------+----------+----------+----------+----------+----------+
+| REFERENCE      |     [8]_ |     [8]_ |     [8]_ |     [8]_ |     [8]_ |     [8]_ |
++----------------+----------+----------+----------+----------+----------+----------+
+| ADDRESSCODE    |       SF |       SF |       SF | ST  [9]_ | ST  [9]_ | ST  [9]_ |
++----------------+----------+----------+----------+----------+----------+----------+
+| ADDRESS        | required | required | required | required | required | required |
++----------------+----------+----------+----------+----------+----------+----------+
+| CARRIERCODE    | optional | optional | optional | optional | optional | required |
++----------------+----------+----------+----------+----------+----------+----------+
+| FREIGHTPAY     |          |          |          | reqd [9]_| reqd [9]_| reqd [9]_|
++----------------+----------+----------+----------+----------+----------+----------+
++----------------+----------+----------+----------+----------+----------+----------+
+| other entries  | optional | optional | optional | optional | optional | optional |
++----------------+----------+----------+----------+----------+----------+----------+
+
+.. [5] The entry page for a document determines the document TYPE, and new 
+       document sequence numbers are programmatically assigned.
+.. [6] REVISION version is incremented each time a transaction is changed. The 
+       current version of a document is always displayed as revision "000". The 
+       current version is posted; previous versions will have status '0'.
+.. [7] DATETIME, a required value, represents the anticipated completion date
+       for Expected, Inbound, Reserved, Allocated. DATETIME records the actual 
+       date and time when the status changes to Received or Shipped.
+.. [8] Account settings determine REFERENCECODE defaults. Where REFERENCECODE 
+       entries exist, the corresponding REFERENCE entries are required.
+.. [9] FREIGHTPAY results depend on the first letter of the code.
+
+       *  **P_** prepaid. ADDRESSCODE 'PF' will be applied to the account's 
+          freight payment address, if provided, or the account's billing 
+          or mailing address otherwise.
+       *  **C_** collect. The consignee (ship-to) ADDRESSCODE will be used for 
+          freight payment as well.
+       *  **T_** 3rd party. A corresponding ADDRESSCODE of 'PF' and an aditional 
+          associated ADDRESS identifier entry is required. 
+
+Document Heading Column Data
+=============================
+
 The Resources listing for the Documents table database schema is found at 
 :ref:`document-head`.

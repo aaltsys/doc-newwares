@@ -24,18 +24,18 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="WARES Resources 1.0 documentation" href="index.html" />
-    <link rel="next" title="Inventory Lot Details" href="04_lot-details.html" />
-    <link rel="prev" title="Product Data Definition" href="02_products.html" /> 
+    <link rel="next" title="Inventory Lot Details" href="03_lotdetails_head.html" />
+    <link rel="prev" title="PRODUCTS Masterfile" href="02_products-json.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="04_lot-details.html" title="Inventory Lot Details"
+          <a href="03_lotdetails_head.html" title="Inventory Lot Details"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="02_products.html" title="Product Data Definition"
+          <a href="02_products-json.html" title="PRODUCTS Masterfile"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">WARES Resources 1.0 documentation</a> &raquo;</li> 
       </ul>
@@ -52,15 +52,15 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="02_products.html"
-                        title="previous chapter">Product Data Definition</a></p>
+  <p class="topless"><a href="02_products-json.html"
+                        title="previous chapter">PRODUCTS Masterfile</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="04_lot-details.html"
+  <p class="topless"><a href="03_lotdetails_head.html"
                         title="next chapter">Inventory Lot Details</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/03_json-lot-details.txt"
+      <li><a href="_sources/03_lotdetails-json.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -144,54 +144,54 @@ refers to whether the data will be quoted string (A) or unquoted numeric (N).</p
 <td>&#8220;null&#8221;</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>J</td>
-<td>controlCode</td>
-<td>S</td>
-<td>A</td>
-<td>CONTROLCODE (&#8220;NA&#8221;)</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>F</td>
+<tr class="row-even"><td>F</td>
 <td>control</td>
 <td>S</td>
 <td>A</td>
 <td>CONTROL</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>N/A</td>
+<tr class="row-even"><td>N/A</td>
 <td>documentType</td>
 <td>S</td>
 <td>A</td>
 <td>&#8220;IB&#8221;</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>F</td>
+<tr class="row-odd"><td>F</td>
 <td>document</td>
 <td>S</td>
 <td>A</td>
 <td>&#64;ID</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>N/A</td>
+<tr class="row-even"><td>N/A</td>
 <td>revision</td>
 <td>S</td>
 <td>A</td>
 <td>&#8220;00&#8221;</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>F</td>
+<tr class="row-odd"><td>F</td>
 <td>postDate</td>
 <td>S</td>
 <td>A</td>
 <td>DATE</td>
 <td>(D-JS)</td>
+</tr>
+<tr class="row-even"><td>J</td>
+<td>controlCode</td>
+<td>S</td>
+<td>A</td>
+<td>CONTROLCODE (&#8220;NA&#8221;)</td>
+<td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>F</td>
 <td>description</td>
@@ -513,46 +513,53 @@ refers to whether the data will be quoted string (A) or unquoted numeric (N).</p
 <td>&lt;,,26&gt; (MD42L)</td>
 </tr>
 <tr class="row-odd"><td>J</td>
+<td>overShort</td>
+<td>M</td>
+<td>N</td>
+<td>SERIAL_LIST   (null)</td>
+<td>&lt;,,27&gt; (MD0)</td>
+</tr>
+<tr class="row-even"><td>J</td>
 <td>innerUom</td>
 <td>M</td>
 <td>A</td>
 <td>SERIAL_LIST   (null)</td>
-<td>&lt;,,27&gt;</td>
-</tr>
-<tr class="row-even"><td>J</td>
-<td>innerCount</td>
-<td>M</td>
-<td>N</td>
-<td>SERIAL_LIST   (null)</td>
-<td>&lt;,,28&gt; (MD0)</td>
+<td>&lt;,,28&gt;</td>
 </tr>
 <tr class="row-odd"><td>J</td>
-<td>innerOnHand</td>
+<td>innerCount</td>
 <td>M</td>
 <td>N</td>
 <td>SERIAL_LIST   (null)</td>
 <td>&lt;,,29&gt; (MD0)</td>
 </tr>
 <tr class="row-even"><td>J</td>
-<td>innerReserve</td>
+<td>innerOnHand</td>
 <td>M</td>
 <td>N</td>
 <td>SERIAL_LIST   (null)</td>
 <td>&lt;,,30&gt; (MD0)</td>
 </tr>
 <tr class="row-odd"><td>J</td>
+<td>innerReserve</td>
+<td>M</td>
+<td>N</td>
+<td>SERIAL_LIST   (null)</td>
+<td>&lt;,,31&gt; (MD0)</td>
+</tr>
+<tr class="row-even"><td>J</td>
 <td>innerWeight</td>
 <td>M</td>
 <td>N</td>
 <td>SERIAL_LIST   (null)</td>
-<td>&lt;,,31&gt; (MD42L)</td>
+<td>&lt;,,32&gt; (MD42L)</td>
 </tr>
-<tr class="row-even"><td>J</td>
+<tr class="row-odd"><td>J</td>
 <td>innerSize</td>
 <td>M</td>
 <td>N</td>
 <td>SERIAL_LIST   (null)</td>
-<td>&lt;,,32&gt; (MD42L)</td>
+<td>&lt;,,33&gt; (MD42L)</td>
 </tr>
 </tbody>
 </table>
@@ -574,10 +581,10 @@ receipts, shipments, and adjustments.</p>
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="04_lot-details.html" title="Inventory Lot Details"
+          <a href="03_lotdetails_head.html" title="Inventory Lot Details"
              >next</a></li>
         <li class="right" >
-          <a href="02_products.html" title="Product Data Definition"
+          <a href="02_products-json.html" title="PRODUCTS Masterfile"
              >previous</a> |</li>
         <li><a href="index.html">WARES Resources 1.0 documentation</a> &raquo;</li> 
       </ul>

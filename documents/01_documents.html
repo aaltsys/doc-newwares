@@ -52,6 +52,8 @@
 <li><a class="reference internal" href="#qualifiers-and-quantities">Qualifiers and Quantities</a></li>
 <li><a class="reference internal" href="#notes-and-messages">Notes and Messages</a></li>
 <li><a class="reference internal" href="#data-validation-rules">Data Validation Rules</a></li>
+<li><a class="reference internal" href="#document-heading-requirements">Document Heading Requirements</a></li>
+<li><a class="reference internal" href="#document-heading-column-data">Document Heading Column Data</a></li>
 </ul>
 </li>
 </ul>
@@ -381,8 +383,207 @@ with the Account&#8217;s freight billing address for Prepaid shipments, or
 with the Consignee (Ship To) address for Collect.</td></tr>
 </tbody>
 </table>
+</div>
+<div class="section" id="document-heading-requirements">
+<h2>Document Heading Requirements<a class="headerlink" href="#document-heading-requirements" title="Permalink to this headline">¶</a></h2>
+<p>Warehouse inventory documents in WARES follow a consistent structure for header
+information and transaction line detail. The requirements presented here cover
+Inbound (receiving) and Outbound (shipping) documents; adjustments to inventory
+need somewhat less information since shipping is not involved.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Column Name</th>
+<th class="head">Expected</th>
+<th class="head">Inbound</th>
+<th class="head">Received</th>
+<th class="head">Reserved</th>
+<th class="head">Allocated</th>
+<th class="head">Shipped</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>TYPE       <a class="footnote-reference" href="#id39" id="id12">[5]</a></td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="row-odd"><td>IDENTIFIER <a class="footnote-reference" href="#id39" id="id13">[5]</a></td>
+<td>sequence</td>
+<td>sequence</td>
+<td>sequence</td>
+<td>sequence</td>
+<td>sequence</td>
+<td>sequence</td>
+</tr>
+<tr class="row-even"><td>REVISION   <a class="footnote-reference" href="#id40" id="id14">[6]</a></td>
+<td>000</td>
+<td>000</td>
+<td>000</td>
+<td>000</td>
+<td>000</td>
+<td>000</td>
+</tr>
+<tr class="row-odd"><td>STATUS</td>
+<td>1</td>
+<td>2</td>
+<td>3+</td>
+<td>1</td>
+<td>2</td>
+<td>3+</td>
+</tr>
+<tr class="row-even"><td>DATETIME</td>
+<td><a class="footnote-reference" href="#id41" id="id15">[7]</a></td>
+<td><a class="footnote-reference" href="#id41" id="id16">[7]</a></td>
+<td><a class="footnote-reference" href="#id41" id="id17">[7]</a></td>
+<td><a class="footnote-reference" href="#id41" id="id18">[7]</a></td>
+<td><a class="footnote-reference" href="#id41" id="id19">[7]</a></td>
+<td><a class="footnote-reference" href="#id41" id="id20">[7]</a></td>
+</tr>
+<tr class="row-odd"><td>ACCOUNT</td>
+<td>required</td>
+<td>required</td>
+<td>required</td>
+<td>required</td>
+<td>required</td>
+<td>required</td>
+</tr>
+<tr class="row-even"><td>BUILDING</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>required</td>
+<td>&nbsp;</td>
+<td>required</td>
+<td>required</td>
+</tr>
+<tr class="row-odd"><td>REFERENCECODE</td>
+<td><a class="footnote-reference" href="#id42" id="id21">[8]</a></td>
+<td><a class="footnote-reference" href="#id42" id="id22">[8]</a></td>
+<td><a class="footnote-reference" href="#id42" id="id23">[8]</a></td>
+<td><a class="footnote-reference" href="#id42" id="id24">[8]</a></td>
+<td><a class="footnote-reference" href="#id42" id="id25">[8]</a></td>
+<td><a class="footnote-reference" href="#id42" id="id26">[8]</a></td>
+</tr>
+<tr class="row-even"><td>REFERENCE</td>
+<td><a class="footnote-reference" href="#id42" id="id27">[8]</a></td>
+<td><a class="footnote-reference" href="#id42" id="id28">[8]</a></td>
+<td><a class="footnote-reference" href="#id42" id="id29">[8]</a></td>
+<td><a class="footnote-reference" href="#id42" id="id30">[8]</a></td>
+<td><a class="footnote-reference" href="#id42" id="id31">[8]</a></td>
+<td><a class="footnote-reference" href="#id42" id="id32">[8]</a></td>
+</tr>
+<tr class="row-odd"><td>ADDRESSCODE</td>
+<td>SF</td>
+<td>SF</td>
+<td>SF</td>
+<td>ST  <a class="footnote-reference" href="#id43" id="id33">[9]</a></td>
+<td>ST  <a class="footnote-reference" href="#id43" id="id34">[9]</a></td>
+<td>ST  <a class="footnote-reference" href="#id43" id="id35">[9]</a></td>
+</tr>
+<tr class="row-even"><td>ADDRESS</td>
+<td>required</td>
+<td>required</td>
+<td>required</td>
+<td>required</td>
+<td>required</td>
+<td>required</td>
+</tr>
+<tr class="row-odd"><td>CARRIERCODE</td>
+<td>optional</td>
+<td>optional</td>
+<td>optional</td>
+<td>optional</td>
+<td>optional</td>
+<td>required</td>
+</tr>
+<tr class="row-even"><td>FREIGHTPAY</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>reqd <a class="footnote-reference" href="#id43" id="id36">[9]</a></td>
+<td>reqd <a class="footnote-reference" href="#id43" id="id37">[9]</a></td>
+<td>reqd <a class="footnote-reference" href="#id43" id="id38">[9]</a></td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>other entries</td>
+<td>optional</td>
+<td>optional</td>
+<td>optional</td>
+<td>optional</td>
+<td>optional</td>
+<td>optional</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id39" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[5]</td><td><em>(<a class="fn-backref" href="#id12">1</a>, <a class="fn-backref" href="#id13">2</a>)</em> The entry page for a document determines the document TYPE, and new
+document sequence numbers are programmatically assigned.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id40" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id14">[6]</a></td><td>REVISION version is incremented each time a transaction is changed. The
+current version of a document is always displayed as revision &#8220;000&#8221;. The
+current version is posted; previous versions will have status &#8216;0&#8217;.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id41" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[7]</td><td><em>(<a class="fn-backref" href="#id15">1</a>, <a class="fn-backref" href="#id16">2</a>, <a class="fn-backref" href="#id17">3</a>, <a class="fn-backref" href="#id18">4</a>, <a class="fn-backref" href="#id19">5</a>, <a class="fn-backref" href="#id20">6</a>)</em> DATETIME, a required value, represents the anticipated completion date
+for Expected, Inbound, Reserved, Allocated. DATETIME records the actual
+date and time when the status changes to Received or Shipped.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id42" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[8]</td><td><em>(<a class="fn-backref" href="#id21">1</a>, <a class="fn-backref" href="#id22">2</a>, <a class="fn-backref" href="#id23">3</a>, <a class="fn-backref" href="#id24">4</a>, <a class="fn-backref" href="#id25">5</a>, <a class="fn-backref" href="#id26">6</a>, <a class="fn-backref" href="#id27">7</a>, <a class="fn-backref" href="#id28">8</a>, <a class="fn-backref" href="#id29">9</a>, <a class="fn-backref" href="#id30">10</a>, <a class="fn-backref" href="#id31">11</a>, <a class="fn-backref" href="#id32">12</a>)</em> Account settings determine REFERENCECODE defaults. Where REFERENCECODE
+entries exist, the corresponding REFERENCE entries are required.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id43" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[9]</td><td><em>(<a class="fn-backref" href="#id33">1</a>, <a class="fn-backref" href="#id34">2</a>, <a class="fn-backref" href="#id35">3</a>, <a class="fn-backref" href="#id36">4</a>, <a class="fn-backref" href="#id37">5</a>, <a class="fn-backref" href="#id38">6</a>)</em> <p>FREIGHTPAY results depend on the first letter of the code.</p>
+<ul class="last simple">
+<li><strong>P_</strong> prepaid. ADDRESSCODE &#8216;PF&#8217; will be applied to the account&#8217;s
+freight payment address, if provided, or the account&#8217;s billing
+or mailing address otherwise.</li>
+<li><strong>C_</strong> collect. The consignee (ship-to) ADDRESSCODE will be used for
+freight payment as well.</li>
+<li><strong>T_</strong> 3rd party. A corresponding ADDRESSCODE of &#8216;PF&#8217; and an aditional
+associated ADDRESS identifier entry is required.</li>
+</ul>
+</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="document-heading-column-data">
+<h2>Document Heading Column Data<a class="headerlink" href="#document-heading-column-data" title="Permalink to this headline">¶</a></h2>
 <p>The Resources listing for the Documents table database schema is found at
-<a class="reference external" href="../resources/07_documents.html#document-head" title="(in WARES Resources v1.0)"><em>Inventory Document Head</em></a>.</p>
+<a class="reference external" href="../resources/04_documents_head.html#document-head" title="(in WARES Resources v1.0)"><em>Inventory Document Head</em></a>.</p>
 </div>
 </div>
 

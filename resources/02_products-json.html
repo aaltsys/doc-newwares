@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>JSON DOSWARES Export MASTER &mdash; WARES Resources 1.0 documentation</title>
+    <title>PRODUCTS Masterfile &mdash; WARES Resources 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,44 +24,34 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="WARES Resources 1.0 documentation" href="index.html" />
-    <link rel="next" title="&lt;no title&gt;" href="01_account.html" />
-    <link rel="prev" title="WARES Documentation Resources" href="index.html" /> 
+    <link rel="next" title="JSON DOSWARES Export DETAILS" href="03_lotdetails-json.html" />
+    <link rel="prev" title="Product Data Definition" href="02_products.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="01_account.html" title="&lt;no title&gt;"
+          <a href="03_lotdetails-json.html" title="JSON DOSWARES Export DETAILS"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="index.html" title="WARES Documentation Resources"
+          <a href="02_products.html" title="Product Data Definition"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">WARES Resources 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">JSON DOSWARES Export MASTER</a><ul>
-<li><a class="reference internal" href="#contacts">CONTACTS</a></li>
-<li><a class="reference internal" href="#accounts">ACCOUNTS</a></li>
-<li><a class="reference internal" href="#products-masterfile">PRODUCTS Masterfile</a></li>
-</ul>
-</li>
-</ul>
-
   <h4>Previous topic</h4>
-  <p class="topless"><a href="index.html"
-                        title="previous chapter">WARES Documentation Resources</a></p>
+  <p class="topless"><a href="02_products.html"
+                        title="previous chapter">Product Data Definition</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="01_account.html"
-                        title="next chapter">&lt;no title&gt;</a></p>
+  <p class="topless"><a href="03_lotdetails-json.html"
+                        title="next chapter">JSON DOSWARES Export DETAILS</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/00_json-master.txt"
+      <li><a href="_sources/02_products-json.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -86,494 +76,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="json-doswares-export-master">
-<span id="export-master"></span><h1>JSON DOSWARES Export MASTER<a class="headerlink" href="#json-doswares-export-master" title="Permalink to this headline">¶</a></h1>
-<p>The DOS WARES export utility writes masterfiles in JSON stream files. The files
-for ADDRESSES, ACCOUNTS, and PRODUCTS are documented below.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Column F/S/J indicates if a WARES data field (F), a synthetic field (S), or
-a synthetic column specific to the JSON export (J). Column S/M indicates
-whether a column is single-valued (S) or array multivalue (M). Column A/N
-refers to whether the data will be quoted string (A) or unquoted numeric (N).</p>
-</div>
-<div class="section" id="contacts">
-<span id="export-contacts"></span><h2>CONTACTS<a class="headerlink" href="#contacts" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="docutils">
-<colgroup>
-<col width="10%" />
-<col width="25%" />
-<col width="7%" />
-<col width="7%" />
-<col width="30%" />
-<col width="22%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">F/S/J</th>
-<th class="head">JSON NAME</th>
-<th class="head">M/S</th>
-<th class="head">A/N</th>
-<th class="head">DICTIONARY (&#8220;value&#8221;)</th>
-<th class="head">COMMANDS</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>N/A</td>
-<td>keys</td>
-<td colspan="4">&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>F</td>
-<td>contactType</td>
-<td>S</td>
-<td>A</td>
-<td>TYPE</td>
-<td>&lt;,&gt;</td>
-</tr>
-<tr class="row-even"><td>F</td>
-<td>Identifier</td>
-<td>S</td>
-<td>A</td>
-<td>&#64;ID</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>F</td>
-<td>account</td>
-<td>S</td>
-<td>A</td>
-<td>ACCOUNT</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>F</td>
-<td>name</td>
-<td>S</td>
-<td>A</td>
-<td>NAME</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>F</td>
-<td>street</td>
-<td>M</td>
-<td>A</td>
-<td>STREET</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>F</td>
-<td>city</td>
-<td>S</td>
-<td>A</td>
-<td>CITY</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>F</td>
-<td>state</td>
-<td>S</td>
-<td>A</td>
-<td>STATE</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>F</td>
-<td>postalCode</td>
-<td>S</td>
-<td>A</td>
-<td>ZIP</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>F</td>
-<td>country</td>
-<td>S</td>
-<td>A</td>
-<td>COUNTRY</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>F</td>
-<td>phone</td>
-<td>M</td>
-<td>A</td>
-<td>PHONE</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>F</td>
-<td>contact</td>
-<td>M</td>
-<td>A</td>
-<td>CONTACT</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>F</td>
-<td>salutation</td>
-<td>M</td>
-<td>A</td>
-<td>SALUTATION</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>F</td>
-<td>position</td>
-<td>M</td>
-<td>A</td>
-<td>POSITION</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>F</td>
-<td>email</td>
-<td>M</td>
-<td>A</td>
-<td>EMAIL</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>F</td>
-<td>freightPay</td>
-<td>S</td>
-<td>A</td>
-<td>FREIGHT_PAY</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>F</td>
-<td>fob</td>
-<td>S</td>
-<td>A</td>
-<td>FOB</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>F</td>
-<td>cod</td>
-<td>S</td>
-<td>A</td>
-<td>COD</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>F</td>
-<td>link</td>
-<td>S</td>
-<td>A</td>
-<td>LINK</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>F</td>
-<td>userData</td>
-<td>S</td>
-<td>A</td>
-<td>USERDATA</td>
-<td>&nbsp;</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="accounts">
-<span id="export-accounts"></span><h2>ACCOUNTS<a class="headerlink" href="#accounts" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="docutils">
-<colgroup>
-<col width="10%" />
-<col width="25%" />
-<col width="7%" />
-<col width="7%" />
-<col width="30%" />
-<col width="22%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">F/S/J</th>
-<th class="head">JSON NAME</th>
-<th class="head">M/S</th>
-<th class="head">A/N</th>
-<th class="head">DICTIONARY (&#8220;value&#8221;)</th>
-<th class="head">COMMANDS</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>N/A</td>
-<td>keys</td>
-<td colspan="4">&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>F</td>
-<td>account</td>
-<td>S</td>
-<td>A</td>
-<td>&#64;ID</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>F</td>
-<td>name</td>
-<td>S</td>
-<td>A</td>
-<td>NAME</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>N/A</td>
-<td>addresses</td>
-<td colspan="4">&nbsp;</td>
-</tr>
-<tr class="row-even"><td>N/A</td>
-<td>addressCode</td>
-<td>S</td>
-<td>A</td>
-<td>&#8220;A&#8221;</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>F</td>
-<td>address</td>
-<td>S</td>
-<td>A</td>
-<td>ADDRESS</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>N/A</td>
-<td>addressCode</td>
-<td>S</td>
-<td>A</td>
-<td>&#8220;ST&#8221;</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>F</td>
-<td>address</td>
-<td>S</td>
-<td>A</td>
-<td>ADDRESS_ST</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>N/A</td>
-<td>addressCode</td>
-<td>S</td>
-<td>A</td>
-<td>&#8220;BT&#8221;</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>F</td>
-<td>address</td>
-<td>S</td>
-<td>A</td>
-<td>ADDRESS_BT</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>N/A</td>
-<td>addressCode</td>
-<td>S</td>
-<td>A</td>
-<td>&#8220;PF&#8221;</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>F</td>
-<td>address</td>
-<td>S</td>
-<td>A</td>
-<td>ADDRESS_PF</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>N/A</td>
-<td>billing</td>
-<td colspan="4">&nbsp;</td>
-</tr>
-<tr class="row-even"><td>F</td>
-<td>terms</td>
-<td>S</td>
-<td>A</td>
-<td>TERMS         (&#8220;30&#8221;)</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>F</td>
-<td>invoicing</td>
-<td>S</td>
-<td>A</td>
-<td>INVOICING      (&#8220;0&#8221;)</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>F</td>
-<td>receiving</td>
-<td>S</td>
-<td>A</td>
-<td>RECEIVING      (&#8220;F&#8221;)</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>F</td>
-<td>freeDays</td>
-<td>S</td>
-<td>A</td>
-<td>FREEDAYS</td>
-<td>(MD0)</td>
-</tr>
-<tr class="row-even"><td>N/A</td>
-<td>graceDays</td>
-<td>S</td>
-<td>A</td>
-<td>(&#8220;null&#8221;)</td>
-<td>(MD0)</td>
-</tr>
-<tr class="row-odd"><td>F</td>
-<td>recurring</td>
-<td>S</td>
-<td>A</td>
-<td>RECURRING      (&#8220;E&#8221;)</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>F</td>
-<td>recurMinimum</td>
-<td>S</td>
-<td>A</td>
-<td>RECUR_MIN</td>
-<td>(MD2L)</td>
-</tr>
-<tr class="row-odd"><td>F</td>
-<td>recurCalendar</td>
-<td>M</td>
-<td>A</td>
-<td>CLOSE_DATE</td>
-<td>(D-JS)</td>
-</tr>
-<tr class="row-even"><td>F</td>
-<td>recurClose</td>
-<td>M</td>
-<td>A</td>
-<td>PERIOD</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>F</td>
-<td>recurFlag</td>
-<td>S</td>
-<td>A</td>
-<td>RECUR_FLAG</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>N/A</td>
-<td>accounting</td>
-<td colspan="4">&nbsp;</td>
-</tr>
-<tr class="row-even"><td>F</td>
-<td>valueDeclared</td>
-<td>S</td>
-<td>A</td>
-<td>VALUE</td>
-<td>(MD2L)</td>
-</tr>
-<tr class="row-odd"><td>F</td>
-<td>valuePer</td>
-<td>S</td>
-<td>A</td>
-<td>VALUE_PER</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>F</td>
-<td>valueSurcharge</td>
-<td>S</td>
-<td>A</td>
-<td>VALUE_SUR</td>
-<td>(MD24L)</td>
-</tr>
-<tr class="row-odd"><td>F</td>
-<td>deferHandling</td>
-<td>S</td>
-<td>A</td>
-<td>DEFER        (&#8221;.50&#8221;)</td>
-<td>(MD24L)</td>
-</tr>
-<tr class="row-even"><td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>N/A</td>
-<td>documents</td>
-<td colspan="4">&nbsp;</td>
-</tr>
-<tr class="row-even"><td>F</td>
-<td>freightPay</td>
-<td>S</td>
-<td>A</td>
-<td>FREIGHT_PAY    (&#8220;P&#8221;)</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>F</td>
-<td>poNumber</td>
-<td>S</td>
-<td>A</td>
-<td>PO_NUMBER</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>F</td>
-<td>uniqueCheck</td>
-<td>S</td>
-<td>A</td>
-<td>UNIQCODE</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>N/A</td>
-<td>notes</td>
-<td colspan="4">&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>F</td>
-<td>noteCode</td>
-<td>M</td>
-<td>A</td>
-<td>NOTECODE</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>F</td>
-<td>note</td>
-<td>M</td>
-<td>A</td>
-<td>NOTE</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>N/A</td>
-<td>noteApply</td>
-<td>M</td>
-<td>A</td>
-<td>&#8220;null&#8221;</td>
-<td>&nbsp;</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">An element could be added to the account record (or maybe to the products)
-to indicate the type of control numbers used on the account/product. Where
-The control type is DT (date), the control number would set the lot postdate,
-otherwise the postdate would be set by the first date of receipt on the lot.</p>
-</div>
-</div>
-<div class="section" id="products-masterfile">
-<span id="export-products"></span><h2>PRODUCTS Masterfile<a class="headerlink" href="#products-masterfile" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="products-masterfile">
+<span id="products-json"></span><h1>PRODUCTS Masterfile<a class="headerlink" href="#products-masterfile" title="Permalink to this headline">¶</a></h1>
 <table border="1" class="docutils">
 <colgroup>
 <col width="10%" />
@@ -1022,7 +526,6 @@ otherwise the postdate would be set by the first date of receipt on the lot.</p>
 </tbody>
 </table>
 </div>
-</div>
 
 
           </div>
@@ -1034,10 +537,10 @@ otherwise the postdate would be set by the first date of receipt on the lot.</p>
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="01_account.html" title="&lt;no title&gt;"
+          <a href="03_lotdetails-json.html" title="JSON DOSWARES Export DETAILS"
              >next</a></li>
         <li class="right" >
-          <a href="index.html" title="WARES Documentation Resources"
+          <a href="02_products.html" title="Product Data Definition"
              >previous</a> |</li>
         <li><a href="index.html">WARES Resources 1.0 documentation</a> &raquo;</li> 
       </ul>
