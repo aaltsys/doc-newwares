@@ -1,6 +1,5 @@
-.. _loc-locator:
+.. _fac_company:
 
 #############################
-Locator Views
+Facility Company
 #############################
-

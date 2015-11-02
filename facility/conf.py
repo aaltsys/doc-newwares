@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# WARES Locator documentation build configuration file, created by
+# WARES Facility documentation build configuration file, created by
 # sphinx-quickstart on Mon Jun 30 16:04:25 2014.
 #
 # This file is execfile()d with the current directory set to its
@@ -43,7 +43,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'WARES Locator'
+project = u'WARES Facility'
 copyright = u'2014, Gerald Lovel'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -176,7 +176,7 @@ html_use_index = False
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'WARESLocatordoc'
+htmlhelp_basename = 'WARESFacilitydoc'
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -196,7 +196,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  ('index', 'WARESLocator.tex', u'WARES Locator Documentation',
+  ('index', 'WARESFacility.tex', u'WARES Facility Documentation',
    u'Gerald Lovel', 'manual'),
 ]
 
@@ -226,7 +226,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'wareslocator', u'WARES Locator Documentation',
+    ('index', 'wareslocator', u'WARES Facility Documentation',
      [u'Gerald Lovel'], 1)
 ]
 
@@ -240,8 +240,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'WARESLocator', u'WARES Locator Documentation',
-   u'Gerald Lovel', 'WARESLocator', 'One line description of project.',
+  ('index', 'WARESFacility', u'WARES Facility Documentation',
+   u'Gerald Lovel', 'WARESFacility', 'One line description of project.',
    'Miscellaneous'),
 ]
 
@@ -261,13 +261,13 @@ texinfo_documents = [
 # -- Options for Epub output ----------------------------------------------
 
 # Bibliographic Dublin Core info.
-epub_title = u'WARES Locator'
+epub_title = u'WARES Facility'
 epub_author = u'Gerald Lovel'
 epub_publisher = u'Gerald Lovel'
 epub_copyright = u'2014, Gerald Lovel'
 
 # The basename for the epub file. It defaults to the project name.
-#epub_basename = u'WARES Locator'
+#epub_basename = u'WARES Facility'
 
 # The HTML theme for the epub output. Since the default themes are not optimized
 # for small screen space, using the same theme for HTML and epub output is

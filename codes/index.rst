@@ -14,6 +14,10 @@ Account Setup Lists
 :ref:`country-list`
 :ref:`fob-list`
 :ref:`cod-list`
+:ref:`terms-list`
+:ref:`invoicing-list`
+:ref:`receiving-list`
+:ref:`recurring-list`
 
 Product Setup Lists
 =============================

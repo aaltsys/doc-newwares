@@ -1,13 +1,9 @@
-.. _loc-overview:
+.. _loc-locator:
 
 #############################
-webWARES Locator Overview
+Locator Views
 #############################
 
-.. note::
-   http://newwares.aaltsys.com displays a preliminary version of the webWARES 
-   locator. This is not intended as a completed application. Rather, it is a 
-   starting point for alpha-testing program design.
 
 Locator Purpose
 =============================
@@ -57,4 +53,11 @@ Setup buildings.
 Setup location codes.
 
 View inventory locations.
+
+Locator Transaction Columns
+=============================
+
+Excluding location transfers, locator transaction lines are identically the 
+inventory document line transactions. The database column layout for these 
+transactions is available in documentation resources at :ref:`lot-lines`.
 
