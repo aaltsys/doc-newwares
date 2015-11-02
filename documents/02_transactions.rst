@@ -179,8 +179,8 @@ visible in the summary. Specific cases where this might occur are listed here.
 *  Damaged goods must be entered in separate content records which are marked 
    in the details.
 *  Marks, variable descriptions, or special lot notes are entered in details.
-*  Broken cases or sampled bags should be entered separately, noting the shorted 
-   inner quantities.
+*  Broken cases or sampled bags should be entered separately, noting the 
+   shorted inner quantities.
 *  Content count discrepancies on receiving are entered in the **Over/Short** 
    value, as positive or negative numbers. **Over/Short** applies to content 
    only, and only on receipt, where content is a visually countable quantity 
@@ -196,16 +196,17 @@ visible in the summary. Specific cases where this might occur are listed here.
 
    Shipments withdraw only from lots belonging to the document header account, 
    and shipment quantities are automatically negated.
-*  Adjustments may withdraw from any lot regardless of the account in 
-   the document header, so that adjustments can effect ownership transfers.
+*  Adjustments may withdraw from any lot regardless of the account in the
+   document header, so that adjustments can effect ownership transfers.
    In ownership transfers, negative-quantity adjustment lines deduct lots from 
-   one owner account and positive lines add to the owner account listed in the 
-   adjustment header.
+   a previous owner's account and positive lines add to the new owner's account 
+   listed in the adjustment header.
 
    To enter an ownership transfer adjustment,the line details view is used to 
-   choose the original **Account** to deduct from, and then the product and lot. 
-   When a lot account does not match the document header account, the subsequent 
-   line quantity entries will be negated, just as quantities are for a shipment.
+   choose the previous **Account** to deduct from, and then the product and lot. 
+   When the account on a line does not match the document header account, the 
+   subsequent line quantity entries will be negated, just as quantities are for 
+   a shipment.
 
 Document Line Requirements
 =============================
