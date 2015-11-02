@@ -12,13 +12,13 @@ The **Locator** displays warehouse inventory quantity and status information
 through a series of four views: documents, transaction lines, locator items, 
 and product inventory.
 
-*  :ref:`documents` form the basis of warehouse management. The locator
+*  **Documents** form the basis of warehouse management. The locator
    lists documents and displays document details. Filter options for documents 
    are by account, date or date range, product, and lot.
 
-*  :ref:`transactions` provide the basic information used to build locator 
-   balances. The transaction lines view may be filtered by account, product, 
-   lot, date or date range, document, and location or location range.
+*  Document **transaction** lines provide the basic information used to build 
+   locator balances. The transaction lines view may be filtered by account, 
+   product, lot, date or date range, document, and location or location range.
 
 *  :ref:`inv-balances` summarize locator information by product. The balances 
    view is dynamic, created from the locator information. Inventory is filtered 
