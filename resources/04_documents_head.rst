@@ -37,7 +37,7 @@ contain multiple values. Columns are defined in the table following.
 +---+---+----------------+-----+---+------------------------+--------+-----+
 | -- -- -- -- -- -- -- -- -- -- -- -- Transportation                       |
 +---+---+----------------+-----+---+------------------------+--------+-----+
-| P | AM| ADDRESSCODE    | LC  | U | :REF:`contact-list`    | ST,SF  | L4  |
+| P | AM| ADDRESSCODE    | LC  | U | :REF:`contacts-list`   | ST,SF  | L4  |
 +---+---+----------------+-----+---+------------------------+--------+-----+
 | P | AM| ADDRESS        | A   | U | VT=CONTACTS*ST,SF,PF   |        | L12 |
 +---+---+----------------+-----+---+------------------------+--------+-----+

@@ -9,11 +9,15 @@ Contents:
 
 .. toctree::
    :maxdepth: 2
-   :glob: [0-9]*
+   :glob: 
+   
+   [0-9]*
 
 .. toctree::
    :hidden:
-   :glob: *
+   :glob:
+   
+   *
 
 Indices and tables
 ==================
