@@ -1,7 +1,4 @@
-.. WARES Master documentation master file, created by
-   sphinx-quickstart on Mon Jun 30 16:08:17 2014.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+.. WARES Documentation Table of Contents, created by sphinx-quickstart on Mon Jun 30 16:08:17 2014.
 
 .. _index:
 

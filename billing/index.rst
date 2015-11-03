@@ -1,9 +1,9 @@
-.. WARES Billing, created by sphinx-quickstart on Mon Jun 30 16:06:32 2014.
+.. Warehouse Services Billing, created by sphinx-quickstart on Mon Jun 30 16:06:32 2014.
 
 .. _index:
 
-WARES Billing Table of Contents
-=========================================
+3rd-Party Warehouse Services Billing
+====================================
 
 Contents:
 

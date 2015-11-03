@@ -1,23 +1,23 @@
-.. _codelists:
+.. Code Lists, added sometime later than Mon Jun 30 16:08:17 2014.
+
+.. _index:
 
 #############################
 WARES Codes Lists
 #############################
 
-.. _index:
-
 Account Setup Lists
 =============================
 
-:ref:`contacts-list`
-:ref:`state-list`
-:ref:`country-list`
-:ref:`fob-list`
-:ref:`cod-list`
-:ref:`terms-list`
-:ref:`invoicing-list`
-:ref:`receiving-list`
-:ref:`recurring-list`
+| :ref:`contacts-list`
+| :ref:`state-list`
+| :ref:`country-list`
+| :ref:`fob-list`
+| :ref:`cod-list`
+| :ref:`terms-list`
+| :ref:`invoicing-list`
+| :ref:`receiving-list`
+| :ref:`recurring-list`
 
 Product Setup Lists
 =============================
