@@ -2,8 +2,8 @@
 
 .. _index:
 
-WARES Directed Floor Activity
-=============================
+Remote Directed Floor Activity
+==============================
 
 Contents:
 

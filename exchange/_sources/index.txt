@@ -2,8 +2,8 @@
 
 .. _index:
 
-EDI && Data Exchange Documentation
-==================================
+EDI & Data Exchange Documentation
+=================================
 
 Contents:
 
