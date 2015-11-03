@@ -1,1 +1,1 @@
-Search.setIndex({envversion:46,terms:{index:0,modul:0,search:0,page:0},objtypes:{},objnames:{},filenames:["index"],titles:["WARES Data Exchange Table of Contents"],objects:{},titleterms:{exchang:0,indic:0,content:0,tabl:0,ware:0,data:0}})
+Search.setIndex({envversion:46,terms:{content:0,index:0,modul:0,search:0,page:0},objtypes:{},objnames:{},filenames:["index"],titles:["EDI &amp;&amp; Data Exchange Documentation"],objects:{},titleterms:{exchang:0,edi:0,indic:0,tabl:0,document:0,data:0}})

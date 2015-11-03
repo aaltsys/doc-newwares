@@ -1,12 +1,9 @@
-.. WARES Exchange documentation master file, created by
-   sphinx-quickstart on Mon Jun 30 16:05:56 2014.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+.. Data Exchange, created by sphinx-quickstart on Mon Jun 30 16:05:56 2014.
 
 .. _index:
 
-WARES Data Exchange Table of Contents
-==========================================
+EDI && Data Exchange Documentation
+==================================
 
 Contents:
 

@@ -2,7 +2,7 @@
 
 .. _index:
    
-WARES Resources
+WARES Database Resources
 =============================
 
 Contents:

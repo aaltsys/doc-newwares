@@ -1,11 +1,8 @@
-.. WARES Inventory documentation master file, created by
-   sphinx-quickstart on Mon Jun 30 16:03:39 2014.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+.. Inventory documentation, created by sphinx-quickstart on Mon Jun 30 16:03:39 2014.
 
 .. _index:
 
-WARES Inventory Table of Contents
+Warehouse Inventory Concepts
 =======================================
 
 Contents:

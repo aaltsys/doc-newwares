@@ -1,1 +1,1 @@
-Search.setIndex({envversion:46,terms:{index:0,modul:0,search:0,page:0},objtypes:{},objnames:{},filenames:["index"],titles:["WARES Billing Table of Contents"],objects:{},titleterms:{content:0,ware:0,bill:0,indic:0,tabl:0}})
+Search.setIndex({envversion:46,terms:{content:0,index:0,modul:0,search:0,page:0},objtypes:{},objnames:{},filenames:["index"],titles:["3rd-Party Warehouse Services Billing"],objects:{},titleterms:{"3rd":0,parti:0,servic:0,bill:0,indic:0,warehous:0,tabl:0}})

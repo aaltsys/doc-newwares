@@ -1,16 +1,16 @@
-.. WARES Activity, created by sphinx-quickstart on Mon Jun 30 16:07:19 2014.
+.. WARES Floor Activity, created by sphinx-quickstart on Mon Jun 30 16:07:19 2014.
 
 .. _index:
 
-WARES Activity Table of Contents
-==========================================
+WARES Directed Floor Activity
+=============================
 
 Contents:
 
 .. toctree::
    :maxdepth: 2
    :glob:
-   
+
    [0-9]*
 
 Indices and tables
