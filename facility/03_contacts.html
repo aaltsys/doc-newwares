@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="WARES Facility 1.0 documentation" href="index.html" />
-    <link rel="next" title="Entering Entity Contacts" href="04_contacts-entry.html" />
+    <link rel="next" title="Accounts" href="05_accounts.html" />
     <link rel="prev" title="Facility Company" href="02_company.html" /> 
   </head>
   <body role="document">
@@ -32,7 +32,7 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="04_contacts-entry.html" title="Entering Entity Contacts"
+          <a href="05_accounts.html" title="Accounts"
              accesskey="N">next</a></li>
         <li class="right" >
           <a href="02_company.html" title="Facility Company"
@@ -45,14 +45,18 @@
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Using Entity Contacts</a><ul>
-<li><a class="reference internal" href="#contacts-types">Contacts Types</a><ul>
+<li><a class="reference internal" href="#facilities-and-accounts">Facilities and Accounts</a><ul>
 <li><a class="reference internal" href="#facility-setup-addresses">Facility Setup Addresses</a></li>
 <li><a class="reference internal" href="#account-setup-addresses">Account Setup Addresses</a></li>
-<li><a class="reference internal" href="#receiving-inventory-documents">Receiving Inventory Documents</a></li>
-<li><a class="reference internal" href="#shipping-inventory-documents">Shipping Inventory Documents</a></li>
-<li><a class="reference internal" href="#other-contact-entity-names">Other Contact Entity Names</a></li>
+<li><a class="reference internal" href="#entering-account-addresses">Entering Account Addresses</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#ship-from-and-ship-to-addresses">Ship-From and Ship-To Addresses</a><ul>
+<li><a class="reference internal" href="#receiving-logistics-documents">Receiving Logistics Documents</a></li>
+<li><a class="reference internal" href="#shipping-logistics-documents">Shipping Logistics Documents</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#other-contact-entity-names">Other Contact Entity Names</a></li>
 <li><a class="reference internal" href="#contacts-database-schema">Contacts Database Schema</a></li>
 </ul>
 </li>
@@ -62,8 +66,8 @@
   <p class="topless"><a href="02_company.html"
                         title="previous chapter">Facility Company</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="04_contacts-entry.html"
-                        title="next chapter">Entering Entity Contacts</a></p>
+  <p class="topless"><a href="05_accounts.html"
+                        title="next chapter">Accounts</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -96,19 +100,25 @@
 <span id="fac-contacts"></span><h1>Using Entity Contacts<a class="headerlink" href="#using-entity-contacts" title="Permalink to this headline">¶</a></h1>
 <p>All name and address information for entities in WARES is stored in the Contacts
 database table. This makes <strong>Contacts</strong> management a fundamental part of the
-technology in WARES. A Typical Contact record may contain three types of
-information: an entity name, an address, and communication entries for email,
-phone, and so forth.</p>
-<div class="section" id="contacts-types">
-<h2>Contacts Types<a class="headerlink" href="#contacts-types" title="Permalink to this headline">¶</a></h2>
+technology in WARES. A Typical Contact record may contain four types of
+information: an entity name, an address, communication entries for email,
+phone, and so forth, and freight configuration options.</p>
 <p>A <strong>Type</strong> code prefixes each <strong>Contacts</strong> identifier, and the <strong>Type</strong>
 determines how the contact is used by the program. The default Type code list
-may be viewed at <em class="xref std std-ref">type-list</em>. Details on how <strong>Type</strong> codes are used with
-Contacts follows.</p>
+may be viewed at <a class="reference external" href="../codes/A_contacts.html#contacts-list" title="(in WARES Codes v1.0)"><em>Contacts type Codes</em></a>. In the following sections, <strong>Type</strong>
+codes are used to ...</p>
+<div class="section" id="facilities-and-accounts">
+<h2>Facilities and Accounts<a class="headerlink" href="#facilities-and-accounts" title="Permalink to this headline">¶</a></h2>
+<p>General accounting programs usually fail to allow for the variety of address
+and contact entities which a company must use. The need for multiple special
+addresses is especially true for logistics services, where shipping, billing,
+and administrative functions are frequently managed from separate locations.</p>
 <div class="section" id="facility-setup-addresses">
 <h3>Facility Setup Addresses<a class="headerlink" href="#facility-setup-addresses" title="Permalink to this headline">¶</a></h3>
 <p>Each warehouse facility master Company record contains links to several Contact
-addresses. These Contact types and addresses are:</p>
+addresses. These addresses are typically entered once when the facility is
+first configured, but that may be changed later as required. Facility Contact
+types and addresses are:</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="10%" />
@@ -135,15 +145,18 @@ addresses. These Contact types and addresses are:</p>
 <tr class="row-even"><td>RI</td>
 <td>The Company remittance address, printed on invoices</td>
 </tr>
+<tr class="row-odd"><td>B</td>
+<td>A Company warehousing operations facility address</td>
+</tr>
 </tbody>
 </table>
 <p>Each of these contact types, if present, will provide unique address data for
 the purpose specified. If a type is omitted, the address will default to the
-general company contact with type code <strong>C</strong>.</p>
+general company address with type code <strong>C</strong>.</p>
 </div>
 <div class="section" id="account-setup-addresses">
 <h3>Account Setup Addresses<a class="headerlink" href="#account-setup-addresses" title="Permalink to this headline">¶</a></h3>
-<p>Warehouse Accounts, or customers, may link to Contact addresses as follows:</p>
+<p>Warehouse Accounts, or customers, may use Contact addresses as follows:</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="10%" />
@@ -165,13 +178,35 @@ general company contact with type code <strong>C</strong>.</p>
 <td>The Account Bill To address, Used for Receivables</td>
 </tr>
 <tr class="row-odd"><td>PF</td>
-<td>The Account Pays Freight address, printed on Prepaid BOLs</td>
+<td>The Account Pays Freight address for Prepaid Bills of Lading</td>
 </tr>
 </tbody>
 </table>
+<p>Contact types listed above provide account addresses for specific purposes.
+When an account contact type is omitted, the address used will default to the
+general account address with type code <strong>A</strong>.</p>
 </div>
-<div class="section" id="receiving-inventory-documents">
-<h3>Receiving Inventory Documents<a class="headerlink" href="#receiving-inventory-documents" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="entering-account-addresses">
+<h3>Entering Account Addresses<a class="headerlink" href="#entering-account-addresses" title="Permalink to this headline">¶</a></h3>
+<p>Account address and contact information is usually entered when setting up a
+new account, and it is updated as neccessary on instruction from the client.
+Each account Contacts record uses the <strong>Account</strong> identifier, but with varing
+<strong>Type</strong> code entries to distinguish the separate records. An example account
+address record is shown below.</p>
+<img alt="_images/contacts-account.png" src="_images/contacts-account.png" />
+<p>Account linking entries and Freight Payment codes are not used and not entered
+for addresses associated with a warehouse customer account, or with warehouse
+facility records either.</p>
+</div>
+</div>
+<div class="section" id="ship-from-and-ship-to-addresses">
+<h2>Ship-From and Ship-To Addresses<a class="headerlink" href="#ship-from-and-ship-to-addresses" title="Permalink to this headline">¶</a></h2>
+<p>Warehouses produce authoritative logistics documents for warehouse receiving
+services and for outbound shipping. Each document may contain several addresses
+to satisfy all the document requirements. These addresses, many of which were
+mentioned previously, are given in the following two tables.</p>
+<div class="section" id="receiving-logistics-documents">
+<h3>Receiving Logistics Documents<a class="headerlink" href="#receiving-logistics-documents" title="Permalink to this headline">¶</a></h3>
 <p>A Warehouse Receipt document may include the following addresses:</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -199,8 +234,8 @@ general company contact with type code <strong>C</strong>.</p>
 </tbody>
 </table>
 </div>
-<div class="section" id="shipping-inventory-documents">
-<h3>Shipping Inventory Documents<a class="headerlink" href="#shipping-inventory-documents" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="shipping-logistics-documents">
+<h3>Shipping Logistics Documents<a class="headerlink" href="#shipping-logistics-documents" title="Permalink to this headline">¶</a></h3>
 <p>In Third-Party logistics, the Bill of Lading should present the following four
 addresses:</p>
 <table border="1" class="docutils">
@@ -228,9 +263,17 @@ addresses:</p>
 </tr>
 </tbody>
 </table>
+<p>Most of these addresses are defined during Facility setup and Account entry,
+with the exception of Ship-From and Ship-To contacts. Where goods come from,
+and where they are going to, may have to be entered for each receipt or
+shipment. An example <strong>Ship-To</strong> contact record is shown below.</p>
+<img alt="_images/contacts-shipto.png" src="_images/contacts-shipto.png" />
+<p>This Contact is linked to the <strong>Account</strong> associated with the inventory, and
+if necessary, a <strong>FreightPay</strong> code may be entered to override Account settings.</p>
+</div>
 </div>
 <div class="section" id="other-contact-entity-names">
-<h3>Other Contact Entity Names<a class="headerlink" href="#other-contact-entity-names" title="Permalink to this headline">¶</a></h3>
+<h2>Other Contact Entity Names<a class="headerlink" href="#other-contact-entity-names" title="Permalink to this headline">¶</a></h2>
 <p>Additional Contact entity types are used throughout WARES, as listed in the
 following table.</p>
 <table border="1" class="docutils">
@@ -270,7 +313,10 @@ following table.</p>
 </tr>
 </tbody>
 </table>
-</div>
+<p>Of these Contacts, the Freight Carrier is most likely to need to be entered
+apart from Facility setup and Account entry. An example carrier Contact is
+displayed here.</p>
+<img alt="_images/contacts-carrier.png" src="_images/contacts-carrier.png" />
 </div>
 <div class="section" id="contacts-database-schema">
 <h2>Contacts Database Schema<a class="headerlink" href="#contacts-database-schema" title="Permalink to this headline">¶</a></h2>
@@ -288,7 +334,7 @@ following table.</p>
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="04_contacts-entry.html" title="Entering Entity Contacts"
+          <a href="05_accounts.html" title="Accounts"
              >next</a></li>
         <li class="right" >
           <a href="02_company.html" title="Facility Company"
