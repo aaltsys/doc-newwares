@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Contacts &mdash; WARES Facility 1.0 documentation</title>
+    <title>Using Entity Contacts &mdash; WARES Facility 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="WARES Facility 1.0 documentation" href="index.html" />
-    <link rel="next" title="Accounts" href="04_accounts.html" />
+    <link rel="next" title="Entering Entity Contacts" href="04_contacts-entry.html" />
     <link rel="prev" title="Facility Company" href="02_company.html" /> 
   </head>
   <body role="document">
@@ -32,7 +32,7 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="04_accounts.html" title="Accounts"
+          <a href="04_contacts-entry.html" title="Entering Entity Contacts"
              accesskey="N">next</a></li>
         <li class="right" >
           <a href="02_company.html" title="Facility Company"
@@ -44,7 +44,15 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Contacts</a><ul>
+<li><a class="reference internal" href="#">Using Entity Contacts</a><ul>
+<li><a class="reference internal" href="#contacts-types">Contacts Types</a><ul>
+<li><a class="reference internal" href="#facility-setup-addresses">Facility Setup Addresses</a></li>
+<li><a class="reference internal" href="#account-setup-addresses">Account Setup Addresses</a></li>
+<li><a class="reference internal" href="#receiving-inventory-documents">Receiving Inventory Documents</a></li>
+<li><a class="reference internal" href="#shipping-inventory-documents">Shipping Inventory Documents</a></li>
+<li><a class="reference internal" href="#other-contact-entity-names">Other Contact Entity Names</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#contacts-database-schema">Contacts Database Schema</a></li>
 </ul>
 </li>
@@ -54,8 +62,8 @@
   <p class="topless"><a href="02_company.html"
                         title="previous chapter">Facility Company</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="04_accounts.html"
-                        title="next chapter">Accounts</a></p>
+  <p class="topless"><a href="04_contacts-entry.html"
+                        title="next chapter">Entering Entity Contacts</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -84,8 +92,186 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="contacts">
-<span id="fac-contacts"></span><h1>Contacts<a class="headerlink" href="#contacts" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="using-entity-contacts">
+<span id="fac-contacts"></span><h1>Using Entity Contacts<a class="headerlink" href="#using-entity-contacts" title="Permalink to this headline">¶</a></h1>
+<p>All name and address information for entities in WARES is stored in the Contacts
+database table. This makes <strong>Contacts</strong> management a fundamental part of the
+technology in WARES. A Typical Contact record may contain three types of
+information: an entity name, an address, and communication entries for email,
+phone, and so forth.</p>
+<div class="section" id="contacts-types">
+<h2>Contacts Types<a class="headerlink" href="#contacts-types" title="Permalink to this headline">¶</a></h2>
+<p>A <strong>Type</strong> code prefixes each <strong>Contacts</strong> identifier, and the <strong>Type</strong>
+determines how the contact is used by the program. The default Type code list
+may be viewed at <em class="xref std std-ref">type-list</em>. Details on how <strong>Type</strong> codes are used with
+Contacts follows.</p>
+<div class="section" id="facility-setup-addresses">
+<h3>Facility Setup Addresses<a class="headerlink" href="#facility-setup-addresses" title="Permalink to this headline">¶</a></h3>
+<p>Each warehouse facility master Company record contains links to several Contact
+addresses. These Contact types and addresses are:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Code</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>C</td>
+<td>The Company general mailing address</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>The Company communication record (email, phone, etc.)</td>
+</tr>
+<tr class="row-even"><td>ST</td>
+<td>The Company general package receiving address</td>
+</tr>
+<tr class="row-odd"><td>BT</td>
+<td>The Company Bill To address, Used for Payables</td>
+</tr>
+<tr class="row-even"><td>RI</td>
+<td>The Company remittance address, printed on invoices</td>
+</tr>
+</tbody>
+</table>
+<p>Each of these contact types, if present, will provide unique address data for
+the purpose specified. If a type is omitted, the address will default to the
+general company contact with type code <strong>C</strong>.</p>
+</div>
+<div class="section" id="account-setup-addresses">
+<h3>Account Setup Addresses<a class="headerlink" href="#account-setup-addresses" title="Permalink to this headline">¶</a></h3>
+<p>Warehouse Accounts, or customers, may link to Contact addresses as follows:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Code</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>A</td>
+<td>The Account general mailing address and communication record</td>
+</tr>
+<tr class="row-odd"><td>ST</td>
+<td>The Account general package receiving address</td>
+</tr>
+<tr class="row-even"><td>BT</td>
+<td>The Account Bill To address, Used for Receivables</td>
+</tr>
+<tr class="row-odd"><td>PF</td>
+<td>The Account Pays Freight address, printed on Prepaid BOLs</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="receiving-inventory-documents">
+<h3>Receiving Inventory Documents<a class="headerlink" href="#receiving-inventory-documents" title="Permalink to this headline">¶</a></h3>
+<p>A Warehouse Receipt document may include the following addresses:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Code</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>ST, B</td>
+<td>The receipt destination point, or warehouse building address</td>
+</tr>
+<tr class="row-odd"><td>SF, VN</td>
+<td>The shipped from origination point or vendor address</td>
+</tr>
+<tr class="row-even"><td>A</td>
+<td>The Account general mailing address and communication record</td>
+</tr>
+<tr class="row-odd"><td>C, RI</td>
+<td>The warehouse company remittance address, if invoiced</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="shipping-inventory-documents">
+<h3>Shipping Inventory Documents<a class="headerlink" href="#shipping-inventory-documents" title="Permalink to this headline">¶</a></h3>
+<p>In Third-Party logistics, the Bill of Lading should present the following four
+addresses:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Code</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>SF, B</td>
+<td>The shipment origination point, or warehouse building address</td>
+</tr>
+<tr class="row-odd"><td>A</td>
+<td>The Account general mailing address and communication record</td>
+</tr>
+<tr class="row-even"><td>ST</td>
+<td>The shipment consignee or receiving address or location</td>
+</tr>
+<tr class="row-odd"><td>PF</td>
+<td>The Freight Payor&#8217;s address, based on freight payment terms</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="other-contact-entity-names">
+<h3>Other Contact Entity Names<a class="headerlink" href="#other-contact-entity-names" title="Permalink to this headline">¶</a></h3>
+<p>Additional Contact entity types are used throughout WARES, as listed in the
+following table.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="60%" />
+<col width="30%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Code</th>
+<th class="head">Description</th>
+<th class="head">Where Used</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>B</td>
+<td>Warehouse building address</td>
+<td><div class="first last line-block">
+<div class="line">Warehouse Receipts</div>
+<div class="line">Bills of Lading</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>E</td>
+<td>Warehouse Employee Name</td>
+<td>Activity tracking</td>
+</tr>
+<tr class="row-even"><td>T</td>
+<td colspan="2">EDI Trading Partner                      | Data Exchange</td>
+</tr>
+<tr class="row-odd"><td>CA</td>
+<td colspan="2"><dl class="first last docutils">
+<dt>Freight Carrier                          || Warehouse Receipts</dt>
+<dd>|| Bills of Lading</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <div class="section" id="contacts-database-schema">
 <h2>Contacts Database Schema<a class="headerlink" href="#contacts-database-schema" title="Permalink to this headline">¶</a></h2>
 <p>The Contacts database column schema can be found at <a class="reference external" href="../resources/00_contacts.html#contacts" title="(in WARES Resources v1.0)"><em>CONTACTS</em></a>.</p>
@@ -102,7 +288,7 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="04_accounts.html" title="Accounts"
+          <a href="04_contacts-entry.html" title="Entering Entity Contacts"
              >next</a></li>
         <li class="right" >
           <a href="02_company.html" title="Facility Company"

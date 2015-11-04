@@ -185,8 +185,9 @@ Advanced Entries
 *  **Content Long**, **Content Wide**, and **Content High** are used when 
    shipping via package carrier, where the carton dimensions are required.
 
-Dimension Example
+Dimensions Example
 -----------------------------
+|
 
 .. sidebar:: Dimensions Example
 

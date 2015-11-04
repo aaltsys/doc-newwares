@@ -1,8 +1,118 @@
 .. _fac-contacts:
 
 #############################
-Contacts
+Using Entity Contacts
 #############################
+
+All name and address information for entities in WARES is stored in the Contacts
+database table. This makes **Contacts** management a fundamental part of the 
+technology in WARES. A Typical Contact record may contain three types of 
+information: an entity name, an address, and communication entries for email, 
+phone, and so forth.
+
+Contacts Types
+=============================
+
+A **Type** code prefixes each **Contacts** identifier, and the **Type** 
+determines how the contact is used by the program. The default Type code list 
+may be viewed at :ref:`type-list`. Details on how **Type** codes are used with
+Contacts follows.
+
+Facility Setup Addresses
+-----------------------------
+
+Each warehouse facility master Company record contains links to several Contact
+addresses. These Contact types and addresses are: 
+
++-------+----------------------------------------------------------------+
+| Code  | Description                                                    |
++=======+================================================================+
+| C     | The Company general mailing address                            |
++-------+----------------------------------------------------------------+
+| F     | The Company communication record (email, phone, etc.)          |
++-------+----------------------------------------------------------------+
+| ST    | The Company general package receiving address                  |
++-------+----------------------------------------------------------------+
+| BT    | The Company Bill To address, Used for Payables                 |
++-------+----------------------------------------------------------------+
+| RI    | The Company remittance address, printed on invoices            |
++-------+----------------------------------------------------------------+
+
+Each of these contact types, if present, will provide unique address data for 
+the purpose specified. If a type is omitted, the address will default to the 
+general company contact with type code **C**.
+
+Account Setup Addresses
+-----------------------------
+
+Warehouse Accounts, or customers, may link to Contact addresses as follows:
+
++-------+----------------------------------------------------------------+
+| Code  | Description                                                    |
++=======+================================================================+
+| A     | The Account general mailing address and communication record   |
++-------+----------------------------------------------------------------+
+| ST    | The Account general package receiving address                  |
++-------+----------------------------------------------------------------+
+| BT    | The Account Bill To address, Used for Receivables              |
++-------+----------------------------------------------------------------+
+| PF    | The Account Pays Freight address, printed on Prepaid BOLs      |
++-------+----------------------------------------------------------------+
+
+Receiving Inventory Documents
+-----------------------------
+
+A Warehouse Receipt document may include the following addresses:
+
++-------+----------------------------------------------------------------+
+| Code  | Description                                                    |
++=======+================================================================+
+| ST, B | The receipt destination point, or warehouse building address   |
++-------+----------------------------------------------------------------+
+| SF, VN| The shipped from origination point or vendor address           |
++-------+----------------------------------------------------------------+
+| A     | The Account general mailing address and communication record   |
++-------+----------------------------------------------------------------+
+| C, RI | The warehouse company remittance address, if invoiced          |
++-------+----------------------------------------------------------------+
+
+Shipping Inventory Documents
+-----------------------------
+
+In Third-Party logistics, the Bill of Lading should present the following four 
+addresses:
+
++-------+----------------------------------------------------------------+
+| Code  | Description                                                    |
++=======+================================================================+
+| SF, B | The shipment origination point, or warehouse building address  |
++-------+----------------------------------------------------------------+
+| A     | The Account general mailing address and communication record   |
++-------+----------------------------------------------------------------+
+| ST    | The shipment consignee or receiving address or location        |
++-------+----------------------------------------------------------------+
+| PF    | The Freight Payor's address, based on freight payment terms    |
++-------+----------------------------------------------------------------+
+
+Other Contact Entity Names
+-----------------------------
+
+Additional Contact entity types are used throughout WARES, as listed in the 
+following table.
+
++-------+------------------------------------------+---------------------+
+| Code  | Description                              | Where Used          |
++=======+==========================================+=====================+
+| B     | Warehouse building address               || Warehouse Receipts |
+|       |                                          || Bills of Lading    |
++-------+------------------------------------------+---------------------+
+| E     | Warehouse Employee Name                  | Activity tracking   |
++-------+------------------------------------------+---------------------+
+| T     | EDI Trading Partner                      | Data Exchange       |
++-------+----------------------------------------------------------------+
+| CA    | Freight Carrier                          || Warehouse Receipts |
+|       |                                          || Bills of Lading    |
++-------+----------------------------------------------------------------+
 
 Contacts Database Schema
 =============================
