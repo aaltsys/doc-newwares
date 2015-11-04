@@ -169,6 +169,6 @@ displayed here.
 Contacts Database Schema
 =============================
 
-The Contacts database column schema can be found at :ref:`contacts`.
+The Contacts database column schema can be found at :ref:`contacts-schema`.
 
  

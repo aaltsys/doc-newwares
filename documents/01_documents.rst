@@ -230,4 +230,4 @@ Document Heading Column Data
 =============================
 
 The Resources listing for the Documents table database schema is found at 
-:ref:`document-head`.
+:ref:`documents-schema`.

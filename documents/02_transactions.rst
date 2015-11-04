@@ -364,4 +364,5 @@ program operation. These columns are described in the following list.
 Document Lines Column Data
 =============================
 
-Documentation resources include the data column definitions for :ref:`lot-lines`.
+Documentation resources include the data column definitions for 
+:ref:`lotlines-schema`.

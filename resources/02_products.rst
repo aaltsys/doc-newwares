@@ -1,4 +1,4 @@
-.. _products:
+.. _products-schema:
 
 #############################
 Product Data Definition 
