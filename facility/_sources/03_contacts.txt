@@ -158,7 +158,7 @@ following table.
 +-------+----------------------------------------------------------------+
 | CA    | Freight Carrier                          || Warehouse Receipts |
 |       |                                          || Bills of Lading    |
-+-------+----------------------------------------------------------------+
++-------+------------------------------------------+---------------------+
 
 Of these Contacts, the Freight Carrier is most likely to need to be entered
 apart from Facility setup and Account entry. An example carrier Contact is 
