@@ -105,7 +105,7 @@ PRODUCT by VARIETY by CONTROL by UNITIDENTIFIER by TYPE by STATUS by POSTDATE.
 
 .. note::
    *  +  **TP** column shows :ref:`document-list` entries RE(ceipt), SH(ipment),
-         or AW(djustment).
+         or AW(djustment). Actual values are "3", "4", and "5".
       +  **SS** column contains posting :ref:`status-list`.
       +  **C** column shows product :ref:`condition-list`.
    *  Inner quantity posting is omitted from the above example for clarity.

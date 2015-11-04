@@ -1,4 +1,4 @@
-.. _document-head:
+.. _documents-schema:
 
 #############################
 Inventory Document Head

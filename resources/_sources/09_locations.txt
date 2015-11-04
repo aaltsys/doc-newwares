@@ -1,4 +1,4 @@
-.. _locations:
+.. _locations-schema:
 
 #############################
 Locations

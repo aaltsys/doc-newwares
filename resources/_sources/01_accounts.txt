@@ -1,4 +1,4 @@
-.. _accounts:
+.. _accounts-schema:
 
 #############################
 Account Masterfile Columns

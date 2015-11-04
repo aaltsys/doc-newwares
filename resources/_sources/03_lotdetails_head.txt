@@ -1,4 +1,4 @@
-.. _lots:
+.. _lots-schema:
 
 #############################
 Inventory Lot Details

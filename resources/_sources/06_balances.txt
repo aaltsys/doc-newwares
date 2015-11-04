@@ -1,4 +1,4 @@
-.. _balances:
+.. _balances-schema:
 
 #############################
 Lot Balances Columns

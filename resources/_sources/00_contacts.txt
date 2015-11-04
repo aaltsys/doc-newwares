@@ -1,4 +1,4 @@
-.. _contacts:
+.. _contacts-schema:
 
 #############################
 CONTACTS

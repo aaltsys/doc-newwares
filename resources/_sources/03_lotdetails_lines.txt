@@ -1,5 +1,5 @@
 
-.. _lot-lines:
+.. _lotlines-schema:
 
 #############################
 Lot Transaction Lines
