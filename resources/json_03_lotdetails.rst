@@ -1,7 +1,7 @@
 .. _export-details:
 
 #############################
-JSON DOSWARES Export DETAILS
+JSON DETAILS Export
 #############################
 
 The DOS WARES export utility writes lot details in sequentially numbered JSON 

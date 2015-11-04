@@ -1,7 +1,7 @@
 .. _export-document:
 
 #############################
-JSON DOSWARES Export DOCUMENT
+JSON DOCUMENTS Export
 #############################
 
 The DOS WARES export utility writes transaction documents in numbered JSON 

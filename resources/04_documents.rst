@@ -1,7 +1,7 @@
 .. _documents-schema:
 
 #############################
-Inventory Document Head
+DOCUMENTS Data Table Columns
 #############################
 
 Header Columns
