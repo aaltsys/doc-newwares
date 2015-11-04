@@ -2,6 +2,10 @@
 
 .. _index:
 
+#############################
+WARES Resource Appendices
+#############################
+
 WARES Database Schema
 =============================
 
