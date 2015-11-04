@@ -1,7 +1,7 @@
 .. _lots-schema:
 
 #############################
-Inventory Lot Details
+DETAILS Data Table Columns
 #############################
 
 Lot detail record entries are divided into the following sections:

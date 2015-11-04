@@ -1,7 +1,7 @@
 .. _products-schema:
 
 #############################
-Product Data Definition 
+PRODUCTS Data Table Columns 
 #############################
 
 Product record entries are divided into the following sections:

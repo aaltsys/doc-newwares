@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>WARES Database Resources &mdash; WARES Resources 1.0 documentation</title>
+    <title>WARES Database Schema &mdash; WARES Resources 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,14 +24,14 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="WARES Resources 1.0 documentation" href="#" />
-    <link rel="next" title="CONTACTS" href="00_contacts.html" /> 
+    <link rel="next" title="CONTACTS Data Table Columns" href="00_contacts.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="00_contacts.html" title="CONTACTS"
+          <a href="00_contacts.html" title="CONTACTS Data Table Columns"
              accesskey="N">next</a></li>
         <li><a class="external reference" href="../index.html">AAltsys Project Main Index</a>  &raquo;</li> 
       </ul>
@@ -40,15 +40,14 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="#">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">WARES Database Resources</a><ul>
-</ul>
-</li>
+<li><a class="reference internal" href="#">WARES Database Schema</a></li>
+<li><a class="reference internal" href="#wares-json-export-documents">WARES JSON Export Documents</a></li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
 </ul>
 
   <h4>Next topic</h4>
   <p class="topless"><a href="00_contacts.html"
-                        title="next chapter">CONTACTS</a></p>
+                        title="next chapter">CONTACTS Data Table Columns</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -77,41 +76,43 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="wares-database-resources">
-<span id="index"></span><h1>WARES Database Resources<a class="headerlink" href="#wares-database-resources" title="Permalink to this headline">¶</a></h1>
-<p>Contents:</p>
+  <div class="section" id="wares-database-schema">
+<span id="index"></span><h1>WARES Database Schema<a class="headerlink" href="#wares-database-schema" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="00_contacts.html">CONTACTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_accounts.html">Account Masterfile Columns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_products.html">Product Data Definition</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="00_contacts.html">CONTACTS Data Table Columns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_accounts.html">ACCOUNTS Data Table Columns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_products.html">PRODUCTS Data Table Columns</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="02_products.html#product-masterfile-columns">Product Masterfile Columns</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="03_lotdetails_head.html">Inventory Lot Details</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="03_lotdetails_head.html">DETAILS Data Table Columns</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="03_lotdetails_head.html#detail-lot-header-columns">Detail Lot Header Columns</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="03_lotdetails_lines.html">Lot Transaction Lines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_documents.html">Inventory Document Head</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="03_lotdetails_lines.html">LOT LINES Data Table Columns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_documents.html">DOCUMENTS Data Table Columns</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="04_documents.html#header-columns">Header Columns</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="06_balances.html">Lot Balances Columns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_locations.html">Locations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_balances.html">BALANCES Data Table Columns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_locations.html">LOCATIONS Data Table Columns</a></li>
 </ul>
 </div>
+</div>
+<div class="section" id="wares-json-export-documents">
+<h1>WARES JSON Export Documents<a class="headerlink" href="#wares-json-export-documents" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="json_00_contacts.html">CONTACTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="json_01_accounts.html">ACCOUNTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="json_02_products.html">PRODUCTS Masterfile</a></li>
-<li class="toctree-l1"><a class="reference internal" href="json_03_lotdetails.html">JSON DOSWARES Export DETAILS</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="json_00_contacts.html">JSON CONTACTS Export</a></li>
+<li class="toctree-l1"><a class="reference internal" href="json_01_accounts.html">JSON ACCOUNTS Export</a></li>
+<li class="toctree-l1"><a class="reference internal" href="json_02_products.html">JSON PRODUCTS Export</a></li>
+<li class="toctree-l1"><a class="reference internal" href="json_03_lotdetails.html">JSON DETAILS Export</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="json_03_lotdetails.html#details">DETAILS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="json_03_lotdetails.html#transaction-lines">TRANSACTION LINES</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="json_04_documents.html">JSON DOSWARES Export DOCUMENT</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="json_04_documents.html">JSON DOCUMENTS Export</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="json_04_documents.html#receipts">RECEIPTS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="json_04_documents.html#shipments">SHIPMENTS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="json_04_documents.html#adjusts">ADJUSTS</a></li>
@@ -119,8 +120,6 @@
 </ul>
 </li>
 </ul>
-</div>
-<div class="toctree-wrapper compound">
 </div>
 </div>
 <div class="section" id="indices-and-tables">
@@ -130,6 +129,8 @@
 <li><a class="reference internal" href="py-modindex.html"><em>Module Index</em></a></li>
 <li><a class="reference internal" href="search.html"><em>Search Page</em></a></li>
 </ul>
+<div class="toctree-wrapper compound">
+</div>
 </div>
 
 
@@ -142,7 +143,7 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="00_contacts.html" title="CONTACTS"
+          <a href="00_contacts.html" title="CONTACTS Data Table Columns"
              >next</a></li>
         <li><a class="external reference" href="../index.html">AAltsys Project Main Index</a>  &raquo;</li> 
       </ul>
