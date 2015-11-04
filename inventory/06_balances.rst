@@ -256,4 +256,4 @@ PFG789 Balances
 Lot Balances Columns
 =============================
 
-The database column schema for Balances is found at :ref:`balances`.
+The database column schema for Balances is found at :ref:`balances-schema`.
