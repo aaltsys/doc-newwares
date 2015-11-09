@@ -1,4 +1,4 @@
-.. _fac-locator:
+.. _locator:
 
 #############################
 Locator Views

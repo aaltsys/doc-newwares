@@ -1,4 +1,4 @@
-.. _fac_company:
+.. _company:
 
 #############################
 Facility Company
