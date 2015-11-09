@@ -1,0 +1,263 @@
+ENTER THE RECORD POSTING DATE. 
+
+Enter the record posting date, or press the enter key to default to the 
+current computer system date. For transaction records, the date should be in 
+the range from the start of the current month until one year in the future. 
+
+To enter prior records in the current period, change the date to a day on or 
+after the first of the current month. Future transactions may also be recorded
+by changing the date to any day within one year after today's date. Records 
+which are entered to future dates are automatically reserved until that date 
+becomes current. 
+
+Under normal circumstances, records should not be posted for periods previous 
+to the current month. However, entering a date prior to the start of the 
+current month is permitted on transaction records. In this case, the inventory
+transaction is posted and then the record is written directly to the history 
+file. Transactions may be reviewed from history but cannot be changed. This 
+prior period historical transaction entry provides a means for entering 
+inventory starting balances with correct dates for FIFO and anniversary 
+calculations when existing accounts are entered into the computer. 
+
+BUILDING LOCATIONS
+
+Location codes are entered by building. Locations cannot be entered for a 
+building before the building address record has been entered. 
+
+Each building street address for the warehouse company requires a building 
+record in the Addresses file. The warehouse company name and building address 
+are printed on the warehouse receipt with the titles "Received By:" and 
+"Received At:". Building numbers are required when entering receipts and when 
+entering adjustments which create new lot records.
+
+PO_NUMBER, REFERENCE
+
+This the account reference number (purchase order, invoice, or bill of lading 
+number) used with this transaction. Entering the reference number allows 
+receipts, shipments, and adjustments to be tracked by the account's order 
+numbering scheme as well as the order numbers generated in WARES. 
+
+When entering inventory adjustments, this reference number might refer to a 
+physical inventory form or an adjustment memo from the account. If the 
+adjustment represents a physical transfer or correction within the warehouse, 
+the reference number should be the transaction number for the lot being 
+adjusted. 
+
+Account release numbers, carrier PRO numbers, or other reference numbers may 
+be entered in the following reference field. 
+---
+The shipper reference number defaults to the purchase order reference number 
+from the account master record when an account PO number exists. 
+
+Enter the carrier's freight or PRO number, or enter a supplier reference 
+number. When accounts receive goods at the warehouse from their suppliers, 
+the supplier may provide a reference number for the shipment. The shipper 
+reference number is the invoice, purchase order, or bill of lading number used
+by the shipment supplier. 
+
+For shipment orders, enter the carrier's PRO number, the shipper's number, or 
+the account release number here. Entering the reference number allows 
+receipts and shipments to be traced back to the account's reference numbers 
+as well as the numbers generated in WARES. 
+
+VEHICLE
+
+This is the serial number of the trailer, rail car, vessel, or freight 
+container used for this shipment. The tractor number may also be entered here,
+as well as car seal numbers or other tracking information. If the carrier's 
+alpha code is not tracked in the carrier table, enter the carrier's alpha code
+or carrier name here. 
+
+RECEIVING LOT CONTROL
+
+Enter a lot control number, or press 
+ 
+ F2 to select an existing control number for this product. 
+ 
+Press function key 2 [F2] to see a popup list of all active control numbers 
+for this product and the storage and weight factors for the lots. The cursor 
+will be positioned on the current control number entry when the popup is 
+displayed. 
+ 
+Selecting a control number from the popup will force the storage and weight 
+factors on this receipt to match the factors previously entered on the lot. If
+an existing receipt entry is being corrected and the current transaction line 
+is the only receiving transaction on the lot, then the storage and weight 
+factors of the lot may be changed on this window. In this case the storage and
+weight factors will default to the previous values for these factors. 
+ 
+Entries on the lot control correction window will update the receipt record 
+being entered. 
+
+LOT CONTROL NUMBER OPTIONS. 
+ 
+ F2 Selects from a popup list of current/available lots 
+ SF6 Searches product lot descriptions for specific text. 
+ F3 Within options popup, displays and selects serial numbers. 
+ 
+Shipment and adjustment transactions provide an options popup for selecting 
+existing inventory lots. On shipment orders, lot control numbers with 
+available quantities of product are displayed in the options popup. This popup
+displays automatically after a product identifier is first entered. The 
+control number will default to the first lot displayed, which is the earliest 
+dated lot. The control number must be selected from the available lots. Once 
+the available quantity on a lot is reduced to zero, the lot is removed from 
+the available quantity popup. 
+ 
+When product is serialized, the options popup can be used to view or pick the 
+serial numbers in the lot. Press function key 3 [F3] to display the serial 
+number selection popup. Highlight the desired serial numbers and press [F9] to
+select the lot control number and the serial number list. Press escape in the 
+popup to cancel the serial selection process. 
+
+LOT CONTROL ON WAREHOUSE RECEIPTS. 
+ 
+Inventory lots are created when new lot control numbers are entered on 
+warehouse receipts. Commonly account reference numbers such as lot numbers, 
+production numbers, batch numbers, or aging codes are entered as control 
+numbers. 
+ 
+If a reference number is not entered, the program generates a default serial 
+number representing the day on which the lot was received. Multiple receipts 
+of a product entered on the same day are assigned to the same lot when the 
+default control numbering is used. A control number entry is required on 
+product lines. No control number is entered for comments. 
+ 
+A control number may refer to a single piece, a pallet, or a group of pallets.
+When billing must be tracked to the individual piece, a control number must be
+assigned for each piece and each piece must be entered on a separate line of 
+the receipt. For instance, large equipment is billed individually based on 
+storage requirements. Using the serial number of the equipment piece for the 
+control number, the account and the warehouse can track inventory and billing 
+by the same number. 
+ 
+When pieces in a lot are billed the same but tracked separately, define the 
+product to require serial numbers for the storage units, the pieces, or other 
+measures as appropriate. Then assign a single control number to each lot that 
+is received. Use the serial number entries to track individual units within 
+the lot. For example, drums of paint are sequence numbered within each 
+production batch by the manufacturer. The manufacturer's batch number is used 
+as a lot control number within the warehouse. Each sequence number is tracked 
+as a piece serial number within the lot. 
+
+LOT CONTROL ON SHIPMENTS. 
+ 
+Available lots of product are selected for shipment by entering lot control 
+numbers on shipment orders. When a product identifier is entered on the 
+shipment record, a popup of all available lot control numbers and quantities 
+for the product is displayed. The lot control number defaults to the first 
+lot in the popup, which is the lot with the earliest date. The control number 
+must be selected from the available lots displayed in the popup. 
+ 
+When product is serialized, the options popup can be used to view or pick the 
+serial numbers in the lot. Press function key 3 [F3] to display the serial 
+number selection popup. Highlight the desired serial numbers and press [F9] to
+select the lot control number and the serial number list. Press escape in the 
+popup to cancel the serial selection process. 
+ 
+Press function key 2 [F2] to display an options popup showing all lots for the
+product with available balances. The text search feature may be used to reduce
+the lot control number popup. See the options topic in this set of help 
+records for more discussion of text search. 
+
+LOT CONTROL ON ADJUSTMENTS. 
+ 
+Enter an account reference number or control number for this lot. Account 
+reference numbers may include lot numbers, production numbers, batch numbers, 
+or aging codes. An entry for control number is required on product lines. No 
+control number is entered for comments. 
+ 
+For the product being entered, current lot control numbers and the quantities 
+available in inventory are displayed in a popup. Press function key 2 [F2] to 
+select an existing lot number from the popup. The text search feature may be 
+used to reduce the lot control number popup. See the search topic in this set 
+of help records for more discussion of text search. 
+ 
+Adjustments may add quantities to either current control numbers or new 
+control numbers. Press function key 2 [F2] to display an options popup showing
+all current lots for the product including those with zero balance. When 
+withdrawing inventory, an existing lot identifier with available quantity must
+be entered. Balances less than zero are not permitted. 
+ 
+Adjustments may be used to transfer quantities from one account to another. 
+Any new lot control numbers created by an adjustment are assigned to the 
+account specified in the adjustment heading. Existing product lots may be 
+selected from any account. When an existing lot belongs to an account other 
+than the account for this adjustment, a message will prompt to verify that a 
+transfer between accounts is intended. 
+ 
+The control number may refer to a single piece, a pallet, or a group of 
+pallets. When billing must be tracked to the individual piece, a control 
+number must be assigned for each piece and each piece must be entered on a 
+separate line of the receipt. For instance, large rolls of paper are weighed 
+and billed individually. Using the serial number of the roll for the control 
+number, the account and the warehouse can track inventory by the same number. 
+ 
+When pieces in a lot are billed the same but tracked separately, define the 
+product to require serial numbers for the storage units, the pieces, or other 
+measures as appropriate. Then assign a single control number to each lot that 
+is received. Use the serial number entries to track individual units within 
+the lot. For example, drums of paint are sequence numbered within each 
+production batch by the manufacturer. The manufacturer's batch number is used 
+as a lot control number within the warehouse. Each sequence number is tracked 
+as a piece serial number within the lot. 
+
+LOT CONTROL DATES AND DATE CODES
+ 
+On warehouse receipts, the program generates a default control number 
+representing the day on which the lot was received if a reference number is 
+not entered. By default, all quantities of the same product received on the 
+same day are given the same lot control number. 
+ 
+Lot control numbers may be prefixed and/or suffixed with origination date 
+codes and expiration date codes respectively. Date codes are separated from 
+the control number with a hyphen (-). When an origination date code is entered
+followed by a hyphen, the default control number will be appended to the entry
+following the hyphen; expiration date codes entered following a hyphen will 
+cause the default control number to be inserted before the hyphen. Entering 
+origination and expiration codes separated by two hyphens will cause the 
+control number default value to be inserted between the hyphens. 
+ 
+For example, the entry "09/01/92-" would be converted to "09.01.92-XXXX" where
+"XXXX" represents the control number default value. Similarly, "-090192" would
+be converted to "XXXX-090192", and "9/1--12/1" would become "9.1-XXXX-12.1". 
+Also notice that slashes (/) are converted to periods (.) and plus signs and 
+asterisks (+ and *) are converted to hyphens (-). This enhances numeric keypad
+use during control number entry. 
+ 
+When products are dated by receipt, lot dates are not required. If the product
+is dated by origination (the product's date lot code indicates origination 
+dating), the origination date will be required. Similarly, expiration-dated 
+products will require expiration dates. 
+ 
+Coded dates are validated and converted during control number entry according 
+to the conversion defined by the product's date coding method. If no date code
+method is specified then open dating is assumed. That is, dates should be 
+entered in MM/DD/YY format. Note that open dates are used in the example 
+above. The control number is maintained as entered, and the converted dates 
+are not displayed. 
+ 
+A control number for automotive batteries might be "A1-41356-1E", for example.
+The date coding method for this product would be "BA" to indicate the date 
+code conversion method for automotive batteries. During entry, the first part 
+of the control number, "A1", would be converted to the origination date 
+"01/01/91". The following number is the actual control number, and the final 
+code, "1E", represents the expiration date "05/01/91". If this product uses 
+expiration lot dating, the detail lot for this control number would be dated 
+"05/01/91". 
+
+CONTROL NUMBER ENTRY KEYS. 
+ 
+Control numbers are commonly entered on the numeric key pad. To make numeric 
+key pad entry easier and more reliable, certain keys are automatically 
+converted to other characters in control numbers. The slash (/) character is 
+converted to the period (.), and times (*) and plus (+) characters are 
+converted to hyphens (-). Spaces are converted to underscore (_) characters. 
+ 
+This means that slashes (/), asterisks (*), plus signs (+), and spaces ( ) are
+not permitted in control numbers. Also, open dates, which are commonly entered
+in MM/DD/YY format, will be changed to display as MM.DD.YY. When open dates 
+are used the control number entry may be quite long. To shorten the entry, 
+either omit the year or omit the delimiters. For example, enter either "4.28" 
+or "042892" to represent "04/28/92". 
+
