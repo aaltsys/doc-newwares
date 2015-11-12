@@ -42,6 +42,19 @@
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Facility Company</a><ul>
+<li><a class="reference internal" href="#the-warehouse-company">The Warehouse Company</a></li>
+<li><a class="reference internal" href="#company-identifier-and-name">Company Identifier and Name</a></li>
+<li><a class="reference internal" href="#limitation-of-liability">Limitation of Liability</a></li>
+<li><a class="reference internal" href="#company-addresses">Company Addresses</a></li>
+<li><a class="reference internal" href="#company-invoice-messages">Company Invoice Messages</a></li>
+<li><a class="reference internal" href="#company-process-control">Company Process Control</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="01_overview.html"
                         title="previous chapter">webWARES Facility Overview</a></p>
@@ -78,6 +91,114 @@
             
   <div class="section" id="facility-company">
 <span id="company"></span><h1>Facility Company<a class="headerlink" href="#facility-company" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-warehouse-company">
+<h2>The Warehouse Company<a class="headerlink" href="#the-warehouse-company" title="Permalink to this headline">¶</a></h2>
+<p>Each warehouse facility requires a Warehouse Company information record.
+This record defines the default warehouse limitation of liability statement for
+warehouse receipts, links to company addresses, and message statements for
+warehouse receipts and other invoices.</p>
+<div class="sidebar">
+<p class="first sidebar-title">Company Addresses</p>
+<img alt="_images/company-identity.png" class="last" src="_images/company-identity.png" />
+</div>
+</div>
+<div class="section" id="company-identifier-and-name">
+<h2>Company Identifier and Name<a class="headerlink" href="#company-identifier-and-name" title="Permalink to this headline">¶</a></h2>
+<p>A unique company identifier must be entered for the facility. This value is
+used to associate contact address records to the warehouse company.</p>
+</div>
+<div class="section" id="limitation-of-liability">
+<h2>Limitation of Liability<a class="headerlink" href="#limitation-of-liability" title="Permalink to this headline">¶</a></h2>
+<p>WARES requires entries for the <strong>Liability Limit</strong> value and <strong>Per</strong> code,
+which combine to produce the <strong>Liability Limit</strong> text.</p>
+<p>Section 7-204 of the Uniform Commercial Code sets forth the warehouser&#8217;s
+standard of care, and allows for a limit on the amount of damages due to
+negligence for which he may be liable. This limitation should be expressed per
+article, per item, or per weight. WARES prints a <strong>Liability Limit</strong> statement
+on warehouse receipts. _[1] Either the statment shown here is printed, or the
+declared value of the customer account will be used.</p>
+</div>
+<div class="section" id="company-addresses">
+<h2>Company Addresses<a class="headerlink" href="#company-addresses" title="Permalink to this headline">¶</a></h2>
+<p>WARES uses between one and four contact address records for the warehouse
+company, based on the following specific type codes and the company identifier.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Code</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>C</td>
+<td>The Company general mailing address</td>
+</tr>
+<tr class="row-odd"><td>ST</td>
+<td>The Company package receiving address</td>
+</tr>
+<tr class="row-even"><td>BT</td>
+<td>The Company Bill To address, used for payables</td>
+</tr>
+<tr class="row-odd"><td>RI</td>
+<td>The Company remittance address, printed on invoices</td>
+</tr>
+</tbody>
+</table>
+<p>The type <strong>C</strong> address record for a warehouse is mandatory. Where another
+specific type of contact record is missing for the company, WARES will use the
+general type <strong>C</strong> address instead.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">Addresses are maintained through Contacts entries. Refer to <a class="reference internal" href="03_contacts.html#contacts"><em>Contacts and Addresses</em></a>
+for further information.</p>
+</div>
+<div class="sidebar">
+<p class="first sidebar-title">Messages and Notes</p>
+<img alt="_images/company-notes.png" class="last" src="_images/company-notes.png" />
+</div>
+</div>
+<div class="section" id="company-invoice-messages">
+<h2>Company Invoice Messages<a class="headerlink" href="#company-invoice-messages" title="Permalink to this headline">¶</a></h2>
+<p>Calculating billing and producing invoices are primary functions of the WARES
+software. Typically a warehousing company may produce several types of charges:
+accessorial services on receiving and shipping, handling and storage calculated
+on Warehouse Receipts, recurring storage, freight and transportation, and
+miscellaneous services.</p>
+<p>WARES accumulates all types of charges to produce a standard summary invoice
+and associated audit reports of varying levels of detail. In addition, WARES
+will print Warehouse Receipts as individual invoices or as documents to attach
+to a master invoice. Warehouse Receipts may be printed prior to accumulation to
+an invoice, or after an invoice for the services has been generated.</p>
+<p>Receipts which are issued prior to invoicing should have a printed message to
+tell the recipient that the receipt itself is not an invoice. Invoiced receipts
+should state that the charges are due upon receipt, since this enforces a
+warehouse lein against the goods.</p>
+<p><strong>Document Messages</strong> allow the company to specify the exact wording for each
+type of invoice message. Message types are provided for uninvoiced receipts,
+invoiced receipts, and standard invoices.</p>
+</div>
+<div class="section" id="company-process-control">
+<h2>Company Process Control<a class="headerlink" href="#company-process-control" title="Permalink to this headline">¶</a></h2>
+<div class="sidebar">
+<p class="first sidebar-title">Process Control</p>
+<img alt="_images/company-process.png" class="last" src="_images/company-process.png" />
+</div>
+<p><strong>Process Controls</strong> set features which affect the global operation of WARES.
+These entries include:</p>
+<ul class="simple">
+<li><strong>Entry Status</strong> &#8211; Use this entry to set the default status applied to
+current records during entry. The available statuses would be <strong>2</strong>
+(allocated) or <strong>3</strong> (verified received/shipped).</li>
+<li><strong>Period Start</strong> &#8211; This date begins the current open accounting period for
+the warehouse. Transactions prior to this date are marked archived status.</li>
+<li><strong>Next Period</strong> &#8211; This date begins a &#8220;future&#8221; period for billing
+calculations. Transactions entered to this date and beyond should not be
+invoiced until the current period is closed.</li>
+</ul>
+</div>
 </div>
 
 

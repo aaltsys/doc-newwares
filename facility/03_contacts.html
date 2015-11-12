@@ -266,11 +266,11 @@ addresses:</p>
 <tr class="row-even"><td>SF, B</td>
 <td>The shipment origination point, or warehouse building address</td>
 </tr>
-<tr class="row-odd"><td>A</td>
-<td>The Account general mailing address and communication record</td>
-</tr>
-<tr class="row-even"><td>ST</td>
+<tr class="row-odd"><td>ST, CN</td>
 <td>The shipment consignee or receiving address or location</td>
+</tr>
+<tr class="row-even"><td>A</td>
+<td>The Account general mailing address and communication record</td>
 </tr>
 <tr class="row-odd"><td>PF</td>
 <td>The Freight Payor&#8217;s address, based on freight payment terms</td>
@@ -307,9 +307,15 @@ following table.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>B</td>
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line"><br /></div>
+<div class="line">B</div>
+<div class="line"><br /></div>
+</div>
+</td>
 <td>Warehouse building address</td>
 <td><div class="first last line-block">
+<div class="line">Location Setup</div>
 <div class="line">Warehouse Receipts</div>
 <div class="line">Bills of Lading</div>
 </div>
@@ -319,11 +325,23 @@ following table.</p>
 <td>Warehouse employee name</td>
 <td>Activity tracking</td>
 </tr>
-<tr class="row-even"><td>T</td>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>T</td>
 <td>EDI trading partner</td>
 <td>Data Exchange</td>
 </tr>
-<tr class="row-odd"><td>CA</td>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">CA</div>
+<div class="line"><br /></div>
+</div>
+</td>
 <td>Freight carrier</td>
 <td><div class="first last line-block">
 <div class="line">Warehouse Receipts</div>
@@ -333,9 +351,9 @@ following table.</p>
 </tr>
 </tbody>
 </table>
-<p>Of these Contacts, the freight carrier is most likely to need to be entered
-apart from Facility Setup and Account Entry. An example carrier contact is
-displayed in the sidebar.</p>
+<p>Of these Contacts, freight carriers commonly need to be entered apart from
+Facility Setup and Account Entry. An example carrier contact is displayed in
+the sidebar.</p>
 </div>
 <div class="section" id="contacts-database-schema">
 <h2>Contacts Database Schema<a class="headerlink" href="#contacts-database-schema" title="Permalink to this headline">¶</a></h2>

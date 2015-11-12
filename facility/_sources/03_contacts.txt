@@ -134,9 +134,9 @@ addresses:
 +=======+================================================================+
 | SF, B | The shipment origination point, or warehouse building address  |
 +-------+----------------------------------------------------------------+
-| A     | The Account general mailing address and communication record   |
+| ST, CN| The shipment consignee or receiving address or location        |
 +-------+----------------------------------------------------------------+
-| ST    | The shipment consignee or receiving address or location        |
+| A     | The Account general mailing address and communication record   |
 +-------+----------------------------------------------------------------+
 | PF    | The Freight Payor's address, based on freight payment terms    |
 +-------+----------------------------------------------------------------+
@@ -163,20 +163,23 @@ following table.
 +-------+------------------------------------------+---------------------+
 | Code  | Description                              | Where Used          |
 +=======+==========================================+=====================+
-| B     | Warehouse building address               || Warehouse Receipts |
-|       |                                          || Bills of Lading    |
+||      |                                          || Location Setup     |
+|| B    | Warehouse building address               || Warehouse Receipts |
+||      |                                          || Bills of Lading    |
 +-------+------------------------------------------+---------------------+
 | E     | Warehouse employee name                  | Activity tracking   |
 +-------+------------------------------------------+---------------------+
++-------+------------------------------------------+---------------------+
 | T     | EDI trading partner                      | Data Exchange       |
 +-------+------------------------------------------+---------------------+
-| CA    | Freight carrier                          || Warehouse Receipts |
-|       |                                          || Bills of Lading    |
++-------+------------------------------------------+---------------------+
+|| CA   | Freight carrier                          || Warehouse Receipts |
+||      |                                          || Bills of Lading    |
 +-------+------------------------------------------+---------------------+
 
-Of these Contacts, the freight carrier is most likely to need to be entered
-apart from Facility Setup and Account Entry. An example carrier contact is 
-displayed in the sidebar.
+Of these Contacts, freight carriers commonly need to be entered apart from 
+Facility Setup and Account Entry. An example carrier contact is displayed in 
+the sidebar.
 
 Contacts Database Schema
 =============================
