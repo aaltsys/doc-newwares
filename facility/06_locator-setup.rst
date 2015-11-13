@@ -35,6 +35,10 @@ Warehouse Layout
 Before locations can be defined in software, the warehouse layout has to be 
 determined. This will include calculations and measurements for the following:
 
+.. sidebar:: Warehouse Layout
+
+   .. image:: _images/location-bays.png
+
 *  Dock door spacing
 *  Front staging area depth
 *  Aisle widths for turning
@@ -44,10 +48,6 @@ determined. This will include calculations and measurements for the following:
 *  Rack storage area design
 *  Empty pallet exchange areas
 *  Column and overhead interferences
-
-.. sidebar:: Warehouse Layout
-
-   .. image:: _images/location-bays.png
 
 Part of a very basic warehouse layout schematic is shown in the sidebar. This 
 Google Sheet shows how easily a building grid can be described, providing that 
