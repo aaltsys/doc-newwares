@@ -141,19 +141,22 @@ implement advanced capabilities such as directed inventory movement.
    specific customers or products can be restricted to applicable zones only.
    For example, the warehouse may have DRY and COOL zones, but also partitions 
    for customers ADF and OCI. Locations within ADF and OCI partitions could be 
-   updated to reflect the associated zones.
+   updated to reflect the associated zones. A default zone list is at 
+   :ref:`zone-list`.
 *  **ACCESS** -- Determines the sequence of fill and retrieval for a location. 
    In the previous layout example, the bay locations are **LIFO** because the 
    first pallet placed in a bay will be the last to leave. However, Bays 
    **A-01** and **B-02** back up to each other. Defining location **AB-0102**, 
    where pallets are loaded from Aisle **A** and removed from aisle **B**, 
-   would provide **FIFO** storage -- without restriping the floor.
+   would provide **FIFO** storage -- without restriping the floor. The Access 
+   options list is at :ref:`access-list`.
 *  **A/B/C** -- Locations can be rated by speed of access, from **A** to **C**. 
    In the warehouse example, bays 1 through 6 might be **A**, 7 through 12
    could be **B**, and 13 through 16 would then be **C**.
 *  **MIX BY** -- Locations and pallets may be of the same lot, same date, same 
    product, same account, or unrestricted. Setting **Mix** for a location will 
-   promote locations matching the requirements of products being stored.
+   promote locations matching the requirements of products being stored. Mix 
+   options are listed at :ref:`mix-list`.
 *  **PLAN**, **STACK**, and **VARIANCE** -- These three measures determine the 
    storage capacity of a location. For our sample warehouse, the bays are eight 
    pallets on the floor (Plan), with three pallets high (Stack), and no variance 

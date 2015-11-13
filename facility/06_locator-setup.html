@@ -418,19 +418,22 @@ implement advanced capabilities such as directed inventory movement.</p>
 specific customers or products can be restricted to applicable zones only.
 For example, the warehouse may have DRY and COOL zones, but also partitions
 for customers ADF and OCI. Locations within ADF and OCI partitions could be
-updated to reflect the associated zones.</li>
+updated to reflect the associated zones. A default zone list is at
+<a class="reference external" href="../codes/L_zone.html#zone-list" title="(in WARES Codes v1.0)"><em>Storage Zone</em></a>.</li>
 <li><strong>ACCESS</strong> &#8211; Determines the sequence of fill and retrieval for a location.
 In the previous layout example, the bay locations are <strong>LIFO</strong> because the
 first pallet placed in a bay will be the last to leave. However, Bays
 <strong>A-01</strong> and <strong>B-02</strong> back up to each other. Defining location <strong>AB-0102</strong>,
 where pallets are loaded from Aisle <strong>A</strong> and removed from aisle <strong>B</strong>,
-would provide <strong>FIFO</strong> storage &#8211; without restriping the floor.</li>
+would provide <strong>FIFO</strong> storage &#8211; without restriping the floor. The Access
+options list is at <a class="reference external" href="../codes/L_access.html#access-list" title="(in WARES Codes v1.0)"><em>Location Access Code</em></a>.</li>
 <li><strong>A/B/C</strong> &#8211; Locations can be rated by speed of access, from <strong>A</strong> to <strong>C</strong>.
 In the warehouse example, bays 1 through 6 might be <strong>A</strong>, 7 through 12
 could be <strong>B</strong>, and 13 through 16 would then be <strong>C</strong>.</li>
 <li><strong>MIX BY</strong> &#8211; Locations and pallets may be of the same lot, same date, same
 product, same account, or unrestricted. Setting <strong>Mix</strong> for a location will
-promote locations matching the requirements of products being stored.</li>
+promote locations matching the requirements of products being stored. Mix
+options are listed at <a class="reference external" href="../codes/L_mix.html#mix-list" title="(in WARES Codes v1.0)"><em>Unit / Location Mixing</em></a>.</li>
 <li><strong>PLAN</strong>, <strong>STACK</strong>, and <strong>VARIANCE</strong> &#8211; These three measures determine the
 storage capacity of a location. For our sample warehouse, the bays are eight
 pallets on the floor (Plan), with three pallets high (Stack), and no variance
