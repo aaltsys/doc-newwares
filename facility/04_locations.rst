@@ -1,10 +1,10 @@
-.. _locator-setup:
+.. _locations:
 
 #############################
-Locator Setup
+Locations Setup
 #############################
 
-Locator Purpose
+Locations Purpose
 =============================
 
 A **Locator** uses a list of places where goods may be stored in and around a 
