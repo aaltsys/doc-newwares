@@ -9,13 +9,13 @@ Document Type Codes
 +======+===============================================+=====+======+
 | -- --| General business documents                                 |
 +------+-----------------------------------------------+-----+------+
-| BL   | Motor Carrier Bill of Lading                  | 211 |  N/A |
+| BL   | Motor Carrier Bill of Lading                  | 211 |  n/a |
 +------+-----------------------------------------------+-----+------+
-| PO   | Purchase Order                                | 850 |  N/A |
+| PO   | Purchase Order                                | 850 |  n/a |
 +------+-----------------------------------------------+-----+------+
-| PR   | Purchase Order Acknowledgment (Sales Order)   | 855 |  N/A |
+| PR   | Purchase Order Acknowledgment (Sales Order)   | 855 |  n/a |
 +------+-----------------------------------------------+-----+------+
-| IB   | Inventory Inquiry/Advice                      | 846 |  N/A |
+| IB   | Inventory Inquiry/Advice                      | 846 |  n/a |
 +------+-----------------------------------------------+-----+------+
 | SH   || Shipment Notice/Manifest (ASN)               | 856 || 3   |
 |      || (Substitutes for 943 inbound or 945 outbound)|     || 4   |
@@ -34,15 +34,15 @@ Document Type Codes
 +------+-----------------------------------------------+-----+------+
 | -- --| Other warehousing documents                                |
 +------+-----------------------------------------------+-----+------+
-| LT   | Rewarehousing Location Transfer               |     |  1   |
+| LT   | Rewarehousing Location Transfer               | n/a |  1   |
 +------+-----------------------------------------------+-----+------+
-|      | Transaction Charges                           |     |  6   |
+| n/a  | Transaction Charges                           | n/a |  6   |
 +------+-----------------------------------------------+-----+------+
-|      | Credit Memo / Payment Advice                  |     |  7   |
+| n/a  | Credit Memo / Payment Advice                  | n/a |  7   |
 +------+-----------------------------------------------+-----+------+
 | IN   | Warehouse Invoice                             | 810 |  8   |
 +------+-----------------------------------------------+-----+------+
-| PP   | Pick Ticket / Packing Slip                    |     |  N/A |
+| PP   | Pick Ticket / Packing Slip                    | n/a |  n/a |
 +------+-----------------------------------------------+-----+------+
 
 Source: ASC-X12 Data Element 479 - Functional Identifier Code.

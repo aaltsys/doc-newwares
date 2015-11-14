@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>webWARES Facility Overview &mdash; WARES Facility 1.0 documentation</title>
+    <title>Facility Setup Overview &mdash; WARES Facility 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -44,12 +44,12 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">webWARES Facility Overview</a><ul>
-<li><a class="reference internal" href="#company">Company</a></li>
-<li><a class="reference internal" href="#contacts">Contacts</a></li>
-<li><a class="reference internal" href="#accounts">Accounts</a></li>
+<li><a class="reference internal" href="#">Facility Setup Overview</a><ul>
+<li><a class="reference internal" href="#warehousing-company">Warehousing Company</a></li>
+<li><a class="reference internal" href="#contacts-and-addresses">Contacts and Addresses</a></li>
+<li><a class="reference internal" href="#customer-accounts">Customer Accounts</a></li>
 <li><a class="reference internal" href="#buildings-and-locations">Buildings and Locations</a></li>
-<li><a class="reference internal" href="#inventory">Inventory</a></li>
+<li><a class="reference internal" href="#inventory-products">Inventory Products</a></li>
 </ul>
 </li>
 </ul>
@@ -88,28 +88,51 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="webwares-facility-overview">
-<span id="facility"></span><h1>webWARES Facility Overview<a class="headerlink" href="#webwares-facility-overview" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="facility-setup-overview">
+<span id="facility"></span><h1>Facility Setup Overview<a class="headerlink" href="#facility-setup-overview" title="Permalink to this headline">¶</a></h1>
+<p>In WARES, a facility is a warehouse company which operates as a single business
+entity to store and manage goods for a group of customer accounts in one or more
+buildings. <strong>Facility</strong> selections provide forms to enter this setup information
+for a warehouse company.</p>
+<div class="section" id="warehousing-company">
+<h2>Warehousing Company<a class="headerlink" href="#warehousing-company" title="Permalink to this headline">¶</a></h2>
+<p>Each instance of WARES is used by one warehousing company. The identifier and
+contact information for the warehouse is displayed in this form, along with
+control data for the <a class="reference internal" href="02_company.html#company"><em>Facility Company</em></a>.</p>
+</div>
+<div class="section" id="contacts-and-addresses">
+<h2>Contacts and Addresses<a class="headerlink" href="#contacts-and-addresses" title="Permalink to this headline">¶</a></h2>
+<p>All address information is collected in a single table of <a class="reference internal" href="03_contacts.html#contacts"><em>Contacts and Addresses</em></a>.</p>
+</div>
+<div class="section" id="customer-accounts">
+<h2>Customer Accounts<a class="headerlink" href="#customer-accounts" title="Permalink to this headline">¶</a></h2>
+<p>Every product in the warehouse belongs to an account. For private warehousing,
+accounts might be departments or divisions in the company ledgers. Public
+warehouses understand that <a class="reference internal" href="06_accounts.html#accounts"><em>Accounts</em></a> are their customers.</p>
+</div>
+<div class="section" id="buildings-and-locations">
+<h2>Buildings and Locations<a class="headerlink" href="#buildings-and-locations" title="Permalink to this headline">¶</a></h2>
+<p>A warehouse company is responsible for goods under management in physical
+buildings and locations within and around them. Information to describe these
+locations is entered in <a class="reference internal" href="04_locations.html#locations"><em>Locations Setup</em></a>.</p>
+</div>
+<div class="section" id="inventory-products">
+<h2>Inventory Products<a class="headerlink" href="#inventory-products" title="Permalink to this headline">¶</a></h2>
+<p>Each product or variety of good stored for an account is described with a
+<a class="reference internal" href="07_products.html#products"><em>Entering and Viewing Products</em></a> record.</p>
+<hr class="docutils" />
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Setup of billing information for third-party warehousing is included in the
+billing selections. The rates for billing could (maybe should?) be moved to
+Facility.</p>
+</div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last"><a class="reference external" href="http://newwares.aaltsys.com">http://newwares.aaltsys.com</a> displays a preliminary version of the webWARES
 program. This is not intended as a completed application. Rather, it is a
 starting point for alpha-testing program design.</p>
 </div>
-<div class="section" id="company">
-<h2>Company<a class="headerlink" href="#company" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="contacts">
-<h2>Contacts<a class="headerlink" href="#contacts" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="accounts">
-<h2>Accounts<a class="headerlink" href="#accounts" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="buildings-and-locations">
-<h2>Buildings and Locations<a class="headerlink" href="#buildings-and-locations" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="inventory">
-<h2>Inventory<a class="headerlink" href="#inventory" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Entering and Viewing Products &mdash; WARES Inventory 1.0 documentation</title>
+    <title>Entering and Viewing Products &mdash; WARES Facility 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -23,21 +23,21 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="WARES Inventory 1.0 documentation" href="index.html" />
-    <link rel="next" title="Inventory Balances Posting" href="06_balances.html" />
-    <link rel="prev" title="Inventory Concepts" href="02_inventory.html" /> 
+    <link rel="top" title="WARES Facility 1.0 documentation" href="index.html" />
+    <link rel="next" title="Inventory Balances" href="09_inventory.html" />
+    <link rel="prev" title="Accounts" href="06_accounts.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="06_balances.html" title="Inventory Balances Posting"
+          <a href="09_inventory.html" title="Inventory Balances"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="02_inventory.html" title="Inventory Concepts"
+          <a href="06_accounts.html" title="Accounts"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">WARES Inventory 1.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">WARES Facility 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -69,15 +69,15 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="02_inventory.html"
-                        title="previous chapter">Inventory Concepts</a></p>
+  <p class="topless"><a href="06_accounts.html"
+                        title="previous chapter">Accounts</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="06_balances.html"
-                        title="next chapter">Inventory Balances Posting</a></p>
+  <p class="topless"><a href="09_inventory.html"
+                        title="next chapter">Inventory Balances</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/03_setup.txt"
+      <li><a href="_sources/07_products.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -103,7 +103,7 @@
           <div class="body" role="main">
             
   <div class="section" id="entering-and-viewing-products">
-<span id="product-view"></span><h1>Entering and Viewing Products<a class="headerlink" href="#entering-and-viewing-products" title="Permalink to this headline">¶</a></h1>
+<span id="products"></span><h1>Entering and Viewing Products<a class="headerlink" href="#entering-and-viewing-products" title="Permalink to this headline">¶</a></h1>
 <p>Entries for product records are grouped into the following five sections:</p>
 <ul class="simple">
 <li>PRODUCT IDENTIFICATION</li>
@@ -115,26 +115,24 @@
 <p>In each section, a rule line separates basic mode entries (above the line) from
 advanced entries (below the rule). The sections for LOCATOR CONTROLS and
 NOTES AND MESSAGES are available in advanced mode only.</p>
-<div class="section" id="product-identification">
-<h2>Product Identification<a class="headerlink" href="#product-identification" title="Permalink to this headline">¶</a></h2>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
 <div class="sidebar">
 <p class="first sidebar-title">Product Identification</p>
+<img alt="_images/product1-iden.png" src="_images/product1-iden.png" />
+<img alt="_images/product2-iden.png" class="last" src="_images/product2-iden.png" />
+</div>
+<div class="section" id="product-identification">
+<h2>Product Identification<a class="headerlink" href="#product-identification" title="Permalink to this headline">¶</a></h2>
 <p>Required entries <strong>Account</strong> and <strong>Product</strong>, and optionally <strong>Variety</strong>,
 combine to form a unique identifier for each product. Other indexed entries
 which link to the product identifier for categories and search are included
 in this section: <strong>Stock Number</strong> alternatives, <strong>Description</strong> text, and a
 <strong>Hazard</strong> flag.</p>
-<div class="last admonition tip">
+<div class="admonition tip">
 <p class="first admonition-title">Tip</p>
 <p class="last">Special characters, spaces, or punctuation are not allowed in identifiers.
 These entries are limited to the 26 upper-case letters of ISO basic Latin
 alphabet along with numerals 0 through 9.</p>
 </div>
-</div>
-<img alt="_images/product-1ident.png" src="_images/product-1ident.png" />
 <div class="section" id="basic-entries">
 <h3>Basic Entries:<a class="headerlink" href="#basic-entries" title="Permalink to this headline">¶</a></h3>
 <ul>
@@ -185,18 +183,20 @@ where either description represents a case with 288 ounces of product.</li>
 documents such as the Bill of Lading. This entry is required for hazardous
 materials.</li>
 </ul>
+<div class="sidebar">
+<p class="first sidebar-title">Product Classification</p>
+<p>Roll paper for account PTW:</p>
+<img alt="_images/product1-class.png" src="_images/product1-class.png" />
+<p>Liquid totes for account OCI:</p>
+<img alt="_images/product2-class.png" class="last" src="_images/product2-class.png" />
+</div>
 </div>
 </div>
 <div class="section" id="product-classification">
 <h2>Product Classification<a class="headerlink" href="#product-classification" title="Permalink to this headline">¶</a></h2>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<div class="sidebar">
-<p class="first sidebar-title">Product Classification</p>
 <p>Products are classified according to WARES features or the conventions of
 warehousing and logistics.</p>
-<ul class="last simple">
+<ul class="simple">
 <li><strong>Tracking</strong> and <strong>Lot Control</strong> define the way inventory is tracked and
 reported within <strong class="program">WARES</strong>.</li>
 <li><strong>Rate</strong> identifies the basis for warehouse storage and handling services
@@ -204,8 +204,6 @@ charges calculated within <strong class="program">WARES</strong>.</li>
 <li><strong>Freight Class</strong> specifies the transportation classification for a
 product in standard rating systems such as TL or NMFC.</li>
 </ul>
-</div>
-<img alt="_images/product-2class.png" src="_images/product-2class.png" />
 <div class="section" id="id1">
 <h3>Basic Entries<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <ul>
@@ -246,27 +244,27 @@ sales pricing.</li>
 grouping products. These codes may be used in product selection or reporting
 filters.</li>
 </ul>
+<div class="sidebar">
+<p class="first sidebar-title">Dimensions</p>
+<p>Roll paper for account PTW:</p>
+<img alt="_images/product1-dim.png" src="_images/product1-dim.png" />
+<p>Liquid totes for account OCI:</p>
+<img alt="_images/product2-dim.png" class="last" src="_images/product2-dim.png" />
+</div>
 </div>
 </div>
 <div class="section" id="product-dimensions">
 <h2>Product Dimensions<a class="headerlink" href="#product-dimensions" title="Permalink to this headline">¶</a></h2>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<div class="sidebar">
-<p class="first sidebar-title">Dimensions</p>
 <p>Dimension entries determine the uints of measure to display for goods, and
 the counts and factors to extend or extrapolate from weights, sizes, and
 counts of (inner or) contents entries up to unit inventory quantities and
 measures. Default values for a column are calculated once entries are made
 in the column preceding it (to its left).</p>
-<div class="last admonition tip">
+<div class="admonition tip">
 <p class="first admonition-title">Tip</p>
 <p class="last">Inner counts and measures, content linear dimensions, and unit stacking
 are not included in base mode.</p>
 </div>
-</div>
-<img alt="_images/product-3dim.png" src="_images/product-3dim.png" />
 <div class="section" id="id3">
 <h3>Basic Entries<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <ul>
@@ -307,16 +305,17 @@ location&#8217;s stack height limit is used to calculate the location capacity.<
 <li><strong>Content Long</strong>, <strong>Content Wide</strong>, and <strong>Content High</strong> are used when
 shipping via package carrier, where the carton dimensions are required.</li>
 </ul>
+<div class="sidebar">
+<p class="first sidebar-title">Dimensions Example</p>
+<p>Calculations for DBM product with inner packages:</p>
+<img alt="_images/product3-dim.png" class="last" src="_images/product3-dim.png" />
+</div>
 </div>
 <div class="section" id="dimensions-example">
 <h3>Dimensions Example<a class="headerlink" href="#dimensions-example" title="Permalink to this headline">¶</a></h3>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<div class="sidebar">
-<p class="first sidebar-title">Dimensions Example</p>
-<p>Six values (un-highlighted entries in the figure) must be entered to
-calculate from inner pieces to unit pallets, as shown in the following table.</p>
+<dl class="docutils">
+<dt>Six values (un-highlighted entries in the figure) must be entered to</dt>
+<dd><p class="first">calculate from inner pieces to unit pallets, as shown in the following table.</p>
 <table border="1" class="last docutils">
 <colgroup>
 <col width="37%" />
@@ -331,7 +330,7 @@ calculate from inner pieces to unit pallets, as shown in the following table.</p
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>Inner Count</td>
-<td>12</td>
+<td>8</td>
 <td>PC/CA</td>
 </tr>
 <tr class="row-odd"><td>Inner Weight</td>
@@ -343,7 +342,7 @@ calculate from inner pieces to unit pallets, as shown in the following table.</p
 <td>CF/PC</td>
 </tr>
 <tr class="row-odd"><td>Content Count</td>
-<td>64</td>
+<td>96</td>
 <td>CA/PL</td>
 </tr>
 <tr class="row-even"><td>Content Tare</td>
@@ -356,8 +355,8 @@ calculate from inner pieces to unit pallets, as shown in the following table.</p
 </tr>
 </tbody>
 </table>
-</div>
-<img alt="_images/product-3dim-d.png" src="_images/product-3dim-d.png" />
+</dd>
+</dl>
 <p>Calculated default values are highlighted in the Dimensions example figure. The
 calculations and analysis of units is shown below.</p>
 <table border="1" class="docutils">
@@ -373,47 +372,48 @@ calculations and analysis of units is shown below.</p>
 <tbody valign="top">
 <tr class="row-even"><td>Content Weight</td>
 <td><div class="first last line-block">
-<div class="line"><cite>12 X 1.0 = 12.0</cite></div>
+<div class="line"><cite>8 X 1.0 = 8.0</cite></div>
 <div class="line"><cite>(PC/CA) X (LB/PC) = (LB/CA)</cite></div>
 </div>
 </td>
 </tr>
 <tr class="row-odd"><td>Content Size</td>
 <td><div class="first last line-block">
-<div class="line"><cite>12 X 0.0417 = 0.5004</cite></div>
+<div class="line"><cite>8 X 0.0417 = 0.3336</cite></div>
 <div class="line"><cite>(PC/CA) X (CF/PC) = (CF/CA)</cite></div>
 </div>
 </td>
 </tr>
 <tr class="row-even"><td>Unit Weight</td>
 <td><div class="first last line-block">
-<div class="line"><cite>64 X (12.00 + 0.50) = 800.00</cite></div>
+<div class="line"><cite>96 X (8.00 + 0.50) = 816.00</cite></div>
 <div class="line"><cite>(CA/PL) X (LB/CA) = (LB/PL)</cite></div>
 </div>
 </td>
 </tr>
 <tr class="row-odd"><td>Unit Size</td>
 <td><div class="first last line-block">
-<div class="line"><cite>64 X 0.5004  = 32.0256</cite></div>
+<div class="line"><cite>96 X 0.3336  = 32.0256</cite></div>
 <div class="line"><cite>(CA/PL) X (CF/CA) = (CF/PL)</cite></div>
 </div>
 </td>
 </tr>
 </tbody>
 </table>
+<div class="sidebar">
+<p class="first sidebar-title">Location Control and Messages</p>
+<p>Location Control entries for Roll paper:</p>
+<img alt="_images/product1-locat.png" src="_images/product1-locat.png" />
+<p>Messages for hazardous chemicals:</p>
+<img alt="_images/product2-locat.png" class="last" src="_images/product2-locat.png" />
+</div>
 </div>
 </div>
 <div class="section" id="locator-controls">
 <h2>Locator Controls<a class="headerlink" href="#locator-controls" title="Permalink to this headline">¶</a></h2>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<div class="sidebar">
-<p class="first sidebar-title">Location Control</p>
-<p class="last">Products interact with the Locator system through these settings, and through
-the <strong>Unit Stack</strong> dimension entry.</p>
-</div>
-<img alt="_images/product-4locate.png" src="_images/product-4locate.png" />
+<blockquote>
+<div>Products interact with the Locator system through these settings, and through
+the <strong>Unit Stack</strong> dimension entry.</div></blockquote>
 <ul class="simple">
 <li><strong>A-B-C Turn Rate</strong>, or product velocity, describes how quickly products move
 through the warehouse.</li>
@@ -428,16 +428,9 @@ product.</li>
 </div>
 <div class="section" id="notes-and-messages">
 <h2>Notes and Messages<a class="headerlink" href="#notes-and-messages" title="Permalink to this headline">¶</a></h2>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<div class="sidebar">
-<p class="first sidebar-title">Document Messages</p>
-<p class="last">Notes allow product information which is intended for clerical use, warehouse
+<p>Notes allow product information which is intended for clerical use, warehouse
 laborers, transportation, or recipient consumption to be recorded and then
 displayed on appropriate documents or other venues.</p>
-</div>
-<img alt="_images/product-5notes.png" src="_images/product-5notes.png" />
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">The entirety of <strong>LOCATOR CONTROLS</strong> and <strong>NOTES AND MESSAGES</strong> are part of
@@ -450,11 +443,11 @@ advanced mode.</p>
 <p>The nature of web pages makes data entry difficult for large forms, and this
 is particularly a problem on hand-held devices. Basic mode exists to reduce
 page sizes to a minimum while providing all commonly used features.</p>
-<p>Basic mode displays only three form sections, and these sections are reduced to
-the components displayed below.</p>
-<img alt="_images/product-1ident-b.png" src="_images/product-1ident-b.png" />
-<img alt="_images/product-2class-b.png" src="_images/product-2class-b.png" />
-<img alt="_images/product-3dim-b.png" src="_images/product-3dim-b.png" />
+<p>Basic mode displays only three form sections, with reduced entries. Basic
+dimensions were shown in the dimension example above; the Product Identification
+and Product Classification sections are shown below.</p>
+<img alt="_images/product3-iden.png" src="_images/product3-iden.png" />
+<img alt="_images/product3-class.png" src="_images/product3-class.png" />
 </div>
 </div>
 
@@ -468,12 +461,12 @@ the components displayed below.</p>
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="06_balances.html" title="Inventory Balances Posting"
+          <a href="09_inventory.html" title="Inventory Balances"
              >next</a></li>
         <li class="right" >
-          <a href="02_inventory.html" title="Inventory Concepts"
+          <a href="06_accounts.html" title="Accounts"
              >previous</a> |</li>
-        <li><a href="index.html">WARES Inventory 1.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">WARES Facility 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

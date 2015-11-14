@@ -9,9 +9,9 @@ Tracking Codes
 +===========+============================+
 |  P        | Track Product              |
 +-----------+----------------------------+
-|  C        | Track Lot Control          |
+|  C        | Track Control Number       |
 +-----------+----------------------------+
-|  U        | Track Storage Units        |
+|  U        | Track Unit in Storage      |
 +-----------+----------------------------+
 
 .. note::

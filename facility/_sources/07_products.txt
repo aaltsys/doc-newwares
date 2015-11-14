@@ -1,4 +1,4 @@
-.. _product-view:
+.. _products:
 
 #############################
 Entering and Viewing Products
@@ -16,24 +16,24 @@ In each section, a rule line separates basic mode entries (above the line) from
 advanced entries (below the rule). The sections for LOCATOR CONTROLS and 
 NOTES AND MESSAGES are available in advanced mode only.
 
-Product Identification
-=============================
-|
-
 .. sidebar:: Product Identification
 
-   Required entries **Account** and **Product**, and optionally **Variety**, 
-   combine to form a unique identifier for each product. Other indexed entries 
-   which link to the product identifier for categories and search are included 
-   in this section: **Stock Number** alternatives, **Description** text, and a 
-   **Hazard** flag.
+   .. image:: _images/product1-iden.png
+   .. image:: _images/product2-iden.png
 
-   .. tip::
-      Special characters, spaces, or punctuation are not allowed in identifiers.
-      These entries are limited to the 26 upper-case letters of ISO basic Latin 
-      alphabet along with numerals 0 through 9.
+Product Identification
+=============================
 
-.. image:: _images/product-1ident.png
+Required entries **Account** and **Product**, and optionally **Variety**, 
+combine to form a unique identifier for each product. Other indexed entries 
+which link to the product identifier for categories and search are included 
+in this section: **Stock Number** alternatives, **Description** text, and a 
+**Hazard** flag.
+
+.. tip::
+   Special characters, spaces, or punctuation are not allowed in identifiers.
+   These entries are limited to the 26 upper-case letters of ISO basic Latin 
+   alphabet along with numerals 0 through 9.
 
 Basic Entries:
 -----------------------------
@@ -78,23 +78,29 @@ Advanced Entries:
    documents such as the Bill of Lading. This entry is required for hazardous 
    materials.
 
-Product Classification
-=============================
-|
-
 .. sidebar:: Product Classification
 
-   Products are classified according to WARES features or the conventions of 
-   warehousing and logistics.
 
-   *  **Tracking** and **Lot Control** define the way inventory is tracked and 
-      reported within :program:`WARES`.
-   *  **Rate** identifies the basis for warehouse storage and handling services 
-      charges calculated within :program:`WARES`.
-   *  **Freight Class** specifies the transportation classification for a 
-      product in standard rating systems such as TL or NMFC.
+   Roll paper for account PTW:
 
-.. image:: _images/product-2class.png
+   .. image:: _images/product1-class.png
+
+   Liquid totes for account OCI:
+
+   .. image:: _images/product2-class.png
+
+Product Classification
+=============================
+
+Products are classified according to WARES features or the conventions of 
+warehousing and logistics.
+
+*  **Tracking** and **Lot Control** define the way inventory is tracked and 
+   reported within :program:`WARES`.
+*  **Rate** identifies the basis for warehouse storage and handling services 
+   charges calculated within :program:`WARES`.
+*  **Freight Class** specifies the transportation classification for a 
+   product in standard rating systems such as TL or NMFC.
 
 Basic Entries
 -----------------------------
@@ -133,23 +139,28 @@ Advanced Entries
    grouping products. These codes may be used in product selection or reporting
    filters.
 
-Product Dimensions
-=============================
-|
-
 .. sidebar:: Dimensions
 
-   Dimension entries determine the uints of measure to display for goods, and 
-   the counts and factors to extend or extrapolate from weights, sizes, and
-   counts of (inner or) contents entries up to unit inventory quantities and
-   measures. Default values for a column are calculated once entries are made 
-   in the column preceding it (to its left). 
+   Roll paper for account PTW:
 
-   .. tip::
-      Inner counts and measures, content linear dimensions, and unit stacking
-      are not included in base mode.
+   .. image:: _images/product1-dim.png
 
-.. image:: _images/product-3dim.png
+   Liquid totes for account OCI:
+
+   .. image:: _images/product2-dim.png
+
+Product Dimensions
+=============================
+
+Dimension entries determine the uints of measure to display for goods, and 
+the counts and factors to extend or extrapolate from weights, sizes, and
+counts of (inner or) contents entries up to unit inventory quantities and
+measures. Default values for a column are calculated once entries are made 
+in the column preceding it (to its left). 
+
+.. tip::
+   Inner counts and measures, content linear dimensions, and unit stacking
+   are not included in base mode.
 
 Basic Entries
 -----------------------------
@@ -185,32 +196,33 @@ Advanced Entries
 *  **Content Long**, **Content Wide**, and **Content High** are used when 
    shipping via package carrier, where the carton dimensions are required.
 
-Dimensions Example
------------------------------
-|
-
 .. sidebar:: Dimensions Example
 
-   Six values (un-highlighted entries in the figure) must be entered to 
+   Calculations for DBM product with inner packages:
+
+   .. image:: _images/product3-dim.png
+
+Dimensions Example
+-----------------------------
+
+Six values (un-highlighted entries in the figure) must be entered to 
    calculate from inner pieces to unit pallets, as shown in the following table.
 
    +---------------+-------------+-------------+
    | Entry Name    | Entry Value | Dimensions  |
    +===============+=============+=============+
-   | Inner Count   |  12         | PC/CA       |
+   | Inner Count   |   8         | PC/CA       |
    +---------------+-------------+-------------+
    | Inner Weight  |   1.0000    | LB/PC       |
    +---------------+-------------+-------------+
    | Inner Size    |   0.0417    | CF/PC       |
    +---------------+-------------+-------------+
-   | Content Count |  64         | CA/PL       |
+   | Content Count |  96         | CA/PL       |
    +---------------+-------------+-------------+
    | Content Tare  |   0.5000    | LB/CA       |
    +---------------+-------------+-------------+
    | Unit Tare     |  50.00      | LB/PL       |
    +---------------+-------------+-------------+
-
-.. image:: _images/product-3dim-d.png
 
 Calculated default values are highlighted in the Dimensions example figure. The
 calculations and analysis of units is shown below.
@@ -218,29 +230,34 @@ calculations and analysis of units is shown below.
 +----------------+--------------------------------------+
 | Default Entry  | Calculation                          |
 +================+======================================+
-| Content Weight || `12 X 1.0 = 12.0`                   |
+| Content Weight || `8 X 1.0 = 8.0`                     |
 |                || `(PC/CA) X (LB/PC) = (LB/CA)`       |
 +----------------+--------------------------------------+
-| Content Size   || `12 X 0.0417 = 0.5004`              |
+| Content Size   || `8 X 0.0417 = 0.3336`               |
 |                || `(PC/CA) X (CF/PC) = (CF/CA)`       |
 +----------------+--------------------------------------+
-| Unit Weight    || `64 X (12.00 + 0.50) = 800.00`      |
+| Unit Weight    || `96 X (8.00 + 0.50) = 816.00`       |
 |                || `(CA/PL) X (LB/CA) = (LB/PL)`       |
 +----------------+--------------------------------------+
-| Unit Size      || `64 X 0.5004  = 32.0256`            |
+| Unit Size      || `96 X 0.3336  = 32.0256`            |
 |                || `(CA/PL) X (CF/CA) = (CF/PL)`       |
 +----------------+--------------------------------------+
 
+.. sidebar:: Location Control and Messages
+
+   Location Control entries for Roll paper:
+
+   .. image:: _images/product1-locat.png
+
+   Messages for hazardous chemicals:
+
+   .. image:: _images/product2-locat.png
+
 Locator Controls
 =============================
-|
-
-.. sidebar:: Location Control
 
    Products interact with the Locator system through these settings, and through 
    the **Unit Stack** dimension entry.
-
-.. image:: _images/product-4locate.png
 
 *  **A-B-C Turn Rate**, or product velocity, describes how quickly products move
    through the warehouse.
@@ -254,15 +271,11 @@ Locator Controls
 
 Notes and Messages
 =============================
-|
 
-.. sidebar:: Document Messages
 
-   Notes allow product information which is intended for clerical use, warehouse
-   laborers, transportation, or recipient consumption to be recorded and then 
-   displayed on appropriate documents or other venues.
-
-.. image:: _images/product-5notes.png
+Notes allow product information which is intended for clerical use, warehouse
+laborers, transportation, or recipient consumption to be recorded and then 
+displayed on appropriate documents or other venues.
 
 .. note::
    The entirety of **LOCATOR CONTROLS** and **NOTES AND MESSAGES** are part of 
@@ -277,11 +290,9 @@ The nature of web pages makes data entry difficult for large forms, and this
 is particularly a problem on hand-held devices. Basic mode exists to reduce 
 page sizes to a minimum while providing all commonly used features. 
 
-Basic mode displays only three form sections, and these sections are reduced to
-the components displayed below.
+Basic mode displays only three form sections, with reduced entries. Basic 
+dimensions were shown in the dimension example above; the Product Identification 
+and Product Classification sections are shown below.
 
-.. image:: _images/product-1ident-b.png
-
-.. image:: _images/product-2class-b.png
-
-.. image:: _images/product-3dim-b.png
+.. image:: _images/product3-iden.png
+.. image:: _images/product3-class.png
