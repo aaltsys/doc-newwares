@@ -14,7 +14,7 @@ LOT LINES Data Table Columns
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | -- -- -- -- -- -- -- -- -- -- -- -- Transaction Entries                      |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| M | S | UNITIDENTIFIER | A   | U |                      |        | L20 | [2]_|
+| O | S | UNITIDENTIFIER | A   | U |                      |        | L20 | [2]_|
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | M | S | TRANSACTIONTYPE| A   | U |                      |        | R2  |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
@@ -97,7 +97,8 @@ LOT LINES Data Table Columns
        considered available. Additional conditions which may apply to units in 
        a lot: quality check, inspection hold, freezer hold, and so forth, are 
        considered descriptive and are ignored for posting purposes.
-.. [6] OVERSHORT quantity applies to content of receipts only.
+.. [6] OVERSHORT quantity applies to content of receipts only. Hidden quantity 
+       shortage within sealed cartons cannot be detected when receiving.
 
 .. note::
    *  Tracking requirements are set by product and are not reflected in the 

@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Inventory Transactions &mdash; WARES Inventory 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="WARES Inventory 1.0 documentation" href="index.html" />
+    <link rel="next" title="Inventory Balances Posting" href="04_balances.html" />
+    <link rel="prev" title="Inventory Concepts" href="02_inventory.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="04_balances.html" title="Inventory Balances Posting"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="02_inventory.html" title="Inventory Concepts"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">WARES Inventory 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Inventory Transactions</a><ul>
+<li><a class="reference internal" href="#considerations-for-tracking">Considerations for Tracking</a><ul>
+<li><a class="reference internal" href="#an-issue-of-timing">An Issue of Timing</a></li>
+<li><a class="reference internal" href="#a-look-at-location">A Look at Location</a></li>
+<li><a class="reference internal" href="#a-question-of-quantity">A Question of Quantity</a></li>
+<li><a class="reference internal" href="#a-problem-of-mixture">A Problem of Mixture</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#transaction-design">Transaction Design</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="02_inventory.html"
+                        title="previous chapter">Inventory Concepts</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="04_balances.html"
+                        title="next chapter">Inventory Balances Posting</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/03_transactions.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="inventory-transactions">
+<span id="transactions"></span><h1>Inventory Transactions<a class="headerlink" href="#inventory-transactions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="considerations-for-tracking">
+<h2>Considerations for Tracking<a class="headerlink" href="#considerations-for-tracking" title="Permalink to this headline">¶</a></h2>
+<p>Inventory transactions are the line entries of documents for receiving,
+shipping, and adjusting inventory. These transactions are the basis for all
+quantitative measurements of inventory. Transaction quantities are signed, so
+that sorting and accumulating transactions will result in accurate inventory
+measurements.</p>
+<div class="section" id="an-issue-of-timing">
+<h3>An Issue of Timing<a class="headerlink" href="#an-issue-of-timing" title="Permalink to this headline">¶</a></h3>
+<p>A complication of warehouse inventory is that it considers future changes to
+inventory as well as completed actions. Further, these future actions may be
+either general or specific in their application. Here is what this means:</p>
+<p>An order can be placed to ship an item. Obviously, placing the order has to
+happen before the item can be shipped, so any order constitutes a future action.
+When an order is placed for a product, the particular lot or unit of inventory
+which will fill the order does not have to be specified. This unit allocation
+can happen at any point between placing the order and picking the shipment.</p>
+<p>Similar questions exist when receiving, where the quantity and condition of
+goods is fully determined only once the goods are physically received.</p>
+</div>
+<div class="section" id="a-look-at-location">
+<h3>A Look at Location<a class="headerlink" href="#a-look-at-location" title="Permalink to this headline">¶</a></h3>
+<p>The warehouse has a responsibility to locate goods in its care. Where product
+is unitized or on pallets, the unit location should be recorded in the
+transaction both respect to the unit, and its content. Prior to receipt goods
+may show as in transit, while shipments are the carrier&#8217;s responsibility.</p>
+</div>
+<div class="section" id="a-question-of-quantity">
+<h3>A Question of Quantity<a class="headerlink" href="#a-question-of-quantity" title="Permalink to this headline">¶</a></h3>
+<p>Just as timing is an inventory issue, so is quantity. Expected goods may be
+short or over quantity on receipt, or goods may be received with damage. Some
+products experience shrinkage while in storage. Therefore inventory transactions
+allow for over, short, and damaged entries.</p>
+</div>
+<div class="section" id="a-problem-of-mixture">
+<h3>A Problem of Mixture<a class="headerlink" href="#a-problem-of-mixture" title="Permalink to this headline">¶</a></h3>
+<p>Goods are typically received or shipped either in floor-loaded trucks, or by
+pallet unit. The process of segregating goods when receiving or consolidating
+products when shipping may result in received or shipped units which are mixed
+by production date, by lot, or by product. It is not enough to know that a
+particular unit shipped; the content of the unit must also be accounted for.</p>
+</div>
+</div>
+<div class="section" id="transaction-design">
+<h2>Transaction Design<a class="headerlink" href="#transaction-design" title="Permalink to this headline">¶</a></h2>
+<p>The WARES inventory transaction fulfills all the above concerns, and addresses
+other questions regarding types of storage and units of measurement. The full
+data layout of this transaction is presented at <a class="reference external" href="../resources/03_lotdetails_lines.html#lotlines-schema" title="(in WARES Resources v1.0)"><em>LOT LINES Data Table Columns</em></a>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="04_balances.html" title="Inventory Balances Posting"
+             >next</a></li>
+        <li class="right" >
+          <a href="02_inventory.html" title="Inventory Concepts"
+             >previous</a> |</li>
+        <li><a href="index.html">WARES Inventory 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Gerald Lovel.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b1.
+    </div>
+  </body>
+</html>

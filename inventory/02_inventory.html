@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="WARES Inventory 1.0 documentation" href="index.html" />
-    <link rel="next" title="Locator Views" href="05_locator.html" />
+    <link rel="next" title="Inventory Transactions" href="03_transactions.html" />
     <link rel="prev" title="Warehouse Inventory Concepts" href="index.html" /> 
   </head>
   <body role="document">
@@ -32,7 +32,7 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="05_locator.html" title="Locator Views"
+          <a href="03_transactions.html" title="Inventory Transactions"
              accesskey="N">next</a></li>
         <li class="right" >
           <a href="index.html" title="Warehouse Inventory Concepts"
@@ -48,6 +48,7 @@
 <li><a class="reference internal" href="#product-organization">Product Organization</a></li>
 <li><a class="reference internal" href="#units-of-measure">Units of Measure</a></li>
 <li><a class="reference internal" href="#quantity-setup-considerations">Quantity Setup Considerations</a></li>
+<li><a class="reference internal" href="#product-setup">Product Setup</a></li>
 </ul>
 </li>
 </ul>
@@ -56,8 +57,8 @@
   <p class="topless"><a href="index.html"
                         title="previous chapter">Warehouse Inventory Concepts</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="05_locator.html"
-                        title="next chapter">Locator Views</a></p>
+  <p class="topless"><a href="03_transactions.html"
+                        title="next chapter">Inventory Transactions</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -147,17 +148,21 @@ the item. Links to the code lists for products and lot control follow:</p>
 </div>
 <div class="section" id="units-of-measure">
 <h2>Units of Measure<a class="headerlink" href="#units-of-measure" title="Permalink to this headline">¶</a></h2>
-<p>Product inventory is counted by handling units (UNIT), their countable contents
-(CONTENT), and any inner elements (INNER). The classic case of inventory is a
-pallet of cartons, with each carton uniformly filled with inner packs or eaches.
-Products deviate from this configuration, and so the breakdown of UNIT, CONTENT,
-and INNER, along with weights and measures, must be specified for each product.</p>
-<p>For further reference, see this Table of Industry Standard
-<a class="reference external" href="../codes/P_code-uom.html#uom-list" title="(in WARES Codes v1.0)"><em>Units of Measure</em></a>.</p>
-<p>As stated previously, inventory is measured or counted in units which build up
-from smallest shippable quantity to largest handling unit. The master product
-record entry generates default values for content and unit weights and sizes as
-follows:</p>
+<p>Product inventory is measured by countable contents (CONTENT), which may be
+accumulated into handling units (UNIT), and subdivided into inner elements
+(INNER). The basis for inventory counts or measures is specified with Units of
+Measure (UOMs) particular to each product. For further reference, see this
+Table of Industry Standard <a class="reference external" href="../codes/P_code-uom.html#uom-list" title="(in WARES Codes v1.0)"><em>Units of Measure</em></a>.</p>
+<p>The classic case of inventory is a pallet (unit) of cartons (content), with
+each carton uniformly filled with inner packs or eaches. Products deviate from
+this ideal configuration, and so the dimensional analysis of UNIT, CONTENT, and
+INNER, along with weights and measures, must be entered separately for each
+product. Further, the inventory of lots and units of a product may deviate from
+the product definition, and so inventory documents must record the exact counts
+and measures for every transaction.</p>
+<p>When defining products, the units of dimension are built up from the smallest
+shippable quantity to the largest handling unit. The master product entries
+generate default values for content and unit weights and sizes as follows:</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="11%" />
@@ -187,22 +192,22 @@ follows:</p>
 <tr class="row-odd"><td>CONTENT</td>
 <td>CA,...</td>
 <td>CNT</td>
-<td>CNET = PCS X WGHT</td>
-<td>CTARE</td>
-<td>CSIZE = ISIZE X PCS</td>
+<td>NET = PCS X WGHT</td>
+<td>TARE</td>
+<td>SIZE = ISIZE X PCS</td>
 </tr>
 <tr class="row-even"><td>UNIT</td>
 <td>PL,...</td>
 <td>1</td>
-<td>UNET = CNT X ( CNET + CTARE )</td>
+<td>UNET = CNT X ( NET + TARE )</td>
 <td>UTARE</td>
-<td>USIZE = CSIZE X CNT</td>
+<td>USIZE = SIZE X CNT</td>
 </tr>
 </tbody>
 </table>
-<p>Individual units may be received with unique values for the inner PCS count and
-WGHT, the content CNT, CNET, and CTARE, or handling/shipping unit UNET and UTARE
-weights.</p>
+<p>Individual units may be received with unique values for the inner PCS count,
+WGHT, and ISIZE, the content CNT, NET, TARE, and SIZE, or handling/shipping
+unit UNET and UTARE weights and the USIZE.</p>
 </div>
 <div class="section" id="quantity-setup-considerations">
 <h2>Quantity Setup Considerations<a class="headerlink" href="#quantity-setup-considerations" title="Permalink to this headline">¶</a></h2>
@@ -235,8 +240,8 @@ categories commonly stored in warehouse inventory:</p>
 <th class="head">WGHT</th>
 <th class="head">UOM</th>
 <th class="head">CNT</th>
-<th class="head">CNET</th>
-<th class="head">CTARE</th>
+<th class="head">NET</th>
+<th class="head">TARE</th>
 <th class="head">UOM</th>
 <th class="head">UNET</th>
 <th class="head">UTARE</th>
@@ -437,9 +442,14 @@ categories commonly stored in warehouse inventory:</p>
 </tr>
 </tbody>
 </table>
-<p>A product&#8217;s Unit of Measure (UOM) entries are set on the masterfile record, but
-masterfile quantity entries (PCS, WGHT, CNT, CNET, CTARE, UNET, UTARE) are
-defaults of values which may be entered separately for each received unit.</p>
+</div>
+<div class="section" id="product-setup">
+<h2>Product Setup<a class="headerlink" href="#product-setup" title="Permalink to this headline">¶</a></h2>
+<p>A product&#8217;s Unit of Measure (UOM) entries are set on the Product masterfile
+record, but masterfile quantity entries (PCS, WGHT, CNT, NET, TARE, SIZE, UNET,
+UTARE, USIZE) are defaults of values which may be entered separately for each
+received unit.</p>
+<p><a class="reference external" href="../facility/07_products.html#products" title="(in WARES Facility v1.0)"><em>Products and Varieties</em></a> provides a detailed description for entering products.</p>
 </div>
 </div>
 
@@ -453,7 +463,7 @@ defaults of values which may be entered separately for each received unit.</p>
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="05_locator.html" title="Locator Views"
+          <a href="03_transactions.html" title="Inventory Transactions"
              >next</a></li>
         <li class="right" >
           <a href="index.html" title="Warehouse Inventory Concepts"
