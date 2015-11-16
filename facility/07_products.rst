@@ -1,7 +1,7 @@
 .. _products:
 
 #############################
-Entering and Viewing Products
+Products and Varieties
 #############################
 
 Entries for product records are grouped into the following five sections:
@@ -206,23 +206,23 @@ Dimensions Example
 -----------------------------
 
 Six values (un-highlighted entries in the figure) must be entered to 
-   calculate from inner pieces to unit pallets, as shown in the following table.
+calculate from inner pieces to unit pallets, as shown in the following table.
 
-   +---------------+-------------+-------------+
-   | Entry Name    | Entry Value | Dimensions  |
-   +===============+=============+=============+
-   | Inner Count   |   8         | PC/CA       |
-   +---------------+-------------+-------------+
-   | Inner Weight  |   1.0000    | LB/PC       |
-   +---------------+-------------+-------------+
-   | Inner Size    |   0.0417    | CF/PC       |
-   +---------------+-------------+-------------+
-   | Content Count |  96         | CA/PL       |
-   +---------------+-------------+-------------+
-   | Content Tare  |   0.5000    | LB/CA       |
-   +---------------+-------------+-------------+
-   | Unit Tare     |  50.00      | LB/PL       |
-   +---------------+-------------+-------------+
++---------------+-------------+-------------+
+| Entry Name    | Entry Value | Dimensions  |
++===============+=============+=============+
+| Inner Count   |   8         | PC/CA       |
++---------------+-------------+-------------+
+| Inner Weight  |   1.0000    | LB/PC       |
++---------------+-------------+-------------+
+| Inner Size    |   0.0417    | CF/PC       |
++---------------+-------------+-------------+
+| Content Count |  96         | CA/PL       |
++---------------+-------------+-------------+
+| Content Tare  |   0.5000    | LB/CA       |
++---------------+-------------+-------------+
+| Unit Tare     |  50.00      | LB/PL       |
++---------------+-------------+-------------+
 
 Calculated default values are highlighted in the Dimensions example figure. The
 calculations and analysis of units is shown below.

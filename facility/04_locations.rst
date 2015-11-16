@@ -1,7 +1,7 @@
 .. _locations:
 
 #############################
-Locations Setup
+Building Locations
 #############################
 
 Locations Purpose
