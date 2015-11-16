@@ -39,7 +39,7 @@ locations is entered in :ref:`locations`.
 Inventory Products
 =============================
 
-Each of the :ref:`products` in the warehouse belong to an account, and each 
+Each of the :ref:`products` in the warehouse belongs to an account, and each 
 product or variety of good stored for an account is described with a product 
 record.
 
