@@ -22,19 +22,19 @@ Address information is collected in a single table of :ref:`contacts`. Before
 an address identifier can be used in Facility Setup or elsewhere in WARES, the
 contact or address must first be entered here.
 
-Customer Accounts
-=============================
-
-For private warehousing, accounts might be departments or divisions in the 
-company ledgers. Public warehouses use one or more unique :ref:`accounts` for 
-each warehouse customer. 
-
 Buildings and Locations
 =============================
 
 A warehouse company is responsible for goods under management in physical 
 buildings and locations within and around them. Information to describe these 
 locations is entered in :ref:`locations`.
+
+Customer Accounts
+=============================
+
+For private warehousing, accounts might be departments or divisions in the 
+company ledgers. Public warehouses use one or more unique :ref:`accounts` for 
+each warehouse customer. 
 
 Inventory Products
 =============================
