@@ -4,10 +4,9 @@
 Facility Setup Overview
 #############################
 
-In WARES, a facility is a warehouse company which operates as a single business 
-entity to store and manage goods for a group of customer accounts in one or more 
-buildings. **Facility** selections provide forms to enter this setup information 
-for a warehouse company. 
+A facility is a single warehouse business which stores and manages goods for 
+multiple accounts kept in one or more buildings. Use **Facility** selections to 
+setup information about a warehouse company, its accounts, and its products.
 
 Warehousing Company
 =============================
@@ -19,14 +18,16 @@ control data for the :ref:`company`.
 Contacts and Addresses
 =============================
 
-All address information is collected in a single table of :ref:`contacts`.
+Address information is collected in a single table of :ref:`contacts`. Before 
+an address identifier can be used in Facility Setup or elsewhere in WARES, the
+contact or address must first be entered here.
 
 Customer Accounts
 =============================
 
-Every product in the warehouse belongs to an account. For private warehousing, 
-accounts might be departments or divisions in the company ledgers. Public 
-warehouses understand that :ref:`accounts` are their customers.
+For private warehousing, accounts might be departments or divisions in the 
+company ledgers. Public warehouses use one or more unique :ref:`accounts` for 
+each warehouse customer. 
 
 Buildings and Locations
 =============================
@@ -38,8 +39,8 @@ locations is entered in :ref:`locations`.
 Inventory Products
 =============================
 
-Each product or variety of good stored for an account is described with a 
-:ref:`products` record.
+Every :ref:`product` in the warehouse belongs to an account, and each product 
+or variety of good stored for an account is described with a product record.
 
 -----
 

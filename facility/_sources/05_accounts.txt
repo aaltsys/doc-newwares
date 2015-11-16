@@ -1,7 +1,7 @@
 .. _accounts:
 
 #############################
-Accounts
+Customer Accounts
 #############################
 
 Accounts separate warehouse products into reporting and accounting groups. 
