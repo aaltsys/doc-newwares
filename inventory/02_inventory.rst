@@ -40,34 +40,37 @@ the item. Links to the code lists for products and lot control follow:
 Units of Measure
 =============================
 
-Product inventory is counted by handling units (UNIT), their countable contents 
-(CONTENT), and any inner elements (INNER). The classic case of inventory is a 
-pallet of cartons, with each carton uniformly filled with inner packs or eaches. 
-Products deviate from this configuration, and so the breakdown of UNIT, CONTENT, 
-and INNER, along with weights and measures, must be specified for each product. 
+Product inventory is measured by countable contents (CONTENT), which may be 
+accumulated into handling units (UNIT), and subdivided into inner elements 
+(INNER). The basis for inventory counts or measures is specified with Units of 
+Measure (UOMs) particular to each product. For further reference, see this 
+Table of Industry Standard :ref:`uom-list`.
 
-For further reference, see this Table of Industry Standard 
-:ref:`uom-list`.
+The classic case of inventory is a pallet (unit) of cartons (content), with 
+each carton uniformly filled with inner packs or eaches. Products deviate from 
+this ideal configuration, and so the dimensional analysis of UNIT, CONTENT, and 
+INNER, along with weights and measures, must be entered separately for each 
+product. Further, the inventory of lots and units of a product may deviate from 
+the product definition, and so inventory documents must record the exact counts
+and measures for every transaction.
 
-
-As stated previously, inventory is measured or counted in units which build up 
-from smallest shippable quantity to largest handling unit. The master product 
-record entry generates default values for content and unit weights and sizes as 
-follows:
+When defining products, the units of dimension are built up from the smallest 
+shippable quantity to the largest handling unit. The master product entries
+generate default values for content and unit weights and sizes as follows:
 
 +---------+-------+-------+-------------------------------+--------+---------------------+
 | Qty     | UOM   | Count | Net Weight                    | Tare Wt| Dimension           |
 +=========+=======+=======+===============================+========+=====================+
 | INNER   | EA,...| PCS   | WGHT                          | (N/A)  | ISIZE               |
 +---------+-------+-------+-------------------------------+--------+---------------------+
-| CONTENT | CA,...| CNT   | CNET = PCS X WGHT             | CTARE  | CSIZE = ISIZE X PCS |
+| CONTENT | CA,...| CNT   | NET = PCS X WGHT              | TARE   | SIZE = ISIZE X PCS  |
 +---------+-------+-------+-------------------------------+--------+---------------------+
-| UNIT    | PL,...| 1     | UNET = CNT X ( CNET + CTARE ) | UTARE  | USIZE = CSIZE X CNT |
+| UNIT    | PL,...| 1     | UNET = CNT X ( NET + TARE )   | UTARE  | USIZE = SIZE X CNT  |
 +---------+-------+-------+-------------------------------+--------+---------------------+
 
-Individual units may be received with unique values for the inner PCS count and
-WGHT, the content CNT, CNET, and CTARE, or handling/shipping unit UNET and UTARE 
-weights. 
+Individual units may be received with unique values for the inner PCS count, 
+WGHT, and ISIZE, the content CNT, NET, TARE, and SIZE, or handling/shipping 
+unit UNET and UTARE weights and the USIZE. 
 
 Quantity Setup Considerations
 =============================
@@ -81,7 +84,7 @@ categories commonly stored in warehouse inventory:
 +--------------------+-----------------+------------------------+------------------+
 |                    | INNER -- -- --  | CONTENT -- -- -- -- -- | UNIT -- -- -- -- | 
 +--------------------+-----+-----+-----+-----+-----+-----+------+-----+-----+------+
-| Description        | UOM | PCS | WGHT| UOM | CNT | CNET| CTARE| UOM | UNET| UTARE|
+| Description        | UOM | PCS | WGHT| UOM | CNT | NET | TARE | UOM | UNET| UTARE|
 +====================+=====+=====+=====+=====+=====+=====+======+=====+=====+======+
 | innerpacked cartons| PK  | 12  | 1.2 | CA  | 96  | 14.4| 1.0  | PL  | 1382| 65   |
 +--------------------+-----+-----+-----+-----+-----+-----+------+-----+-----+------+
@@ -116,7 +119,12 @@ categories commonly stored in warehouse inventory:
 | bulk pallets       | --  | --  | --  | EA  |     | 75  |      | BN  |     |      |
 +--------------------+-----+-----+-----+-----+-----+-----+------+-----+-----+------+
 
-A product's Unit of Measure (UOM) entries are set on the masterfile record, but 
-masterfile quantity entries (PCS, WGHT, CNT, CNET, CTARE, UNET, UTARE) are
-defaults of values which may be entered separately for each received unit.
- 
+Product Setup
+=============================
+
+A product's Unit of Measure (UOM) entries are set on the Product masterfile 
+record, but masterfile quantity entries (PCS, WGHT, CNT, NET, TARE, SIZE, UNET, 
+UTARE, USIZE) are defaults of values which may be entered separately for each 
+received unit.
+
+:ref:`products` provides a detailed description for entering products. 
