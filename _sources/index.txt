@@ -7,36 +7,66 @@ WARES Master Index
 
 #. :ref:`inventory:index`.
 
+   The WARES transaction model for tracking inventory is configured through 
+   product setup choices. Then documents create inventory transactions which 
+   can be viewed in multiple ways, enabling a warehouse to manage labor 
+   activities, provide location control, and support inventory viewing, 
+   reporting, and customer communication.
+
 #. :ref:`facility:index`.
 
-   The WARES **Facility** menu collects program information for master tables 
-   which contain configuration or reference information for a warehouse company.
+   Selections on the WARES **Facility** menu will setup master information for 
+   a warehouse company, its facilities, and the customer accounts and their 
+   products which are served by the warehouse.
 
 #. :ref:`documents:index`.
 
-   WARES models its transactional data and entry to match the documents used for 
-   warehouse activities: receiving goods, shipping, rewarehousing, and so forth.
+   Data entry forms in WARES are modeled to match warehouse activities: 
+   receiving goods, shipping, rewarehousing, and so forth. At the same time, 
+   WARES produces documents based on the contractual requirements of a 
+   Warehouser's Standard Terms and Conditions, the Non-negotiable Warehouse 
+   Receipt, and the Bill of Lading.
 
 #. :ref:`exchange:index`.
 
-   WARES provides data exchange with partners through several methods:
+   Data exchange with WARES partners may use several methods:
 
    *  Customers may view inventory and enter orders through the web portal.
    *  Transactional data encoded in JSON may be exchanged with WARES through 
-      *http:* post actions.
+      standard Internet protocols or services like DropBox.
    *  WARES supports X12 EDI formats for batch data transfers.
-      
+
+   WARES uses industry codes and terms throughout the program and adheres to 
+   recognized information technology standards, facilitating data exchange. 
 
 #. :ref:`billing:index`.
 
-   For third-party warehousing, WARES provides a billing and invoicing solution 
-   based on rates for receiving, accessorial, recurring, and other charges.
+   WARES provides a flexible third-party warehouse billing and invoicing 
+   solution based on individualized rates for receiving, accessorial, recurring, 
+   and other charges.
 
 #. :ref:`activity:index`.
 
+   Warehouse floor activities such as receiving and putaway, picking and 
+   shipping, rewarehousing, recouping, cycle counting, and other services can be
+   performed using the Android-based mobile WARES app. This Google app store 
+   download is not only free, it also frees the warehouse from paper forms, 
+   building network wiring, and a host of technical problems which beset other 
+   warehouse management systems.
+
 #. :ref:`codes:index`.
 
+   WARES uses industry recognized codes for units of measure, contact function, 
+   and a host of other purposes. Did we mention the codes? All the applicable 
+   standard codes and options specific to WARES are documented in this section.
+
 #. :ref:`resources:index`.
+
+   WARES is a cloud-based service developed using open-source technology and
+   standard information technology and services. Technical details such as 
+   database schema of tables and columns, JSON export and import layouts, and 
+   other information is provided here for reference. 
+
 
 .. toctree::
    :hidden:
