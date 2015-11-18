@@ -1,8 +1,8 @@
-.. WARES Floor Activity, created by sphinx-quickstart on Mon Jun 30 16:07:19 2014.
+.. WARES Remote Activity, created on Mon Jun 30 16:07:19 2014.
 
 .. _index:
 
-Remote Directed Floor Activity
+Remote Directed Activity
 ==============================
 
 Contents:
