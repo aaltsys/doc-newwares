@@ -41,7 +41,6 @@ Product Location Lists
 Product Setup Code Lists
 =============================
 
-| :ref:`document-list`
 | :ref:`freight-list`
 | :ref:`group-list`
 | :ref:`noteapply-list`

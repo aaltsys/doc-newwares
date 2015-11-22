@@ -36,8 +36,8 @@ WARES Master Index
       standard Internet protocols or services like DropBox.
    *  WARES supports X12 EDI formats for batch data transfers.
 
-   WARES uses industry codes and terms throughout the program and adheres to 
-   recognized information technology standards, facilitating data exchange. 
+   WARES facilitating data exchange by using industry codes and terms throughout 
+   the program and adhering to recognized information technology standards. 
 
 #. :ref:`billing:index`.
 
@@ -56,9 +56,9 @@ WARES Master Index
 
 #. :ref:`codes:index`.
 
-   WARES uses industry recognized codes for units of measure, contact function, 
-   and a host of other purposes. Did we mention the codes? All the applicable 
-   standard codes and options specific to WARES are documented in this section.
+   WARES uses industry recognized codes for units of measure, contact functions, 
+   and a host of other purposes. Did we mention the codes? Industry standard 
+   codes as well as options specific to WARES are documented in this section.
 
 #. :ref:`resources:index`.
 

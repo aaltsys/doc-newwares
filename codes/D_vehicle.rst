@@ -19,13 +19,31 @@ Vehicle Equipment Codes
 +------+-----------------------------------------------+
 | RR   | Rail Car                                      |
 +------+-----------------------------------------------+
+| TF   | Trailer, Dry Freight                          |
++------+-----------------------------------------------+
 | TJ   | Trailer, Tank                                 |
 +------+-----------------------------------------------+
 | TN   | Tank Car                                      |
 +------+-----------------------------------------------+
 | TR   | Tractor                                       |
 +------+-----------------------------------------------+
+| TW   | Trailer, Refrigerated                         |
++------+-----------------------------------------------+
 | VE   | Vessel, Ocean                                 |
 +------+-----------------------------------------------+
++------+-----------------------------------------------+
+| DOT  | Carrier DOT Number (US DOT)                   |
++------+-----------------------------------------------+
+| EQN  | Equipment Number                              |
++------+-----------------------------------------------+
+| MCN  | Motor Carrier Number (ICC MC)                 |
++------+-----------------------------------------------+
+| PRO  | Progressive Number                            |
++------+-----------------------------------------------+
+| SEN  | Seal Number                                   |
++------+-----------------------------------------------+
+| VIN  | Vehicle Identification Number                 |
++------+-----------------------------------------------+
 
-Source: ASC-X12 Data Element 40 - Equipment Description Code.
+Source: ASC-X12 Data Element 40 - Equipment Description Code. Three-character 
+codes are internal to WARES, but may map to specific entries in EDI standards.
