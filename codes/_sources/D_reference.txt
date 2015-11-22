@@ -11,6 +11,8 @@ Document Reference Codes
 +------+-----------------------------------------------+
 | IK   | Invoice Number                                |
 +------+-----------------------------------------------+
+| SI   | Shipper's Identification Number               |
++------+-----------------------------------------------+
 | BM   | Bill of Lading Number                         |
 +------+-----------------------------------------------+
 | MB   | Master Bill of Lading                         |
@@ -24,6 +26,8 @@ Document Reference Codes
 | CG   | Consignee Order Number                        |
 +------+-----------------------------------------------+
 | 6A   | Consignee Reference Number                    |
++------+-----------------------------------------------+
+| ACL  | Application Transaction Reference Number      |
 +------+-----------------------------------------------+
 
 Source: ASC-X12 Data Element 128 - Reference Identification Qualifier.
