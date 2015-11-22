@@ -134,63 +134,64 @@ carriers, customers, and consignees.</li>
 <li><strong>Freight Payment</strong> is included in the identifier section due to dependencies
 which follow.</li>
 </ul>
+<p>The sidebar displays document identification sections for a receipt, followed
+by a shipment. Note that the receipt does not require <strong>Freight Payment</strong>
+information.</p>
 </div>
 <div class="section" id="document-addresses">
 <h2>Document Addresses<a class="headerlink" href="#document-addresses" title="Permalink to this headline">¶</a></h2>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
+<p>Documents for carriage in private warehouses require three addresses, but Bills
+of Lading for third-party warehousing require four addresses. A standard Bill of
+Lading for a third-party warehouse would show addresses for: Ship To, Ship From,
+For Account of, and Send Freight Bill To.</p>
+<p>Addresses are shown below for a receipt, on the left, and a shipment, on the
+right. Again, <strong>Freight BIlling</strong> addresses are not required on receipts.</p>
+<img alt="_images/document-a2address.png" src="_images/document-a2address.png" />
+<img alt="_images/document-c2address.png" src="_images/document-c2address.png" />
 <div class="sidebar">
-<p class="first sidebar-title">Document Addresses</p>
-<p class="last">Documents for carriage in private warehouses require three addresses, but for
-third-party warehousing four addresses may be required. A standard Bill of
-Lading for a third-party warehouse would show addresses for: Ship To, Ship
-From, For Account of, and Send Freight Bill To.</p>
+<p class="first sidebar-title">Transportation Entries</p>
+<img alt="_images/document-c3transport.png" class="last" src="_images/document-c3transport.png" />
 </div>
-<img alt="_images/document-2address.png" src="_images/document-2address.png" />
 </div>
 <div class="section" id="document-transportation">
 <h2>Document Transportation<a class="headerlink" href="#document-transportation" title="Permalink to this headline">¶</a></h2>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<div class="sidebar">
-<p class="first sidebar-title">Transportation Entries</p>
-<p class="last">Use the Transportation section to enter the carrier of record, vehicle
-numbers, the transport PRO number, seal numbers, and other information as
-needed to back-trace a shipment in case a problem is discovered.</p>
-</div>
-<img alt="_images/document-3transport.png" src="_images/document-3transport.png" />
-<img alt="_images/document-3transport-b.png" src="_images/document-3transport-b.png" />
+<p>The transportation section contains information needed to trace a shipment or a
+receipt in case a problem is discovered.</p>
+<ul class="simple">
+<li><strong>Carrier SCAC</strong> &#8211; Carriers are maintained in the <a class="reference external" href="../facility/03_contacts.html#contacts" title="(in WARES Facility v1.0)"><em>Contacts and Addresses</em></a> section,
+entering type code <strong>CA</strong> and the carrier&#8217;s <strong>SCAC</strong> for the identifier.</li>
+<li><strong>Route</strong> &#8211; For occasional carriers which are not entered, the carrier name
+may be entered in the <strong>Route</strong>.</li>
+<li><strong>Contact</strong> &#8211; When delivery instructions require it, provide a name and/or
+phone number for the destination contact.</li>
+<li><strong>Vehicle Number</strong> &#8211; Enter carrier equipment number and reference numbers
+for future reference, in case goods are signed for in good condition but
+received damaged, for example.</li>
+</ul>
 </div>
 <div class="section" id="qualifiers-and-quantities">
 <h2>Qualifiers and Quantities<a class="headerlink" href="#qualifiers-and-quantities" title="Permalink to this headline">¶</a></h2>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
 <div class="sidebar">
-<p class="first sidebar-title">Quantitative Values</p>
-<p class="last">Quantitative values may be entered to document ...</p>
+<p class="first sidebar-title">Quantitative Values and Messages</p>
+<img alt="_images/document-c4quantity.png" src="_images/document-c4quantity.png" />
+<img alt="_images/document-c5message.png" class="last" src="_images/document-c5message.png" />
 </div>
-<img alt="_images/document-4values.png" src="_images/document-4values.png" />
+<p>Enter quantitative values to document temperatures, dates and times, or numeric
+values specific to a document and which do not have a defined data entry in the
+application.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The entirety of <strong>QUANTITATIVE VALUES</strong> and <strong>NOTES AND MESSAGES</strong> which
+follow are part of advanced mode.</p>
+</div>
 </div>
 <div class="section" id="notes-and-messages">
 <h2>Notes and Messages<a class="headerlink" href="#notes-and-messages" title="Permalink to this headline">¶</a></h2>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<div class="sidebar">
-<p class="first sidebar-title">Document Messages</p>
-<p class="last">Notes allow product information which is intended for clerical use, warehouse
+<p>Notes allow product information which is intended for clerical use, warehouse
 laborers, transportation, or recipient consumption to be recorded and then
 displayed on appropriate documents or other venues.</p>
-</div>
-<img alt="_images/document-5notes.png" src="_images/document-5notes.png" />
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The entirety of <strong>QUANTITATIVE VALUES</strong> and <strong>NOTES AND MESSAGES</strong> are part
-of advanced mode.</p>
-</div>
+<p>In the sidebar example, our shipment sample is a hazardous material so the Bill
+of Lading must include a Chemical Emergency service number.</p>
 </div>
 <div class="section" id="data-validation-rules">
 <h2>Data Validation Rules<a class="headerlink" href="#data-validation-rules" title="Permalink to this headline">¶</a></h2>
@@ -200,8 +201,7 @@ and in associated notes.</p>
 <colgroup>
 <col width="32%" />
 <col width="18%" />
-<col width="0%" />
-<col width="17%" />
+<col width="18%" />
 <col width="18%" />
 <col width="7%" />
 <col width="8%" />
@@ -209,7 +209,7 @@ and in associated notes.</p>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Entry Name</th>
 <th class="head">Receiving</th>
-<th class="head" colspan="2">Shipping</th>
+<th class="head">Shipping</th>
 <th class="head">Adjusting</th>
 <th class="head">M/S</th>
 <th class="head">Note</th>
@@ -218,131 +218,133 @@ and in associated notes.</p>
 <tbody valign="top">
 <tr class="row-even"><td>Sequence Number</td>
 <td>Mandatory</td>
-<td colspan="2">Mandatory</td>
+<td>Mandatory</td>
 <td>Mandatory</td>
 <td>S</td>
 <td><a class="footnote-reference" href="#id8" id="id1">[1]</a></td>
 </tr>
 <tr class="row-odd"><td>Posting Status</td>
 <td>Mandatory</td>
-<td colspan="2">Mandatory</td>
+<td>Mandatory</td>
 <td>Mandatory</td>
 <td>S</td>
 <td><a class="footnote-reference" href="#id9" id="id2">[2]</a></td>
 </tr>
 <tr class="row-even"><td>Posting DateTime</td>
 <td>Mandatory</td>
-<td colspan="2">Mandatory</td>
+<td>Mandatory</td>
 <td>Mandatory</td>
 <td>S</td>
 <td><a class="footnote-reference" href="#id9" id="id3">[2]</a></td>
 </tr>
 <tr class="row-odd"><td>Qualifier/ Reference</td>
-<td colspan="3">Optional    | Optional</td>
+<td>Optional</td>
+<td>Optional</td>
 <td>Optional</td>
 <td>M</td>
 <td><a class="footnote-reference" href="#id10" id="id4">[3]</a></td>
 </tr>
 <tr class="row-even"><td>Freight Payment</td>
-<td colspan="3">Not Used    | Mandatory</td>
+<td>Not Used</td>
+<td>Mandatory</td>
 <td>Not Used</td>
 <td>S</td>
 <td><a class="footnote-reference" href="#id11" id="id5">[4]</a></td>
 </tr>
 <tr class="row-odd"><td>Account</td>
 <td>Mandatory</td>
-<td colspan="2">Mandatory</td>
+<td>Mandatory</td>
 <td>Mandatory</td>
 <td>S</td>
 <td><a class="footnote-reference" href="#id10" id="id6">[3]</a></td>
 </tr>
 <tr class="row-even"><td>Warehouse Building</td>
 <td>Mandatory</td>
-<td colspan="2">Mandatory</td>
+<td>Mandatory</td>
 <td>Mandatory</td>
 <td>S</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>Ship From / To</td>
 <td>Mandatory</td>
-<td colspan="2">Mandatory</td>
+<td>Mandatory</td>
 <td>Not Used</td>
 <td>S</td>
 <td><a class="footnote-reference" href="#id11" id="id7">[4]</a></td>
 </tr>
 <tr class="row-even"><td>Freight Billing</td>
 <td>Not Used</td>
-<td colspan="2">Conditional</td>
+<td>Conditional</td>
 <td>Not Used</td>
 <td>S</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>Carrier SCAC</td>
 <td>Mandatory</td>
-<td colspan="2">Mandatory</td>
+<td>Mandatory</td>
 <td>Not Used</td>
 <td>S</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>Route</td>
 <td>Not Used</td>
-<td colspan="2">Optional</td>
+<td>Optional</td>
 <td>Not Used</td>
 <td>S</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>Contact</td>
 <td>Optional</td>
-<td colspan="2">Optional</td>
+<td>Optional</td>
 <td>Not Used</td>
 <td>S</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>Qualifier / Vehicle</td>
 <td>Optional</td>
-<td colspan="2">Optional</td>
+<td>Optional</td>
 <td>Not Used</td>
 <td>M</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>Transport Mode</td>
 <td>Optional</td>
-<td colspan="2">Optional</td>
+<td>Optional</td>
 <td>Not Used</td>
 <td>S</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>Loading Option</td>
 <td>Optional</td>
-<td colspan="2">Optional</td>
+<td>Optional</td>
 <td>Not Used</td>
 <td>S</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>Codes / Datetimes</td>
 <td>Optional</td>
-<td colspan="2">Optional</td>
+<td>Optional</td>
 <td>Not Used</td>
 <td>M</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>Codes / Temperatures</td>
 <td>Optional</td>
-<td colspan="2">Optional</td>
+<td>Optional</td>
 <td>Not Used</td>
 <td>M</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>Codes / Quantities</td>
 <td>Optional</td>
-<td colspan="2">Optional</td>
+<td>Optional</td>
 <td>Not Used</td>
 <td>M</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>Code/ Note / Apply</td>
 <td>Optional</td>
-<td colspan="2">Optional</td>
+<td>Optional</td>
 <td>Optional</td>
 <td>M</td>
 <td>&nbsp;</td>

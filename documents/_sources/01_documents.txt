@@ -50,59 +50,70 @@ coded document identifiers.
 *  **Freight Payment** is included in the identifier section due to dependencies
    which follow. 
 
+The sidebar displays document identification sections for a receipt, followed 
+by a shipment. Note that the receipt does not require **Freight Payment** 
+information.
+   
 Document Addresses
 =============================
-|
 
-.. sidebar:: Document Addresses
+Documents for carriage in private warehouses require three addresses, but Bills
+of Lading for third-party warehousing require four addresses. A standard Bill of 
+Lading for a third-party warehouse would show addresses for: Ship To, Ship From, 
+For Account of, and Send Freight Bill To.
 
-   Documents for carriage in private warehouses require three addresses, but for 
-   third-party warehousing four addresses may be required. A standard Bill of 
-   Lading for a third-party warehouse would show addresses for: Ship To, Ship 
-   From, For Account of, and Send Freight Bill To.
+Addresses are shown below for a receipt, on the left, and a shipment, on the 
+right. Again, **Freight BIlling** addresses are not required on receipts.
 
-.. image:: _images/document-2address.png
-
-Document Transportation
-=============================
-|
+.. image:: _images/document-a2address.png
+.. image:: _images/document-c2address.png
 
 .. sidebar:: Transportation Entries
 
-   Use the Transportation section to enter the carrier of record, vehicle 
-   numbers, the transport PRO number, seal numbers, and other information as 
-   needed to back-trace a shipment in case a problem is discovered.
+   .. image:: _images/document-c3transport.png
 
-.. image:: _images/document-3transport.png
+Document Transportation
+=============================
 
-.. image:: _images/document-3transport-b.png
+The transportation section contains information needed to trace a shipment or a 
+receipt in case a problem is discovered.
 
+*  **Carrier SCAC** -- Carriers are maintained in the :ref:`contacts` section,
+   entering type code **CA** and the carrier's **SCAC** for the identifier.
+*  **Route** -- For occasional carriers which are not entered, the carrier name 
+   may be entered in the **Route**.
+*  **Contact** -- When delivery instructions require it, provide a name and/or 
+   phone number for the destination contact.
+*  **Vehicle Number** -- Enter carrier equipment number and reference numbers 
+   for future reference, in case goods are signed for in good condition but 
+   received damaged, for example.
 
 Qualifiers and Quantities
 =============================
-|
 
-.. sidebar:: Quantitative Values
+.. sidebar:: Quantitative Values and Messages
 
-   Quantitative values may be entered to document ...
+   .. image:: _images/document-c4quantity.png
 
-.. image:: _images/document-4values.png
+   .. image:: _images/document-c5message.png
+
+Enter quantitative values to document temperatures, dates and times, or numeric 
+values specific to a document and which do not have a defined data entry in the 
+application.
+
+.. note::
+   The entirety of **QUANTITATIVE VALUES** and **NOTES AND MESSAGES** which 
+   follow are part of advanced mode.
 
 Notes and Messages
 =============================
-|
 
-.. sidebar:: Document Messages
+Notes allow product information which is intended for clerical use, warehouse
+laborers, transportation, or recipient consumption to be recorded and then 
+displayed on appropriate documents or other venues.
 
-   Notes allow product information which is intended for clerical use, warehouse
-   laborers, transportation, or recipient consumption to be recorded and then 
-   displayed on appropriate documents or other venues.
-
-.. image:: _images/document-5notes.png
-
-.. note::
-   The entirety of **QUANTITATIVE VALUES** and **NOTES AND MESSAGES** are part
-   of advanced mode.
+In the sidebar example, our shipment sample is a hazardous material so the Bill 
+of Lading must include a Chemical Emergency service number.
 
 Data Validation Rules
 =============================
@@ -120,7 +131,7 @@ and in associated notes.
 | Posting DateTime      | Mandatory   | Mandatory   | Mandatory   |  S  | [2]_ |
 +-----------------------+-------------+-------------+-------------+-----+------+
 | Qualifier/ Reference  | Optional    | Optional    | Optional    |  M  | [3]_ |
-+-----------------------+--------------+------------+-------------+-----+------+
++-----------------------+-------------+-------------+-------------+-----+------+
 | Freight Payment       | Not Used    | Mandatory   | Not Used    |  S  | [4]_ |
 +-----------------------+-------------+-------------+-------------+-----+------+
 | Account               | Mandatory   | Mandatory   | Mandatory   |  S  | [3]_ |
