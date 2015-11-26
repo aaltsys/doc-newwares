@@ -4,16 +4,18 @@
 Inventory Documents
 #############################
 
-Standard warehousing business documents record, maintain, and communicate 
-inventory data in WARES. These documents also form the basis of data exchange 
-with business trading partners, either through EDI, via direct exchange of JSON 
-data, or using custom data import routines. EDI titles and document codes are
-listed in :ref:`codes:document-list`.
+Warehouses record, maintain, and communicate inventory data using standard 
+business documents, particularly the Warehouse Receipt and the Bill of Lading. 
+These documents also form the basis of data exchange with business trading 
+partners, either through EDI, via direct exchange of JSON data, or using custom 
+data import routines. WARES is fully EDI capable, and EDI document titles and 
+codes are listed in :ref:`codes:document-list`.
 
 WARES stores all documents in a single database table. This means that all 
 documents share a common data definition, although documents present information 
 in views according to their purpose. Each document has a header section, and
-repeating transaction line detail. 
+repeating transaction line detail. This article describes common features of 
+the document header.
 
 Document Heading
 =============================
@@ -43,7 +45,7 @@ coded document identifiers.
    warehouse floor activity. Alternatively, the posting status may be set in 
    the document entry window when floor management is not available.
 *  **Posting Datetime** -- A date and time is set when a record is entered, and 
-   this value is updated until inventory actions are completed.
+   this value is updated until inventory actions are completed at status 3.
 *  **Qualifiers** and **Reference Numbers** -- A list of qualified reference 
    numbers relates a document to the corresponding external documents of 
    carriers, customers, and consignees.
@@ -63,20 +65,21 @@ Lading for a third-party warehouse would show addresses for: Ship To, Ship From,
 For Account of, and Send Freight Bill To.
 
 Addresses are shown below for a receipt, on the left, and a shipment, on the 
-right. Again, **Freight BIlling** addresses are not required on receipts.
+right. Again, **Freight BIlling** addresses are not required on receipts. 
+Adjustments use only the first two addresses, the account and the building.
 
 .. image:: _images/document-a2address.png
 .. image:: _images/document-c2address.png
+
+Document Transportation
+=============================
 
 .. sidebar:: Transportation Entries
 
    .. image:: _images/document-c3transport.png
 
-Document Transportation
-=============================
-
 The transportation section contains information needed to trace a shipment or a 
-receipt in case a problem is discovered.
+receipt in case a problem is discovered. (Adjustments do not use this section.)
 
 *  **Carrier SCAC** -- Carriers are maintained in the :ref:`contacts` section,
    entering type code **CA** and the carrier's **SCAC** for the identifier.
@@ -113,7 +116,7 @@ laborers, transportation, or recipient consumption to be recorded and then
 displayed on appropriate documents or other venues.
 
 In the sidebar example, our shipment sample is a hazardous material so the Bill 
-of Lading must include a Chemical Emergency service number.
+of Lading must include a Chemical Emergency response number.
 
 Data Validation Rules
 =============================
@@ -142,9 +145,9 @@ and in associated notes.
 +-----------------------+-------------+-------------+-------------+-----+------+
 | Freight Billing       | Not Used    | Conditional | Not Used    |  S  |      |
 +-----------------------+-------------+-------------+-------------+-----+------+
-| Carrier SCAC          | Mandatory   | Mandatory   | Not Used    |  S  |      |
+| Carrier SCAC          | Optional    | Mandatory   | Not Used    |  S  |      |
 +-----------------------+-------------+-------------+-------------+-----+------+
-| Route                 | Not Used    | Optional    | Not Used    |  S  |      |
+| Route                 | Optional    | Optional    | Not Used    |  S  |      |
 +-----------------------+-------------+-------------+-------------+-----+------+
 | Contact               | Optional    | Optional    | Not Used    |  S  |      |
 +-----------------------+-------------+-------------+-------------+-----+------+
@@ -172,7 +175,7 @@ and in associated notes.
 .. [3] When saving, documents are checked for a duplicate combination of: 
        **Account**, **Ship To/From**, and **Reference**. The status will change
        to 0 (unposted) on duplicated documents. 
-       
+
        When line detail exists on a document, the **Account** value cannot be 
        changed. Only products matching the document **Account** may be used on 
        a shipment or a receipt. Adjustments allow products with mixed accounts

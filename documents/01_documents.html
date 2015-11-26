@@ -94,15 +94,17 @@
             
   <div class="section" id="inventory-documents">
 <span id="documents"></span><h1>Inventory Documents<a class="headerlink" href="#inventory-documents" title="Permalink to this headline">¶</a></h1>
-<p>Standard warehousing business documents record, maintain, and communicate
-inventory data in WARES. These documents also form the basis of data exchange
-with business trading partners, either through EDI, via direct exchange of JSON
-data, or using custom data import routines. EDI titles and document codes are
-listed in <a class="reference external" href="../codes/S_document.html#document-list" title="(in WARES Codes v1.0)"><em>Document Type Codes</em></a>.</p>
+<p>Warehouses record, maintain, and communicate inventory data using standard
+business documents, particularly the Warehouse Receipt and the Bill of Lading.
+These documents also form the basis of data exchange with business trading
+partners, either through EDI, via direct exchange of JSON data, or using custom
+data import routines. WARES is fully EDI capable, and EDI document titles and
+codes are listed in <a class="reference external" href="../codes/S_document.html#document-list" title="(in WARES Codes v1.0)"><em>Document Type Codes</em></a>.</p>
 <p>WARES stores all documents in a single database table. This means that all
 documents share a common data definition, although documents present information
 in views according to their purpose. Each document has a header section, and
-repeating transaction line detail.</p>
+repeating transaction line detail. This article describes common features of
+the document header.</p>
 <div class="section" id="document-heading">
 <h2>Document Heading<a class="headerlink" href="#document-heading" title="Permalink to this headline">¶</a></h2>
 <p>Data entries in the document head occur once per transaction. Some entries may
@@ -127,7 +129,7 @@ shipments with 4, and adjustments with 5.</li>
 warehouse floor activity. Alternatively, the posting status may be set in
 the document entry window when floor management is not available.</li>
 <li><strong>Posting Datetime</strong> &#8211; A date and time is set when a record is entered, and
-this value is updated until inventory actions are completed.</li>
+this value is updated until inventory actions are completed at status 3.</li>
 <li><strong>Qualifiers</strong> and <strong>Reference Numbers</strong> &#8211; A list of qualified reference
 numbers relates a document to the corresponding external documents of
 carriers, customers, and consignees.</li>
@@ -145,18 +147,19 @@ of Lading for third-party warehousing require four addresses. A standard Bill of
 Lading for a third-party warehouse would show addresses for: Ship To, Ship From,
 For Account of, and Send Freight Bill To.</p>
 <p>Addresses are shown below for a receipt, on the left, and a shipment, on the
-right. Again, <strong>Freight BIlling</strong> addresses are not required on receipts.</p>
+right. Again, <strong>Freight BIlling</strong> addresses are not required on receipts.
+Adjustments use only the first two addresses, the account and the building.</p>
 <img alt="_images/document-a2address.png" src="_images/document-a2address.png" />
 <img alt="_images/document-c2address.png" src="_images/document-c2address.png" />
+</div>
+<div class="section" id="document-transportation">
+<h2>Document Transportation<a class="headerlink" href="#document-transportation" title="Permalink to this headline">¶</a></h2>
 <div class="sidebar">
 <p class="first sidebar-title">Transportation Entries</p>
 <img alt="_images/document-c3transport.png" class="last" src="_images/document-c3transport.png" />
 </div>
-</div>
-<div class="section" id="document-transportation">
-<h2>Document Transportation<a class="headerlink" href="#document-transportation" title="Permalink to this headline">¶</a></h2>
 <p>The transportation section contains information needed to trace a shipment or a
-receipt in case a problem is discovered.</p>
+receipt in case a problem is discovered. (Adjustments do not use this section.)</p>
 <ul class="simple">
 <li><strong>Carrier SCAC</strong> &#8211; Carriers are maintained in the <a class="reference external" href="../facility/03_contacts.html#contacts" title="(in WARES Facility v1.0)"><em>Contacts and Addresses</em></a> section,
 entering type code <strong>CA</strong> and the carrier&#8217;s <strong>SCAC</strong> for the identifier.</li>
@@ -191,7 +194,7 @@ follow are part of advanced mode.</p>
 laborers, transportation, or recipient consumption to be recorded and then
 displayed on appropriate documents or other venues.</p>
 <p>In the sidebar example, our shipment sample is a hazardous material so the Bill
-of Lading must include a Chemical Emergency service number.</p>
+of Lading must include a Chemical Emergency response number.</p>
 </div>
 <div class="section" id="data-validation-rules">
 <h2>Data Validation Rules<a class="headerlink" href="#data-validation-rules" title="Permalink to this headline">¶</a></h2>
@@ -280,14 +283,14 @@ and in associated notes.</p>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>Carrier SCAC</td>
-<td>Mandatory</td>
+<td>Optional</td>
 <td>Mandatory</td>
 <td>Not Used</td>
 <td>S</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>Route</td>
-<td>Not Used</td>
+<td>Optional</td>
 <td>Optional</td>
 <td>Not Used</td>
 <td>S</td>

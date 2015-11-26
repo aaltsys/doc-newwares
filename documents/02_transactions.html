@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="WARES Documents 1.0 documentation" href="index.html" />
-    <link rel="next" title="Transaction Line Entry" href="03_entry.html" />
+    <link rel="next" title="Receiving Procedures" href="03_receiving.html" />
     <link rel="prev" title="Inventory Documents" href="01_documents.html" /> 
   </head>
   <body role="document">
@@ -32,7 +32,7 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="03_entry.html" title="Transaction Line Entry"
+          <a href="03_receiving.html" title="Receiving Procedures"
              accesskey="N">next</a></li>
         <li class="right" >
           <a href="01_documents.html" title="Inventory Documents"
@@ -50,6 +50,7 @@
 <li><a class="reference internal" href="#unit-tracking">Unit Tracking</a></li>
 <li><a class="reference internal" href="#bulk-versus-unit-entry">Bulk Versus Unit Entry</a></li>
 <li><a class="reference internal" href="#using-line-detail-entries">Using Line Detail Entries</a></li>
+<li><a class="reference internal" href="#ownership-transfers">Ownership Transfers</a></li>
 <li><a class="reference internal" href="#document-line-requirements">Document Line Requirements</a></li>
 <li><a class="reference internal" href="#line-data-not-displayed">Line Data not Displayed</a></li>
 <li><a class="reference internal" href="#document-lines-column-data">Document Lines Column Data</a></li>
@@ -61,8 +62,8 @@
   <p class="topless"><a href="01_documents.html"
                         title="previous chapter">Inventory Documents</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="03_entry.html"
-                        title="next chapter">Transaction Line Entry</a></p>
+  <p class="topless"><a href="03_receiving.html"
+                        title="next chapter">Receiving Procedures</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -108,7 +109,7 @@ and quantities. The following sections of this topic give examples of summary
 line entries, and corresponding detail entries which add to individual lines.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p>The summary and detail lines which follow use the following conventions:</p>
+<p>The summary and detail line views which follow use the following conventions:</p>
 <ul class="last simple">
 <li>Yellow &#8211; highlights summary lines which are selected for detail display.</li>
 <li>Dark Green &#8211; indicates entries which are pulled from the Product, or
@@ -196,7 +197,8 @@ entry.</p>
 <img alt="_images/lines-3-detail.png" src="_images/lines-3-detail.png" />
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
-<p>There seem to be two entry procedures for lines, but actually:</p>
+<p>What seems to be two entry procedures for lines, one for mixed units and
+another for uniform pallets, is actually just variants of one procedure:</p>
 <ul class="last simple">
 <li>Entering two consecutive content lines with the same <strong>UnitID</strong> will
 trigger a question, &#8220;Do these entries belong to the same unit? (Yes/no).&#8221;
@@ -249,45 +251,41 @@ Where the content <strong>Count Per</strong> is blank, the unit count will be bl
 <h2>Using Line Detail Entries<a class="headerlink" href="#using-line-detail-entries" title="Permalink to this headline">¶</a></h2>
 <p>Line detail entries are necessary when entering unique values which are not
 visible in the summary. Specific cases where this might occur are listed here.</p>
-<ul>
-<li><p class="first">Damaged goods must be entered in separate content records which are marked
-in the details.</p>
-</li>
-<li><p class="first">Marks, variable descriptions, or special lot notes are entered in details.</p>
-</li>
-<li><p class="first">Broken cases or sampled bags should be entered separately, noting the
-shorted inner quantities.</p>
-</li>
-<li><p class="first">Content count discrepancies on receiving are entered in the <strong>Over/Short</strong>
+<ul class="simple">
+<li>Damaged goods must be entered in separate content records which are marked
+in the details.</li>
+<li>Marks, variable descriptions, or special lot notes are entered in details.</li>
+<li>Broken cases or sampled bags should be entered separately, noting the
+shorted inner quantities.</li>
+<li>Content count discrepancies on receiving are entered in the <strong>Over/Short</strong>
 value, as positive or negative numbers. <strong>Over/Short</strong> applies to content
 only, and only on receipt, where content is a visually countable quantity
-(cartons, cases, bags, etc.).</p>
-</li>
-<li><p class="first">Variable tare weights or gross weights are entered in the details view,
-unlike consistent tare weights which are entered on the product setup.</p>
-</li>
-<li><p class="first">When unit weight varies, linear counts or volumetric measures probably vary
+(cartons, cases, bags, etc.).</li>
+<li>Variable tare weights or gross weights are entered in the details view,
+unlike consistent tare weights which are entered on the product setup.</li>
+<li>When unit weight varies, linear counts or volumetric measures probably vary
 too. This is especially important with hazardous materials, where both
-weights and volume measures are used on the Bill of Lading.</p>
-</li>
-<li><p class="first"><strong>Account</strong> is inherited from the document header for all positive-quantity
-lines (receipts and adjustments). An error is generated when a product
-record matching the Account, Product, and Variety does not exist.</p>
-<p>Shipments withdraw only from lots belonging to the document header account,
-and shipment quantities are automatically negated.</p>
-</li>
-<li><p class="first">Adjustments may withdraw from any lot regardless of the account in the
-document header, so that adjustments can effect ownership transfers.
-In ownership transfers, negative-quantity adjustment lines deduct lots from
-a previous owner&#8217;s account and positive lines add to the new owner&#8217;s account
-listed in the adjustment header.</p>
-<p>To enter an ownership transfer adjustment,the line details view is used to
-choose the previous <strong>Account</strong> to deduct from, and then the product and lot.
-When the account on a line does not match the document header account, the
-subsequent line quantity entries will be negated, just as quantities are for
-a shipment.</p>
-</li>
+weights and volume measures are used on the Bill of Lading.</li>
+<li>An ownership transfer adjustment requires entering the <strong>Account</strong> on a
+withdrawal line (see below).</li>
 </ul>
+</div>
+<div class="section" id="ownership-transfers">
+<h2>Ownership Transfers<a class="headerlink" href="#ownership-transfers" title="Permalink to this headline">¶</a></h2>
+<p>Ownership transfers can be entered in two ways: either (1) withdraw goods using
+a shipment, then use a receipt to add goods to a different account, or (2) use
+an adjustment to withdraw goods from one account and add goods to another
+account.</p>
+<p>The first method, using shipments and receipts, is problematic because of
+automatic receiving charge calculations, lot anniversary dates, and consistency
+issues caused by using two documents.</p>
+<p>Method (2) requires understanding special rules of Line Detail entries. The
+line detail views allow entering an <strong>Account</strong> on adjustments only, and the
+subsequent quantity of the line must be negative when the account does not match
+the header. For positive-quantity lines, the <strong>Account</strong> is always inherited
+from the document header and cannot be changed.</p>
+<p>The receiving account must own product records for the goods before a transfer
+can be entered in any case, otherwise an error will be generated.</p>
 </div>
 <div class="section" id="document-line-requirements">
 <h2>Document Line Requirements<a class="headerlink" href="#document-line-requirements" title="Permalink to this headline">¶</a></h2>
@@ -295,7 +293,7 @@ a shipment.</p>
 <ul class="simple">
 <li>Each line references a single product/variety, lot control, unit identifier,
 and locator value.</li>
-<li>Quantities are signed (+/-) to indicating the effect of the transaction on
+<li>Quantities are signed (+/-) to indicate the effect of the transaction on
 inventory.</li>
 <li>Lines contain either Reserved or On-Hand quantites, but not both.</li>
 <li>The document status and the data content of a line determine whether the
@@ -303,6 +301,8 @@ entry quantity will be Reserved or On-Hand.</li>
 <li>A condition code is required for each entry line. The default is G(ood),
 see <a class="reference external" href="../codes/D_condition.html#condition-list" title="(in WARES Codes v1.0)"><em>Unit Condition Codes</em></a>.</li>
 </ul>
+<p>The source and requirements of transaction line entries, and the relationship
+to transaction status, is shown in the following table.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="23%" />
@@ -659,7 +659,7 @@ is used, from picking, staging and loading activities, and from releasing
 completed documents, applying charges, and inviocing.</p>
 </li>
 <li><p class="first"><strong>PostDate</strong> &#8211; is copied from the transaction header and applies to all
-lines in a document. The <strong>Postdate</strong> of a document should be finalized at
+lines in a document. The <strong>PostDate</strong> of a document should be finalized at
 the date and time that the warehouse signs a receipt or a carrier signs for
 a shipment.</p>
 </li>
@@ -691,7 +691,7 @@ copied from the current product record.</p>
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="03_entry.html" title="Transaction Line Entry"
+          <a href="03_receiving.html" title="Receiving Procedures"
              >next</a></li>
         <li class="right" >
           <a href="01_documents.html" title="Inventory Documents"
