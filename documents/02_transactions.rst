@@ -23,7 +23,7 @@ and quantities. The following sections of this topic give examples of summary
 line entries, and corresponding detail entries which add to individual lines.
 
 .. note::
-   The summary and detail lines which follow use the following conventions:
+   The summary and detail line views which follow use the following conventions:
 
    *  Yellow -- highlights summary lines which are selected for detail display.
    *  Dark Green -- indicates entries which are pulled from the Product, or 
@@ -119,8 +119,9 @@ entry.
 .. image:: _images/lines-3-detail.png
 
 .. tip::
-   There seem to be two entry procedures for lines, but actually:
-   
+   What seems to be two entry procedures for lines, one for mixed units and 
+   another for uniform pallets, is actually just variants of one procedure:
+
    *  Entering two consecutive content lines with the same **UnitID** will 
       trigger a question, "Do these entries belong to the same unit? (Yes/no)." 
       Answering "Yes" will create the parent unit line and update the child
@@ -190,23 +191,29 @@ visible in the summary. Specific cases where this might occur are listed here.
 *  When unit weight varies, linear counts or volumetric measures probably vary 
    too. This is especially important with hazardous materials, where both 
    weights and volume measures are used on the Bill of Lading.
-*  **Account** is inherited from the document header for all positive-quantity
-   lines (receipts and adjustments). An error is generated when a product 
-   record matching the Account, Product, and Variety does not exist. 
+*  An ownership transfer adjustment requires entering the **Account** on a 
+   withdrawal line (see below).
 
-   Shipments withdraw only from lots belonging to the document header account, 
-   and shipment quantities are automatically negated.
-*  Adjustments may withdraw from any lot regardless of the account in the
-   document header, so that adjustments can effect ownership transfers.
-   In ownership transfers, negative-quantity adjustment lines deduct lots from 
-   a previous owner's account and positive lines add to the new owner's account 
-   listed in the adjustment header.
+Ownership Transfers
+=============================
 
-   To enter an ownership transfer adjustment,the line details view is used to 
-   choose the previous **Account** to deduct from, and then the product and lot. 
-   When the account on a line does not match the document header account, the 
-   subsequent line quantity entries will be negated, just as quantities are for 
-   a shipment.
+Ownership transfers can be entered in two ways: either (1) withdraw goods using 
+a shipment, then use a receipt to add goods to a different account, or (2) use 
+an adjustment to withdraw goods from one account and add goods to another 
+account.  
+
+The first method, using shipments and receipts, is problematic because of 
+automatic receiving charge calculations, lot anniversary dates, and consistency 
+issues caused by using two documents. 
+
+Method (2) requires understanding special rules of Line Detail entries. The 
+line detail views allow entering an **Account** on adjustments only, and the 
+subsequent quantity of the line must be negative when the account does not match 
+the header. For positive-quantity lines, the **Account** is always inherited 
+from the document header and cannot be changed.
+
+The receiving account must own product records for the goods before a transfer 
+can be entered in any case, otherwise an error will be generated.
 
 Document Line Requirements
 =============================
@@ -215,7 +222,7 @@ Transactions are entered by line. The following rules apply to transactions:
 
 *  Each line references a single product/variety, lot control, unit identifier, 
    and locator value.
-*  Quantities are signed (+/-) to indicating the effect of the transaction on 
+*  Quantities are signed (+/-) to indicate the effect of the transaction on 
    inventory.
 *  Lines contain either Reserved or On-Hand quantites, but not both. 
 *  The document status and the data content of a line determine whether the 
@@ -223,6 +230,9 @@ Transactions are entered by line. The following rules apply to transactions:
 *  A condition code is required for each entry line. The default is G(ood),
    see :ref:`condition-list`.
 
+The source and requirements of transaction line entries, and the relationship 
+to transaction status, is shown in the following table.
+   
 +------------------+----------+----------+----------+----------+----------+----------+
 | Column Name      | Expected |  Inbound | Received | Reserved | Allocated|  Shipped |
 +==================+==========+==========+==========+==========+==========+==========+
@@ -348,7 +358,7 @@ program operation. These columns are described in the following list.
    completed documents, applying charges, and inviocing.
 
 *  **PostDate** -- is copied from the transaction header and applies to all
-   lines in a document. The **Postdate** of a document should be finalized at 
+   lines in a document. The **PostDate** of a document should be finalized at 
    the date and time that the warehouse signs a receipt or a carrier signs for 
    a shipment.
 
