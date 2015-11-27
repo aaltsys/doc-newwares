@@ -45,7 +45,8 @@ As a standing procedure, the paperwork for a load should go directly to the
 receiving clerk when a vehicle arrives. Dock and vehicle doors should not be 
 opened until the paperwork is entered in the information system and a receiving 
 tally is prepared. This tally form should list the products and units to be 
-received, but with blanks for the quantities and locations.
+received, but with blanks for the quantities and locations. The following 
+graphic shows part of a receiving tally where the blanks have been hand-filled. 
 
 .. image:: _images/tallysheet.png
 
@@ -105,28 +106,62 @@ End-of-Day Reconciliation
 =============================
 
 At the end of each day, warehouse clerical personnel must verify that the line 
-count of inbound vehicles on the yard log matches the number of receiving 
-tallies and entered receipts. 
+count of inbound vehicles on the yard log matches the number of entered 
+receipts and receiving tallies. 
 
 Then standard receiving charges for storage and handling should be calculated 
-for receipts. Then the daily charges log for receipts would be printed and 
-checked for errors. A billing error, such as a receipt with $25,000.00 in 
-charges, is likely due to an overlooked entry error. Fix any errors immediately.
+for receipts. A daily charges log for receipts should be printed and checked 
+for errors. A billing error, such as a receipt with $25,000.00 in charges, is 
+likely due to an overlooked entry error. Fix any errors immediately. A sample 
+Charges Log report is illustrated following.
+
+.. image:: _images/chargelog.png
+
+.. note::
+   Handling (1H) charges are by unit, while Storage (1S) charges are by net
+   hundredweight. The product is paper rolls, as shown at :ref:`unit-weights`.
 
 Issuing Warehouse Receipts
 =============================
 
 Once billing is calculated and checked, Warehouse Receipt documents should be 
-printed, signed, and issued, either as invoices or just as documents, per 
-account preferences. Failure to issue warehouse receipts is negligence on the 
-warehouser's part. Warehouse Receipts satisfy the following business needs:
+printed, signed by the warehouse manager, and issued to the customer. Receipts 
+may be issued either as invoices or just as documents to be invoiced later, as 
+the customer prefers. 
 
-*  The receipt establishes the warehouse's lien for services, allowing the 
+Failure to issue warehouse receipts is negligence on the warehouser's part. 
+Warehouse Receipts satisfy the following business needs:
+
+*  The Receipt establishes the warehouse's lien for services, allowing the 
    warehouse to require payment before releasing goods from bailment. For this 
    to be effective, the rates for storage and handling must be printed.
 *  The Warehouse Receipt document includes contractual terms which are enforced 
    based on the customer's deposit of goods and acceptance of the receipt. This 
    requires that the contract terms backer be a part of the receipt document.
-*  The receipt establishes a limitation of warehouse liability for negligence. 
+*  The Receipt establishes a limitation of warehouse liability for negligence. 
    This limitation is based on the liability limitation from the warehouse 
    setup, or a separate declaration of value on the account setup.
+*  The Warehouse Receipt notifies the customer of the location, conditions and 
+   standard of care for his goods.
+
+Industry Contract Terms
+=============================
+
+There are several trade associations for public warehousing, the principal ones 
+being the **International Association of Refrigerated Warehouses** (IARW) and 
+the **International Warehousing and Logistics Association** (IWLA). These groups 
+have promulgated standard contract terms for members to use. Familiarity with 
+these terms is expected of corporate logistics personnel, so warehousers who 
+adopt these standard terms can conduct business without recourse to expensive,
+and frequently faulty, legal representation.
+
+Versions of these Standard Terms is posted here for reference:
+
+:ref:`terms-iarw` or download :download:`IARW Terms <../resources/_downloads/terms-iarw.txt>`
+
+:ref:`terms-iwla` or download :download:`IWLA Terms <../resources/_downloads/terms-iwla.txt>`
+
+.. warning:: Disclaimer
+
+   AAltsys Technology provides these terms as example documents and takes no
+   responsibility for their accuracy, usability, or legal virtue.
