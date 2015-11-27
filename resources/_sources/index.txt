@@ -10,7 +10,7 @@ WARES Database Schema
 =============================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :glob: 
 
    [0-9]*
@@ -19,10 +19,19 @@ WARES JSON Export Documents
 =============================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :glob:
 
    [json]*
+
+WARES HELP Documents
+=============================
+
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
+   [help]*
 
 Indices and tables
 ==================

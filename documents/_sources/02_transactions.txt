@@ -33,6 +33,8 @@ line entries, and corresponding detail entries which add to individual lines.
    *  Dark Gray -- indicates default values which could have been changed if 
       need be, but were not changed in the displayed example.
 
+.. _unit-weights:
+
 Unit Weights and Measures
 =============================
 
