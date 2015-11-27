@@ -157,11 +157,11 @@ and frequently faulty, legal representation.
 
 Versions of these Standard Terms is posted here for reference:
 
-:ref:`terms-iarw` or download :download:`IARW Terms <../resources/_downloads/terms-iarw.txt>`
+:ref:`terms-iarw` or save :download:`IARW Terms <../resources/_downloads/terms-iarw.txt>`
 
-:ref:`terms-iwla` or download :download:`IWLA Terms <../resources/_downloads/terms-iwla.txt>`
+:ref:`terms-iwla` or save :download:`IWLA Terms <../resources/_downloads/terms-iwla.txt>`
 
-.. warning:: Disclaimer
+.. warning:: **Disclaimer**
 
    AAltsys Technology provides these terms as example documents and takes no
    responsibility for their accuracy, usability, or legal virtue.
