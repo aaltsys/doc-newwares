@@ -86,8 +86,9 @@ should state that the charges are due upon receipt, since this enforces a
 warehouse lein against the goods.
 
 **Document Messages** allow the company to specify the exact wording for each 
-type of invoice message. Message types are provided for uninvoiced receipts,
-invoiced receipts, and standard invoices.
+type of invoice message. Message types for uninvoiced receipts, invoiced 
+receipts, and standard invoices are provided in :ref:`noteapply-list`, along 
+with corresponding default message text in :ref:`note`.
 
 Company Process Control
 =============================
