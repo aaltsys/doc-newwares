@@ -24,14 +24,21 @@ WARES JSON Export Documents
 
    [json]*
 
-WARES HELP Documents
+WARES Forms Documents
 =============================
 
 .. toctree::
    :maxdepth: 1
    :glob:
 
-   [help]*
+   [form]*
+
+WARES Text Downloads
+=============================
+
+   :download:`IARW Terms <_downloads/terms-iarw.txt>`
+
+   :download:`IWLA Terms <_downloads/terms-iwla.txt>`
 
 Indices and tables
 ==================

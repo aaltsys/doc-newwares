@@ -55,7 +55,8 @@ Basic Entries:
 
 *  **Qualifiers** and **Stock Numbers**: Each product may have several auxiliary 
    identifiers such as a buyer code, UPC code, SKU number, and the like. These 
-   entries require qualifiers to categorize the associated identifiers.
+   entries require qualifiers from the :ref:`product-list` to categorize the 
+   associated identifiers.
 *  **Hazardous** must be checked if a product requires DOT HAZMAT labeling.
 
    .. warning::

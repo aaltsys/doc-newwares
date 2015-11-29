@@ -14,6 +14,7 @@ Account Setup Lists
 | :ref:`country-list`
 | :ref:`fob-list`
 | :ref:`invoicing-list`
+| :ref:`label-list`
 | :ref:`receiving-list`
 | :ref:`recurring-list`
 | :ref:`state-list`

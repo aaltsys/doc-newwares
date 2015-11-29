@@ -86,8 +86,9 @@ should state that the charges are due upon receipt, since this enforces a
 warehouse lein against the goods.
 
 **Document Messages** allow the company to specify the exact wording for each 
-type of invoice message. Message types are provided for uninvoiced receipts,
-invoiced receipts, and standard invoices.
+type of invoice message. Message types for uninvoiced receipts, invoiced 
+receipts, and standard invoices are provided in :ref:`noteapply-list`, along 
+with corresponding default message text in :ref:`note-list`.
 
 Company Process Control
 =============================
@@ -101,7 +102,8 @@ These entries include:
 
 *  **Entry Status** -- Use this entry to set the default status applied to 
    current records during entry. The available statuses would be **2** 
-   (allocated) or **3** (verified received/shipped).
+   (allocated) or **3** (verified received/shipped), as listed in the 
+   :ref:`status-list`.
 *  **Period Start** -- This date begins the current open accounting period for 
    the warehouse. Transactions prior to this date are marked archived status.
 *  **Next Period** -- This date begins a "future" period for billing 

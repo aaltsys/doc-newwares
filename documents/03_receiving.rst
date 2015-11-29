@@ -155,13 +155,16 @@ these terms is expected of corporate logistics personnel, so warehousers who
 adopt these standard terms can conduct business without recourse to expensive,
 and frequently faulty, legal representation.
 
-Versions of these Standard Terms is posted here for reference:
+Versions of these Standard Terms are posted here for reference:
 
-:ref:`terms-iarw` or download :download:`IARW Terms <../resources/_downloads/terms-iarw.txt>`
+:ref:`terms-iarw`
 
-:ref:`terms-iwla` or download :download:`IWLA Terms <../resources/_downloads/terms-iwla.txt>`
+:ref:`terms-iwla`
 
-.. warning:: Disclaimer
-
-   AAltsys Technology provides these terms as example documents and takes no
-   responsibility for their accuracy, usability, or legal virtue.
+.. warning::
+   **Disclaimer**: AAltsys Technology displays these terms as example documents 
+   commonly used in public commerce. AAltsys is not qualified to judge the 
+   accuracy, usability, or legal virtue of these terms (and we are certainly not 
+   responsible for the sexist nature of their language). The presentation of 
+   these terms does not constitute permission to use the same without 
+   authorization from the sponsoring organizations.

@@ -87,6 +87,10 @@ Each account Contacts record uses the **Account** identifier, but with varing
 **Type** code entries to distinguish the separate records. An example account 
 address record is shown in the side bar.
 
+Communication entries are certainly needed for Accounts, and sometimes for other 
+addresses as well. Each communication entry may be labeled using either standard 
+codes or custom entries, as selected from :ref:`label-list`.
+
 .. note::
    **Account** linking entries and **Freight Pay** codes are not used and not 
    entered for addresses associated with an Account Setup, or with Facility
