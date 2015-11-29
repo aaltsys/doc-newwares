@@ -17,4 +17,3 @@ Receiving Billing Codes
 +------+-----------------------------------------------+
 
 Source: Internal to WARES Accounts billing.
- 
