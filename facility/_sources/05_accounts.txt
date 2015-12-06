@@ -99,6 +99,8 @@ the following entries:
    report will determine the warehouse liability for handling 
    services which have been invoiced, but which are yet to be performed.
 
+.. _account-storage:
+
 Account Storage
 =============================
 

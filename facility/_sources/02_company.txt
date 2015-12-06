@@ -22,6 +22,8 @@ Company Identifier and Name
 A unique company identifier must be entered for the facility. This value is 
 used to associate contact address records to the warehouse company.
 
+.. _company-liability:
+
 Limitation of Liability
 =============================
 
