@@ -65,11 +65,18 @@ Lading for a third-party warehouse would show addresses for: Ship To, Ship From,
 For Account of, and Send Freight Bill To.
 
 Addresses are shown below for a receipt, on the left, and a shipment, on the 
-right. Again, **Freight BIlling** addresses are not required on receipts. 
+right. Again, **Freight Billing** addresses are not required on receipts. 
 Adjustments use only the first two addresses, the account and the building.
 
 .. image:: _images/document-a2address.png
 .. image:: _images/document-c2address.png
+
+
+The warehouse building address is derived from the receipt's building entry, 
+which is maintained in a contact record with type code "B". Warehouse companies 
+usually number their buildings starting with "1", or letter the buildings 
+starting with "A". Single characters are recommended for building identifiers 
+since this identifier is incorporated into warehouse location codes. 
 
 Document Transportation
 =============================

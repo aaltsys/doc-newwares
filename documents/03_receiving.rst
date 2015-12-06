@@ -129,42 +129,6 @@ printed, signed by the warehouse manager, and issued to the customer. Receipts
 may be issued either as invoices or just as documents to be invoiced later, as 
 the customer prefers. 
 
-Failure to issue warehouse receipts is negligence on the warehouser's part. 
-Warehouse Receipts satisfy the following business needs:
-
-*  The Receipt establishes the warehouse's lien for services, allowing the 
-   warehouse to require payment before releasing goods from bailment. For this 
-   to be effective, the rates for storage and handling must be printed.
-*  The Warehouse Receipt document includes contractual terms which are enforced 
-   based on the customer's deposit of goods and acceptance of the receipt. This 
-   requires that the contract terms backer be a part of the receipt document.
-*  The Receipt establishes a limitation of warehouse liability for negligence. 
-   This limitation is based on the liability limitation from the warehouse 
-   setup, or a separate declaration of value on the account setup.
-*  The Warehouse Receipt notifies the customer of the location, conditions and 
-   standard of care for his goods.
-
-Industry Contract Terms
-=============================
-
-There are several trade associations for public warehousing, the principal ones 
-being the **International Association of Refrigerated Warehouses** (IARW) and 
-the **International Warehousing and Logistics Association** (IWLA). These groups 
-have promulgated standard contract terms for members to use. Familiarity with 
-these terms is expected of corporate logistics personnel, so warehousers who 
-adopt these standard terms can conduct business without recourse to expensive,
-and frequently faulty, legal representation.
-
-Versions of these Standard Terms are posted here for reference:
-
-:ref:`terms-iarw`
-
-:ref:`terms-iwla`
-
-.. warning::
-   **Disclaimer**: AAltsys Technology displays these terms as example documents 
-   commonly used in public commerce. AAltsys is not qualified to judge the 
-   accuracy, usability, or legal virtue of these terms (and we are certainly not 
-   responsible for the sexist nature of their language). The presentation of 
-   these terms does not constitute permission to use the same without 
-   authorization from the sponsoring organizations.
+The warehouser's legal responsibilities are documented by the Warehouse Receipt. 
+Understanding how to issue receipts is fundamental to warehousing, and so an 
+entire article, :ref:`receipts`, is dedicated to this topic.

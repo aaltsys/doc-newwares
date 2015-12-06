@@ -1,4 +1,4 @@
-.. Transaction Documents, created by sphinx-quickstart on Mon Jun 30 16:05:17 2014.
+.. Transaction Documents, created on Mon Jun 30 16:05:17 2014.
 
 .. _index:
 
@@ -20,3 +20,8 @@ Indices and tables
 * :ref:`modindex`
 * :ref:`search`
 
+.. toctree::
+   :hidden:
+   :glob:
+
+   *
