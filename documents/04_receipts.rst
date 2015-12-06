@@ -77,8 +77,8 @@ b. Consecutive Receipt Number
 -----------------------------
 
 To guarantee that every receipt is actually issued, the warehouse manager should 
-maintain a hand register of the consecutive numbers when signing receipts. A 
-portion of a sample hand register of consecutive receipts is shown following: 
+maintain a register of the consecutive numbers when signing receipts. A portion 
+of a sample hand register of consecutive receipts is shown following: 
 
 .. image:: _images/receipt-register.png 
 
@@ -145,8 +145,9 @@ i. Statement of Liabilities
 
 Rates are known when the warehouse receipt is finalized, and so the extension 
 of the rates and a total of the liabilities (charges due) is part of the 
-receipt. The text in section (d) above also clarifies that the warehouse lien 
-covers this receipt and any charges due from the customer on other accounts.
+receipt. The :ref:`Liability Limitation<receipt-d>` also clarifies that the 
+warehouse lien covers this receipt and any charges due from the customer on 
+other accounts.
 
 Other Receipt Terms
 =============================
@@ -208,9 +209,9 @@ f. Limitation of Liability
 -----------------------------
 
 The receipt establishes a limitation of warehouse liability for negligence, 
-which is taken from the warehouse setup or derived from a declaration of value 
-on the account setup. This :ref:`Liability Limitation<receipt-d>` is printed in 
-red in the example receipt.
+which is taken from the :ref:`Company Liability<company-liability>` or derived 
+from a declaration of value on the :ref:`Account Setup<account-storage>`. This 
+:ref:`Liability Limitation<receipt-d>` is printed in red in the example receipt.
 
 View the full warehouse receipt of this example here: :ref:`receipt-example`.
 
