@@ -25,7 +25,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="WARES Documents 1.0 documentation" href="index.html" />
     <link rel="next" title="Document Lines Detail" href="02_transactions.html" />
-    <link rel="prev" title="Inventory Transaction Documents" href="index.html" /> 
+    <link rel="prev" title="Transaction Activity" href="08_posting.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -35,7 +35,7 @@
           <a href="02_transactions.html" title="Document Lines Detail"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="index.html" title="Inventory Transaction Documents"
+          <a href="08_posting.html" title="Transaction Activity"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">WARES Documents 1.0 documentation</a> &raquo;</li> 
       </ul>
@@ -59,8 +59,8 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="index.html"
-                        title="previous chapter">Inventory Transaction Documents</a></p>
+  <p class="topless"><a href="08_posting.html"
+                        title="previous chapter">Transaction Activity</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="02_transactions.html"
                         title="next chapter">Document Lines Detail</a></p>
@@ -147,10 +147,15 @@ of Lading for third-party warehousing require four addresses. A standard Bill of
 Lading for a third-party warehouse would show addresses for: Ship To, Ship From,
 For Account of, and Send Freight Bill To.</p>
 <p>Addresses are shown below for a receipt, on the left, and a shipment, on the
-right. Again, <strong>Freight BIlling</strong> addresses are not required on receipts.
+right. Again, <strong>Freight Billing</strong> addresses are not required on receipts.
 Adjustments use only the first two addresses, the account and the building.</p>
 <img alt="_images/document-a2address.png" src="_images/document-a2address.png" />
 <img alt="_images/document-c2address.png" src="_images/document-c2address.png" />
+<p>The warehouse building address is derived from the receipt&#8217;s building entry,
+which is maintained in a contact record with type code &#8220;B&#8221;. Warehouse companies
+usually number their buildings starting with &#8220;1&#8221;, or letter the buildings
+starting with &#8220;A&#8221;. Single characters are recommended for building identifiers
+since this identifier is incorporated into warehouse location codes.</p>
 </div>
 <div class="section" id="document-transportation">
 <h2>Document Transportation<a class="headerlink" href="#document-transportation" title="Permalink to this headline">¶</a></h2>
@@ -611,7 +616,7 @@ associated ADDRESS identifier entry is required.</li>
           <a href="02_transactions.html" title="Document Lines Detail"
              >next</a></li>
         <li class="right" >
-          <a href="index.html" title="Inventory Transaction Documents"
+          <a href="08_posting.html" title="Transaction Activity"
              >previous</a> |</li>
         <li><a href="index.html">WARES Documents 1.0 documentation</a> &raquo;</li> 
       </ul>

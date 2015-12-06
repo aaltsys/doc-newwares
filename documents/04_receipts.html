@@ -1,0 +1,354 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Warehouse Receipts &mdash; WARES Documents 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="WARES Documents 1.0 documentation" href="index.html" />
+    <link rel="next" title="Shipping Procedures" href="05_shipping.html" />
+    <link rel="prev" title="Receiving Procedures" href="03_receiving.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="05_shipping.html" title="Shipping Procedures"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="03_receiving.html" title="Receiving Procedures"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">WARES Documents 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Warehouse Receipts</a><ul>
+<li><a class="reference internal" href="#terms-required-by-the-u-c-c">Terms Required by the U.C.C.</a></li>
+<li><a class="reference internal" href="#warehouse-receipt-documents">Warehouse Receipt Documents</a></li>
+<li><a class="reference internal" href="#u-c-c-required-elements">U.C.C. Required Elements</a><ul>
+<li><a class="reference internal" href="#a-warehouse-buildings">a. Warehouse Buildings</a></li>
+<li><a class="reference internal" href="#b-consecutive-receipt-number">b. Consecutive Receipt Number</a></li>
+<li><a class="reference internal" href="#c-receipt-issue-date">c. Receipt Issue Date</a></li>
+<li><a class="reference internal" href="#d-delivery-orders">d. Delivery Orders</a></li>
+<li><a class="reference internal" href="#e-storage-and-handling-rates">e. Storage and Handling Rates</a></li>
+<li><a class="reference internal" href="#f-description-of-goods">f. Description of Goods</a></li>
+<li><a class="reference internal" href="#g-the-warehouser-s-signature">g. The Warehouser&#8217;s Signature</a></li>
+<li><a class="reference internal" href="#i-statement-of-liabilities">i. Statement of Liabilities</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#other-receipt-terms">Other Receipt Terms</a><ul>
+<li><a class="reference internal" href="#a-received-condition">a. Received Condition</a></li>
+<li><a class="reference internal" href="#b-storage-type-zone">b. Storage Type Zone</a></li>
+<li><a class="reference internal" href="#c-customer-instructions">c. Customer Instructions</a></li>
+<li><a class="reference internal" href="#d-reference-information">d. Reference Information</a></li>
+<li><a class="reference internal" href="#e-warehouser-s-lien">e. Warehouser&#8217;s Lien</a></li>
+<li><a class="reference internal" href="#f-limitation-of-liability">f. Limitation of Liability</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#industry-contract-terms">Industry Contract Terms</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="03_receiving.html"
+                        title="previous chapter">Receiving Procedures</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="05_shipping.html"
+                        title="next chapter">Shipping Procedures</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/04_receipts.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="warehouse-receipts">
+<span id="receipts"></span><h1>Warehouse Receipts<a class="headerlink" href="#warehouse-receipts" title="Permalink to this headline">¶</a></h1>
+<p>Warehouse Receipt documents should be printed, signed by the warehouse manager,
+and issued to the customer. Under the law a warehouser is not required to
+issue receipts, but courts have ruled that:</p>
+<blockquote>
+<div><em>&#8221;... a failure to issue or deliver such receipt constitutes negligence on
+the part of the warehouseman for which he may be held liable for any loss
+occasioned thereby to the depositor.&#8221;</em> <a class="footnote-reference" href="#id4" id="id1">[1]</a></div></blockquote>
+<p>Therefore, every warehouser needs to issue receipts at all times, and to be
+certain that these documents satisfy his legal responsibilities.</p>
+<div class="section" id="terms-required-by-the-u-c-c">
+<h2>Terms Required by the U.C.C.<a class="headerlink" href="#terms-required-by-the-u-c-c" title="Permalink to this headline">¶</a></h2>
+<p>The warehouser&#8217;s legal responsibilities are stated in the Uniform Commercial
+Code (U.C.C.) Section 7-202(2):</p>
+<blockquote>
+<div><p>Unless a warehouse receipt embodies within its written or printed terms
+each of the following, the warehouse is liable for damages caused by the
+omission to a person injured thereby:</p>
+<ol class="loweralpha simple">
+<li>the location of the warehouse where the goods are stored;</li>
+<li>the date of issue of the receipt;</li>
+<li>the consecutive number of the receipt;</li>
+<li>a statement whether the goods received will be delivered to the bearer,
+to a specified person, or to a specified person or his order;</li>
+<li>the rate of storage and handling charges, except that where goods are
+stored under a field warehousing arrangement a statement of that fact is
+sufficient on a non-negotiable receipt;</li>
+<li>a description of the goods or of the packages containing them;</li>
+<li>the signature of the warehouseman, which may be made by his authorized
+agent;</li>
+<li>if the receipt is issued for goods of which the warehouseman is the
+owner, either solely or jointly in common with others, the fact of such
+ownership; and</li>
+<li>a statement of the amount of advances made and of liabilities incurred
+for which the warehouseman claims a lien or security interest
+(Section 7-209). If the precise amount of such advances made or of such
+liabilities is, at the time of the issue of the receipt, unknown to the
+warehouseman or to his agent who issues it, a statement of the fact that
+advances have been made or liabilities incurred and the purpose thereof
+is sufficient. <a class="footnote-reference" href="#id5" id="id2">[2]</a></li>
+</ol>
+</div></blockquote>
+<p>So a warehouser is not required to issue receipts, and receipts do not have to
+contain particular terms, but failure to issue receipts including the preceding
+terms makes the warehouser laible in any disputes involving those omissions.</p>
+</div>
+<div class="section" id="warehouse-receipt-documents">
+<h2>Warehouse Receipt Documents<a class="headerlink" href="#warehouse-receipt-documents" title="Permalink to this headline">¶</a></h2>
+<p>Issuing Warehouse Receipts is a fundamental aspect of warehousing by which the
+warehouser protects his own interests and notifies the customer of the shared
+obligations for care of goods.</p>
+<p>In this context, the WARES program provides automated steps to issue receipt
+documents which meet legal requirements as stated previously. The document form
+used by WARES may be viewed here: <a class="reference internal" href="receipt.html#warehouse-receipt"><em>Non-Negotiable Warehouse Receipt (blank)</em></a>.</p>
+</div>
+<div class="section" id="u-c-c-required-elements">
+<h2>U.C.C. Required Elements<a class="headerlink" href="#u-c-c-required-elements" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-warehouse-buildings">
+<h3>a. Warehouse Buildings<a class="headerlink" href="#a-warehouse-buildings" title="Permalink to this headline">¶</a></h3>
+<p>The top line of the receipt states the operating name of the warehouse company,
+with the physical location of the warehouse storage building stated below that.</p>
+<img alt="_images/receipt-a-b-c.png" src="_images/receipt-a-b-c.png" />
+</div>
+<div class="section" id="b-consecutive-receipt-number">
+<h3>b. Consecutive Receipt Number<a class="headerlink" href="#b-consecutive-receipt-number" title="Permalink to this headline">¶</a></h3>
+<p>To guarantee that every receipt is actually issued, the warehouse manager should
+maintain a hand register of the consecutive numbers when signing receipts. A
+portion of a sample hand register of consecutive receipts is shown following:</p>
+<img alt="_images/receipt-register.png" src="_images/receipt-register.png" />
+<p>When using a receiving document to update inventory without issuing a receipt,
+the consumed numbers should be noted in this register as either balances posted
+into history, such as inventory starting balances (UNISSUED), or as transactions
+entered in error and then deleted (VOIDED). (Unissued and voided documents are
+maintained in the WARES database for reference.)</p>
+</div>
+<div class="section" id="c-receipt-issue-date">
+<h3>c. Receipt Issue Date<a class="headerlink" href="#c-receipt-issue-date" title="Permalink to this headline">¶</a></h3>
+<p>To the right of the warehouse building is the consecutive number of the receipt,
+with the date of receipt below. The receipt date is taken from the date and time
+that the receipt is completed and authenticated by warehouse personnel.</p>
+</div>
+<div class="section" id="d-delivery-orders">
+<h3>d. Delivery Orders<a class="headerlink" href="#d-delivery-orders" title="Permalink to this headline">¶</a></h3>
+<p>Where standard terms must be expressed, the language is pre-printed on the face
+of the warehouse receipt. This includes the agreed delivery terms for the
+warehouse, as required in U.C.C. item (d).</p>
+<img alt="_images/receipt-d.png" id="receipt-d" src="_images/receipt-d.png" />
+</div>
+<div class="section" id="e-storage-and-handling-rates">
+<h3>e. Storage and Handling Rates<a class="headerlink" href="#e-storage-and-handling-rates" title="Permalink to this headline">¶</a></h3>
+<p>Typically storage and handling rates do vary from customer to customer, and the
+rates may vary from product to product within a customer. Therefore rates are
+listed for each received product, as shown in the following figure:</p>
+<img alt="_images/receipt-e-f-i.png" id="receipt-e-f-i" src="_images/receipt-e-f-i.png" />
+<p>WARES uses code <strong>1R</strong> to represent <em>Receiving Storage</em> and code <strong>1H</strong> for
+<em>Receiving Handling</em>. This example shows industry recognized unit of measure
+codes <strong>CW</strong> for <em>Hundredweight</em> and <strong>RL</strong> for <em>roll</em> to complete the rate
+extension. (The warehouse may also charge minimum fees, or a storage fee may be
+prorated, in which case rates do not extend to the amount column.)</p>
+</div>
+<div class="section" id="f-description-of-goods">
+<h3>f. Description of Goods<a class="headerlink" href="#f-description-of-goods" title="Permalink to this headline">¶</a></h3>
+<p>The description of goods includes the textual name, identifiers and marks, and
+counts and weights.</p>
+</div>
+<div class="section" id="g-the-warehouser-s-signature">
+<h3>g. The Warehouser&#8217;s Signature<a class="headerlink" href="#g-the-warehouser-s-signature" title="Permalink to this headline">¶</a></h3>
+<p>The warehouse manager or his authorized agent should sign every warehouse
+receipt, and receipts should be recorded in the receipt register as they are
+issued.</p>
+<img alt="_images/receipt-g-h.png" id="receipt-g-h" src="_images/receipt-g-h.png" />
+</div>
+<div class="section" id="i-statement-of-liabilities">
+<h3>i. Statement of Liabilities<a class="headerlink" href="#i-statement-of-liabilities" title="Permalink to this headline">¶</a></h3>
+<p>Rates are known when the warehouse receipt is finalized, and so the extension
+of the rates and a total of the liabilities (charges due) is part of the
+receipt. The text in section (d) above also clarifies that the warehouse lien
+covers this receipt and any charges due from the customer on other accounts.</p>
+</div>
+</div>
+<div class="section" id="other-receipt-terms">
+<h2>Other Receipt Terms<a class="headerlink" href="#other-receipt-terms" title="Permalink to this headline">¶</a></h2>
+<p>Other parts of the law and court decisions based on it extend the warehouser&#8217;s
+responsibilities beyond the previously stated requirements. In general, a
+warehouser is expected to care for deposited goods using the actions of a
+reasonable person who is capable in his job, who is generally knowledgeable
+(about warehousing), knows the legal requirements, and is fair-minded. <a class="footnote-reference" href="#id6" id="id3">[3]</a></p>
+<p>In return, the warehouser may contract for certain rights. The receipt must
+include information relevant to these rights, so that the warehouser can
+receive these benefits.</p>
+<div class="section" id="a-received-condition">
+<h3>a. Received Condition<a class="headerlink" href="#a-received-condition" title="Permalink to this headline">¶</a></h3>
+<p>The warehouser is responsible for the quantity and condition of goods once
+received. Overages, shortages, and damage which exist when goods are received
+must be noted on the receipt, as shown by titles in the
+<a class="reference internal" href="#receipt-e-f-i"><em>Product Itemization</em></a>.</p>
+</div>
+<div class="section" id="b-storage-type-zone">
+<h3>b. Storage Type Zone<a class="headerlink" href="#b-storage-type-zone" title="Permalink to this headline">¶</a></h3>
+<p>Warehouse locations should be zoned to match the goods in storage, and these
+zones must be specific enough to prevent mistakes. For example, it is not enough
+to use zones COOL and FROZEN in refrigeration. If frozen goods include both ice
+cream and dog food then ice cream can be in a general freezer. But anyone
+operating a freezer should know that dog food requires a separate PETFOOD room
+and zone.</p>
+</div>
+<div class="section" id="c-customer-instructions">
+<h3>c. Customer Instructions<a class="headerlink" href="#c-customer-instructions" title="Permalink to this headline">¶</a></h3>
+<p>A warehouser may know to separate ice cream from dog food, but many products
+have storage and handling requirements which are too esoteric to be generally
+known. The customer needs to supply these instructions with each shipment, and
+the specific cautions should be acknowledged on the receipt, shown in <strong>SPECIAL
+INSTRUCTIONS</strong> below:</p>
+<img alt="_images/receipt-c1.png" src="_images/receipt-c1.png" />
+</div>
+<div class="section" id="d-reference-information">
+<h3>d. Reference Information<a class="headerlink" href="#d-reference-information" title="Permalink to this headline">¶</a></h3>
+<p>Cross-reference information allows the customer to correlate a warehouse receipt
+with his own records, his supplier, and the carrier, as shown above.</p>
+</div>
+<div class="section" id="e-warehouser-s-lien">
+<h3>e. Warehouser&#8217;s Lien<a class="headerlink" href="#e-warehouser-s-lien" title="Permalink to this headline">¶</a></h3>
+<p>A warehouse may impose a lien for services, so the warehouse may demand payment
+before releasing goods from bailment. The <a class="reference internal" href="#receipt-d"><em>Warehouser&#8217;s Lien</em></a>
+is effective only if the rates for calculation and the
+<a class="reference internal" href="#receipt-g-h"><em>Amount Due</em></a> are displayed on the receipt.</p>
+</div>
+<div class="section" id="f-limitation-of-liability">
+<h3>f. Limitation of Liability<a class="headerlink" href="#f-limitation-of-liability" title="Permalink to this headline">¶</a></h3>
+<p>The receipt establishes a limitation of warehouse liability for negligence,
+which is taken from the warehouse setup or derived from a declaration of value
+on the account setup. This <a class="reference internal" href="#receipt-d"><em>Liability Limitation</em></a> is printed in
+red in the example receipt.</p>
+<p>View the full warehouse receipt of this example here: <a class="reference internal" href="receipt-example.html#receipt-example"><em>Example Non-Negotiable Warehouse Receipt</em></a>.</p>
+</div>
+</div>
+<div class="section" id="industry-contract-terms">
+<h2>Industry Contract Terms<a class="headerlink" href="#industry-contract-terms" title="Permalink to this headline">¶</a></h2>
+<p>There are several trade associations for public warehousing, with principal ones
+being the <strong>International Association of Refrigerated Warehouses</strong> (IARW) and
+the <strong>International Warehousing and Logistics Association</strong> (IWLA). These groups
+have promulgated standard contract terms for members to use. Familiarity with
+these terms is expected of corporate logistics personnel, so warehousers who
+adopt these standard terms can conduct business without recourse to expensive,
+and frequently faulty, legal representation.</p>
+<p>Versions of these Standard Terms are posted here for reference:</p>
+<p><a class="reference external" href="../resources/form_terms-iarw.html#terms-iarw" title="(in WARES Resources v1.0)"><em>INTERNATIONAL REFRIGERATED WAREHOUSE CONTRACT TERMS AND CONDITIONS</em></a></p>
+<p><a class="reference external" href="../resources/form_terms-iwla.html#terms-iwla" title="(in WARES Resources v1.0)"><em>STANDARD CONTRACT TERMS AND CONDITIONS FOR MERCHANDISE WAREHOUSEMEN</em></a></p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last"><strong>Disclaimer</strong>: AAltsys Technology displays these terms as example documents
+commonly used in public commerce. AAltsys is not qualified to judge the
+accuracy, usability, or legal virtue of these terms (and we are certainly not
+responsible for the sexist nature of their language). The presentation of
+these terms does not constitute permission to use the same without
+authorization from the sponsoring organizations.</p>
+</div>
+<hr class="docutils" />
+<p class="rubric">Footnotes</p>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>William H. Towle, <em>Warehousing Law</em> (Oak Park, IL: Cawley Press, Ltd.,
+1988), 5.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id5" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>ibid, 6.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id6" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td><a class="reference external" href="https://en.wikipedia.org/wiki/Reasonable_person">https://en.wikipedia.org/wiki/Reasonable_person</a>.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="05_shipping.html" title="Shipping Procedures"
+             >next</a></li>
+        <li class="right" >
+          <a href="03_receiving.html" title="Receiving Procedures"
+             >previous</a> |</li>
+        <li><a href="index.html">WARES Documents 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Gerald Lovel.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b1.
+    </div>
+  </body>
+</html>
