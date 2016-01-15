@@ -56,30 +56,30 @@ interferences.
 
 For this example, the first building, building **1**, might be described as:
 
-+------+----------+---------+----------+
-| AREA | Feature  | Code    | Code     |
-|      |          | Start   | End      |
-+======+==========+=========+==========+
-|      | DOOR     | DR-A    |          |
-|      +----------+---------+----------+
-| A    | STAGING  | A-ST-1  | A-ST-2   |
-|      +----------+---------+----------+
-|      | BAYS     | A-01    | A-16     |
-+------+----------+---------+----------+
-|      | DOOR     | DR-B    |          |
-|      +----------+---------+----------+
-| B    | STAGING  | B-ST-1  | B-ST-2   |
-|      +----------+---------+----------+
-|      | BAYS     | B-01    | B-16     |
-+------+----------+---------+----------+
-| ...  | ...      | ...     | ...      |
-+------+----------+---------+----------+
-|      | DOOR     | DR-L    |          |
-|      +----------+---------+----------+
-| L    | STAGING  | L-ST-1  | L-ST-2   |
-|      +----------+---------+----------+
-|      | BAYS     | L-01    | L-16     |
-+------+----------+---------+----------+
++------+----------+-----------+-----------+
+| AREA | Feature  | Code      | Code      |
+|      |          | Start     | End       |
++======+==========+===========+===========+
+|      | DOOR     | DOOR-A    |           |
+|      +----------+-----------+-----------+
+| A    | STAGING  | STAGE-A-1 | STAGE-A-2 |
+|      +----------+-----------+-----------+
+|      | BAYS     | A-01      | A-16      |
++------+----------+-----------+-----------+
+|      | DOOR     | DOOR-B    |           |
+|      +----------+-----------+-----------+
+| B    | STAGING  | STAGE-B-1 | STAGE-B-2 |
+|      +----------+-----------+-----------+
+|      | BAYS     | B-01      | B-16      |
++------+----------+-----------+-----------+
+| ...  | ...      | ...       | ...       |
++------+----------+-----------+-----------+
+|      | DOOR     | DOOR-L    |           |
+|      +----------+-----------+-----------+
+| L    | STAGING  | STAGE-L-1 | STAGE-L-2 |
+|      +----------+-----------+-----------+
+|      | BAYS     | L-01      | L-16      |
++------+----------+-----------+-----------+
 
 Setup Location Codes
 =============================
@@ -92,39 +92,36 @@ after the warehouse layout is determined, Location codes for a building can be
 setup on the Location Setup page. Location codes corresponding to the building 
 shown above might be entered as follows:
 
-+----------+---------+------+----------+
-| Feature  || Code   |      || Code    |
-|          || Start  |      || End     |
-+==========+=========+======+==========+
-| DOORS    | DR-A    | thru | DR-L     |
-+----------+---------+------+----------+
-+----------+---------+------+----------+
-| AISLE A  | A-01    | thru | A-16     |
-+----------+---------+------+----------+
-| STAGING  | A-ST-1  | thru | A-ST-2   |
-+----------+---------+------+----------+
-+----------+---------+------+----------+
-| AISLE B  | B-01    | thru | B-16     |
-+----------+---------+------+----------+
-| STAGING  | B-ST-1  | thru | B-ST-2   |
-+----------+---------+------+----------+
-| ...      | ...     | ...  | ...      |
-+----------+---------+------+----------+
-| AISLE L  | L-01    | thru | L-16     |
-+----------+---------+------+----------+
-| STAGING  | L-ST-1  | thru | L-ST-2   |
-+----------+---------+------+----------+
++----------+-----------+------+-----------+
+| Feature  || Code     |      || Code     |
+|          || Start    |      || End      |
++==========+===========+======+===========+
+| DOORS    | DOOR-A    | thru | DOOR-L    |
++----------+-----------+------+-----------+
++----------+-----------+------+-----------+
+| STAGING  | STAGE-A-1 | thru | STAGE-L-2 |
++----------+-----------+------+-----------+
++----------+-----------+------+-----------+
+| AISLE A  | A-01      | thru | A-16      |
++----------+-----------+------+-----------+
+| AISLE B  | B-01      | thru | B-16      |
++----------+-----------+------+-----------+
+| ...      | ...       | ...  | ...       |
++----------+-----------+------+-----------+
+| AISLE L  | L-01      | thru | L-16      |
++----------+-----------+------+-----------+
 
 For this example, the sidebar presents possible location code definitions for 
-all the doors and for the locations adjacent to aisle **A**. Additional entries 
-would be required for staging and aisles **B** through **L**.
+all the doors and the adjacent staging areas right and left of the doors.
+Additional entries describe the storage bays on the right and left of aisles 
+**A** through **L**.
 
-Staging used two levels of ranges, configured to match the area letter **A**. 
-WARES locator provides up to four ranges which may use either letters or 
-numbers. For example, a rack area might have Area = **RA**, First Range **1** 
-thru **8** (eight rack rows), second range **1** through **12** (twelve slots), 
-and third range **A** through **D** (four shelf levels). This rack area would 
-hold 384 pallets.
+Staging used two levels of ranges, configured to match the area letters **A**
+through **L**. WARES locator provides up to four ranges which may use either 
+letters or numbers. For example, a rack area might have Area = **RA**, First 
+Range **1** thru **8** (eight rack rows), second range **1** through **12** 
+(twelve slots), and third range **A** through **D** (four shelf levels). This 
+rack area would hold 384 pallets.
 
 Location Setup Options
 =============================
