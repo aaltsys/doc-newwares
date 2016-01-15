@@ -32,10 +32,11 @@ which combine to produce the **Liability Limit** text.
 
 Section 7-204 of the Uniform Commercial Code sets forth the warehouser's 
 standard of care, and allows for a limit on the amount of damages due to 
-negligence for which he may be liable. This limitation should be expressed per 
-article, per item, or per weight. WARES prints a **Liability Limit** statement 
-on warehouse receipts. _[1] Either the statment shown here is printed, or the 
-declared value of the customer account will be used.
+negligence for which he may be liable. According to the U.C.C., this limitation 
+should be expressed per article, per item, or per weight. WARES prints a 
+**Liability Limit** statement on warehouse receipts using the declared value 
+derived from the customer account, if entered, or defaulting to the warehouse 
+company limitation otherwise (see :ref:`account-storage`).
 
 Company Addresses
 =============================

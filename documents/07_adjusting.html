@@ -42,6 +42,16 @@
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Adjusting Procedures</a><ul>
+<li><a class="reference internal" href="#adjustment-heading-entries">Adjustment Heading Entries</a></li>
+<li><a class="reference internal" href="#adjustment-messages">Adjustment Messages</a></li>
+<li><a class="reference internal" href="#ownership-transfers">Ownership Transfers</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="05_shipping.html"
                         title="previous chapter">Shipping Procedures</a></p>
@@ -78,6 +88,88 @@
             
   <div class="section" id="adjusting-procedures">
 <span id="adjusting"></span><h1>Adjusting Procedures<a class="headerlink" href="#adjusting-procedures" title="Permalink to this headline">¶</a></h1>
+<p>Use adjustments to reconcile inventory in the information system with actual
+stock on the warehouse floor.</p>
+<p>Adjustments correct mistakes such as product misidentification or quantities
+which were extended from erroneous lot or unit factors. Also adjustments may be
+required to record customer orders such as product detention or release from
+detention, disposal of damaged goods, and ownership transfers.</p>
+<div class="section" id="adjustment-heading-entries">
+<h2>Adjustment Heading Entries<a class="headerlink" href="#adjustment-heading-entries" title="Permalink to this headline">¶</a></h2>
+<p>Adjustment heading information is reduced since there is no transportation or
+additional quantity information. Addresses are reduced to the account and the
+warehouse building, as shown in the image at right.</p>
+</div>
+<div class="section" id="adjustment-messages">
+<h2>Adjustment Messages<a class="headerlink" href="#adjustment-messages" title="Permalink to this headline">¶</a></h2>
+<p>WARES requires a note to explain the reason for the adjustment. Several coded
+messages are available as listed in the following table. If none of these
+messages cover the adjustment, choose the default code <strong>ADJ</strong> and enter an
+appropriate note.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="7%" />
+<col width="23%" />
+<col width="70%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>ARP</td>
+<td>ADJUST PRODUCT</td>
+<td>Correct product received under wrong identifier</td>
+</tr>
+<tr class="row-even"><td>ARL</td>
+<td>ADJUST LOT</td>
+<td>Correct lot received with wrong lot control</td>
+</tr>
+<tr class="row-odd"><td>ARD</td>
+<td>ADJUST DESC</td>
+<td>Correct lot received with incorrect description</td>
+</tr>
+<tr class="row-even"><td>ARF</td>
+<td>ADJUST FACTOR</td>
+<td>Correct product received with incorrect factor</td>
+</tr>
+<tr class="row-odd"><td>ARQ</td>
+<td>ADJUST QUANTITY</td>
+<td>Correct product received with wrong quantity</td>
+</tr>
+<tr class="row-even"><td>ARU</td>
+<td>ADJUST UNIT</td>
+<td>Correct unit received with wrong identifier</td>
+</tr>
+<tr class="row-odd"><td>ARC</td>
+<td>ADJUST CONDITION</td>
+<td>Add damage or condition to received lot</td>
+</tr>
+<tr class="row-even"><td>ARX</td>
+<td>ADJUST CLEAR</td>
+<td>Clear damage or condition from received lot</td>
+</tr>
+<tr class="row-odd"><td>ADJ</td>
+<td>ADJUST GENERAL</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>Generally adjustment messages are applied as adjustment notes.</p>
+</div>
+<div class="section" id="ownership-transfers">
+<span id="owner-transfer"></span><h2>Ownership Transfers<a class="headerlink" href="#ownership-transfers" title="Permalink to this headline">¶</a></h2>
+<p>Ownership transfers can be entered in two ways: either (1) withdraw goods using
+a shipment, then use a receipt to add goods to a different account, or (2) use
+an adjustment to withdraw goods from one account and add goods to another
+account.</p>
+<p>The first method, using shipments and receipts, is problematic because of
+automatic receiving charge calculations, lot anniversary dates, and consistency
+issues caused by using two documents.</p>
+<p>Method (2) requires understanding special rules of Line Detail entries on
+adjustments. The line detail views allow entering an <strong>Account</strong> on adjustments
+only, and the subsequent quantity of the line must be negative when the account
+does not match the document header. For positive-quantity lines, the <strong>Account</strong>
+is always inherited from the document header and cannot be changed.</p>
+<p>The receiving account must own product records for the goods before a transfer
+can be entered in any case, otherwise an error will be generated.</p>
+</div>
 </div>
 
 

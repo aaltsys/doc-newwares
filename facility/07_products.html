@@ -190,27 +190,22 @@ materials.</li>
 <h2>Product Classification<a class="headerlink" href="#product-classification" title="Permalink to this headline">¶</a></h2>
 <p>Products are classified according to WARES features or the conventions of
 warehousing and logistics.</p>
-<ul class="simple">
-<li><strong>Tracking</strong> and <strong>Lot Control</strong> define the way inventory is tracked and
-reported within <strong class="program">WARES</strong>.</li>
-<li><strong>Rate</strong> identifies the basis for warehouse storage and handling services
-charges calculated within <strong class="program">WARES</strong>.</li>
-<li><strong>Freight Class</strong> specifies the transportation classification for a
-product in standard rating systems such as TL or NMFC.</li>
-</ul>
 <div class="section" id="id1">
 <h3>Basic Entries<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <ul>
-<li><p class="first"><strong>Tracking Code</strong> Determines whether inventory balances are presented by
-product only (<strong>P</strong>), or separated into lots (<strong>C</strong>), or tracked by
-individual handling units (<strong>U</strong>).</p>
-<p>Product inventory which is not broken down into lots is referred to as
-fungible. Fungible bulk products (unit UOM = BN) track inventory by location;
-non-fungible inventory is tracked by location and lot.</p>
+<li><p class="first"><strong>Lot Control Code</strong> specifies which piece of information may be required
+to use for a lot number. Other numbers tied to a lot or shipment should be
+included in receiving descriptions, or tracked with individual units. Once a
+<strong>Lot Control Code</strong> is selected, lot control numbers will be required on
+inventory transactions.</p>
+<p>Products are considered fungible when <strong>Lot Control Code</strong> is left blank, and
+<strong class="program">WARES</strong> will not maintain balances on individual lots of a fungible
+product. Control numbers will not be required on entry and inventory
+balance reporting will be summarized at the product level only.</p>
 </li>
-<li><p class="first"><strong>Lot Control Code</strong> specifies which piece of information to use for a lot
-number. Other numbers tied to a lot or shipment should be included in
-receiving descriptions, or tracked with individual units.</p>
+<li><p class="first"><strong>Track Units</strong> Determines whether or not individual unit numbers will be
+required. Unit identifiers may be assigned to Individual odd units even if
+<strong>Track Units</strong> has not been required.</p>
 </li>
 <li><p class="first"><strong>Rate Group</strong> identifies a set of rate records used in calculating the
 storage and handling fees for a group of products.</p>

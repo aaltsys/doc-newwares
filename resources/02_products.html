@@ -181,7 +181,7 @@ including associated billing rates and product declared value</li>
 <td>B</td>
 <td>&nbsp;</td>
 <td>(X,null)</td>
-<td>&nbsp;</td>
+<td>null</td>
 <td>L1</td>
 <td><a class="footnote-reference" href="#id28" id="id3">[1]</a></td>
 </tr>
@@ -219,12 +219,12 @@ including associated billing rates and product declared value</li>
 </tr>
 <tr class="row-odd"><td>O</td>
 <td>S</td>
-<td>TRACKCODE</td>
-<td>LC</td>
-<td>U</td>
-<td><a class="reference external" href="../codes/P_track.html#track-list" title="(in WARES Codes v1.0)"><em>Tracking Codes</em></a></td>
-<td>C</td>
-<td>L4</td>
+<td>TRACKUNITS</td>
+<td>B</td>
+<td>&nbsp;</td>
+<td>(X,null)</td>
+<td>null</td>
+<td>L1</td>
 <td><a class="footnote-reference" href="#id33" id="id5">[6]</a></td>
 </tr>
 <tr class="row-even"><td>O</td>
@@ -233,7 +233,7 @@ including associated billing rates and product declared value</li>
 <td>LC</td>
 <td>U</td>
 <td><a class="reference external" href="../codes/P_control.html#control-list" title="(in WARES Codes v1.0)"><em>Lot Control Codes</em></a></td>
-<td>NA</td>
+<td>null</td>
 <td>L4</td>
 <td><a class="footnote-reference" href="#id34" id="id6">[7]</a></td>
 </tr>
@@ -272,7 +272,7 @@ including associated billing rates and product declared value</li>
 <td>VALUEPER</td>
 <td>LC</td>
 <td>U</td>
-<td><a class="reference external" href="../codes/S_per.html#per-list" title="(in WARES Codes v1.0)"><em>Rating and Valuation Per Unit</em></a></td>
+<td><a class="reference external" href="../codes/S_per.html#per-list" title="(in WARES Codes v1.0)"><em>Rating and Value Per Unit</em></a></td>
 <td>&nbsp;</td>
 <td>L4</td>
 <td><a class="footnote-reference" href="#id29" id="id9">[2]</a></td>
@@ -292,7 +292,7 @@ including associated billing rates and product declared value</li>
 <td>COSTPER</td>
 <td>LC</td>
 <td>U</td>
-<td><a class="reference external" href="../codes/S_per.html#per-list" title="(in WARES Codes v1.0)"><em>Rating and Valuation Per Unit</em></a></td>
+<td><a class="reference external" href="../codes/S_per.html#per-list" title="(in WARES Codes v1.0)"><em>Rating and Value Per Unit</em></a></td>
 <td>&nbsp;</td>
 <td>L4</td>
 <td><a class="footnote-reference" href="#id29" id="id11">[2]</a></td>
@@ -634,20 +634,19 @@ is required, and INNERCOUNT must be greater than 1.</td></tr>
 <table class="docutils footnote" frame="void" id="id33" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id5">[6]</a></td><td>TRACKCODE determines the level of inventory tracking information required
-to post transaction lines to STATUS=2 and above. Options are:
-* <strong>P</strong> Lot control is ignored, all product is fungible.
-* <strong>C</strong> Requires control numbers, all product within a lot is fungible.
-* <strong>U</strong> Storage unit numbers are required for tracking.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id5">[6]</a></td><td>When TRACKUNITS is set, unit identifiers will be required on the
+product&#8217;s inventory. Otherwise unit numbers may be entered optionally to
+separate out odd units such as overruns and underruns.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="id34" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id6">[7]</a></td><td>When CONTROLCODE is entered, it becomes a mandatory value on lots
-associated with this product. Control codes may determine default values
-for lot control, such as rotation date or warehouse lot sequences.
-CONTROLCODE cannot be set if TRACKCODE = &#8220;P&#8221;.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id6">[7]</a></td><td>When CONTROLCODE is entered, it makes lot control numbers mandatory
+entries to create lots associated with this product. When CONTROLCODE is
+null, products are treated as fungible and lot control numbers are
+ignored. Control codes may determine default values for lot control,
+such as rotation date or warehouse lot sequences.</td></tr>
 </tbody>
 </table>
 <p><strong>LEGEND:</strong></p>

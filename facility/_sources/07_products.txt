@@ -96,26 +96,23 @@ Product Classification
 Products are classified according to WARES features or the conventions of 
 warehousing and logistics.
 
-*  **Tracking** and **Lot Control** define the way inventory is tracked and 
-   reported within :program:`WARES`.
-*  **Rate** identifies the basis for warehouse storage and handling services 
-   charges calculated within :program:`WARES`.
-*  **Freight Class** specifies the transportation classification for a 
-   product in standard rating systems such as TL or NMFC.
-
 Basic Entries
 -----------------------------
 
-*  **Tracking Code** Determines whether inventory balances are presented by
-   product only (**P**), or separated into lots (**C**), or tracked by
-   individual handling units (**U**). 
 
-   Product inventory which is not broken down into lots is referred to as 
-   fungible. Fungible bulk products (unit UOM = BN) track inventory by location;
-   non-fungible inventory is tracked by location and lot.
-*  **Lot Control Code** specifies which piece of information to use for a lot 
-   number. Other numbers tied to a lot or shipment should be included in 
-   receiving descriptions, or tracked with individual units.
+*  **Lot Control Code** specifies which piece of information may be required 
+   to use for a lot number. Other numbers tied to a lot or shipment should be 
+   included in receiving descriptions, or tracked with individual units. Once a
+   **Lot Control Code** is selected, lot control numbers will be required on 
+   inventory transactions.
+
+   Products are considered fungible when **Lot Control Code** is left blank, and 
+   :program:`WARES` will not maintain balances on individual lots of a fungible 
+   product. Control numbers will not be required on entry and inventory 
+   balance reporting will be summarized at the product level only. 
+*  **Track Units** Determines whether or not individual unit numbers will be 
+   required. Unit identifiers may be assigned to Individual odd units even if 
+   **Track Units** has not been required.
 *  **Rate Group** identifies a set of rate records used in calculating the 
    storage and handling fees for a group of products.
 *  **Freight Class** specifies the classification system and transportation 

@@ -140,9 +140,9 @@ interferences.</p>
 <p>For this example, the first building, building <strong>1</strong>, might be described as:</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="17%" />
-<col width="29%" />
+<col width="16%" />
 <col width="26%" />
+<col width="29%" />
 <col width="29%" />
 </colgroup>
 <thead valign="bottom">
@@ -157,12 +157,12 @@ End</th>
 <tbody valign="top">
 <tr class="row-even"><td rowspan="3">A</td>
 <td>DOOR</td>
-<td>DR-A</td>
+<td>DOOR-A</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>STAGING</td>
-<td>A-ST-1</td>
-<td>A-ST-2</td>
+<td>STAGE-A-1</td>
+<td>STAGE-A-2</td>
 </tr>
 <tr class="row-even"><td>BAYS</td>
 <td>A-01</td>
@@ -170,12 +170,12 @@ End</th>
 </tr>
 <tr class="row-odd"><td rowspan="3">B</td>
 <td>DOOR</td>
-<td>DR-B</td>
+<td>DOOR-B</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>STAGING</td>
-<td>B-ST-1</td>
-<td>B-ST-2</td>
+<td>STAGE-B-1</td>
+<td>STAGE-B-2</td>
 </tr>
 <tr class="row-odd"><td>BAYS</td>
 <td>B-01</td>
@@ -188,12 +188,12 @@ End</th>
 </tr>
 <tr class="row-odd"><td rowspan="3">L</td>
 <td>DOOR</td>
-<td>DR-L</td>
+<td>DOOR-L</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>STAGING</td>
-<td>L-ST-1</td>
-<td>L-ST-2</td>
+<td>STAGE-L-1</td>
+<td>STAGE-L-2</td>
 </tr>
 <tr class="row-odd"><td>BAYS</td>
 <td>L-01</td>
@@ -213,9 +213,9 @@ setup on the Location Setup page. Location codes corresponding to the building
 shown above might be entered as follows:</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="29%" />
 <col width="26%" />
-<col width="17%" />
+<col width="29%" />
+<col width="16%" />
 <col width="29%" />
 </colgroup>
 <thead valign="bottom">
@@ -235,9 +235,19 @@ shown above might be entered as follows:</p>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>DOORS</td>
-<td>DR-A</td>
+<td>DOOR-A</td>
 <td>thru</td>
-<td>DR-L</td>
+<td>DOOR-L</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>STAGING</td>
+<td>STAGE-A-1</td>
+<td>thru</td>
+<td>STAGE-L-2</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -249,52 +259,33 @@ shown above might be entered as follows:</p>
 <td>thru</td>
 <td>A-16</td>
 </tr>
-<tr class="row-odd"><td>STAGING</td>
-<td>A-ST-1</td>
-<td>thru</td>
-<td>A-ST-2</td>
-</tr>
-<tr class="row-even"><td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
 <tr class="row-odd"><td>AISLE B</td>
 <td>B-01</td>
 <td>thru</td>
 <td>B-16</td>
 </tr>
-<tr class="row-even"><td>STAGING</td>
-<td>B-ST-1</td>
-<td>thru</td>
-<td>B-ST-2</td>
-</tr>
-<tr class="row-odd"><td>...</td>
+<tr class="row-even"><td>...</td>
 <td>...</td>
 <td>...</td>
 <td>...</td>
 </tr>
-<tr class="row-even"><td>AISLE L</td>
+<tr class="row-odd"><td>AISLE L</td>
 <td>L-01</td>
 <td>thru</td>
 <td>L-16</td>
 </tr>
-<tr class="row-odd"><td>STAGING</td>
-<td>L-ST-1</td>
-<td>thru</td>
-<td>L-ST-2</td>
-</tr>
 </tbody>
 </table>
 <p>For this example, the sidebar presents possible location code definitions for
-all the doors and for the locations adjacent to aisle <strong>A</strong>. Additional entries
-would be required for staging and aisles <strong>B</strong> through <strong>L</strong>.</p>
-<p>Staging used two levels of ranges, configured to match the area letter <strong>A</strong>.
-WARES locator provides up to four ranges which may use either letters or
-numbers. For example, a rack area might have Area = <strong>RA</strong>, First Range <strong>1</strong>
-thru <strong>8</strong> (eight rack rows), second range <strong>1</strong> through <strong>12</strong> (twelve slots),
-and third range <strong>A</strong> through <strong>D</strong> (four shelf levels). This rack area would
-hold 384 pallets.</p>
+all the doors and the adjacent staging areas right and left of the doors.
+Additional entries describe the storage bays on the right and left of aisles
+<strong>A</strong> through <strong>L</strong>.</p>
+<p>Staging used two levels of ranges, configured to match the area letters <strong>A</strong>
+through <strong>L</strong>. WARES locator provides up to four ranges which may use either
+letters or numbers. For example, a rack area might have Area = <strong>RA</strong>, First
+Range <strong>1</strong> thru <strong>8</strong> (eight rack rows), second range <strong>1</strong> through <strong>12</strong>
+(twelve slots), and third range <strong>A</strong> through <strong>D</strong> (four shelf levels). This
+rack area would hold 384 pallets.</p>
 </div>
 <div class="section" id="location-setup-options">
 <h2>Location Setup Options<a class="headerlink" href="#location-setup-options" title="Permalink to this headline">¶</a></h2>

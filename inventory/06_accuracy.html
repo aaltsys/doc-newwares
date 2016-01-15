@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Inventory Accuracy &mdash; WARES Inventory 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="WARES Inventory 1.0 documentation" href="index.html" />
+    <link rel="next" title="Viewing Inventory" href="07_viewing.html" />
+    <link rel="prev" title="Locator Views" href="05_locator.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="07_viewing.html" title="Viewing Inventory"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="05_locator.html" title="Locator Views"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">WARES Inventory 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Inventory Accuracy</a><ul>
+<li><a class="reference internal" href="#inventory-identity-errors">Inventory Identity Errors</a></li>
+<li><a class="reference internal" href="#inventory-location-errors">Inventory Location Errors</a></li>
+<li><a class="reference internal" href="#inventory-quantity-errors">Inventory Quantity Errors</a></li>
+<li><a class="reference internal" href="#inventory-reconciliation">Inventory Reconciliation</a></li>
+<li><a class="reference internal" href="#cycle-counting">Cycle Counting</a></li>
+<li><a class="reference internal" href="#physical-inventory-counts">Physical Inventory Counts</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="05_locator.html"
+                        title="previous chapter">Locator Views</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="07_viewing.html"
+                        title="next chapter">Viewing Inventory</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/06_accuracy.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="inventory-accuracy">
+<span id="accuracy"></span><h1>Inventory Accuracy<a class="headerlink" href="#inventory-accuracy" title="Permalink to this headline">¶</a></h1>
+<p>Inventory counts in the information system should agree with actual stock on the
+warehouse floor. Warehouses with picking activity are likely to encounter
+discrepancies, and so procedures must exist to identify errors, to quantify
+accuracy, and to correct mistakes.</p>
+<p>The following topics survey the types of inventory errors in warehousing, and
+the general methods for correcting them in WARES.</p>
+<div class="section" id="inventory-identity-errors">
+<span id="id-errors"></span><h2>Inventory Identity Errors<a class="headerlink" href="#inventory-identity-errors" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes the product in a location is not the product showing in inventory as
+having been received and located there. If the product was misidentified on
+receipt, the customer might catch the error when reviewing warehouse receipts,
+or more likely, when reconciling inventory with the warehouse. If the warehouse
+finds the misidentification when picking or when counting, then the warehouse
+should pull the files for the original receipt and compare data entries to the
+inbound packing slip. Then enter an adjustment to withdraw the incorrect product
+and add the correct one.</p>
+</div>
+<div class="section" id="inventory-location-errors">
+<span id="loc-errors"></span><h2>Inventory Location Errors<a class="headerlink" href="#inventory-location-errors" title="Permalink to this headline">¶</a></h2>
+<p>A location may show double occupancy, or a location may be empty when a product
+is expected, and so the product&#8217;s actual location is unknown.</p>
+<p>Location errors are discovered when cycle counting or when picking. Search the
+warehouse backwards through the location history, looking left, right, and
+across the aisles, to find the missing unit.</p>
+<p>A location transfer corrects a mislocation. Using an unbalanced adjustment to
+remove a mislocated unit means that now the inventory will be wrong by one unit.
+If a unit is not found, move it to location UNKNOWN.</p>
+</div>
+<div class="section" id="inventory-quantity-errors">
+<span id="quan-errors"></span><h2>Inventory Quantity Errors<a class="headerlink" href="#inventory-quantity-errors" title="Permalink to this headline">¶</a></h2>
+<p>For quantity errors on receipts, the document hash totals will not match the
+inbound packing slip, or the charges on the warehouse receipt may be obviously
+wrong. Consider the effect on billing for any wrong receipt, and notify the
+customer of the error. Otherwise the warehouse is liable for missing inventory.</p>
+<p>Shipments may produce quantity errors when the wrong unit is shipped, or when
+the wrong measure is picked: a content carton is shipped instead of an inner,
+for example.</p>
+<p>Correct inventory quantity errors with adjustments to products, lots, or units.</p>
+</div>
+<div class="section" id="inventory-reconciliation">
+<h2>Inventory Reconciliation<a class="headerlink" href="#inventory-reconciliation" title="Permalink to this headline">¶</a></h2>
+<p>The warehouse provides customers with periodic inventory reports, along with
+lists of the transactions inclucded on the warehouse books. Customers then
+reconcile their inventory counts to the warehouse.</p>
+<p>The warehouse posts receipts when goods arrive, are unloaded, counted, and put
+away. Similarly shipments are posted after goods are loaded and signed for by
+the carrier. By contrast, the typical procedure in customer accounting is to
+post receipts when invoiced upon shipment, and to post shipments when orders are
+transmitted to the warehouse.</p>
+<p>There are timing issues in posting inventory between the warehouse and the
+customer, SO Warehouse inventory should not be adjusted to agree with the
+customer&#8217;s books unless there is good reason to believe that a warehouse error
+exists.</p>
+</div>
+<div class="section" id="cycle-counting">
+<span id="cycle-count"></span><h2>Cycle Counting<a class="headerlink" href="#cycle-counting" title="Permalink to this headline">¶</a></h2>
+<p>In cycle counting, a  statistical measure of inventory accuracy is derived from
+frequent location accuracy checks performed on random selections of locations.
+Errors are corrected by adjustments, although this may be problematic, as noted
+in <a class="reference internal" href="#loc-errors"><em>Inventory Location Errors</em></a>. Effective cycle counting requires unit tracking.</p>
+<p>As an alternative to location cycle counts, a warehouse customer may request
+counts of randomly selected products, thereby giving the customer a measure of
+warehouse inventory accuracy. With this procedure, the warehouse reports
+mislocations and corrects them with relocations, not adjustments.</p>
+</div>
+<div class="section" id="physical-inventory-counts">
+<span id="full-count"></span><h2>Physical Inventory Counts<a class="headerlink" href="#physical-inventory-counts" title="Permalink to this headline">¶</a></h2>
+<p>Annually or at agreed times, the warehouse may perform a complete location
+count of a customer&#8217;s physical inventory. After taking care of any location
+errors, adjustments are required to reconcile the warehouse books to the
+physical inventory counts. Note that unit tracking allows location errors to be
+identified separately from quantity errors.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="07_viewing.html" title="Viewing Inventory"
+             >next</a></li>
+        <li class="right" >
+          <a href="05_locator.html" title="Locator Views"
+             >previous</a> |</li>
+        <li><a href="index.html">WARES Inventory 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Gerald Lovel.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b1.
+    </div>
+  </body>
+</html>

@@ -32,7 +32,7 @@ Product Masterfile Columns
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | P | MA| PRODUCT        | AN  | U | paired: PRODUCTCODE  |        | L20 | [2]_|
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| O | S | HAZARDOUS      | B   |   | (X,null)             |        | L1  | [1]_|
+| O | S | HAZARDOUS      | B   |   | (X,null)             | null   | L1  | [1]_|
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | O | S | DESCRIPTION    | T   |   |                      |        | T40 |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
@@ -42,9 +42,9 @@ Product Masterfile Columns
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | -- -- -- -- -- -- -- -- -- -- -- -- Category Entries                         |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| O | S | TRACKCODE      | LC  | U | :ref:`track-list`    | C      | L4  | [6]_|
+| O | S | TRACKUNITS     | B   |   | (X,null)             | null   | L1  | [6]_|
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| O | S | CONTROLCODE    | LC  | U | :ref:`control-list`  | NA     | L4  | [7]_|
+| O | S | CONTROLCODE    | LC  | U | :ref:`control-list`  | null   | L4  | [7]_|
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | O | S | RATE           | A   | U | VT=RATES             |        | L8  |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
@@ -134,15 +134,14 @@ Product Masterfile Columns
 .. [5] Entries for CONTENTNET, CONTENTTARE, and CONTENTSIZE set default values:
        * UNITNET = CONTENTCOUNT * ( CONTENTNET + CONTENTTARE ) and
        * UNITSIZE = CONTENTCOUNT * CONTENTSIZE.
-.. [6] TRACKCODE determines the level of inventory tracking information required
-       to post transaction lines to STATUS=2 and above. Options are:
-       * **P** Lot control is ignored, all product is fungible.
-       * **C** Requires control numbers, all product within a lot is fungible.
-       * **U** Storage unit numbers are required for tracking.
-.. [7] When CONTROLCODE is entered, it becomes a mandatory value on lots
-       associated with this product. Control codes may determine default values
-       for lot control, such as rotation date or warehouse lot sequences. 
-       CONTROLCODE cannot be set if TRACKCODE = "P".
+.. [6] When TRACKUNITS is set, unit identifiers will be required on the 
+       product's inventory. Otherwise unit numbers may be entered optionally to
+       separate out odd units such as overruns and underruns.
+.. [7] When CONTROLCODE is entered, it makes lot control numbers mandatory 
+       entries to create lots associated with this product. When CONTROLCODE is
+       null, products are treated as fungible and lot control numbers are 
+       ignored. Control codes may determine default values for lot control, 
+       such as rotation date or warehouse lot sequences. 
 
 .. include:: ../resources/legend.rst
 
