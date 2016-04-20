@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Bills of Lading &mdash; WARES Documents 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="WARES Documents 1.0 documentation" href="index.html" />
+    <link rel="next" title="Adjusting Procedures" href="07_adjusting.html" />
+    <link rel="prev" title="Shipping Procedures" href="05_shipping.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="07_adjusting.html" title="Adjusting Procedures"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="05_shipping.html" title="Shipping Procedures"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">WARES Documents 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Bills of Lading</a><ul>
+<li><a class="reference internal" href="#mandatory-elements">Mandatory Elements</a></li>
+<li><a class="reference internal" href="#conditional-information">Conditional Information</a></li>
+<li><a class="reference internal" href="#document-reference-codes">Document Reference Codes</a><ul>
+<li><a class="reference internal" href="#bill-of-lading-number">Bill of Lading Number</a></li>
+<li><a class="reference internal" href="#ship-to-location-number">Ship to Location Number</a></li>
+<li><a class="reference internal" href="#customer-order-number">Customer Order Number</a></li>
+<li><a class="reference internal" href="#standard-carrier-alpha-code">Standard Carrier Alpha Code</a></li>
+<li><a class="reference internal" href="#carrier-progressive-numbers">Carrier Progressive Numbers</a></li>
+<li><a class="reference internal" href="#application-identifiers">Application Identifiers</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#declarations-and-legal-terms">Declarations and Legal Terms</a><ul>
+<li><a class="reference internal" href="#declared-value-statement">Declared value Statement</a></li>
+<li><a class="reference internal" href="#received-legal-statement">Received legal statement</a></li>
+<li><a class="reference internal" href="#non-recourse-signature">Non-recourse Signature</a></li>
+<li><a class="reference internal" href="#shipper-signature-block">Shipper Signature Block</a></li>
+<li><a class="reference internal" href="#carrier-signature-block">Carrier Signature Block</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#standardized-bills-of-lading">Standardized Bills of Lading</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="05_shipping.html"
+                        title="previous chapter">Shipping Procedures</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="07_adjusting.html"
+                        title="next chapter">Adjusting Procedures</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/06_billoflading.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="bills-of-lading">
+<span id="billoflading"></span><h1>Bills of Lading<a class="headerlink" href="#bills-of-lading" title="Permalink to this headline">¶</a></h1>
+<p>A Bill of Lading document represents a contract between a shipper and a carrier
+for transportation from an origination point (Ship From) to a destination (Ship
+To), with delivery to a specific party, the consignee. <a href="#id4"><span class="problematic" id="id5"><span id="id1"></span>[1]_</span></a></p>
+<p>While legal terminology and contractual text is common to all B/L documents,
+shippers and carriers create customized Bill of Lading document formats to meet
+their specific needs. WARES provides a 3PL Bill of Lading document format which
+addresses specific concerns:</p>
+<ul class="simple">
+<li>To avoid having bills sent to the warehouse instead of the named shipper.
+the Freight Billing address is clearly stated on every Bill of Lading.</li>
+<li>Columns are ordered to match DOT guidelines: Units, HM, Description, Weights
+or Quantities. (The GS1 standard form mis-orders columns.)</li>
+<li>Entries are designed to eliminate hand marking when using automated
+labor activity management.</li>
+<li>Description is intended to include Product, Lot Number, and Unit number
+entries in addition to the basic commodity name.</li>
+</ul>
+<p>A blank WARES Bill of Lading may be viewed here: <a class="reference internal" href="billoflading.html#bill-of-lading"><em>WARES Bill of Lading (blank)</em></a>.</p>
+<div class="section" id="mandatory-elements">
+<h2>Mandatory Elements<a class="headerlink" href="#mandatory-elements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Ship From: name, address and zip code</li>
+<li>Ship To: name, address and zip code</li>
+<li>Bill of Lading Number</li>
+<li>Carrier Name and SCAC</li>
+<li>Freight Payment Terms</li>
+<li>Handling Unit Quantity &amp; Type UOM</li>
+<li>Packages Quantity &amp; Type UOM</li>
+<li>Commodity Description</li>
+<li>Net Weight of line item</li>
+<li>Loaded by and Counted by Descriptors</li>
+<li>Shipper and Carrier Signatures</li>
+</ul>
+</div>
+<div class="section" id="conditional-information">
+<h2>Conditional Information<a class="headerlink" href="#conditional-information" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>BILL TO: if different from shipper, the name, address and zip code</li>
+<li>PRO NUMBER: for an LTL shipment</li>
+<li>TRAILER NUMBER: for a truckload shipment</li>
+<li>SEAL NUMBER: if sealed from one origin to one destination</li>
+<li>MASTER BOL INDICATOR: if underlying BOLs are attached</li>
+<li>SPECIAL INSTRUCTIONS: on a Master Bill of Lading, a list of included B/Ls</li>
+<li>CONSIGNEE REFERENCE NUMBER: used when shipping to a purchase order</li>
+<li>PACKAGE QUANTITY AND TYPE: if shipment is unitized</li>
+<li>HAZARDOUS MATERIAL INDICATOR: if commodity is defined as hazardous</li>
+<li>NMFC NUMBER AND CLASS: if an LTL shipment</li>
+<li>RECEIVING STAMP: if a truckload shipment</li>
+</ul>
+</div>
+<div class="section" id="document-reference-codes">
+<h2>Document Reference Codes<a class="headerlink" href="#document-reference-codes" title="Permalink to this headline">¶</a></h2>
+<p>Per GS1 standards, these elements should be printed in 12-point bold text. <a href="#id6"><span class="problematic" id="id7"><span id="id2"></span>[2]_</span></a></p>
+<div class="section" id="bill-of-lading-number">
+<h3>Bill of Lading Number<a class="headerlink" href="#bill-of-lading-number" title="Permalink to this headline">¶</a></h3>
+<p>The Bill of Lading number should be either the WARES-generated shipment number,
+for a WARES B/L, or the shipper-supplied GS1 US standard Bill of Lading Number.
+When using the shipper&#8217;s B/L numbering, the WARES shipment number should appear
+as the shipper reference number.</p>
+<p>The GS1 number is comprised of the shipper&#8217;s unique document sequence number
+<strong>S</strong>, up to 9 digits long, right aligned at sixteen characters and zero-masked.
+This value of <strong>S</strong> is overstruck with the shipper&#8217;s U.P.C. Company Prefix <strong>C</strong>
+(7 to 13 digits) left aligned, or the digits <strong>04</strong> should be used when a
+shipper lacks a U.P.C. prefix. _[#] A seventeenth check digit is calculated as:</p>
+<blockquote>
+<div>CD = 9 - MOD( C/S*(1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3)-1, 10 )</div></blockquote>
+</div>
+<div class="section" id="ship-to-location-number">
+<h3>Ship to Location Number<a class="headerlink" href="#ship-to-location-number" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="customer-order-number">
+<h3>Customer Order Number<a class="headerlink" href="#customer-order-number" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="standard-carrier-alpha-code">
+<h3>Standard Carrier Alpha Code<a class="headerlink" href="#standard-carrier-alpha-code" title="Permalink to this headline">¶</a></h3>
+<p>The SCAC is an alpha of up to 4 characters, left aligned, and masked with
+hyphens ( <strong>-</strong> ). <a href="#id8"><span class="problematic" id="id9"><span id="id3"></span>[3]_</span></a></p>
+</div>
+<div class="section" id="carrier-progressive-numbers">
+<h3>Carrier Progressive Numbers<a class="headerlink" href="#carrier-progressive-numbers" title="Permalink to this headline">¶</a></h3>
+<p>For LTL shipments, Carriers supply PRO numbers of up to 20 alpha-numeric
+characters. The carrier should provide this number with check digits included,
+as there is no standard algorithm for calculating PRO number check digits.</p>
+</div>
+<div class="section" id="application-identifiers">
+<h3>Application Identifiers<a class="headerlink" href="#application-identifiers" title="Permalink to this headline">¶</a></h3>
+<p>Bar code labels for the Bill of Lading and SCACPRO entries should be encoded
+using the GS1-128 barcode format. Each code starts with a corresponding
+Application Identifier (AI): the Bill of Lading AI is <strong>402</strong>, and the SCACPRO
+AI is <strong>9012K</strong>. Text displaying the barcode data shows the AI enclosed in
+parentheses. (PRO labels applied by the carrier to a Bill of Lading might not
+use this convention.)</p>
+</div>
+</div>
+<div class="section" id="declarations-and-legal-terms">
+<h2>Declarations and Legal Terms<a class="headerlink" href="#declarations-and-legal-terms" title="Permalink to this headline">¶</a></h2>
+<p>Paragraph terms are printed in 5-point or larger text. (WARES uses 8-point
+type on its Bill of Lading statements.)</p>
+<div class="section" id="declared-value-statement">
+<h3>Declared value Statement<a class="headerlink" href="#declared-value-statement" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div>Where the rate is dependent on value, shippers are required to state
+specifically in writing the agreed or declared value of the property as
+follows: &#8220;The agreed or declared value of the property is specifically
+stated by the shipper to be not exceeding  ___________ per   __________.&#8221;</div></blockquote>
+</div>
+<div class="section" id="received-legal-statement">
+<h3>Received legal statement<a class="headerlink" href="#received-legal-statement" title="Permalink to this headline">¶</a></h3>
+<p>The following statement should appear above the Carrier&#8217;s Signature. (Alternate
+statements may be used where Bills of Lading differentiate between LTL and TL
+shipemnts, or where a party to the shipment participates in the NMFC.)</p>
+<blockquote>
+<div>RECEIVED, subject to individually determined rates or contracts that have
+been agreed upon in writing between the carrier and shipper, if applicable,
+otherwise to the rates, classifications and rules that have been established
+by the carrier and are available to the shipper, on request; and to all
+applicable state and federal regulations.</div></blockquote>
+</div>
+<div class="section" id="non-recourse-signature">
+<h3>Non-recourse Signature<a class="headerlink" href="#non-recourse-signature" title="Permalink to this headline">¶</a></h3>
+<p>By signing the non-recourse statement (formerly known as Section 7) the shipper
+is protected from responsibility for freight charges. This signature may be
+pre-printed on custom versions of the Bill of Lading form.</p>
+<blockquote>
+<div>The carrier shall not make delivery of this shipment without payment of
+freight and all other lawful charges.  Shipper signature ___________________</div></blockquote>
+</div>
+<div class="section" id="shipper-signature-block">
+<h3>Shipper Signature Block<a class="headerlink" href="#shipper-signature-block" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div>This is to certify that the above named materials are properly classified,
+packaged, marked and labeled, and are in proper condition for transportation
+according to the applicable regulations of the DOT.</div></blockquote>
+</div>
+<div class="section" id="carrier-signature-block">
+<h3>Carrier Signature Block<a class="headerlink" href="#carrier-signature-block" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div>Carrier acknowledges receipt of packages and required placards. Carrier
+certifies emergency response information was made available and/or carrier
+has the DOT emergency response guidebook or equivalent documentation in the
+vehicle. Property described above is received in good order, excedpt as
+noted.</div></blockquote>
+</div>
+</div>
+<div class="section" id="standardized-bills-of-lading">
+<h2>Standardized Bills of Lading<a class="headerlink" href="#standardized-bills-of-lading" title="Permalink to this headline">¶</a></h2>
+<p>To facilitate commerce, a consortium of merchant groups promulgated the
+&#8220;Voluntary Inter-Industry Commerce Standards,&#8221; or VICS, Bill of Lading. Many
+retailers demand this form, making the VICS B/L less than voluntary. VICS is
+now managed by the global information standards organization GS1.</p>
+<p>Particularly with regard to third-party logistics, there are objections
+to using the VICS / GS1 Bill of Lading and associated efforts regarding EDI:</p>
+<ol class="loweralpha simple">
+<li>The VICS format conveys purchase order fulfillment information, which
+exceeds the B/L scope of a contract between shipper and carrier.</li>
+<li>VICS forces participating shippers to purchase proprietary registered
+sequence numbers, and to maintain B/L number assignments across originating
+points including third-party logistics (3PL) providers over which they have
+no control.</li>
+<li>Shippers may not share original purchase order numbers and quantities with
+their 3PL vendors, but this information is expected on the VICS B/L.</li>
+<li>A typical 3PL Bill of Lading would contain 4 addresses: Ship From, For the
+Account Of, Ship To, and Bill Freight Charges To. When is Shipping From a
+3PL warehouse, the Account address is the actual shipper. The VICS B/L
+format does not provide for 3PL shipment addressing.</li>
+<li>Associated Electronic Data Exchange (EDI) requirements, such as the ASN,
+are similarly deficient in that document origination from a 3PL is not
+practical.</li>
+<li>The VICS B/L form was specified by persons unfamiliar with layout design
+for automated data entry and labor activity. Numerous &#8220;circle one,&#8221; &#8220;check
+here,&#8221; and &#8220;stamp&#8221; and &#8220;label&#8221; areas within the document body result in
+documents which can only be stored and transmitted as scanned immages,
+rather than data structures.</li>
+</ol>
+<p>Implementation of VICS / GS1 standards is burdensome for shippers, unhelpful to
+carriers, and problematic for 3PL providers. As a result, shippers and carriers
+use their custom B/L formats when originating documents unless the GS1 form is
+required by the consignee. WARES offers a custom B/L document just as everyone
+else does, although this form closely follows GS1 recommendations.</p>
+<hr class="docutils" />
+<p class="rubric">Footnotes</p>
+<dl class="docutils">
+<dt>_[1] A summary of legal requirements for a Bill of Lading is found at</dt>
+<dd><a class="reference external" href="https://www.fmcsa.dot.gov/regulations/title49/section/375.505">https://www.fmcsa.dot.gov/regulations/title49/section/375.505</a>.</dd>
+<dt>_[2] A GS1 company identifier is obtained (for a fee) from GS1 US, Inc. at:</dt>
+<dd><a class="reference external" href="https://www.gs1us.org/application-for-barcodes-authorized-by-gs1-us">https://www.gs1us.org/application-for-barcodes-authorized-by-gs1-us</a>.</dd>
+<dt>_[3] Carriers may obtain a SCAC code (for a fee) from the NMFTA at:</dt>
+<dd><a class="reference external" href="https://secure.nmfta.org/Welcome.aspx">https://secure.nmfta.org/Welcome.aspx</a></dd>
+<dt>_[4] A DOT guide for preparing shipping documents for hazardous materials is at:</dt>
+<dd><a class="reference external" href="http://www.phmsa.dot.gov/pv_obj_cache/pv_obj_id_F5CCAF5DDA6ABEB6C9C3F6F83684445D6CEF2700/filename/shipping_papers_guide.pdf">http://www.phmsa.dot.gov/pv_obj_cache/pv_obj_id_F5CCAF5DDA6ABEB6C9C3F6F83684445D6CEF2700/filename/shipping_papers_guide.pdf</a></dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="07_adjusting.html" title="Adjusting Procedures"
+             >next</a></li>
+        <li class="right" >
+          <a href="05_shipping.html" title="Shipping Procedures"
+             >previous</a> |</li>
+        <li><a href="index.html">WARES Documents 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Gerald Lovel.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b1.
+    </div>
+  </body>
+</html>
