@@ -199,14 +199,14 @@ else does, although this form closely follows GS1 recommendations.
 
 .. rubric:: Footnotes
 
-_[1] A summary of legal requirements for a Bill of Lading is found at
-     https://www.fmcsa.dot.gov/regulations/title49/section/375.505.
+.. [1] A summary of legal requirements for a Bill of Lading is found at
+       https://www.fmcsa.dot.gov/regulations/title49/section/375.505.
 
-_[2] A GS1 company identifier is obtained (for a fee) from GS1 US, Inc. at:
-     https://www.gs1us.org/application-for-barcodes-authorized-by-gs1-us.
+.. [2] A GS1 company identifier is obtained (for a fee) from GS1 US, Inc. at:
+       https://www.gs1us.org/application-for-barcodes-authorized-by-gs1-us.
      
-_[3] Carriers may obtain a SCAC code (for a fee) from the NMFTA at:
-     https://secure.nmfta.org/Welcome.aspx
+.. [3] Carriers may obtain a SCAC code (for a fee) from the NMFTA at:
+       https://secure.nmfta.org/Welcome.aspx
 
-_[4] A DOT guide for preparing shipping documents for hazardous materials is at: 
-     http://www.phmsa.dot.gov/pv_obj_cache/pv_obj_id_F5CCAF5DDA6ABEB6C9C3F6F83684445D6CEF2700/filename/shipping_papers_guide.pdf
+.. [4] A DOT guide for preparing shipping documents for hazardous materials is at: 
+       http://www.phmsa.dot.gov/pv_obj_cache/pv_obj_id_F5CCAF5DDA6ABEB6C9C3F6F83684445D6CEF2700/filename/shipping_papers_guide.pdf
