@@ -1,6 +1,6 @@
-.. _tariff-codes:
+.. _rate-codes:
 
-Default Tariff Codes List
+Standard Rate Codes List
 =============================
 
 +--------+---------------------------+-------+--------------+--------+---------+
