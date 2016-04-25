@@ -263,6 +263,6 @@ texinfo_documents = [
 intersphinx_mapping = {
  'codes': ('../codes', '../_deploy/codes/objects.inv'),
  'resources': ('../resources', '../_deploy/resources/objects.inv'),
- 'facility': ('../facility', '../_deploy/facility/objects.inv'),
+ 'setup': ('../setup', '../_deploy/setup/objects.inv'),
  'inventory': ('../inventory', '../_deploy/inventory/objects.inv'),
 }

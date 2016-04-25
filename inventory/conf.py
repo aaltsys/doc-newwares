@@ -332,5 +332,5 @@ epub_copyright = u'2014, Gerald Lovel'
 intersphinx_mapping = {
    'codes': ('../codes', '../_deploy/codes/objects.inv'),
    'resources': ('../resources', '../_deploy/resources/objects.inv'),
-   'facility': ('../facility', '../_deploy/facility/objects.inv'),
+   'setup': ('../setup', '../_deploy/setup/objects.inv'),
 }
