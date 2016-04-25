@@ -20,7 +20,7 @@ Facilities and Locations
 
 A warehouse company is responsible for goods under management in buildings or 
 facilities and locations within and around them. Information to describe these 
-buildings and locations is entered in :ref:`facilities`.
+buildings and locations is entered in :ref:`locations`.
 
 Program User Management
 =============================
