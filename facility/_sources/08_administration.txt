@@ -1,4 +1,4 @@
-. _administration:
+.. _administration:
 
 #############################
 Company Administration
