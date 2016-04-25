@@ -1,8 +1,8 @@
-.. WARES Facility documentation, created by sphinx-quickstart on Mon Jun 30 16:04:25 2014.
+.. WARES Setup documentation, created by sphinx-quickstart on Mon Jun 30 16:04:25 2014.
 
 .. _index:
 
-Warehouse Facility Setup
+Warehouse Company Setup
 =============================
 
 Contents:

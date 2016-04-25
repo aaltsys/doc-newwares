@@ -21,16 +21,28 @@ warehouse building. These locations may include:
 The locator posts movements of goods into and out of locations, so that it can 
 determine and direct the utilization of storage space.
 
-Setup Buildings
+Setup Facilities
 =============================
 
-Locations are defined in the context of a warehouse building or physical 
-address. Before locations can be setup, an address record of type **B** for 
-building must be entered in the contacts. Contacts entry is described at
-:ref:`contacts`.
+Locations are defined in the context of a physical building or warehouse 
+facility address. Before locations can be setup, an address record of type **B** 
+for the building must be entered. Use the :guilabel:`Add New Facility` button 
+to start a new facility record, or use :guilabel:`Delected Selected` to remove 
+a building.
+
+Editing a Facility Address
+-----------------------------
+
+Click the :guilabel:`pencil` icon on a facility to edit the building address.
+
+.. note::
+   The Edit (pencil) option on a facility should go straight to the Contacts 
+   update form, eliminating the intervening "New Facility" page.
 
 Warehouse Layout
 =============================
+
+Click the :guilabel:`layout` icon to start defining building locations.
 
 Before locations can be defined in software, the warehouse layout has to be 
 determined. This will include calculations and measurements for the following:

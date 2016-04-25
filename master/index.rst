@@ -13,7 +13,7 @@ WARES Master Index
    activities, provide location control, and support inventory viewing, 
    reporting, and customer communication.
 
-#. :ref:`facility:index`.
+#. :ref:`setup:index`.
 
    Selections on the WARES **Facility** menu will setup master information for 
    a warehouse company, its facilities, and the customer accounts and their 

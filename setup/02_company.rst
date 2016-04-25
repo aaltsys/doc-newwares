@@ -1,16 +1,12 @@
 .. _company:
 
 #############################
-Facility Company
+Warehousing Company
 #############################
 
-The Warehouse Company
-=============================
-
-Each warehouse facility requires a Warehouse Company information record.
-This record defines the default warehouse limitation of liability statement for 
-warehouse receipts, links to company addresses, and message statements for 
-warehouse receipts and other invoices.
+Each Warehouse Company requires an information record to define the limitation 
+of liability statement, to link to company addresses, and to manage message 
+statements for warehouse receipts and other invoices.
 
 .. sidebar:: Company Addresses
 
@@ -19,8 +15,8 @@ warehouse receipts and other invoices.
 Company Identifier and Name
 =============================
 
-A unique company identifier must be entered for the facility. This value is 
-used to associate contact address records to the warehouse company.
+A unique company identifier must be entered to associate contact address records 
+to the warehouse company.
 
 .. _company-liability:
 
@@ -49,7 +45,7 @@ company, based on the following specific type codes and the company identifier.
 +=======+================================================================+
 | C     | The Company general mailing address                            |
 +-------+----------------------------------------------------------------+
-| ST    | The Company package receiving address                          |
+| SF    | The Company default shipping address                           |
 +-------+----------------------------------------------------------------+
 | BT    | The Company Bill To address, used for payables                 |
 +-------+----------------------------------------------------------------+
@@ -67,6 +63,27 @@ general type **C** address instead.
 .. sidebar:: Messages and Notes
 
    .. image:: _images/company-notes.png
+
+Company Process Control
+=============================
+
+.. sidebar:: Process Control
+
+   .. image:: _images/company-process.png
+
+**Process Controls** set features which affect the global operation of WARES.
+These entries include:
+
+*  **Entry Status** -- Use this entry to set the default status applied to 
+   current records during entry. The available statuses would be **2** 
+   (allocated) or **3** (verified received/shipped), as listed in the 
+   :ref:`status-list`. In Billing, the Charges Calculation routine uses this
+   status to select documents when applying calculated rates.
+*  **Period Start** -- This date begins the current open accounting period for 
+   the warehouse. Transactions prior to this date are marked archived status.
+*  **Next Period** -- This date begins a "future" period for billing 
+   calculations. Transactions entered to this date and beyond should not be 
+   invoiced until the current period is closed.
 
 Company Invoice Messages
 =============================
@@ -92,23 +109,3 @@ warehouse lein against the goods.
 type of invoice message. Message types for uninvoiced receipts, invoiced 
 receipts, and standard invoices are provided in :ref:`noteapply-list`, along 
 with corresponding default message text in :ref:`note-list`.
-
-Company Process Control
-=============================
-
-.. sidebar:: Process Control
-
-   .. image:: _images/company-process.png
-
-**Process Controls** set features which affect the global operation of WARES.
-These entries include:
-
-*  **Entry Status** -- Use this entry to set the default status applied to 
-   current records during entry. The available statuses would be **2** 
-   (allocated) or **3** (verified received/shipped), as listed in the 
-   :ref:`status-list`.
-*  **Period Start** -- This date begins the current open accounting period for 
-   the warehouse. Transactions prior to this date are marked archived status.
-*  **Next Period** -- This date begins a "future" period for billing 
-   calculations. Transactions entered to this date and beyond should not be 
-   invoiced until the current period is closed.

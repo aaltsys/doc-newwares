@@ -37,7 +37,7 @@ types and addresses are:
 +=======+================================================================+
 | C     | The Company general mailing address                            |
 +-------+----------------------------------------------------------------+
-| ST    | The Company package receiving address                          |
+| SF    | The default Company shipping address                           |
 +-------+----------------------------------------------------------------+
 | BT    | The Company Bill To address, used for payables                 |
 +-------+----------------------------------------------------------------+
