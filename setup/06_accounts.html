@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Customer Accounts &mdash; WARES Facility 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="WARES Facility 1.0 documentation" href="index.html" />
+    <link rel="next" title="Contacts and Addresses" href="07_contacts.html" />
+    <link rel="prev" title="Configuring Rate Codes" href="05_ratecodes.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="07_contacts.html" title="Contacts and Addresses"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="05_ratecodes.html" title="Configuring Rate Codes"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">WARES Facility 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Customer Accounts</a><ul>
+<li><a class="reference internal" href="#account-identification">Account Identification</a></li>
+<li><a class="reference internal" href="#account-documents">Account Documents</a></li>
+<li><a class="reference internal" href="#account-billing">Account Billing</a></li>
+<li><a class="reference internal" href="#account-storage">Account Storage</a></li>
+<li><a class="reference internal" href="#account-basic-views">Account Basic views</a></li>
+<li><a class="reference internal" href="#accounts-database-schema">Accounts Database Schema</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="05_ratecodes.html"
+                        title="previous chapter">Configuring Rate Codes</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="07_contacts.html"
+                        title="next chapter">Contacts and Addresses</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/06_accounts.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="customer-accounts">
+<span id="accounts"></span><h1>Customer Accounts<a class="headerlink" href="#customer-accounts" title="Permalink to this headline">¶</a></h1>
+<p>Accounts separate warehouse products into reporting and accounting groups.
+Third-party warehouses invoice services individually by account, while private
+warehouses may separate departmental goods into accounts for reporting and cost
+control.</p>
+<div class="section" id="account-identification">
+<h2>Account Identification<a class="headerlink" href="#account-identification" title="Permalink to this headline">¶</a></h2>
+<div class="sidebar">
+<p class="first sidebar-title">Identification Settings</p>
+<img alt="_images/account-identity.png" class="last" src="_images/account-identity.png" />
+</div>
+<p>The warehouse assigns an identifier to each account, and associated with this
+identifier is a literal account name.</p>
+<p>Using the <a class="reference internal" href="07_contacts.html#contacts"><em>Contacts and Addresses</em></a> form, between one and four addresses may be entered
+for an account identifier. A type code determines how each address is used in
+the program. The four type codes are:</p>
+<ul>
+<li><p class="first"><strong>A</strong> &#8211; The primary account mailing address for inventory reporting and
+correspondence. This address is required for every account, as it appears on
+Bill of Lading and Warehouse Receipt forms.</p>
+</li>
+<li><p class="first"><strong>ST</strong> &#8211; An optional package shipment address is recorded in case the
+account&#8217;s mailing address is a P.O. box.</p>
+</li>
+<li><p class="first"><strong>BT</strong> &#8211; Invoices may require a separate mailing address, even if it just
+means using a different contact line such as <em>ATTN: ACCOUNTS PAYABLE</em>.</p>
+</li>
+<li><p class="first"><strong>PF</strong> &#8211; All Prepaid Bills of Lading for an account will print the
+account&#8217;s <strong>PF</strong> address in the <strong>Send Freight BIll To</strong> area, if it exists.
+Otherwise the account&#8217;s Bill To (<strong>BT</strong>) or mailing (<strong>A</strong>) address will be
+printed. (See Freight Payment, below.)</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Corporations often use an auditing service to review freight invoices,
+which requires the separate address. Occasionally personnel may refer to
+this service by the misnomer &#8220;Third Party Prepaid,&#8221; maybe because
+&#8220;Third Party&#8221; is how their own software works to apply a separate freight
+billing address.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="account-documents">
+<h2>Account Documents<a class="headerlink" href="#account-documents" title="Permalink to this headline">¶</a></h2>
+<div class="sidebar">
+<p class="first sidebar-title">Managing Documents</p>
+<img alt="_images/account-document.png" class="last" src="_images/account-document.png" />
+</div>
+<p>A common clerical error in warehousing is to double-ship a customer&#8217;s order.
+This error can occur either when a customer sends a set of orders twice, or
+when the warehouse enters the orders twice. Neither of these situations may
+be avoidable, so the solution to this problem must lie elsewhere.</p>
+<p>WARES helps avoid this costly mistake by checking for duplication of the
+combination of account, consignee, and reference numbers when saving a
+document. Suspected duplicate documents are pended, and an error message issues
+to alert the user.</p>
+<p><strong>Find Duplicates</strong> &#8211; allows duplicate detection to be configured according to
+each customer&#8217;s requirements.</p>
+<p><strong>Freight Payment</strong> &#8211; These terms apply to Bill of Lading documents produced for
+outbound shipments. There are three general categories of freight payment terms:
+Prepaid (paid by the shipping Account), Collect (paid by the consignee shipper),
+and Third Party (Paid by a broker or other party).</p>
+<p><strong>Notes</strong> &#8211; Messages and standing instructions to the warehouse or to a carrier
+can be entered here to apply on documents for the account.</p>
+</div>
+<div class="section" id="account-billing">
+<h2>Account Billing<a class="headerlink" href="#account-billing" title="Permalink to this headline">¶</a></h2>
+<div class="sidebar">
+<p class="first sidebar-title">Billing Settings</p>
+<img alt="_images/account-billing.png" class="last" src="_images/account-billing.png" />
+</div>
+<p>WARES calculates and invoices warehousing service charges based on receiving
+and shipping activity, as well as recurring storage charges for space usage.
+The Account Billing section defines the billing process for a customer using
+the following entries:</p>
+<ul class="simple">
+<li><strong>Terms</strong> &#8211; print on an invoice to establish payment terms. Within WARES,
+payment terms are considered descriptive and aging is performed by invoice
+date.</li>
+<li><strong>Invoicing Cycle</strong> &#8211; can determine the frequency of activity invoicing on
+an account: Daily, Weekly, Semi-monthly, Monthly, or On Demand. (Generally
+recurring storage is invoiced separately from activity, and it is controlled
+separately.)</li>
+<li><strong>PO Number</strong> &#8211; A customer may specify a PO Number to appear on invoices,
+and otherwise they may not get paid. Enter the PO Number here.</li>
+<li><strong>Minimum Storage Invoice</strong> &#8211; To discourage unprofitable customer
+relationships, the warehouse may impose a minimum monthly fee for recurring
+storage services.</li>
+<li><strong>Percent Handling Income Deferred</strong> &#8211; Based on an account&#8217;s handling rates
+and the amount of goods in storage at the end of a month, a deferred income
+report will determine the warehouse liability for handling
+services which have been invoiced, but which are yet to be performed.</li>
+</ul>
+</div>
+<div class="section" id="account-storage">
+<span id="id1"></span><h2>Account Storage<a class="headerlink" href="#account-storage" title="Permalink to this headline">¶</a></h2>
+<div class="sidebar">
+<p class="first sidebar-title">Storage Settings</p>
+<img alt="_images/account-storage.png" class="last" src="_images/account-storage.png" />
+</div>
+<p>Third-party warehouses bill for the storage space an account uses. Customarily
+a warehouse calculates the number of units of inventory in the warehouse at the
+start of each month, and bills in advance for recurring storage. Similarly the
+warehouse bills an additional storage charge for each unit of inventory received
+during a month.</p>
+<p>This section codifies the contractual terms for calculating storage charges on
+an account, as described by the following items.</p>
+<ul class="simple">
+<li><strong>Receiving Storage</strong> &#8211; The receiving storage charge may be determined by
+one of three methods: <strong>(F)ull month</strong> applies a full charge regardless of
+day of receipt; <strong>(S)plit month</strong> applies a full charge for receiving on
+month days 1 through 15, and half that charge for receiving on days 16
+through the end of the month; <strong>(P)rorated</strong> multiplies the storage charge
+by the ratio of the days remaining in the month to the number of days in the
+month.</li>
+<li><strong>Recurring Type</strong> &#8211; Sets the method of recurring calculation method as one
+of the following options:
+<strong>(E)nding balance</strong> for advance billing of calendar month storage,
+<strong>(S)tarting balance</strong> for arrears billing of the previous month, and
+<strong>(A)nniversary</strong> for calculating the recurring storage on each lot according
+to the balance on succeeding month-days following receipt. <a class="footnote-reference" href="#id4" id="id2">[1]</a></li>
+<li><strong>Free Days</strong> grants a customer a number of days before receiving and
+recurring storage charges will be applied to received goods, while</li>
+<li><strong>Grace Days</strong> waives receiving storage for goods within the grace period at
+the end of a month.</li>
+<li><strong>Declared Value</strong>, <strong>Per</strong>, and <strong>Surcharge</strong> specify a limitation to the
+liability a warehouser has for an account&#8217;s goods, and expresses the storage
+rate increase when the declared value of goods exceeds that limitation. <a class="footnote-reference" href="#id5" id="id3">[2]</a></li>
+</ul>
+</div>
+<div class="section" id="account-basic-views">
+<h2>Account Basic views<a class="headerlink" href="#account-basic-views" title="Permalink to this headline">¶</a></h2>
+<div class="sidebar">
+<p class="first sidebar-title">Basic Account Information</p>
+<img alt="_images/account-identity-basic.png" src="_images/account-identity-basic.png" />
+<img alt="_images/account-document-basic.png" class="last" src="_images/account-document-basic.png" />
+</div>
+<p>The warehouse may wish to restrict access to customer billing information.
+Clerical personnel with restricted access should see only the basic account
+information, as shown in the sidebar.</p>
+</div>
+<div class="section" id="accounts-database-schema">
+<h2>Accounts Database Schema<a class="headerlink" href="#accounts-database-schema" title="Permalink to this headline">¶</a></h2>
+<p>The Accounts database column schema can be found at <a class="reference external" href="../resources/01_accounts.html#accounts-schema" title="(in WARES Resources v1.0)"><em>ACCOUNTS Data Table Columns</em></a>.</p>
+<hr class="docutils" />
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td><p class="first">Anniversary recurring calculation is commonly used in cold storage
+warehouses which handle brokered goods. However, the results for this
+calculation method are problematic for a number of reasons:</p>
+<ul class="last simple">
+<li>Anniversary recurring charges are disputable, as a customer may show
+after the fact that manipulating shipping dates between lots could
+reduce total storage charges. The Uniform Commercial Code states that
+where a charge may be disputed, the presumption of the dispute favors
+the customer.</li>
+<li>Brokering involves ownership transfers which should be performed on
+the date of a sale. Transferring a lot prior to its anniversary causes
+a loss of paid storage for the transferee. To accomodate customers and
+avoid disputes, a warehouse may follow problematic transfer procedures
+which compromise inventory ownership accuracy, all the while losing
+storage revenue for the warehouse.</li>
+<li>Anniversary recurring is error-prone, complex, and unnecessary. As an
+alternative, use the <strong>Prorated</strong> receiving option in WARES to
+calculate an initial storage charge which shifts anniversaries to the
+beginning of the next calendar month. Then use recurring type <strong>E</strong> to
+calculate and bill recurring storage in advance. (Brokers may object,
+but that should not be the warehouser&#8217;s problem.)</li>
+</ul>
+</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id5" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[2]</a></td><td><p class="first">Section 7-204 of the Uniform Commercial Code sets forth the warehouser&#8217;s
+standard of care, and permits the warehouser to set a limit on the amount
+of damages for which he will be responsible. This limit must be expressed
+per article, per item, or per weight; and the account must be allowed to
+declare a higher limit (for which he may pay a correspondingly higher
+charge).</p>
+<p class="last">The limitation of damages is not a legally required element of a receipt,
+but it must be stated on the receipt for the warehouser to claim this
+protection. This limitation is expressed in large print on the warehouse
+receipt because of its importance to the warehouse. The limitation from
+the Warehouse Company Information will print on the warehouse receipt
+unless a different declared value limit is entered on the account or on
+specific product information records.</p>
+</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="07_contacts.html" title="Contacts and Addresses"
+             >next</a></li>
+        <li class="right" >
+          <a href="05_ratecodes.html" title="Configuring Rate Codes"
+             >previous</a> |</li>
+        <li><a href="index.html">WARES Facility 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Gerald Lovel.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b1.
+    </div>
+  </body>
+</html>
