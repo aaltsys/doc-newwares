@@ -13,6 +13,14 @@ Contents:
    
    [0-9]*
 
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+   :glob:
+   
+   *
+
 Indices and tables
 ==================
 
