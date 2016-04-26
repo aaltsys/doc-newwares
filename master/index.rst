@@ -15,7 +15,7 @@ WARES Master Index
 
 #. :ref:`setup:index`.
 
-   Selections on the WARES **Facility** menu will setup master information for 
+   Selections on the WARES **Company** menu will setup master information for 
    a warehouse company, its facilities, and the customer accounts and their 
    products which are served by the warehouse.
 
