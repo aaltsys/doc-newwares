@@ -14,44 +14,52 @@ customers. A charge cannot be applied to a document, transaction, or action
 without a rate record defining the charge. 
 
 WARES rate definitions allow a company to bill all types of services according 
-to standard industry practices. When writing a proposal or contract, rates 
-should be entered here to verify that the proposal is consistent with industry 
-norms and can be implemented as intended within the WARES software. 
+to standard industry practices. When writing a proposal or contract, enter  
+proposed here to verify that the quote will be consistent with industry norms 
+and can be implemented as intended within the WARES software. 
 
-Scope of Rates 
-=============================
-
-Warehouse services are defined by the warehouse company service codes. Each 
+Warehouse services are defined by the warehouse company :ref:`services`. Each 
 rate relates to eactly one service code.
 
-A rate group determines the scope of a rate. 
+Scope and Grouping of Rates 
+=============================
+
+Rates are grouped and the type of group determines the scope of a rate. Any one 
+service code can appear only once in a group. All rates in a group will have 
+the same account entry. If the account entry is left blank on a rate group, 
+those rates can be applied to any account. If the account entry is filled, the 
+rates will be restricted to the specified account.
 
 *  Rates in the **GLOBAL** group apply across all accounts, and the account 
-   entry for GLOBAL rates is null and protected. There can be no more than one 
-   global rate for any service. 
-*  Rates gouped by **account** identifier apply to only one warehouse customer 
-   account, and the account entry of these rates is filled with the account 
-   identifier and protected. There can be no more than one account rate for any 
-   service.
-*  Rates may be assigned a group code different than an account identifier or 
-   GLOBAL. The account entry must be the same for all rates in the group. If 
-   the account entry is left blank on a rate group, those rates can be applied 
-   to any account. If the account entry is filled, the rates will be restricted
-   to that account.
+   entry for GLOBAL rates is null and protected. The GLOBAL group sets default 
+   rates for the company.
+*  Rates gouped by **account** identifier apply to only one customer account, 
+   and the account entry of these rates is filled with the account identifier 
+   and protected. 
+*  Rates may be assigned a **group** code other than an account identifier or 
+   GLOBAL. The account entry, which may be null, must be the same for all rates 
+   in the group. 
 
-Many rate records may refer to the same service code, and an account may have 
-more than one rate for a service, provided the rates are in differing groups. 
-For example, there should be different recurring storage rates for cartons on 
-pallets stacked 3 high than for supersacks stacked 2 high. This would require 
-two separate rate groups associated with the account.
-
-Rate records may be associated with a single account, or may be applied globally 
-to all accounts. There can be no more than one GLOBAL rate for any service. 
 Where an account or group has a specific rate for a service, the group's rate 
 will override a corresponding GLOBAL rate with the same service code.
 
 Rates may be restricted to apply on specific documents. For example, receiving 
 storage would apply to warehouse receipts only.
+
+Many rate records may refer to the same service code, and an account may have 
+more than one rate for a service, provided the rates are in separate groups. 
+
+For example, there should be different storage rates for cartons on pallets 
+stacked 3 high than for supersacks stacked 2 high. This would require two 
+separate rate groups associated with the account. Typically each rate group 
+would include the calculated storage and handling service codes for a group of 
+products which are billed the same.
+
+Another warehouse may store imported boneless beef in boxes. These goods are 
+brokered or traded while in the warehouse, so that product moves from account 
+to account. The warehouse creates group **BBB** for the calculated rates on 
+this product, leaving the account identifier blank for the group. Every owner 
+of the product shares the same calculated storage and handling rates.
 
 Applying Rates
 =============================
@@ -64,13 +72,13 @@ A rate is used to apply charges in one of four ways:
    Calendar selections for repeating charges are for daily or daily within the 
    open billing month, weekdays on specific days, monthdays on specific 
    numbered days or on LAST or FIRST days, and year days (Julian) or year dates.
-*  **Calculated** rates apply warehouse storage and handling charges to products 
-   on warehouse receipts and optionally shipments (for outbound handling), and 
-   to calculate charges for recurring product balances.
+*  **Calculated** rates apply storage and handling charges to products on
+   warehouse receipts and optionally shipments (for outbound handling), and to
+   calculate charges for recurring product balances.
 *  **Mandatory** rates may create charges on any documents, with calculation 
    quantities based on a broad range of options. For example, a document fee 
-   could be applied for every shipment, while a line pick fee might be applied 
-   for every line item after the third one.
+   could be applied by transaction for every shipment, while a line pick fee 
+   might be applied for every line item after the third one.
 *  **Optional** rates are used to apply charges where either the occurrence, the 
    quantity, or the rate cannot be determined programmatically. As an example, 
    a charge for replacing a pallet shell and restacking goods would be optional, 
@@ -92,46 +100,59 @@ Identifying entries:
 -----------------------------
 
 +---------------+----+-------------------------------------------------------+
-| Entry         | M  | Permitted entries                                     |
+| Entry         | M  | Permissible Identifying Entries                       |
 +===============+====+=======================================================+
 | Rate Group    | M  | An  account identifier, a grouping code, or GLOBAL    |
 +---------------+----+-------------------------------------------------------+
-| Service Code  | M  | Select from a list of warehouse service codes         |
+| Service Code  | M  | Selected from the list of warehouse service codes     |
 +---------------+----+-------------------------------------------------------+
-| Account       |    | Active warehouse customer, left blank for GLOBAL      |
+| Account       |    | A customer account, or left blank for shared groups   |
 +---------------+----+-------------------------------------------------------+
 | Applied       | M  | (R)epeating, (C)alculated, (M)andatory, or (O)ptional |
 +---------------+----+-------------------------------------------------------+
 
-Rate identifiers are made of two parts: a **Rate Group** and a **Service Code**. 
-The **Rate Group** entry can be either the word GLOBAL, an account identifier, 
-or a user-defined rate group. 
+Rates are uniquely identified by the combination of a **Rate Group** and a 
+**Service Code**. The **Rate Group** entry can be either the word GLOBAL, an a
+ccount identifier, or a user-defined rate group. 
 
-**Service Code** may be selected from the warehouse service codes list.
+**Service Code** must be selected from the warehouse service codes list.
 
-The **Account** entry will be filled for rate records which are in an account 
-group, and it will be null for GLOBAL rates.  
+The **Account** entry is null for GLOBAL rates, filled with the account code 
+for rates in an account group, and otherwise either attached to an account or
+blank (shared) for user-defined groups.  
 
-A rate may **Apply** in one of four ways: Optional, Mandatory, Calculated, or 
-Repeating. The service code determines which rates are Calculated or Repeating, 
-and the **Apply** code is filled and protected accordingly. Use the options to
-select Optional or Mandatory for other service codes. Optional rates are 
-applied through user entry, while charges for mandatory rates are created by 
-billing calculations. Calculated rates are applied through special routines.  
-Finally, Repeating rates create charge records and accumulate charges based on 
-the repeating rate's schedule. 
+Service codes determine which rates **Apply** as Calculated or Repeating, and 
+the **Apply** code is filled and protected accordingly. Other rates should be
+set to Optional or Mandatory, depending on whether user entry is required to 
+determine a charge. 
+
+Optional rates are applied through user entry, while charges for mandatory 
+rates are created by billing calculations. Calculated rates are applied through 
+special routines. Finally, Repeating rates create charge records and accumulate 
+charges based on the repeating rate's calendar schedule. 
 
 Billing Information
 -----------------------------
 
----
-
-ENTERING TARIFFS:
-
-Tariffs may be modified or added at any time.  A tariff should not be edited or 
-deleted when open transactions exist with the charge applied to them.  Please 
-refer to CONSIDERATIONS WHEN ENTERING TARIFFS before entering tariffs for the 
-first time.
++---------------+---+------------------------------------------------+--------+
+| Entry         | M | Billing Information Entry                      | Default|
++===============+===+================================================+========+
+| Surcharge     |   | Percentage charge multiplier for tax or other  |        |
++---------------+---+------------------------------------------------+--------+
+| Factor        |   | Numerical quantity divider for unit conversion | 1.0    |
++---------------+---+------------------------------------------------+--------+
+| Billing UOM   | M | Informational UOM used on charges and Invoices |        |
++---------------+---+------------------------------------------------+--------+
+| Ledger Code   | M | Accounting link defaults from Service Code     | (code) |
++---------------+---+------------------------------------------------+--------+
+| Rate          | M | The charge per unit of service, may be tiered  |        |
++---------------+---+------------------------------------------------+--------+
+| Quantity      | M | Starting quantity to apply this rate tier      | 1.00   |
++---------------+---+------------------------------------------------+--------+
+| Line Minimum  |   | Minimum amount for each charge occurrence      | Q * R  |
++---------------+---+------------------------------------------------+--------+
+| Item Minimum  |   | Transactional Minimum amount for charge        |        |
++---------------+---+------------------------------------------------+--------+
 
 The Surcharge field is used to enter surcharge information for high value goods 
 or a tax rate.  Enter a percentage, not a decimal value.
@@ -178,7 +199,9 @@ enter the Payer Key or a dictionary element which will return the key.  The
 Payer Column is usually blank, in which case the Account for this tariff 
 receives the invoice.
 
-CALENDAR INFORMATION:
+
+Calendar Information
+-----------------------------
 
 Repeating tariffs may be applied by Every Day, Week Days, Month Days, Year Days, 
 and Year Dates.  Select the appropriate radio button for this tariff.  Next, 
@@ -186,6 +209,16 @@ enter the desired Values for this schedule.  Enter a Last Date value to specify
 when the tariff will start to be applied, and enter an Expire Date if the tariff 
 should be discontinued.  Next Date is calculated by the system based on the 
 other entries.
+
+---
+
+ENTERING TARIFFS:
+
+Tariffs may be modified or added at any time.  A tariff should not be edited or 
+deleted when open transactions exist with the charge applied to them.  Please 
+refer to CONSIDERATIONS WHEN ENTERING TARIFFS before entering tariffs for the 
+first time.
+
 
 CONSIDERATIONS WHEN ENTERING TARIFFS:
 

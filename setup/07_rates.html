@@ -46,11 +46,12 @@
   <ul>
 <li><a class="reference internal" href="#">Defining Rates for Charges</a><ul>
 <li><a class="reference internal" href="#rate-overview">Rate Overview</a></li>
-<li><a class="reference internal" href="#scope-of-rates">Scope of Rates</a></li>
+<li><a class="reference internal" href="#scope-and-grouping-of-rates">Scope and Grouping of Rates</a></li>
 <li><a class="reference internal" href="#applying-rates">Applying Rates</a></li>
 <li><a class="reference internal" href="#setting-up-rates">Setting Up Rates</a><ul>
 <li><a class="reference internal" href="#identifying-entries">Identifying entries:</a></li>
 <li><a class="reference internal" href="#billing-information">Billing Information</a></li>
+<li><a class="reference internal" href="#calendar-information">Calendar Information</a></li>
 </ul>
 </li>
 </ul>
@@ -100,40 +101,46 @@
 customers. A charge cannot be applied to a document, transaction, or action
 without a rate record defining the charge.</p>
 <p>WARES rate definitions allow a company to bill all types of services according
-to standard industry practices. When writing a proposal or contract, rates
-should be entered here to verify that the proposal is consistent with industry
-norms and can be implemented as intended within the WARES software.</p>
-</div>
-<div class="section" id="scope-of-rates">
-<h2>Scope of Rates<a class="headerlink" href="#scope-of-rates" title="Permalink to this headline">¶</a></h2>
-<p>Warehouse services are defined by the warehouse company service codes. Each
+to standard industry practices. When writing a proposal or contract, enter
+proposed here to verify that the quote will be consistent with industry norms
+and can be implemented as intended within the WARES software.</p>
+<p>Warehouse services are defined by the warehouse company <a class="reference internal" href="05_services.html#services"><em>Configuring Service Codes</em></a>. Each
 rate relates to eactly one service code.</p>
-<p>A rate group determines the scope of a rate.</p>
+</div>
+<div class="section" id="scope-and-grouping-of-rates">
+<h2>Scope and Grouping of Rates<a class="headerlink" href="#scope-and-grouping-of-rates" title="Permalink to this headline">¶</a></h2>
+<p>Rates are grouped and the type of group determines the scope of a rate. Any one
+service code can appear only once in a group. All rates in a group will have
+the same account entry. If the account entry is left blank on a rate group,
+those rates can be applied to any account. If the account entry is filled, the
+rates will be restricted to the specified account.</p>
 <ul class="simple">
 <li>Rates in the <strong>GLOBAL</strong> group apply across all accounts, and the account
-entry for GLOBAL rates is null and protected. There can be no more than one
-global rate for any service.</li>
-<li>Rates gouped by <strong>account</strong> identifier apply to only one warehouse customer
-account, and the account entry of these rates is filled with the account
-identifier and protected. There can be no more than one account rate for any
-service.</li>
-<li>Rates may be assigned a group code different than an account identifier or
-GLOBAL. The account entry must be the same for all rates in the group. If
-the account entry is left blank on a rate group, those rates can be applied
-to any account. If the account entry is filled, the rates will be restricted
-to that account.</li>
+entry for GLOBAL rates is null and protected. The GLOBAL group sets default
+rates for the company.</li>
+<li>Rates gouped by <strong>account</strong> identifier apply to only one customer account,
+and the account entry of these rates is filled with the account identifier
+and protected.</li>
+<li>Rates may be assigned a <strong>group</strong> code other than an account identifier or
+GLOBAL. The account entry, which may be null, must be the same for all rates
+in the group.</li>
 </ul>
-<p>Many rate records may refer to the same service code, and an account may have
-more than one rate for a service, provided the rates are in differing groups.
-For example, there should be different recurring storage rates for cartons on
-pallets stacked 3 high than for supersacks stacked 2 high. This would require
-two separate rate groups associated with the account.</p>
-<p>Rate records may be associated with a single account, or may be applied globally
-to all accounts. There can be no more than one GLOBAL rate for any service.
-Where an account or group has a specific rate for a service, the group&#8217;s rate
+<p>Where an account or group has a specific rate for a service, the group&#8217;s rate
 will override a corresponding GLOBAL rate with the same service code.</p>
 <p>Rates may be restricted to apply on specific documents. For example, receiving
 storage would apply to warehouse receipts only.</p>
+<p>Many rate records may refer to the same service code, and an account may have
+more than one rate for a service, provided the rates are in separate groups.</p>
+<p>For example, there should be different storage rates for cartons on pallets
+stacked 3 high than for supersacks stacked 2 high. This would require two
+separate rate groups associated with the account. Typically each rate group
+would include the calculated storage and handling service codes for a group of
+products which are billed the same.</p>
+<p>Another warehouse may store imported boneless beef in boxes. These goods are
+brokered or traded while in the warehouse, so that product moves from account
+to account. The warehouse creates group <strong>BBB</strong> for the calculated rates on
+this product, leaving the account identifier blank for the group. Every owner
+of the product shares the same calculated storage and handling rates.</p>
 </div>
 <div class="section" id="applying-rates">
 <h2>Applying Rates<a class="headerlink" href="#applying-rates" title="Permalink to this headline">¶</a></h2>
@@ -145,13 +152,13 @@ the charge is always the same.
 Calendar selections for repeating charges are for daily or daily within the
 open billing month, weekdays on specific days, monthdays on specific
 numbered days or on LAST or FIRST days, and year days (Julian) or year dates.</li>
-<li><strong>Calculated</strong> rates apply warehouse storage and handling charges to products
-on warehouse receipts and optionally shipments (for outbound handling), and
-to calculate charges for recurring product balances.</li>
+<li><strong>Calculated</strong> rates apply storage and handling charges to products on
+warehouse receipts and optionally shipments (for outbound handling), and to
+calculate charges for recurring product balances.</li>
 <li><strong>Mandatory</strong> rates may create charges on any documents, with calculation
 quantities based on a broad range of options. For example, a document fee
-could be applied for every shipment, while a line pick fee might be applied
-for every line item after the third one.</li>
+could be applied by transaction for every shipment, while a line pick fee
+might be applied for every line item after the third one.</li>
 <li><strong>Optional</strong> rates are used to apply charges where either the occurrence, the
 quantity, or the rate cannot be determined programmatically. As an example,
 a charge for replacing a pallet shell and restacking goods would be optional,
@@ -177,7 +184,7 @@ Billing Information, and Calendar Information.</p>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Entry</th>
 <th class="head">M</th>
-<th class="head">Permitted entries</th>
+<th class="head">Permissible Identifying Entries</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -187,11 +194,11 @@ Billing Information, and Calendar Information.</p>
 </tr>
 <tr class="row-odd"><td>Service Code</td>
 <td>M</td>
-<td>Select from a list of warehouse service codes</td>
+<td>Selected from the list of warehouse service codes</td>
 </tr>
 <tr class="row-even"><td>Account</td>
 <td>&nbsp;</td>
-<td>Active warehouse customer, left blank for GLOBAL</td>
+<td>A customer account, or left blank for shared groups</td>
 </tr>
 <tr class="row-odd"><td>Applied</td>
 <td>M</td>
@@ -199,29 +206,81 @@ Billing Information, and Calendar Information.</p>
 </tr>
 </tbody>
 </table>
-<p>Rate identifiers are made of two parts: a <strong>Rate Group</strong> and a <strong>Service Code</strong>.
-The <strong>Rate Group</strong> entry can be either the word GLOBAL, an account identifier,
-or a user-defined rate group.</p>
-<p><strong>Service Code</strong> may be selected from the warehouse service codes list.</p>
-<p>The <strong>Account</strong> entry will be filled for rate records which are in an account
-group, and it will be null for GLOBAL rates.</p>
-<p>A rate may <strong>Apply</strong> in one of four ways: Optional, Mandatory, Calculated, or
-Repeating. The service code determines which rates are Calculated or Repeating,
-and the <strong>Apply</strong> code is filled and protected accordingly. Use the options to
-select Optional or Mandatory for other service codes. Optional rates are
-applied through user entry, while charges for mandatory rates are created by
-billing calculations. Calculated rates are applied through special routines.
-Finally, Repeating rates create charge records and accumulate charges based on
-the repeating rate&#8217;s schedule.</p>
+<p>Rates are uniquely identified by the combination of a <strong>Rate Group</strong> and a
+<strong>Service Code</strong>. The <strong>Rate Group</strong> entry can be either the word GLOBAL, an a
+ccount identifier, or a user-defined rate group.</p>
+<p><strong>Service Code</strong> must be selected from the warehouse service codes list.</p>
+<p>The <strong>Account</strong> entry is null for GLOBAL rates, filled with the account code
+for rates in an account group, and otherwise either attached to an account or
+blank (shared) for user-defined groups.</p>
+<p>Service codes determine which rates <strong>Apply</strong> as Calculated or Repeating, and
+the <strong>Apply</strong> code is filled and protected accordingly. Other rates should be
+set to Optional or Mandatory, depending on whether user entry is required to
+determine a charge.</p>
+<p>Optional rates are applied through user entry, while charges for mandatory
+rates are created by billing calculations. Calculated rates are applied through
+special routines. Finally, Repeating rates create charge records and accumulate
+charges based on the repeating rate&#8217;s calendar schedule.</p>
 </div>
 <div class="section" id="billing-information">
 <h3>Billing Information<a class="headerlink" href="#billing-information" title="Permalink to this headline">¶</a></h3>
-<p>&#8212;</p>
-<p>ENTERING TARIFFS:</p>
-<p>Tariffs may be modified or added at any time.  A tariff should not be edited or
-deleted when open transactions exist with the charge applied to them.  Please
-refer to CONSIDERATIONS WHEN ENTERING TARIFFS before entering tariffs for the
-first time.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="4%" />
+<col width="65%" />
+<col width="11%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Entry</th>
+<th class="head">M</th>
+<th class="head">Billing Information Entry</th>
+<th class="head">Default</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Surcharge</td>
+<td>&nbsp;</td>
+<td>Percentage charge multiplier for tax or other</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Factor</td>
+<td>&nbsp;</td>
+<td>Numerical quantity divider for unit conversion</td>
+<td>1.0</td>
+</tr>
+<tr class="row-even"><td>Billing UOM</td>
+<td>M</td>
+<td>Informational UOM used on charges and Invoices</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Ledger Code</td>
+<td>M</td>
+<td>Accounting link defaults from Service Code</td>
+<td>(code)</td>
+</tr>
+<tr class="row-even"><td>Rate</td>
+<td>M</td>
+<td>The charge per unit of service, may be tiered</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Quantity</td>
+<td>M</td>
+<td>Starting quantity to apply this rate tier</td>
+<td>1.00</td>
+</tr>
+<tr class="row-even"><td>Line Minimum</td>
+<td>&nbsp;</td>
+<td>Minimum amount for each charge occurrence</td>
+<td>Q * R</td>
+</tr>
+<tr class="row-odd"><td>Item Minimum</td>
+<td>&nbsp;</td>
+<td>Transactional Minimum amount for charge</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
 <p>The Surcharge field is used to enter surcharge information for high value goods
 or a tax rate.  Enter a percentage, not a decimal value.</p>
 <p>The Factor field converts between program quantities and billing quantities.
@@ -259,13 +318,21 @@ as well.</p>
 enter the Payer Key or a dictionary element which will return the key.  The
 Payer Column is usually blank, in which case the Account for this tariff
 receives the invoice.</p>
-<p>CALENDAR INFORMATION:</p>
+</div>
+<div class="section" id="calendar-information">
+<h3>Calendar Information<a class="headerlink" href="#calendar-information" title="Permalink to this headline">¶</a></h3>
 <p>Repeating tariffs may be applied by Every Day, Week Days, Month Days, Year Days,
 and Year Dates.  Select the appropriate radio button for this tariff.  Next,
 enter the desired Values for this schedule.  Enter a Last Date value to specify
 when the tariff will start to be applied, and enter an Expire Date if the tariff
 should be discontinued.  Next Date is calculated by the system based on the
 other entries.</p>
+<p>&#8212;</p>
+<p>ENTERING TARIFFS:</p>
+<p>Tariffs may be modified or added at any time.  A tariff should not be edited or
+deleted when open transactions exist with the charge applied to them.  Please
+refer to CONSIDERATIONS WHEN ENTERING TARIFFS before entering tariffs for the
+first time.</p>
 <p>CONSIDERATIONS WHEN ENTERING TARIFFS:</p>
 <p>Before any tariffs are entered, one must decide what services are being offered
 and what the default, or retail, rates are for those services.  When defining a
