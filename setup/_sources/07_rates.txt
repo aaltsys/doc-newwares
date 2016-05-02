@@ -4,8 +4,6 @@
 Defining Rates for Charges
 #############################
 
-.. image:: ./_images/account-rates.png
-
 Rate Overview
 =============================
 
