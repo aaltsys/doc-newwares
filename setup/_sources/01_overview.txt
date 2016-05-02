@@ -34,7 +34,7 @@ Rate Code Setup
 
 WARES provides a default set of billing rate codes, but these codes may be 
 changed or extended with options on this page. Click this link to see the 
-:ref:`rate-codes`.
+:ref:`services`.
 
 
 #############################

@@ -83,8 +83,10 @@ prior to performing calculated billing.
 Setting Up Rates
 =============================
 
-The Rate Setup page is divided into three sections: 
-Identifying Information, Billing Information, and Calendar Information.
+The Rate Setup page is divided into three sections: Identifying Information, 
+Billing Information, and Calendar Information.
+
+.. image:: _images/account-rates.png
 
 Identifying entries:
 -----------------------------
