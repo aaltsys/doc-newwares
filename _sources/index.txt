@@ -36,7 +36,7 @@ WARES Master Index
       standard Internet protocols or services like DropBox.
    *  WARES supports X12 EDI formats for batch data transfers.
 
-   WARES facilitating data exchange by using industry codes and terms throughout 
+   WARES facilitates data exchange by using industry codes and terms throughout 
    the program and adhering to recognized information technology standards. 
 
 #. :ref:`billing:index`.
