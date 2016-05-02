@@ -1,39 +1,40 @@
-.. _rate-codes:
+.. _services:
 
 #############################
-Configuring Rate Codes
+Configuring Service Codes
 #############################
 
 The WARES billing system is very flexible, so parctically any service may be 
 associated with a document, calculated for charges, and billed on an invoice. 
-Setup includes a table of rate codes which may be used in configuring account 
+Setup includes a table of service codes which may be used in configuring account 
 billing. 
 
-The standard WARES code list is not exhaustive, but it should be a good starting 
-point for most logistics companies. 
+The standard WARES services list should be a good starting point for most 
+logistics companies. However, parctically every company will encounter service 
+requests or operational issues which require adding codes for other services. 
 
-Rate Code Columns
+Service Code Columns
 =============================
 
-*  **Code** -- is a unique rate code identifier. The code will be used in 
+*  **Code** -- is a unique service code identifier. The code will be used in 
    defining rates and applying optional charges.
 *  **Description** -- is the default text for rates using the code, and it 
    appears on document charges and corresponding invoices.
-*  **Apply** -- specifies how a rate is used. Values are **C** for Calculated,
+*  **Apply** -- specifies how a service is used. Values are **C** for Calculated,
    **M** for Mandatory, **O** for Optional, and **R** for Repeating.
-*  **Documents** -- limits a rate to be applied only on listed document types.
-*  **Group** -- provides a convenient shorthand for the revenue type a rate code 
+*  **Documents** -- limits a service to be used only on listed document types.
+*  **Group** -- provides a convenient shorthand for the revenue type a service 
    represents: **H** for Handling, **S** for Storage, **F** for freight, **L** 
    for Labor, and **M** for Miscellaneous. WARES groups revenue into these 
    categories to report gross income results.
 *  **Ledger Account** -- specifies the actual sales account in the warehouse 
-   ledgers where revenue for the rate will be posted. Wares includes a 
+   ledgers where revenue for the service will be posted. Wares includes a 
    utility for exporting invoices into standard accounting software.
 
-Example Rate Codes List
+Example Service Codes List
 =============================
 
-Following is an example rate code list. 
+Following is an example service code list. 
 
 +--------+---------------------------+-------+--------------+--------+---------+
 | Code   | Description               | Apply | Documents    | Group  | Ledger  |
@@ -136,6 +137,6 @@ Following is an example rate code list.
 +--------+---------------------------+-------+--------------+--------+---------+
  
 .. note::
-   The rate codes which are applied **C = Calculated** start with the number 1.
-   Only these four rate codes may be used to setup storage and handling rates, 
-   as WARES billing calculations are programmed to use only these codes.
+   Service codes which are applied **C = Calculated** start with the number 1. 
+   Only these four service codes may be used to setup storage and handling 
+   rates, as WARES billing calculations are programmed to use only these codes.

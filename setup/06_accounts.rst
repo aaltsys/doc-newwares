@@ -124,8 +124,8 @@ an account, as described by the following items.
    through the end of the month; **(P)rorated** multiplies the storage charge
    by the ratio of the days remaining in the month to the number of days in the 
    month.
-*  **Recurring Type** -- Sets the method of recurring calculation method as one
-   of the following options:
+*  **Recurring Type** -- Sets the recurring calculation method as one of the 
+   following options:
    **(E)nding balance** for advance billing of calendar month storage, 
    **(S)tarting balance** for arrears billing of the previous month, and 
    **(A)nniversary** for calculating the recurring storage on each lot according 
