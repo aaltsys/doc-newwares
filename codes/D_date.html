@@ -80,103 +80,155 @@
 <span id="date-list"></span><h1>Date/Time Qualifier Codes<a class="headerlink" href="#date-time-qualifier-codes" title="Permalink to this headline">¶</a></h1>
 <table border="1" class="docutils">
 <colgroup>
-<col width="11%" />
-<col width="89%" />
+<col width="10%" />
+<col width="80%" />
+<col width="10%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">CODE</th>
 <th class="head">Date/Time Description</th>
+<th class="head">Used</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td colspan="2">&#8211; &#8211; Dates (Note 1)</td>
+<tr class="row-even"><td colspan="2">&#8211; &#8211; Dates <a class="footnote-reference" href="#id6" id="id1">[1]</a></td>
+<td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>01</td>
 <td>Cancel After This Date</td>
+<td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>02</td>
 <td>Delivery Requested on This Date</td>
+<td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>10</td>
 <td>Requested Ship Date/Pickup Date</td>
+<td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>11</td>
 <td>Shipped on This Date</td>
+<td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>17</td>
 <td>Estimated Delivery Date</td>
+<td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>19</td>
 <td>Date Unloaded</td>
+<td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>22</td>
 <td>Freight Bill Date</td>
+<td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>35</td>
 <td>Delivered on This Date</td>
+<td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>37</td>
 <td>Ship Not Before Date</td>
+<td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>38</td>
 <td>Ship Not Later Than Date</td>
+<td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>39</td>
 <td>Ship Week Of Date</td>
+<td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td colspan="2">&#8211; &#8211; Times (Note 2)</td>
+<tr class="row-even"><td>150</td>
+<td>Start Period</td>
+<td><a class="footnote-reference" href="#id8" id="id2">[3]</a></td>
 </tr>
-<tr class="row-odd"><td>2</td>
+<tr class="row-odd"><td>151</td>
+<td>End Period</td>
+<td><a class="footnote-reference" href="#id8" id="id3">[3]</a></td>
+</tr>
+<tr class="row-even"><td>603</td>
+<td>Renewal Date</td>
+<td><a class="footnote-reference" href="#id8" id="id4">[3]</a></td>
+</tr>
+<tr class="row-odd"><td colspan="2">&#8211; &#8211; Times <a class="footnote-reference" href="#id7" id="id5">[2]</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>2</td>
 <td>Pickup Appointment Scheduled Time</td>
+<td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>3</td>
+<tr class="row-odd"><td>3</td>
 <td>Delivery Appointment Scheduled Time</td>
+<td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>4</td>
+<tr class="row-even"><td>4</td>
 <td>Pickup Requested Scheduled Time</td>
+<td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>5</td>
+<tr class="row-odd"><td>5</td>
 <td>Delivery Requested Scheduled Time</td>
+<td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>8</td>
+<tr class="row-even"><td>8</td>
 <td>Actual Pickup Time</td>
+<td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>9</td>
+<tr class="row-odd"><td>9</td>
 <td>Actual Delivery Time</td>
+<td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>A</td>
+<tr class="row-even"><td>A</td>
 <td>Actual Departure Time</td>
+<td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>S</td>
+<tr class="row-odd"><td>S</td>
 <td>Scheduled Departure Time</td>
+<td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>T</td>
+<tr class="row-even"><td>T</td>
 <td>Scheduled Arrival Time</td>
+<td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>U</td>
+<tr class="row-odd"><td>U</td>
 <td>Scheduled Pickup Time</td>
+<td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>V</td>
+<tr class="row-even"><td>V</td>
 <td>Actual Unloading Started</td>
+<td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>X</td>
+<tr class="row-odd"><td>X</td>
 <td>Scheduled Delivery Time</td>
+<td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>Y</td>
+<tr class="row-even"><td>Y</td>
 <td>Requested Pickup Time</td>
+<td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>Z</td>
+<tr class="row-odd"><td>Z</td>
 <td>Requested Delivery Time</td>
+<td>&nbsp;</td>
 </tr>
 </tbody>
 </table>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<ol class="last arabic simple">
-<li>Date source: ASC-X12 Data Element 432 - Date Qualifier.</li>
-<li>Time source: ASC-X12 Data Element 176 - Time Qualifier.</li>
-</ol>
-</div>
+<table class="docutils footnote" frame="void" id="id6" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Date source: ASC-X12 Data Element 432 - Date Qualifier.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id7" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id5">[2]</a></td><td>Time source: ASC-X12 Data Element 176 - Time Qualifier.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id8" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[3]</td><td><em>(<a class="fn-backref" href="#id2">1</a>, <a class="fn-backref" href="#id3">2</a>, <a class="fn-backref" href="#id4">3</a>)</em> Applies to recurring calculation and invoicing only</td></tr>
+</tbody>
+</table>
 </div>
 
 

@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Using Billing Rates &mdash; WARES Billing 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="WARES Billing 1.0 documentation" href="index.html" />
+    <link rel="next" title="Using Billing Charges" href="03_charges.html" />
+    <link rel="prev" title="Using Service Codes" href="01_services.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="03_charges.html" title="Using Billing Charges"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="01_services.html" title="Using Service Codes"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">WARES Billing 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Using Billing Rates</a><ul>
+<li><a class="reference internal" href="#calendar-information">Calendar Information</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="01_services.html"
+                        title="previous chapter">Using Service Codes</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="03_charges.html"
+                        title="next chapter">Using Billing Charges</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/02_rates.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="using-billing-rates">
+<h1>Using Billing Rates<a class="headerlink" href="#using-billing-rates" title="Permalink to this headline">¶</a></h1>
+<p>In progress.</p>
+<div class="section" id="calendar-information">
+<h2>Calendar Information<a class="headerlink" href="#calendar-information" title="Permalink to this headline">¶</a></h2>
+<p>Repeating tariffs may be applied by Every Day, Week Days, Month Days, Year Days,
+and Year Dates.  Select the appropriate radio button for this tariff.  Next,
+enter the desired Values for this schedule.  Enter a Last Date value to specify
+when the tariff will start to be applied, and enter an Expire Date if the tariff
+should be discontinued.  Next Date is calculated by the system based on the
+other entries.</p>
+<p>&#8212;</p>
+<p>ENTERING TARIFFS:</p>
+<p>Tariffs may be modified or added at any time.  A tariff should not be edited or
+deleted when open transactions exist with the charge applied to them.  Please
+refer to CONSIDERATIONS WHEN ENTERING TARIFFS before entering tariffs for the
+first time.</p>
+<p>CONSIDERATIONS WHEN ENTERING TARIFFS:</p>
+<p>Before any tariffs are entered, one must decide what services are being offered
+and what the default, or retail, rates are for those services.  When defining a
+list of services, do not over-generalize.  For example, do not lump all labor
+services into a single heading, when they can be broken down into specific
+activities such as RESTACKING, PACKAGING, RELOCATING, and so forth.</p>
+<p>Global Tariffs: Once your business services are identified, enter a global
+tariff for each optional service using the highest rate charged.  These tariff
+records should be grouped under one tariff name, for example, tariff &#8220;GLOBAL&#8221;.
+Leave the Account blank on these records, and set Apply to &#8220;Optional&#8221;.  These
+Tariffs may be applied by hand on any account.</p>
+<p>Override Tariffs: For negotiated rates on each account, use the account
+identifier as the Tariff Key and enter the same code as the global service code
+for that service.  Enter the Account identifier in the Account field as well.
+This causes the negotiated tariff to override the global rates for a service.</p>
+<p>Mandatory Tariffs: Where a transaction should always generate a charge, enter a
+tariff for the service with Apply set to &#8220;Mandatory&#8221;.  Then a charge will be
+added to each specified transaction on the tariffed account.  Generally
+Mandatory tariffs should be assigned to specific accounts.  Mandatory tariffs
+are applied during Charges Calculation, or when changing a record&#8217;s status to
+billed.</p>
+<p>Repeating Tariffs: When a charge is not based on a transaction, but is applied
+periodically instead, the tariff for the charge should be made repeating.
+Charge records for repeating tariffs are created during Charges Calculation,
+when either &#8220;Only&#8221; or &#8220;Also&#8221;&#8221; is entered for &#8220;Apply Repeating Charges&#8221;.
+Repeating tariffs are applied based on the tariff schedule.</p>
+<p>An example of a repeating tariff would be a lease charge.  This charge might be
+created on the first day of the month for the current month (current), on the
+last day of the month for the future month (advance), or on the last day of the
+month for the current month (arrears).  The schedule would be based on
+&#8220;MONTHDAYS&#8221;, using the date value of &#8220;FIRST&#8221; for current billing and &#8220;LAST&#8221; for
+either advance or arrears billing.</p>
+<p>Calculated Tariffs: Frequently charges are calculated based on discounts,
+prorating, and other considerations.  Rates for these tariffs are defined in the
+tariffs window, but special input parameters and billing calculations may be
+necessary to calculate these charges.  When charges are calculated by special
+routines, the corresponding tariffs must be applied as &#8220;Calculated&#8221;.  An example
+of calculated tariffs is the storage and handling charges in a warehousing
+module.</p>
+<p>Multiple Tariffs: Typically optional and mandatory tariff codes are assigned by
+account, while calculated tariffs are often assigned based on a grouping within
+an account.  A particular calculated tariff name may require multiple codes in
+an account.</p>
+<p>For example, a warehouse may charge customers three different storage rates
+depending on whether the goods are stored dry, cooled, or frozen.  Then each
+account might have three storage tariffs.  For account &#8220;ABC&#8221;, these three
+tariffs would each using code &#8220;1S&#8221; for storage.  The tariff codes might be
+&#8220;D-ABC&#8221;, &#8220;C-ABC&#8221;, and &#8220;F-ABC&#8221; for dry, cooled and frozen respectively.  Each of
+ABC&#8217;s products would be assigned to one of the three tariffs based on the type
+of storage required.</p>
+<p>Sharing Tariffs: Where tariffs are assigned to groupings rather than accounts,
+they may be shared by multiple accounts.  For example, a warehouse may have one
+standard rate for storing sacks of coffee beans.  By entering tariff &#8220;SACK&#8221;
+without an account, this tariff could be used on coffee sack products for any
+account.</p>
+<p>CODE TABLE MAINTENANCE:</p>
+<p>Codes may be edited or added to the list by pressing [Ctrl+G] while in the Code
+field or select Manage/Design/Code Lists from the menu.</p>
+<p>TARIFFS AND INVOICES:</p>
+<p>===
+Enter the Tariff group identifier, or lookup with:</p>
+<p>text$   Where &#8220;text&#8221; is part of a word from the account name,
+[Ctrl+D]        To select a tariff from an index value list, or
+[Ctrl+Q]        To select tariff records using the Query window.</p>
+<p>Tariff records may be retrieved by the account name. Enter part of a word from
+the name to start an index search. For example, enter &#8220;PAPER$&#8221; to select a
+record from a popup list of tariffs for account &#8220;Paper The Walls&#8221;.</p>
+<p>Press [Ctrl+D] to see an index value list. Select a tariff group identifier
+from this list to recall a tariff or to add a rate to an existing tariff.</p>
+<p>Each unique service charge which may be applied requires a separate tariff rate
+record. These records are identified by the combination of a tariff group
+identifier and a rate code.
+&#8212;
+Enter a Tariff service code, or press</p>
+<p>[Ctrl+D]        to select a code from an options list.</p>
+<p>Enter a rate or tariff identifier code. Each defined rate in a tariff is
+associated with a code.  Each unique service charge which may be applied
+requires a separate tariff rate record. These records are identified by the
+combination of a tariff group identifier and a rate code.</p>
+<p>The list of available tariff codes is maintained in a codes table.  Press
+[Ctrl+G] to edit the Tariff codes setup.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="03_charges.html" title="Using Billing Charges"
+             >next</a></li>
+        <li class="right" >
+          <a href="01_services.html" title="Using Service Codes"
+             >previous</a> |</li>
+        <li><a href="index.html">WARES Billing 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Gerald Lovel.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b1.
+    </div>
+  </body>
+</html>

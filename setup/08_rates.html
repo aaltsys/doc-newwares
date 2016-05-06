@@ -1,0 +1,371 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Defining Rates for Charges &mdash; WARES Company 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="WARES Company 1.0 documentation" href="index.html" />
+    <link rel="next" title="Products and Varieties" href="09_products.html" />
+    <link rel="prev" title="Customer Accounts" href="07_accounts.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="09_products.html" title="Products and Varieties"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="07_accounts.html" title="Customer Accounts"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">WARES Company 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Defining Rates for Charges</a><ul>
+<li><a class="reference internal" href="#rate-overview">Rate Overview</a></li>
+<li><a class="reference internal" href="#scope-and-grouping-of-rates">Scope and Grouping of Rates</a></li>
+<li><a class="reference internal" href="#applying-rates">Applying Rates</a></li>
+<li><a class="reference internal" href="#setting-up-rates">Setting Up Rates</a><ul>
+<li><a class="reference internal" href="#identifying-entries">Identifying entries:</a></li>
+<li><a class="reference internal" href="#calculation-entries">Calculation entries</a></li>
+<li><a class="reference internal" href="#calendar-information">Calendar Information</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="07_accounts.html"
+                        title="previous chapter">Customer Accounts</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="09_products.html"
+                        title="next chapter">Products and Varieties</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/08_rates.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="defining-rates-for-charges">
+<span id="rates"></span><h1>Defining Rates for Charges<a class="headerlink" href="#defining-rates-for-charges" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="rate-overview">
+<h2>Rate Overview<a class="headerlink" href="#rate-overview" title="Permalink to this headline">¶</a></h2>
+<p>Rate records define charges for the warehouse services which are invoiced to
+customers. A charge cannot be applied to an activity, a transaction, or a bill
+without a rate record defining the charge.</p>
+<p>WARES rate definitions allow a company to bill all types of services according
+to standard industry practices. When writing a proposal or contract, enter
+proposed rates here to verify that the quote will be consistent with industry
+norms and can be implemented as intended within the WARES software.</p>
+<p>Warehouse services are defined by the company <a class="reference internal" href="04_services.html#services"><em>Warehousing Service Codes</em></a>. Each rate relates
+to eactly one service code.</p>
+</div>
+<div class="section" id="scope-and-grouping-of-rates">
+<h2>Scope and Grouping of Rates<a class="headerlink" href="#scope-and-grouping-of-rates" title="Permalink to this headline">¶</a></h2>
+<p>Rates are grouped and the type of group affects the scope of a rate. Any one
+service code can appear only once in a group. All rates in a group will have
+the same account entry. If the account entry is left blank on a rate group,
+those rates can be applied to any account. If the account entry is filled, the
+rates will be restricted to the specified account.</p>
+<p>Many rate records may refer to the same service code, and an account may have
+more than one rate for a service, provided the rates are in separate groups.</p>
+<ul class="simple">
+<li>Rates in the <strong>GLOBAL</strong> group apply across all accounts, and the account
+entry for GLOBAL rates is null and protected. The GLOBAL group sets default
+rates for the company.</li>
+<li>Rates gouped by <strong>account</strong> identifier apply to only one customer account,
+and the account entry of these rates is filled with the account identifier
+and protected.</li>
+<li>Rates may be assigned a <strong>group</strong> code other than an account identifier or
+GLOBAL. The account entry, which may be null, must be the same for all rates
+in the group.</li>
+</ul>
+<p>A group rate for a service will override a corresponding GLOBAL rate with the
+same service code, and account-associated rates and groups will override rates
+which are not assigned to accounts.</p>
+<p>Grouped rates are particularly inportant for calculated charges, specifically
+storage and handling. As an example, there should be different storage rates
+for cartons on pallets stacked 3 high than for supersacks stacked 2 high. This
+would require two separate rate groups associated with the account. Typically
+each rate group would include the calculated storage and handling service codes
+for a group of products which are billed the same.</p>
+<p>Another warehouse stores imported Boxed Boneless Beef. These goods are brokered
+or traded while in the warehouse, so product is transferred between accounts.
+The warehouse creates group <strong>BBB</strong> for the calculated rates on this product,
+leaving the account identifier blank for the group. Every owner of the product
+shares the same calculated storage and handling rates.</p>
+<p>The scope of a rate may be restricted to specific activities. For example,
+receiving handling rates should be applied to warehouse receipts only, copying
+and long-distance FAXing fees might apply to receiving and shipping, and extra
+labor might be required on any documented activity.</p>
+</div>
+<div class="section" id="applying-rates">
+<h2>Applying Rates<a class="headerlink" href="#applying-rates" title="Permalink to this headline">¶</a></h2>
+<p>A rate is used to apply charges in one of four ways:</p>
+<ul class="simple">
+<li><strong>Repeating</strong> rates may create separate charge entries according to a
+calendar schedule. Repeating charges have fixed rates and quantities, so
+the charge is always the same.
+Calendar selections for repeating charges are for daily or daily within the
+open billing month, weekdays on specific days, monthdays on specific
+numbered days or on LAST or FIRST days, and year days (Julian) or year dates.</li>
+<li><strong>Calculated</strong> rates apply storage and handling charges to products on
+warehouse receipts and optionally shipments (for outbound handling), and to
+calculate charges for recurring product balances.</li>
+<li><strong>Mandatory</strong> rates may create charges on any documents, with calculation
+quantities based on a broad range of options. For example, a document fee
+could be applied by transaction for every shipment, while a line pick fee
+might be applied for every line item after the third one.</li>
+<li><strong>Optional</strong> rates are used to apply charges where either the occurrence, the
+quantity, or the rate cannot be determined programmatically. As an example,
+a charge for replacing a pallet shell and restacking goods would be optional,
+as this activity cannot be anticipated.</li>
+</ul>
+<p>Only optional rates can be used when entering charges on activities, as all
+other rates are applied by billing calculation. Optional charges must be entered
+on documents prior to performing calculated billing.</p>
+</div>
+<div class="section" id="setting-up-rates">
+<h2>Setting Up Rates<a class="headerlink" href="#setting-up-rates" title="Permalink to this headline">¶</a></h2>
+<p>The Rate Setup page is divided into three sections: Identifying Information,
+Calculation Entries, and Calendar Information.</p>
+<img alt="_images/account-rates.png" src="_images/account-rates.png" />
+<div class="section" id="identifying-entries">
+<h3>Identifying entries:<a class="headerlink" href="#identifying-entries" title="Permalink to this headline">¶</a></h3>
+<p>Identifying entries specify the rate grouping, the service to be performed,
+the account association, and the activity and billing scope of the resulting
+charges.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="5%" />
+<col width="72%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Entry</th>
+<th class="head">M</th>
+<th class="head">Permissible Identifying Entries</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Rate Group</td>
+<td>M</td>
+<td>GLOBAL, an  account identifier, or a grouping code</td>
+</tr>
+<tr class="row-odd"><td>Service Code</td>
+<td>M</td>
+<td>Selected from the list of warehouse service codes</td>
+</tr>
+<tr class="row-even"><td>Applied</td>
+<td>M</td>
+<td>(R)epeating, (C)alculated, (M)andatory, or (O)ptional</td>
+</tr>
+<tr class="row-odd"><td>Account</td>
+<td>&nbsp;</td>
+<td>A customer account, or left blank for shared groups</td>
+</tr>
+<tr class="row-even"><td>Activity</td>
+<td>&nbsp;</td>
+<td>A code for a documented activity or transaction</td>
+</tr>
+<tr class="row-odd"><td>Per Code</td>
+<td>&nbsp;</td>
+<td>Code referencing quantity  from transaction activity</td>
+</tr>
+<tr class="row-even"><td>Quantity Object</td>
+<td>O</td>
+<td>Reference object for calculating charge quantity</td>
+</tr>
+<tr class="row-odd"><td>Payer Object</td>
+<td>O</td>
+<td>Object to determine customer to invoice for charge</td>
+</tr>
+</tbody>
+</table>
+<p>Rates are uniquely identified by the combination of a <strong>Rate Group</strong> and a
+<strong>Service Code</strong>. The <strong>Rate Group</strong> entry can be either the word GLOBAL, an
+account identifier, or a user-defined rate group.</p>
+<p><strong>Service Code</strong> must be selected from the list of <a class="reference internal" href="04_services.html#services"><em>Warehousing Service Codes</em></a>.</p>
+<p>Service codes determine which rates <strong>Apply</strong> as Calculated or Repeating, and
+the <strong>Apply</strong> code is filled and protected accordingly. Other rates should be
+set to Optional or Mandatory, depending on whether user entry is required to
+determine a charge.</p>
+<p>Optional rates are applied through user entry, while charges for mandatory
+rates are created by billing calculations. Calculated rates are applied through
+special routines. Finally, Repeating rates create charge records and accumulate
+charges based on the repeating rate&#8217;s calendar schedule.</p>
+<p>The <strong>Account</strong> entry is null for GLOBAL rates, filled with the account code
+for rates in an account group, and otherwise either attached to an account or
+blank (shared) for user-defined groups.</p>
+<p>Each rate may restricted to apply to one or more transactional activities. Each
+activity has a <strong>Per</strong> code to identify the quantity calculation for the rate,
+and optional references to calculated objects for quantity and/or payer
+to invoice for the charge.</p>
+</div>
+<div class="section" id="calculation-entries">
+<h3>Calculation entries<a class="headerlink" href="#calculation-entries" title="Permalink to this headline">¶</a></h3>
+<p>These entries determine the content of charge line detail.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="4%" />
+<col width="65%" />
+<col width="11%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Entry</th>
+<th class="head">M</th>
+<th class="head">Billing Information Entry</th>
+<th class="head">Default</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Description</td>
+<td>M</td>
+<td>Information shown on charges and invoices</td>
+<td>(code)</td>
+</tr>
+<tr class="row-odd"><td>Billing UOM</td>
+<td>M</td>
+<td>Informational UOM used on charges and invoices</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Factor</td>
+<td>M</td>
+<td>Numerical quantity divider for unit conversion</td>
+<td>1.0</td>
+</tr>
+<tr class="row-odd"><td>Surcharge</td>
+<td>&nbsp;</td>
+<td>Percentage charge multiplier for tax or other</td>
+<td>null</td>
+</tr>
+<tr class="row-even"><td>Rate</td>
+<td>&nbsp;</td>
+<td>The charge per unit of service, may be tiered</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Quantity</td>
+<td>M</td>
+<td>Starting quantity to apply this rate tier</td>
+<td>1.00</td>
+</tr>
+<tr class="row-even"><td>Line Minimum</td>
+<td>&nbsp;</td>
+<td>Minimum amount for charge entry in tier</td>
+<td>Q * R</td>
+</tr>
+<tr class="row-odd"><td>Item Minimum</td>
+<td>&nbsp;</td>
+<td>Minimum total charge amount on an activity</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li>The rate <strong>Description</strong> entry is the actual invoice description for
+calculated, mandatory, and repeating charges. This is the default charge
+description for user-entered optional charges.</li>
+<li>The <strong>Billing UOM</strong> (unit of measure) prints on charges and invoices to
+describe the units of a charge quantity.</li>
+<li>A <strong>Factor</strong> will divide the quantity in a charge to convert from inventory
+quantity to billing quantity. For example, the factor <em>100.00</em> converts
+inventory units <em>LB</em> into billing UOM <em>CW</em> (hundredweight).</li>
+<li>A <strong>Surcharge</strong> percentage may apply to a rate to cover services taxes, fuel
+surcharges, or other items. This is a percentage, not a decimal value.</li>
+</ul>
+<p>The rates portion of an entry is tiered by quantity, so that rates can increase
+or decrease as quantity increases.</p>
+<ul class="simple">
+<li>Where a <strong>Rate</strong> for a particular charge is variable, the Rate field may be
+left blank and entered manually each time the charge is applied.</li>
+<li>The <strong>Quantity</strong> defaults to 1.0. Quantity entries are required for tiered
+rates.</li>
+<li>A <strong>Minimum</strong> value for resulting charges defaults to <strong>Rate X quantity</strong>.
+This minimum would be applied to every transaction line.</li>
+<li>An <strong>Item Minimum</strong> can be applied to an entire transaction to result in
+charges that are reasonable. For example, a handling charge of $.40 per case
+is not reasonable when receiving a single case.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Decreasing rates may require deficit quantities to produce rate rationality.
+A Rationality flag could be added to turn this feature off or on.</p>
+</div>
+</div>
+<div class="section" id="calendar-information">
+<h3>Calendar Information<a class="headerlink" href="#calendar-information" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="09_products.html" title="Products and Varieties"
+             >next</a></li>
+        <li class="right" >
+          <a href="07_accounts.html" title="Customer Accounts"
+             >previous</a> |</li>
+        <li><a href="index.html">WARES Company 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Gerald Lovel.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b1.
+    </div>
+  </body>
+</html>
