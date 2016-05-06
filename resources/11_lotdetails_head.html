@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>LOCATIONS Data Table Columns &mdash; WARES Resources 1.0 documentation</title>
+    <title>DETAILS Data Table Columns &mdash; WARES Resources 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="WARES Resources 1.0 documentation" href="index.html" />
-    <link rel="next" title="INTERNATIONAL REFRIGERATED WAREHOUSE CONTRACT TERMS AND CONDITIONS" href="form_terms-iarw.html" />
+    <link rel="next" title="LOT LINES Data Table Columns" href="11_lotdetails_lines.html" />
     <link rel="prev" title="INVOICES Header Data Columns" href="08_invoices.html" /> 
   </head>
   <body role="document">
@@ -32,7 +32,7 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="form_terms-iarw.html" title="INTERNATIONAL REFRIGERATED WAREHOUSE CONTRACT TERMS AND CONDITIONS"
+          <a href="11_lotdetails_lines.html" title="LOT LINES Data Table Columns"
              accesskey="N">next</a></li>
         <li class="right" >
           <a href="08_invoices.html" title="INVOICES Header Data Columns"
@@ -42,16 +42,24 @@
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">DETAILS Data Table Columns</a><ul>
+<li><a class="reference internal" href="#detail-lot-header-columns">Detail Lot Header Columns</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="08_invoices.html"
                         title="previous chapter">INVOICES Header Data Columns</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="form_terms-iarw.html"
-                        title="next chapter">INTERNATIONAL REFRIGERATED WAREHOUSE CONTRACT TERMS AND CONDITIONS</a></p>
+  <p class="topless"><a href="11_lotdetails_lines.html"
+                        title="next chapter">LOT LINES Data Table Columns</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/09_locations.txt"
+      <li><a href="_sources/11_lotdetails_head.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -76,8 +84,17 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="locations-data-table-columns">
-<span id="locations-schema"></span><h1>LOCATIONS Data Table Columns<a class="headerlink" href="#locations-data-table-columns" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="details-data-table-columns">
+<span id="lots-schema"></span><h1>DETAILS Data Table Columns<a class="headerlink" href="#details-data-table-columns" title="Permalink to this headline">¶</a></h1>
+<p>Lot detail record entries are divided into the following sections:</p>
+<ul class="simple">
+<li>Keys &#8211; A combination of values which uniquely identify a product</li>
+<li>Descriptors &#8211; Alternate textual product identification and categorization</li>
+<li>Dimension &#8211; The measures of packing for a product</li>
+<li>Transactions &#8211; keys, Posting, Lot Identification, and quantitative entries.</li>
+</ul>
+<div class="section" id="detail-lot-header-columns">
+<h2>Detail Lot Header Columns<a class="headerlink" href="#detail-lot-header-columns" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
 <col width="4%" />
@@ -107,108 +124,234 @@
 </tr>
 <tr class="row-odd"><td>M</td>
 <td>S</td>
-<td>BUILDING</td>
+<td>ACCOUNT</td>
 <td>A</td>
 <td>U</td>
-<td>VT=ADDRESSES*B</td>
+<td>VT=ACCOUNTS</td>
 <td>&nbsp;</td>
-<td>L8</td>
+<td>L10</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>M</td>
 <td>S</td>
-<td>LOCATIONCODE</td>
+<td>PRODUCT</td>
 <td>A</td>
 <td>U</td>
+<td>VT=PRODUCTS, key1</td>
 <td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>L12</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Dimensional Entries</td>
-</tr>
-<tr class="row-even"><td>M</td>
-<td>S</td>
-<td>PLAN</td>
-<td>N.0</td>
-<td>U</td>
-<td>(MD0)</td>
-<td>&nbsp;</td>
-<td>R4</td>
+<td>L20</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>M</td>
 <td>S</td>
-<td>STACK</td>
-<td>N.0</td>
+<td>VARIETY</td>
+<td>A</td>
 <td>U</td>
-<td>(MD0)</td>
-<td>&nbsp;</td>
-<td>R4</td>
+<td>VT=PRODUCTS, key2</td>
+<td>null</td>
+<td>L10</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>M</td>
 <td>S</td>
-<td>VARIANCE</td>
-<td>N.0</td>
+<td>CONTROL</td>
+<td>A</td>
 <td>U</td>
-<td>(MD0)</td>
+<td>paired: CONTROLCODE</td>
 <td>&nbsp;</td>
-<td>R4</td>
+<td>L20</td>
+<td><a class="reference internal" href="#a" id="id1">[A]</a></td>
+</tr>
+<tr class="row-odd"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Descriptive Entries</td>
+</tr>
+<tr class="row-even"><td>M</td>
+<td>S</td>
+<td>POSTDATE</td>
+<td>A</td>
+<td>U</td>
+<td>DATE</td>
+<td>TODAY</td>
+<td>R10</td>
+<td><a class="reference internal" href="#a" id="id2">[A]</a></td>
+</tr>
+<tr class="row-odd"><td>M</td>
+<td>S</td>
+<td>CONTROLCODE</td>
+<td>LC</td>
+<td>U</td>
+<td><a class="reference external" href="../codes/P_control.html#control-list" title="(in WARES Codes v1.0)"><em>Lot Control Codes</em></a></td>
+<td>NA</td>
+<td>L4</td>
+<td><a class="reference internal" href="#a" id="id3">[A]</a></td>
+</tr>
+<tr class="row-even"><td>O</td>
+<td>T</td>
+<td>DESCRIPTION</td>
+<td>A</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>T40</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td colspan="9"><a class="reference internal" href="#b" id="id4">[B]</a>  &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Dimensional Entries</td>
+</tr>
+<tr class="row-even"><td>M</td>
+<td>S</td>
+<td>UNITUOM</td>
+<td>A</td>
+<td>U</td>
+<td><a class="reference external" href="../codes/P_code-uom.html#uom-list" title="(in WARES Codes v1.0)"><em>Units of Measure</em></a></td>
+<td>PL</td>
+<td>L4</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>O</td>
 <td>S</td>
-<td>SPACE</td>
+<td>UNITNET</td>
+<td>N.2</td>
+<td>&nbsp;</td>
+<td>(MD2)</td>
+<td>&nbsp;</td>
+<td>R9</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>O</td>
+<td>S</td>
+<td>UNITTARE</td>
+<td>N.2</td>
+<td>&nbsp;</td>
+<td>(MD2)</td>
+<td>&nbsp;</td>
+<td>R9</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>O</td>
+<td>S</td>
+<td>UNITSIZE</td>
+<td>N.2</td>
+<td>&nbsp;</td>
+<td>(MD4)</td>
+<td>&nbsp;</td>
+<td>R9</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>O</td>
+<td>S</td>
+<td>UNITSTACK</td>
 <td>N.0</td>
 <td>&nbsp;</td>
 <td>(MD0)</td>
 <td>&nbsp;</td>
-<td>R4</td>
+<td>R1</td>
 <td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Descriptive Entries</td>
 </tr>
 <tr class="row-odd"><td>O</td>
-<td>T</td>
-<td>ZONE</td>
-<td>LC</td>
+<td>S</td>
+<td>CONTENTUOM</td>
+<td>A</td>
 <td>U</td>
-<td><a class="reference external" href="../codes/L_zone.html#zone-list" title="(in WARES Codes v1.0)"><em>Storage Zone</em></a></td>
-<td>&nbsp;</td>
+<td><a class="reference external" href="../codes/P_code-uom.html#uom-list" title="(in WARES Codes v1.0)"><em>Units of Measure</em></a></td>
+<td>CA</td>
 <td>L4</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>O</td>
 <td>S</td>
-<td>ACCESS</td>
-<td>LC</td>
-<td>U</td>
-<td><a class="reference external" href="../codes/L_access.html#access-list" title="(in WARES Codes v1.0)"><em>Location Access Code</em></a></td>
+<td>CONTENTCOUNT</td>
+<td>N.0</td>
 <td>&nbsp;</td>
-<td>L4</td>
+<td>(MD0)</td>
+<td>&nbsp;</td>
+<td>R6</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>O</td>
-<td>T</td>
-<td>ABC</td>
-<td>LC</td>
-<td>U</td>
-<td><a class="reference external" href="../codes/L_abc.html#abc-list" title="(in WARES Codes v1.0)"><em>Product Turnover Rate</em></a></td>
+<td>S</td>
+<td>CONTENTNET</td>
+<td>N.4</td>
 <td>&nbsp;</td>
-<td>L4</td>
+<td>(MD4)</td>
+<td>&nbsp;</td>
+<td>R9</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>O</td>
 <td>S</td>
-<td>MIX</td>
-<td>LC</td>
-<td>U</td>
-<td><a class="reference external" href="../codes/L_mix.html#mix-list" title="(in WARES Codes v1.0)"><em>Unit / Location Mixing</em></a></td>
+<td>CONTENTTARE</td>
+<td>N.4</td>
 <td>&nbsp;</td>
+<td>(MD4)</td>
+<td>&nbsp;</td>
+<td>R9</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>O</td>
+<td>S</td>
+<td>CONTENTSIZE</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>(MD4)</td>
+<td>&nbsp;</td>
+<td>R9</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>O</td>
+<td>S</td>
+<td>INNERUOM</td>
+<td>A</td>
+<td>U</td>
+<td><a class="reference external" href="../codes/P_code-uom.html#uom-list" title="(in WARES Codes v1.0)"><em>Units of Measure</em></a></td>
+<td>EA</td>
 <td>L4</td>
 <td>&nbsp;</td>
 </tr>
+<tr class="row-odd"><td>O</td>
+<td>S</td>
+<td>INNERCOUNT</td>
+<td>N.0</td>
+<td>&nbsp;</td>
+<td>(MD0)</td>
+<td>&nbsp;</td>
+<td>R6</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>O</td>
+<td>S</td>
+<td>INNERWEIGHT</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>(MD4)</td>
+<td>&nbsp;</td>
+<td>R8</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>O</td>
+<td>S</td>
+<td>INNERSIZE</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>(MD4)</td>
+<td>&nbsp;</td>
+<td>R8</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="a" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[A]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id2">2</a>, <a class="fn-backref" href="#id3">3</a>)</em> CONTROLCODE may be assigned automatically based on the associated product
+record. Control codes may determine the default values of control, such
+as rotation dates or warehouse sequential lot numbers.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="b" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[B]</a></td><td>When a document is entered, defaults for lot dimensional values are
+copied from the current values of the product master. These values may
+be changed during document entry.</td></tr>
 </tbody>
 </table>
 <p><strong>LEGEND:</strong></p>
@@ -284,6 +427,7 @@ paired entry or code is specified.</li>
 </ol>
 </div>
 </div>
+</div>
 
 
           </div>
@@ -295,7 +439,7 @@ paired entry or code is specified.</li>
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="form_terms-iarw.html" title="INTERNATIONAL REFRIGERATED WAREHOUSE CONTRACT TERMS AND CONDITIONS"
+          <a href="11_lotdetails_lines.html" title="LOT LINES Data Table Columns"
              >next</a></li>
         <li class="right" >
           <a href="08_invoices.html" title="INVOICES Header Data Columns"

@@ -1,1 +1,7 @@
- 
+.. _repeating:
+
+#############################
+Repeating Calendar Operations
+#############################
+
+In progress
