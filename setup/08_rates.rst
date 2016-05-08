@@ -19,7 +19,7 @@ norms and can be implemented as intended within the WARES software.
 Warehouse services are defined by the company :ref:`services`. Each rate relates 
 to eactly one service code.
 
-The :ref:`schema-rates` may be viewed here for information.
+The :ref:`rates-schema` may be viewed here for information.
 
 Scope and Grouping of Rates 
 =============================

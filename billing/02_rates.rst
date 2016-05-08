@@ -16,7 +16,7 @@ An example partial rate quote is shown following to demonstrate how rates are
 presented to the customer with WARES. There are four sections to the report, 
 determined by entries in the **Account** and **Group** columns.
 
-.. image:: _images/rate-quote.png
+.. image:: _images/rates-quote.png
 
 Private Rates by Account 
 -----------------------------
@@ -167,3 +167,7 @@ an account.
 
 RATES AND INVOICES:
 
+.. _rate-tiers:
+
+Rate Tiers and Calculations
+-----------------------------
