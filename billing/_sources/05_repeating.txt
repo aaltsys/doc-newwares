@@ -1,4 +1,4 @@
-.. _repeating:
+.. _bill-repeating:
 
 #############################
 Repeating Calendar Operations

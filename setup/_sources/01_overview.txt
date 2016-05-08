@@ -29,10 +29,10 @@ Program User Management
 viewing information for specific customer accounts, or to performing specific 
 functions, depending on their role.
 
-Rate Code Setup
+Services Code Setup
 =============================
 
-WARES provides a default set of billing rate codes, but these codes may be 
+WARES provides a default set of services billing codes, but these codes may be 
 changed or extended with options on this page. Click this link to see the 
 :ref:`services`.
 

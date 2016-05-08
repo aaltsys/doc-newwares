@@ -45,7 +45,15 @@
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Using Billing Rates</a><ul>
-<li><a class="reference internal" href="#calendar-information">Calendar Information</a></li>
+<li><a class="reference internal" href="#rate-quote-sections">Rate Quote Sections</a><ul>
+<li><a class="reference internal" href="#private-rates-by-account">Private Rates by Account</a></li>
+<li><a class="reference internal" href="#private-rates-by-group">Private Rates by Group</a></li>
+<li><a class="reference internal" href="#shared-rates-by-group">Shared Rates by Group</a></li>
+<li><a class="reference internal" href="#rates-in-group-global">Rates in group GLOBAL</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#columns-in-a-rate-quote">Columns in a Rate Quote</a></li>
+<li><a class="reference internal" href="#rates-entries">Rates Entries</a></li>
 </ul>
 </li>
 </ul>
@@ -86,102 +94,161 @@
             
   <div class="section" id="using-billing-rates">
 <h1>Using Billing Rates<a class="headerlink" href="#using-billing-rates" title="Permalink to this headline">¶</a></h1>
-<p>In progress.</p>
-<div class="section" id="calendar-information">
-<h2>Calendar Information<a class="headerlink" href="#calendar-information" title="Permalink to this headline">¶</a></h2>
-<p>Repeating tariffs may be applied by Every Day, Week Days, Month Days, Year Days,
-and Year Dates.  Select the appropriate radio button for this tariff.  Next,
-enter the desired Values for this schedule.  Enter a Last Date value to specify
-when the tariff will start to be applied, and enter an Expire Date if the tariff
-should be discontinued.  Next Date is calculated by the system based on the
-other entries.</p>
-<p>&#8212;</p>
-<p>ENTERING TARIFFS:</p>
-<p>Tariffs may be modified or added at any time.  A tariff should not be edited or
+<p>Setting up rates starts with analyzing customer contracts. A customer agreement
+should show a customer the services offered and charges billed for those
+services, and it guarantees the logistics company that they will be fairly
+compensated for services rendered.</p>
+<div class="section" id="rate-quote-sections">
+<h2>Rate Quote Sections<a class="headerlink" href="#rate-quote-sections" title="Permalink to this headline">¶</a></h2>
+<p>An example partial rate quote is shown following to demonstrate how rates are
+presented to the customer with WARES. There are four sections to the report,
+determined by entries in the <strong>Account</strong> and <strong>Group</strong> columns.</p>
+<img alt="_images/rate-quote.png" src="_images/rate-quote.png" />
+<div class="section" id="private-rates-by-account">
+<h3>Private Rates by Account<a class="headerlink" href="#private-rates-by-account" title="Permalink to this headline">¶</a></h3>
+<p>ACCOUNT = <strong>ABF</strong>, GROUP = <strong>ABF</strong>:</p>
+<p>Rates grouped by the account identifier (ABF) appear first on the quote. These
+rates are private to the account, and each service code listed in this group
+will override a corresponding rate in the general group <strong>GLOBAL</strong>.</p>
+</div>
+<div class="section" id="private-rates-by-group">
+<h3>Private Rates by Group<a class="headerlink" href="#private-rates-by-group" title="Permalink to this headline">¶</a></h3>
+<p>ACCOUNT = <strong>ABF</strong>, GROUP = user-defined:</p>
+<p>Other groups which are restricted by the account identifier provide multiple
+rate sets for an account, particularly for calculated storage and handling.
+If an account identifier is entered on the first rate in a group, the account
+is added and protected on all rates in the group.</p>
+</div>
+<div class="section" id="shared-rates-by-group">
+<h3>Shared Rates by Group<a class="headerlink" href="#shared-rates-by-group" title="Permalink to this headline">¶</a></h3>
+<p>ACCOUNT blank, GROUP = user-defined:</p>
+<p>Where services and their rates are shared with multiple accounts, a shared
+group is available to all accounts. If the account is left blank on the first
+rate in a group, subsequent rates in the group will be shared as well.</p>
+</div>
+<div class="section" id="rates-in-group-global">
+<h3>Rates in group GLOBAL<a class="headerlink" href="#rates-in-group-global" title="Permalink to this headline">¶</a></h3>
+<p>ACCOUNT blank, GROUP = <strong>GLOBAL</strong></p>
+<p>The <strong>GLOBAL</strong> group, which sets default service rates for all accounts, appears
+last on the report. Account is blank and protected for all <strong>GLOBAL</strong> entries.
+When a service code is used on a rate in an account group, any corresponding
+<strong>GLOBAL</strong> rate is suppressed for that account.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ol class="last arabic simple">
+<li>In the example report, the <strong>GLOBAL</strong> section shows Codes <strong>L1</strong> and
+<strong>L2</strong>. The code <strong>L3</strong> appears in the private account group <strong>ABF</strong>, and
+so this code is suppressed in group <strong>GLOBAL</strong> for customer <strong>ABF</strong>.</li>
+<li>Codes <strong>1H</strong>, <strong>1R</strong>, and <strong>1S</strong> are used in both private groups for
+<strong>ABF</strong> and the shared group <strong>FRZ-RK</strong>. Codes used in private groups do
+not override the same codes in shared groups.</li>
+<li>GLOBAL rate <strong>F2</strong> is a tiered rate. The actual amount charged depends on
+the quantity, as described in <em class="xref std std-ref">rate-tiers</em>.</li>
+<li>Rates in the <strong>GLOBAL</strong> group are always <strong>Optional</strong>.</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="section" id="columns-in-a-rate-quote">
+<h2>Columns in a Rate Quote<a class="headerlink" href="#columns-in-a-rate-quote" title="Permalink to this headline">¶</a></h2>
+<p>Descriptions of the displayed report columns are as follows:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="82%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Heading</th>
+<th class="head">Description or Explanation</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Account</td>
+<td>Customer Account Identifier</td>
+</tr>
+<tr class="row-odd"><td>Group</td>
+<td>Groups organize Rates for management</td>
+</tr>
+<tr class="row-even"><td>Code</td>
+<td>Service Code identifies each service offered by company</td>
+</tr>
+<tr class="row-odd"><td>OMCR</td>
+<td>Applied (O)ptional, (M)andatory, (C)alculated, (R)epeating</td>
+</tr>
+<tr class="row-even"><td>UOM</td>
+<td>Billing unit of measure (UOM) code for quantity</td>
+</tr>
+<tr class="row-odd"><td>Description</td>
+<td>Invoice/Billing Description of the service</td>
+</tr>
+<tr class="row-even"><td>Rate</td>
+<td>Nominal Rate per unit quantity of service</td>
+</tr>
+<tr class="row-odd"><td>Quantity</td>
+<td>Quantity level corresponding to the rate</td>
+</tr>
+<tr class="row-even"><td>Minimum</td>
+<td>Minimum charge applied for this service</td>
+</tr>
+</tbody>
+</table>
+<p>These columns show a customer the rates which will be charged for services.
+More information is required to complete a rate definition, such as the
+calendar for a repeating rate, the activity which triggers a mandatory charge,
+and the method of converting from inventory or activity quantities to the
+chargeable quantities indicated by the billing units of measure.</p>
+</div>
+<div class="section" id="rates-entries">
+<h2>Rates Entries<a class="headerlink" href="#rates-entries" title="Permalink to this headline">¶</a></h2>
+<p>ENTERING RATES:</p>
+<p>Rates may be modified or added at any time.  A rate should not be edited or
 deleted when open transactions exist with the charge applied to them.  Please
-refer to CONSIDERATIONS WHEN ENTERING TARIFFS before entering tariffs for the
+refer to CONSIDERATIONS WHEN ENTERING RATES before entering rates for the
 first time.</p>
-<p>CONSIDERATIONS WHEN ENTERING TARIFFS:</p>
-<p>Before any tariffs are entered, one must decide what services are being offered
+<p>CONSIDERATIONS WHEN ENTERING RATES:</p>
+<p>Before any rates are entered, one must decide what services are being offered
 and what the default, or retail, rates are for those services.  When defining a
 list of services, do not over-generalize.  For example, do not lump all labor
 services into a single heading, when they can be broken down into specific
 activities such as RESTACKING, PACKAGING, RELOCATING, and so forth.</p>
-<p>Global Tariffs: Once your business services are identified, enter a global
-tariff for each optional service using the highest rate charged.  These tariff
-records should be grouped under one tariff name, for example, tariff &#8220;GLOBAL&#8221;.
+<p>Global Rates: Once your business services are identified, enter a global
+rate for each optional service using the highest rate charged.  These rate
+records should be grouped under one rate name, for example, rate &#8220;GLOBAL&#8221;.
 Leave the Account blank on these records, and set Apply to &#8220;Optional&#8221;.  These
-Tariffs may be applied by hand on any account.</p>
-<p>Override Tariffs: For negotiated rates on each account, use the account
+Rates may be applied by hand on any account.</p>
+<p>Override Rates: For negotiated rates on each account, use the account
 identifier as the Tariff Key and enter the same code as the global service code
 for that service.  Enter the Account identifier in the Account field as well.
-This causes the negotiated tariff to override the global rates for a service.</p>
-<p>Mandatory Tariffs: Where a transaction should always generate a charge, enter a
-tariff for the service with Apply set to &#8220;Mandatory&#8221;.  Then a charge will be
-added to each specified transaction on the tariffed account.  Generally
-Mandatory tariffs should be assigned to specific accounts.  Mandatory tariffs
+This causes the negotiated rate to override the global rates for a service.</p>
+<p>Mandatory Rates: Where a transaction should always generate a charge, enter a
+rate for the service with Apply set to &#8220;Mandatory&#8221;.  Then a charge will be
+added to each specified transaction on the rateed account.  Generally
+Mandatory rates should be assigned to specific accounts.  Mandatory rates
 are applied during Charges Calculation, or when changing a record&#8217;s status to
 billed.</p>
-<p>Repeating Tariffs: When a charge is not based on a transaction, but is applied
-periodically instead, the tariff for the charge should be made repeating.
-Charge records for repeating tariffs are created during Charges Calculation,
+<p>Repeating Rates: When a charge is not based on a transaction, but is applied
+periodically instead, the rate for the charge should be made repeating.
+Charge records for repeating rates are created during Charges Calculation,
 when either &#8220;Only&#8221; or &#8220;Also&#8221;&#8221; is entered for &#8220;Apply Repeating Charges&#8221;.
-Repeating tariffs are applied based on the tariff schedule.</p>
-<p>An example of a repeating tariff would be a lease charge.  This charge might be
+Repeating rates are applied based on the rate schedule.</p>
+<p>An example of a repeating rate would be a lease charge.  This charge might be
 created on the first day of the month for the current month (current), on the
 last day of the month for the future month (advance), or on the last day of the
 month for the current month (arrears).  The schedule would be based on
 &#8220;MONTHDAYS&#8221;, using the date value of &#8220;FIRST&#8221; for current billing and &#8220;LAST&#8221; for
 either advance or arrears billing.</p>
-<p>Calculated Tariffs: Frequently charges are calculated based on discounts,
-prorating, and other considerations.  Rates for these tariffs are defined in the
-tariffs window, but special input parameters and billing calculations may be
-necessary to calculate these charges.  When charges are calculated by special
-routines, the corresponding tariffs must be applied as &#8220;Calculated&#8221;.  An example
-of calculated tariffs is the storage and handling charges in a warehousing
+<p>Calculated Rates: Frequently charges are calculated based on discounts,
+prorating, and other considerations.  These rates are defined in the
+rates window, but special input parameters and billing calculations may be
+necessary to calculate the charges.  When charges are calculated by special
+routines, the corresponding rates must be applied as &#8220;Calculated&#8221;.  An example
+of calculated rates is the storage and handling charges in a warehousing
 module.</p>
-<p>Multiple Tariffs: Typically optional and mandatory tariff codes are assigned by
-account, while calculated tariffs are often assigned based on a grouping within
-an account.  A particular calculated tariff name may require multiple codes in
+<p>Multiple Rates: Typically optional and mandatory rate codes are assigned by
+account, while calculated rates are often assigned based on a grouping within
+an account.  A particular calculated rate name may require multiple codes in
 an account.</p>
-<p>For example, a warehouse may charge customers three different storage rates
-depending on whether the goods are stored dry, cooled, or frozen.  Then each
-account might have three storage tariffs.  For account &#8220;ABC&#8221;, these three
-tariffs would each using code &#8220;1S&#8221; for storage.  The tariff codes might be
-&#8220;D-ABC&#8221;, &#8220;C-ABC&#8221;, and &#8220;F-ABC&#8221; for dry, cooled and frozen respectively.  Each of
-ABC&#8217;s products would be assigned to one of the three tariffs based on the type
-of storage required.</p>
-<p>Sharing Tariffs: Where tariffs are assigned to groupings rather than accounts,
-they may be shared by multiple accounts.  For example, a warehouse may have one
-standard rate for storing sacks of coffee beans.  By entering tariff &#8220;SACK&#8221;
-without an account, this tariff could be used on coffee sack products for any
-account.</p>
-<p>CODE TABLE MAINTENANCE:</p>
-<p>Codes may be edited or added to the list by pressing [Ctrl+G] while in the Code
-field or select Manage/Design/Code Lists from the menu.</p>
-<p>TARIFFS AND INVOICES:</p>
-<p>===
-Enter the Tariff group identifier, or lookup with:</p>
-<p>text$   Where &#8220;text&#8221; is part of a word from the account name,
-[Ctrl+D]        To select a tariff from an index value list, or
-[Ctrl+Q]        To select tariff records using the Query window.</p>
-<p>Tariff records may be retrieved by the account name. Enter part of a word from
-the name to start an index search. For example, enter &#8220;PAPER$&#8221; to select a
-record from a popup list of tariffs for account &#8220;Paper The Walls&#8221;.</p>
-<p>Press [Ctrl+D] to see an index value list. Select a tariff group identifier
-from this list to recall a tariff or to add a rate to an existing tariff.</p>
-<p>Each unique service charge which may be applied requires a separate tariff rate
-record. These records are identified by the combination of a tariff group
-identifier and a rate code.
-&#8212;
-Enter a Tariff service code, or press</p>
-<p>[Ctrl+D]        to select a code from an options list.</p>
-<p>Enter a rate or tariff identifier code. Each defined rate in a tariff is
-associated with a code.  Each unique service charge which may be applied
-requires a separate tariff rate record. These records are identified by the
-combination of a tariff group identifier and a rate code.</p>
-<p>The list of available tariff codes is maintained in a codes table.  Press
-[Ctrl+G] to edit the Tariff codes setup.</p>
+<p>RATES AND INVOICES:</p>
 </div>
 </div>
 
