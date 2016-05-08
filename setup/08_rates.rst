@@ -12,12 +12,14 @@ customers. A charge cannot be applied to an activity, a transaction, or a bill
 without a rate record defining the charge. 
 
 WARES rate definitions allow a company to bill all types of services according 
-to standard industry practices. When writing a proposal or contract, enter  
+to standard industry practices. When writing a proposal or contract, enter 
 proposed rates here to verify that the quote will be consistent with industry 
 norms and can be implemented as intended within the WARES software. 
 
 Warehouse services are defined by the company :ref:`services`. Each rate relates 
 to eactly one service code.
+
+The :ref:`schema-rates` may be viewed here for information.
 
 Scope and Grouping of Rates 
 =============================
