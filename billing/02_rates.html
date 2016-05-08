@@ -53,7 +53,10 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#columns-in-a-rate-quote">Columns in a Rate Quote</a></li>
-<li><a class="reference internal" href="#rates-entries">Rates Entries</a></li>
+<li><a class="reference internal" href="#rates-entries">Rates Entries</a><ul>
+<li><a class="reference internal" href="#rate-tiers-and-calculations">Rate Tiers and Calculations</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -103,7 +106,7 @@ compensated for services rendered.</p>
 <p>An example partial rate quote is shown following to demonstrate how rates are
 presented to the customer with WARES. There are four sections to the report,
 determined by entries in the <strong>Account</strong> and <strong>Group</strong> columns.</p>
-<img alt="_images/rate-quote.png" src="_images/rate-quote.png" />
+<img alt="_images/rates-quote.png" src="_images/rates-quote.png" />
 <div class="section" id="private-rates-by-account">
 <h3>Private Rates by Account<a class="headerlink" href="#private-rates-by-account" title="Permalink to this headline">¶</a></h3>
 <p>ACCOUNT = <strong>ABF</strong>, GROUP = <strong>ABF</strong>:</p>
@@ -143,7 +146,7 @@ so this code is suppressed in group <strong>GLOBAL</strong> for customer <strong
 <strong>ABF</strong> and the shared group <strong>FRZ-RK</strong>. Codes used in private groups do
 not override the same codes in shared groups.</li>
 <li>GLOBAL rate <strong>F2</strong> is a tiered rate. The actual amount charged depends on
-the quantity, as described in <em class="xref std std-ref">rate-tiers</em>.</li>
+the quantity, as described in <a class="reference internal" href="#rate-tiers"><em>Rate Tiers and Calculations</em></a>.</li>
 <li>Rates in the <strong>GLOBAL</strong> group are always <strong>Optional</strong>.</li>
 </ol>
 </div>
@@ -249,6 +252,9 @@ account, while calculated rates are often assigned based on a grouping within
 an account.  A particular calculated rate name may require multiple codes in
 an account.</p>
 <p>RATES AND INVOICES:</p>
+<div class="section" id="rate-tiers-and-calculations">
+<span id="rate-tiers"></span><h3>Rate Tiers and Calculations<a class="headerlink" href="#rate-tiers-and-calculations" title="Permalink to this headline">¶</a></h3>
+</div>
 </div>
 </div>
 
