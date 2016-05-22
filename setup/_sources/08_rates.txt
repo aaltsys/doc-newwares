@@ -122,9 +122,9 @@ charges.
 +-----------------+----+-------------------------------------------------------+
 | Per Code        |    | Code referencing quantity  from transaction activity  |
 +-----------------+----+-------------------------------------------------------+
-| Quantity Object | O  | Reference object for calculating charge quantity      |
+| Quantity Method | O  | Method reference for calculating charge quantity      |
 +-----------------+----+-------------------------------------------------------+
-| Payer Object    | O  | Object to determine customer to invoice for charge    |
+| Payer Method    | O  | Method to determine customer to invoice for charge    |
 +-----------------+----+-------------------------------------------------------+
 
 Rates are uniquely identified by the combination of a **Rate Group** and a 
@@ -149,7 +149,7 @@ blank (shared) for user-defined groups.
 
 Each rate may restricted to apply to one or more transactional activities. Each 
 activity has a **Per** code to identify the quantity calculation for the rate, 
-and optional references to calculated objects for quantity and/or payer 
+and optional references to calculation methods for quantity and/or payer 
 to invoice for the charge.
 
 Calculation entries

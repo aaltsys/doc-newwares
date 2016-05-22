@@ -219,13 +219,13 @@ charges.</p>
 <td>&nbsp;</td>
 <td>Code referencing quantity  from transaction activity</td>
 </tr>
-<tr class="row-even"><td>Quantity Object</td>
+<tr class="row-even"><td>Quantity Method</td>
 <td>O</td>
-<td>Reference object for calculating charge quantity</td>
+<td>Method reference for calculating charge quantity</td>
 </tr>
-<tr class="row-odd"><td>Payer Object</td>
+<tr class="row-odd"><td>Payer Method</td>
 <td>O</td>
-<td>Object to determine customer to invoice for charge</td>
+<td>Method to determine customer to invoice for charge</td>
 </tr>
 </tbody>
 </table>
@@ -246,7 +246,7 @@ for rates in an account group, and otherwise either attached to an account or
 blank (shared) for user-defined groups.</p>
 <p>Each rate may restricted to apply to one or more transactional activities. Each
 activity has a <strong>Per</strong> code to identify the quantity calculation for the rate,
-and optional references to calculated objects for quantity and/or payer
+and optional references to calculation methods for quantity and/or payer
 to invoice for the charge.</p>
 </div>
 <div class="section" id="calculation-entries">

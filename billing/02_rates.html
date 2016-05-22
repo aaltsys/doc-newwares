@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Using Billing Rates &mdash; WARES Billing 1.0 documentation</title>
+    <title>Billing Rates &mdash; WARES Billing 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,18 +24,18 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="WARES Billing 1.0 documentation" href="index.html" />
-    <link rel="next" title="Using Billing Charges" href="03_charges.html" />
-    <link rel="prev" title="Using Service Codes" href="01_services.html" /> 
+    <link rel="next" title="Charges Transactions" href="03_charges.html" />
+    <link rel="prev" title="Service Codes" href="01_services.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="03_charges.html" title="Using Billing Charges"
+          <a href="03_charges.html" title="Charges Transactions"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="01_services.html" title="Using Service Codes"
+          <a href="01_services.html" title="Service Codes"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">WARES Billing 1.0 documentation</a> &raquo;</li> 
       </ul>
@@ -44,17 +44,27 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Using Billing Rates</a><ul>
-<li><a class="reference internal" href="#rate-quote-sections">Rate Quote Sections</a><ul>
-<li><a class="reference internal" href="#private-rates-by-account">Private Rates by Account</a></li>
-<li><a class="reference internal" href="#private-rates-by-group">Private Rates by Group</a></li>
-<li><a class="reference internal" href="#shared-rates-by-group">Shared Rates by Group</a></li>
-<li><a class="reference internal" href="#rates-in-group-global">Rates in group GLOBAL</a></li>
+<li><a class="reference internal" href="#">Billing Rates</a><ul>
+<li><a class="reference internal" href="#rate-quote-information">Rate Quote Information</a></li>
+<li><a class="reference internal" href="#example-of-quote-sections">Example of Quote Sections</a><ul>
+<li><a class="reference internal" href="#sec-1-private-rates-by-account">Sec. 1: Private Rates by Account</a></li>
+<li><a class="reference internal" href="#sec-2-private-rates-by-group">Sec. 2: Private Rates by Group</a></li>
+<li><a class="reference internal" href="#sec-3-shared-rates-by-group">Sec. 3: Shared Rates by Group</a></li>
+<li><a class="reference internal" href="#sec-4-shared-global-rates">Sec. 4: Shared GLOBAL Rates</a></li>
+<li><a class="reference internal" href="#notes-on-quotes-example">Notes on Quotes Example</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#columns-in-a-rate-quote">Columns in a Rate Quote</a></li>
 <li><a class="reference internal" href="#rates-entries">Rates Entries</a><ul>
+<li><a class="reference internal" href="#rate-identifying-scope">Rate Identifying Scope</a></li>
+<li><a class="reference internal" href="#rate-activity-scope">Rate Activity Scope</a></li>
+<li><a class="reference internal" href="#rules-regarding-rate-scope">Rules Regarding Rate Scope</a></li>
+<li><a class="reference internal" href="#additional-rates-properties">Additional Rates Properties</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#charge-calculation-display">Charge Calculation &amp; Display</a><ul>
+<li><a class="reference internal" href="#basic-charge-calculations">Basic Charge Calculations</a></li>
 <li><a class="reference internal" href="#rate-tiers-and-calculations">Rate Tiers and Calculations</a></li>
+<li><a class="reference internal" href="#charge-display">Charge Display</a></li>
 </ul>
 </li>
 </ul>
@@ -63,10 +73,10 @@
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="01_services.html"
-                        title="previous chapter">Using Service Codes</a></p>
+                        title="previous chapter">Service Codes</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="03_charges.html"
-                        title="next chapter">Using Billing Charges</a></p>
+                        title="next chapter">Charges Transactions</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -95,66 +105,20 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="using-billing-rates">
-<h1>Using Billing Rates<a class="headerlink" href="#using-billing-rates" title="Permalink to this headline">¶</a></h1>
-<p>Setting up rates starts with analyzing customer contracts. A customer agreement
-should show a customer the services offered and charges billed for those
-services, and it guarantees the logistics company that they will be fairly
-compensated for services rendered.</p>
-<div class="section" id="rate-quote-sections">
-<h2>Rate Quote Sections<a class="headerlink" href="#rate-quote-sections" title="Permalink to this headline">¶</a></h2>
-<p>An example partial rate quote is shown following to demonstrate how rates are
-presented to the customer with WARES. There are four sections to the report,
-determined by entries in the <strong>Account</strong> and <strong>Group</strong> columns.</p>
-<img alt="_images/rates-quote.png" src="_images/rates-quote.png" />
-<div class="section" id="private-rates-by-account">
-<h3>Private Rates by Account<a class="headerlink" href="#private-rates-by-account" title="Permalink to this headline">¶</a></h3>
-<p>ACCOUNT = <strong>ABF</strong>, GROUP = <strong>ABF</strong>:</p>
-<p>Rates grouped by the account identifier (ABF) appear first on the quote. These
-rates are private to the account, and each service code listed in this group
-will override a corresponding rate in the general group <strong>GLOBAL</strong>.</p>
-</div>
-<div class="section" id="private-rates-by-group">
-<h3>Private Rates by Group<a class="headerlink" href="#private-rates-by-group" title="Permalink to this headline">¶</a></h3>
-<p>ACCOUNT = <strong>ABF</strong>, GROUP = user-defined:</p>
-<p>Other groups which are restricted by the account identifier provide multiple
-rate sets for an account, particularly for calculated storage and handling.
-If an account identifier is entered on the first rate in a group, the account
-is added and protected on all rates in the group.</p>
-</div>
-<div class="section" id="shared-rates-by-group">
-<h3>Shared Rates by Group<a class="headerlink" href="#shared-rates-by-group" title="Permalink to this headline">¶</a></h3>
-<p>ACCOUNT blank, GROUP = user-defined:</p>
-<p>Where services and their rates are shared with multiple accounts, a shared
-group is available to all accounts. If the account is left blank on the first
-rate in a group, subsequent rates in the group will be shared as well.</p>
-</div>
-<div class="section" id="rates-in-group-global">
-<h3>Rates in group GLOBAL<a class="headerlink" href="#rates-in-group-global" title="Permalink to this headline">¶</a></h3>
-<p>ACCOUNT blank, GROUP = <strong>GLOBAL</strong></p>
-<p>The <strong>GLOBAL</strong> group, which sets default service rates for all accounts, appears
-last on the report. Account is blank and protected for all <strong>GLOBAL</strong> entries.
-When a service code is used on a rate in an account group, any corresponding
-<strong>GLOBAL</strong> rate is suppressed for that account.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<ol class="last arabic simple">
-<li>In the example report, the <strong>GLOBAL</strong> section shows Codes <strong>L1</strong> and
-<strong>L2</strong>. The code <strong>L3</strong> appears in the private account group <strong>ABF</strong>, and
-so this code is suppressed in group <strong>GLOBAL</strong> for customer <strong>ABF</strong>.</li>
-<li>Codes <strong>1H</strong>, <strong>1R</strong>, and <strong>1S</strong> are used in both private groups for
-<strong>ABF</strong> and the shared group <strong>FRZ-RK</strong>. Codes used in private groups do
-not override the same codes in shared groups.</li>
-<li>GLOBAL rate <strong>F2</strong> is a tiered rate. The actual amount charged depends on
-the quantity, as described in <a class="reference internal" href="#rate-tiers"><em>Rate Tiers and Calculations</em></a>.</li>
-<li>Rates in the <strong>GLOBAL</strong> group are always <strong>Optional</strong>.</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="section" id="columns-in-a-rate-quote">
-<h2>Columns in a Rate Quote<a class="headerlink" href="#columns-in-a-rate-quote" title="Permalink to this headline">¶</a></h2>
-<p>Descriptions of the displayed report columns are as follows:</p>
+  <div class="section" id="billing-rates">
+<h1>Billing Rates<a class="headerlink" href="#billing-rates" title="Permalink to this headline">¶</a></h1>
+<p>While warehouse services are codified in legal and contractual terms, the
+warehouse services are priced for a customer through a Rate Quote. In addition
+to pricing services, WARES rates provide the mechanics of capturing services
+and billing the customer for them. Entering rates requires considering both the
+pricing aspect of rates and the application of rates to warehouse activity.</p>
+<div class="section" id="rate-quote-information">
+<h2>Rate Quote Information<a class="headerlink" href="#rate-quote-information" title="Permalink to this headline">¶</a></h2>
+<p>A <strong>Rate Quote</strong> shows the customer services being offered and charges to be
+billed for those services. Further, it guarantees the logistics company that
+they will be fairly compensated for services rendered. Knowing the information
+in a rate quote is crucial before entering rates. The WARES <strong>Rate Quote</strong>
+displays a table of the following columns:</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="18%" />
@@ -195,23 +159,200 @@ the quantity, as described in <a class="reference internal" href="#rate-tiers"><
 </tr>
 </tbody>
 </table>
-<p>These columns show a customer the rates which will be charged for services.
-More information is required to complete a rate definition, such as the
-calendar for a repeating rate, the activity which triggers a mandatory charge,
-and the method of converting from inventory or activity quantities to the
-chargeable quantities indicated by the billing units of measure.</p>
+</div>
+<div class="section" id="example-of-quote-sections">
+<h2>Example of Quote Sections<a class="headerlink" href="#example-of-quote-sections" title="Permalink to this headline">¶</a></h2>
+<p>An example partial rate quote is shown following to demonstrate how rates are
+presented to the customer with WARES. There are four sections to the report,
+determined by entries in the <strong>Account</strong> and <strong>Group</strong> columns.</p>
+<img alt="_images/rates-quote.png" src="_images/rates-quote.png" />
+<div class="section" id="sec-1-private-rates-by-account">
+<h3>Sec. 1: Private Rates by Account<a class="headerlink" href="#sec-1-private-rates-by-account" title="Permalink to this headline">¶</a></h3>
+<p>ACCOUNT = <strong>ABF</strong>, GROUP = <strong>ABF</strong>:</p>
+<p>Rates grouped by the account identifier (ABF) appear first on the quote. When
+entering rates in an account group, the account entry, <strong>ABF</strong> in this case,
+will be automatically filled and protected. These rates are private to the
+account, and a service code listed in this group will override a corresponding
+rate in the general group <strong>GLOBAL</strong>.</p>
+</div>
+<div class="section" id="sec-2-private-rates-by-group">
+<h3>Sec. 2: Private Rates by Group<a class="headerlink" href="#sec-2-private-rates-by-group" title="Permalink to this headline">¶</a></h3>
+<p>ACCOUNT = <strong>ABF</strong>, GROUP = user-defined:</p>
+<p>Other groups which are restricted by the account identifier provide multiple
+rate sets for an account, particularly for calculated storage and handling.
+If an account identifier is entered on the first rate in a group, the account
+is added and protected on all rates in the group.</p>
+</div>
+<div class="section" id="sec-3-shared-rates-by-group">
+<h3>Sec. 3: Shared Rates by Group<a class="headerlink" href="#sec-3-shared-rates-by-group" title="Permalink to this headline">¶</a></h3>
+<p>ACCOUNT blank, GROUP = user-defined:</p>
+<p>Where services and their rates are shared with multiple accounts, a shared
+group is available to all accounts. If the account is left blank on the first
+rate in a group, subsequent rates in the group will be shared as well.</p>
+</div>
+<div class="section" id="sec-4-shared-global-rates">
+<h3>Sec. 4: Shared GLOBAL Rates<a class="headerlink" href="#sec-4-shared-global-rates" title="Permalink to this headline">¶</a></h3>
+<p>ACCOUNT blank, GROUP = <strong>GLOBAL</strong>:</p>
+<p>The <strong>GLOBAL</strong> group, which sets default service rates for all accounts, appears
+last on the report. Account is blank and protected for all <strong>GLOBAL</strong> entries.
+When a service code is used on a rate in an account group, any corresponding
+<strong>GLOBAL</strong> rate is suppressed for that account.</p>
+</div>
+<div class="section" id="notes-on-quotes-example">
+<h3>Notes on Quotes Example<a class="headerlink" href="#notes-on-quotes-example" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>In the example report, the <strong>GLOBAL</strong> section shows Codes <strong>L1</strong> and
+<strong>L2</strong>. The code <strong>L3</strong> appears in the private account group <strong>ABF</strong>, and
+so this code is suppressed in group <strong>GLOBAL</strong> for customer <strong>ABF</strong>.</li>
+<li>Codes <strong>1H</strong>, <strong>1R</strong>, and <strong>1S</strong> are used in both private groups for
+<strong>ABF</strong> and the shared group <strong>FRZ-RK</strong>. Codes used in private groups do
+not override the same codes in shared groups.</li>
+<li>GLOBAL rate <strong>F2</strong> is a tiered rate. The amount charged per unit depends on
+the quantity, as described in <a class="reference internal" href="#rate-tiers"><em>Rate Tiers and Calculations</em></a>.</li>
+</ol>
+</div>
 </div>
 <div class="section" id="rates-entries">
 <h2>Rates Entries<a class="headerlink" href="#rates-entries" title="Permalink to this headline">¶</a></h2>
-<p>ENTERING RATES:</p>
-<p>Rates may be modified or added at any time.  A rate should not be edited or
-deleted when open transactions exist with the charge applied to them.  Please
-refer to CONSIDERATIONS WHEN ENTERING RATES before entering rates for the
-first time.</p>
+<p>In addition to the <strong>Rate Quote</strong> entries, WARES needs the activity information
+which triggers a mandatory charge, the conversion of activity quantities into
+billing units of measure, and the calendar for a repeating rate. The full
+information for a rate can be broken down into three sections: the scope for
+applying a rate, the rate calculation and display, and the repeating calendar.
+This section details these rate parts.</p>
+<div class="section" id="rate-identifying-scope">
+<h3>Rate Identifying Scope<a class="headerlink" href="#rate-identifying-scope" title="Permalink to this headline">¶</a></h3>
+<p>Rates are identified by the <strong>Rate Group</strong> and the <strong>Service Code</strong>. All Rates
+belong to some group, and groups are either shared across all accounts or are
+assigned to only one account. This links the rate group directly to the account.</p>
+<p>While the <a class="reference internal" href="01_services.html#bill-services"><em>Service Codes</em></a> define the type of service offered, it also
+determines the manner of applying the service. For example, service codes which
+are applied <strong>Repeating</strong> and <strong>Calculated</strong> cannot be used in group <strong>GLOBAL</strong>,
+as <strong>GLOBAL</strong> contains <strong>Optional</strong> rates only.</p>
+<p>Similarly putting <strong>Mandatory</strong> or <strong>Repeating</strong> rates in a group which is not
+associated to an account is possible, but not recommended. For example, if
+every account receives the same charge for, say, Bills of Lading, then a shared
+group without an account could include the <strong>Mandatory</strong> Bill of Lading service.
+But: entering a rate with the same service code in an account group would result
+in two charges, because account-associated rates override <strong>GLOBAL</strong> rates, but
+not rates in other shared groups.</p>
+<p>The following figure shows identifying entries for rates:</p>
+</div>
+<div class="section" id="rate-activity-scope">
+<h3>Rate Activity Scope<a class="headerlink" href="#rate-activity-scope" title="Permalink to this headline">¶</a></h3>
+<p>Rates link to warehouse activities through a list of activity codes, where each
+activity uses a <strong>Per</strong> code to convert activity quantity units into the rate&#8217;s
+billing units. When a rate is associated with an activity list, the rate is
+restricted to only that list of activities.</p>
+<p>A sample activity entry section is shown following.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Where a standard per code cannot return a usable quantity, or if the payer of
+a charge is not the account, then custom program methods may be required.
+Optional method entries are provided to enable these custom features.</p>
+</div>
+</div>
+<div class="section" id="rules-regarding-rate-scope">
+<h3>Rules Regarding Rate Scope<a class="headerlink" href="#rules-regarding-rate-scope" title="Permalink to this headline">¶</a></h3>
+<p>A rate record identifies how to use a warehouse service code when applying
+charges to an account. Rules which determine how to apply rates follow:</p>
+<ol class="arabic simple">
+<li>Either a rate is restricted to a single account, or it is shared with all
+accounts, depending on whether the <strong>Account</strong> entry is filled.</li>
+<li>All rates in a group must have the same account entry. When one rate in a
+group is associated with an account, all rates in the same group must be
+filled with the same account as well.</li>
+<li>An optional rate may be restricted to one or more activities, or it may be
+applicable to all activities.</li>
+<li>All rates which are not optional must be associated with an activity so that
+the rate can be calculated to produce charges.</li>
+<li>Rates in an <strong>Account</strong> group override <strong>GLOBAL</strong> rates for the same service.</li>
+</ol>
+</div>
+<div class="section" id="additional-rates-properties">
+<h3>Additional Rates Properties<a class="headerlink" href="#additional-rates-properties" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Any one service code can appear only once in a group.</li>
+<li>Optional rates are charged through user entry, and all other rates are
+charged by system routines.</li>
+<li>Rates in the <strong>GLOBAL</strong> group are always <strong>Optional</strong>.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="charge-calculation-display">
+<h2>Charge Calculation &amp; Display<a class="headerlink" href="#charge-calculation-display" title="Permalink to this headline">¶</a></h2>
+<p>A service may have a single rate or tiered rates, where multiple rates in tiers
+vary with quantity. Charges are calculated from quantities and rates according
+to the following rules.</p>
+<ul class="simple">
+<li>Where quantity is left blank, a quantity of 1 is assumed.</li>
+<li>A rate entry is required unless the service is optional.</li>
+<li>Where the quantity is fractional, the rate is for the fraction stated. For
+example, labor charged at the rate of $8.00 per quarter hour or fraction
+thereof would have a quantity of .25 and a rate of $8.00.</li>
+<li>The default minimum is the quantity times the rate. Enter a higher amount as
+desired.</li>
+<li>Where rates are tiered, the guantities must be listed in ascending order.</li>
+<li>Tiered rates are calculated to eliminate rate irrationality.</li>
+</ul>
+<div class="section" id="basic-charge-calculations">
+<h3>Basic Charge Calculations<a class="headerlink" href="#basic-charge-calculations" title="Permalink to this headline">¶</a></h3>
+<p>The basic formula to calculate a charge from a rate is:</p>
+<blockquote>
+<div></div></blockquote>
+<p>where Deficits are calculated based on the Line Minimum:</p>
+<blockquote>
+<div></div></blockquote>
+<p>and  is ignored.</p>
+<p>Examples of rates and their calculations for various quantities are shown in
+the following table:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="14%" />
+<col width="11%" />
+<col width="13%" />
+<col width="13%" />
+<col width="17%" />
+<col width="17%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="4">SERVICE RATE</th>
+<th class="head">Entered</th>
+<th class="head">Calculated</th>
+<th class="head">Calculated</th>
+</tr>
+<tr class="row-even"><th class="head">Factor</th>
+<th class="head">Quantity</th>
+<th class="head">Rate</th>
+<th class="head">Minimum</th>
+<th class="head">Amount</th>
+<th class="head">Deficit</th>
+<th class="head">Charge</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-odd"><td>1.0</td>
+<td>0</td>
+<td>$5.00</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>$5.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="rate-tiers-and-calculations">
+<span id="rate-tiers"></span><h3>Rate Tiers and Calculations<a class="headerlink" href="#rate-tiers-and-calculations" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="charge-display">
+<h3>Charge Display<a class="headerlink" href="#charge-display" title="Permalink to this headline">¶</a></h3>
+<p>&#8212;</p>
 <p>CONSIDERATIONS WHEN ENTERING RATES:</p>
-<p>Before any rates are entered, one must decide what services are being offered
-and what the default, or retail, rates are for those services.  When defining a
-list of services, do not over-generalize.  For example, do not lump all labor
+<p>Before any rates are entered, decide what services are being offered
+and what the default, or retail, rates are for those services. When defining a
+list of services, do not over-generalize. For example, do not lump all labor
 services into a single heading, when they can be broken down into specific
 activities such as RESTACKING, PACKAGING, RELOCATING, and so forth.</p>
 <p>Global Rates: Once your business services are identified, enter a global
@@ -251,9 +392,6 @@ module.</p>
 account, while calculated rates are often assigned based on a grouping within
 an account.  A particular calculated rate name may require multiple codes in
 an account.</p>
-<p>RATES AND INVOICES:</p>
-<div class="section" id="rate-tiers-and-calculations">
-<span id="rate-tiers"></span><h3>Rate Tiers and Calculations<a class="headerlink" href="#rate-tiers-and-calculations" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 </div>
@@ -268,10 +406,10 @@ an account.</p>
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="03_charges.html" title="Using Billing Charges"
+          <a href="03_charges.html" title="Charges Transactions"
              >next</a></li>
         <li class="right" >
-          <a href="01_services.html" title="Using Service Codes"
+          <a href="01_services.html" title="Service Codes"
              >previous</a> |</li>
         <li><a href="index.html">WARES Billing 1.0 documentation</a> &raquo;</li> 
       </ul>
