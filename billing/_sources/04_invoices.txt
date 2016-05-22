@@ -1,4 +1,4 @@
-.. bill_invoices:
+.. _bill_invoices:
 
 #############################
 Customer Invoices

@@ -23,6 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="WARES Billing 1.0 documentation" href="index.html" />
     <link rel="next" title="Charges Transactions" href="03_charges.html" />
     <link rel="prev" title="Service Codes" href="01_services.html" /> 
@@ -106,7 +107,7 @@
           <div class="body" role="main">
             
   <div class="section" id="billing-rates">
-<h1>Billing Rates<a class="headerlink" href="#billing-rates" title="Permalink to this headline">¶</a></h1>
+<span id="bill-rates"></span><h1>Billing Rates<a class="headerlink" href="#billing-rates" title="Permalink to this headline">¶</a></h1>
 <p>While warehouse services are codified in legal and contractual terms, the
 warehouse services are priced for a customer through a Rate Quote. In addition
 to pricing services, WARES rates provide the mechanics of capturing services
@@ -299,11 +300,11 @@ desired.</li>
 <h3>Basic Charge Calculations<a class="headerlink" href="#basic-charge-calculations" title="Permalink to this headline">¶</a></h3>
 <p>The basic formula to calculate a charge from a rate is:</p>
 <blockquote>
-<div></div></blockquote>
+<div><span class="math">\(\large\frac{Amount + Deficit}{Factor} \normalsize \times Rate = Charge\)</span></div></blockquote>
 <p>where Deficits are calculated based on the Line Minimum:</p>
 <blockquote>
-<div></div></blockquote>
-<p>and  is ignored.</p>
+<div><span class="math">\(Deficit = \large\frac{Minimum \times Factor}{Rate} \normalsize - Amount\)</span></div></blockquote>
+<p>and <span class="math">\(Deficit \leq 0\)</span> is ignored.</p>
 <p>Examples of rates and their calculations for various quantities are shown in
 the following table:</p>
 <table border="1" class="docutils">
