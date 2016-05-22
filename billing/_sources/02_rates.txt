@@ -134,7 +134,7 @@ not rates in other shared groups.
 
 The following figure shows identifying entries for rates:
 
-.. _images/rates-id.png
+.. image:: _images/rates-id.png
 
 Rate Activity Scope
 -----------------------------
@@ -146,7 +146,7 @@ restricted to only that list of activities.
 
 A sample activity entry section is shown following.
 
-.. _images/rates-activity.png
+.. image:: _images/rates-activity.png
 
 .. note::
    Where a standard per code cannot return a usable quantity, or if the payer of 

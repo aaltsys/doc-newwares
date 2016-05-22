@@ -35,7 +35,7 @@ defined on the Service Codes entry page.
 
 An example service code record is displayed following:
 
-.. _images/services.png
+.. image:: _images/services.png
 
 Entries for a Service Code address three aspects of billing information:
 
