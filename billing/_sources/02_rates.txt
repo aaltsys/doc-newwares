@@ -144,10 +144,6 @@ activity uses a **Per** code to convert activity quantity units into the rate's
 billing units. When a rate is associated with an activity list, the rate is 
 restricted to only that list of activities.
 
-A sample activity entry section is shown following.
-
-.. image:: _images/rates-activity.png
-
 .. note::
    Where a standard per code cannot return a usable quantity, or if the payer of 
    a charge is not the account, then custom program methods may be required. 
