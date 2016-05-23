@@ -1,7 +1,7 @@
-.. bill-charges:
+.. _bill-charges:
 
 #############################
-Using Billing Charges
+Charges Transactions
 #############################
 
 In progress

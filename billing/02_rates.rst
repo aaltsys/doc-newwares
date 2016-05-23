@@ -1,76 +1,23 @@
-.. bill-rates:
+.. _bill-rates:
 
 #############################
-Using Billing Rates
+Billing Rates
 #############################
 
-Setting up rates starts with analyzing customer contracts. A customer agreement
-should show a customer the services offered and charges billed for those 
-services, and it guarantees the logistics company that they will be fairly 
-compensated for services rendered.
+While warehouse services are codified in legal and contractual terms, the 
+warehouse services are priced for a customer through a Rate Quote. In addition 
+to pricing services, WARES rates provide the mechanics of capturing services 
+and billing the customer for them. Entering rates requires considering both the 
+pricing aspect of rates and the application of rates to warehouse activity.
 
-Rate Quote Sections
+Rate Quote Information 
 =============================
 
-An example partial rate quote is shown following to demonstrate how rates are 
-presented to the customer with WARES. There are four sections to the report, 
-determined by entries in the **Account** and **Group** columns.
-
-.. image:: _images/rates-quote.png
-
-Private Rates by Account 
------------------------------
-
-ACCOUNT = **ABF**, GROUP = **ABF**:
-
-Rates grouped by the account identifier (ABF) appear first on the quote. These 
-rates are private to the account, and each service code listed in this group 
-will override a corresponding rate in the general group **GLOBAL**.
-
-Private Rates by Group 
------------------------------
-
-ACCOUNT = **ABF**, GROUP = user-defined:
-
-Other groups which are restricted by the account identifier provide multiple 
-rate sets for an account, particularly for calculated storage and handling. 
-If an account identifier is entered on the first rate in a group, the account 
-is added and protected on all rates in the group.
-
-Shared Rates by Group
------------------------------
-
-ACCOUNT blank, GROUP = user-defined:
-
-Where services and their rates are shared with multiple accounts, a shared 
-group is available to all accounts. If the account is left blank on the first 
-rate in a group, subsequent rates in the group will be shared as well.
-
-Rates in group GLOBAL
------------------------------
-
-ACCOUNT blank, GROUP = **GLOBAL**
-
-The **GLOBAL** group, which sets default service rates for all accounts, appears 
-last on the report. Account is blank and protected for all **GLOBAL** entries. 
-When a service code is used on a rate in an account group, any corresponding 
-**GLOBAL** rate is suppressed for that account.
-
-.. note::
-   #. In the example report, the **GLOBAL** section shows Codes **L1** and 
-      **L2**. The code **L3** appears in the private account group **ABF**, and
-      so this code is suppressed in group **GLOBAL** for customer **ABF**.
-   #. Codes **1H**, **1R**, and **1S** are used in both private groups for 
-      **ABF** and the shared group **FRZ-RK**. Codes used in private groups do 
-      not override the same codes in shared groups.
-   #. GLOBAL rate **F2** is a tiered rate. The actual amount charged depends on 
-      the quantity, as described in :ref:`rate-tiers`.
-   #. Rates in the **GLOBAL** group are always **Optional**. 
-
-Columns in a Rate Quote
-=============================
-
-Descriptions of the displayed report columns are as follows:
+A **Rate Quote** shows the customer services being offered and charges to be 
+billed for those services. Further, it guarantees the logistics company that 
+they will be fairly compensated for services rendered. Knowing the information
+in a rate quote is crucial before entering rates. The WARES **Rate Quote** 
+displays a table of the following columns:
 
 +-------------+------------------------------------------------------------+
 | Heading     | Description or Explanation                                 |
@@ -94,30 +41,231 @@ Descriptions of the displayed report columns are as follows:
 | Minimum     | Minimum charge applied for this service                    |
 +-------------+------------------------------------------------------------+
 
-These columns show a customer the rates which will be charged for services. 
-More information is required to complete a rate definition, such as the 
-calendar for a repeating rate, the activity which triggers a mandatory charge, 
-and the method of converting from inventory or activity quantities to the 
-chargeable quantities indicated by the billing units of measure.
+Example of Quote Sections 
+=============================
+
+An example partial rate quote is shown following to demonstrate how rates are 
+presented to the customer with WARES. There are four sections to the report, 
+determined by entries in the **Account** and **Group** columns.
+
+.. image:: _images/rates-quote.png
+
+Sec. 1: Private Rates by Account 
+--------------------------------
+
+ACCOUNT = **ABF**, GROUP = **ABF**:
+
+Rates grouped by the account identifier (ABF) appear first on the quote. When 
+entering rates in an account group, the account entry, **ABF** in this case, 
+will be automatically filled and protected. These rates are private to the 
+account, and a service code listed in this group will override a corresponding 
+rate in the general group **GLOBAL**.
+
+Sec. 2: Private Rates by Group 
+--------------------------------
+
+ACCOUNT = **ABF**, GROUP = user-defined:
+
+Other groups which are restricted by the account identifier provide multiple 
+rate sets for an account, particularly for calculated storage and handling. 
+If an account identifier is entered on the first rate in a group, the account 
+is added and protected on all rates in the group.
+
+Sec. 3: Shared Rates by Group
+--------------------------------
+
+ACCOUNT blank, GROUP = user-defined:
+
+Where services and their rates are shared with multiple accounts, a shared 
+group is available to all accounts. If the account is left blank on the first 
+rate in a group, subsequent rates in the group will be shared as well.
+
+Sec. 4: Shared GLOBAL Rates
+--------------------------------
+
+ACCOUNT blank, GROUP = **GLOBAL**:
+
+The **GLOBAL** group, which sets default service rates for all accounts, appears 
+last on the report. Account is blank and protected for all **GLOBAL** entries. 
+When a service code is used on a rate in an account group, any corresponding 
+**GLOBAL** rate is suppressed for that account.
+
+Notes on Quotes Example
+-----------------------------
+
+#. In the example report, the **GLOBAL** section shows Codes **L1** and 
+   **L2**. The code **L3** appears in the private account group **ABF**, and 
+   so this code is suppressed in group **GLOBAL** for customer **ABF**. 
+#. Codes **1H**, **1R**, and **1S** are used in both private groups for 
+   **ABF** and the shared group **FRZ-RK**. Codes used in private groups do 
+   not override the same codes in shared groups. 
+#. GLOBAL rate **F2** is a tiered rate. The amount charged per unit depends on 
+   the quantity, as described in :ref:`rate-tiers`. 
 
 Rates Entries
 =============================
 
+In addition to the **Rate Quote** entries, WARES needs the activity information 
+which triggers a mandatory charge, the conversion of activity quantities into 
+billing units of measure, and the calendar for a repeating rate. The full 
+information for a rate can be broken down into three sections: the scope for 
+applying a rate, the rate calculation and display, and the repeating calendar. 
+This section details these rate parts. 
+
+Rate Identifying Scope 
+-----------------------------
+
+Rates are identified by the **Rate Group** and the **Service Code**. All Rates 
+belong to some group, and groups are either shared across all accounts or are 
+assigned to only one account. This links the rate group directly to the account. 
+
+While the :ref:`bill-services` define the type of service offered, it also 
+determines the manner of applying the service. For example, service codes which 
+are applied **Repeating** and **Calculated** cannot be used in group **GLOBAL**, 
+as **GLOBAL** contains **Optional** rates only. 
+
+Similarly putting **Mandatory** or **Repeating** rates in a group which is not 
+associated to an account is possible, but not recommended. For example, if 
+every account receives the same charge for, say, Bills of Lading, then a shared 
+group without an account could include the **Mandatory** Bill of Lading service. 
+But: entering a rate with the same service code in an account group would result 
+in two charges, because account-associated rates override **GLOBAL** rates, but 
+not rates in other shared groups.
+
+The following figure shows identifying entries for rates:
+
+.. image:: _images/rates-id.png
+
+Rate Activity Scope
+-----------------------------
+
+Rates link to warehouse activities through a list of activity codes, where each
+activity uses a **Per** code to convert activity quantity units into the rate's
+billing units. When a rate is associated with an activity list, the rate is 
+restricted to only that list of activities.
+
+.. note::
+   Where a standard per code cannot return a usable quantity, or if the payer of 
+   a charge is not the account, then custom program methods may be required. 
+   Optional method entries are provided to enable these custom features.
+
+Rules Regarding Rate Scope
+-----------------------------
+
+A rate record identifies how to use a warehouse service code when applying
+charges to an account. Rules which determine how to apply rates follow:
+
+#. Either a rate is restricted to a single account, or it is shared with all 
+   accounts, depending on whether the **Account** entry is filled. 
+#. All rates in a group must have the same account entry. When one rate in a 
+   group is associated with an account, all rates in the same group must be 
+   filled with the same account as well.
+#. An optional rate may be restricted to one or more activities, or it may be 
+   applicable to all activities. 
+#. All rates which are not optional must be associated with an activity so that 
+   the rate can be calculated to produce charges.
+#. Rates in an **Account** group override **GLOBAL** rates for the same service. 
+
+Additional Rates Properties
+-----------------------------
+
+#. Any one service code can appear only once in a group. 
+#. Optional rates are charged through user entry, and all other rates are 
+   charged by system routines.
+#. Rates in the **GLOBAL** group are always **Optional**. 
+
+Charge Calculation & Display
+=============================
+
+A service may have a single rate or tiered rates, where multiple rates in tiers 
+vary with quantity. Charges are calculated from quantities and rates according 
+to the following rules.
+
+*  Where quantity is left blank, a quantity of 1 is assumed.
+*  A rate entry is required unless the service is optional.
+*  Where the quantity is fractional, the rate is for the fraction stated. For 
+   example, labor charged at the rate of $8.00 per quarter hour or fraction
+   thereof would have a quantity of .25 and a rate of $8.00.
+*  The default minimum is the quantity times the rate. Enter a higher amount as 
+   desired.
+*  Where rates are tiered, the guantities must be listed in ascending order.
+*  Tiered rates are calculated to eliminate rate irrationality.
+
+Basic Charge Calculations
+-----------------------------
+
+The basic formula to calculate a charge from a rate is:
+
+:math:`Charge = \large\frac{(Amount + Deficit)}{Factor} \normalsize \times Rate`
+
+where Deficits are calculated based on the Line Minimum:
+
+:math:`Deficit = \large\frac{(Minimum \times Factor)}{Rate}  - Amount \normalsize`
+
+and :math:`Deficit \leq 0` is ignored.
+
+Examples of rates and their calculations for various quantities are shown in 
+the following table:
+
++----------------------------------------+----------+------------+------------+
+|          SERVICE RATE                  | Entered  | Calculated | Calculated |
++----------+----------+--------+---------+----------+------------+------------+
+| Factor   | Quantity | Rate   | Minimum | Amount   | Deficit    | Charge ($) |
++==========+==========+========+=========+==========+============+============+
+|   1.0000 |  0       |  5.0000|    5.00 |     1.00 |    0       |     5.00   |
++----------+----------+--------+---------+----------+------------+------------+
+|   1.0000 |  0       |   .3200|    1.60 |     4.00 |    1.00    |     1.60   |
++----------+----------+--------+---------+----------+------------+------------+
+|   1.0000 |     0.25 |  8.0000|   16.00 |      .25 |     .25    |    16.00   |
++----------+----------+--------+---------+----------+------------+------------+
+| 100.0000 || 0       ||  .4000||  20.00 |  4000.00 | 1000.00    |    20.00   |
+|          || 20000.00||  .3600||  64.00 |          |            |            |
+|          || 40000.00||  .3200|| 128.00 |          |            |            |
++----------+----------+--------+---------+----------+------------+------------+
+| 100.0000 || 0       ||  .4000||  20.00 | 39000.00 | 1000.00    |   128.00   |
+|          || 20000.00||  .3600||  64.00 |          |            |            |
+|          || 40000.00||  .3200|| 128.00 |          |            |            |
++----------+----------+--------+---------+----------+------------+------------+
+
+Calculated charges for rates 
+
+WARES uses **Deficit** quantity calculations to augment quantities which do not 
+meet minimums, and to avoid rate irrationalities in tiered rates.
+
+.. _rate-tiers:
+
+Rate Tiers and Calculations
+-----------------------------
+
+ 
+The previous table ends with a tiered rate, and an **Amount** close to the 
+final bracket quantity. In this event, the charge has to be calculated at the 
+nominal bracket:
+
+.. math::
+   Charge = ( 39000 \times .36 ) \over 100.00
+   
+   Charge = 140.40
+
+The **Minimum** at the next tier, **128.00**, is less than **140.40**, and so 
+a deficit of **1000.00** would be applied. then the charge calculation becomes:
+
+.. math:
+   Charge - ( 39000 \plus 1000 ) \times .32 ) \over 1000
+   
+   Charge = 128.00
 
 
-ENTERING RATES:
+Charge Display
+-----------------------------
 
-Rates may be modified or added at any time.  A rate should not be edited or 
-deleted when open transactions exist with the charge applied to them.  Please 
-refer to CONSIDERATIONS WHEN ENTERING RATES before entering rates for the 
-first time.
-
+---
 
 CONSIDERATIONS WHEN ENTERING RATES:
 
-Before any rates are entered, one must decide what services are being offered 
-and what the default, or retail, rates are for those services.  When defining a 
-list of services, do not over-generalize.  For example, do not lump all labor 
+Before any rates are entered, decide what services are being offered 
+and what the default, or retail, rates are for those services. When defining a 
+list of services, do not over-generalize. For example, do not lump all labor 
 services into a single heading, when they can be broken down into specific 
 activities such as RESTACKING, PACKAGING, RELOCATING, and so forth.
 
@@ -165,9 +313,3 @@ account, while calculated rates are often assigned based on a grouping within
 an account.  A particular calculated rate name may require multiple codes in 
 an account.
 
-RATES AND INVOICES:
-
-.. _rate-tiers:
-
-Rate Tiers and Calculations
------------------------------

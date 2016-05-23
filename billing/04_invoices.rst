@@ -1,7 +1,7 @@
-.. bill_invoices:
+.. _bill-invoices:
 
 #############################
-Using Billing Invoices
+Customer Invoices
 #############################
 
 In progress.
