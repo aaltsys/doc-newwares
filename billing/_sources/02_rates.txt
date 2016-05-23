@@ -196,30 +196,65 @@ Basic Charge Calculations
 
 The basic formula to calculate a charge from a rate is:
 
-   :math:`\large\frac{Amount + Deficit}{Factor} \normalsize \times Rate = Charge`
+:math:`Charge = \large\frac{(Amount + Deficit)}{Factor} \normalsize \times Rate`
 
 where Deficits are calculated based on the Line Minimum:
 
-   :math:`Deficit = \large\frac{Minimum \times Factor}{Rate} \normalsize - Amount`
+:math:`Deficit = \large\frac{(Minimum \times Factor)}{Rate}  - Amount \normalsize`
 
 and :math:`Deficit \leq 0` is ignored.
 
 Examples of rates and their calculations for various quantities are shown in 
 the following table:
 
-+----------------------------------------+---------+------------+------------+
-|          SERVICE RATE                  | Entered | Calculated | Calculated |
-+----------+----------+--------+---------+---------+------------+------------+
-| Factor   | Quantity | Rate   | Minimum | Amount  | Deficit    | Charge     |
-+==========+==========+========+=========+=========+============+============+
-| 1.0      | 0        | $5.00  | 0       | 1       | 0          | $5.00      |
-+----------+----------+--------+---------+---------+------------+------------+
++----------------------------------------+----------+------------+------------+
+|          SERVICE RATE                  | Entered  | Calculated | Calculated |
++----------+----------+--------+---------+----------+------------+------------+
+| Factor   | Quantity | Rate   | Minimum | Amount   | Deficit    | Charge ($) |
++==========+==========+========+=========+==========+============+============+
+|   1.0000 |  0       |  5.0000|    5.00 |     1.00 |    0       |     5.00   |
++----------+----------+--------+---------+----------+------------+------------+
+|   1.0000 |  0       |   .3200|    1.60 |     4.00 |    1.00    |     1.60   |
++----------+----------+--------+---------+----------+------------+------------+
+|   1.0000 |     0.25 |  8.0000|   16.00 |      .25 |     .25    |    16.00   |
++----------+----------+--------+---------+----------+------------+------------+
+| 100.0000 || 0       ||  .4000||  20.00 |  4000.00 | 1000.00    |    20.00   |
+|          || 20000.00||  .3600||  64.00 |          |            |            |
+|          || 40000.00||  .3200|| 128.00 |          |            |            |
++----------+----------+--------+---------+----------+------------+------------+
+| 100.0000 || 0       ||  .4000||  20.00 | 39000.00 | 1000.00    |   128.00   |
+|          || 20000.00||  .3600||  64.00 |          |            |            |
+|          || 40000.00||  .3200|| 128.00 |          |            |            |
++----------+----------+--------+---------+----------+------------+------------+
 
+Calculated charges for rates 
+
+WARES uses **Deficit** quantity calculations to augment quantities which do not 
+meet minimums, and to avoid rate irrationalities in tiered rates.
 
 .. _rate-tiers:
 
 Rate Tiers and Calculations
 -----------------------------
+
+ 
+The previous table ends with a tiered rate, and an **Amount** close to the 
+final bracket quantity. In this event, the charge has to be calculated at the 
+nominal bracket:
+
+.. math::
+   Charge = ( 39000 \times .36 ) \over 100.00
+   
+   Charge = 140.40
+
+The **Minimum** at the next tier, **128.00**, is less than **140.40**, and so 
+a deficit of **1000.00** would be applied. then the charge calculation becomes:
+
+.. math:
+   Charge - ( 39000 \plus 1000 ) \times .32 ) \over 1000
+   
+   Charge = 128.00
+
 
 Charge Display
 -----------------------------

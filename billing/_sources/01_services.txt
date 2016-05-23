@@ -9,11 +9,11 @@ Introduction to Billing
 
 WARES billing is based on industry standards for logistics and warehousing 
 services. The concepts of hiring the storage and delivery of goods goes back to 
-Roman times and law. Today the Uniform Commercial Code (U.C.C. Section 7 _[#]) 
+Roman times and law. Today the Uniform Commercial Code (U.C.C. Section 7 [1]_ ) 
 establishes the legal basis for logistics operations, and associated standard 
 contract terms are promulgated by industry groups such as the International 
-Warehouse Logistics Association (IWLA) _[#] and the International Association 
-of Refrigerated Warehouses (IARW) _[#].
+Warehouse Logistics Association (IWLA) [2]_ and the International Association 
+of Refrigerated Warehouses (IARW). [3]_
 
 Certain warehouse services, particularly storage and handling, are described in 
 the legal code, and corresponding methods of applying and calculating charges 
@@ -54,6 +54,10 @@ Service Codes Columns
 
 Here is a link to the :ref:`services-schema` schema. 
 
-.. [#] https://www.law.cornell.edu/ucc/7
-.. [#] :ref:`terms-iwla`
-.. [#] :ref:`terms-iarw`
+---
+
+.. rubric:: Footnotes
+
+.. [1] https://www.law.cornell.edu/ucc/7
+.. [2] :ref:`terms-iwla`
+.. [3] :ref:`terms-iarw`
