@@ -185,47 +185,43 @@ to the following rules.
 *  A rate entry is required unless the service is optional.
 *  Where the quantity is fractional, the rate is for the fraction stated. For 
    example, labor charged at the rate of $8.00 per quarter hour or fraction
-   thereof would have a quantity of .25 and a rate of $8.00.
+   thereof would have a quantity of .25 and a rate of $8.00. Entered or 
+   calculated Amounts will be adjusted to the fractional units of the quantity.
 *  The default minimum is the quantity times the rate. Enter a higher amount as 
    desired.
 *  Where rates are tiered, the guantities must be listed in ascending order.
 *  Tiered rates are calculated to eliminate rate irrationality.
 
+Minimums and Deficits
+-----------------------------
+
+Where a **Minimum** charge is part of a rate, and the calculated product of 
+**Amount** and **Rate** is less than the Minimum, WARES will apply a **Deficit** 
+to satisfy the minimum requirement. For single rates, a Deficit amount always 
+increases the extension of a rate to meet a minimum. However, with tiered rates 
+a deficit amount may result in a decreased extension, that is, it may be to the 
+customer's benefit.
+
 Basic Charge Calculations
 -----------------------------
 
-The basic formula to calculate a charge from a rate is:
+The basic formula to calculate a charge from a rate is: 
 
-:math:`Charge = \large\frac{(Amount + Deficit)}{Factor} \normalsize \times Rate`
+| **Deficit** is the larger of:
 
-where Deficits are calculated based on the Line Minimum:
+   (a)  (Minimum * Factor) / Rate  - Amount 
+   (b)  0
 
-:math:`Deficit = \large\frac{(Minimum \times Factor)}{Rate}  - Amount \normalsize`
+| and **Charge** is: 
 
-and :math:`Deficit \leq 0` is ignored.
+   ( Amount + Deficit ) * Rate / Factor
 
-Examples of rates and their calculations for various quantities are shown in 
-the following table:
+Subtle differences in the way a rate is expressed may have significant effects 
+on revenue. The following figure shows a variety of charge calculations based 
+on similar rate entries to illustrate this point.
 
-+----------------------------------------+----------+------------+------------+
-|          SERVICE RATE                  | Entered  | Calculated | Calculated |
-+----------+----------+--------+---------+----------+------------+------------+
-| Factor   | Quantity | Rate   | Minimum | Amount   | Deficit    | Charge ($) |
-+==========+==========+========+=========+==========+============+============+
-|   1.0000 |  0       |  5.0000|    5.00 |     1.00 |    0       |     5.00   |
-+----------+----------+--------+---------+----------+------------+------------+
-|   1.0000 |  0       |   .3200|    1.60 |     4.00 |    1.00    |     1.60   |
-+----------+----------+--------+---------+----------+------------+------------+
-|   1.0000 |     0.25 |  8.0000|   16.00 |      .25 |     .25    |    16.00   |
-+----------+----------+--------+---------+----------+------------+------------+
-| 100.0000 || 0       ||  .4000||  20.00 |  4000.00 | 1000.00    |    20.00   |
-|          || 20000.00||  .3600||  64.00 |          |            |            |
-|          || 40000.00||  .3200|| 128.00 |          |            |            |
-+----------+----------+--------+---------+----------+------------+------------+
-| 100.0000 || 0       ||  .4000||  20.00 | 39000.00 | 1000.00    |   128.00   |
-|          || 20000.00||  .3600||  64.00 |          |            |            |
-|          || 40000.00||  .3200|| 128.00 |          |            |            |
-+----------+----------+--------+---------+----------+------------+------------+
+.. image:: _images/rate-examples.png
+
 
 Calculated charges for rates 
 

@@ -63,6 +63,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#charge-calculation-display">Charge Calculation &amp; Display</a><ul>
+<li><a class="reference internal" href="#minimums-and-deficits">Minimums and Deficits</a></li>
 <li><a class="reference internal" href="#basic-charge-calculations">Basic Charge Calculations</a></li>
 <li><a class="reference internal" href="#rate-tiers-and-calculations">Rate Tiers and Calculations</a></li>
 <li><a class="reference internal" href="#charge-display">Charge Display</a></li>
@@ -290,123 +291,43 @@ to the following rules.</p>
 <li>A rate entry is required unless the service is optional.</li>
 <li>Where the quantity is fractional, the rate is for the fraction stated. For
 example, labor charged at the rate of $8.00 per quarter hour or fraction
-thereof would have a quantity of .25 and a rate of $8.00.</li>
+thereof would have a quantity of .25 and a rate of $8.00. Entered or
+calculated Amounts will be adjusted to the fractional units of the quantity.</li>
 <li>The default minimum is the quantity times the rate. Enter a higher amount as
 desired.</li>
 <li>Where rates are tiered, the guantities must be listed in ascending order.</li>
 <li>Tiered rates are calculated to eliminate rate irrationality.</li>
 </ul>
+<div class="section" id="minimums-and-deficits">
+<h3>Minimums and Deficits<a class="headerlink" href="#minimums-and-deficits" title="Permalink to this headline">¶</a></h3>
+<p>Where a <strong>Minimum</strong> charge is part of a rate, and the calculated product of
+<strong>Amount</strong> and <strong>Rate</strong> is less than the Minimum, WARES will apply a <strong>Deficit</strong>
+to satisfy the minimum requirement. For single rates, a Deficit amount always
+increases the extension of a rate to meet a minimum. However, with tiered rates
+a deficit amount may result in a decreased extension, that is, it may be to the
+customer&#8217;s benefit.</p>
+</div>
 <div class="section" id="basic-charge-calculations">
 <h3>Basic Charge Calculations<a class="headerlink" href="#basic-charge-calculations" title="Permalink to this headline">¶</a></h3>
 <p>The basic formula to calculate a charge from a rate is:</p>
-<p><span class="math">\(Charge = \large\frac{(Amount + Deficit)}{Factor} \normalsize \times Rate\)</span></p>
-<p>where Deficits are calculated based on the Line Minimum:</p>
-<p><span class="math">\(Deficit = \large\frac{(Minimum \times Factor)}{Rate}  - Amount \normalsize\)</span></p>
-<p>and <span class="math">\(Deficit \leq 0\)</span> is ignored.</p>
-<p>Examples of rates and their calculations for various quantities are shown in
-the following table:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="14%" />
-<col width="14%" />
-<col width="11%" />
-<col width="13%" />
-<col width="14%" />
-<col width="17%" />
-<col width="17%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head" colspan="4">SERVICE RATE</th>
-<th class="head">Entered</th>
-<th class="head">Calculated</th>
-<th class="head">Calculated</th>
-</tr>
-<tr class="row-even"><th class="head">Factor</th>
-<th class="head">Quantity</th>
-<th class="head">Rate</th>
-<th class="head">Minimum</th>
-<th class="head">Amount</th>
-<th class="head">Deficit</th>
-<th class="head">Charge ($)</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-odd"><td>1.0000</td>
-<td>0</td>
-<td>5.0000</td>
-<td>5.00</td>
-<td>1.00</td>
-<td>0</td>
-<td>5.00</td>
-</tr>
-<tr class="row-even"><td>1.0000</td>
-<td>0</td>
-<td>.3200</td>
-<td>1.60</td>
-<td>4.00</td>
-<td>1.00</td>
-<td>1.60</td>
-</tr>
-<tr class="row-odd"><td>1.0000</td>
-<td>0.25</td>
-<td>8.0000</td>
-<td>16.00</td>
-<td>.25</td>
-<td>.25</td>
-<td>16.00</td>
-</tr>
-<tr class="row-even"><td>100.0000</td>
-<td><div class="first last line-block">
-<div class="line">0</div>
-<div class="line">20000.00</div>
-<div class="line">40000.00</div>
-</div>
-</td>
-<td><div class="first last line-block">
-<div class="line">.4000</div>
-<div class="line">.3600</div>
-<div class="line">.3200</div>
-</div>
-</td>
-<td><div class="first last line-block">
 <div class="line-block">
-<div class="line">20.00</div>
-<div class="line">64.00</div>
+<div class="line"><strong>Deficit</strong> is the larger of:</div>
 </div>
-<div class="line">128.00</div>
-</div>
-</td>
-<td>4000.00</td>
-<td>1000.00</td>
-<td>20.00</td>
-</tr>
-<tr class="row-odd"><td>100.0000</td>
-<td><div class="first last line-block">
-<div class="line">0</div>
-<div class="line">20000.00</div>
-<div class="line">40000.00</div>
-</div>
-</td>
-<td><div class="first last line-block">
-<div class="line">.4000</div>
-<div class="line">.3600</div>
-<div class="line">.3200</div>
-</div>
-</td>
-<td><div class="first last line-block">
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>(Minimum * Factor) / Rate  - Amount</li>
+<li>0</li>
+</ol>
+</div></blockquote>
 <div class="line-block">
-<div class="line">20.00</div>
-<div class="line">64.00</div>
+<div class="line">and <strong>Charge</strong> is:</div>
 </div>
-<div class="line">128.00</div>
-</div>
-</td>
-<td>39000.00</td>
-<td>1000.00</td>
-<td>128.00</td>
-</tr>
-</tbody>
-</table>
+<blockquote>
+<div>( Amount + Deficit ) * Rate / Factor</div></blockquote>
+<p>Subtle differences in the way a rate is expressed may have significant effects
+on revenue. The following figure shows a variety of charge calculations based
+on similar rate entries to illustrate this point.</p>
+<img alt="_images/rate-examples.png" src="_images/rate-examples.png" />
 <p>Calculated charges for rates</p>
 <p>WARES uses <strong>Deficit</strong> quantity calculations to augment quantities which do not
 meet minimums, and to avoid rate irrationalities in tiered rates.</p>
