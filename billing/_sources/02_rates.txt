@@ -181,12 +181,12 @@ A service may have a single rate or tiered rates, where multiple rates in tiers
 vary with quantity. Charges are calculated from quantities and rates according 
 to the following rules.
 
-*  Where quantity is left blank, a quantity of 1 is assumed.
-*  A rate entry is required unless the service is optional.
+*  Quantity is required to be positive, the default value is 1.
 *  Where the quantity is fractional, the rate is for the fraction stated. For 
    example, labor charged at the rate of $8.00 per quarter hour or fraction
    thereof would have a quantity of .25 and a rate of $8.00. Entered or 
    calculated Amounts will be adjusted to the fractional units of the quantity.
+*  A rate entry is required unless the service is optional.
 *  The default minimum is the quantity times the rate. Enter a higher amount as 
    desired.
 *  Where rates are tiered, the guantities must be listed in ascending order.
@@ -208,13 +208,13 @@ Basic Charge Calculations
 The basic formula to calculate a charge from a rate is: 
 
 | **Deficit** is the larger of:
-
-   (a)  (Minimum * Factor) / Rate  - Amount 
-   (b)  0
-
+|
+|   (a)  ( Minimum * Factor ) / Rate  - Amount 
+|   (b)  0
+|
 | and **Charge** is: 
-
-   ( Amount + Deficit ) * Rate / Factor
+|
+|   ( Amount + Deficit ) * Rate / Factor
 
 Subtle differences in the way a rate is expressed may have significant effects 
 on revenue. The following figure shows a variety of charge calculations based 
@@ -222,16 +222,53 @@ on similar rate entries to illustrate this point.
 
 .. image:: _images/rate-examples.png
 
+Example 1:
+'''''''''''''''''''''''''''''
 
-Calculated charges for rates 
+Where a quantity is 1, the rate will provide a default minimum. In the example, 
+a charge of $5.00 is applied to each qualifying activity (UOM = 1R represents 
+a transaction). The Minimum is the Rate, and therefore Deficit is always zero.
 
-WARES uses **Deficit** quantity calculations to augment quantities which do not 
-meet minimums, and to avoid rate irrationalities in tiered rates.
+Example 2:
+'''''''''''''''''''''''''''''
+
+A **Minimum** greater than the **Rate** may apply, and deficient **Amounts** 
+will trigger a **Deficit** to result in a charge equal to the minimum. In this 
+example a $.32/case pick fee with a minimum equivalent to 5 cases is applied, 
+while only 4 cases were picked.
+
+Example 3:
+'''''''''''''''''''''''''''''
+
+A decimal **Quantity** may be used for rates expressed in fractional amounts. 
+Here MH labor is charged as $8.00 per quarter hour or fraction thereof, with a 
+minimum of $16.00, or a half hour of labor. This changes the charge formula 
+**Deficit** calculation to:
+
+| **Deficit** is:
+|
+|    ( Minimum * Factor * Quantity ) / Rate - Amount
+
+.. tip::
+   Decimal quantities apply only with single rates, not tiered rates.
+
+Example 4:
+'''''''''''''''''''''''''''''
 
 .. _rate-tiers:
 
-Rate Tiers and Calculations
+Example 5: Rate Tiers 
 -----------------------------
+
+
+Part (a): Irrational Rates
+'''''''''''''''''''''''''''''
+
+Part (b): Benefit Deficit
+'''''''''''''''''''''''''''''
+
+Part (c): Penalty Deficit
+'''''''''''''''''''''''''''''
 
  
 The previous table ends with a tiered rate, and an **Amount** close to the 

@@ -64,8 +64,19 @@
 </li>
 <li><a class="reference internal" href="#charge-calculation-display">Charge Calculation &amp; Display</a><ul>
 <li><a class="reference internal" href="#minimums-and-deficits">Minimums and Deficits</a></li>
-<li><a class="reference internal" href="#basic-charge-calculations">Basic Charge Calculations</a></li>
-<li><a class="reference internal" href="#rate-tiers-and-calculations">Rate Tiers and Calculations</a></li>
+<li><a class="reference internal" href="#basic-charge-calculations">Basic Charge Calculations</a><ul>
+<li><a class="reference internal" href="#example-1">Example 1:</a></li>
+<li><a class="reference internal" href="#example-2">Example 2:</a></li>
+<li><a class="reference internal" href="#example-3">Example 3:</a></li>
+<li><a class="reference internal" href="#example-4">Example 4:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#example-5-rate-tiers">Example 5: Rate Tiers</a><ul>
+<li><a class="reference internal" href="#part-a-irrational-rates">Part (a): Irrational Rates</a></li>
+<li><a class="reference internal" href="#part-b-benefit-deficit">Part (b): Benefit Deficit</a></li>
+<li><a class="reference internal" href="#part-c-penalty-deficit">Part (c): Penalty Deficit</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#charge-display">Charge Display</a></li>
 </ul>
 </li>
@@ -210,7 +221,7 @@ so this code is suppressed in group <strong>GLOBAL</strong> for customer <strong
 <strong>ABF</strong> and the shared group <strong>FRZ-RK</strong>. Codes used in private groups do
 not override the same codes in shared groups.</li>
 <li>GLOBAL rate <strong>F2</strong> is a tiered rate. The amount charged per unit depends on
-the quantity, as described in <a class="reference internal" href="#rate-tiers"><em>Rate Tiers and Calculations</em></a>.</li>
+the quantity, as described in <a class="reference internal" href="#rate-tiers"><em>Example 5: Rate Tiers</em></a>.</li>
 </ol>
 </div>
 </div>
@@ -287,12 +298,12 @@ charged by system routines.</li>
 vary with quantity. Charges are calculated from quantities and rates according
 to the following rules.</p>
 <ul class="simple">
-<li>Where quantity is left blank, a quantity of 1 is assumed.</li>
-<li>A rate entry is required unless the service is optional.</li>
+<li>Quantity is required to be positive, the default value is 1.</li>
 <li>Where the quantity is fractional, the rate is for the fraction stated. For
 example, labor charged at the rate of $8.00 per quarter hour or fraction
 thereof would have a quantity of .25 and a rate of $8.00. Entered or
 calculated Amounts will be adjusted to the fractional units of the quantity.</li>
+<li>A rate entry is required unless the service is optional.</li>
 <li>The default minimum is the quantity times the rate. Enter a higher amount as
 desired.</li>
 <li>Where rates are tiered, the guantities must be listed in ascending order.</li>
@@ -312,28 +323,67 @@ customer&#8217;s benefit.</p>
 <p>The basic formula to calculate a charge from a rate is:</p>
 <div class="line-block">
 <div class="line"><strong>Deficit</strong> is the larger of:</div>
-</div>
-<blockquote>
-<div><ol class="loweralpha simple">
-<li>(Minimum * Factor) / Rate  - Amount</li>
-<li>0</li>
-</ol>
-</div></blockquote>
+<div class="line"><br /></div>
 <div class="line-block">
-<div class="line">and <strong>Charge</strong> is:</div>
+<div class="line">(a)  ( Minimum * Factor ) / Rate  - Amount</div>
+<div class="line">(b)  0</div>
+<div class="line"><br /></div>
 </div>
-<blockquote>
-<div>( Amount + Deficit ) * Rate / Factor</div></blockquote>
+<div class="line">and <strong>Charge</strong> is:</div>
+<div class="line"><br /></div>
+<div class="line-block">
+<div class="line">( Amount + Deficit ) * Rate / Factor</div>
+</div>
+</div>
 <p>Subtle differences in the way a rate is expressed may have significant effects
 on revenue. The following figure shows a variety of charge calculations based
 on similar rate entries to illustrate this point.</p>
 <img alt="_images/rate-examples.png" src="_images/rate-examples.png" />
-<p>Calculated charges for rates</p>
-<p>WARES uses <strong>Deficit</strong> quantity calculations to augment quantities which do not
-meet minimums, and to avoid rate irrationalities in tiered rates.</p>
+<div class="section" id="example-1">
+<h4>Example 1:<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h4>
+<p>Where a quantity is 1, the rate will provide a default minimum. In the example,
+a charge of $5.00 is applied to each qualifying activity (UOM = 1R represents
+a transaction). The Minimum is the Rate, and therefore Deficit is always zero.</p>
 </div>
-<div class="section" id="rate-tiers-and-calculations">
-<span id="rate-tiers"></span><h3>Rate Tiers and Calculations<a class="headerlink" href="#rate-tiers-and-calculations" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="example-2">
+<h4>Example 2:<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h4>
+<p>A <strong>Minimum</strong> greater than the <strong>Rate</strong> may apply, and deficient <strong>Amounts</strong>
+will trigger a <strong>Deficit</strong> to result in a charge equal to the minimum. In this
+example a $.32/case pick fee with a minimum equivalent to 5 cases is applied,
+while only 4 cases were picked.</p>
+</div>
+<div class="section" id="example-3">
+<h4>Example 3:<a class="headerlink" href="#example-3" title="Permalink to this headline">¶</a></h4>
+<p>A decimal <strong>Quantity</strong> may be used for rates expressed in fractional amounts.
+Here MH labor is charged as $8.00 per quarter hour or fraction thereof, with a
+minimum of $16.00, or a half hour of labor. This changes the charge formula
+<strong>Deficit</strong> calculation to:</p>
+<div class="line-block">
+<div class="line"><strong>Deficit</strong> is:</div>
+<div class="line"><br /></div>
+<div class="line-block">
+<div class="line">( Minimum * Factor * Quantity ) / Rate - Amount</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">Decimal quantities apply only with single rates, not tiered rates.</p>
+</div>
+</div>
+<div class="section" id="example-4">
+<h4>Example 4:<a class="headerlink" href="#example-4" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+<div class="section" id="example-5-rate-tiers">
+<span id="rate-tiers"></span><h3>Example 5: Rate Tiers<a class="headerlink" href="#example-5-rate-tiers" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="part-a-irrational-rates">
+<h4>Part (a): Irrational Rates<a class="headerlink" href="#part-a-irrational-rates" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="part-b-benefit-deficit">
+<h4>Part (b): Benefit Deficit<a class="headerlink" href="#part-b-benefit-deficit" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="part-c-penalty-deficit">
+<h4>Part (c): Penalty Deficit<a class="headerlink" href="#part-c-penalty-deficit" title="Permalink to this headline">¶</a></h4>
 <p>The previous table ends with a tiered rate, and an <strong>Amount</strong> close to the
 final bracket quantity. In this event, the charge has to be calculated at the
 nominal bracket:</p>
@@ -341,6 +391,7 @@ nominal bracket:</p>
 \[Charge = ( 39000 \times .36 ) \over 100.00\]\[Charge = 140.40\]</div>
 <p>The <strong>Minimum</strong> at the next tier, <strong>128.00</strong>, is less than <strong>140.40</strong>, and so
 a deficit of <strong>1000.00</strong> would be applied. then the charge calculation becomes:</p>
+</div>
 </div>
 <div class="section" id="charge-display">
 <h3>Charge Display<a class="headerlink" href="#charge-display" title="Permalink to this headline">¶</a></h3>
