@@ -65,15 +65,15 @@
 <li><a class="reference internal" href="#charge-calculation-display">Charge Calculation &amp; Display</a><ul>
 <li><a class="reference internal" href="#minimums-and-deficits">Minimums and Deficits</a></li>
 <li><a class="reference internal" href="#basic-charge-calculations">Basic Charge Calculations</a><ul>
-<li><a class="reference internal" href="#example-1">Example 1:</a></li>
-<li><a class="reference internal" href="#example-2">Example 2:</a></li>
-<li><a class="reference internal" href="#example-3">Example 3:</a></li>
-<li><a class="reference internal" href="#example-4">Example 4:</a></li>
+<li><a class="reference internal" href="#example-1-straight-rate">Example 1: Straight Rate</a></li>
+<li><a class="reference internal" href="#example-2-minimum-applies">Example 2: Minimum Applies</a></li>
+<li><a class="reference internal" href="#example-3-quantity-not-one">Example 3: Quantity not One</a></li>
+<li><a class="reference internal" href="#example-4-quantity-breaks">Example 4: Quantity Breaks</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#example-5-rate-tiers">Example 5: Rate Tiers</a><ul>
 <li><a class="reference internal" href="#part-a-irrational-rates">Part (a): Irrational Rates</a></li>
-<li><a class="reference internal" href="#part-b-benefit-deficit">Part (b): Benefit Deficit</a></li>
+<li><a class="reference internal" href="#part-b-beneficial-deficit">Part (b): Beneficial Deficit</a></li>
 <li><a class="reference internal" href="#part-c-penalty-deficit">Part (c): Penalty Deficit</a></li>
 </ul>
 </li>
@@ -325,72 +325,99 @@ customer&#8217;s benefit.</p>
 <div class="line"><strong>Deficit</strong> is the larger of:</div>
 <div class="line"><br /></div>
 <div class="line-block">
-<div class="line">(a)  ( Minimum * Factor ) / Rate  - Amount</div>
+<div class="line">(a)  Minimum * ( Factor / Rate ) - Amount</div>
 <div class="line">(b)  0</div>
 <div class="line"><br /></div>
 </div>
 <div class="line">and <strong>Charge</strong> is:</div>
 <div class="line"><br /></div>
 <div class="line-block">
-<div class="line">( Amount + Deficit ) * Rate / Factor</div>
+<div class="line">( Amount + Deficit ) * ( Rate / Factor )</div>
 </div>
 </div>
 <p>Subtle differences in the way a rate is expressed may have significant effects
 on revenue. The following figure shows a variety of charge calculations based
 on similar rate entries to illustrate this point.</p>
 <img alt="_images/rate-examples.png" src="_images/rate-examples.png" />
-<div class="section" id="example-1">
-<h4>Example 1:<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="example-1-straight-rate">
+<h4>Example 1: Straight Rate<a class="headerlink" href="#example-1-straight-rate" title="Permalink to this headline">¶</a></h4>
 <p>Where a quantity is 1, the rate will provide a default minimum. In the example,
 a charge of $5.00 is applied to each qualifying activity (UOM = 1R represents
 a transaction). The Minimum is the Rate, and therefore Deficit is always zero.</p>
 </div>
-<div class="section" id="example-2">
-<h4>Example 2:<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="example-2-minimum-applies">
+<h4>Example 2: Minimum Applies<a class="headerlink" href="#example-2-minimum-applies" title="Permalink to this headline">¶</a></h4>
 <p>A <strong>Minimum</strong> greater than the <strong>Rate</strong> may apply, and deficient <strong>Amounts</strong>
 will trigger a <strong>Deficit</strong> to result in a charge equal to the minimum. In this
 example a $.32/case pick fee with a minimum equivalent to 5 cases is applied,
 while only 4 cases were picked.</p>
 </div>
-<div class="section" id="example-3">
-<h4>Example 3:<a class="headerlink" href="#example-3" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="example-3-quantity-not-one">
+<h4>Example 3: Quantity not One<a class="headerlink" href="#example-3-quantity-not-one" title="Permalink to this headline">¶</a></h4>
 <p>A decimal <strong>Quantity</strong> may be used for rates expressed in fractional amounts.
 Here MH labor is charged as $8.00 per quarter hour or fraction thereof, with a
-minimum of $16.00, or a half hour of labor. This changes the charge formula
-<strong>Deficit</strong> calculation to:</p>
-<div class="line-block">
-<div class="line"><strong>Deficit</strong> is:</div>
-<div class="line"><br /></div>
+minimum of $16.00, or a half hour of labor. This changes the <strong>Deficit</strong>
+formula to:</p>
 <div class="line-block">
 <div class="line">( Minimum * Factor * Quantity ) / Rate - Amount</div>
-</div>
 </div>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
 <p class="last">Decimal quantities apply only with single rates, not tiered rates.</p>
 </div>
 </div>
-<div class="section" id="example-4">
-<h4>Example 4:<a class="headerlink" href="#example-4" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="example-4-quantity-breaks">
+<h4>Example 4: Quantity Breaks<a class="headerlink" href="#example-4-quantity-breaks" title="Permalink to this headline">¶</a></h4>
+<p>Rates based on economic order quantity (EOQ) provide break pricing for specific
+quantities (cheaper by the dozen) or composite units of measure (PK, CA). This
+example shows Each, Pack, and Case picking charges where the order unit is EA
+(each) but the billing units are by the EOQ.</p>
 </div>
 </div>
 <div class="section" id="example-5-rate-tiers">
 <span id="rate-tiers"></span><h3>Example 5: Rate Tiers<a class="headerlink" href="#example-5-rate-tiers" title="Permalink to this headline">¶</a></h3>
+<p>Rate tiers are most interesting pricing option in WARES. A tiered rate may
+provide pricing with step changes (no deficits), with transition deficits
+benefitting the customer, or with transitions deficits penalizing the customer.</p>
+<p>In this example, a container stripping fee is charged according to container
+weight. A charge is calculated for a container weighing 39,000 lb. and one
+weighing 40,000 lb.</p>
 <div class="section" id="part-a-irrational-rates">
 <h4>Part (a): Irrational Rates<a class="headerlink" href="#part-a-irrational-rates" title="Permalink to this headline">¶</a></h4>
+<p>Deficit quantities may be calculated when minimums are used. in part (a), there
+are no minimums and the charge at 40,000 lb. is $12.40 less than the charge at
+39,000 lb. This is considered a pricing irrationality.</p>
 </div>
-<div class="section" id="part-b-benefit-deficit">
-<h4>Part (b): Benefit Deficit<a class="headerlink" href="#part-b-benefit-deficit" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="part-b-beneficial-deficit">
+<h4>Part (b): Beneficial Deficit<a class="headerlink" href="#part-b-beneficial-deficit" title="Permalink to this headline">¶</a></h4>
+<p>Irrationalities can be eliminated by applying minimums. In part (b), the
+minimums on the second and third line equal the product of Quantity and Rate.
+WARES will compare the charge with the minimum at the next break, and if the
+minimum is less, a deficit will be added to move to the next rate level.</p>
+<p>for the amount 39,000, the charge is the greater of:</p>
+<div class="line-block">
+<div class="line">(a) the minimum, $72.00, or</div>
+<div class="line">(b) 39,000 * .36 / 1000.00</div>
+</div>
+<p>Then charge is calculated as the lesser of:</p>
+<div class="line-block">
+<div class="line">(a) the next minimum, $128.00, or</div>
+<div class="line">(b) the charge calculated previously, $140.40</div>
+</div>
+<p>customer receives the benefit of a lower charge by being billed for a greater
+quantity.</p>
 </div>
 <div class="section" id="part-c-penalty-deficit">
 <h4>Part (c): Penalty Deficit<a class="headerlink" href="#part-c-penalty-deficit" title="Permalink to this headline">¶</a></h4>
-<p>The previous table ends with a tiered rate, and an <strong>Amount</strong> close to the
-final bracket quantity. In this event, the charge has to be calculated at the
-nominal bracket:</p>
-<div class="math">
-\[Charge = ( 39000 \times .36 ) \over 100.00\]\[Charge = 140.40\]</div>
-<p>The <strong>Minimum</strong> at the next tier, <strong>128.00</strong>, is less than <strong>140.40</strong>, and so
-a deficit of <strong>1000.00</strong> would be applied. then the charge calculation becomes:</p>
+<p>To avoid a price reduction for amounts below a break level, minimums should
+equal the break Quantity times the Rate of the previous level. In this example,
+the minimum of line 3 is the quantity 40,000 times the previous rate .3600, and
+the minimum of line 2 is the quantity 20,000 times the previous rate .4000.</p>
+<p>Now the charge at 39,000 lb. extends to $140.40 just as it did in part (a), and
+this is less than the minimum at the next level of $144.00. This results in a
+deficit quantity of 5,000 at quantity 40,000 so that the charge meets the line
+minimum, $144.00. There is no rate irrationality, but the customer receives
+less benefit from the rate break.</p>
 </div>
 </div>
 <div class="section" id="charge-display">
