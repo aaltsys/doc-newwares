@@ -126,7 +126,7 @@ as **GLOBAL** contains **Optional** rates only.
 
 Similarly putting **Mandatory** or **Repeating** rates in a group which is not 
 associated to an account is possible, but not recommended. For example, if 
-every account receives the same charge for, say, Bills of Lading, then a shared 
+every account receives the same charge for say, Bills of Lading, then a shared 
 group without an account could include the **Mandatory** Bill of Lading service. 
 But: entering a rate with the same service code in an account group would result 
 in two charges, because account-associated rates override **GLOBAL** rates, but 
@@ -173,6 +173,9 @@ Additional Rates Properties
 #. Optional rates are charged through user entry, and all other rates are 
    charged by system routines.
 #. Rates in the **GLOBAL** group are always **Optional**. 
+
+Entries for scheduling **Repeating** rates are described at 
+:ref:`bill-calendar`.
 
 Charge Calculation & Display
 =============================
