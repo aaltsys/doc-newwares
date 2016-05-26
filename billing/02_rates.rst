@@ -181,80 +181,137 @@ A service may have a single rate or tiered rates, where multiple rates in tiers
 vary with quantity. Charges are calculated from quantities and rates according 
 to the following rules.
 
-*  Where quantity is left blank, a quantity of 1 is assumed.
-*  A rate entry is required unless the service is optional.
+*  Quantity is required to be positive, the default value is 1.
 *  Where the quantity is fractional, the rate is for the fraction stated. For 
    example, labor charged at the rate of $8.00 per quarter hour or fraction
-   thereof would have a quantity of .25 and a rate of $8.00.
+   thereof would have a quantity of .25 and a rate of $8.00. Entered or 
+   calculated Amounts will be adjusted to the fractional units of the quantity.
+*  A rate entry is required unless the service is optional.
 *  The default minimum is the quantity times the rate. Enter a higher amount as 
    desired.
 *  Where rates are tiered, the guantities must be listed in ascending order.
 *  Tiered rates are calculated to eliminate rate irrationality.
 
+Minimums and Deficits
+-----------------------------
+
+Where a **Minimum** charge is part of a rate, and the calculated product of 
+**Amount** and **Rate** is less than the Minimum, WARES will apply a **Deficit** 
+to satisfy the minimum requirement. For single rates, a Deficit amount always 
+increases the extension of a rate to meet a minimum. However, with tiered rates 
+a deficit amount may result in a decreased extension, that is, it may be to the 
+customer's benefit.
+
 Basic Charge Calculations
 -----------------------------
 
-The basic formula to calculate a charge from a rate is:
+The basic formula to calculate a charge from a rate is: 
 
-:math:`Charge = \large\frac{(Amount + Deficit)}{Factor} \normalsize \times Rate`
+| **Deficit** is the larger of:
+|
+|   (a)  Minimum * ( Factor / Rate ) - Amount 
+|   (b)  0
+|
+| and **Charge** is: 
+|
+|   ( Amount + Deficit ) * ( Rate / Factor )
 
-where Deficits are calculated based on the Line Minimum:
+Subtle differences in the way a rate is expressed may have significant effects 
+on revenue. The following figure shows a variety of charge calculations based 
+on similar rate entries to illustrate this point.
 
-:math:`Deficit = \large\frac{(Minimum \times Factor)}{Rate}  - Amount \normalsize`
+.. image:: _images/rate-examples.png
 
-and :math:`Deficit \leq 0` is ignored.
+Example 1: Straight Rate
+'''''''''''''''''''''''''''''
 
-Examples of rates and their calculations for various quantities are shown in 
-the following table:
+Where a quantity is 1, the rate will provide a default minimum. In the example, 
+a charge of $5.00 is applied to each qualifying activity (UOM = 1R represents 
+a transaction). The Minimum is the Rate, and therefore Deficit is always zero.
 
-+----------------------------------------+----------+------------+------------+
-|          SERVICE RATE                  | Entered  | Calculated | Calculated |
-+----------+----------+--------+---------+----------+------------+------------+
-| Factor   | Quantity | Rate   | Minimum | Amount   | Deficit    | Charge ($) |
-+==========+==========+========+=========+==========+============+============+
-|   1.0000 |  0       |  5.0000|    5.00 |     1.00 |    0       |     5.00   |
-+----------+----------+--------+---------+----------+------------+------------+
-|   1.0000 |  0       |   .3200|    1.60 |     4.00 |    1.00    |     1.60   |
-+----------+----------+--------+---------+----------+------------+------------+
-|   1.0000 |     0.25 |  8.0000|   16.00 |      .25 |     .25    |    16.00   |
-+----------+----------+--------+---------+----------+------------+------------+
-| 100.0000 || 0       ||  .4000||  20.00 |  4000.00 | 1000.00    |    20.00   |
-|          || 20000.00||  .3600||  64.00 |          |            |            |
-|          || 40000.00||  .3200|| 128.00 |          |            |            |
-+----------+----------+--------+---------+----------+------------+------------+
-| 100.0000 || 0       ||  .4000||  20.00 | 39000.00 | 1000.00    |   128.00   |
-|          || 20000.00||  .3600||  64.00 |          |            |            |
-|          || 40000.00||  .3200|| 128.00 |          |            |            |
-+----------+----------+--------+---------+----------+------------+------------+
+Example 2: Minimum Applies
+'''''''''''''''''''''''''''''
 
-Calculated charges for rates 
+A **Minimum** greater than the **Rate** may apply, and deficient **Amounts** 
+will trigger a **Deficit** to result in a charge equal to the minimum. In this 
+example a $.32/case pick fee with a minimum equivalent to 5 cases is applied, 
+while only 4 cases were picked.
 
-WARES uses **Deficit** quantity calculations to augment quantities which do not 
-meet minimums, and to avoid rate irrationalities in tiered rates.
+Example 3: Quantity not One
+'''''''''''''''''''''''''''''
+
+A decimal **Quantity** may be used for rates expressed in fractional amounts. 
+Here MH labor is charged as $8.00 per quarter hour or fraction thereof, with a 
+minimum of $16.00, or a half hour of labor. This changes the **Deficit** 
+formula to:
+
+|    ( Minimum * Factor * Quantity ) / Rate - Amount
+
+.. tip::
+   Decimal quantities apply only with single rates, not tiered rates.
+
+Example 4: Quantity Breaks
+'''''''''''''''''''''''''''''
+
+Rates based on economic order quantity (EOQ) provide break pricing for specific 
+quantities (cheaper by the dozen) or composite units of measure (PK, CA). This 
+example shows Each, Pack, and Case picking charges where the order unit is EA 
+(each) but the billing units are by the EOQ.
 
 .. _rate-tiers:
 
-Rate Tiers and Calculations
+Example 5: Rate Tiers 
 -----------------------------
 
- 
-The previous table ends with a tiered rate, and an **Amount** close to the 
-final bracket quantity. In this event, the charge has to be calculated at the 
-nominal bracket:
+Rate tiers are most interesting pricing option in WARES. A tiered rate may 
+provide pricing with step changes (no deficits), with transition deficits 
+benefitting the customer, or with transitions deficits penalizing the customer.
 
-.. math::
-   Charge = ( 39000 \times .36 ) \over 100.00
-   
-   Charge = 140.40
+In this example, a container stripping fee is charged according to container 
+weight. A charge is calculated for a container weighing 39,000 lb. and one 
+weighing 40,000 lb.
 
-The **Minimum** at the next tier, **128.00**, is less than **140.40**, and so 
-a deficit of **1000.00** would be applied. then the charge calculation becomes:
+Part (a): Irrational Rates
+'''''''''''''''''''''''''''''
 
-.. math:
-   Charge - ( 39000 \plus 1000 ) \times .32 ) \over 1000
-   
-   Charge = 128.00
+Deficit quantities may be calculated when minimums are used. in part (a), there 
+are no minimums and the charge at 40,000 lb. is $12.40 less than the charge at 
+39,000 lb. This is considered a pricing irrationality.
 
+Part (b): Beneficial Deficit
+'''''''''''''''''''''''''''''
+
+Irrationalities can be eliminated by applying minimums. In part (b), the 
+minimums on the second and third line equal the product of Quantity and Rate.
+WARES will compare the charge with the minimum at the next break, and if the 
+minimum is less, a deficit will be added to move to the next rate level.
+
+for the amount 39,000, the charge is the greater of:
+
+|   (a) the minimum, $72.00, or
+|   (b) 39,000 * .36 / 1000.00
+
+Then charge is calculated as the lesser of:
+
+|   (a) the next minimum, $128.00, or
+|   (b) the charge calculated previously, $140.40
+
+customer receives the benefit of a lower charge by being billed for a greater 
+quantity.
+
+Part (c): Penalty Deficit
+'''''''''''''''''''''''''''''
+
+To avoid a price reduction for amounts below a break level, minimums should
+equal the break Quantity times the Rate of the previous level. In this example, 
+the minimum of line 3 is the quantity 40,000 times the previous rate .3600, and 
+the minimum of line 2 is the quantity 20,000 times the previous rate .4000.
+
+Now the charge at 39,000 lb. extends to $140.40 just as it did in part (a), and 
+this is less than the minimum at the next level of $144.00. This results in a 
+deficit quantity of 5,000 at quantity 40,000 so that the charge meets the line 
+minimum, $144.00. There is no rate irrationality, but the customer receives 
+less benefit from the rate break.
 
 Charge Display
 -----------------------------
