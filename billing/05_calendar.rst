@@ -1,7 +1,7 @@
-.. _bill-repeating:
+.. _bill-calendar:
 
 #############################
-Repeating Calendar Operations
+Calendar Operations
 #############################
 
 WARES performs repeating operations, such as creating lease space charges or 
