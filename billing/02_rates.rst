@@ -209,12 +209,12 @@ The basic formula to calculate a charge from a rate is:
 
 | **Deficit** is the larger of:
 |
-|   (a)  Minimum * ( Factor / Rate ) - Amount 
-|   (b)  0
+|  (a)  Minimum * ( Factor / Rate ) - Amount 
+|  (b)  0
 |
 | and **Charge** is: 
 |
-|   ( Amount + Deficit ) * ( Rate / Factor )
+|  ( Amount + Deficit ) * ( Rate / Factor )
 
 Subtle differences in the way a rate is expressed may have significant effects 
 on revenue. The following figure shows a variety of charge calculations based 
@@ -245,7 +245,7 @@ Here MH labor is charged as $8.00 per quarter hour or fraction thereof, with a
 minimum of $16.00, or a half hour of labor. This changes the **Deficit** 
 formula to:
 
-|    ( Minimum * Factor * Quantity ) / Rate - Amount
+|   ( Minimum * Factor * Quantity ) / Rate - Amount
 
 .. tip::
    Decimal quantities apply only with single rates, not tiered rates.
@@ -288,16 +288,19 @@ minimum is less, a deficit will be added to move to the next rate level.
 
 for the amount 39,000, the charge is the greater of:
 
-|   (a) the minimum, $72.00, or
-|   (b) 39,000 * .36 / 1000.00
+|  (a) the minimum, $72.00, or
+|  (b) 39,000 * .36 / 1000.00 = $140.40
 
 Then charge is calculated as the lesser of:
 
-|   (a) the next minimum, $128.00, or
-|   (b) the charge calculated previously, $140.40
+|  (a) the next minimum, $128.00, or
+|  (b) the charge calculated previously, $140.40
 
-customer receives the benefit of a lower charge by being billed for a greater 
-quantity.
+and if (a) applies, deficit is calculated as the next quantity less the billed 
+amount.
+
+The customer receives the benefit of a lower charge by being billed for a 
+greater quantity based on the deficit.
 
 Part (c): Penalty Deficit
 '''''''''''''''''''''''''''''
