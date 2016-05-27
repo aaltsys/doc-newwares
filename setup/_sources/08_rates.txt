@@ -70,7 +70,7 @@ A rate is used to apply charges in one of four ways:
 
 *  **Repeating** rates may create separate charge entries according to a 
    calendar schedule. Repeating charges have fixed rates and quantities, so 
-   the charge is always the same. See :ref:`../billing/bill-calendars` for more 
+   the charge is always the same. See billing documentation for more 
    information.
 *  **Calculated** rates apply storage and handling charges to products on
    warehouse receipts and optionally shipments (for outbound handling), and to
@@ -92,7 +92,8 @@ Setting Up Rates
 =============================
 
 The Rate Setup page is divided into three sections: Identifying Information, 
-Calculation Entries, and the repeating :ref:`../billing/bill-calendars`.
+Calculation Entries, and repeating calendars. Calendars are described 
+separately in the billing documentation.
 
 .. image:: ../billing/_images/rates-id.png
 
