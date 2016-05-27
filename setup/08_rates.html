@@ -51,7 +51,6 @@
 <li><a class="reference internal" href="#setting-up-rates">Setting Up Rates</a><ul>
 <li><a class="reference internal" href="#identifying-entries">Identifying entries:</a></li>
 <li><a class="reference internal" href="#calculation-entries">Calculation entries</a></li>
-<li><a class="reference internal" href="#calendar-information">Calendar Information</a></li>
 </ul>
 </li>
 </ul>
@@ -103,9 +102,8 @@ without a rate record defining the charge.</p>
 to standard industry practices. When writing a proposal or contract, enter
 proposed rates here to verify that the quote will be consistent with industry
 norms and can be implemented as intended within the WARES software.</p>
-<p>Warehouse services are defined by the company <a class="reference internal" href="04_services.html#services"><em>Warehousing Service Codes</em></a>. Each rate relates
-to eactly one service code.</p>
-<p>The <a class="reference external" href="../resources/06_rates.html#rates-schema" title="(in WARES Resources v1.0)"><em>RATES Data Table Columns</em></a> may be viewed here for information.</p>
+<p>Warehouse services are defined by the company <a class="reference internal" href="04_services.html#services"><em>Initial Service Code List</em></a>. Each rate
+relates to eactly one service code.</p>
 </div>
 <div class="section" id="scope-and-grouping-of-rates">
 <h2>Scope and Grouping of Rates<a class="headerlink" href="#scope-and-grouping-of-rates" title="Permalink to this headline">¶</a></h2>
@@ -152,10 +150,8 @@ labor might be required on any documented activity.</p>
 <ul class="simple">
 <li><strong>Repeating</strong> rates may create separate charge entries according to a
 calendar schedule. Repeating charges have fixed rates and quantities, so
-the charge is always the same.
-Calendar selections for repeating charges are for daily or daily within the
-open billing month, weekdays on specific days, monthdays on specific
-numbered days or on LAST or FIRST days, and year days (Julian) or year dates.</li>
+the charge is always the same. See <em class="xref std std-ref">bill-calendars</em> for more
+information.</li>
 <li><strong>Calculated</strong> rates apply storage and handling charges to products on
 warehouse receipts and optionally shipments (for outbound handling), and to
 calculate charges for recurring product balances.</li>
@@ -175,8 +171,8 @@ on documents prior to performing calculated billing.</p>
 <div class="section" id="setting-up-rates">
 <h2>Setting Up Rates<a class="headerlink" href="#setting-up-rates" title="Permalink to this headline">¶</a></h2>
 <p>The Rate Setup page is divided into three sections: Identifying Information,
-Calculation Entries, and Calendar Information.</p>
-<img alt="_images/account-rates.png" src="_images/account-rates.png" />
+Calculation Entries, and the repeating <em class="xref std std-ref">bill-calendar</em>.</p>
+<img alt="_images/rates-id.png" src="_images/rates-id.png" />
 <div class="section" id="identifying-entries">
 <h3>Identifying entries:<a class="headerlink" href="#identifying-entries" title="Permalink to this headline">¶</a></h3>
 <p>Identifying entries specify the rate grouping, the service to be performed,
@@ -232,7 +228,7 @@ charges.</p>
 <p>Rates are uniquely identified by the combination of a <strong>Rate Group</strong> and a
 <strong>Service Code</strong>. The <strong>Rate Group</strong> entry can be either the word GLOBAL, an
 account identifier, or a user-defined rate group.</p>
-<p><strong>Service Code</strong> must be selected from the list of <a class="reference internal" href="04_services.html#services"><em>Warehousing Service Codes</em></a>.</p>
+<p><strong>Service Code</strong> must be selected from the list of <a class="reference internal" href="04_services.html#services"><em>Initial Service Code List</em></a>.</p>
 <p>Service codes determine which rates <strong>Apply</strong> as Calculated or Repeating, and
 the <strong>Apply</strong> code is filled and protected accordingly. Other rates should be
 set to Optional or Mandatory, depending on whether user entry is required to
@@ -251,6 +247,7 @@ to invoice for the charge.</p>
 </div>
 <div class="section" id="calculation-entries">
 <h3>Calculation entries<a class="headerlink" href="#calculation-entries" title="Permalink to this headline">¶</a></h3>
+<img alt="_images/rates-rate.png" src="_images/rates-rate.png" />
 <p>These entries determine the content of charge line detail.</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -326,22 +323,13 @@ or decrease as quantity increases.</p>
 <ul class="simple">
 <li>Where a <strong>Rate</strong> for a particular charge is variable, the Rate field may be
 left blank and entered manually each time the charge is applied.</li>
-<li>The <strong>Quantity</strong> defaults to 1.0. Quantity entries are required for tiered
-rates.</li>
+<li>The <strong>Quantity</strong> defaults to 1.0. Quantity entries are required.</li>
 <li>A <strong>Minimum</strong> value for resulting charges defaults to <strong>Rate X quantity</strong>.
 This minimum would be applied to every transaction line.</li>
 <li>An <strong>Item Minimum</strong> can be applied to an entire transaction to result in
 charges that are reasonable. For example, a handling charge of $.40 per case
 is not reasonable when receiving a single case.</li>
 </ul>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Decreasing rates may require deficit quantities to produce rate rationality.
-A Rationality flag could be added to turn this feature off or on.</p>
-</div>
-</div>
-<div class="section" id="calendar-information">
-<h3>Calendar Information<a class="headerlink" href="#calendar-information" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 </div>

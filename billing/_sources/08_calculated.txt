@@ -1,7 +1,7 @@
-.. bill-mandatory:
+.. _bill-audits:
 
 #############################
-Billing Mandatory Charges
+Charges Audit Reports
 #############################
 
 In progress.

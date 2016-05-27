@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Rates Extension to Charges &mdash; WARES Billing 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="WARES Billing 1.0 documentation" href="index.html" />
+    <link rel="next" title="Calculation Calendar" href="04_calendars.html" />
+    <link rel="prev" title="Billing Rates" href="02_rates.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="04_calendars.html" title="Calculation Calendar"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="02_rates.html" title="Billing Rates"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">WARES Billing 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Rates Extension to Charges</a><ul>
+<li><a class="reference internal" href="#minimums-and-deficits">Minimums and Deficits</a></li>
+<li><a class="reference internal" href="#basic-charge-calculations">Basic Charge Calculations</a></li>
+<li><a class="reference internal" href="#example-1-straight-rate">Example 1: Straight Rate</a></li>
+<li><a class="reference internal" href="#example-2-minimum-applies">Example 2: Minimum Applies</a></li>
+<li><a class="reference internal" href="#example-3-decimal-quantity">Example 3: Decimal Quantity</a></li>
+<li><a class="reference internal" href="#example-4-quantity-breaks">Example 4: Quantity Breaks</a></li>
+<li><a class="reference internal" href="#example-5-rate-tiers">Example 5: Rate Tiers</a><ul>
+<li><a class="reference internal" href="#part-a-irrational-rates">Part (a): Irrational Rates</a></li>
+<li><a class="reference internal" href="#part-b-beneficial-deficit">Part (b): Beneficial Deficit</a></li>
+<li><a class="reference internal" href="#part-c-penalty-deficit">Part (c): Penalty Deficit</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#charges-auditing-and-display">Charges Auditing and Display</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="02_rates.html"
+                        title="previous chapter">Billing Rates</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="04_calendars.html"
+                        title="next chapter">Calculation Calendar</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/03_rate-extend.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="rates-extension-to-charges">
+<h1>Rates Extension to Charges<a class="headerlink" href="#rates-extension-to-charges" title="Permalink to this headline">¶</a></h1>
+<p>A service may have a single rate or tiered rates, where multiple rates in tiers
+vary with quantity. Charges are calculated from quantities and rates according
+to the following rules.</p>
+<ul class="simple">
+<li>Quantity is required to be positive, the default value is 1.</li>
+<li>Where the quantity is fractional, the rate is for the fraction stated. For
+example, labor charged at the rate of $8.00 per quarter hour or fraction
+thereof would have a quantity of .25 and a rate of $8.00. Entered or
+calculated Amounts will be adjusted to the fractional units of the quantity.</li>
+<li>A rate entry is required unless the service is optional.</li>
+<li>The default minimum is the quantity times the rate. Enter a higher amount as
+desired.</li>
+<li>Where rates are tiered, the guantities must be listed in ascending order.</li>
+<li>Tiered rates with minimums are calculated to eliminate rate irrationality.</li>
+</ul>
+<div class="section" id="minimums-and-deficits">
+<h2>Minimums and Deficits<a class="headerlink" href="#minimums-and-deficits" title="Permalink to this headline">¶</a></h2>
+<p>Where a <strong>Minimum</strong> charge is part of a rate, and the calculated product of
+<strong>Amount</strong> and <strong>Rate</strong> is less than the Minimum, WARES will apply a <strong>Deficit</strong>
+to satisfy the minimum requirement. For single rates, a Deficit amount always
+increases the extension of a rate to meet a minimum. However, with tiered rates
+a deficit amount may result in a decreased extension, that is, it may be to the
+customer&#8217;s benefit.</p>
+</div>
+<div class="section" id="basic-charge-calculations">
+<h2>Basic Charge Calculations<a class="headerlink" href="#basic-charge-calculations" title="Permalink to this headline">¶</a></h2>
+<p>The basic formula to calculate a charge from a rate is:</p>
+<div class="line-block">
+<div class="line"><strong>Deficit</strong> is the larger of:</div>
+<div class="line"><br /></div>
+<div class="line-block">
+<div class="line">(a)  ( Minimum * Factor ) / Rate - Amount</div>
+<div class="line">(b)  0</div>
+<div class="line"><br /></div>
+</div>
+<div class="line">and <strong>Charge</strong> is:</div>
+<div class="line"><br /></div>
+<div class="line-block">
+<div class="line">Rate * ( Amount + Deficit ) / Factor</div>
+</div>
+</div>
+<p>Subtle differences in the way a rate is expressed may have significant effects
+on revenue. The following figure shows a variety of charge calculations based
+on similar rate entries to illustrate this point.</p>
+<img alt="_images/rate-examples.png" src="_images/rate-examples.png" />
+</div>
+<div class="section" id="example-1-straight-rate">
+<h2>Example 1: Straight Rate<a class="headerlink" href="#example-1-straight-rate" title="Permalink to this headline">¶</a></h2>
+<p>Where a quantity is 1, the rate will provide a default minimum. In the example,
+a charge of $5.00 is applied to each qualifying activity (UOM = 1R represents
+a transaction). The Minimum is the Rate, and therefore Deficit is always zero.</p>
+</div>
+<div class="section" id="example-2-minimum-applies">
+<h2>Example 2: Minimum Applies<a class="headerlink" href="#example-2-minimum-applies" title="Permalink to this headline">¶</a></h2>
+<p>A <strong>Minimum</strong> greater than the <strong>Rate</strong> may apply, and deficient <strong>Amounts</strong>
+will trigger a <strong>Deficit</strong> to result in a charge equal to the minimum. In this
+example a $.32/case pick fee with a minimum equivalent to 5 cases is applied,
+while only 4 cases were picked.</p>
+</div>
+<div class="section" id="example-3-decimal-quantity">
+<h2>Example 3: Decimal Quantity<a class="headerlink" href="#example-3-decimal-quantity" title="Permalink to this headline">¶</a></h2>
+<p>A decimal <strong>Quantity</strong> may be used for rates expressed in fractional amounts.
+Here MH labor is charged as $8.00 per quarter hour or fraction thereof, with a
+minimum of $16.00, or a half hour of labor. This changes the <strong>Deficit</strong>
+formula to:</p>
+<div class="line-block">
+<div class="line">( Minimum * Factor * Quantity ) / Rate - Amount</div>
+</div>
+<p>and the extended charge formula becomes:</p>
+<div class="line-block">
+<div class="line">Rate * ( Amount + Deficit ) / ( Quantity * Factor )</div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">Decimal quantities apply only with single rates, not tiered rates.</p>
+</div>
+</div>
+<div class="section" id="example-4-quantity-breaks">
+<h2>Example 4: Quantity Breaks<a class="headerlink" href="#example-4-quantity-breaks" title="Permalink to this headline">¶</a></h2>
+<p>Rates based on economic order quantity (EOQ) provide break pricing for specific
+quantities (cheaper by the dozen) or composite units of measure (PK, CA). This
+example shows Each, Pack, and Case picking charges where the order unit is EA
+(each) but the billing units are by the EOQ.</p>
+</div>
+<div class="section" id="example-5-rate-tiers">
+<span id="rate-tiers"></span><h2>Example 5: Rate Tiers<a class="headerlink" href="#example-5-rate-tiers" title="Permalink to this headline">¶</a></h2>
+<p>Rate tiers offer several pricing options. A tiered rate may provide pricing
+with step changes (no deficits), with transition deficits benefiting the
+customer, or with transitions deficits penalizing the customer.</p>
+<p>In this example, a container stripping fee is charged according to container
+weight. A charge is calculated for a container weighing 39,000 lb. and one
+weighing 40,000 lb. Rates are the same in each part of the example except for
+the minimums.</p>
+<div class="section" id="part-a-irrational-rates">
+<h3>Part (a): Irrational Rates<a class="headerlink" href="#part-a-irrational-rates" title="Permalink to this headline">¶</a></h3>
+<p>Deficit quantities are not calculated when minimums are absent. in part (a),
+there are no minimums and the charge at 40,000 lb. is $12.40 less than the
+charge at 39,000 lb. This is considered a pricing irrationality.</p>
+</div>
+<div class="section" id="part-b-beneficial-deficit">
+<h3>Part (b): Beneficial Deficit<a class="headerlink" href="#part-b-beneficial-deficit" title="Permalink to this headline">¶</a></h3>
+<p>Irrationalities can be eliminated by applying line minimums. In part (b), the
+minimums on the second and third line equal the product of Quantity and Rate on
+those lines. WARES will compare the charge with the minimum at the next break,
+and if that minimum is less, a deficit will be added to move to the next rate
+level.</p>
+<p>Now the <strong>Deficit</strong> calculation becomes:</p>
+<div class="line-block">
+<div class="line">If <strong>Minimum(n+1)</strong> &lt; <strong>Rate(n) * Amount / ( Quantity(1) * Factor )</strong> then</div>
+<div class="line-block">
+<div class="line"><strong>Deficit = Quantity(n+1) - Amount</strong> and <strong>n += 1</strong>,</div>
+</div>
+<div class="line">else <strong>Deficit = ( Minimum(n) * Factor * Quantity(1) ) / Rate(n) - Amount</strong></div>
+<div class="line">or <strong>0</strong>, if Deficit &lt; 0</div>
+</div>
+<p>And the <strong>Charge</strong> calculation is essentially as stated before,</p>
+<div class="line-block">
+<div class="line">Rate(n) * ( Amount + Deficit ) / ( Quantity(1) * Factor )</div>
+</div>
+<p>Given the amount <strong>39,000</strong>, the <strong>Deficit</strong> is:</p>
+<div class="line-block">
+<div class="line"><strong>Deficit = 40,000 - 39,000 = 1,000</strong> because</div>
+<div class="line"><strong>128.00 &lt; ( .3200 * 40,000 ) / ( 1000.00 * 1.00 )</strong></div>
+</div>
+<p>and then the <strong>charge</strong> is calculated as:</p>
+<div class="line-block">
+<div class="line"><strong>Charge = .3200 * ( 39,000 + 1,000 ) / ( 100.00 * 1.00 ) = 128.00</strong></div>
+</div>
+<p>The customer receives the benefit of a lower charge by being billed for a
+greater quantity based on the deficit.</p>
+</div>
+<div class="section" id="part-c-penalty-deficit">
+<h3>Part (c): Penalty Deficit<a class="headerlink" href="#part-c-penalty-deficit" title="Permalink to this headline">¶</a></h3>
+<p>To avoid a price reduction for amounts below a break level, minimums should
+equal the break Quantity times the Rate of the previous level. In this example,</p>
+<div class="line-block">
+<div class="line"><strong>Minimum(2) = Quantity(2) * Rate(1) / Factor = 20,000 * .4000 / 100.00 = 80.00</strong></div>
+<div class="line"><strong>Minimum(3) = Quantity(3) * Rate(2) / Factor = 40,000 * .3600 / 100.00 = 144.00</strong></div>
+</div>
+<p>Now the charge at <strong>Amount = 39,000</strong> lb. extends to $140.40 just as it did in
+part (a), and this is less than the next minimum of $144.00.</p>
+<p>At <strong>Amount = 40,000</strong> lb. there is a <strong>Deficit = 5,000</strong> so that the charge
+meets the line minimum, $144.00. There is no rate irrationality, but the
+customer receives no early benefit from the rate break.</p>
+</div>
+</div>
+<div class="section" id="charges-auditing-and-display">
+<h2>Charges Auditing and Display<a class="headerlink" href="#charges-auditing-and-display" title="Permalink to this headline">¶</a></h2>
+<p>WARES produces invoices summarized by rate, and transaction details supporting
+the invoice are provided in audit reports. These reports are described in the
+documentation topic <a class="reference internal" href="08_calculated.html#bill-audits"><em>Charges Audit Reports</em></a>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="04_calendars.html" title="Calculation Calendar"
+             >next</a></li>
+        <li class="right" >
+          <a href="02_rates.html" title="Billing Rates"
+             >previous</a> |</li>
+        <li><a href="index.html">WARES Billing 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Gerald Lovel.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b1.
+    </div>
+  </body>
+</html>
