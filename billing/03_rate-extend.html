@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Rates Extension to Charges &mdash; WARES Billing 1.0 documentation</title>
+    <title>Rates Extended to Charges &mdash; WARES Billing 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -45,7 +45,7 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Rates Extension to Charges</a><ul>
+<li><a class="reference internal" href="#">Rates Extended to Charges</a><ul>
 <li><a class="reference internal" href="#minimums-and-deficits">Minimums and Deficits</a></li>
 <li><a class="reference internal" href="#basic-charge-calculations">Basic Charge Calculations</a></li>
 <li><a class="reference internal" href="#example-1-straight-rate">Example 1: Straight Rate</a></li>
@@ -97,8 +97,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="rates-extension-to-charges">
-<h1>Rates Extension to Charges<a class="headerlink" href="#rates-extension-to-charges" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="rates-extended-to-charges">
+<h1>Rates Extended to Charges<a class="headerlink" href="#rates-extended-to-charges" title="Permalink to this headline">¶</a></h1>
 <p>A service may have a single rate or tiered rates, where multiple rates in tiers
 vary with quantity. Charges are calculated from quantities and rates according
 to the following rules.</p>
@@ -130,14 +130,14 @@ customer&#8217;s benefit.</p>
 <div class="line"><strong>Deficit</strong> is the larger of:</div>
 <div class="line"><br /></div>
 <div class="line-block">
-<div class="line">(a)  ( Minimum * Factor ) / Rate - Amount</div>
-<div class="line">(b)  0</div>
+<div class="line">(a)  <strong>( Minimum * Factor ) / Rate - Amount</strong></div>
+<div class="line">(b)  <strong>0</strong></div>
 <div class="line"><br /></div>
 </div>
 <div class="line">and <strong>Charge</strong> is:</div>
 <div class="line"><br /></div>
 <div class="line-block">
-<div class="line">Rate * ( Amount + Deficit ) / Factor</div>
+<div class="line"><strong>Rate * ( Amount + Deficit ) / Factor</strong></div>
 </div>
 </div>
 <p>Subtle differences in the way a rate is expressed may have significant effects
@@ -164,17 +164,11 @@ while only 4 cases were picked.</p>
 Here MH labor is charged as $8.00 per quarter hour or fraction thereof, with a
 minimum of $16.00, or a half hour of labor. This changes the <strong>Deficit</strong>
 formula to:</p>
-<div class="line-block">
-<div class="line">( Minimum * Factor * Quantity ) / Rate - Amount</div>
-</div>
+<blockquote>
+<div><strong>( Minimum * Factor * Quantity ) / Rate - Amount</strong></div></blockquote>
 <p>and the extended charge formula becomes:</p>
-<div class="line-block">
-<div class="line">Rate * ( Amount + Deficit ) / ( Quantity * Factor )</div>
-</div>
-<div class="admonition tip">
-<p class="first admonition-title">Tip</p>
-<p class="last">Decimal quantities apply only with single rates, not tiered rates.</p>
-</div>
+<blockquote>
+<div><strong>Rate * ( Amount + Deficit ) / ( Quantity * Factor )</strong></div></blockquote>
 </div>
 <div class="section" id="example-4-quantity-breaks">
 <h2>Example 4: Quantity Breaks<a class="headerlink" href="#example-4-quantity-breaks" title="Permalink to this headline">¶</a></h2>
@@ -211,21 +205,27 @@ level.</p>
 <div class="line-block">
 <div class="line"><strong>Deficit = Quantity(n+1) - Amount</strong> and <strong>n += 1</strong>,</div>
 </div>
-<div class="line">else <strong>Deficit = ( Minimum(n) * Factor * Quantity(1) ) / Rate(n) - Amount</strong></div>
-<div class="line">or <strong>0</strong>, if Deficit &lt; 0</div>
+<div class="line">else</div>
+<div class="line-block">
+<div class="line"><strong>Deficit = ( Minimum(n) * Factor * Quantity(1) ) / Rate(n) - Amount</strong></div>
+</div>
+<div class="line">and if <strong>Deficit &lt; 0</strong> then</div>
+<div class="line-block">
+<div class="line"><strong>Deficit = 0</strong>.</div>
+</div>
 </div>
 <p>And the <strong>Charge</strong> calculation is essentially as stated before,</p>
 <div class="line-block">
-<div class="line">Rate(n) * ( Amount + Deficit ) / ( Quantity(1) * Factor )</div>
+<div class="line"><strong>Rate(n) * ( Amount + Deficit ) / ( Quantity(1) * Factor )</strong></div>
 </div>
-<p>Given the amount <strong>39,000</strong>, the <strong>Deficit</strong> is:</p>
+<p>Given the amount 39,000, the Deficit is:</p>
 <div class="line-block">
-<div class="line"><strong>Deficit = 40,000 - 39,000 = 1,000</strong> because</div>
-<div class="line"><strong>128.00 &lt; ( .3200 * 40,000 ) / ( 1000.00 * 1.00 )</strong></div>
+<div class="line">Deficit = 40,000 - 39,000 = 1,000 because</div>
+<div class="line">128.00 &lt; ( .3200 * 40,000 ) / ( 1.00 * 100.00 )</div>
 </div>
-<p>and then the <strong>charge</strong> is calculated as:</p>
+<p>and then the charge is calculated as:</p>
 <div class="line-block">
-<div class="line"><strong>Charge = .3200 * ( 39,000 + 1,000 ) / ( 100.00 * 1.00 ) = 128.00</strong></div>
+<div class="line">Charge = .3200 * ( 39,000 + 1,000 ) / ( 1.00 * 100.00 ) = 128.00</div>
 </div>
 <p>The customer receives the benefit of a lower charge by being billed for a
 greater quantity based on the deficit.</p>
@@ -238,8 +238,8 @@ equal the break Quantity times the Rate of the previous level. In this example,<
 <div class="line"><strong>Minimum(2) = Quantity(2) * Rate(1) / Factor = 20,000 * .4000 / 100.00 = 80.00</strong></div>
 <div class="line"><strong>Minimum(3) = Quantity(3) * Rate(2) / Factor = 40,000 * .3600 / 100.00 = 144.00</strong></div>
 </div>
-<p>Now the charge at <strong>Amount = 39,000</strong> lb. extends to $140.40 just as it did in
-part (a), and this is less than the next minimum of $144.00.</p>
+<p>Now the charge at <strong>Amount = 39,000</strong> lb. extends to <strong>$140.40</strong> just as it did
+in part (a), but this is less than the next minimum of <strong>$144.00</strong>.</p>
 <p>At <strong>Amount = 40,000</strong> lb. there is a <strong>Deficit = 5,000</strong> so that the charge
 meets the line minimum, $144.00. There is no rate irrationality, but the
 customer receives no early benefit from the rate break.</p>

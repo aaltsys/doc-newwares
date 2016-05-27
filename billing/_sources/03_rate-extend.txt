@@ -1,7 +1,7 @@
 .. rate-extend:
 
 #############################
-Rates Extension to Charges
+Rates Extended to Charges
 #############################
 
 A service may have a single rate or tiered rates, where multiple rates in tiers 
@@ -36,12 +36,12 @@ The basic formula to calculate a charge from a rate is:
 
 | **Deficit** is the larger of:
 |
-|  (a)  ( Minimum * Factor ) / Rate - Amount 
-|  (b)  0
+|  (a)  **( Minimum * Factor ) / Rate - Amount**
+|  (b)  **0**
 |
 | and **Charge** is: 
 |
-|  Rate * ( Amount + Deficit ) / Factor
+|  **Rate * ( Amount + Deficit ) / Factor**
 
 Subtle differences in the way a rate is expressed may have significant effects 
 on revenue. The following figure shows a variety of charge calculations based 
@@ -72,14 +72,11 @@ Here MH labor is charged as $8.00 per quarter hour or fraction thereof, with a
 minimum of $16.00, or a half hour of labor. This changes the **Deficit** 
 formula to:
 
-|  ( Minimum * Factor * Quantity ) / Rate - Amount
+  **( Minimum * Factor * Quantity ) / Rate - Amount**
 
 and the extended charge formula becomes:
 
-|  Rate * ( Amount + Deficit ) / ( Quantity * Factor )
-
-.. tip::
-   Decimal quantities apply only with single rates, not tiered rates.
+  **Rate * ( Amount + Deficit ) / ( Quantity * Factor )**
 
 Example 4: Quantity Breaks
 =============================
@@ -123,21 +120,23 @@ Now the **Deficit** calculation becomes:
 
 |  If **Minimum(n+1)** < **Rate(n) * Amount / ( Quantity(1) * Factor )** then 
 |     **Deficit = Quantity(n+1) - Amount** and **n += 1**,
-|  else **Deficit = ( Minimum(n) * Factor * Quantity(1) ) / Rate(n) - Amount**
-|  or **0**, if Deficit < 0
+|  else
+|     **Deficit = ( Minimum(n) * Factor * Quantity(1) ) / Rate(n) - Amount**
+|  and if **Deficit < 0** then
+|     **Deficit = 0**.
 
 And the **Charge** calculation is essentially as stated before,
 
-|  Rate(n) * ( Amount + Deficit ) / ( Quantity(1) * Factor )
+|  **Rate(n) * ( Amount + Deficit ) / ( Quantity(1) * Factor )**
 
-Given the amount **39,000**, the **Deficit** is:
+Given the amount 39,000, the Deficit is:
 
-|  **Deficit = 40,000 - 39,000 = 1,000** because
-|  **128.00 < ( .3200 * 40,000 ) / ( 1000.00 * 1.00 )**
+|  Deficit = 40,000 - 39,000 = 1,000 because
+|  128.00 < ( .3200 * 40,000 ) / ( 1.00 * 100.00 )
 
-and then the **charge** is calculated as:
+and then the charge is calculated as:
 
-|  **Charge = .3200 * ( 39,000 + 1,000 ) / ( 100.00 * 1.00 ) = 128.00**
+|  Charge = .3200 * ( 39,000 + 1,000 ) / ( 1.00 * 100.00 ) = 128.00
 
 The customer receives the benefit of a lower charge by being billed for a 
 greater quantity based on the deficit.
@@ -151,8 +150,8 @@ equal the break Quantity times the Rate of the previous level. In this example,
 |  **Minimum(2) = Quantity(2) * Rate(1) / Factor = 20,000 * .4000 / 100.00 = 80.00**
 |  **Minimum(3) = Quantity(3) * Rate(2) / Factor = 40,000 * .3600 / 100.00 = 144.00**
 
-Now the charge at **Amount = 39,000** lb. extends to $140.40 just as it did in 
-part (a), and this is less than the next minimum of $144.00. 
+Now the charge at **Amount = 39,000** lb. extends to **$140.40** just as it did 
+in part (a), but this is less than the next minimum of **$144.00**. 
 
 At **Amount = 40,000** lb. there is a **Deficit = 5,000** so that the charge 
 meets the line minimum, $144.00. There is no rate irrationality, but the 
