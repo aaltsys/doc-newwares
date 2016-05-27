@@ -12,8 +12,8 @@ starting point for many warehouses, but companies will have service requests or
 operational issues which require additional services codes. 
 
 This article provides basic information about service codes, and the billing 
-documentation provides details on using :ref:`bill-services`. Please follow the 
-referenced link to view this information. 
+documentation provides details on using :ref:`../billing/bill-services`. Please 
+follow the referenced link to view this information. 
 
 Example Service Codes List
 =============================
