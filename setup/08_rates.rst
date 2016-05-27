@@ -16,10 +16,8 @@ to standard industry practices. When writing a proposal or contract, enter
 proposed rates here to verify that the quote will be consistent with industry 
 norms and can be implemented as intended within the WARES software. 
 
-Warehouse services are defined by the company :ref:`services`. Each rate relates 
-to eactly one service code.
-
-The :ref:`rates-schema` may be viewed here for information.
+Warehouse services are defined by the company :ref:`services`. Each rate 
+relates to eactly one service code.
 
 Scope and Grouping of Rates 
 =============================
@@ -45,7 +43,7 @@ more than one rate for a service, provided the rates are in separate groups.
 
 A group rate for a service will override a corresponding GLOBAL rate with the 
 same service code, and account-associated rates and groups will override rates 
-which are not assigned to accounts.
+which are not assigned to accounts. 
 
 Grouped rates are particularly inportant for calculated charges, specifically 
 storage and handling. As an example, there should be different storage rates 
@@ -63,7 +61,7 @@ shares the same calculated storage and handling rates.
 The scope of a rate may be restricted to specific activities. For example, 
 receiving handling rates should be applied to warehouse receipts only, copying 
 and long-distance FAXing fees might apply to receiving and shipping, and extra 
-labor might be required on any documented activity.
+labor might be required on any documented activity. 
 
 Applying Rates
 =============================
@@ -72,10 +70,8 @@ A rate is used to apply charges in one of four ways:
 
 *  **Repeating** rates may create separate charge entries according to a 
    calendar schedule. Repeating charges have fixed rates and quantities, so 
-   the charge is always the same.
-   Calendar selections for repeating charges are for daily or daily within the 
-   open billing month, weekdays on specific days, monthdays on specific 
-   numbered days or on LAST or FIRST days, and year days (Julian) or year dates.
+   the charge is always the same. See :ref:`bill-calendars` for more 
+   information.
 *  **Calculated** rates apply storage and handling charges to products on
    warehouse receipts and optionally shipments (for outbound handling), and to
    calculate charges for recurring product balances.
@@ -96,9 +92,9 @@ Setting Up Rates
 =============================
 
 The Rate Setup page is divided into three sections: Identifying Information, 
-Calculation Entries, and Calendar Information.
+Calculation Entries, and the repeating :ref:`bill-calendar`.
 
-.. image:: _images/account-rates.png
+.. image:: ../billing/_images/rates-id.png
 
 Identifying entries:
 -----------------------------
@@ -155,6 +151,8 @@ to invoice for the charge.
 Calculation entries
 -----------------------------
 
+.. image:: ../billing/_images/rates-rate.png
+
 These entries determine the content of charge line detail.
 
 +---------------+---+------------------------------------------------+--------+
@@ -193,19 +191,9 @@ or decrease as quantity increases.
 
 *  Where a **Rate** for a particular charge is variable, the Rate field may be 
    left blank and entered manually each time the charge is applied.
-*  The **Quantity** defaults to 1.0. Quantity entries are required for tiered 
-   rates.
+*  The **Quantity** defaults to 1.0. Quantity entries are required.
 *  A **Minimum** value for resulting charges defaults to **Rate X quantity**.
    This minimum would be applied to every transaction line.
 *  An **Item Minimum** can be applied to an entire transaction to result in 
    charges that are reasonable. For example, a handling charge of $.40 per case 
    is not reasonable when receiving a single case.
-
-.. note::
-   Decreasing rates may require deficit quantities to produce rate rationality. 
-   A Rationality flag could be added to turn this feature off or on.
-
-
-Calendar Information
------------------------------
-

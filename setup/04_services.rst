@@ -1,37 +1,19 @@
 .. _services:
 
 #############################
-Warehousing Service Codes
+Initial Service Code List
 #############################
 
-The WARES billing system is very flexible, so parctically any service may be 
-associated with an activity, calculated for charges, and billed on an invoice. 
-Setup includes a table of service codes which may be used in configuring account 
-billing. 
+The WARES billing system is flexible so that any service may be associated with 
+an activity, calculated for charges, and billed on an invoice. Configuring 
+billing begins with setting up service codes, and WARES provides an initial set 
+of these service codes. The standard WARES services list should be a good 
+starting point for many warehouses, but companies will have service requests or 
+operational issues which require additional services codes. 
 
-The standard WARES services list should be a good starting point for most 
-logistics companies. However, parctically every company will encounter service 
-requests or operational issues which require additional services codes. 
-
-Service Code Columns
-=============================
-
-Here is a link to the :ref:`services-schema` schema. 
-
-*  **Code** -- is a unique service code identifier. The code will be used in 
-   defining rates and applying optional charges.
-*  **Description** -- is the default text for rates using the code, and it 
-   appears on document charges and corresponding invoices.
-*  **Apply** -- specifies how a service is used. Values are **C** for Calculated,
-   **M** for Mandatory, **O** for Optional, and **R** for Repeating.
-*  **Activity** -- limits a service to be used only on listed activity types.
-*  **Category** -- provides a convenient shorthand for the revenue type a service 
-   represents: **H** for Handling, **S** for Storage, **F** for freight, **L** 
-   for Labor, and **M** for Miscellaneous. WARES categorizes revenue to report 
-   gross income results.
-*  **Ledger Account** -- specifies the actual sales account in the warehouse 
-   ledgers where revenue for the service will be posted. Wares includes a 
-   utility for exporting invoices into standard accounting software.
+This article provides basic information about service codes, and the billing 
+documentation provides details on using :ref:`bill-services`. Please follow the 
+referenced link to view this information. 
 
 Example Service Codes List
 =============================
@@ -142,3 +124,21 @@ Following is an example service code list.
    Service codes which are applied **C = Calculated** start with the number 1. 
    Only these four service codes may be used to setup storage and handling 
    rates, as WARES billing calculations are programmed to use only these codes.
+
+Service Code Columns
+=============================
+
+*  **Code** -- is a unique service code identifier. The code will be used in 
+   defining rates and applying optional charges.
+*  **Description** -- is the default text for rates using the code, and it 
+   appears on document charges and corresponding invoices.
+*  **Apply** -- specifies how a service is used. Values are **C** for Calculated,
+   **M** for Mandatory, **O** for Optional, and **R** for Repeating.
+*  **Activity** -- limits a service to be used only on listed activity types.
+*  **Category** -- provides a convenient shorthand for the revenue type a service 
+   represents: **H** for Handling, **S** for Storage, **F** for freight, **L** 
+   for Labor, and **M** for Miscellaneous. WARES categorizes revenue to report 
+   gross income results.
+*  **Ledger Account** -- specifies the actual sales account in the warehouse 
+   ledgers where revenue for the service will be posted. Wares includes a 
+   utility for exporting invoices into standard accounting software.
