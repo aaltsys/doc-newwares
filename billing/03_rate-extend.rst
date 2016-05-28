@@ -47,8 +47,6 @@ Subtle differences in the way a rate is expressed may have significant effects
 on revenue. The following figure shows a variety of charge calculations based 
 on similar rate entries to illustrate this point.
 
-.. image:: _images/rate-examples.png
-
 Example 1: Straight Rate
 =============================
 
@@ -86,6 +84,12 @@ quantities (cheaper by the dozen) or composite units of measure (PK, CA). This
 example shows Each, Pack, and Case picking charges where the order unit is EA 
 (each) but the billing units are by the EOQ.
 
+.. admonition:: Developer note
+   There is a definition inadequacy in RATES. Multiple billing UOMs are not
+   allowed, but using multiple Bill UOMs should trigger quantity break rating.
+
+.. image:: _images/rate-examples.png
+
 .. _rate-tiers:
 
 Example 5: Rate Tiers 
@@ -100,14 +104,14 @@ weight. A charge is calculated for a container weighing 39,000 lb. and one
 weighing 40,000 lb. Rates are the same in each part of the example except for 
 the minimums.
 
-Part (a): Irrational Rates
+Part (5a): Irrational Rates
 -----------------------------
 
 Deficit quantities are not calculated when minimums are absent. in part (a), 
 there are no minimums and the charge at 40,000 lb. is $12.40 less than the 
 charge at 39,000 lb. This is considered a pricing irrationality.
 
-Part (b): Beneficial Deficit
+Part (5b): Beneficial Deficit
 -----------------------------
 
 Irrationalities can be eliminated by applying line minimums. In part (b), the 
@@ -141,19 +145,19 @@ and then the charge is calculated as:
 The customer receives the benefit of a lower charge by being billed for a 
 greater quantity based on the deficit.
 
-Part (c): Penalty Deficit
+Part (5c): Penalty Deficit
 -----------------------------
 
 To avoid a price reduction for amounts below a break level, minimums should
 equal the break Quantity times the Rate of the previous level. In this example, 
 
-|  **Minimum(2) = Quantity(2) * Rate(1) / Factor = 20,000 * .4000 / 100.00 = 80.00**
-|  **Minimum(3) = Quantity(3) * Rate(2) / Factor = 40,000 * .3600 / 100.00 = 144.00**
+|  Minimum(2) = Quantity(2) * Rate(1) / Factor = 20,000 * .400 / 100.0 = 80.0 
+|  Minimum(3) = Quantity(3) * Rate(2) / Factor = 40,000 * .360 / 100.0 = 144.0 
 
-Now the charge at **Amount = 39,000** lb. extends to **$140.40** just as it did 
-in part (a), but this is less than the next minimum of **$144.00**. 
+Now the charge at Amount = 39,000 lb. extends to $140.40 just as it did 
+in part (a), but this is less than the next minimum of $144.00. 
 
-At **Amount = 40,000** lb. there is a **Deficit = 5,000** so that the charge 
+At Amount = 40,000 lb. there is a Deficit = 5,000 so that the charge 
 meets the line minimum, $144.00. There is no rate irrationality, but the 
 customer receives no early benefit from the rate break.
 
