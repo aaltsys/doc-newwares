@@ -32,16 +32,16 @@ customer's benefit.
 Basic Charge Calculations
 =============================
 
-The basic formula to calculate a charge from a rate is: 
+The basic formula to calculate a charge from a rate is:
 
-| **Deficit** is the larger of:
-|
-|  (a)  **( Minimum * Factor ) / Rate - Amount**
-|  (b)  **0**
-|
-| and **Charge** is: 
-|
-|  **Rate * ( Amount + Deficit ) / Factor**
+**Deficit** is the larger of::
+
+   (a)  ( Minimum * Factor ) / Rate - Amount
+   (b)  0
+
+and **Charge** is::
+
+   Rate * ( Amount + Deficit ) / Factor
 
 Subtle differences in the way a rate is expressed may have significant effects 
 on revenue. The following figure shows a variety of charge calculations based 
@@ -68,13 +68,13 @@ Example 3: Decimal Quantity
 A decimal **Quantity** may be used for rates expressed in fractional amounts. 
 Here MH labor is charged as $8.00 per quarter hour or fraction thereof, with a 
 minimum of $16.00, or a half hour of labor. This changes the **Deficit** 
-formula to:
+formula to::
 
-  **( Minimum * Factor * Quantity ) / Rate - Amount**
+   ( Minimum * Factor * Quantity ) / Rate - Amount
 
-and the extended charge formula becomes:
+and the extended charge formula becomes::
 
-  **Rate * ( Amount + Deficit ) / ( Quantity * Factor )**
+   Rate * ( Amount + Deficit ) / ( Quantity * Factor )
 
 Example 4: Quantity Breaks
 =============================
@@ -84,7 +84,7 @@ quantities (cheaper by the dozen) or composite units of measure (PK, CA). This
 example shows Each, Pack, and Case picking charges where the order unit is EA 
 (each) but the billing units are by the EOQ.
 
-.. admonition:: Developer note
+.. admonition:: Developer comment
    There is a definition inadequacy in RATES. Multiple billing UOMs are not
    allowed, but using multiple Bill UOMs should trigger quantity break rating.
 
@@ -120,27 +120,27 @@ those lines. WARES will compare the charge with the minimum at the next break,
 and if that minimum is less, a deficit will be added to move to the next rate 
 level.
 
-Now the **Deficit** calculation becomes:
+Now when not the final rate tier, the **Deficit** calculation becomes::
 
-|  If **Minimum(n+1)** < **Rate(n) * Amount / ( Quantity(1) * Factor )** then 
-|     **Deficit = Quantity(n+1) - Amount** and **n += 1**,
-|  else
-|     **Deficit = ( Minimum(n) * Factor * Quantity(1) ) / Rate(n) - Amount**
-|  and if **Deficit < 0** then
-|     **Deficit = 0**.
+   If Minimum(n+1) < Rate(n) * Amount / ( Quantity(1) * Factor ) then 
+      Deficit = Quantity(n+1) - Amount** and **n += 1
+   else
+      Deficit = ( Minimum(n) * Factor * Quantity(1) ) / Rate(n) - Amount
+   and if Deficit < 0 then
+      Deficit = 0
 
-And the **Charge** calculation is essentially as stated before,
+And the **Charge** calculation is as stated before at all tiers::
 
-|  **Rate(n) * ( Amount + Deficit ) / ( Quantity(1) * Factor )**
+   Rate(n) * ( Amount + Deficit ) / ( Quantity(1) * Factor )
 
-Given the amount 39,000, the Deficit is:
+Given the amount 39,000, the Deficit is::
 
-|  Deficit = 40,000 - 39,000 = 1,000 because
-|  128.00 < ( .3200 * 40,000 ) / ( 1.00 * 100.00 )
+   Deficit = 40,000 - 39,000 = 1,000 because
+   128.00 < ( .3200 * 40,000 ) / ( 1.00 * 100.00 )
 
-and then the charge is calculated as:
+and then the charge is calculated as::
 
-|  Charge = .3200 * ( 39,000 + 1,000 ) / ( 1.00 * 100.00 ) = 128.00
+   Charge = .3200 * ( 39,000 + 1,000 ) / ( 1.00 * 100.00 ) = 128.00
 
 The customer receives the benefit of a lower charge by being billed for a 
 greater quantity based on the deficit.
@@ -149,17 +149,17 @@ Part (5c): Penalty Deficit
 -----------------------------
 
 To avoid a price reduction for amounts below a break level, minimums should
-equal the break Quantity times the Rate of the previous level. In this example, 
+equal the break Quantity times the Rate of the previous level. In this example::
 
-|  Minimum(2) = Quantity(2) * Rate(1) / Factor = 20,000 * .400 / 100.0 = 80.0 
-|  Minimum(3) = Quantity(3) * Rate(2) / Factor = 40,000 * .360 / 100.0 = 144.0 
+   Minimum(2) = Quantity(2) * Rate(1) / Factor = 20,000 * .400 / 100.0 = 80.0 
+   Minimum(3) = Quantity(3) * Rate(2) / Factor = 40,000 * .360 / 100.0 = 144.0 
 
-Now the charge at Amount = 39,000 lb. extends to $140.40 just as it did 
-in part (a), but this is less than the next minimum of $144.00. 
+Now the charge at Amount = 39,000 lb. extends to $140.40 just as it did in part 
+(a), but this is less than the next minimum of $144.00. 
 
-At Amount = 40,000 lb. there is a Deficit = 5,000 so that the charge 
-meets the line minimum, $144.00. There is no rate irrationality, but the 
-customer receives no early benefit from the rate break.
+At Amount = 40,000 lb. there is a Deficit = 5,000 so that the charge meets the 
+line minimum, $144.00. There is no rate irrationality, but the customer 
+receives no early benefit from the rate break.
 
 Charges Auditing and Display
 =============================
