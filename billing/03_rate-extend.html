@@ -162,7 +162,7 @@ formula to the larger of:</p>
 (b)  0
 </pre></div>
 </div>
-<p>and the extended charge formula becomes:</p>
+<p>and the extended <strong>charge</strong> formula becomes:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">Rate</span> <span class="o">*</span> <span class="p">(</span> <span class="n">Amount</span> <span class="o">+</span> <span class="n">Deficit</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="n">Quantity</span> <span class="o">*</span> <span class="n">Factor</span> <span class="p">)</span>
 </pre></div>
 </div>
@@ -173,6 +173,11 @@ formula to the larger of:</p>
 quantities (cheaper by the dozen) or composite units of measure (PK, CA). This
 example shows Each, Pack, and Case picking charges where the order unit is EA
 (each) but the billing units are by the EOQ.</p>
+<div class="admonition-developer-comment admonition">
+<p class="first admonition-title">Developer comment</p>
+<p class="last">There is a definition inadequacy in RATES. Multiple billing UOMs are not
+allowed, but using multiple Bill UOMs should trigger quantity break rating.</p>
+</div>
 <img alt="_images/rate-examples.png" src="_images/rate-examples.png" />
 </div>
 <div class="section" id="example-5-rate-tiers">

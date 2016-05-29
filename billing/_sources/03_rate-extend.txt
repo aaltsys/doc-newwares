@@ -73,7 +73,7 @@ formula to the larger of::
    (a)  ( Minimum * Factor * Quantity ) / Rate - Amount
    (b)  0
 
-and the extended charge formula becomes::
+and the extended **charge** formula becomes::
 
    Rate * ( Amount + Deficit ) / ( Quantity * Factor )
 
@@ -86,6 +86,7 @@ example shows Each, Pack, and Case picking charges where the order unit is EA
 (each) but the billing units are by the EOQ.
 
 .. admonition:: Developer comment
+
    There is a definition inadequacy in RATES. Multiple billing UOMs are not
    allowed, but using multiple Bill UOMs should trigger quantity break rating.
 
