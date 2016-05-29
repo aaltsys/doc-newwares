@@ -142,8 +142,8 @@ And the **Charge** calculation is as stated before at all tiers::
 
 Given the amount 39,000, the Deficit is::
 
-   Deficit = 40,000 - 39,000 = 1,000 because
-   128.00 < ( .3200 * 40,000 ) / ( 1.00 * 100.00 )
+   Because 128.00 < ( .3200 * 40,000 ) / ( 1.00 * 100.00 )
+   Deficit = 40,000 - 39,000 = 1,000 
 
 and then the charge is calculated as::
 
