@@ -41,7 +41,7 @@ The basic formula to calculate a charge from a rate is:
 
 and **Charge** is::
 
-   Rate * ( Amount + Deficit ) / Factor
+   Charge = Rate * ( Amount + Deficit ) / Factor
 
 Subtle differences in the way a rate is expressed may have significant effects 
 on revenue. The following figure shows a variety of charge calculations based 
@@ -68,11 +68,12 @@ Example 3: Decimal Quantity
 A decimal **Quantity** may be used for rates expressed in fractional amounts. 
 Here MH labor is charged as $8.00 per quarter hour or fraction thereof, with a 
 minimum of $16.00, or a half hour of labor. This changes the **Deficit** 
-formula to::
+formula to the larger of::
 
-   ( Minimum * Factor * Quantity ) / Rate - Amount
+   (a)  ( Minimum * Factor * Quantity ) / Rate - Amount
+   (b)  0
 
-and the extended charge formula becomes::
+and the extended **charge** formula becomes::
 
    Rate * ( Amount + Deficit ) / ( Quantity * Factor )
 
@@ -85,6 +86,7 @@ example shows Each, Pack, and Case picking charges where the order unit is EA
 (each) but the billing units are by the EOQ.
 
 .. admonition:: Developer comment
+
    There is a definition inadequacy in RATES. Multiple billing UOMs are not
    allowed, but using multiple Bill UOMs should trigger quantity break rating.
 
@@ -120,27 +122,37 @@ those lines. WARES will compare the charge with the minimum at the next break,
 and if that minimum is less, a deficit will be added to move to the next rate 
 level.
 
-Now when not the final rate tier, the **Deficit** calculation becomes::
+Now when not the final rate tier, the **Deficit** calculation becomes, if::
 
-   If Minimum(n+1) < Rate(n) * Amount / ( Quantity(1) * Factor ) then 
-      Deficit = Quantity(n+1) - Amount** and **n += 1
-   else
-      Deficit = ( Minimum(n) * Factor * Quantity(1) ) / Rate(n) - Amount
-   and if Deficit < 0 then
-      Deficit = 0
+   Minimum(n+1) < Rate(n) * Amount / ( Quantity(1) * Factor ) 
+
+then::
+
+   Deficit = Quantity(n+1) - Amount
+   n += 1
+
+else **Deficit** is the greater of::
+
+   Deficit = ( Minimum(n) * Factor * Quantity(1) ) / Rate(n) - Amount
+   Deficit = 0
 
 And the **Charge** calculation is as stated before at all tiers::
 
-   Rate(n) * ( Amount + Deficit ) / ( Quantity(1) * Factor )
+   Charge = Rate(n) * ( Amount + Deficit ) / ( Quantity(1) * Factor )
 
-Given the amount 39,000, the Deficit is::
+.. Admonition:: Example calculation
 
-   Deficit = 40,000 - 39,000 = 1,000 because
-   128.00 < ( .3200 * 40,000 ) / ( 1.00 * 100.00 )
+   Given the amount 39,000, we check the Minimum at the next level::
 
-and then the charge is calculated as::
+      128.00 < ( .3200 * 40,000 ) / ( 1.00 * 100.00 )
 
-   Charge = .3200 * ( 39,000 + 1,000 ) / ( 1.00 * 100.00 ) = 128.00
+   And so the Deficit is::
+
+      Deficit = 40,000 - 39,000 = 1,000 
+
+   and the charge is always calculated as::
+
+      Charge = .3200 * ( 39,000 + 1,000 ) / ( 1.00 * 100.00 ) = 128.00
 
 The customer receives the benefit of a lower charge by being billed for a 
 greater quantity based on the deficit.
