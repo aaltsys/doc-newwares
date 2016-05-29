@@ -220,14 +220,20 @@ level.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">Charge</span> <span class="o">=</span> <span class="n">Rate</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span> <span class="n">Amount</span> <span class="o">+</span> <span class="n">Deficit</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="n">Quantity</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">Factor</span> <span class="p">)</span>
 </pre></div>
 </div>
-<p>Given the amount 39,000, the Deficit is:</p>
-<div class="highlight-python"><div class="highlight"><pre>Because 128.00 &lt; ( .3200 * 40,000 ) / ( 1.00 * 100.00 )
-Deficit = 40,000 - 39,000 = 1,000
+<div class="admonition-example-calculation admonition">
+<p class="first admonition-title">Example calculation</p>
+<p>Given the amount 39,000, we check the Minimum at the next level:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="mf">128.00</span> <span class="o">&lt;</span> <span class="p">(</span> <span class="o">.</span><span class="mi">3200</span> <span class="o">*</span> <span class="mi">40</span><span class="p">,</span><span class="mo">000</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="mf">1.00</span> <span class="o">*</span> <span class="mf">100.00</span> <span class="p">)</span>
 </pre></div>
 </div>
-<p>and then the charge is calculated as:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">Charge</span> <span class="o">=</span> <span class="o">.</span><span class="mi">3200</span> <span class="o">*</span> <span class="p">(</span> <span class="mi">39</span><span class="p">,</span><span class="mo">000</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span><span class="mo">000</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="mf">1.00</span> <span class="o">*</span> <span class="mf">100.00</span> <span class="p">)</span> <span class="o">=</span> <span class="mf">128.00</span>
+<p>And so the Deficit is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Deficit</span> <span class="o">=</span> <span class="mi">40</span><span class="p">,</span><span class="mo">000</span> <span class="o">-</span> <span class="mi">39</span><span class="p">,</span><span class="mo">000</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mo">000</span>
 </pre></div>
+</div>
+<p>and the charge is always calculated as:</p>
+<div class="last highlight-python"><div class="highlight"><pre><span class="n">Charge</span> <span class="o">=</span> <span class="o">.</span><span class="mi">3200</span> <span class="o">*</span> <span class="p">(</span> <span class="mi">39</span><span class="p">,</span><span class="mo">000</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span><span class="mo">000</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="mf">1.00</span> <span class="o">*</span> <span class="mf">100.00</span> <span class="p">)</span> <span class="o">=</span> <span class="mf">128.00</span>
+</pre></div>
+</div>
 </div>
 <p>The customer receives the benefit of a lower charge by being billed for a
 greater quantity based on the deficit.</p>

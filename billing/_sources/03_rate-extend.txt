@@ -140,14 +140,19 @@ And the **Charge** calculation is as stated before at all tiers::
 
    Charge = Rate(n) * ( Amount + Deficit ) / ( Quantity(1) * Factor )
 
-Given the amount 39,000, the Deficit is::
+.. Admonition:: Example calculation
 
-   Because 128.00 < ( .3200 * 40,000 ) / ( 1.00 * 100.00 )
-   Deficit = 40,000 - 39,000 = 1,000 
+   Given the amount 39,000, we check the Minimum at the next level::
 
-and then the charge is calculated as::
+      128.00 < ( .3200 * 40,000 ) / ( 1.00 * 100.00 )
 
-   Charge = .3200 * ( 39,000 + 1,000 ) / ( 1.00 * 100.00 ) = 128.00
+   And so the Deficit is::
+
+      Deficit = 40,000 - 39,000 = 1,000 
+
+   and the charge is always calculated as::
+
+      Charge = .3200 * ( 39,000 + 1,000 ) / ( 1.00 * 100.00 ) = 128.00
 
 The customer receives the benefit of a lower charge by being billed for a 
 greater quantity based on the deficit.
