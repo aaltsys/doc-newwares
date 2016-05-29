@@ -132,7 +132,7 @@ customer&#8217;s benefit.</p>
 </pre></div>
 </div>
 <p>and <strong>Charge</strong> is:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">Rate</span> <span class="o">*</span> <span class="p">(</span> <span class="n">Amount</span> <span class="o">+</span> <span class="n">Deficit</span> <span class="p">)</span> <span class="o">/</span> <span class="n">Factor</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Charge</span> <span class="o">=</span> <span class="n">Rate</span> <span class="o">*</span> <span class="p">(</span> <span class="n">Amount</span> <span class="o">+</span> <span class="n">Deficit</span> <span class="p">)</span> <span class="o">/</span> <span class="n">Factor</span>
 </pre></div>
 </div>
 <p>Subtle differences in the way a rate is expressed may have significant effects
@@ -157,8 +157,9 @@ while only 4 cases were picked.</p>
 <p>A decimal <strong>Quantity</strong> may be used for rates expressed in fractional amounts.
 Here MH labor is charged as $8.00 per quarter hour or fraction thereof, with a
 minimum of $16.00, or a half hour of labor. This changes the <strong>Deficit</strong>
-formula to:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">(</span> <span class="n">Minimum</span> <span class="o">*</span> <span class="n">Factor</span> <span class="o">*</span> <span class="n">Quantity</span> <span class="p">)</span> <span class="o">/</span> <span class="n">Rate</span> <span class="o">-</span> <span class="n">Amount</span>
+formula to the larger of:</p>
+<div class="highlight-python"><div class="highlight"><pre>(a)  ( Minimum * Factor * Quantity ) / Rate - Amount
+(b)  0
 </pre></div>
 </div>
 <p>and the extended charge formula becomes:</p>
@@ -196,17 +197,22 @@ minimums on the second and third line equal the product of Quantity and Rate on
 those lines. WARES will compare the charge with the minimum at the next break,
 and if that minimum is less, a deficit will be added to move to the next rate
 level.</p>
-<p>Now when not the final rate tier, the <strong>Deficit</strong> calculation becomes:</p>
-<div class="highlight-python"><div class="highlight"><pre>If Minimum(n+1) &lt; Rate(n) * Amount / ( Quantity(1) * Factor ) then
-   Deficit = Quantity(n+1) - Amount** and **n += 1
-else
-   Deficit = ( Minimum(n) * Factor * Quantity(1) ) / Rate(n) - Amount
-and if Deficit &lt; 0 then
-   Deficit = 0
+<p>Now when not the final rate tier, the <strong>Deficit</strong> calculation becomes, if:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Minimum</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">Rate</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">Amount</span> <span class="o">/</span> <span class="p">(</span> <span class="n">Quantity</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">Factor</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>then:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Deficit</span> <span class="o">=</span> <span class="n">Quantity</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">Amount</span>
+<span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>else <strong>Deficit</strong> is the greater of:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Deficit</span> <span class="o">=</span> <span class="p">(</span> <span class="n">Minimum</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">Factor</span> <span class="o">*</span> <span class="n">Quantity</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="o">/</span> <span class="n">Rate</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">-</span> <span class="n">Amount</span>
+<span class="n">Deficit</span> <span class="o">=</span> <span class="mi">0</span>
 </pre></div>
 </div>
 <p>And the <strong>Charge</strong> calculation is as stated before at all tiers:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">Rate</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span> <span class="n">Amount</span> <span class="o">+</span> <span class="n">Deficit</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="n">Quantity</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">Factor</span> <span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Charge</span> <span class="o">=</span> <span class="n">Rate</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span> <span class="n">Amount</span> <span class="o">+</span> <span class="n">Deficit</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="n">Quantity</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">Factor</span> <span class="p">)</span>
 </pre></div>
 </div>
 <p>Given the amount 39,000, the Deficit is:</p>

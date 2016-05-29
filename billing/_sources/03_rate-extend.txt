@@ -41,7 +41,7 @@ The basic formula to calculate a charge from a rate is:
 
 and **Charge** is::
 
-   Rate * ( Amount + Deficit ) / Factor
+   Charge = Rate * ( Amount + Deficit ) / Factor
 
 Subtle differences in the way a rate is expressed may have significant effects 
 on revenue. The following figure shows a variety of charge calculations based 
@@ -68,9 +68,10 @@ Example 3: Decimal Quantity
 A decimal **Quantity** may be used for rates expressed in fractional amounts. 
 Here MH labor is charged as $8.00 per quarter hour or fraction thereof, with a 
 minimum of $16.00, or a half hour of labor. This changes the **Deficit** 
-formula to::
+formula to the larger of::
 
-   ( Minimum * Factor * Quantity ) / Rate - Amount
+   (a)  ( Minimum * Factor * Quantity ) / Rate - Amount
+   (b)  0
 
 and the extended charge formula becomes::
 
@@ -120,18 +121,23 @@ those lines. WARES will compare the charge with the minimum at the next break,
 and if that minimum is less, a deficit will be added to move to the next rate 
 level.
 
-Now when not the final rate tier, the **Deficit** calculation becomes::
+Now when not the final rate tier, the **Deficit** calculation becomes, if::
 
-   If Minimum(n+1) < Rate(n) * Amount / ( Quantity(1) * Factor ) then 
-      Deficit = Quantity(n+1) - Amount** and **n += 1
-   else
-      Deficit = ( Minimum(n) * Factor * Quantity(1) ) / Rate(n) - Amount
-   and if Deficit < 0 then
-      Deficit = 0
+   Minimum(n+1) < Rate(n) * Amount / ( Quantity(1) * Factor ) 
+
+then::
+
+   Deficit = Quantity(n+1) - Amount
+   n += 1
+
+else **Deficit** is the greater of::
+
+   Deficit = ( Minimum(n) * Factor * Quantity(1) ) / Rate(n) - Amount
+   Deficit = 0
 
 And the **Charge** calculation is as stated before at all tiers::
 
-   Rate(n) * ( Amount + Deficit ) / ( Quantity(1) * Factor )
+   Charge = Rate(n) * ( Amount + Deficit ) / ( Quantity(1) * Factor )
 
 Given the amount 39,000, the Deficit is::
 
