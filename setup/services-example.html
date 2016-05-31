@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Service Codes &mdash; WARES Billing 1.0 documentation</title>
+    <title>Service Codes Example &mdash; WARES Company 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -23,47 +23,28 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="WARES Billing 1.0 documentation" href="index.html" />
-    <link rel="next" title="Billing Rates" href="02_rates.html" />
-    <link rel="prev" title="3rd-Party Warehouse Services Billing" href="index.html" /> 
+    <link rel="top" title="WARES Company 1.0 documentation" href="index.html" />
+    <link rel="prev" title="Products and Varieties" href="09_products.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="02_rates.html" title="Billing Rates"
-             accesskey="N">next</a></li>
-        <li class="right" >
-          <a href="index.html" title="3rd-Party Warehouse Services Billing"
-             accesskey="P">previous</a> |</li>
-        <li><a href="index.html">WARES Billing 1.0 documentation</a> &raquo;</li> 
+          <a href="09_products.html" title="Products and Varieties"
+             accesskey="P">previous</a></li>
+        <li><a href="index.html">WARES Company 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Service Codes</a><ul>
-<li><a class="reference internal" href="#introduction-to-billing">Introduction to Billing</a></li>
-<li><a class="reference internal" href="#service-codes-entry">Service Codes Entry</a></li>
-<li><a class="reference internal" href="#service-codes-example">Service Codes Example</a></li>
-<li><a class="reference internal" href="#service-codes-columns">Service Codes Columns</a></li>
-</ul>
-</li>
-</ul>
-
   <h4>Previous topic</h4>
-  <p class="topless"><a href="index.html"
-                        title="previous chapter">3rd-Party Warehouse Services Billing</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="02_rates.html"
-                        title="next chapter">Billing Rates</a></p>
+  <p class="topless"><a href="09_products.html"
+                        title="previous chapter">Products and Varieties</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/01_services.txt"
+      <li><a href="_sources/services-example.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -88,49 +69,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="service-codes">
-<span id="bill-services"></span><h1>Service Codes<a class="headerlink" href="#service-codes" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="introduction-to-billing">
-<h2>Introduction to Billing<a class="headerlink" href="#introduction-to-billing" title="Permalink to this headline">¶</a></h2>
-<p>WARES billing is based on industry standards for logistics and warehousing
-services. The concepts of hiring the storage and delivery of goods goes back to
-Roman times and law. Today the Uniform Commercial Code (U.C.C. Section 7 <a class="footnote-reference" href="#id4" id="id1">[1]</a> )
-establishes the legal basis for logistics operations, and associated standard
-contract terms are promulgated by industry groups such as the International
-Warehouse Logistics Association (IWLA) <a class="footnote-reference" href="#id5" id="id2">[2]</a> and the International Association
-of Refrigerated Warehouses (IARW). <a class="footnote-reference" href="#id6" id="id3">[3]</a></p>
-<p>Certain warehouse services, particularly storage and handling, are described in
-the legal code, and corresponding methods of applying and calculating charges
-for these services are stated in standard contract terms. WARES conforms to all
-standard billing practices with enhancements to improve billing efficiency.</p>
-<p>Warehouses offer a range of other accessorial services and charges, and WARES
-handles all such charges through a uniform rating and billing structure. WARES
-billing information is comprised of four tiers: Service Codes,
-<a class="reference internal" href="02_rates.html#bill-rates"><em>Billing Rates</em></a>, <a class="reference internal" href="06_charges.html#bill-charges"><em>Charges Transactions</em></a>, and <a class="reference internal" href="07_invoices.html#bill-invoices"><em>Customer Invoices</em></a>.</p>
-</div>
-<div class="section" id="service-codes-entry">
-<h2>Service Codes Entry<a class="headerlink" href="#service-codes-entry" title="Permalink to this headline">¶</a></h2>
-<p>Service Codes, the basis for warehouse billing,  are entered on the WARES
-Company tab. Each code defines one service offered by the warehouse. All
-services, whether offered to a single customer or to every customer, must be
-defined on the Service Codes entry page.</p>
-<p>An example service code record is displayed following:</p>
-<img alt="_images/services.png" src="_images/services.png" />
-<p>Entries for a Service Code address three aspects of billing information:</p>
-<ul class="simple">
-<li>The service code <strong>Description</strong> provides the default text for corresponding
-rate descriptions which appear on customer invoices.</li>
-<li>Service code <strong>usage</strong> is controlled by the <strong>Apply</strong> entry, which defines
-how rates may use the service code, and the <strong>Activity</strong> entry, which limits
-the scope of a service to a particular set of warehouse activities.</li>
-<li>Services are linked to <strong>Accounting</strong> through <strong>Category</strong> and <strong>Ledger</strong>
-Number entries which define how financial information is presented within
-WARES and how services are linked to ledger accounts in external accounting
-software.</li>
-</ul>
-</div>
-<div class="section" id="service-codes-example">
-<span id="services-example"></span><h2>Service Codes Example<a class="headerlink" href="#service-codes-example" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="service-codes-example">
+<span id="services-example"></span><h1>Service Codes Example<a class="headerlink" href="#service-codes-example" title="Permalink to this headline">¶</a></h1>
 <p>Following is an example service code list.</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -496,31 +436,6 @@ Only these four service codes may be used to setup storage and handling
 rates, as WARES billing calculations are programmed to use only these codes.</p>
 </div>
 </div>
-<div class="section" id="service-codes-columns">
-<h2>Service Codes Columns<a class="headerlink" href="#service-codes-columns" title="Permalink to this headline">¶</a></h2>
-<p>Here is a link to the <a class="reference external" href="../resources/05_services.html#services-schema" title="(in WARES Resources v1.0)"><em>Services Codes Data Columns</em></a> schema.</p>
-<p>&#8212;</p>
-<p class="rubric">Footnotes</p>
-<table class="docutils footnote" frame="void" id="id4" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><a class="reference external" href="https://www.law.cornell.edu/ucc/7">https://www.law.cornell.edu/ucc/7</a></td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id5" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td><a class="reference external" href="../resources/form_terms-iwla.html#terms-iwla" title="(in WARES Resources v1.0)"><em>STANDARD CONTRACT TERMS AND CONDITIONS FOR MERCHANDISE WAREHOUSEMEN</em></a></td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id6" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td><a class="reference external" href="../resources/form_terms-iarw.html#terms-iarw" title="(in WARES Resources v1.0)"><em>INTERNATIONAL REFRIGERATED WAREHOUSE CONTRACT TERMS AND CONDITIONS</em></a></td></tr>
-</tbody>
-</table>
-</div>
-</div>
 
 
           </div>
@@ -532,12 +447,9 @@ rates, as WARES billing calculations are programmed to use only these codes.</p>
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="02_rates.html" title="Billing Rates"
-             >next</a></li>
-        <li class="right" >
-          <a href="index.html" title="3rd-Party Warehouse Services Billing"
-             >previous</a> |</li>
-        <li><a href="index.html">WARES Billing 1.0 documentation</a> &raquo;</li> 
+          <a href="09_products.html" title="Products and Varieties"
+             >previous</a></li>
+        <li><a href="index.html">WARES Company 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

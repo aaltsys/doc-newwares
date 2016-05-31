@@ -49,6 +49,8 @@ Entries for a Service Code address three aspects of billing information:
    WARES and how services are linked to ledger accounts in external accounting 
    software.
 
+.. include:: ../setup/services-example.rst
+
 Service Codes Columns
 =============================
 
