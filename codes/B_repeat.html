@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Unit Condition Codes &mdash; WARES Codes 1.0 documentation</title>
+    <title>Calendar Qualifier Codes &mdash; WARES Codes 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,18 +24,18 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="WARES Codes 1.0 documentation" href="index.html" />
-    <link rel="next" title="Date/Time Qualifier Codes" href="D_date.html" />
-    <link rel="prev" title="Calendar Values Codes" href="B_value.html" /> 
+    <link rel="next" title="Calendar Values Codes" href="B_value.html" />
+    <link rel="prev" title="Calendar Option Codes" href="B_option.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="D_date.html" title="Date/Time Qualifier Codes"
+          <a href="B_value.html" title="Calendar Values Codes"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="B_value.html" title="Calendar Values Codes"
+          <a href="B_option.html" title="Calendar Option Codes"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">WARES Codes 1.0 documentation</a> &raquo;</li> 
       </ul>
@@ -43,15 +43,15 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="B_value.html"
-                        title="previous chapter">Calendar Values Codes</a></p>
+  <p class="topless"><a href="B_option.html"
+                        title="previous chapter">Calendar Option Codes</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="D_date.html"
-                        title="next chapter">Date/Time Qualifier Codes</a></p>
+  <p class="topless"><a href="B_value.html"
+                        title="next chapter">Calendar Values Codes</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/D_condition.txt"
+      <li><a href="_sources/B_repeat.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -76,76 +76,42 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="unit-condition-codes">
-<span id="condition-list"></span><h1>Unit Condition Codes<a class="headerlink" href="#unit-condition-codes" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="calendar-qualifier-codes">
+<span id="qualifier-list"></span><h1>Calendar Qualifier Codes<a class="headerlink" href="#calendar-qualifier-codes" title="Permalink to this headline">¶</a></h1>
 <table border="1" class="docutils">
 <colgroup>
-<col width="24%" />
-<col width="63%" />
-<col width="12%" />
+<col width="13%" />
+<col width="87%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Code</th>
-<th class="head">Value</th>
-<th class="head">EDI</th>
+<tr class="row-odd"><th class="head">CODE</th>
+<th class="head">Calendar Qualifier Description</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>G</td>
-<td>Good</td>
-<td>01</td>
+<tr class="row-even"><td>1</td>
+<td>Daily</td>
 </tr>
-<tr class="row-odd"><td>N</td>
-<td>New</td>
-<td>04</td>
+<tr class="row-odd"><td>2</td>
+<td>Weekly</td>
 </tr>
-<tr class="row-even"><td>A</td>
-<td>Allocated</td>
-<td>&nbsp;</td>
+<tr class="row-even"><td>3</td>
+<td>Biweekly</td>
 </tr>
-<tr class="row-odd"><td>H</td>
-<td>Hold</td>
-<td>09</td>
+<tr class="row-odd"><td>4</td>
+<td>Monthly</td>
 </tr>
-<tr class="row-even"><td>I</td>
-<td>Inspection</td>
-<td>09</td>
+<tr class="row-even"><td>5</td>
+<td>Quarterly</td>
 </tr>
-<tr class="row-odd"><td>Q</td>
-<td>Quality Check</td>
-<td>09</td>
+<tr class="row-odd"><td>4</td>
+<td>Semiannually</td>
 </tr>
-<tr class="row-even"><td>D</td>
-<td>Damaged</td>
-<td>02</td>
-</tr>
-<tr class="row-odd"><td>R</td>
-<td>Recouped</td>
-<td>03</td>
-</tr>
-<tr class="row-even"><td>S</td>
-<td>Suitable w/o Recoup</td>
-<td>05</td>
-</tr>
-<tr class="row-odd"><td>T</td>
-<td>To Be Recouped</td>
-<td>06</td>
-</tr>
-<tr class="row-even"><td>U</td>
-<td>Unsuitable</td>
-<td>07</td>
-</tr>
-<tr class="row-odd"><td>J</td>
-<td>Junk</td>
-<td>08</td>
-</tr>
-<tr class="row-even"><td>O</td>
-<td>Other</td>
-<td>ZZ</td>
+<tr class="row-even"><td>5</td>
+<td>Yearly</td>
 </tr>
 </tbody>
 </table>
-<p>Source: ASC-X12 Data Element 286 - Product/Service Condition Code.</p>
 </div>
 
 
@@ -158,10 +124,10 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="D_date.html" title="Date/Time Qualifier Codes"
+          <a href="B_value.html" title="Calendar Values Codes"
              >next</a></li>
         <li class="right" >
-          <a href="B_value.html" title="Calendar Values Codes"
+          <a href="B_option.html" title="Calendar Option Codes"
              >previous</a> |</li>
         <li><a href="index.html">WARES Codes 1.0 documentation</a> &raquo;</li> 
       </ul>

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>SERVICES Codes Data Columns &mdash; WARES Resources 1.0 documentation</title>
+    <title>CALENDARS Data Table Columns &mdash; WARES Resources 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,18 +24,18 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="WARES Resources 1.0 documentation" href="index.html" />
-    <link rel="next" title="RATES Data Table Columns" href="06_rates.html" />
-    <link rel="prev" title="DOCUMENTS Data Table Columns" href="04_documents.html" /> 
+    <link rel="next" title="INTERNATIONAL REFRIGERATED WAREHOUSE CONTRACT TERMS AND CONDITIONS" href="form_terms-iarw.html" />
+    <link rel="prev" title="BALANCES Data Table Columns" href="12_balances.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="06_rates.html" title="RATES Data Table Columns"
+          <a href="form_terms-iarw.html" title="INTERNATIONAL REFRIGERATED WAREHOUSE CONTRACT TERMS AND CONDITIONS"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="04_documents.html" title="DOCUMENTS Data Table Columns"
+          <a href="12_balances.html" title="BALANCES Data Table Columns"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">WARES Resources 1.0 documentation</a> &raquo;</li> 
       </ul>
@@ -43,15 +43,15 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="04_documents.html"
-                        title="previous chapter">DOCUMENTS Data Table Columns</a></p>
+  <p class="topless"><a href="12_balances.html"
+                        title="previous chapter">BALANCES Data Table Columns</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="06_rates.html"
-                        title="next chapter">RATES Data Table Columns</a></p>
+  <p class="topless"><a href="form_terms-iarw.html"
+                        title="next chapter">INTERNATIONAL REFRIGERATED WAREHOUSE CONTRACT TERMS AND CONDITIONS</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/05_services.txt"
+      <li><a href="_sources/13_calendars.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -76,8 +76,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="services-codes-data-columns">
-<span id="services-schema"></span><h1>SERVICES Codes Data Columns<a class="headerlink" href="#services-codes-data-columns" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="calendars-data-table-columns">
+<span id="calendars-schema"></span><h1>CALENDARS Data Table Columns<a class="headerlink" href="#calendars-data-table-columns" title="Permalink to this headline">¶</a></h1>
 <table border="1" class="docutils">
 <colgroup>
 <col width="4%" />
@@ -107,15 +107,15 @@
 </tr>
 <tr class="row-odd"><td>M</td>
 <td>S</td>
-<td>SERVICE</td>
+<td>CALENDAR</td>
 <td>A</td>
 <td>U</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td>L8</td>
+<td>L20</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Configuration Entries</td>
+<tr class="row-even"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Process Control Entries</td>
 </tr>
 <tr class="row-odd"><td>O</td>
 <td>S</td>
@@ -129,42 +129,62 @@
 </tr>
 <tr class="row-even"><td>M</td>
 <td>S</td>
-<td>APPLY</td>
-<td>LC</td>
+<td>DATE_LAST</td>
+<td>D</td>
 <td>U</td>
-<td><a class="reference external" href="../codes/B_apply.html#apply-list" title="(in WARES Codes v1.0)"><em>Rate Application Codes</em></a></td>
-<td>O</td>
-<td>L2</td>
+<td>DATE</td>
+<td>TODAY</td>
+<td>R10</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>O</td>
-<td>M</td>
-<td>ACTIVITY</td>
-<td>A</td>
-<td>U</td>
-<td><a class="reference external" href="../codes/B_activity.html#activity-list" title="(in WARES Codes v1.0)"><em>Transaction Activity Codes</em></a></td>
-<td>&nbsp;</td>
-<td>L15</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Accounting Entries</td>
-</tr>
-<tr class="row-odd"><td>M</td>
+<tr class="row-odd"><td>F</td>
 <td>S</td>
-<td>CATEGORY</td>
-<td>LC</td>
+<td>DATE-NEXT</td>
+<td>D</td>
 <td>U</td>
-<td><a class="reference external" href="../codes/B_category.html#category-list" title="(in WARES Codes v1.0)"><em>Charge Category Codes</em></a></td>
-<td>&nbsp;</td>
-<td>L2</td>
+<td>DATE</td>
+<td>calc&#8217;d</td>
+<td>R10</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>O</td>
 <td>S</td>
-<td>LEDGER</td>
-<td>A</td>
+<td>DATE-EXPIRE</td>
+<td>D</td>
+<td>U</td>
+<td>DATE</td>
 <td>&nbsp;</td>
+<td>R10</td>
 <td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Scheduling Entries</td>
+</tr>
+<tr class="row-even"><td>M</td>
+<td>S</td>
+<td>REPEAT</td>
+<td>LC</td>
+<td>U</td>
+<td><em class="xref std std-ref">calrepeat-list</em></td>
+<td>&nbsp;</td>
+<td>L12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>O</td>
+<td>M</td>
+<td>OPTIONS</td>
+<td>LC</td>
+<td>U</td>
+<td><em class="xref std std-ref">caloption-list</em></td>
+<td>&nbsp;</td>
+<td>L12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>O</td>
+<td>M</td>
+<td>VALUES</td>
+<td>LC</td>
+<td>U</td>
+<td><em class="xref std std-ref">calvalues-list</em></td>
 <td>&nbsp;</td>
 <td>L12</td>
 <td>&nbsp;</td>
@@ -255,10 +275,10 @@ paired entry or code is specified.</li>
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="06_rates.html" title="RATES Data Table Columns"
+          <a href="form_terms-iarw.html" title="INTERNATIONAL REFRIGERATED WAREHOUSE CONTRACT TERMS AND CONDITIONS"
              >next</a></li>
         <li class="right" >
-          <a href="04_documents.html" title="DOCUMENTS Data Table Columns"
+          <a href="12_balances.html" title="BALANCES Data Table Columns"
              >previous</a> |</li>
         <li><a href="index.html">WARES Resources 1.0 documentation</a> &raquo;</li> 
       </ul>

@@ -176,6 +176,58 @@ Additional Rates Properties
    charged by system routines.
 #. Rates in the **GLOBAL** group are always **Optional**. 
 
+Rates Calculation
+=============================
+
+.. image:: _images/rates-rate.png
+
+Rate calculation entries determine the content of charge line detail.
+
++---------------+---+------------------------------------------------+--------+
+| Entry         | M | Billing Information Entry                      | Default|
++===============+===+================================================+========+
+| Description   | M | Information shown on charges and invoices      | (code) |
++---------------+---+------------------------------------------------+--------+
+| Billing UOM   | M | Informational UOM used on charges and invoices |        |
++---------------+---+------------------------------------------------+--------+
+| Factor        | M | Numerical quantity divider for unit conversion | 1.0    |
++---------------+---+------------------------------------------------+--------+
+| Surcharge     |   | Percentage charge multiplier for tax or other  | null   |
++---------------+---+------------------------------------------------+--------+
+| Rate          |   | The charge per unit of service, may be tiered  |        |
++---------------+---+------------------------------------------------+--------+
+| Quantity      | M | Starting quantity to apply this rate tier      | 1.00   |
++---------------+---+------------------------------------------------+--------+
+| Line Minimum  |   | Minimum amount for charge entry in tier        | Q * R  |
++---------------+---+------------------------------------------------+--------+
+| Item Minimum  |   | Minimum total charge amount on an activity     |        |
++---------------+---+------------------------------------------------+--------+
+
+*  The rate **Description** entry is the actual invoice description for  
+   calculated, mandatory, and repeating charges. This is the default charge 
+   description for user-entered optional charges. 
+*  The **Billing UOM** (unit of measure) prints on charges and invoices to 
+   describe the units of a charge quantity.
+*  A **Factor** will divide the quantity in a charge to convert from inventory
+   quantity to billing quantity. For example, the factor *100.00* converts 
+   inventory units *LB* into billing UOM *CW* (hundredweight).
+*  A **Surcharge** percentage may apply to a rate to cover services taxes, fuel 
+   surcharges, or other items. This is a percentage, not a decimal value.
+   
+The rates portion of an entry is tiered by quantity, so that rates can increase 
+or decrease as quantity increases. 
+
+*  Where a **Rate** for a particular charge is variable, the Rate field may be 
+   left blank and entered manually each time the charge is applied.
+*  The **Quantity** defaults to 1.0. Quantity entries are required.
+*  A **Minimum** value for resulting charges defaults to **Rate X quantity**.
+   This minimum would be applied to every transaction line.
+*  An **Item Minimum** can be applied to an entire transaction to result in 
+   charges that are reasonable. For example, a handling charge of $.40 per case 
+   is not reasonable when receiving a single case.
+
+See :ref:`rate-extend` for a detailed explanation of rate calculations.
+
 Rates Setup Considerations 
 =============================
 

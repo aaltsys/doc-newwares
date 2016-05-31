@@ -30,9 +30,11 @@ A calendar item contains two types of entries: process control entries,
 described above, and scheduling definition entries. Scheduling is defined by a 
 set of three related entry options. 
 
-#. **Repeat** sets the span of the repeating period, 
-#. **Options** may modify any values associated with the repeat, and
-#. **Values** lists specific days or dates for the calendared events.
+#. **Repeat** sets the span of the repeating period (see :ref:`repeat-list`),
+#. **Options** may modify any values associated with the repeat (see 
+   :ref:`option-list`), and
+#. **Values** lists specific days or dates for the calendared events (see 
+   :ref:`value-list`).
 
 +--------------+---------------+-----------------------------------------------+
 | Repeat       | Options       | Values                                        |
@@ -44,7 +46,7 @@ set of three related entry options.
 +--------------+---------------+-----------------------------------------------+
 | BiWeekly     | First, Second | Sun, Mon, Tue, Wed, Thu, Fri, Sat             |
 +--------------+---------------+-----------------------------------------------+
-| Monthly      | First, Second,|| Sun, Mon, Tue, Wed, Thu, Fri, Sat            |
+| Monthly      | First, Second,| Sun, Mon, Tue, Wed, Thu, Fri, Sat,            |
 |              | Third, Fourth,| FIRST, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, |
 |              | Last          | 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23,   |
 |              |               | 24, 25, 26, 27, 28, 29, 30, LAST              |
@@ -70,4 +72,9 @@ For **Daily** repeats, the options of Every, Any, and Current have the effect:
 *  **Any** allows the action to run once for today, but process a range of days 
    from the **Last Date** (plus 1) to today, and
 *  **Current** allows the action to run once from **Last Date** (plus 1) to the 
-   end of the current open period. 
+   end of the current open period or to today, which ever comes first. 
+
+Calendars Database Schema
+=============================
+
+Here is a link to the :ref:`calendars-schema` schema.

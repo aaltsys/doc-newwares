@@ -62,6 +62,7 @@
 <li><a class="reference internal" href="#additional-rates-properties">Additional Rates Properties</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#rates-calculation">Rates Calculation</a></li>
 <li><a class="reference internal" href="#rates-setup-considerations">Rates Setup Considerations</a></li>
 </ul>
 </li>
@@ -275,6 +276,93 @@ charged by system routines.</li>
 <li>Rates in the <strong>GLOBAL</strong> group are always <strong>Optional</strong>.</li>
 </ol>
 </div>
+</div>
+<div class="section" id="rates-calculation">
+<h2>Rates Calculation<a class="headerlink" href="#rates-calculation" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/rates-rate.png" src="_images/rates-rate.png" />
+<p>Rate calculation entries determine the content of charge line detail.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="4%" />
+<col width="65%" />
+<col width="11%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Entry</th>
+<th class="head">M</th>
+<th class="head">Billing Information Entry</th>
+<th class="head">Default</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Description</td>
+<td>M</td>
+<td>Information shown on charges and invoices</td>
+<td>(code)</td>
+</tr>
+<tr class="row-odd"><td>Billing UOM</td>
+<td>M</td>
+<td>Informational UOM used on charges and invoices</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Factor</td>
+<td>M</td>
+<td>Numerical quantity divider for unit conversion</td>
+<td>1.0</td>
+</tr>
+<tr class="row-odd"><td>Surcharge</td>
+<td>&nbsp;</td>
+<td>Percentage charge multiplier for tax or other</td>
+<td>null</td>
+</tr>
+<tr class="row-even"><td>Rate</td>
+<td>&nbsp;</td>
+<td>The charge per unit of service, may be tiered</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Quantity</td>
+<td>M</td>
+<td>Starting quantity to apply this rate tier</td>
+<td>1.00</td>
+</tr>
+<tr class="row-even"><td>Line Minimum</td>
+<td>&nbsp;</td>
+<td>Minimum amount for charge entry in tier</td>
+<td>Q * R</td>
+</tr>
+<tr class="row-odd"><td>Item Minimum</td>
+<td>&nbsp;</td>
+<td>Minimum total charge amount on an activity</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li>The rate <strong>Description</strong> entry is the actual invoice description for
+calculated, mandatory, and repeating charges. This is the default charge
+description for user-entered optional charges.</li>
+<li>The <strong>Billing UOM</strong> (unit of measure) prints on charges and invoices to
+describe the units of a charge quantity.</li>
+<li>A <strong>Factor</strong> will divide the quantity in a charge to convert from inventory
+quantity to billing quantity. For example, the factor <em>100.00</em> converts
+inventory units <em>LB</em> into billing UOM <em>CW</em> (hundredweight).</li>
+<li>A <strong>Surcharge</strong> percentage may apply to a rate to cover services taxes, fuel
+surcharges, or other items. This is a percentage, not a decimal value.</li>
+</ul>
+<p>The rates portion of an entry is tiered by quantity, so that rates can increase
+or decrease as quantity increases.</p>
+<ul class="simple">
+<li>Where a <strong>Rate</strong> for a particular charge is variable, the Rate field may be
+left blank and entered manually each time the charge is applied.</li>
+<li>The <strong>Quantity</strong> defaults to 1.0. Quantity entries are required.</li>
+<li>A <strong>Minimum</strong> value for resulting charges defaults to <strong>Rate X quantity</strong>.
+This minimum would be applied to every transaction line.</li>
+<li>An <strong>Item Minimum</strong> can be applied to an entire transaction to result in
+charges that are reasonable. For example, a handling charge of $.40 per case
+is not reasonable when receiving a single case.</li>
+</ul>
+<p>See <em class="xref std std-ref">rate-extend</em> for a detailed explanation of rate calculations.</p>
 </div>
 <div class="section" id="rates-setup-considerations">
 <h2>Rates Setup Considerations<a class="headerlink" href="#rates-setup-considerations" title="Permalink to this headline">¶</a></h2>

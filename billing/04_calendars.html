@@ -43,6 +43,14 @@
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Calculation Calendar</a><ul>
+<li><a class="reference internal" href="#calendars-database-schema">Calendars Database Schema</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="03_rate-extend.html"
                         title="previous chapter">How Rates Extend to Charges</a></p>
@@ -99,9 +107,11 @@ item to be reversed (once) if the associated action is reversed or voided.</p>
 described above, and scheduling definition entries. Scheduling is defined by a
 set of three related entry options.</p>
 <ol class="arabic simple">
-<li><strong>Repeat</strong> sets the span of the repeating period,</li>
-<li><strong>Options</strong> may modify any values associated with the repeat, and</li>
-<li><strong>Values</strong> lists specific days or dates for the calendared events.</li>
+<li><strong>Repeat</strong> sets the span of the repeating period (see <em class="xref std std-ref">repeat-list</em>),</li>
+<li><strong>Options</strong> may modify any values associated with the repeat (see
+<a class="reference external" href="../codes/B_option.html#option-list" title="(in WARES Codes v1.0)"><em>Calendar Option Codes</em></a>), and</li>
+<li><strong>Values</strong> lists specific days or dates for the calendared events (see
+<a class="reference external" href="../codes/B_value.html#value-list" title="(in WARES Codes v1.0)"><em>Calendar Values Codes</em></a>).</li>
 </ol>
 <table border="1" class="docutils">
 <colgroup>
@@ -133,13 +143,10 @@ Current</td>
 <td>First, Second,
 Third, Fourth,
 Last</td>
-<td><div class="first last line-block">
-<div class="line">Sun, Mon, Tue, Wed, Thu, Fri, Sat
+<td>Sun, Mon, Tue, Wed, Thu, Fri, Sat,
 FIRST, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23,
-24, 25, 26, 27, 28, 29, 30, LAST</div>
-</div>
-</td>
+24, 25, 26, 27, 28, 29, 30, LAST</td>
 </tr>
 <tr class="row-even"><td>Quarterly</td>
 <td>First, Second,
@@ -174,8 +181,12 @@ apply to daily recurring, for example,</li>
 <li><strong>Any</strong> allows the action to run once for today, but process a range of days
 from the <strong>Last Date</strong> (plus 1) to today, and</li>
 <li><strong>Current</strong> allows the action to run once from <strong>Last Date</strong> (plus 1) to the
-end of the current open period.</li>
+end of the current open period or to today, which ever comes first.</li>
 </ul>
+<div class="section" id="calendars-database-schema">
+<h2>Calendars Database Schema<a class="headerlink" href="#calendars-database-schema" title="Permalink to this headline">¶</a></h2>
+<p>Here is a link to the <a class="reference external" href="../resources/13_calendars.html#calendars-schema" title="(in WARES Resources v1.0)"><em>CALENDARS Data Table Columns</em></a> schema.</p>
+</div>
 </div>
 
 
