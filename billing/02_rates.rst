@@ -10,6 +10,8 @@ to pricing services, WARES rates provide the mechanics of capturing services
 and billing the customer for them. Entering rates requires considering both the 
 pricing aspect of rates and the application of rates to warehouse activity.
 
+.. _bill-rate-quote:
+
 Rate Quote Information 
 =============================
 
