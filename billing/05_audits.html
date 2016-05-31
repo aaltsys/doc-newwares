@@ -43,6 +43,20 @@
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Charges Audit Reports</a><ul>
+<li><a class="reference internal" href="#detailed-charge-reporting">Detailed Charge Reporting</a><ul>
+<li><a class="reference internal" href="#descriptive-charge-entries">Descriptive Charge Entries</a></li>
+<li><a class="reference internal" href="#charge-calculation-details">Charge Calculation Details</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#summary-charge-reporting">Summary Charge Reporting</a></li>
+<li><a class="reference internal" href="#detailed-charges-by-code">Detailed Charges by Code</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="04_calendars.html"
                         title="previous chapter">Calculation Calendar</a></p>
@@ -79,9 +93,77 @@
             
   <div class="section" id="charges-audit-reports">
 <h1>Charges Audit Reports<a class="headerlink" href="#charges-audit-reports" title="Permalink to this headline">¶</a></h1>
-<p>In progress.</p>
+<p>Applying rates to activities results in charges, which are recorded on charges
+records for later consolidation into invoices. Charges have a standard format
+which simplifies auditing an invoice. The reportable information of a charge is
+either informational description, or presents the charge calculation details.</p>
+<div class="section" id="detailed-charge-reporting">
+<h2>Detailed Charge Reporting<a class="headerlink" href="#detailed-charge-reporting" title="Permalink to this headline">¶</a></h2>
+<p>WARES maintains charge information at the most detailed level so that charges
+and invoice amounts are accurate and trustworthy. This detail means that for
+inventory amounts, charge calculation is based on units, if units are tracked,
+or lots when tracked, or products when lot numbers are not used. Other charges
+may be tracked by the individual transactions of an activity, such as one or
+more document charges for each shipment.</p>
+<div class="section" id="descriptive-charge-entries">
+<h3>Descriptive Charge Entries<a class="headerlink" href="#descriptive-charge-entries" title="Permalink to this headline">¶</a></h3>
+<p>Descriptive information on a charge audit report consists of:</p>
+<ul class="simple">
+<li>the activity <strong>Date</strong>,</li>
+<li>the <strong>Activity</strong> transaction number,</li>
+<li>any <strong>Item</strong> information such as product codes,lot numbers or unit numbers,
+and</li>
+<li>the <strong>Description</strong> of the charge.</li>
+</ul>
+<p>These entries are illustrated in the following left-side CHARGES DETAIL report
+sample which shows charges from a warehouse receipt.</p>
 <img alt="_images/audit-detail-1.png" src="_images/audit-detail-1.png" />
+</div>
+<div class="section" id="charge-calculation-details">
+<h3>Charge Calculation Details<a class="headerlink" href="#charge-calculation-details" title="Permalink to this headline">¶</a></h3>
+<p>Each charge results from the following entries:</p>
+<ol class="arabic simple">
+<li>The <strong>Rate Group</strong> and <strong>Service Code</strong> entries used, part of the contract
+<a class="reference internal" href="02_rates.html#bill-rate-quote"><em>Rate Quote Information</em></a> for the customer,</li>
+<li>A billing unit of measure (<strong>UOM</strong>) describing the charge&#8217;s amount basis,</li>
+<li>The calculation of the charge quantity, consisting of <strong>Amount</strong>,
+<strong>Deficit</strong>, and <strong>Factor</strong>,</li>
+<li>The published <strong>Rate</strong> from the customer&#8217;s rate quote, and</li>
+<li>The calculated <strong>Charge</strong>.</li>
+</ol>
+<p>The right-side CHARGES DETAIL report sample, showing these receiving charges,
+is presented here.</p>
 <img alt="_images/audit-detail-2.png" src="_images/audit-detail-2.png" />
+</div>
+</div>
+<div class="section" id="summary-charge-reporting">
+<h2>Summary Charge Reporting<a class="headerlink" href="#summary-charge-reporting" title="Permalink to this headline">¶</a></h2>
+<p>Auditing an invoice amount requires examinimg the supporting detail. Detailed
+audit reports can be quite large, and so a CHARGES SUMMARY report presentation
+will reduce the volume of information.</p>
+<p>The CHARGES SUMMARY presents the <strong>Quantity</strong> which is calculated from Amount,
+Deficit, and Factor by the formula:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Quantity</span> <span class="o">=</span> <span class="p">(</span> <span class="n">Amount</span> <span class="o">+</span> <span class="n">Deficit</span> <span class="p">)</span> <span class="o">/</span> <span class="n">Factor</span>
+</pre></div>
+</div>
+<p>Then individual rate codes are summed by <strong>Activity</strong> to eliminate itemization.
+An example SUMMARY CHARGES report follows.</p>
+<img alt="_images/audit-summary.png" src="_images/audit-summary.png" />
+<p>Where fractional charges are summarized, the addition of charges rounded to the
+nearest cent may result in (slight) inconsistencies if Quantity*Rate is extended
+to recalculate the total charge on a line. This might happen for the
+hundredweight-based storage charge, for example.</p>
+</div>
+<div class="section" id="detailed-charges-by-code">
+<h2>Detailed Charges by Code<a class="headerlink" href="#detailed-charges-by-code" title="Permalink to this headline">¶</a></h2>
+<p>The invoice is organized by Rate Group and Service Code, while the previous
+reports are arranged by activity transaction. This makes auditing onerous, so
+an alternative CHARGES BY CODE report is available.</p>
+<img alt="_images/audit-code.png" src="_images/audit-code.png" />
+<p>This report has the same depth as the CHARGES DETAIL, while displaying the
+columns of the CHARGES SUMMARY. Each TOTAL on the report matches one line item
+on the invoice.</p>
+</div>
 </div>
 
 
