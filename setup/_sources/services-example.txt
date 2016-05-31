@@ -1,5 +1,3 @@
-.. _services-example:
-
 Service Codes Example 
 =============================
 
