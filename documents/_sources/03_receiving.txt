@@ -115,7 +115,7 @@ for errors. A billing error, such as a receipt with $25,000.00 in charges, is
 likely due to an overlooked entry error. Fix any errors immediately. A sample 
 Charges Log report is illustrated following.
 
-.. image:: _images/chargelog.png
+.. image:: _images/charges-log.png
 
 .. note::
    Handling (1H) charges are by unit, while Storage (1S) charges are by net

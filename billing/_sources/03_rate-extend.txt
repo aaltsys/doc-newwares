@@ -1,4 +1,4 @@
-.. rate-extend:
+.. _rate-extend:
 
 #############################
 How Rates Extend to Charges

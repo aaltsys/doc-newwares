@@ -1,11 +1,11 @@
-.. _qualifier-list:
+.. _repeat-list:
 
 #############################
-Calendar Qualifier Codes
+Calendar Repeat Codes
 #############################
 
 +------+-----------------------------------------+
-| CODE | Calendar Qualifier Description          |
+| CODE | Calendar Repeat Description             |
 +======+=========================================+
 | 1    | Daily                                   |
 +------+-----------------------------------------+
