@@ -1,7 +1,7 @@
-.. rate-extend:
+.. _rate-extend:
 
 #############################
-Rates Extended to Charges
+How Rates Extend to Charges
 #############################
 
 A service may have a single rate or tiered rates, where multiple rates in tiers 
