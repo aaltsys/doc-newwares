@@ -47,6 +47,8 @@ Subtle differences in the way a rate is expressed may have significant effects
 on revenue. The following figure shows a variety of charge calculations based 
 on similar rate entries to illustrate this point.
 
+.. image:: _images/rate-example1.png
+
 Example 1: Straight Rate
 =============================
 
@@ -65,10 +67,10 @@ while only 4 cases were picked.
 Example 3: Decimal Quantity
 =============================
 
-A decimal **Quantity** may be used for rates expressed in fractional amounts. 
-Here MH labor is charged as $8.00 per quarter hour or fraction thereof, with a 
-minimum of $16.00, or a half hour of labor. This changes the **Deficit** 
-formula to the larger of::
+A decimal **Quantity** may be used for rates expressed in fractional amounts, 
+or a **Quantity** may be greater than 1. Here MH labor is charged as $8.00 per 
+quarter hour or fraction thereof, with a minimum of $16.00, or a half hour of 
+labor. This changes the **Deficit** formula to the larger of::
 
    (a)  ( Minimum * Factor * Quantity ) / Rate - Amount
    (b)  0
@@ -90,7 +92,7 @@ example shows Each, Pack, and Case picking charges where the order unit is EA
    There is a definition inadequacy in RATES. Multiple billing UOMs are not
    allowed, but using multiple Bill UOMs should trigger quantity break rating.
 
-.. image:: _images/rate-examples.png
+.. image:: _images/rate-example2.png
 
 .. _rate-tiers:
 
@@ -105,6 +107,8 @@ In this example, a container stripping fee is charged according to container
 weight. A charge is calculated for a container weighing 39,000 lb. and one 
 weighing 40,000 lb. Rates are the same in each part of the example except for 
 the minimums.
+
+.. image:: _images/rate-example3.png
 
 Part (5a): Irrational Rates
 -----------------------------
@@ -144,7 +148,7 @@ And the **Charge** calculation is as stated before at all tiers::
 
    Given the amount 39,000, we check the Minimum at the next level::
 
-      128.00 < ( .3200 * 40,000 ) / ( 1.00 * 100.00 )
+      128.00 < ( .3600 * 39,000 ) / ( 1.00 * 100.00 )
 
    And so the Deficit is::
 

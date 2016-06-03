@@ -138,6 +138,7 @@ customer&#8217;s benefit.</p>
 <p>Subtle differences in the way a rate is expressed may have significant effects
 on revenue. The following figure shows a variety of charge calculations based
 on similar rate entries to illustrate this point.</p>
+<img alt="_images/rate-example1.png" src="_images/rate-example1.png" />
 </div>
 <div class="section" id="example-1-straight-rate">
 <h2>Example 1: Straight Rate<a class="headerlink" href="#example-1-straight-rate" title="Permalink to this headline">¶</a></h2>
@@ -154,10 +155,10 @@ while only 4 cases were picked.</p>
 </div>
 <div class="section" id="example-3-decimal-quantity">
 <h2>Example 3: Decimal Quantity<a class="headerlink" href="#example-3-decimal-quantity" title="Permalink to this headline">¶</a></h2>
-<p>A decimal <strong>Quantity</strong> may be used for rates expressed in fractional amounts.
-Here MH labor is charged as $8.00 per quarter hour or fraction thereof, with a
-minimum of $16.00, or a half hour of labor. This changes the <strong>Deficit</strong>
-formula to the larger of:</p>
+<p>A decimal <strong>Quantity</strong> may be used for rates expressed in fractional amounts,
+or a <strong>Quantity</strong> may be greater than 1. Here MH labor is charged as $8.00 per
+quarter hour or fraction thereof, with a minimum of $16.00, or a half hour of
+labor. This changes the <strong>Deficit</strong> formula to the larger of:</p>
 <div class="highlight-python"><div class="highlight"><pre>(a)  ( Minimum * Factor * Quantity ) / Rate - Amount
 (b)  0
 </pre></div>
@@ -178,7 +179,7 @@ example shows Each, Pack, and Case picking charges where the order unit is EA
 <p class="last">There is a definition inadequacy in RATES. Multiple billing UOMs are not
 allowed, but using multiple Bill UOMs should trigger quantity break rating.</p>
 </div>
-<img alt="_images/rate-examples.png" src="_images/rate-examples.png" />
+<img alt="_images/rate-example2.png" src="_images/rate-example2.png" />
 </div>
 <div class="section" id="example-5-rate-tiers">
 <span id="rate-tiers"></span><h2>Example 5: Rate Tiers<a class="headerlink" href="#example-5-rate-tiers" title="Permalink to this headline">¶</a></h2>
@@ -189,6 +190,7 @@ customer, or with transitions deficits penalizing the customer.</p>
 weight. A charge is calculated for a container weighing 39,000 lb. and one
 weighing 40,000 lb. Rates are the same in each part of the example except for
 the minimums.</p>
+<img alt="_images/rate-example3.png" src="_images/rate-example3.png" />
 <div class="section" id="part-5a-irrational-rates">
 <h3>Part (5a): Irrational Rates<a class="headerlink" href="#part-5a-irrational-rates" title="Permalink to this headline">¶</a></h3>
 <p>Deficit quantities are not calculated when minimums are absent. in part (a),
@@ -223,7 +225,7 @@ level.</p>
 <div class="admonition-example-calculation admonition">
 <p class="first admonition-title">Example calculation</p>
 <p>Given the amount 39,000, we check the Minimum at the next level:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="mf">128.00</span> <span class="o">&lt;</span> <span class="p">(</span> <span class="o">.</span><span class="mi">3200</span> <span class="o">*</span> <span class="mi">40</span><span class="p">,</span><span class="mo">000</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="mf">1.00</span> <span class="o">*</span> <span class="mf">100.00</span> <span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="mf">128.00</span> <span class="o">&lt;</span> <span class="p">(</span> <span class="o">.</span><span class="mi">3600</span> <span class="o">*</span> <span class="mi">39</span><span class="p">,</span><span class="mo">000</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="mf">1.00</span> <span class="o">*</span> <span class="mf">100.00</span> <span class="p">)</span>
 </pre></div>
 </div>
 <p>And so the Deficit is:</p>
