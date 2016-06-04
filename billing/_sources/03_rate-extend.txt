@@ -44,28 +44,34 @@ and **Charge** is::
    Charge = Rate * ( Amount + Deficit ) / Factor
 
 Subtle differences in the way a rate is expressed may have significant effects 
-on revenue. The following figure shows a variety of charge calculations based 
-on similar rate entries to illustrate this point.
+on revenue. Following examples show a variety of charge calculations based on 
+similar rate entries to illustrate this point.
+
+Example 1. Single Line Rates
+=============================
+
+The simplest rates consist of a single line of information, as shown in example 
+1.
 
 .. image:: _images/rate-example1.png
 
-Example 1: Straight Rate
-=============================
+Example 1a: Straight Rate
+-----------------------------
 
 Where a quantity is 1, the rate will provide a default minimum. In the example, 
 a charge of $5.00 is applied to each qualifying activity (UOM = 1R represents 
 a transaction). The Minimum is the Rate, and therefore Deficit is always zero.
 
-Example 2: Minimum Applies
-=============================
+Example 1b: Minimum Applies
+-----------------------------
 
 A **Minimum** greater than the **Rate** may apply, and deficient **Amounts** 
 will trigger a **Deficit** to result in a charge equal to the minimum. In this 
 example a $.32/case pick fee with a minimum equivalent to 5 cases is applied, 
 while only 4 cases were picked.
 
-Example 3: Decimal Quantity
-=============================
+Example 1c: Decimal Quantity
+-----------------------------
 
 A decimal **Quantity** may be used for rates expressed in fractional amounts, 
 or a **Quantity** may be greater than 1. Here MH labor is charged as $8.00 per 
@@ -77,26 +83,72 @@ labor. This changes the **Deficit** formula to the larger of::
 
 and the extended **charge** formula becomes::
 
-   Rate * ( Amount + Deficit ) / ( Quantity * Factor )
+   Charge = Rate * ( Amount + Deficit ) / ( Quantity * Factor )
 
-Example 4: Quantity Breaks
+.. _rate-breaks:
+
+Example 2: Quantity Breaks
 =============================
 
 Rates based on economic order quantity (EOQ) provide break pricing for specific 
-quantities (cheaper by the dozen) or composite units of measure (PK, CA). This 
-example shows Each, Pack, and Case picking charges where the order unit is EA 
-(each) but the billing units are by the EOQ.
+quantities (cheaper by the dozen or gross) or compound units of measure (PK, 
+CA). 
+
+Break rates have a set of special requirements.
+
+#. Break rates are associated with products. A break rate must be in the rate 
+   group which includes calculated storage and handling rates for products.
+#. All products may be charged the same storage and handling rates, but some 
+   products have a break rate for picking, say, while others do not. Then 
+   product-associated rates must be implemented in two groups: break-rated 
+   products, and other products.
+#. Break rates are **Applied** (C)alculated, just as storage and handling are.
+#. Where break rates are associated with compound units of measure such as PK 
+   and CA, products in the break group must list the same units of measure with 
+   corresponding conversion quantities.
+#. Where rates break according to quantity, order amounts are divided into even 
+   break amounts and each amount produces a charge line calculated by single 
+   rate methods discussed previously.
 
 .. admonition:: Developer comment
 
-   There is a definition inadequacy in RATES. Multiple billing UOMs are not
-   allowed, but using multiple Bill UOMs should trigger quantity break rating.
+   There are definition inadequacies in RATES, in that there is not a switch to 
+   select explicitly between break rates and tiered rates. Then multiple 
+   billing UOMs are not supported in the specification, but using multiple Bill 
+   UOMs is a part of break rating.
 
 .. image:: _images/rate-example2.png
 
+Part (2a): Numerical Breaks
+-----------------------------
+
+Example (2a) shows order quantity breaks with corresponding billing UOMs. 
+Ordering in multiples of 12 (DZ for dozen) or 144 (GS for gross) would apply
+charges by the corresponding break line. Charge calculation proceeds as follows: 
+
+#. Identify the largest break quantity less than or equal to the amount: 288 
+   goes with line 3, and 24 goes with line 2. 
+#. Divide the amount by the line quantity: dividing 288 by 144 results in a 
+   billable amount of 2 GS, 24 divided by 12 gives a billable amount of 2 DZ. 
+#. Treat a line as if it were a single rate, calculating any deficit and
+   extending the charge. 2 GS extends to $16.00, and 2 DZ extends to $8.00.
+#. Where division in Step 2 leaves a remainer, calculate the leftover amount as
+   a separate charge billed at the preceding level. For example, 300 EA yields 
+   two charge lines: 2 GS @ $8.00 = $16.00, and 1 DZ @ $4.00 = $4.00. Similarly 
+   50 EA = 4 PK + 2 EA, generating billing lines for 4 PK @ $4.00 = $16.00 and 
+   2 EA @ .50, with a minimum of $1.60, = $1.60.
+
+Part (2b): Packing Breaks
+-----------------------------
+   
+Example (2b) shows Each, Pack, and Case charges where inventory is counted in 
+EA (each), but activity is performed in EOQ units of measure. Charges are 
+calculated according to the UOM used. The break line of the corresponding UOM 
+is treated as a single rate, as explained in Example 1.
+
 .. _rate-tiers:
 
-Example 5: Rate Tiers 
+Example 3: Rate Tiers 
 =============================
 
 Rate tiers offer several pricing options. A tiered rate may provide pricing 
@@ -110,14 +162,14 @@ the minimums.
 
 .. image:: _images/rate-example3.png
 
-Part (5a): Irrational Rates
+Part (3a): Irrational Rates
 -----------------------------
 
 Deficit quantities are not calculated when minimums are absent. in part (a), 
 there are no minimums and the charge at 40,000 lb. is $12.40 less than the 
 charge at 39,000 lb. This is considered a pricing irrationality.
 
-Part (5b): Beneficial Deficit
+Part (3b): Beneficial Deficit
 -----------------------------
 
 Irrationalities can be eliminated by applying line minimums. In part (b), the 
@@ -161,7 +213,7 @@ And the **Charge** calculation is as stated before at all tiers::
 The customer receives the benefit of a lower charge by being billed for a 
 greater quantity based on the deficit.
 
-Part (5c): Penalty Deficit
+Part (3c): Penalty Deficit
 -----------------------------
 
 To avoid a price reduction for amounts below a break level, minimums should

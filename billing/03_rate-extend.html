@@ -48,14 +48,21 @@
 <li><a class="reference internal" href="#">How Rates Extend to Charges</a><ul>
 <li><a class="reference internal" href="#minimums-and-deficits">Minimums and Deficits</a></li>
 <li><a class="reference internal" href="#basic-charge-calculations">Basic Charge Calculations</a></li>
-<li><a class="reference internal" href="#example-1-straight-rate">Example 1: Straight Rate</a></li>
-<li><a class="reference internal" href="#example-2-minimum-applies">Example 2: Minimum Applies</a></li>
-<li><a class="reference internal" href="#example-3-decimal-quantity">Example 3: Decimal Quantity</a></li>
-<li><a class="reference internal" href="#example-4-quantity-breaks">Example 4: Quantity Breaks</a></li>
-<li><a class="reference internal" href="#example-5-rate-tiers">Example 5: Rate Tiers</a><ul>
-<li><a class="reference internal" href="#part-5a-irrational-rates">Part (5a): Irrational Rates</a></li>
-<li><a class="reference internal" href="#part-5b-beneficial-deficit">Part (5b): Beneficial Deficit</a></li>
-<li><a class="reference internal" href="#part-5c-penalty-deficit">Part (5c): Penalty Deficit</a></li>
+<li><a class="reference internal" href="#example-1-single-line-rates">Example 1. Single Line Rates</a><ul>
+<li><a class="reference internal" href="#example-1a-straight-rate">Example 1a: Straight Rate</a></li>
+<li><a class="reference internal" href="#example-1b-minimum-applies">Example 1b: Minimum Applies</a></li>
+<li><a class="reference internal" href="#example-1c-decimal-quantity">Example 1c: Decimal Quantity</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#example-2-quantity-breaks">Example 2: Quantity Breaks</a><ul>
+<li><a class="reference internal" href="#part-2a-numerical-breaks">Part (2a): Numerical Breaks</a></li>
+<li><a class="reference internal" href="#part-2b-packing-breaks">Part (2b): Packing Breaks</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#example-3-rate-tiers">Example 3: Rate Tiers</a><ul>
+<li><a class="reference internal" href="#part-3a-irrational-rates">Part (3a): Irrational Rates</a></li>
+<li><a class="reference internal" href="#part-3b-beneficial-deficit">Part (3b): Beneficial Deficit</a></li>
+<li><a class="reference internal" href="#part-3c-penalty-deficit">Part (3c): Penalty Deficit</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#charges-auditing-and-display">Charges Auditing and Display</a></li>
@@ -136,25 +143,29 @@ customer&#8217;s benefit.</p>
 </pre></div>
 </div>
 <p>Subtle differences in the way a rate is expressed may have significant effects
-on revenue. The following figure shows a variety of charge calculations based
-on similar rate entries to illustrate this point.</p>
-<img alt="_images/rate-example1.png" src="_images/rate-example1.png" />
+on revenue. Following examples show a variety of charge calculations based on
+similar rate entries to illustrate this point.</p>
 </div>
-<div class="section" id="example-1-straight-rate">
-<h2>Example 1: Straight Rate<a class="headerlink" href="#example-1-straight-rate" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="example-1-single-line-rates">
+<h2>Example 1. Single Line Rates<a class="headerlink" href="#example-1-single-line-rates" title="Permalink to this headline">¶</a></h2>
+<p>The simplest rates consist of a single line of information, as shown in example
+1.</p>
+<img alt="_images/rate-example1.png" src="_images/rate-example1.png" />
+<div class="section" id="example-1a-straight-rate">
+<h3>Example 1a: Straight Rate<a class="headerlink" href="#example-1a-straight-rate" title="Permalink to this headline">¶</a></h3>
 <p>Where a quantity is 1, the rate will provide a default minimum. In the example,
 a charge of $5.00 is applied to each qualifying activity (UOM = 1R represents
 a transaction). The Minimum is the Rate, and therefore Deficit is always zero.</p>
 </div>
-<div class="section" id="example-2-minimum-applies">
-<h2>Example 2: Minimum Applies<a class="headerlink" href="#example-2-minimum-applies" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="example-1b-minimum-applies">
+<h3>Example 1b: Minimum Applies<a class="headerlink" href="#example-1b-minimum-applies" title="Permalink to this headline">¶</a></h3>
 <p>A <strong>Minimum</strong> greater than the <strong>Rate</strong> may apply, and deficient <strong>Amounts</strong>
 will trigger a <strong>Deficit</strong> to result in a charge equal to the minimum. In this
 example a $.32/case pick fee with a minimum equivalent to 5 cases is applied,
 while only 4 cases were picked.</p>
 </div>
-<div class="section" id="example-3-decimal-quantity">
-<h2>Example 3: Decimal Quantity<a class="headerlink" href="#example-3-decimal-quantity" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="example-1c-decimal-quantity">
+<h3>Example 1c: Decimal Quantity<a class="headerlink" href="#example-1c-decimal-quantity" title="Permalink to this headline">¶</a></h3>
 <p>A decimal <strong>Quantity</strong> may be used for rates expressed in fractional amounts,
 or a <strong>Quantity</strong> may be greater than 1. Here MH labor is charged as $8.00 per
 quarter hour or fraction thereof, with a minimum of $16.00, or a half hour of
@@ -164,25 +175,69 @@ labor. This changes the <strong>Deficit</strong> formula to the larger of:</p>
 </pre></div>
 </div>
 <p>and the extended <strong>charge</strong> formula becomes:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">Rate</span> <span class="o">*</span> <span class="p">(</span> <span class="n">Amount</span> <span class="o">+</span> <span class="n">Deficit</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="n">Quantity</span> <span class="o">*</span> <span class="n">Factor</span> <span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Charge</span> <span class="o">=</span> <span class="n">Rate</span> <span class="o">*</span> <span class="p">(</span> <span class="n">Amount</span> <span class="o">+</span> <span class="n">Deficit</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="n">Quantity</span> <span class="o">*</span> <span class="n">Factor</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="example-4-quantity-breaks">
-<h2>Example 4: Quantity Breaks<a class="headerlink" href="#example-4-quantity-breaks" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="example-2-quantity-breaks">
+<span id="rate-breaks"></span><h2>Example 2: Quantity Breaks<a class="headerlink" href="#example-2-quantity-breaks" title="Permalink to this headline">¶</a></h2>
 <p>Rates based on economic order quantity (EOQ) provide break pricing for specific
-quantities (cheaper by the dozen) or composite units of measure (PK, CA). This
-example shows Each, Pack, and Case picking charges where the order unit is EA
-(each) but the billing units are by the EOQ.</p>
+quantities (cheaper by the dozen or gross) or compound units of measure (PK,
+CA).</p>
+<p>Break rates have a set of special requirements.</p>
+<ol class="arabic simple">
+<li>Break rates are associated with products. A break rate must be in the rate
+group which includes calculated storage and handling rates for products.</li>
+<li>All products may be charged the same storage and handling rates, but some
+products have a break rate for picking, say, while others do not. Then
+product-associated rates must be implemented in two groups: break-rated
+products, and other products.</li>
+<li>Break rates are <strong>Applied</strong> (C)alculated, just as storage and handling are.</li>
+<li>Where break rates are associated with compound units of measure such as PK
+and CA, products in the break group must list the same units of measure with
+corresponding conversion quantities.</li>
+<li>Where rates break according to quantity, order amounts are divided into even
+break amounts and each amount produces a charge line calculated by single
+rate methods discussed previously.</li>
+</ol>
 <div class="admonition-developer-comment admonition">
 <p class="first admonition-title">Developer comment</p>
-<p class="last">There is a definition inadequacy in RATES. Multiple billing UOMs are not
-allowed, but using multiple Bill UOMs should trigger quantity break rating.</p>
+<p class="last">There are definition inadequacies in RATES, in that there is not a switch to
+select explicitly between break rates and tiered rates. Then multiple
+billing UOMs are not supported in the specification, but using multiple Bill
+UOMs is a part of break rating.</p>
 </div>
 <img alt="_images/rate-example2.png" src="_images/rate-example2.png" />
+<div class="section" id="part-2a-numerical-breaks">
+<h3>Part (2a): Numerical Breaks<a class="headerlink" href="#part-2a-numerical-breaks" title="Permalink to this headline">¶</a></h3>
+<p>Example (2a) shows order quantity breaks with corresponding billing UOMs.
+Ordering in multiples of 12 (DZ for dozen) or 144 (GS for gross) would apply
+charges by the corresponding break line. Charge calculation proceeds as follows:</p>
+<ol class="arabic simple">
+<li>Identify the largest break quantity less than or equal to the amount: 288
+goes with line 3, and 24 goes with line 2.</li>
+<li>Divide the amount by the line quantity: dividing 288 by 144 results in a
+billable amount of 2 GS, 24 divided by 12 gives a billable amount of 2 DZ.</li>
+<li>Treat a line as if it were a single rate, calculating any deficit and
+extending the charge. 2 GS extends to $16.00, and 2 DZ extends to $8.00.</li>
+<li>Where division in Step 2 leaves a remainer, calculate the leftover amount as
+a separate charge billed at the preceding level. For example, 300 EA yields
+two charge lines: 2 GS &#64; $8.00 = $16.00, and 1 DZ &#64; $4.00 = $4.00. Similarly
+50 EA = 4 PK + 2 EA, generating billing lines for 4 PK &#64; $4.00 = $16.00 and
+2 EA &#64; .50, with a minimum of $1.60, = $1.60.</li>
+</ol>
 </div>
-<div class="section" id="example-5-rate-tiers">
-<span id="rate-tiers"></span><h2>Example 5: Rate Tiers<a class="headerlink" href="#example-5-rate-tiers" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="part-2b-packing-breaks">
+<h3>Part (2b): Packing Breaks<a class="headerlink" href="#part-2b-packing-breaks" title="Permalink to this headline">¶</a></h3>
+<p>Example (2b) shows Each, Pack, and Case charges where inventory is counted in
+EA (each), but activity is performed in EOQ units of measure. Charges are
+calculated according to the UOM used. The break line of the corresponding UOM
+is treated as a single rate, as explained in Example 1.</p>
+</div>
+</div>
+<div class="section" id="example-3-rate-tiers">
+<span id="rate-tiers"></span><h2>Example 3: Rate Tiers<a class="headerlink" href="#example-3-rate-tiers" title="Permalink to this headline">¶</a></h2>
 <p>Rate tiers offer several pricing options. A tiered rate may provide pricing
 with step changes (no deficits), with transition deficits benefiting the
 customer, or with transitions deficits penalizing the customer.</p>
@@ -191,14 +246,14 @@ weight. A charge is calculated for a container weighing 39,000 lb. and one
 weighing 40,000 lb. Rates are the same in each part of the example except for
 the minimums.</p>
 <img alt="_images/rate-example3.png" src="_images/rate-example3.png" />
-<div class="section" id="part-5a-irrational-rates">
-<h3>Part (5a): Irrational Rates<a class="headerlink" href="#part-5a-irrational-rates" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="part-3a-irrational-rates">
+<h3>Part (3a): Irrational Rates<a class="headerlink" href="#part-3a-irrational-rates" title="Permalink to this headline">¶</a></h3>
 <p>Deficit quantities are not calculated when minimums are absent. in part (a),
 there are no minimums and the charge at 40,000 lb. is $12.40 less than the
 charge at 39,000 lb. This is considered a pricing irrationality.</p>
 </div>
-<div class="section" id="part-5b-beneficial-deficit">
-<h3>Part (5b): Beneficial Deficit<a class="headerlink" href="#part-5b-beneficial-deficit" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="part-3b-beneficial-deficit">
+<h3>Part (3b): Beneficial Deficit<a class="headerlink" href="#part-3b-beneficial-deficit" title="Permalink to this headline">¶</a></h3>
 <p>Irrationalities can be eliminated by applying line minimums. In part (b), the
 minimums on the second and third line equal the product of Quantity and Rate on
 those lines. WARES will compare the charge with the minimum at the next break,
@@ -240,8 +295,8 @@ level.</p>
 <p>The customer receives the benefit of a lower charge by being billed for a
 greater quantity based on the deficit.</p>
 </div>
-<div class="section" id="part-5c-penalty-deficit">
-<h3>Part (5c): Penalty Deficit<a class="headerlink" href="#part-5c-penalty-deficit" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="part-3c-penalty-deficit">
+<h3>Part (3c): Penalty Deficit<a class="headerlink" href="#part-3c-penalty-deficit" title="Permalink to this headline">¶</a></h3>
 <p>To avoid a price reduction for amounts below a break level, minimums should
 equal the break Quantity times the Rate of the previous level. In this example:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">Minimum</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="n">Quantity</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">Rate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">Factor</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span><span class="mo">000</span> <span class="o">*</span> <span class="o">.</span><span class="mi">400</span> <span class="o">/</span> <span class="mf">100.0</span> <span class="o">=</span> <span class="mf">80.0</span>
