@@ -48,18 +48,18 @@
 <li><a class="reference internal" href="#">How Rates Extend to Charges</a><ul>
 <li><a class="reference internal" href="#minimums-and-deficits">Minimums and Deficits</a></li>
 <li><a class="reference internal" href="#basic-charge-calculations">Basic Charge Calculations</a></li>
-<li><a class="reference internal" href="#example-1-single-line-rates">Example 1. Single Line Rates</a><ul>
+<li><a class="reference internal" href="#section-1-single-line-rates">Section 1: Single Line Rates</a><ul>
 <li><a class="reference internal" href="#part-1a-straight-rate">Part (1a): Straight Rate</a></li>
 <li><a class="reference internal" href="#part-1b-minimum-applies">Part (1b): Minimum Applies</a></li>
 <li><a class="reference internal" href="#part-1c-quantity-not-one">Part (1c): Quantity Not One</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#example-2-rate-break-tables">Example 2: Rate Break Tables</a><ul>
+<li><a class="reference internal" href="#section-2-rate-break-tables">Section 2: Rate Break Tables</a><ul>
 <li><a class="reference internal" href="#part-2a-numeric-breaks">Part (2a): Numeric Breaks</a></li>
 <li><a class="reference internal" href="#part-2b-measure-breaks">Part (2b): Measure Breaks</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#example-3-rate-tiers">Example 3: Rate Tiers</a><ul>
+<li><a class="reference internal" href="#section-3-rate-tiers">Section 3: Rate Tiers</a><ul>
 <li><a class="reference internal" href="#part-3a-irrational-rates">Part (3a): Irrational Rates</a></li>
 <li><a class="reference internal" href="#part-3b-beneficial-deficit">Part (3b): Beneficial Deficit</a></li>
 <li><a class="reference internal" href="#part-3c-penalty-deficit">Part (3c): Penalty Deficit</a></li>
@@ -118,7 +118,8 @@ calculated Amounts will be adjusted to the fractional units of the quantity.</li
 <li>A rate entry is required unless the service is optional.</li>
 <li>The default minimum is the quantity times the rate. Enter a higher amount as
 desired.</li>
-<li>Where rates are tiered, the guantities must be listed in ascending order.</li>
+<li>The quantities in tiered rates or rate break tables must be listed in
+ascending order.</li>
 <li>Tiered rates with minimums are calculated to eliminate rate irrationality.</li>
 </ul>
 <div class="section" id="minimums-and-deficits">
@@ -134,7 +135,7 @@ customer&#8217;s benefit.</p>
 <h2>Basic Charge Calculations<a class="headerlink" href="#basic-charge-calculations" title="Permalink to this headline">¶</a></h2>
 <p>The basic formula to calculate a charge from a rate is:</p>
 <p><strong>Deficit</strong> is the larger of:</p>
-<div class="highlight-python"><div class="highlight"><pre>(a)  ( Minimum * Factor ) / Rate - Amount
+<div class="highlight-python"><div class="highlight"><pre>(a)  ( Minimum * Factor / Rate ) - Amount
 (b)  0
 </pre></div>
 </div>
@@ -146,8 +147,8 @@ customer&#8217;s benefit.</p>
 on revenue. Following examples show a variety of charge calculations based on
 similar rate entries to illustrate this point.</p>
 </div>
-<div class="section" id="example-1-single-line-rates">
-<h2>Example 1. Single Line Rates<a class="headerlink" href="#example-1-single-line-rates" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="section-1-single-line-rates">
+<h2>Section 1: Single Line Rates<a class="headerlink" href="#section-1-single-line-rates" title="Permalink to this headline">¶</a></h2>
 <p>The simplest rates consist of a single line of information, as shown in example
 1.</p>
 <img alt="_images/rate-example1.png" src="_images/rate-example1.png" />
@@ -170,7 +171,7 @@ while only 4 cases were picked.</p>
 or a <strong>Quantity</strong> may be greater than 1. Here MH labor is charged as $8.00 per
 quarter hour or fraction thereof, with a minimum of $16.00, or a half hour of
 labor. This changes the <strong>Deficit</strong> formula to the larger of:</p>
-<div class="highlight-python"><div class="highlight"><pre>(a)  ( Minimum * Factor * Quantity ) / Rate - Amount
+<div class="highlight-python"><div class="highlight"><pre>(a)  ( Minimum * Factor * Quantity / Rate ) - Amount
 (b)  0
 </pre></div>
 </div>
@@ -180,8 +181,8 @@ labor. This changes the <strong>Deficit</strong> formula to the larger of:</p>
 </div>
 </div>
 </div>
-<div class="section" id="example-2-rate-break-tables">
-<span id="rate-breaks"></span><h2>Example 2: Rate Break Tables<a class="headerlink" href="#example-2-rate-break-tables" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="section-2-rate-break-tables">
+<span id="rate-breaks"></span><h2>Section 2: Rate Break Tables<a class="headerlink" href="#section-2-rate-break-tables" title="Permalink to this headline">¶</a></h2>
 <p>Related single rates that differ by quantity level may be combined into a rate
 break table. An example of this would be picking charges for screws which are
 inventoried by each (EA) but are in bags of 12 (DZ) with 12 bags to a box (GS).
@@ -272,8 +273,8 @@ UOMs is a part of break rating.</p>
 </div>
 </div>
 </div>
-<div class="section" id="example-3-rate-tiers">
-<span id="rate-tiers"></span><h2>Example 3: Rate Tiers<a class="headerlink" href="#example-3-rate-tiers" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="section-3-rate-tiers">
+<span id="rate-tiers"></span><h2>Section 3: Rate Tiers<a class="headerlink" href="#section-3-rate-tiers" title="Permalink to this headline">¶</a></h2>
 <p>Rate tiers offer several pricing options. A tiered rate may provide pricing
 with step changes (no deficits), with transition deficits benefiting the
 customer, or with transitions deficits penalizing the customer.</p>
@@ -292,21 +293,20 @@ charge at 39,000 lb. This is considered a pricing irrationality.</p>
 <h3>Part (3b): Beneficial Deficit<a class="headerlink" href="#part-3b-beneficial-deficit" title="Permalink to this headline">¶</a></h3>
 <p>Irrationalities can be eliminated by applying line minimums. In part (b), the
 minimums on the second and third line equal the product of Quantity and Rate on
-those lines. WARES will compare the charge with the minimum at the next break,
-and if that minimum is less, a deficit will be added to move to the next rate
-level.</p>
+those lines. WARES will compare the charge with the minimum at the next higher
+break, and if that minimum is less, a deficit will be added to move to the next
+rate level.</p>
 <p>Now when not the final rate tier, the <strong>Deficit</strong> calculation becomes, if:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">Minimum</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">Rate</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">Amount</span> <span class="o">/</span> <span class="p">(</span> <span class="n">Quantity</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">Factor</span> <span class="p">)</span>
 </pre></div>
 </div>
 <p>then:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">Deficit</span> <span class="o">=</span> <span class="n">Quantity</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">Amount</span>
-<span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
 </pre></div>
 </div>
 <p>else <strong>Deficit</strong> is the greater of:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">Deficit</span> <span class="o">=</span> <span class="p">(</span> <span class="n">Minimum</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">Factor</span> <span class="o">*</span> <span class="n">Quantity</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="o">/</span> <span class="n">Rate</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">-</span> <span class="n">Amount</span>
-<span class="n">Deficit</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">(</span> <span class="n">Minimum</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">Factor</span> <span class="o">*</span> <span class="n">Quantity</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">Rate</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">)</span> <span class="o">-</span> <span class="n">Amount</span>
+<span class="mi">0</span>
 </pre></div>
 </div>
 <p>And the <strong>Charge</strong> calculation is as stated before at all tiers:</p>
