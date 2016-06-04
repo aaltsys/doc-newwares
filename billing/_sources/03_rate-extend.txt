@@ -4,12 +4,12 @@
 How Rates Extend to Charges
 #############################
 
-A service may have a single rate or tiered rates, where multiple rates in tiers 
-vary with quantity. Charges are calculated from quantities and rates according 
-to the following rules.
+A service may have a single rate, a break table of rates,  or tiered rates, 
+where multiple rates in tiers vary with quantity. Charges are calculated from 
+quantities and rates according to the following rules.
 
 *  Quantity is required to be positive, the default value is 1.
-*  Where the quantity is fractional, the rate is for the fraction stated. For 
+*  Where the quantity is not 1, the rate is for the quantity stated. For 
    example, labor charged at the rate of $8.00 per quarter hour or fraction
    thereof would have a quantity of .25 and a rate of $8.00. Entered or 
    calculated Amounts will be adjusted to the fractional units of the quantity.
