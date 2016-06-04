@@ -55,14 +55,14 @@ The simplest rates consist of a single line of information, as shown in example
 
 .. image:: _images/rate-example1.png
 
-Example 1a: Straight Rate
+Part (1a): Straight Rate
 -----------------------------
 
 Where a quantity is 1, the rate will provide a default minimum. In the example, 
 a charge of $5.00 is applied to each qualifying activity (UOM = 1R represents 
 a transaction). The Minimum is the Rate, and therefore Deficit is always zero.
 
-Example 1b: Minimum Applies
+Part (1b): Minimum Applies
 -----------------------------
 
 A **Minimum** greater than the **Rate** may apply, and deficient **Amounts** 
@@ -70,7 +70,7 @@ will trigger a **Deficit** to result in a charge equal to the minimum. In this
 example a $.32/case pick fee with a minimum equivalent to 5 cases is applied, 
 while only 4 cases were picked.
 
-Example 1c: Decimal Quantity
+Part (1c): Decimal Quantity
 -----------------------------
 
 A decimal **Quantity** may be used for rates expressed in fractional amounts, 
