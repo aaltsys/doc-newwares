@@ -203,7 +203,7 @@
 </tr>
 <tr class="row-odd"><td>M</td>
 <td>A</td>
-<td>BILL_UOM</td>
+<td>RATE_TYPE</td>
 <td>LC</td>
 <td>U</td>
 <td><a class="reference external" href="../codes/P_code-uom.html#uom-list" title="(in WARES Codes v1.0)"><em>Units of Measure</em></a></td>
@@ -232,6 +232,16 @@
 <td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>O</td>
+<td>S</td>
+<td>ITEM_MIN</td>
+<td>N</td>
+<td>&nbsp;</td>
+<td>(MD2)</td>
+<td colspan="2">&nbsp;</td>
+<td colspan="2">R8</td>
+<td><a class="footnote-reference" href="#id14" id="id5">[5]</a></td>
+</tr>
+<tr class="row-odd"><td>O</td>
 <td>NM</td>
 <td>RATE</td>
 <td>N</td>
@@ -239,21 +249,11 @@
 <td>(MD4)</td>
 <td colspan="2">&nbsp;</td>
 <td colspan="2">R8</td>
-<td><a class="footnote-reference" href="#id13" id="id5">[4]</a></td>
-</tr>
-<tr class="row-odd"><td>O</td>
-<td>NM</td>
-<td>QUANTITY</td>
-<td>N</td>
-<td>&nbsp;</td>
-<td>(MD2)</td>
-<td colspan="2">&nbsp;</td>
-<td colspan="2">R8</td>
 <td><a class="footnote-reference" href="#id13" id="id6">[4]</a></td>
 </tr>
 <tr class="row-even"><td>O</td>
 <td>NM</td>
-<td>MINIMUM</td>
+<td>QUANTITY</td>
 <td>N</td>
 <td>&nbsp;</td>
 <td>(MD2)</td>
@@ -262,18 +262,28 @@
 <td><a class="footnote-reference" href="#id13" id="id7">[4]</a></td>
 </tr>
 <tr class="row-odd"><td>O</td>
-<td>S</td>
-<td>ITEM_MIN</td>
+<td>NM</td>
+<td>MINIMUM</td>
 <td>N</td>
 <td>&nbsp;</td>
 <td>(MD2)</td>
 <td colspan="2">&nbsp;</td>
 <td colspan="2">R8</td>
-<td><a class="footnote-reference" href="#id14" id="id8">[5]</a></td>
+<td><a class="footnote-reference" href="#id13" id="id8">[4]</a></td>
 </tr>
-<tr class="row-even"><td colspan="11">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Repeating Calendar</td>
+<tr class="row-even"><td>M</td>
+<td>AM</td>
+<td>BILL_UOM</td>
+<td>LC</td>
+<td>U</td>
+<td><a class="reference external" href="../codes/P_code-uom.html#uom-list" title="(in WARES Codes v1.0)"><em>Units of Measure</em></a></td>
+<td colspan="2">&nbsp;</td>
+<td colspan="2">L4</td>
+<td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>C</td>
+<tr class="row-odd"><td colspan="11">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Repeating Calendar</td>
+</tr>
+<tr class="row-even"><td>C</td>
 <td>A</td>
 <td>CALENDAR_KEY</td>
 <td>A</td>
@@ -384,14 +394,14 @@ from the account.</td></tr>
 <table class="docutils footnote" frame="void" id="id13" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[4]</td><td><em>(<a class="fn-backref" href="#id5">1</a>, <a class="fn-backref" href="#id6">2</a>, <a class="fn-backref" href="#id7">3</a>)</em> Rates are tiered and include rate rationality using deficit quantities.</td></tr>
+<tr><td class="label">[4]</td><td><em>(<a class="fn-backref" href="#id6">1</a>, <a class="fn-backref" href="#id7">2</a>, <a class="fn-backref" href="#id8">3</a>)</em> Rates are tiered and include rate rationality using deficit quantities.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="id14" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id8">[5]</a></td><td>Where charges are calculated for a multi-line transaction, a minimum
-charge for the total transaction may apply.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id5">[5]</a></td><td>Where charges are calculated for a multi-line activity, a minimum charge
+for the total transaction may apply.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="id15" rules="none">

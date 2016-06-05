@@ -12,12 +12,12 @@ quantities and rates according to the following rules.
 *  Where the quantity is not 1, the rate is for the quantity stated. For 
    example, labor charged at the rate of $8.00 per quarter hour or fraction
    thereof would have a quantity of .25 and a rate of $8.00. Entered or 
-   calculated Amounts will be adjusted to the fractional units of the quantity.
+   calculated Amounts will be adjusted in proportion to the quantity.
 *  A rate entry is required unless the service is optional.
 *  The default minimum is the quantity times the rate. Enter a higher amount as 
    desired.
-*  The quantities in tiered rates or rate break tables must be listed in 
-   ascending order.
+*  The quantities or measures in tiered rates or rate break tables must be 
+   listed in ascending order.
 *  Tiered rates with minimums are calculated to eliminate rate irrationality.
 
 Minimums and Deficits
@@ -176,13 +176,6 @@ Example (2b) shows Each, Pack, and Case charges where inventory is counted in
 EA (each), but activity is performed in EOQ units of measure. Charges are 
 calculated according to the UOM used. The break line of the corresponding UOM 
 is treated as a single rate.
-
-.. admonition:: Developer comment
-
-   There are definition inadequacies in RATES, in that there is not a switch to 
-   select explicitly between single, break, and tiered rates. Then multiple 
-   billing UOMs are not supported in the specification, but using multiple Bill 
-   UOMs is a part of break rating.
 
 .. _rate-tiers:
 

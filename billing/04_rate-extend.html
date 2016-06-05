@@ -25,18 +25,18 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="WARES Billing 1.0 documentation" href="index.html" />
-    <link rel="next" title="Calculation Calendar" href="04_calendars.html" />
-    <link rel="prev" title="Billing Rates" href="02_rates.html" /> 
+    <link rel="next" title="Apply and Calculate Charges" href="05_apply.html" />
+    <link rel="prev" title="Billing Rates" href="03_rates.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="04_calendars.html" title="Calculation Calendar"
+          <a href="05_apply.html" title="Apply and Calculate Charges"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="02_rates.html" title="Billing Rates"
+          <a href="03_rates.html" title="Billing Rates"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">WARES Billing 1.0 documentation</a> &raquo;</li> 
       </ul>
@@ -71,15 +71,15 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="02_rates.html"
+  <p class="topless"><a href="03_rates.html"
                         title="previous chapter">Billing Rates</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="04_calendars.html"
-                        title="next chapter">Calculation Calendar</a></p>
+  <p class="topless"><a href="05_apply.html"
+                        title="next chapter">Apply and Calculate Charges</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/03_rate-extend.txt"
+      <li><a href="_sources/04_rate-extend.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -114,12 +114,12 @@ quantities and rates according to the following rules.</p>
 <li>Where the quantity is not 1, the rate is for the quantity stated. For
 example, labor charged at the rate of $8.00 per quarter hour or fraction
 thereof would have a quantity of .25 and a rate of $8.00. Entered or
-calculated Amounts will be adjusted to the fractional units of the quantity.</li>
+calculated Amounts will be adjusted in proportion to the quantity.</li>
 <li>A rate entry is required unless the service is optional.</li>
 <li>The default minimum is the quantity times the rate. Enter a higher amount as
 desired.</li>
-<li>The quantities in tiered rates or rate break tables must be listed in
-ascending order.</li>
+<li>The quantities or measures in tiered rates or rate break tables must be
+listed in ascending order.</li>
 <li>Tiered rates with minimums are calculated to eliminate rate irrationality.</li>
 </ul>
 <div class="section" id="minimums-and-deficits">
@@ -264,13 +264,6 @@ two charge lines: 2 GS &#64; $8.00 = $16.00, and 1 DZ &#64; $4.00 = $4.00. Simil
 EA (each), but activity is performed in EOQ units of measure. Charges are
 calculated according to the UOM used. The break line of the corresponding UOM
 is treated as a single rate.</p>
-<div class="admonition-developer-comment admonition">
-<p class="first admonition-title">Developer comment</p>
-<p class="last">There are definition inadequacies in RATES, in that there is not a switch to
-select explicitly between single, break, and tiered rates. Then multiple
-billing UOMs are not supported in the specification, but using multiple Bill
-UOMs is a part of break rating.</p>
-</div>
 </div>
 </div>
 <div class="section" id="section-3-rate-tiers">
@@ -350,7 +343,7 @@ receives no early benefit from the rate break.</p>
 <h2>Charges Auditing and Display<a class="headerlink" href="#charges-auditing-and-display" title="Permalink to this headline">¶</a></h2>
 <p>WARES produces invoices summarized by rate, and transaction details supporting
 the invoice are provided in audit reports. These reports are described in the
-documentation topic <a class="reference internal" href="08_calculated.html#bill-audits"><em>Charges Audit Reports</em></a>.</p>
+documentation topic <em class="xref std std-ref">bill-audits</em>.</p>
 </div>
 </div>
 
@@ -364,10 +357,10 @@ documentation topic <a class="reference internal" href="08_calculated.html#bill-
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="04_calendars.html" title="Calculation Calendar"
+          <a href="05_apply.html" title="Apply and Calculate Charges"
              >next</a></li>
         <li class="right" >
-          <a href="02_rates.html" title="Billing Rates"
+          <a href="03_rates.html" title="Billing Rates"
              >previous</a> |</li>
         <li><a href="index.html">WARES Billing 1.0 documentation</a> &raquo;</li> 
       </ul>
