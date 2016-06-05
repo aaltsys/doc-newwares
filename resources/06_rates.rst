@@ -33,11 +33,13 @@ RATES Data Table Columns
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | O | A | DESCRIPTION    | A   | U |                      |        | T40 |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| M | A | BILL_UOM       | LC  | U | :ref:`uom-list`      |        | L4  |     |
+| M | A | RATE_TYPE      | LC  | U | :ref:`uom-list`      |        | L4  |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | M | S | FACTOR         | N   |   | (MD4)                |        | R8  |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | O | S | SURCHARGE      | N   |   | (MD4)                |        | R8  |     |
++---+---+----------------+-----+---+----------------------+--------+-----+-----+
+| O | S | ITEM_MIN       | N   |   | (MD2)                |        | R8  | [5]_|
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | O | NM| RATE           | N   |   | (MD4)                |        | R8  | [4]_|
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
@@ -45,7 +47,7 @@ RATES Data Table Columns
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | O | NM| MINIMUM        | N   |   | (MD2)                |        | R8  | [4]_|
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| O | S | ITEM_MIN       | N   |   | (MD2)                |        | R8  | [5]_|
+| M | AM| BILL_UOM       | LC  | U | :ref:`uom-list`      |        | L4  |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | -- -- -- -- -- -- -- -- -- -- -- -- Repeating Calendar                       |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
@@ -64,7 +66,7 @@ RATES Data Table Columns
        return values for the quantity or the payer. The payer may be different
        from the account.
 .. [4] Rates are tiered and include rate rationality using deficit quantities.
-.. [5] Where charges are calculated for a multi-line transaction, a minimum 
-       charge for the total transaction may apply.
+.. [5] Where charges are calculated for a multi-line activity, a minimum charge 
+       for the total transaction may apply.
 .. [6] Calendar values and associated operations are a component of billing 
        rules, where they are described.
