@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>How Rates Extend to Charges &mdash; WARES Billing 1.0 documentation</title>
+    <title>Extending Rates to Charges &mdash; WARES Billing 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -45,7 +45,7 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">How Rates Extend to Charges</a><ul>
+<li><a class="reference internal" href="#">Extending Rates to Charges</a><ul>
 <li><a class="reference internal" href="#minimums-and-deficits">Minimums and Deficits</a></li>
 <li><a class="reference internal" href="#basic-charge-calculations">Basic Charge Calculations</a></li>
 <li><a class="reference internal" href="#section-1-single-line-rates">Section 1: Single Line Rates</a><ul>
@@ -61,8 +61,8 @@
 </li>
 <li><a class="reference internal" href="#section-3-rate-tiers">Section 3: Rate Tiers</a><ul>
 <li><a class="reference internal" href="#part-3a-irrational-rates">Part (3a): Irrational Rates</a></li>
-<li><a class="reference internal" href="#part-3b-beneficial-deficit">Part (3b): Beneficial Deficit</a></li>
-<li><a class="reference internal" href="#part-3c-penalty-deficit">Part (3c): Penalty Deficit</a></li>
+<li><a class="reference internal" href="#part-3b-favorable-deficit">Part (3b): Favorable Deficit</a></li>
+<li><a class="reference internal" href="#part-3c-rational-deficit">Part (3c): Rational Deficit</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#charges-auditing-and-display">Charges Auditing and Display</a></li>
@@ -104,8 +104,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="how-rates-extend-to-charges">
-<span id="rate-extend"></span><h1>How Rates Extend to Charges<a class="headerlink" href="#how-rates-extend-to-charges" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="extending-rates-to-charges">
+<span id="rate-extend"></span><h1>Extending Rates to Charges<a class="headerlink" href="#extending-rates-to-charges" title="Permalink to this headline">¶</a></h1>
 <p>A service may have a single rate, a break table of rates,  or tiered rates,
 where multiple rates in tiers vary with quantity. Charges are calculated from
 quantities and rates according to the following rules.</p>
@@ -276,7 +276,7 @@ is treated as a single rate.</p>
 <span id="rate-tiers"></span><h2>Section 3: Rate Tiers<a class="headerlink" href="#section-3-rate-tiers" title="Permalink to this headline">¶</a></h2>
 <p>Rate tiers offer several pricing options. A tiered rate may provide pricing
 with step changes (no deficits), with transition deficits benefiting the
-customer, or with transitions deficits penalizing the customer.</p>
+customer below the step, or with transitions beginning above the step.</p>
 <p>In this example, a container stripping fee is charged according to container
 weight. A charge is calculated for a container weighing 39,000 lb. and one
 weighing 40,000 lb. Rates are the same in each part of the example except for
@@ -288,8 +288,8 @@ the minimums.</p>
 there are no minimums and the charge at 40,000 lb. is $12.40 less than the
 charge at 39,000 lb. This is considered a pricing irrationality.</p>
 </div>
-<div class="section" id="part-3b-beneficial-deficit">
-<h3>Part (3b): Beneficial Deficit<a class="headerlink" href="#part-3b-beneficial-deficit" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="part-3b-favorable-deficit">
+<h3>Part (3b): Favorable Deficit<a class="headerlink" href="#part-3b-favorable-deficit" title="Permalink to this headline">¶</a></h3>
 <p>Irrationalities can be eliminated by applying line minimums. In part (b), the
 minimums on the second and third line equal the product of Quantity and Rate on
 those lines. WARES will compare the charge with the minimum at the next higher
@@ -330,8 +330,8 @@ rate level.</p>
 <p>The customer receives the benefit of a lower charge by being billed for a
 greater quantity based on the deficit.</p>
 </div>
-<div class="section" id="part-3c-penalty-deficit">
-<h3>Part (3c): Penalty Deficit<a class="headerlink" href="#part-3c-penalty-deficit" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="part-3c-rational-deficit">
+<h3>Part (3c): Rational Deficit<a class="headerlink" href="#part-3c-rational-deficit" title="Permalink to this headline">¶</a></h3>
 <p>To avoid a price reduction for amounts below a break level, minimums should
 equal the break Quantity times the Rate of the previous level. In this example:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">Minimum</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="n">Quantity</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">Rate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">Factor</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span><span class="mo">000</span> <span class="o">*</span> <span class="o">.</span><span class="mi">400</span> <span class="o">/</span> <span class="mf">100.0</span> <span class="o">=</span> <span class="mf">80.0</span>
@@ -342,7 +342,7 @@ equal the break Quantity times the Rate of the previous level. In this example:<
 (a), but this is less than the next minimum of $144.00.</p>
 <p>At Amount = 40,000 lb. there is a Deficit = 5,000 so that the charge meets the
 line minimum, $144.00. There is no rate irrationality, but the customer
-receives no early benefit from the rate break.</p>
+receives no benefit from the rate break at or below 40,000 lbs.</p>
 </div>
 </div>
 <div class="section" id="charges-auditing-and-display">

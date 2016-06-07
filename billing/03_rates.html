@@ -25,7 +25,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="WARES Billing 1.0 documentation" href="index.html" />
-    <link rel="next" title="How Rates Extend to Charges" href="04_extend.html" />
+    <link rel="next" title="Extending Rates to Charges" href="04_extend.html" />
     <link rel="prev" title="Calculation Calendar" href="02_calendars.html" /> 
   </head>
   <body role="document">
@@ -33,7 +33,7 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="04_extend.html" title="How Rates Extend to Charges"
+          <a href="04_extend.html" title="Extending Rates to Charges"
              accesskey="N">next</a></li>
         <li class="right" >
           <a href="02_calendars.html" title="Calculation Calendar"
@@ -73,7 +73,7 @@
                         title="previous chapter">Calculation Calendar</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="04_extend.html"
-                        title="next chapter">How Rates Extend to Charges</a></p>
+                        title="next chapter">Extending Rates to Charges</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -352,7 +352,7 @@ rates form a table based on either (Q)uantity or (M)easure, or if a rate
 has (T)ier levels with corresponding minimums and rationality checks.</li>
 <li>A <strong>Factor</strong> will divide the quantity in a charge to convert from inventory
 quantity to billing quantity. For example, the factor <em>100.00</em> converts
-inventory units <em>LB</em> into billing UOM <em>CW</em> (hundredweight).</li>
+inventory unit <em>LB</em> into billing unit <em>CW</em> (hundredweight).</li>
 <li>A <strong>Surcharge</strong> percentage may apply to a rate to cover services taxes, fuel
 surcharges, or other items. This is a percentage, not a decimal value.</li>
 <li>An <strong>Item Minimum</strong> can be applied to an entire transaction to result in
@@ -367,19 +367,19 @@ can increase or decrease as quantity increases.</p>
 <li>Where a <strong>Rate</strong> for a particular charge is variable, the Rate field may be
 left blank and entered manually each time the charge is applied.</li>
 <li>The <strong>Quantity</strong> defaults to 1.0. Quantity entries are required.</li>
-<li>A <strong>Minimum</strong> value for resulting charges defaults to <strong>Rate X quantity</strong>.
-This minimum would be applied to every transaction line.</li>
+<li>A <strong>Minimum</strong> value for resulting charges defaults to <strong>Rate</strong> times
+<strong>Quantity</strong>. This minimum would be applied to every transaction line.</li>
 </ul>
-<p>See <a class="reference internal" href="04_extend.html#rate-extend"><em>How Rates Extend to Charges</em></a> for a detailed explanation of rate calculations.</p>
+<p>See <a class="reference internal" href="04_extend.html#rate-extend"><em>Extending Rates to Charges</em></a> for a detailed explanation of rate calculations.</p>
 </div>
 <div class="section" id="rates-setup-considerations">
 <h2>Rates Setup Considerations<a class="headerlink" href="#rates-setup-considerations" title="Permalink to this headline">¶</a></h2>
-<p>Before any rates are entered, decide what services are being offered
-and what the default, or retail, rates are for those services. When defining a
-list of services, do not over-generalize. For example, do not lump all labor
-services into a single heading, when they can be broken down into specific
-activities such as RESTACKING, PACKAGING, RELOCATING, and so forth.</p>
-<p>Global Rates: Once your business services are identified, enter a rate in group
+<p>Before any rates are entered, decide what services are being offered and what
+the default, or retail, rates are for those services. When defining a list of
+services, do not over-generalize. For example, do not lump all labor services
+into a single heading, when they can be broken down into specific activities
+such as RESTACKING, PACKAGING, RELOCATING, and so forth.</p>
+<p>Global Rates: Once business services are identified, enter a rate in group
 <strong>GLOBAL</strong> for each optional service using the highest rate charged.</p>
 <p>Override Rates: Group negotiated rates on each account under the account
 identifier, using the same service codes as in group <strong>GLOBAL</strong>. These
@@ -408,7 +408,7 @@ master record identifies the rate group specific to that product.</p>
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="04_extend.html" title="How Rates Extend to Charges"
+          <a href="04_extend.html" title="Extending Rates to Charges"
              >next</a></li>
         <li class="right" >
           <a href="02_calendars.html" title="Calculation Calendar"
