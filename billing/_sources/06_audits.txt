@@ -1,4 +1,4 @@
-.. bill-audits:
+.. _bill-audits:
 
 #############################
 Charges Audit Reports

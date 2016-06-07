@@ -139,6 +139,11 @@ The following requirements apply to rate break tables:
    defined in the same way as rate break tables. Said another way, a break 
    table must contain at least one rate line.
 
+.. admonition:: Developer Comment
+   An additional pair of data columns should be added to the PRODUCTS schema to 
+   provide for UOM and factor conversions of measures which are not quantified 
+   in inventory.
+
 Charge calculation for a break table follows these steps:
 
 #. Calculation begins with the largest line quantity which divides the activity 
