@@ -140,6 +140,7 @@ The following requirements apply to rate break tables:
    table must contain at least one rate line.
 
 .. admonition:: Developer Comment
+
    An additional pair of data columns should be added to the PRODUCTS schema to 
    provide for UOM and factor conversions of measures which are not quantified 
    in inventory.
