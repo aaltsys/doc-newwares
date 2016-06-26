@@ -12,7 +12,7 @@ pricing aspect of rates and the application of rates to warehouse activity.
 
 .. _bill-rate-quote:
 
-Rate Quote Information 
+Rate Quotation Report 
 =============================
 
 A **Rate Quote** shows the customer services being offered and charges to be 
@@ -140,6 +140,10 @@ The following figure shows identifying entries for rates:
 
 .. image:: _images/rates-id.png
 
+.. note::
+   Calendar is a protected entry. For rates which are Applied Repeating, the 
+   **Calendar** entry is filled with **RATE*group*service**. 
+
 Rate Activity Scope
 -----------------------------
 
@@ -149,8 +153,8 @@ billing units. When a rate is associated with an activity list, the rate is
 restricted to only that list of activities.
 
 .. note::
-   Where a standard per code cannot return a usable quantity, or if the payer of 
-   a charge is not the account, then custom program methods may be required. 
+   Where a standard per code cannot return a usable quantity, or if the payer 
+   of a charge is not the account, then custom program methods may be required. 
    Optional method entries are provided to enable these custom features.
 
 Rules Regarding Rate Scope
@@ -215,7 +219,7 @@ Rate calculation entries determine the content of charge line detail.
    has (T)ier levels with corresponding minimums and rationality checks.
 *  A **Factor** will divide the quantity in a charge to convert from inventory
    quantity to billing quantity. For example, the factor *100.00* converts 
-   inventory units *LB* into billing UOM *CW* (hundredweight).
+   inventory unit *LB* into billing unit *CW* (hundredweight).
 *  A **Surcharge** percentage may apply to a rate to cover services taxes, fuel 
    surcharges, or other items. This is a percentage, not a decimal value. 
 *  An **Item Minimum** can be applied to an entire transaction to result in 
@@ -230,21 +234,21 @@ can increase or decrease as quantity increases.
 *  Where a **Rate** for a particular charge is variable, the Rate field may be 
    left blank and entered manually each time the charge is applied.
 *  The **Quantity** defaults to 1.0. Quantity entries are required.
-*  A **Minimum** value for resulting charges defaults to **Rate X quantity**.
-   This minimum would be applied to every transaction line.
+*  A **Minimum** value for resulting charges defaults to **Rate** times 
+   **Quantity**. This minimum would be applied to every transaction line.
 
 See :ref:`rate-extend` for a detailed explanation of rate calculations.
 
 Rates Setup Considerations 
 =============================
 
-Before any rates are entered, decide what services are being offered 
-and what the default, or retail, rates are for those services. When defining a 
-list of services, do not over-generalize. For example, do not lump all labor 
-services into a single heading, when they can be broken down into specific 
-activities such as RESTACKING, PACKAGING, RELOCATING, and so forth.
+Before any rates are entered, decide what services are being offered and what 
+the default, or retail, rates are for those services. When defining a list of 
+services, do not over-generalize. For example, do not lump all labor services 
+into a single heading, when they can be broken down into specific activities 
+such as RESTACKING, PACKAGING, RELOCATING, and so forth.
 
-Global Rates: Once your business services are identified, enter a rate in group
+Global Rates: Once business services are identified, enter a rate in group
 **GLOBAL** for each optional service using the highest rate charged. 
 
 Override Rates: Group negotiated rates on each account under the account 
@@ -264,5 +268,3 @@ charges for rates which are based on properties beyond the amounts of a
 transaction. Warehouse storage and handling charges depend on product 
 characteristics, and these rates are calculated accordingly. Each product 
 master record identifies the rate group specific to that product.
-
-

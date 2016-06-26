@@ -53,7 +53,7 @@ graphic shows part of a receiving tally where the blanks have been hand-filled.
 Photographic Evidence
 =============================
 
-Inspect the contents of a vehicle immediately once the doors are open. If goods 
+Inspect the packages of a vehicle immediately once the doors are open. If goods 
 have shifted in transit or there is any other reason to suspect damage, 
 photograph the load in place. (Some warehousers photograph every load no matter 
 what.) If a condition issue is discovered while unloading, as in the tally sheet 
@@ -86,7 +86,7 @@ When a tally is complete, it should go directly to the receiving clerk for
 checking and updating. The clerk should check the following: 
 
 #. Hash total of number of received units is correct. 
-#. Hash total of content (cases, boxes, cartons, etc.) matches. 
+#. Hash total of packages (cases, boxes, cartons, etc.) matches. 
 #. Condition of goods is noted correctly. 
 #. Storage zone and location is appropriate for warehouse, account, and product. 
 

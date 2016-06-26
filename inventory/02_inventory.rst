@@ -21,9 +21,9 @@ organized by:
 +---------------+-------------------------------------------------------------+
 | UNIT          | Handling unit: pallet, roll, coil, bundle, bag, billet, ... |
 +---------------+-------------------------------------------------------------+
-| CONTENT       | Countable sub-unit: case, carton, box, sack, ...            |
+| PACKAGE       | Countable sub-unit: case, carton, box, sack, ...            |
 +---------------+-------------------------------------------------------------+
-| INNER         | Enclosed packages: inner pack, each, piece ...              |
+| INNER         | Enclosed items: inner pack, each, piece ...                 |
 +---------------+-------------------------------------------------------------+
 
 Each product and lot is categorized by an array of codes and values to describe 
@@ -40,15 +40,15 @@ the item. Links to the code lists for products and lot control follow:
 Units of Measure
 =============================
 
-Product inventory is measured by countable contents (CONTENT), which may be 
+Product inventory is measured by countable packages (PACKAGE), which may be 
 accumulated into handling units (UNIT), and subdivided into inner elements 
 (INNER). The basis for inventory counts or measures is specified with Units of 
 Measure (UOMs) particular to each product. For further reference, see this 
 Table of Industry Standard :ref:`uom-list`.
 
-The classic case of inventory is a pallet (unit) of cartons (content), with 
+The classic case of inventory is a pallet (unit) of cartons (packages), with 
 each carton uniformly filled with inner packs or eaches. Products deviate from 
-this ideal configuration, and so the dimensional analysis of UNIT, CONTENT, and 
+this ideal configuration, and so the dimensional analysis of UNIT, PACKAGE, and 
 INNER, along with weights and measures, must be entered separately for each 
 product. Further, the inventory of lots and units of a product may deviate from 
 the product definition, and so inventory documents must record the exact counts
@@ -63,13 +63,13 @@ generate default values for content and unit weights and sizes as follows:
 +=========+=======+=======+===============================+========+=====================+
 | INNER   | EA,...| PCS   | WGHT                          | (N/A)  | ISIZE               |
 +---------+-------+-------+-------------------------------+--------+---------------------+
-| CONTENT | CA,...| CNT   | NET = PCS X WGHT              | TARE   | SIZE = ISIZE X PCS  |
+| PACKAGE | CA,...| CNT   | NET = PCS X WGHT              | TARE   | SIZE = ISIZE X PCS  |
 +---------+-------+-------+-------------------------------+--------+---------------------+
 | UNIT    | PL,...| 1     | UNET = CNT X ( NET + TARE )   | UTARE  | USIZE = SIZE X CNT  |
 +---------+-------+-------+-------------------------------+--------+---------------------+
 
 Individual units may be received with unique values for the inner PCS count, 
-WGHT, and ISIZE, the content CNT, NET, TARE, and SIZE, or handling/shipping 
+WGHT, and ISIZE, the package CNT, NET, TARE, and SIZE, or handling/shipping 
 unit UNET and UTARE weights and the USIZE. 
 
 Quantity Setup Considerations
@@ -82,7 +82,7 @@ categories commonly stored in warehouse inventory:
 .. tabularcolumns:: |L|L|R|R|L|R|R|R|L|R|R|
 
 +--------------------+-----------------+------------------------+------------------+
-|                    | INNER -- -- --  | CONTENT -- -- -- -- -- | UNIT -- -- -- -- | 
+|                    | INNER -- -- --  | PACKAGE -- -- -- -- -- | UNIT -- -- -- -- | 
 +--------------------+-----+-----+-----+-----+-----+-----+------+-----+-----+------+
 | Description        | UOM | PCS | WGHT| UOM | CNT | NET | TARE | UOM | UNET| UTARE|
 +====================+=====+=====+=====+=====+=====+=====+======+=====+=====+======+

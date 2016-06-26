@@ -15,9 +15,11 @@ RATES Data Table Columns
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | -- -- -- -- -- -- -- -- -- -- -- -- Identification                           |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
+| C | S | ACCOUNT        | A   | U | VT=ACCOUNTS          |        | L12 |     |
++---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | M | S | APPLIED        | LC  | U | :ref:`apply-list`    |        | L4  |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| C | S | ACCOUNT        | A   | U | VT=ACCOUNTS          |        | L12 |     |
+| C | A | CALENDAR_KEY   | A   | U |                      |        | L20 | [6]_|
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | -- -- -- -- -- -- -- -- -- -- -- -- Reference                                |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
@@ -33,7 +35,7 @@ RATES Data Table Columns
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | O | A | DESCRIPTION    | A   | U |                      |        | T40 |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| M | A | RATE_TYPE      | LC  | U | :ref:`uom-list`      |        | L4  |     |
+| M | A | RATE_TYPE      | LC  | U | :ref:`type-list`     |        | L4  |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | M | S | FACTOR         | N   |   | (MD4)                |        | R8  |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
@@ -49,10 +51,6 @@ RATES Data Table Columns
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | M | AM| BILL_UOM       | LC  | U | :ref:`uom-list`      |        | L4  |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| -- -- -- -- -- -- -- -- -- -- -- -- Repeating Calendar                       |
-+---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| C | A | CALENDAR_KEY   | A   | U |                      |        | L20 | [6]_|
-+---+---+----------------+-----+---+----------------------+--------+-----+-----+
 
 .. include:: ../resources/legend.rst
 
@@ -65,8 +63,9 @@ RATES Data Table Columns
 .. [3] **QTY_OBJECT** and **PAYER_OBJECT** represent coded methods which would 
        return values for the quantity or the payer. The payer may be different
        from the account.
-.. [4] Rates are tiered and include rate rationality using deficit quantities.
+.. [4] Rates may be single, multiple with breaks, or tiered as described in
+       the billing documentation.
 .. [5] Where charges are calculated for a multi-line activity, a minimum charge 
        for the total transaction may apply.
-.. [6] Calendar values and associated operations are a component of billing 
-       rules, where they are described.
+.. [6] Calendar values and associated operations are described in articles in 
+       billing documentation.

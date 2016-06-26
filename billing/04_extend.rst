@@ -1,7 +1,7 @@
 .. _rate-extend:
 
 #############################
-How Rates Extend to Charges
+Extending Rates to Charges
 #############################
 
 A service may have a single rate, a break table of rates,  or tiered rates, 
@@ -184,7 +184,7 @@ Section 3: Rate Tiers
 
 Rate tiers offer several pricing options. A tiered rate may provide pricing 
 with step changes (no deficits), with transition deficits benefiting the 
-customer, or with transitions deficits penalizing the customer.
+customer below the step, or with transitions beginning above the step.
 
 In this example, a container stripping fee is charged according to container 
 weight. A charge is calculated for a container weighing 39,000 lb. and one 
@@ -200,7 +200,7 @@ Deficit quantities are not calculated when minimums are absent. in part (a),
 there are no minimums and the charge at 40,000 lb. is $12.40 less than the 
 charge at 39,000 lb. This is considered a pricing irrationality.
 
-Part (3b): Beneficial Deficit
+Part (3b): Favorable Deficit
 -----------------------------
 
 Irrationalities can be eliminated by applying line minimums. In part (b), the 
@@ -243,7 +243,7 @@ And the **Charge** calculation is as stated before at all tiers::
 The customer receives the benefit of a lower charge by being billed for a 
 greater quantity based on the deficit.
 
-Part (3c): Penalty Deficit
+Part (3c): Rational Deficit
 -----------------------------
 
 To avoid a price reduction for amounts below a break level, minimums should
@@ -257,7 +257,7 @@ Now the charge at Amount = 39,000 lb. extends to $140.40 just as it did in part
 
 At Amount = 40,000 lb. there is a Deficit = 5,000 so that the charge meets the 
 line minimum, $144.00. There is no rate irrationality, but the customer 
-receives no early benefit from the rate break.
+receives no benefit from the rate break at or below 40,000 lbs.
 
 Charges Auditing and Display
 =============================
