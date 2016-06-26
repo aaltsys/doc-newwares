@@ -78,21 +78,21 @@ Product Masterfile Columns
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | O | S | INNERSIZE      | N.4 |   | (MD4)                |        | R6  |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| C | S | CONTENTUOM     | LC  | U | :ref:`uom-list`      | CA     | L4  | [1]_|
+| C | S | PACKAGEUOM     | LC  | U | :ref:`uom-list`      | CA     | L4  | [1]_|
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| C | S | CONTENTCOUNT   | N.0 |   | (MD0)                |        | R6  | [1]_|
+| C | S | PACKAGECOUNT   | N.0 |   | (MD0)                |        | R6  | [1]_|
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| C | S | CONTENTNET     | N.4 |   | (MD4)                |        | R6  | [1]_|
+| C | S | PACKAGENET     | N.4 |   | (MD4)                |        | R6  | [1]_|
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| O | S | CONTENTTARE    | N.4 |   | (MD4)                |        | R6  |     |
+| O | S | PACKAGETARE    | N.4 |   | (MD4)                |        | R6  |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| C | S | CONTENTSIZE    | N.4 |   | (MD4)                |        | R6  | [1]_|
+| C | S | PACKAGESIZE    | N.4 |   | (MD4)                |        | R6  | [1]_|
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| O | S | CONTENTLONG    | N.4 |   | (MD4)                |        | R6  |     |
+| O | S | PACKAGELONG    | N.4 |   | (MD4)                |        | R6  |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| O | S | CONTENTWIDE    | N.4 |   | (MD4)                |        | R6  |     |
+| O | S | PACKAGEWIDE    | N.4 |   | (MD4)                |        | R6  |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| O | S | CONTENTHIGH    | N.4 |   | (MD4)                |        | R6  |     |
+| O | S | PACKAGEHIGH    | N.4 |   | (MD4)                |        | R6  |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | M | S | UNITUOM        | LC  | U | :ref:`uom-list`      | PL     | L4  |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
@@ -103,6 +103,10 @@ Product Masterfile Columns
 | O | S | UNITSIZE       | N.4 |   | (MD4)                |        | R8  | [5]_|
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | O | S | UNITSTACK      | N.0 |   | (MD0)                |        | R2  |     |
++---+---+----------------+-----+---+----------------------+--------+-----+-----+
+| O | M | CV_FACTOR      | N.0 |   | (MD0)                |        | R6  | [8]_|
++---+---+----------------+-----+---+----------------------+--------+-----+-----+
+| O | M | CV_UOM         | LC  | U | :ref:`uom-list`      |        | L4  | [8]_|
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | -- -- -- -- -- -- -- -- -- -- -- -- Location Entries                         |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
@@ -124,16 +128,16 @@ Product Masterfile Columns
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 
 .. [1] When hazardous is marked (X), entries are required for: SHIPPNGNAME, 
-       WEIGHTUOM, DIMUOM, CONTENTUOM, CONTENTCOUNT, CONTENTNET, and CONTENTSIZE.
+       WEIGHTUOM, DIMUOM, PACKAGEUOM, PACKAGECOUNT, PACKAGENET, and PACKAGESIZE.
 .. [2] Paired entries are required when the corresponding codes are entered.
 .. [3] When a UOM is specified for inners or content, then a corresponding COUNT 
        is required, and INNERCOUNT must be greater than 1.
 .. [4] Entering INNERWEIGHT or INNERSIZE will set the following default values:
-       * CONTENTNET = INNERCOUNT * INNERWIEGHT and 
-       * CONTENTSIZE = INNERCOUNT * INNERSIZE.
-.. [5] Entries for CONTENTNET, CONTENTTARE, and CONTENTSIZE set default values:
-       * UNITNET = CONTENTCOUNT * ( CONTENTNET + CONTENTTARE ) and
-       * UNITSIZE = CONTENTCOUNT * CONTENTSIZE.
+       * PACKAGENET = INNERCOUNT * INNERWIEGHT and 
+       * PACKAGESIZE = INNERCOUNT * INNERSIZE.
+.. [5] Entries for PACKAGENET, PACKAGETARE, and PACKAGESIZE set default values:
+       * UNITNET = PACKAGECOUNT * ( PACKAGENET + PACKAGETARE ) and
+       * UNITSIZE = PACKAGECOUNT * PACKAGESIZE.
 .. [6] When TRACKUNITS is set, unit identifiers will be required on the 
        product's inventory. Otherwise unit numbers may be entered optionally to
        separate out odd units such as overruns and underruns.
@@ -142,6 +146,8 @@ Product Masterfile Columns
        null, products are treated as fungible and lot control numbers are 
        ignored. Control codes may determine default values for lot control, 
        such as rotation date or warehouse lot sequences. 
+.. [8] The **CV_FACTOR** and **CV_UOM** entries provide a way to convert from 
+       INNER or EACH quantities to a UOM used in shipping or billing.
 
 .. include:: ../resources/legend.rst
 

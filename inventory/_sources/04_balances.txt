@@ -22,7 +22,7 @@ Suppose an account has the following three products:
 .. tabularcolumns:: |L|L|L|L|L|R|L|
 
 +---------+---------+-----------------+-------+----------+----------+----------+
-|| Product|| Variety|| Description    || Track|| Content || Content || Unit    |
+|| Product|| Variety|| Description    || Track|| Package || Package || Unit    |
 |         |         |                 |       || UOM     || Count   || UOM     |
 +=========+=========+=================+=======+==========+==========+==========+
 | UAB123  | (null)  | 12/16OZ Beans   |  U    | CA       | 96       | PL       |

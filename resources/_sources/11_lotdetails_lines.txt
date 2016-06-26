@@ -1,4 +1,3 @@
-
 .. _lotlines-schema:
 
 #############################
@@ -58,19 +57,19 @@ LOT LINES Data Table Columns
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | O | S | UNITSTACK      | N.0 |   | (MD0)                |        | R1  |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| M | S | CONTENTUOM     | LC  | U | :ref:`uom-list`      | CA     | L4  |     |
+| M | S | PACKAGEUOM     | LC  | U | :ref:`uom-list`      | CA     | L4  |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| M | S | CONTENTCOUNT   | N.0 |   | (MD0)                |        | R8  |     |
+| M | S | PACKAGECOUNT   | N.0 |   | (MD0)                |        | R8  |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| O | S | CONTENTONHAND  | N.0 |   | (MD0)                |        | R8  |     |
+| O | S | PACKAGEONHAND  | N.0 |   | (MD0)                |        | R8  |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| O | S | CONTENTRESERVE | N.0 |   | (MD0)                |        | R8  |     |
+| O | S | PACKAGERESERVE | N.0 |   | (MD0)                |        | R8  |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| O | S | CONTENTNET     | N.4 |   | (MD4)                |        | R8  |     |
+| O | S | PACKAGENET     | N.4 |   | (MD4)                |        | R8  |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| O | S | CONTENTTARE    | N.4 |   | (MD4)                |        | R8  |     |
+| O | S | PACKAGETARE    | N.4 |   | (MD4)                |        | R8  |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
-| O | S | CONTENTSIZE    | N.4 |   | (MD4)                |        | R8  |     |
+| O | S | PACKAGESIZE    | N.4 |   | (MD4)                |        | R8  |     |
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
 | O | S | OVERSHORT      | N.0 |   | (MD0)                |        | R8  | [6]_|
 +---+---+----------------+-----+---+----------------------+--------+-----+-----+
@@ -104,11 +103,11 @@ LOT LINES Data Table Columns
    *  Tracking requirements are set by product and are not reflected in the 
       transaction line data.
    *  When multiple fungible units are received on a line, the number of units
-      is determined from QUANTITY divided by CONTENTCOUNT, plus 1 for a
+      is determined from QUANTITY divided by PACKAGECOUNT, plus 1 for a
       remainder.
    *  Unit counts may not make sense for some bulk products, such as a piled 
       sand or liquid in a storage tank. Such products should have a null 
-      CONTENTCOUNT entry.
+      PACKAGECOUNT entry.
    *  When products or lots are fungible then storage units must be uniform. 
       This is a necessary consequence of not tracking individual units.
       Non-uniform units require separate lot control values or unit identifiers 

@@ -152,12 +152,12 @@ Product Dimensions
 
 Dimension entries determine the uints of measure to display for goods, and 
 the counts and factors to extend or extrapolate from weights, sizes, and
-counts of (inner or) contents entries up to unit inventory quantities and
+counts of (inner or) packages entries up to unit inventory quantities and
 measures. Default values for a column are calculated once entries are made 
 in the column preceding it (to its left). 
 
 .. tip::
-   Inner counts and measures, content linear dimensions, and unit stacking
+   Inner counts and measures, package linear dimensions, and unit stacking
    are not included in base mode.
 
 Basic Entries
@@ -166,7 +166,7 @@ Basic Entries
 *  **UOM**: Each inventory level in a product SKU has a Unit Of Measure (UOM).
    For example, an item might come with 12 blister-pack eaches (EA) packed in 
    each case (CA), and 64 cases stack on a pallet (PL). Then UOMs for the 
-   product would be INNER=EA, CONTENT=CA, and UNIT=PL. 
+   product would be INNER=EA, PACKAGE=CA, and UNIT=PL. 
 
    .. tip::
       **INNER UOM** is optional in advanced mode, and if open-case picking will 
@@ -177,9 +177,9 @@ Basic Entries
    larger unit of inventory. In the previous example, a count of 12 blister-pack 
    eaches make up one case, and a count of 64 cases comprise a pallet unit.
 *  **Weight**: The weight of an inner piece, times the inner count, should equal
-   the weight net of a content container. The weights (Net + Tare) of a content
-   container times the content count should equal the weight net of a unit.
-*  **Tare Weight** entries represent the extra packaging weight of content 
+   the weight net of a package. The weights (Net + Tare) of a package times the 
+   package count should equal the weight net of a unit.
+*  **Tare Weight** entries represent the extra packaging weight of packages,  
    containers and shipping units.
 *  **Size** tracks the volume of a piece or a container. Liquid sizes may be 
    stated in gallons or liters, while dry sizes are usually expressed in cubic 
@@ -191,7 +191,7 @@ Advanced Entries
 *  **Unit Stack** determines the usage of location stack height. When a product
    is stored to a location, the minimum of the product's unit stacking and the 
    location's stack height limit is used to calculate the location capacity.
-*  **Content Long**, **Content Wide**, and **Content High** are used when 
+*  **Package Long**, **Package Wide**, and **Package High** are used when 
    shipping via package carrier, where the carton dimensions are required.
 
 .. sidebar:: Dimensions Example
@@ -215,9 +215,9 @@ calculate from inner pieces to unit pallets, as shown in the following table.
 +---------------+-------------+-------------+
 | Inner Size    |   0.0417    | CF/PC       |
 +---------------+-------------+-------------+
-| Content Count |  96         | CA/PL       |
+| Package Count |  96         | CA/PL       |
 +---------------+-------------+-------------+
-| Content Tare  |   0.5000    | LB/CA       |
+| Package Tare  |   0.5000    | LB/CA       |
 +---------------+-------------+-------------+
 | Unit Tare     |  50.00      | LB/PL       |
 +---------------+-------------+-------------+
@@ -228,10 +228,10 @@ calculations and analysis of units is shown below.
 +----------------+--------------------------------------+
 | Default Entry  | Calculation                          |
 +================+======================================+
-| Content Weight || `8 X 1.0 = 8.0`                     |
+| Package Weight || `8 X 1.0 = 8.0`                     |
 |                || `(PC/CA) X (LB/PC) = (LB/CA)`       |
 +----------------+--------------------------------------+
-| Content Size   || `8 X 0.0417 = 0.3336`               |
+| Package Size   || `8 X 0.0417 = 0.3336`               |
 |                || `(PC/CA) X (CF/PC) = (CF/CA)`       |
 +----------------+--------------------------------------+
 | Unit Weight    || `96 X (8.00 + 0.50) = 816.00`       |
@@ -260,7 +260,7 @@ Locator Controls
 *  **A-B-C Turn Rate**, or product velocity, describes how quickly products move
    through the warehouse.
 *  **Unit Mixing** indicates whether other products (for the same account) may 
-   be stored on the same pallet unit, or content of other lots.
+   be stored on the same pallet unit, or just packages of other lots.
 *  **Storage Zone** describes the warehouse area used to store this product. 
    This entry could be a storage specification such as Dry/Cooler/Freezer, or it
    could refer to a warehouse area dedicated to the product's account.

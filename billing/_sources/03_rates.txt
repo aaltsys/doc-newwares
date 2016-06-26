@@ -12,7 +12,7 @@ pricing aspect of rates and the application of rates to warehouse activity.
 
 .. _bill-rate-quote:
 
-Rate Quote Information 
+Rate Quotation Report 
 =============================
 
 A **Rate Quote** shows the customer services being offered and charges to be 
@@ -140,6 +140,10 @@ The following figure shows identifying entries for rates:
 
 .. image:: _images/rates-id.png
 
+.. note::
+   Calendar is a protected entry. For rates which are Applied Repeating, the 
+   **Calendar** entry is filled with **RATE*group*service**. 
+
 Rate Activity Scope
 -----------------------------
 
@@ -149,8 +153,8 @@ billing units. When a rate is associated with an activity list, the rate is
 restricted to only that list of activities.
 
 .. note::
-   Where a standard per code cannot return a usable quantity, or if the payer of 
-   a charge is not the account, then custom program methods may be required. 
+   Where a standard per code cannot return a usable quantity, or if the payer 
+   of a charge is not the account, then custom program methods may be required. 
    Optional method entries are provided to enable these custom features.
 
 Rules Regarding Rate Scope
@@ -264,5 +268,3 @@ charges for rates which are based on properties beyond the amounts of a
 transaction. Warehouse storage and handling charges depend on product 
 characteristics, and these rates are calculated accordingly. Each product 
 master record identifies the rate group specific to that product.
-
-

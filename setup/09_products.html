@@ -253,12 +253,12 @@ filters.</li>
 <h2>Product Dimensions<a class="headerlink" href="#product-dimensions" title="Permalink to this headline">¶</a></h2>
 <p>Dimension entries determine the uints of measure to display for goods, and
 the counts and factors to extend or extrapolate from weights, sizes, and
-counts of (inner or) contents entries up to unit inventory quantities and
+counts of (inner or) packages entries up to unit inventory quantities and
 measures. Default values for a column are calculated once entries are made
 in the column preceding it (to its left).</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
-<p class="last">Inner counts and measures, content linear dimensions, and unit stacking
+<p class="last">Inner counts and measures, package linear dimensions, and unit stacking
 are not included in base mode.</p>
 </div>
 <div class="section" id="id3">
@@ -267,7 +267,7 @@ are not included in base mode.</p>
 <li><p class="first"><strong>UOM</strong>: Each inventory level in a product SKU has a Unit Of Measure (UOM).
 For example, an item might come with 12 blister-pack eaches (EA) packed in
 each case (CA), and 64 cases stack on a pallet (PL). Then UOMs for the
-product would be INNER=EA, CONTENT=CA, and UNIT=PL.</p>
+product would be INNER=EA, PACKAGE=CA, and UNIT=PL.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
 <p class="last"><strong>INNER UOM</strong> is optional in advanced mode, and if open-case picking will
@@ -280,10 +280,10 @@ larger unit of inventory. In the previous example, a count of 12 blister-pack
 eaches make up one case, and a count of 64 cases comprise a pallet unit.</p>
 </li>
 <li><p class="first"><strong>Weight</strong>: The weight of an inner piece, times the inner count, should equal
-the weight net of a content container. The weights (Net + Tare) of a content
-container times the content count should equal the weight net of a unit.</p>
+the weight net of a package. The weights (Net + Tare) of a package times the
+package count should equal the weight net of a unit.</p>
 </li>
-<li><p class="first"><strong>Tare Weight</strong> entries represent the extra packaging weight of content
+<li><p class="first"><strong>Tare Weight</strong> entries represent the extra packaging weight of packages,
 containers and shipping units.</p>
 </li>
 <li><p class="first"><strong>Size</strong> tracks the volume of a piece or a container. Liquid sizes may be
@@ -298,7 +298,7 @@ feet or cubic meters.</p>
 <li><strong>Unit Stack</strong> determines the usage of location stack height. When a product
 is stored to a location, the minimum of the product&#8217;s unit stacking and the
 location&#8217;s stack height limit is used to calculate the location capacity.</li>
-<li><strong>Content Long</strong>, <strong>Content Wide</strong>, and <strong>Content High</strong> are used when
+<li><strong>Package Long</strong>, <strong>Package Wide</strong>, and <strong>Package High</strong> are used when
 shipping via package carrier, where the carton dimensions are required.</li>
 </ul>
 <div class="sidebar">
@@ -336,11 +336,11 @@ calculate from inner pieces to unit pallets, as shown in the following table.</p
 <td>0.0417</td>
 <td>CF/PC</td>
 </tr>
-<tr class="row-odd"><td>Content Count</td>
+<tr class="row-odd"><td>Package Count</td>
 <td>96</td>
 <td>CA/PL</td>
 </tr>
-<tr class="row-even"><td>Content Tare</td>
+<tr class="row-even"><td>Package Tare</td>
 <td>0.5000</td>
 <td>LB/CA</td>
 </tr>
@@ -363,14 +363,14 @@ calculations and analysis of units is shown below.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>Content Weight</td>
+<tr class="row-even"><td>Package Weight</td>
 <td><div class="first last line-block">
 <div class="line"><cite>8 X 1.0 = 8.0</cite></div>
 <div class="line"><cite>(PC/CA) X (LB/PC) = (LB/CA)</cite></div>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>Content Size</td>
+<tr class="row-odd"><td>Package Size</td>
 <td><div class="first last line-block">
 <div class="line"><cite>8 X 0.0417 = 0.3336</cite></div>
 <div class="line"><cite>(PC/CA) X (CF/PC) = (CF/CA)</cite></div>
@@ -411,7 +411,7 @@ the <strong>Unit Stack</strong> dimension entry.</div></blockquote>
 <li><strong>A-B-C Turn Rate</strong>, or product velocity, describes how quickly products move
 through the warehouse.</li>
 <li><strong>Unit Mixing</strong> indicates whether other products (for the same account) may
-be stored on the same pallet unit, or content of other lots.</li>
+be stored on the same pallet unit, or just packages of other lots.</li>
 <li><strong>Storage Zone</strong> describes the warehouse area used to store this product.
 This entry could be a storage specification such as Dry/Cooler/Freezer, or it
 could refer to a warehouse area dedicated to the product&#8217;s account.</li>

@@ -46,33 +46,33 @@ DETAILS
 +-------+------------------+-----+-----+----------------------+----------------+
 |       | dimensions       |                                                   |
 +-------+------------------+-----+-----+----------------------+----------------+
-|   J   | UnitUom          | S   | A   | UOM_STORE ("PL")     |                |
+|   J   | unitUom          | S   | A   | UOM_STORE ("PL")     |                |
 +-------+------------------+-----+-----+----------------------+----------------+
-|   J   | UnitNet          | S   | N   | PROD_WT_NET ("null") | (MD2L)         |
+|   J   | unitNet          | S   | N   | PROD_WT_NET ("null") | (MD2L)         |
 +-------+------------------+-----+-----+----------------------+----------------+
-|   J   | UnitTare         | S   | N   | PROD_WT_TARE ("null")| (MD2L)         |
+|   J   | unitTare         | S   | N   | PROD_WT_TARE ("null")| (MD2L)         |
 +-------+------------------+-----+-----+----------------------+----------------+
-|   J   | UnitSize         | S   | N   | PROD_SIZE ("null")   | (MD42L)        |
+|   J   | unitSize         | S   | N   | PROD_SIZE ("null")   | (MD42L)        |
 +-------+------------------+-----+-----+----------------------+----------------+
-|   J   | UnitStack        | S   | N   | FACT_STACK ("null")  | (MD0)          |
+|   J   | unitStack        | S   | N   | FACT_STACK ("null")  | (MD0)          |
 +-------+------------------+-----+-----+----------------------+----------------+
-|   J   | ContentUom       | S   | A   | UOM_PIECE ("EA")     |                |
+|   J   | packageUom       | S   | A   | UOM_PIECE ("EA")     |                |
 +-------+------------------+-----+-----+----------------------+----------------+
-|   F   | ContentCount     | S   | N   | FACT_STORE ("null")  | (MD0)          |
+|   F   | packageCount     | S   | N   | FACT_STORE ("null")  | (MD0)          |
 +-------+------------------+-----+-----+----------------------+----------------+
-|   F   | ContentNet       | S   | N   | FACT_WEIGHT ("null") | (MD42L)        |
+|   F   | packageNet       | S   | N   | FACT_WEIGHT ("null") | (MD42L)        |
 +-------+------------------+-----+-----+----------------------+----------------+
-|   J   | ContentTare      | S   | N   | FACT_TARE ("null")   | (MD42L)        |
+|   J   | packageTare      | S   | N   | FACT_TARE ("null")   | (MD42L)        |
 +-------+------------------+-----+-----+----------------------+----------------+
-|   J   | ContentSize      | S   | N   | FACT_VOLUME ("null") | (MD42L)        |
+|   J   | packageSize      | S   | N   | FACT_VOLUME ("null") | (MD42L)        |
 +-------+------------------+-----+-----+----------------------+----------------+
-|   J   | InnerUom         | S   | A   | UOM_INNER ("null")   |                |
+|   J   | innerUom         | S   | A   | UOM_INNER ("null")   |                |
 +-------+------------------+-----+-----+----------------------+----------------+
-|   J   | InnerCount       | S   | N   | PROD_PACK ("null")   | (MD0)          |
+|   J   | innerCount       | S   | N   | PROD_PACK ("null")   | (MD0)          |
 +-------+------------------+-----+-----+----------------------+----------------+
-|   J   | InnerWeight      | S   | N   | INNERS_WEIGHT "null" | (MD42L)        |
+|   J   | innerWeight      | S   | N   | INNERS_WEIGHT "null" | (MD42L)        |
 +-------+------------------+-----+-----+----------------------+----------------+
-|   J   | InnerSize        | S   | N   | INNERS_SIZE ("null") | (MD42L)        |
+|   J   | innerSize        | S   | N   | INNERS_SIZE ("null") | (MD42L)        |
 +-------+------------------+-----+-----+----------------------+----------------+
 
 .. _export-lines:
@@ -123,19 +123,19 @@ TRANSACTION LINES
 +-------+------------------+-----+-----+----------------------+----------------+
 |   J   | unitStack        | M   | N   | SERIAL_LIST   (null) | <,,19> (MD0)   |
 +-------+------------------+-----+-----+----------------------+----------------+
-|   J   | contentUom       | M   | A   | SERIAL_LIST   (null) | <,,20>         |
+|   J   | packageUom       | M   | A   | SERIAL_LIST   (null) | <,,20>         |
 +-------+------------------+-----+-----+----------------------+----------------+
-|   J   | contentCount     | M   | N   | SERIAL_LIST   (null) | <,,21> (MD0)   |
+|   J   | packageCount     | M   | N   | SERIAL_LIST   (null) | <,,21> (MD0)   |
 +-------+------------------+-----+-----+----------------------+----------------+
-|   J   | contentOnHand    | M   | N   | SERIAL_LIST   (null) | <,,22> (MD0)   |
+|   J   | packageOnHand    | M   | N   | SERIAL_LIST   (null) | <,,22> (MD0)   |
 +-------+------------------+-----+-----+----------------------+----------------+
-|   J   | contentReserve   | M   | N   | SERIAL_LIST   (null) | <,,23> (MD0)   |
+|   J   | packageReserve   | M   | N   | SERIAL_LIST   (null) | <,,23> (MD0)   |
 +-------+------------------+-----+-----+----------------------+----------------+
-|   J   | contentNet       | M   | N   | SERIAL_LIST   (null) | <,,24> (MD42L) |
+|   J   | packageNet       | M   | N   | SERIAL_LIST   (null) | <,,24> (MD42L) |
 +-------+------------------+-----+-----+----------------------+----------------+
-|   J   | contentTare      | M   | N   | SERIAL_LIST   (null) | <,,25> (MD42L) |
+|   J   | packageTare      | M   | N   | SERIAL_LIST   (null) | <,,25> (MD42L) |
 +-------+------------------+-----+-----+----------------------+----------------+
-|   J   | contentSize      | M   | N   | SERIAL_LIST   (null) | <,,26> (MD42L) |
+|   J   | packageSize      | M   | N   | SERIAL_LIST   (null) | <,,26> (MD42L) |
 +-------+------------------+-----+-----+----------------------+----------------+
 |   J   | overShort        | M   | N   | SERIAL_LIST   (null) | <,,27> (MD0)   |
 +-------+------------------+-----+-----+----------------------+----------------+

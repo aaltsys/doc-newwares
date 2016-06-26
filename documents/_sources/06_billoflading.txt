@@ -13,7 +13,7 @@ shippers and carriers create customized Bill of Lading document formats to meet
 their specific needs. WARES provides a 3PL Bill of Lading document format which 
 addresses specific concerns:
 
-*  To avoid having bills sent to the warehouse instead of the named shipper.
+*  It avoids having bills sent to the warehouse instead of the named shipper.
    the Freight Billing address is clearly stated on every Bill of Lading.
 *  Columns are ordered to match DOT guidelines: Units, HM, Description, Weights 
    or Quantities. (The GS1 standard form mis-orders columns.)

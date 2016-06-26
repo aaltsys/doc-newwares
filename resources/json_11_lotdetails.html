@@ -25,7 +25,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="WARES Resources 1.0 documentation" href="index.html" />
     <link rel="next" title="&lt;no title&gt;" href="legend.html" />
-    <link rel="prev" title="JSON DOCUMENTS Export" href="json_04_documents.html" /> 
+    <link rel="prev" title="JSON Rates Export" href="json_06_rates.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -35,7 +35,7 @@
           <a href="legend.html" title="&lt;no title&gt;"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="json_04_documents.html" title="JSON DOCUMENTS Export"
+          <a href="json_06_rates.html" title="JSON Rates Export"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">WARES Resources 1.0 documentation</a> &raquo;</li> 
       </ul>
@@ -52,8 +52,8 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="json_04_documents.html"
-                        title="previous chapter">JSON DOCUMENTS Export</a></p>
+  <p class="topless"><a href="json_06_rates.html"
+                        title="previous chapter">JSON Rates Export</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="legend.html"
                         title="next chapter">&lt;no title&gt;</a></p>
@@ -205,98 +205,98 @@ refers to whether the data will be quoted string (A) or unquoted numeric (N).</p
 <td colspan="4">&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>J</td>
-<td>UnitUom</td>
+<td>unitUom</td>
 <td>S</td>
 <td>A</td>
 <td>UOM_STORE (&#8220;PL&#8221;)</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>J</td>
-<td>UnitNet</td>
+<td>unitNet</td>
 <td>S</td>
 <td>N</td>
 <td>PROD_WT_NET (&#8220;null&#8221;)</td>
 <td>(MD2L)</td>
 </tr>
 <tr class="row-odd"><td>J</td>
-<td>UnitTare</td>
+<td>unitTare</td>
 <td>S</td>
 <td>N</td>
 <td>PROD_WT_TARE (&#8220;null&#8221;)</td>
 <td>(MD2L)</td>
 </tr>
 <tr class="row-even"><td>J</td>
-<td>UnitSize</td>
+<td>unitSize</td>
 <td>S</td>
 <td>N</td>
 <td>PROD_SIZE (&#8220;null&#8221;)</td>
 <td>(MD42L)</td>
 </tr>
 <tr class="row-odd"><td>J</td>
-<td>UnitStack</td>
+<td>unitStack</td>
 <td>S</td>
 <td>N</td>
 <td>FACT_STACK (&#8220;null&#8221;)</td>
 <td>(MD0)</td>
 </tr>
 <tr class="row-even"><td>J</td>
-<td>ContentUom</td>
+<td>packageUom</td>
 <td>S</td>
 <td>A</td>
 <td>UOM_PIECE (&#8220;EA&#8221;)</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>F</td>
-<td>ContentCount</td>
+<td>packageCount</td>
 <td>S</td>
 <td>N</td>
 <td>FACT_STORE (&#8220;null&#8221;)</td>
 <td>(MD0)</td>
 </tr>
 <tr class="row-even"><td>F</td>
-<td>ContentNet</td>
+<td>packageNet</td>
 <td>S</td>
 <td>N</td>
 <td>FACT_WEIGHT (&#8220;null&#8221;)</td>
 <td>(MD42L)</td>
 </tr>
 <tr class="row-odd"><td>J</td>
-<td>ContentTare</td>
+<td>packageTare</td>
 <td>S</td>
 <td>N</td>
 <td>FACT_TARE (&#8220;null&#8221;)</td>
 <td>(MD42L)</td>
 </tr>
 <tr class="row-even"><td>J</td>
-<td>ContentSize</td>
+<td>packageSize</td>
 <td>S</td>
 <td>N</td>
 <td>FACT_VOLUME (&#8220;null&#8221;)</td>
 <td>(MD42L)</td>
 </tr>
 <tr class="row-odd"><td>J</td>
-<td>InnerUom</td>
+<td>innerUom</td>
 <td>S</td>
 <td>A</td>
 <td>UOM_INNER (&#8220;null&#8221;)</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>J</td>
-<td>InnerCount</td>
+<td>innerCount</td>
 <td>S</td>
 <td>N</td>
 <td>PROD_PACK (&#8220;null&#8221;)</td>
 <td>(MD0)</td>
 </tr>
 <tr class="row-odd"><td>J</td>
-<td>InnerWeight</td>
+<td>innerWeight</td>
 <td>S</td>
 <td>N</td>
 <td>INNERS_WEIGHT &#8220;null&#8221;</td>
 <td>(MD42L)</td>
 </tr>
 <tr class="row-even"><td>J</td>
-<td>InnerSize</td>
+<td>innerSize</td>
 <td>S</td>
 <td>N</td>
 <td>INNERS_SIZE (&#8220;null&#8221;)</td>
@@ -464,49 +464,49 @@ refers to whether the data will be quoted string (A) or unquoted numeric (N).</p
 <td>&lt;,,19&gt; (MD0)</td>
 </tr>
 <tr class="row-even"><td>J</td>
-<td>contentUom</td>
+<td>packageUom</td>
 <td>M</td>
 <td>A</td>
 <td>SERIAL_LIST   (null)</td>
 <td>&lt;,,20&gt;</td>
 </tr>
 <tr class="row-odd"><td>J</td>
-<td>contentCount</td>
+<td>packageCount</td>
 <td>M</td>
 <td>N</td>
 <td>SERIAL_LIST   (null)</td>
 <td>&lt;,,21&gt; (MD0)</td>
 </tr>
 <tr class="row-even"><td>J</td>
-<td>contentOnHand</td>
+<td>packageOnHand</td>
 <td>M</td>
 <td>N</td>
 <td>SERIAL_LIST   (null)</td>
 <td>&lt;,,22&gt; (MD0)</td>
 </tr>
 <tr class="row-odd"><td>J</td>
-<td>contentReserve</td>
+<td>packageReserve</td>
 <td>M</td>
 <td>N</td>
 <td>SERIAL_LIST   (null)</td>
 <td>&lt;,,23&gt; (MD0)</td>
 </tr>
 <tr class="row-even"><td>J</td>
-<td>contentNet</td>
+<td>packageNet</td>
 <td>M</td>
 <td>N</td>
 <td>SERIAL_LIST   (null)</td>
 <td>&lt;,,24&gt; (MD42L)</td>
 </tr>
 <tr class="row-odd"><td>J</td>
-<td>contentTare</td>
+<td>packageTare</td>
 <td>M</td>
 <td>N</td>
 <td>SERIAL_LIST   (null)</td>
 <td>&lt;,,25&gt; (MD42L)</td>
 </tr>
 <tr class="row-even"><td>J</td>
-<td>contentSize</td>
+<td>packageSize</td>
 <td>M</td>
 <td>N</td>
 <td>SERIAL_LIST   (null)</td>
@@ -584,7 +584,7 @@ receipts, shipments, and adjustments.</p>
           <a href="legend.html" title="&lt;no title&gt;"
              >next</a></li>
         <li class="right" >
-          <a href="json_04_documents.html" title="JSON DOCUMENTS Export"
+          <a href="json_06_rates.html" title="JSON Rates Export"
              >previous</a> |</li>
         <li><a href="index.html">WARES Resources 1.0 documentation</a> &raquo;</li> 
       </ul>

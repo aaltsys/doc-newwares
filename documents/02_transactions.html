@@ -129,7 +129,7 @@ where each roll has a unique foot linear measure and a unique net weight.</p>
 <p>The details for one line are shown below. Every entry for the roll was
 available in the summary line entry, and no changes were made in the detail.
 The roll net weight of 2611 Lbs, entered in the summary list view, is close to
-a default weight of 2616.38 lbs, calculated from the content value of .58
+a default weight of 2616.38 lbs, calculated from the package value of .58
 lbs/ft.</p>
 <img alt="_images/lines-2-detail.png" src="_images/lines-2-detail.png" />
 </div>
@@ -140,9 +140,9 @@ unnecessary. However, a number of circumstances result in mixed units or
 pallets in every warehouse:</p>
 <ul class="simple">
 <li>Part of a unit may have damage. Damaged and whole goods must be listed with
-separate content lines.</li>
-<li>If damaged content is replaced with make-up goods from a different lot, then
-separate content lines are needed to track the two lots.</li>
+separate package lines.</li>
+<li>If damaged packages are replaced with make-up goods from a different lot,
+then separate package lines are needed to track the two lots.</li>
 <li>Pallet units may contain lot remainders transferred in from a production
 line or even from another distribution center.</li>
 <li>Multiple products may be shipped on mixed pallets to reduce shipping costs.
@@ -154,18 +154,18 @@ warehousing.</li>
 for multiple products or lots, which get lumped on a mixed pallet.</li>
 </ul>
 <p>We talk about not having mixed pallets when actually we do have them.</p>
-<p>By default, webWARES combines unit and content data in a single entry line. In
-contrast, mixed pallet units start with a parent line that omits content values
+<p>By default, webWARES combines unit and package data in a single entry line. In
+contrast, mixed pallet units start with a parent line that omits package values
 for <strong>Product</strong>, <strong>Variety</strong>, or Lot <strong>Control</strong>, but includes a required parent
 <strong>UnitID</strong>. (Without the <strong>UnitID</strong>, there would be no way to distinguish a
 mixed unit from a series of partial units.)</p>
-<p>Subsequent child content lines will include <strong>Product</strong>, <strong>Variety</strong>, or Lot
+<p>Subsequent child package lines will include <strong>Product</strong>, <strong>Variety</strong>, or Lot
 <strong>Control</strong> values, followed by the <strong>UnitID</strong>. Repeating the <strong>UnitID</strong>
-triggers the association of the mixed child content to the parent &#8220;unit only&#8221;
+triggers the association of the mixed child package to the parent &#8220;unit only&#8221;
 line.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
-<p class="last">In addition to sharing <strong>UnitID</strong> and <strong>Location</strong>, mixed unit and content
+<p class="last">In addition to sharing <strong>UnitID</strong> and <strong>Location</strong>, mixed unit and package
 lines have the same <strong>LineKey</strong> (see <a class="reference internal" href="#cryptic-data"><em>Line Data not Displayed</em></a>). Every document
 line has an entry for <strong>LineKey</strong>, while the <strong>UnitID</strong> value is optional on
 other lines and is surely missing with bulk entries.</p>
@@ -173,21 +173,21 @@ other lines and is surely missing with bulk entries.</p>
 <img alt="_images/lines-3mixed.png" src="_images/lines-3mixed.png" />
 <p>Repeating the <strong>UnitID</strong> causes the following changes to line detail values.</p>
 <ul class="simple">
-<li>Child content <strong>Location</strong> is filled from the parent unit and protected.</li>
-<li><strong>Count Per</strong> on child content is cleared and protected; this does not apply
+<li>Child package <strong>Location</strong> is filled from the parent unit and protected.</li>
+<li><strong>Count Per</strong> on child package is cleared and protected; this does not apply
 to mixed pallets.</li>
 <li>Unit <strong>Tare Weight</strong> and unit <strong>Quantity</strong> are cleared and protected on child
-content lines.</li>
+package lines.</li>
 <li>Entries for unit partial weights and partial measures are auto-calculated
-based on the content quantity, and these entries are filled and protected.</li>
+based on the package quantity, and these entries are filled and protected.</li>
 </ul>
 <p>In addition, the parent unit line will have the following entries:</p>
 <ul class="simple">
 <li>The unit <strong>Quantity</strong>, which is always filled/protected, will show &#8220;1&#8221;.</li>
 <li>The unit <strong>Tare Weight</strong> will be taken from the product for the first child
-content line.</li>
+package line.</li>
 <li>The unit <strong>Net Weight</strong>, <strong>Volume</strong>, and <strong>Quantity</strong> entries will be the sum
-of these entries from the child content lines.</li>
+of these entries from the child package lines.</li>
 <li>The parent unit line entries for <strong>Product</strong>, <strong>Variety</strong>, and <strong>Control</strong>
 will be cleared and protected.</li>
 </ul>
@@ -200,12 +200,12 @@ entry.</p>
 <p>What seems to be two entry procedures for lines, one for mixed units and
 another for uniform pallets, is actually just variants of one procedure:</p>
 <ul class="last simple">
-<li>Entering two consecutive content lines with the same <strong>UnitID</strong> will
+<li>Entering two consecutive package lines with the same <strong>UnitID</strong> will
 trigger a question, &#8220;Do these entries belong to the same unit? (Yes/no).&#8221;
 Answering &#8220;Yes&#8221; will create the parent unit line and update the child
-content lines as described previously.</li>
-<li>Enterig a unit record without product content information, followed by
-child content records repeating the <strong>UnitID</strong>, will produce the same
+package lines as described previously.</li>
+<li>Enterig a unit record without product package information, followed by
+child package records repeating the <strong>UnitID</strong>, will produce the same
 result without having to ask the question.</li>
 </ul>
 </div>
@@ -242,9 +242,9 @@ shown below.</p>
 <img alt="_images/lines-5bulk.png" src="_images/lines-5bulk.png" />
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
-<p class="last">On bulk entry lines, the line detail will show the unit count as the content
-<strong>Quantity</strong> divided by the content <strong>Count Per</strong>, plus 1 for any remainder.
-Where the content <strong>Count Per</strong> is blank, the unit count will be blank also.</p>
+<p class="last">On bulk entry lines, the line detail will show the unit count as the package
+<strong>Quantity</strong> divided by the package <strong>Count Per</strong>, plus 1 for any remainder.
+Where the package <strong>Count Per</strong> is blank, the unit count will be blank also.</p>
 </div>
 </div>
 <div class="section" id="using-line-detail-entries">
@@ -252,14 +252,14 @@ Where the content <strong>Count Per</strong> is blank, the unit count will be bl
 <p>Line detail entries are necessary when entering unique values which are not
 visible in the summary. Specific cases where this might occur are listed here.</p>
 <ul class="simple">
-<li>Damaged goods must be entered in separate content records which are marked
+<li>Damaged goods must be entered in separate package records which are marked
 in the details.</li>
 <li>Marks, variable descriptions, or special lot notes are entered in details.</li>
 <li>Broken cases or sampled bags should be entered separately, noting the
 shorted inner quantities.</li>
-<li>Content count discrepancies on receiving are entered in the <strong>Over/Short</strong>
-value, as positive or negative numbers. <strong>Over/Short</strong> applies to content
-only, and only on receipt, where content is a visually countable quantity
+<li>Package count discrepancies on receiving are entered in the <strong>Over/Short</strong>
+value, as positive or negative numbers. <strong>Over/Short</strong> applies to package
+only, and only on receipt, where package is a visually countable quantity
 (cartons, cases, bags, etc.).</li>
 <li>Variable tare weights or gross weights are entered in the details view,
 unlike consistent tare weights which are entered on the product setup.</li>
@@ -484,7 +484,7 @@ to transaction status, is shown in the following table.</p>
 <td>(unit)</td>
 <td>(unit)</td>
 </tr>
-<tr class="row-even"><td>CONTENTUOM</td>
+<tr class="row-even"><td>PACKAGEUOM</td>
 <td>(product)</td>
 <td>(product)</td>
 <td>(product)</td>
@@ -492,7 +492,7 @@ to transaction status, is shown in the following table.</p>
 <td>(product)</td>
 <td>(product)</td>
 </tr>
-<tr class="row-odd"><td>CONTENTONHAND</td>
+<tr class="row-odd"><td>PACKAGEONHAND</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>required</td>
@@ -500,7 +500,7 @@ to transaction status, is shown in the following table.</p>
 <td>&nbsp;</td>
 <td>required</td>
 </tr>
-<tr class="row-even"><td>CONTENTRESERVE</td>
+<tr class="row-even"><td>PACKAGERESERVE</td>
 <td>required</td>
 <td>required</td>
 <td>&nbsp;</td>
@@ -508,7 +508,7 @@ to transaction status, is shown in the following table.</p>
 <td>required</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>CONTENTNET</td>
+<tr class="row-odd"><td>PACKAGENET</td>
 <td>[product]</td>
 <td>[product]</td>
 <td>[product]</td>
@@ -516,7 +516,7 @@ to transaction status, is shown in the following table.</p>
 <td>[product]</td>
 <td>[product]</td>
 </tr>
-<tr class="row-even"><td>CONTENTTARE</td>
+<tr class="row-even"><td>PACKAGETARE</td>
 <td>[product]</td>
 <td>[product]</td>
 <td>[product]</td>
@@ -524,7 +524,7 @@ to transaction status, is shown in the following table.</p>
 <td>[product]</td>
 <td>[product]</td>
 </tr>
-<tr class="row-odd"><td>CONTENTSIZE</td>
+<tr class="row-odd"><td>PACKAGESIZE</td>
 <td>[product]</td>
 <td>[product]</td>
 <td>[product]</td>
@@ -663,13 +663,13 @@ lines in a document. The <strong>PostDate</strong> of a document should be final
 the date and time that the warehouse signs a receipt or a carrier signs for
 a shipment.</p>
 </li>
-<li><p class="first"><strong>ContentOnHand</strong>, <strong>InnerOnHand</strong>, <strong>ContentReserve</strong>, <strong>InnerReserve</strong> &#8211;
-The user interface shows Content and Inner Quantities, but these quantities
+<li><p class="first"><strong>PackageOnHand</strong>, <strong>InnerOnHand</strong>, <strong>PackageReserve</strong>, <strong>InnerReserve</strong> &#8211;
+The user interface shows Package and Inner Quantities, but these quantities
 are actually represented in the data as either <strong>_Reserve</strong> or <strong>_OnHand</strong>
 depending on the line status. The appearance of a single data field is
 deceptive from the standpoint of data definition.</p>
 </li>
-<li><p class="first"><strong>UnitUOM</strong>, <strong>ContentUOM</strong>, and <strong>InnerUOM</strong> &#8211; are display-only values
+<li><p class="first"><strong>UnitUOM</strong>, <strong>PackageUOM</strong>, and <strong>InnerUOM</strong> &#8211; are display-only values
 copied from the current product record.</p>
 </li>
 </ul>

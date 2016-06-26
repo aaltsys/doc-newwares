@@ -307,7 +307,7 @@
 </tr>
 <tr class="row-odd"><td>M</td>
 <td>S</td>
-<td>CONTENTUOM</td>
+<td>PACKAGEUOM</td>
 <td>LC</td>
 <td>U</td>
 <td><a class="reference external" href="../codes/P_code-uom.html#uom-list" title="(in WARES Codes v1.0)"><em>Units of Measure</em></a></td>
@@ -317,7 +317,7 @@
 </tr>
 <tr class="row-even"><td>M</td>
 <td>S</td>
-<td>CONTENTCOUNT</td>
+<td>PACKAGECOUNT</td>
 <td>N.0</td>
 <td>&nbsp;</td>
 <td>(MD0)</td>
@@ -327,7 +327,7 @@
 </tr>
 <tr class="row-odd"><td>O</td>
 <td>S</td>
-<td>CONTENTONHAND</td>
+<td>PACKAGEONHAND</td>
 <td>N.0</td>
 <td>&nbsp;</td>
 <td>(MD0)</td>
@@ -337,7 +337,7 @@
 </tr>
 <tr class="row-even"><td>O</td>
 <td>S</td>
-<td>CONTENTRESERVE</td>
+<td>PACKAGERESERVE</td>
 <td>N.0</td>
 <td>&nbsp;</td>
 <td>(MD0)</td>
@@ -347,7 +347,7 @@
 </tr>
 <tr class="row-odd"><td>O</td>
 <td>S</td>
-<td>CONTENTNET</td>
+<td>PACKAGENET</td>
 <td>N.4</td>
 <td>&nbsp;</td>
 <td>(MD4)</td>
@@ -357,7 +357,7 @@
 </tr>
 <tr class="row-even"><td>O</td>
 <td>S</td>
-<td>CONTENTTARE</td>
+<td>PACKAGETARE</td>
 <td>N.4</td>
 <td>&nbsp;</td>
 <td>(MD4)</td>
@@ -367,7 +367,7 @@
 </tr>
 <tr class="row-odd"><td>O</td>
 <td>S</td>
-<td>CONTENTSIZE</td>
+<td>PACKAGESIZE</td>
 <td>N.4</td>
 <td>&nbsp;</td>
 <td>(MD4)</td>
@@ -487,11 +487,11 @@ shortage within sealed cartons cannot be detected when receiving.</td></tr>
 <li>Tracking requirements are set by product and are not reflected in the
 transaction line data.</li>
 <li>When multiple fungible units are received on a line, the number of units
-is determined from QUANTITY divided by CONTENTCOUNT, plus 1 for a
+is determined from QUANTITY divided by PACKAGECOUNT, plus 1 for a
 remainder.</li>
 <li>Unit counts may not make sense for some bulk products, such as a piled
 sand or liquid in a storage tank. Such products should have a null
-CONTENTCOUNT entry.</li>
+PACKAGECOUNT entry.</li>
 <li>When products or lots are fungible then storage units must be uniform.
 This is a necessary consequence of not tracking individual units.
 Non-uniform units require separate lot control values or unit identifiers

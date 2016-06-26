@@ -46,7 +46,7 @@
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Billing Rates</a><ul>
-<li><a class="reference internal" href="#rate-quote-information">Rate Quote Information</a></li>
+<li><a class="reference internal" href="#rate-quotation-report">Rate Quotation Report</a></li>
 <li><a class="reference internal" href="#example-of-quote-sections">Example of Quote Sections</a><ul>
 <li><a class="reference internal" href="#sec-1-private-rates-by-account">Sec. 1: Private Rates by Account</a></li>
 <li><a class="reference internal" href="#sec-2-private-rates-by-group">Sec. 2: Private Rates by Group</a></li>
@@ -109,8 +109,8 @@ warehouse services are priced for a customer through a Rate Quote. In addition
 to pricing services, WARES rates provide the mechanics of capturing services
 and billing the customer for them. Entering rates requires considering both the
 pricing aspect of rates and the application of rates to warehouse activity.</p>
-<div class="section" id="rate-quote-information">
-<span id="bill-rate-quote"></span><h2>Rate Quote Information<a class="headerlink" href="#rate-quote-information" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="rate-quotation-report">
+<span id="bill-rate-quote"></span><h2>Rate Quotation Report<a class="headerlink" href="#rate-quotation-report" title="Permalink to this headline">¶</a></h2>
 <p>A <strong>Rate Quote</strong> shows the customer services being offered and charges to be
 billed for those services. Further, it guarantees the logistics company that
 they will be fairly compensated for services rendered. Knowing the information
@@ -236,6 +236,11 @@ in two charges, because account-associated rates override <strong>GLOBAL</strong
 not rates in other shared groups.</p>
 <p>The following figure shows identifying entries for rates:</p>
 <img alt="_images/rates-id.png" src="_images/rates-id.png" />
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Calendar is a protected entry. For rates which are Applied Repeating, the
+<strong>Calendar</strong> entry is filled with <strong>RATE*group*service</strong>.</p>
+</div>
 </div>
 <div class="section" id="rate-activity-scope">
 <h3>Rate Activity Scope<a class="headerlink" href="#rate-activity-scope" title="Permalink to this headline">¶</a></h3>
@@ -245,8 +250,8 @@ billing units. When a rate is associated with an activity list, the rate is
 restricted to only that list of activities.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Where a standard per code cannot return a usable quantity, or if the payer of
-a charge is not the account, then custom program methods may be required.
+<p class="last">Where a standard per code cannot return a usable quantity, or if the payer
+of a charge is not the account, then custom program methods may be required.
 Optional method entries are provided to enable these custom features.</p>
 </div>
 </div>

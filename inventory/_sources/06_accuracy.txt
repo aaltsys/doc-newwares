@@ -53,7 +53,7 @@ wrong. Consider the effect on billing for any wrong receipt, and notify the
 customer of the error. Otherwise the warehouse is liable for missing inventory.
 
 Shipments may produce quantity errors when the wrong unit is shipped, or when 
-the wrong measure is picked: a content carton is shipped instead of an inner, 
+the wrong measure is picked: a carton package is shipped instead of an inner, 
 for example.
 
 Correct inventory quantity errors with adjustments to products, lots, or units.

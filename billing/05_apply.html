@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Apply and Calculate Charges &mdash; WARES Billing 1.0 documentation</title>
+    <title>Generating or Entering Charges &mdash; WARES Billing 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -45,12 +45,16 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Apply and Calculate Charges</a><ul>
-<li><a class="reference internal" href="#optional">Optional</a></li>
-<li><a class="reference internal" href="#mandatory">Mandatory</a></li>
-<li><a class="reference internal" href="#repeating">Repeating</a></li>
-<li><a class="reference internal" href="#calculated">Calculated</a></li>
-<li><a class="reference internal" href="#recurring">Recurring</a></li>
+<li><a class="reference internal" href="#">Generating or Entering Charges</a><ul>
+<li><a class="reference internal" href="#optional-entered-charges">Optional Entered Charges</a></li>
+<li><a class="reference internal" href="#generated-charges">Generated Charges</a></li>
+<li><a class="reference internal" href="#mandatory-generated-charges">Mandatory Generated Charges</a></li>
+<li><a class="reference internal" href="#calculated-product-charges">Calculated Product Charges</a></li>
+<li><a class="reference internal" href="#repeating-calendar-charges">Repeating Calendar Charges</a></li>
+<li><a class="reference internal" href="#recurring-product-charges">Recurring Product Charges</a><ul>
+<li><a class="reference internal" href="#recurring-process">Recurring Process</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -89,23 +93,150 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="apply-and-calculate-charges">
-<span id="bill-apply"></span><h1>Apply and Calculate Charges<a class="headerlink" href="#apply-and-calculate-charges" title="Permalink to this headline">¶</a></h1>
-<p>In progress.</p>
-<div class="section" id="optional">
-<h2>Optional<a class="headerlink" href="#optional" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="generating-or-entering-charges">
+<span id="bill-apply"></span><h1>Generating or Entering Charges<a class="headerlink" href="#generating-or-entering-charges" title="Permalink to this headline">¶</a></h1>
+<p><strong>Standard Contract Terms</strong> and <strong>Rate Quotation</strong> reports categorize business
+services. This topic explains how charges for those services are determined and
+accumulated for billing.</p>
+<p>Most charges are applied to activities, with the exception of charges which are
+generated from calendar events. Charge records are keyed by a combination of
+the transaction identifier of the source activity, and the payer of the charge.
+Usually, the payer is the account associated with the activity transaction.
+Where a calendar event creates a charge, or where a charge is applied without
+an associated activity, a sequential counter supplies the charge identifier.</p>
+<p>WARES uses five mechanisms to capture charges: clerical entry, generation from
+activity, generation from calendar, product calculations from activity, and
+product calculations from calendar.</p>
+<div class="section" id="optional-entered-charges">
+<h2>Optional Entered Charges<a class="headerlink" href="#optional-entered-charges" title="Permalink to this headline">¶</a></h2>
+<p>Certain types of charges are inherently optional; these charges require a
+clerical entry. Here are some circumstances where optional entry is required:</p>
+<ul class="simple">
+<li>The rate or charge for an item varies and cannot be determined in advance,
+as with freight charges for an overpacked package.</li>
+<li>The occurrence of an action cannot be predicted, such as having to restack a
+pallet or replace a broken pallet shell.</li>
+<li>The quantity of an item cannot be predicted, as would happen with labor
+charges for performing a physical inventory.</li>
+<li>An event happens across many accounts, but with very low frequency, and so
+the rate is made Global. Global rates are always optional.</li>
+</ul>
+<p>Optional charges can be entered for an activity up to the point that the
+transaction is completed, verified, and released to billing calculation.</p>
 </div>
-<div class="section" id="mandatory">
-<h2>Mandatory<a class="headerlink" href="#mandatory" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="generated-charges">
+<h2>Generated Charges<a class="headerlink" href="#generated-charges" title="Permalink to this headline">¶</a></h2>
+<p>The billing for an activity transaction can be hand-calculated by setting the
+transaction&#8217;s status, but this does not leave a calculation audit trail.
+further, hand changes are not a satisfactory method for updating charges on
+hundreds of transactions.</p>
+<p>For all rates which are not optional, WARES uses batch methods to generate the
+charges. Each batch has a unique identifier, a record of the batch input, start
+and end datetimes, and a count of transactions processed. Also each charge
+record created or updated by a batch method is stamped with the batch
+identifier.</p>
+<p>Batch billing routines include user controls to select or filter the records to
+process. In this way, the user easily manages billing for hundreds or thousands
+of records at a time.</p>
 </div>
-<div class="section" id="repeating">
-<h2>Repeating<a class="headerlink" href="#repeating" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mandatory-generated-charges">
+<h2>Mandatory Generated Charges<a class="headerlink" href="#mandatory-generated-charges" title="Permalink to this headline">¶</a></h2>
+<p>A billing batch process selects completed activity transactions, closing them
+to updates and creating or updating manatory and calculated charges.</p>
+<p>The default is to process transactions for all accounts in all activities,
+beginning from the start of the open period until the end of the open period,
+or until the current day if that is earlier.</p>
+<p>Since billing routines prevent further updates to transactions, this global
+selection rule is not always desirable. WARES displays a user control to select
+which records from activity are ready for billing:</p>
+<img alt="_images/cal-activity.png" src="_images/cal-activity.png" />
+<p>To process a transaction, rates are selected based on the following criteria:</p>
+<ul class="simple">
+<li>Only mandatory and calculated rates are considered in this section</li>
+<li>Rates must belong to the transaction&#8217;s account, or to groups not associated
+with an account</li>
+<li>Rates must reference the activity of the transaction</li>
+</ul>
+<p>Before calculating billing on a transaction, the set of possible charge record
+identifiers is generated based on the transaction identifier and the payers
+specified on the selected rates. Mandatory and Calculated charge lines with
+these charge identifiers are then selected and deleted.</p>
+<p>Rate calculation proceeds as follows for each mandatory rate record:</p>
+<ol class="arabic simple">
+<li>An <strong>Amount</strong> is determined for the rate&#8217;s <strong>Per</strong> unit associated with the
+<strong>Activity</strong></li>
+<li>If this <strong>Amount</strong> is not zero, it is used to calculate a <strong>Deficit</strong>, a
+<strong>Rate</strong>, and a <strong>Charge</strong> as described in <a class="reference internal" href="04_extend.html#rate-extend"><em>Extending Rates to Charges</em></a></li>
+<li>Using the transaction <strong>Identifier</strong> and <strong>Payer</strong>, a charge record header
+is written for the transaction if none exists</li>
+<li>A charge line is added for the mandatory charge.</li>
+</ol>
+<p>This description makes it clear that a mandatory rate creates a single charge
+line. Where a mandatory rate refers to something like case picking, the <strong>Per</strong>
+code must calculate a total for the entire transaction.</p>
 </div>
-<div class="section" id="calculated">
-<h2>Calculated<a class="headerlink" href="#calculated" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="calculated-product-charges">
+<h2>Calculated Product Charges<a class="headerlink" href="#calculated-product-charges" title="Permalink to this headline">¶</a></h2>
+<p>Once mandatory charges are applied to a transaction, another billing routine
+applies calculated charges to each line item of the transaction. Lines are read
+in sequence, and the product is checked to determine a rate group identifier.
+Then rates are selected to apply based on the criteria:</p>
+<ul class="simple">
+<li>Only Calculated rates are considered</li>
+<li>Rates must belong to the product&#8217;s rate group</li>
+<li>Rates must reference the activity of the transaction</li>
+</ul>
+<p>Now for the line, rates are applied as follows for each calculated rate record:</p>
+<ol class="arabic simple">
+<li>Using the rate&#8217;s <strong>Per</strong> unit for the <strong>Activity</strong>, an <strong>Amount</strong> is
+calculated for the line</li>
+<li>If this <strong>Amount</strong> is not zero, it is used to calculate a <strong>Deficit</strong>, a
+<strong>Rate</strong>, and a <strong>Charge</strong> as described above</li>
+<li>Using the transaction <strong>Identifier</strong> and <strong>Payer</strong>, a charge record header
+is written for the transaction if none exists</li>
+<li>A charge line is added for the calculated charge.</li>
+</ol>
+<p>This sounds like the way Mandatory charges are applied, and it is. The
+difference is in selecting rates based on product groups and applying them one
+line at a time.</p>
 </div>
-<div class="section" id="recurring">
-<h2>Recurring<a class="headerlink" href="#recurring" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="repeating-calendar-charges">
+<h2>Repeating Calendar Charges<a class="headerlink" href="#repeating-calendar-charges" title="Permalink to this headline">¶</a></h2>
+<p>Repeating charges are calculated by selecting scheduled rates from the calendar
+list, while calling a billing routine to apply the charges. Each calendar entry
+will generate one charge record with one line item. Charges calculated from
+calendar events do not have associated activity, and so each such charge is
+identified by a sequential charge number and the payer id.</p>
+<p>An example calendar selection page for Repeating Rates follows:</p>
+<img alt="_images/cal-repeating.png" src="_images/cal-repeating.png" />
+<p>The <strong>Active By</strong> calendar date defaults to the current date for selection,
+while the <strong>Next Date</strong> of each rate is used to update calendars during
+calculation. Setting the <strong>Active By</strong> date to a future date allows billing
+calculations based on calendars to be calculated in advance. This feature is
+useful when the end of a period falls on a weekend, for example.</p>
+<p>Note that the typical <strong>Group</strong> for a repeating rate is an account identifier,
+and codes used may vary. In this example, the accounting implications of a
+building lease are different from long-term machinery storage, and so the
+service codes for these two rates are different.</p>
+</div>
+<div class="section" id="recurring-product-charges">
+<h2>Recurring Product Charges<a class="headerlink" href="#recurring-product-charges" title="Permalink to this headline">¶</a></h2>
+<p>With the exception of anniversary recurring, warehouses apply recurring charges
+across an entire account based on the customer&#8217;s recurring schedule. Therefore
+recurring calendars are associated with the customer account, not the product
+rate. Recurring is calculated by selecting accounts from the calendar list
+while calling a routine to create an inventory balance audit and apply
+recurring storage charges to those balances.</p>
+<p>The following image shows the calendar selection page for Recurring Rates:</p>
+<img alt="_images/cal-recurring.png" src="_images/cal-recurring.png" />
+<p>Note that the filter allows selection by <strong>Account</strong> rather than <strong>Group</strong>, and
+the code <strong>1S</strong> of associated rates is auto-filled.</p>
+<div class="section" id="recurring-process">
+<h3>Recurring Process<a class="headerlink" href="#recurring-process" title="Permalink to this headline">¶</a></h3>
+<p>Recurring selects inventory lots by account by rate group by product by lot.
+First a Product Balance audit is created for the selected inventory records,
+then a recurring charge record is created for the balance of each product.</p>
+</div>
 </div>
 </div>
 

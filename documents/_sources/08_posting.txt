@@ -92,7 +92,7 @@ PRODUCT by VARIETY by CONTROL by UNITIDENTIFIER by TYPE by STATUS by POSTDATE.
 +---+---+-----------+---------+----+----------+----------+--+----+--------+---------+---------+
 | SH| 2 | 20150615TZ| PPPP    |    | CCCC     | 34567    | G| CA |        |    -54  |      54 |
 +---+---+-----------+---------+----+----------+----------+--+----+--------+---------+---------+
-| -- Mixed units will have multiple content records which must be withdrawn by content.       |
+| -- Mixed units will have multiple package records which must be withdrawn by package.       |
 +---+---+-----------+---------+----+----------+----------+--+----+--------+---------+---------+
 | RE| 3 | 20150615TZ| PPPP    |    | CCCC     | 45678    | G| CA |     46 |         |      54 |
 +---+---+-----------+---------+----+----------+----------+--+----+--------+---------+---------+

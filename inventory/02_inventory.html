@@ -116,11 +116,11 @@ organized by:</p>
 <tr class="row-odd"><td>UNIT</td>
 <td>Handling unit: pallet, roll, coil, bundle, bag, billet, ...</td>
 </tr>
-<tr class="row-even"><td>CONTENT</td>
+<tr class="row-even"><td>PACKAGE</td>
 <td>Countable sub-unit: case, carton, box, sack, ...</td>
 </tr>
 <tr class="row-odd"><td>INNER</td>
-<td>Enclosed packages: inner pack, each, piece ...</td>
+<td>Enclosed items: inner pack, each, piece ...</td>
 </tr>
 </tbody>
 </table>
@@ -148,14 +148,14 @@ the item. Links to the code lists for products and lot control follow:</p>
 </div>
 <div class="section" id="units-of-measure">
 <h2>Units of Measure<a class="headerlink" href="#units-of-measure" title="Permalink to this headline">¶</a></h2>
-<p>Product inventory is measured by countable contents (CONTENT), which may be
+<p>Product inventory is measured by countable packages (PACKAGE), which may be
 accumulated into handling units (UNIT), and subdivided into inner elements
 (INNER). The basis for inventory counts or measures is specified with Units of
 Measure (UOMs) particular to each product. For further reference, see this
 Table of Industry Standard <a class="reference external" href="../codes/P_code-uom.html#uom-list" title="(in WARES Codes v1.0)"><em>Units of Measure</em></a>.</p>
-<p>The classic case of inventory is a pallet (unit) of cartons (content), with
+<p>The classic case of inventory is a pallet (unit) of cartons (packages), with
 each carton uniformly filled with inner packs or eaches. Products deviate from
-this ideal configuration, and so the dimensional analysis of UNIT, CONTENT, and
+this ideal configuration, and so the dimensional analysis of UNIT, PACKAGE, and
 INNER, along with weights and measures, must be entered separately for each
 product. Further, the inventory of lots and units of a product may deviate from
 the product definition, and so inventory documents must record the exact counts
@@ -189,7 +189,7 @@ generate default values for content and unit weights and sizes as follows:</p>
 <td>(N/A)</td>
 <td>ISIZE</td>
 </tr>
-<tr class="row-odd"><td>CONTENT</td>
+<tr class="row-odd"><td>PACKAGE</td>
 <td>CA,...</td>
 <td>CNT</td>
 <td>NET = PCS X WGHT</td>
@@ -206,7 +206,7 @@ generate default values for content and unit weights and sizes as follows:</p>
 </tbody>
 </table>
 <p>Individual units may be received with unique values for the inner PCS count,
-WGHT, and ISIZE, the content CNT, NET, TARE, and SIZE, or handling/shipping
+WGHT, and ISIZE, the package CNT, NET, TARE, and SIZE, or handling/shipping
 unit UNET and UTARE weights and the USIZE.</p>
 </div>
 <div class="section" id="quantity-setup-considerations">
@@ -231,7 +231,7 @@ categories commonly stored in warehouse inventory:</p>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">&nbsp;</th>
 <th class="head" colspan="3">INNER &#8211; &#8211; &#8211;</th>
-<th class="head" colspan="4">CONTENT &#8211; &#8211; &#8211; &#8211; &#8211;</th>
+<th class="head" colspan="4">PACKAGE &#8211; &#8211; &#8211; &#8211; &#8211;</th>
 <th class="head" colspan="3">UNIT &#8211; &#8211; &#8211; &#8211;</th>
 </tr>
 <tr class="row-even"><th class="head">Description</th>
