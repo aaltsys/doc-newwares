@@ -64,8 +64,8 @@ RATES Data Table Columns
        return values for the quantity or the payer. The payer may be different
        from the account.
 .. [4] Rates may be single, multiple with breaks, or tiered as described in
-       :ref:`rate-extend`.
+       the billing documentation.
 .. [5] Where charges are calculated for a multi-line activity, a minimum charge 
        for the total transaction may apply.
-.. [6] Calendar values and associated operations are described in the article 
-       :ref:`rate-apply`.
+.. [6] Calendar values and associated operations are described in articles in 
+       billing documentation.
