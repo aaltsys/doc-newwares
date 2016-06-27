@@ -44,7 +44,7 @@ Once mandatory and calculated charges are added to an activity, editing the
 charges is not an option. The charge entry page will show all the charges, but 
 the page becomes view-only as shown:
 
-.. image:: _images/charge-line-entry-1.png
+.. image:: _images/charge-line-entry-2.png
 
 Generated Charges
 =============================
