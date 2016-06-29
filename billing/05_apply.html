@@ -53,6 +53,7 @@
 <li><a class="reference internal" href="#repeating-calendar-charges">Repeating Calendar Charges</a></li>
 <li><a class="reference internal" href="#recurring-product-charges">Recurring Product Charges</a><ul>
 <li><a class="reference internal" href="#recurring-process">Recurring Process</a></li>
+<li><a class="reference internal" href="#recurring-reporting">Recurring Reporting</a></li>
 </ul>
 </li>
 </ul>
@@ -126,9 +127,16 @@ transaction is completed, verified, and released to billing calculation. An
 example of of the charges entry page for an activity follows:</p>
 <img alt="_images/charge-line-entry-1.png" src="_images/charge-line-entry-1.png" />
 <p>Once mandatory and calculated charges are added to an activity, editing the
-charges is not an option. The charge entry page will show all the charges, but
-the page becomes view-only as shown:</p>
+charges is not an option. The charge entry page shows all the charges including
+the mandatory code <strong>MB</strong> line, but the page becomes view-only as shown:</p>
 <img alt="_images/charge-line-entry-2.png" src="_images/charge-line-entry-2.png" />
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>The deficit column is visible but entries are calculated and protected</li>
+<li>Factor and Surcharge entries used in rate formulas are not shown</li>
+</ul>
+</div>
 </div>
 <div class="section" id="generated-charges">
 <h2>Generated Charges<a class="headerlink" href="#generated-charges" title="Permalink to this headline">¶</a></h2>
@@ -240,8 +248,16 @@ the code <strong>1S</strong> of associated rates is auto-filled.</p>
 <div class="section" id="recurring-process">
 <h3>Recurring Process<a class="headerlink" href="#recurring-process" title="Permalink to this headline">¶</a></h3>
 <p>Recurring selects inventory lots by account by rate group by product by lot.
-First a Product Balance audit is created for the selected inventory records,
-then a recurring charge record is created for the balance of each product.</p>
+First the <a class="reference external" href="../inventory/04_balances.html#inv-balances" title="(in WARES Inventory v1.0)"><em>Inventory Balances Posting</em></a> is created for the selected inventory records,
+then a recurring charges record is created for the balance of each product,
+lot, or unit tracked.</p>
+</div>
+<div class="section" id="recurring-reporting">
+<h3>Recurring Reporting<a class="headerlink" href="#recurring-reporting" title="Permalink to this headline">¶</a></h3>
+<p>Recurring calculations produce a pair of audit trails: The <a class="reference external" href="../inventory/04_balances.html#inv-balances" title="(in WARES Inventory v1.0)"><em>Inventory Balances Posting</em></a>,
+and the Recurring Charges Detail. The customer should receive both reports with
+the storage invoice, one report for inventory management and the other for
+accounting.</p>
 </div>
 </div>
 </div>
