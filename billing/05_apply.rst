@@ -35,7 +35,20 @@ clerical entry. Here are some circumstances where optional entry is required:
    the rate is made Global. Global rates are always optional.
 
 Optional charges can be entered for an activity up to the point that the 
-transaction is completed, verified, and released to billing calculation. 
+transaction is completed, verified, and released to billing calculation. An 
+example of of the charges entry page for an activity follows:
+
+.. image:: _images/charge-line-entry-1.png
+
+Once mandatory and calculated charges are added to an activity, editing the 
+charges is not an option. The charge entry page shows all the charges including
+the mandatory code **MB** line, but the page becomes view-only as shown:
+
+.. image:: _images/charge-line-entry-2.png
+
+.. note::
+   *  The deficit column is visible but entries are calculated and protected
+   *  Factor and Surcharge entries used in rate formulas are not shown
 
 Generated Charges
 =============================
@@ -120,8 +133,8 @@ Now for the line, rates are applied as follows for each calculated rate record:
 #. A charge line is added for the calculated charge.
 
 This sounds like the way Mandatory charges are applied, and it is. The 
-difference is in selecting rates based on product groups and applying them one 
-line at a time.
+difference is in applying rates one line at a time based on the line's product 
+rate group.
 
 Repeating Calendar Charges
 =============================
@@ -168,5 +181,14 @@ Recurring Process
 -----------------------------
 
 Recurring selects inventory lots by account by rate group by product by lot. 
-First a Product Balance audit is created for the selected inventory records, 
-then a recurring charge record is created for the balance of each product.
+First the :ref:`inv-balances` is created for the selected inventory records, 
+then a recurring charges record is created for the balance of each product, 
+lot, or unit tracked.
+
+Recurring Reporting
+-----------------------------
+
+Recurring calculations produce a pair of audit trails: The :ref:`inv-balances`, 
+and the Recurring Charges Detail. The customer should receive both reports with 
+the storage invoice, one report for inventory management and the other for 
+accounting.
