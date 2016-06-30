@@ -119,8 +119,11 @@ control codes and values.</p>
 <p>Sample transaction line entries and the resulting balances are shown below.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
-<p class="last">Transactions do not include the product variety column, assuming it is null.
-Balances reports do not include inner units, assuming they are null.</p>
+<ul class="last simple">
+<li>Transactions do not include the product variety column, as it is null.</li>
+<li>Balances reports do not include inner units, assuming they are null.</li>
+<li>The <strong>C</strong> column shows condition: <strong>G</strong> for Good, <strong>D</strong> for Damaged</li>
+</ul>
 </div>
 <div class="section" id="uab123-transaction-posting">
 <h3>UAB123 Transaction Posting<a class="headerlink" href="#uab123-transaction-posting" title="Permalink to this headline">¶</a></h3>
@@ -191,16 +194,23 @@ receives pallets in truckloads of 400 each, while each ocean container they
 unload needs 40 pallets for product segregation and storage.</p>
 <div class="section" id="pfg789-transactions">
 <h4>PFG789 Transactions<a class="headerlink" href="#pfg789-transactions" title="Permalink to this headline">¶</a></h4>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">Adjustments are used to remove pallets from inventory as goods are put away
+in storage, one adjustment for each container.</p>
+</div>
 <img alt="_images/PFG789-transactions.png" src="_images/PFG789-transactions.png" />
 </div>
 <div class="section" id="pfg789-balances">
 <h4>PFG789 Balances<a class="headerlink" href="#pfg789-balances" title="Permalink to this headline">¶</a></h4>
-<img alt="_images/PFG789-balances.png" src="_images/PFG789-balances.png" />
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Each transaction line is posted to the product balance record only. Lots and
-control numbers are not used and do not exist for this product.</p>
+<p>Transaction lines post to the product balance record only. Lots and control
+numbers are not used and do not exist for this product.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">Product PFG789 would not be included on a lot detail balances report for the
+account.</p>
 </div>
+<img alt="_images/PFG789-balances.png" src="_images/PFG789-balances.png" />
 </div>
 </div>
 </div>

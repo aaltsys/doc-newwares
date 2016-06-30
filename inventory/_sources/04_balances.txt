@@ -24,8 +24,9 @@ Suppose an account has the following three products:
 Sample transaction line entries and the resulting balances are shown below.
 
 .. tip::
-   Transactions do not include the product variety column, assuming it is null.
-   Balances reports do not include inner units, assuming they are null.
+   *  Transactions do not include the product variety column, as it is null.
+   *  Balances reports do not include inner units, assuming they are null.
+   *  The **C** column shows condition: **G** for Good, **D** for Damaged
 
 UAB123 Transaction Posting
 -----------------------------
@@ -101,16 +102,23 @@ unload needs 40 pallets for product segregation and storage.
 PFG789 Transactions
 '''''''''''''''''''''''''''''
 
+.. tip::
+   Adjustments are used to remove pallets from inventory as goods are put away 
+   in storage, one adjustment for each container.
+
 .. image:: _images/PFG789-transactions.png
 
 PFG789 Balances
 '''''''''''''''''''''''''''''
 
-.. image:: _images/PFG789-balances.png
+Transaction lines post to the product balance record only. Lots and control 
+numbers are not used and do not exist for this product. 
 
-.. note::
-   Each transaction line is posted to the product balance record only. Lots and 
-   control numbers are not used and do not exist for this product.
+.. tip::
+   Product PFG789 would not be included on a lot detail balances report for the 
+   account.
+
+.. image:: _images/PFG789-balances.png
 
 Lot Balances Columns
 =============================
