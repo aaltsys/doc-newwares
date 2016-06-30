@@ -51,8 +51,9 @@
 <li><a class="reference internal" href="#charge-calculation-details">Charge Calculation Details</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#summary-charge-reporting">Summary Charge Reporting</a></li>
+<li><a class="reference internal" href="#summary-charges-reporting">Summary Charges Reporting</a></li>
 <li><a class="reference internal" href="#detailed-charges-by-code">Detailed Charges by Code</a></li>
+<li><a class="reference internal" href="#recurring-charges-summary">Recurring Charges Summary</a></li>
 </ul>
 </li>
 </ul>
@@ -136,8 +137,8 @@ is presented here.</p>
 <img alt="_images/audit-detail-2.png" src="_images/audit-detail-2.png" />
 </div>
 </div>
-<div class="section" id="summary-charge-reporting">
-<h2>Summary Charge Reporting<a class="headerlink" href="#summary-charge-reporting" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="summary-charges-reporting">
+<h2>Summary Charges Reporting<a class="headerlink" href="#summary-charges-reporting" title="Permalink to this headline">¶</a></h2>
 <p>Auditing an invoice amount requires examinimg the supporting detail. Detailed
 audit reports can be quite large, and so a CHARGES SUMMARY report presentation
 will reduce the volume of information.</p>
@@ -163,6 +164,25 @@ an alternative CHARGES BY CODE report is available.</p>
 <p>This report has the same depth as the CHARGES DETAIL, while displaying the
 columns of the CHARGES SUMMARY. Each TOTAL on the report matches one line item
 on the invoice.</p>
+</div>
+<div class="section" id="recurring-charges-summary">
+<span id="bill-recurring"></span><h2>Recurring Charges Summary<a class="headerlink" href="#recurring-charges-summary" title="Permalink to this headline">¶</a></h2>
+<p>Recurring charges are always audited with the <em>Charges Summary</em> report, as
+shown following.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For recurring charges the <strong>Activity</strong> column contains the product
+identifier/variety and the <strong>Description</strong> contains the product description,
+not the charge description.</p>
+</div>
+<img alt="-images/audit-recurring.png" src="-images/audit-recurring.png" />
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Recurring charges are calculated based on the Product Balances Summary
+records, as described in topic <a class="reference external" href="../inventory/04_balances.html#inv-balances" title="(in WARES Inventory v1.0)"><em>Inventory Balances Posting</em></a>. Lot detail cannot be
+used to calculate recurring, as products which are not tracked by lot would
+not be included in the calculation.</p>
+</div>
 </div>
 </div>
 

@@ -189,13 +189,18 @@ Recurring Process
 
 Recurring selects inventory lots by account by rate group by product by lot. 
 First the :ref:`inv-balances` is created for the selected inventory records, 
-then a recurring charges record is created for the balance of each product, 
-lot, or unit tracked.
+then a recurring charges record is created for the balance of each product or 
+lot being tracked.
 
 Recurring Reporting
 -----------------------------
 
 Recurring calculations produce a pair of audit trails: The :ref:`inv-balances`, 
-and the Recurring Charges Detail. The customer should receive both reports with 
+and the :ref:`bill-recurring`. The customer should receive both reports with 
 the storage invoice, one report for inventory management and the other for 
 accounting.
+
+.. warning::
+   Recurring charges are calculated and reported summarized by product. If the 
+   charges were calculated by lot, then products which were not tracked by lot 
+   would be left out of the calculation and the reporting.

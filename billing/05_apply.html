@@ -257,15 +257,21 @@ the code <strong>1S</strong> of associated rates is auto-filled.</p>
 <h3>Recurring Process<a class="headerlink" href="#recurring-process" title="Permalink to this headline">¶</a></h3>
 <p>Recurring selects inventory lots by account by rate group by product by lot.
 First the <a class="reference external" href="../inventory/04_balances.html#inv-balances" title="(in WARES Inventory v1.0)"><em>Inventory Balances Posting</em></a> is created for the selected inventory records,
-then a recurring charges record is created for the balance of each product,
-lot, or unit tracked.</p>
+then a recurring charges record is created for the balance of each product or
+lot being tracked.</p>
 </div>
 <div class="section" id="recurring-reporting">
 <h3>Recurring Reporting<a class="headerlink" href="#recurring-reporting" title="Permalink to this headline">¶</a></h3>
 <p>Recurring calculations produce a pair of audit trails: The <a class="reference external" href="../inventory/04_balances.html#inv-balances" title="(in WARES Inventory v1.0)"><em>Inventory Balances Posting</em></a>,
-and the Recurring Charges Detail. The customer should receive both reports with
+and the <a class="reference internal" href="06_audits.html#bill-recurring"><em>Recurring Charges Summary</em></a>. The customer should receive both reports with
 the storage invoice, one report for inventory management and the other for
 accounting.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Recurring charges are calculated and reported summarized by product. If the
+charges were calculated by lot, then products which were not tracked by lot
+would be left out of the calculation and the reporting.</p>
+</div>
 </div>
 </div>
 </div>
