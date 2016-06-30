@@ -101,7 +101,7 @@ shown following.
    identifier/variety and the **Description** contains the product description, 
    not the charge description. 
 
-.. image:: -images/audit-recurring.png
+.. image:: _images/audit-recurring.png
 
 .. warning::
    Recurring charges are calculated based on the Product Balances Summary 
