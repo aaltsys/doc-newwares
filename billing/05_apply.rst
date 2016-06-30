@@ -48,7 +48,14 @@ the mandatory code **MB** line, but the page becomes view-only as shown:
 
 .. note::
    *  The deficit column is visible but entries are calculated and protected
-   *  Factor and Surcharge entries used in rate formulas are not shown
+   *  Quantity, Factor, Minimum, and Surcharge entries used in rate formulas 
+      are not shown
+
+.. tip::
+   The *Clerical Labor* seems not to extend correctly, as the **Amount** times
+   the **Rate** would be $1.50. But for this rate, the quantity is not per each 
+   hour, but per each *Quarter-hour*. See the topic on :ref:`rate-extend` for 
+   details on how charges are calculated.
 
 Generated Charges
 =============================
