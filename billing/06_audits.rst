@@ -53,7 +53,7 @@ is presented here.
 
 .. image:: _images/audit-detail-2.png
 
-Summary Charge Reporting
+Summary Charges Reporting
 =============================
 
 Auditing an invoice amount requires examinimg the supporting detail. Detailed 
@@ -87,3 +87,24 @@ an alternative CHARGES BY CODE report is available.
 This report has the same depth as the CHARGES DETAIL, while displaying the 
 columns of the CHARGES SUMMARY. Each TOTAL on the report matches one line item 
 on the invoice.
+
+.. _bill-recurring:
+
+Recurring Charges Summary
+=============================
+
+Recurring charges are always audited with the *Charges Summary* report, as 
+shown following. 
+
+.. note::
+   For recurring charges the **Activity** column contains the product 
+   identifier/variety and the **Description** contains the product description, 
+   not the charge description. 
+
+.. image:: -images/audit-recurring.png
+
+.. warning::
+   Recurring charges are calculated based on the Product Balances Summary 
+   records, as described in topic :ref:`inv-balances`. Lot detail cannot be 
+   used to calculate recurring, as products which are not tracked by lot would 
+   not be included in the calculation.
