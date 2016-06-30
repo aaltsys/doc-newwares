@@ -106,5 +106,5 @@ shown following.
 .. warning::
    Recurring charges are calculated based on the Product Balances Summary 
    records, as described in topic :ref:`inv-balances`. Lot detail cannot be 
-   used to calculate recurring, as products which are not tracked by lot would 
-   not be included in the calculation.
+   used to calculate recurring, as then products which were not tracked by lot 
+   would not be included in the calculation.
