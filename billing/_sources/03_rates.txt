@@ -140,10 +140,6 @@ The following figure shows identifying entries for rates:
 
 .. image:: _images/rates-id.png
 
-.. note::
-   Calendar is a protected entry. For rates which are Applied Repeating, the 
-   **Calendar** entry is filled with **RATE*group*service**. 
-
 Rate Activity Scope
 -----------------------------
 
