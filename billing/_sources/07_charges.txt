@@ -4,4 +4,28 @@
 Charges Transactions
 #############################
 
-In progress
+Common Questions (FAQ)
+=============================
+
+*How can I set a minimum recurring invoice amount for an account?*
+
+Answer::
+
+  On the **Rates** page, enter a new rate record as follows:
+
+  .. image:: _images/rate-faq1-id.png
+
+  This rate will be evaluated as each invoice is generated for account **ABF**. 
+  The quantity method **recurMinimum** will select all invoice lines with code 
+  **1S** and this invoice number, and sum the extended column to determine an 
+  amount. Method logic will return **Amount = 0** when recurring exceeds 250.00, 
+  or when an invoice has no recurring charges. 
+
+  .. image:: _images/rate-faq1-calc.png
+
+  The **Factor**, **Rate**, and **Quantity** are all **1.00**, and the 
+  **Minimum** is the minimum amount of recurring to charge, if any.
+
+  Applying this rate will result in a deficit charge line on an invoice where 
+  the recurring total is greater than zero, but less than $250.00.
+

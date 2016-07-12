@@ -91,9 +91,6 @@ the following entries:
    separately.)
 *  **PO Number** -- A customer may specify a PO Number to appear on invoices, 
    and otherwise they may not get paid. Enter the PO Number here.
-*  **Minimum Storage Invoice** -- To discourage unprofitable customer 
-   relationships, the warehouse may impose a minimum monthly fee for recurring 
-   storage services.
 *  **Percent Handling Income Deferred** -- Based on an account's handling rates 
    and the amount of goods in storage at the end of a month, a deferred income 
    report will determine the warehouse liability for handling 
@@ -129,7 +126,7 @@ an account, as described by the following items.
    **(E)nding balance** for advance billing of calendar month storage, 
    **(S)tarting balance** for arrears billing of the previous month, and 
    **(A)nniversary** for calculating the recurring storage on each lot according 
-   to the balance on succeeding month-days following receipt. [1]_
+   to the balance on succeeding month-days following the initial receipt. [1]_
 *  **Free Days** grants a customer a number of days before receiving and 
    recurring storage charges will be applied to received goods, while
 *  **Grace Days** waives receiving storage for goods within the grace period at
