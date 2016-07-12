@@ -9,7 +9,7 @@ Common Questions (FAQ)
 
 *How can I set a minimum recurring invoice amount for an account?*
 
-Answer::
+Answer:
 
   On the **Rates** page, enter a new rate record as follows:
 
@@ -28,4 +28,3 @@ Answer::
 
   Applying this rate will result in a deficit charge line on an invoice where 
   the recurring total is greater than zero, but less than $250.00.
-
