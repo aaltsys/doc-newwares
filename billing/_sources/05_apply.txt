@@ -61,9 +61,9 @@ Generated Charges
 =============================
 
 The billing for an activity transaction can be hand-calculated by setting the 
-transaction's status, but this does not leave a calculation audit trail. 
-further, hand changes are not a satisfactory method for updating charges on 
-hundreds of transactions. 
+transaction's status, but this does not leave a batch calculation audit trail. 
+Further, changing status by hand is not a satisfactory method for updating 
+charges on hundreds of transactions at a time. 
 
 For all rates which are not optional, WARES uses batch methods to generate the 
 charges. Each batch has a unique identifier, a record of the batch input, start 
@@ -117,7 +117,7 @@ This description makes it clear that a mandatory rate creates a single charge
 line. Where a mandatory rate refers to something like case picking, the **Per** 
 code must calculate a total for the entire transaction.
 
-Calculated Product Charges
+Product Calculated Charges
 =============================
 
 Once mandatory charges are applied to a transaction, another billing routine 
@@ -146,11 +146,10 @@ rate group.
 Repeating Calendar Charges
 =============================
 
-Repeating charges are calculated by selecting scheduled rates from the calendar 
+Repeating charges are applied by selecting scheduled rates from the calendar 
 list, while calling a billing routine to apply the charges. Each calendar entry 
-will generate one charge record with one line item. Charges calculated from 
-calendar events do not have associated activity, and so each such charge is 
-identified by a sequential charge number and the payer id. 
+will generate one charge line item. Charges calculated from calendar events are identified by a sequential charge number and the payer id, and there is no 
+associated activity.
 
 An example calendar selection page for Repeating Rates follows:
 
@@ -167,40 +166,22 @@ and codes used may vary. In this example, the accounting implications of a
 building lease are different from long-term machinery storage, and so the 
 service codes for these two rates are different. 
 
-Recurring Product Charges
+Recurring Calculated Charges
 =============================
 
-With the exception of anniversary recurring, warehouses apply recurring charges 
-across an entire account based on the customer's recurring schedule. Therefore 
-recurring calendars are associated with the customer account, not the product 
-rate. Recurring is calculated by selecting accounts from the calendar list 
-while calling a routine to create an inventory balance audit and apply 
-recurring storage charges to those balances.
+For stored product, a routine calculates recurring product storage charges 
+based on an account's recurring calculation settings and calendar. Recurring 
+storage charges are identified by a sequential charge number and the payer id. 
+Each charge is associated with a single product, and the charge is linked to 
+a recurring storage audit table which documents stock activity and balances for 
+product and lot quantities.
 
-The following image shows the calendar selection page for Recurring Rates:
+The following image shows the calendar selection page for recurring  Calculation:
 
 .. image:: _images/cal-recurring.png
 
 Note that the filter allows selection by **Account** rather than **Group**, and 
 the code **1S** of associated rates is auto-filled.
 
-Recurring Process
------------------------------
-
-Recurring selects inventory lots by account by rate group by product by lot. 
-First the :ref:`inv-balances` is created for the selected inventory records, 
-then a recurring charges record is created for the balance of each product or 
-lot being tracked.
-
-Recurring Reporting
------------------------------
-
-Recurring calculations produce a pair of audit trails: The :ref:`inv-balances`, 
-and the :ref:`bill-recurring`. The customer should receive both reports with 
-the storage invoice, one report for inventory management and the other for 
-accounting.
-
-.. warning::
-   Recurring charges are calculated and reported summarized by product. If the 
-   charges were calculated by lot, then products which were not tracked by lot 
-   would be left out of the calculation and the reporting.
+See the :ref:`bill-recurring` article for more information on how recurring 
+storage charges are calculated and audited.

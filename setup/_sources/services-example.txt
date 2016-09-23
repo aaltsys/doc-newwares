@@ -1,4 +1,6 @@
-Service Codes Example 
+.. _services-example:
+
+Service Codes List
 =============================
 
 Following is an example service code list. 

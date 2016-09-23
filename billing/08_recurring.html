@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Recurring Calculation Audits &mdash; WARES Billing 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="WARES Billing 1.0 documentation" href="index.html" />
+    <link rel="next" title="Customer Invoices" href="09_invoices.html" />
+    <link rel="prev" title="Charges Transactions" href="07_charges.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="09_invoices.html" title="Customer Invoices"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="07_charges.html" title="Charges Transactions"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">WARES Billing 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Recurring Calculation Audits</a><ul>
+<li><a class="reference internal" href="#recurring-reports">Recurring Reports</a><ul>
+<li><a class="reference internal" href="#recurring-charges-audits">Recurring Charges Audits</a></li>
+<li><a class="reference internal" href="#stock-activity-audits">Stock Activity Audits</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#calculating-recurring-charges">Calculating Recurring Charges</a></li>
+<li><a class="reference internal" href="#recurring-activity-issues">Recurring Activity Issues</a><ul>
+<li><a class="reference internal" href="#recurring-process">Recurring Process</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="07_charges.html"
+                        title="previous chapter">Charges Transactions</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="09_invoices.html"
+                        title="next chapter">Customer Invoices</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/08_recurring.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="recurring-calculation-audits">
+<span id="bill-recurring"></span><h1>Recurring Calculation Audits<a class="headerlink" href="#recurring-calculation-audits" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="recurring-reports">
+<h2>Recurring Reports<a class="headerlink" href="#recurring-reports" title="Permalink to this headline">¶</a></h2>
+<p>Recurring calculations produce two audit trails. The <a class="reference internal" href="#bill-activity"><em>Stock Activity Audits</em></a>
+details inventory stock movement during the recurring period, resulting in a
+quantity balance to be billed. The <a class="reference internal" href="#bill-storage"><em>Recurring Charges Audits</em></a> lists charges billed for
+the quantity balance.</p>
+<p>The customer should receive both reports with the recurring storage invoice,
+one report for inventory management and the other for accounting.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Inventory may be tracked by unit, lot, or product, but the stock activity is
+reported by lot or product using the units of the storage charges. Then
+charges are summarized and reported by product only.</p>
+</div>
+<div class="section" id="recurring-charges-audits">
+<span id="bill-storage"></span><h3>Recurring Charges Audits<a class="headerlink" href="#recurring-charges-audits" title="Permalink to this headline">¶</a></h3>
+<p>Recurring charges are always audited with the <em>Charges Summary</em> report, as
+shown following.</p>
+<img alt="_images/audit-recurring.png" src="_images/audit-recurring.png" />
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Each row of this report lists charges for one product identifier/variety
+combination. The <strong>Activity</strong> column contains the product identifier; the
+<strong>Description</strong> shows the product description, not the charge description.</p>
+</div>
+</div>
+<div class="section" id="stock-activity-audits">
+<span id="bill-activity"></span><h3>Stock Activity Audits<a class="headerlink" href="#stock-activity-audits" title="Permalink to this headline">¶</a></h3>
+<p>Billing quantities for stock activity and balances are captured with the
+<strong>Stock Activity Audit</strong>. This report is divided into two sections: identifying
+information for each item on the left, and quantitative data on the right.</p>
+<p>Example identifying information for the Stock Activity follows:</p>
+<img alt="_images/audit-activity1.png" src="_images/audit-activity1.png" />
+<p>Columns for the report identifier section are:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="68%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Column Name</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>AUDIT</td>
+<td>(heading) Calculation Batch Number</td>
+</tr>
+<tr class="row-odd"><td>RUN DATETIME</td>
+<td>(heading) Date Time batch started</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ACCOUNT</td>
+<td>Customer Account Code</td>
+</tr>
+<tr class="row-even"><td>UOM</td>
+<td>Billing Quantity Unit of Measure</td>
+</tr>
+<tr class="row-odd"><td>PRODUCT</td>
+<td>Product Code Identifier</td>
+</tr>
+<tr class="row-even"><td>VARIETY</td>
+<td>Variety Code, if used</td>
+</tr>
+<tr class="row-odd"><td>LOT</td>
+<td>When tracking lots, the Lot Number</td>
+</tr>
+</tbody>
+</table>
+<p>AUDIT and RUN datetime apply to the entire report, and so these items appear in
+the report identifier section heading.</p>
+<p>The Quantitative data listed below matches the identifiers section presented
+above:</p>
+<p>Again, calculation range STARTING and ENDING apply to the entire report and so
+these items appear in the data section heading. All data columns are listed
+below.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="68%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Column Name</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>RANGE STARTING</td>
+<td>(heading) Calculation Batch Number</td>
+</tr>
+<tr class="row-odd"><td>RANGE ENDING</td>
+<td>(heading) Date Time batch started</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>START DATE</td>
+<td>Lot Anniversary Starting Date</td>
+</tr>
+<tr class="row-even"><td>ON HAND</td>
+<td>Lot Balance on Starting Date</td>
+</tr>
+<tr class="row-odd"><td>RECEIVED</td>
+<td>Quantity Received during Period</td>
+</tr>
+<tr class="row-even"><td>SHIPPED</td>
+<td>Quantity Shipped during Period</td>
+</tr>
+<tr class="row-odd"><td>ADJUSTED</td>
+<td>Quantity Adjusted during Period</td>
+</tr>
+<tr class="row-even"><td>ENDING BALANCE</td>
+<td>Lot Balance at Period Ending Date</td>
+</tr>
+<tr class="row-odd"><td>END DATE</td>
+<td>Anniversary Period Ending Date</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="calculating-recurring-charges">
+<h2>Calculating Recurring Charges<a class="headerlink" href="#calculating-recurring-charges" title="Permalink to this headline">¶</a></h2>
+<p>Recurring charges are based on a <strong>Stock Activity Audit</strong>. This report is a
+permanent record of the inventory changes during a recurring period, resulting
+in the balances used for recurring charges. The Stock Activity Audit determines
+the starting balance of inventory, accumulates transactional changes from
+receiving, shipping, and adjusting, and calculates a corresponding inventory
+ending balance.</p>
+</div>
+<div class="section" id="recurring-activity-issues">
+<h2>Recurring Activity Issues<a class="headerlink" href="#recurring-activity-issues" title="Permalink to this headline">¶</a></h2>
+<p>Several factors can complicate recurring storage calculations:</p>
+<ul class="simple">
+<li>The units of measure for recurring storage can be different from the stock
+units which track inventory movement.</li>
+<li>Recurring may be based on calendar periods, or on lot anniversaries.</li>
+<li>Accounts may specify custom period dates for recurring accounting.</li>
+<li>Recurring may be calculated by month, or by alternative time periods such as
+daily, weekly, or bi-weekly.</li>
+<li>Inventory movement may be tracked by unit, lot, or product.</li>
+<li>Accounts may be offered free days affecting the starting date for applying
+storage charges or calculating anniversaries, as well as requiring the
+accumulation of both receiving and recurring charges during recurring
+calculation.</li>
+<li>Damaged goods are included in recurring storage but not reported in available
+inventory.</li>
+</ul>
+<p>Calculation Requirements.</p>
+<div class="section" id="recurring-process">
+<h3>Recurring Process<a class="headerlink" href="#recurring-process" title="Permalink to this headline">¶</a></h3>
+<p>Recurring selects inventory lots by account by rate group by product by lot.
+First the <a class="reference external" href="../inventory/04_balances.html#inv-balances" title="(in WARES Inventory v1.0)"><em>Inventory Balances Posting</em></a> is created for the selected inventory records,
+then a recurring charges record is created for the balance of each product or
+lot being tracked.
+Recurring is calculated by
+selecting accounts from the recurring calendar list, then calling a routine to
+create an inventory activity audit and apply recurring storage charges to the
+resulting ending balances.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="09_invoices.html" title="Customer Invoices"
+             >next</a></li>
+        <li class="right" >
+          <a href="07_charges.html" title="Charges Transactions"
+             >previous</a> |</li>
+        <li><a href="index.html">WARES Billing 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Gerald Lovel.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b1.
+    </div>
+  </body>
+</html>

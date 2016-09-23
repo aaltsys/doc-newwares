@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>CHARGES Header Data Columns &mdash; WARES Resources 1.0 documentation</title>
+    <title>CHARGES Lines Data Columns &mdash; WARES Resources 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="WARES Resources 1.0 documentation" href="index.html" />
-    <link rel="next" title="INVOICES Header Data Columns" href="08_invoices.html" />
+    <link rel="next" title="RECURRING Lines Data Columns" href="08_recurring.html" />
     <link rel="prev" title="RATES Data Table Columns" href="06_rates.html" /> 
   </head>
   <body role="document">
@@ -32,7 +32,7 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="08_invoices.html" title="INVOICES Header Data Columns"
+          <a href="08_recurring.html" title="RECURRING Lines Data Columns"
              accesskey="N">next</a></li>
         <li class="right" >
           <a href="06_rates.html" title="RATES Data Table Columns"
@@ -42,18 +42,12 @@
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">CHARGES Header Data Columns</a></li>
-<li><a class="reference internal" href="#charges-lines-data-columns">CHARGES Lines Data Columns</a></li>
-</ul>
-
   <h4>Previous topic</h4>
   <p class="topless"><a href="06_rates.html"
                         title="previous chapter">RATES Data Table Columns</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="08_invoices.html"
-                        title="next chapter">INVOICES Header Data Columns</a></p>
+  <p class="topless"><a href="08_recurring.html"
+                        title="next chapter">RECURRING Lines Data Columns</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -82,8 +76,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="charges-header-data-columns">
-<span id="charges-schema"></span><h1>CHARGES Header Data Columns<a class="headerlink" href="#charges-header-data-columns" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="charges-lines-data-columns">
+<span id="charges-schema"></span><h1>CHARGES Lines Data Columns<a class="headerlink" href="#charges-lines-data-columns" title="Permalink to this headline">¶</a></h1>
 <table border="1" class="docutils">
 <colgroup>
 <col width="4%" />
@@ -113,6 +107,26 @@
 </tr>
 <tr class="row-odd"><td>M</td>
 <td>S</td>
+<td>LINEKEY</td>
+<td>A</td>
+<td>U</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>R12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>M</td>
+<td>S</td>
+<td>ACTIVITY</td>
+<td>LC</td>
+<td>U</td>
+<td><a class="reference external" href="../codes/B_activity.html#activity-list" title="(in WARES Codes v1.0)"><em>Transaction Activity Codes</em></a></td>
+<td>&nbsp;</td>
+<td>L4</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>M</td>
+<td>S</td>
 <td>IDENTIFIER</td>
 <td>SK</td>
 <td>U</td>
@@ -131,26 +145,26 @@
 <td>L12</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Posting &amp; Reference</td>
+<tr class="row-odd"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Posting Control Entries</td>
 </tr>
 <tr class="row-even"><td>M</td>
 <td>S</td>
 <td>STATUS</td>
-<td>LC</td>
+<td>A</td>
 <td>U</td>
-<td><a class="reference external" href="../codes/D_status.html#status-list" title="(in WARES Codes v1.0)"><em>Document Status Codes</em></a></td>
 <td>&nbsp;</td>
-<td>L2</td>
+<td>&nbsp;</td>
+<td>R2</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>M</td>
 <td>S</td>
-<td>DATETIME</td>
-<td>DT</td>
+<td>POSTDATE</td>
+<td>A</td>
 <td>U</td>
-<td>&nbsp;</td>
-<td>TODAY</td>
-<td>R10</td>
+<td>DATETIME</td>
+<td>NOW</td>
+<td>R16</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>M</td>
@@ -160,40 +174,8 @@
 <td>U</td>
 <td>VT=ACCOUNTS</td>
 <td>&nbsp;</td>
-<td>L12</td>
+<td>L10</td>
 <td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>M</td>
-<td>S</td>
-<td>ACTIVITY</td>
-<td>LC</td>
-<td>U</td>
-<td><a class="reference external" href="../codes/B_activity.html#activity-list" title="(in WARES Codes v1.0)"><em>Transaction Activity Codes</em></a></td>
-<td>&nbsp;</td>
-<td>L4</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>P</td>
-<td>AM</td>
-<td>REFERENCECODE</td>
-<td>LC</td>
-<td>U</td>
-<td><a class="reference external" href="../codes/D_reference.html#reference-list" title="(in WARES Codes v1.0)"><em>Document Reference Codes</em></a></td>
-<td>&nbsp;</td>
-<td>L4</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>P</td>
-<td>AM</td>
-<td>REFERENCE</td>
-<td>A</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>L20</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Relation Values</td>
 </tr>
 <tr class="row-odd"><td>O</td>
 <td>S</td>
@@ -235,135 +217,9 @@
 <td>R12</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Notes and Messages</td>
+<tr class="row-odd"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Descriptive Entries</td>
 </tr>
-<tr class="row-even"><td>P</td>
-<td>AM</td>
-<td>NOTECODE</td>
-<td>LC</td>
-<td>U</td>
-<td><a class="reference external" href="../codes/S_note.html#note-list" title="(in WARES Codes v1.0)"><em>Note &amp; Message Codes</em></a></td>
-<td>&nbsp;</td>
-<td>L4</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>P</td>
-<td>AM</td>
-<td>NOTE</td>
-<td>A</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>T40</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>P</td>
-<td>AM</td>
-<td>NOTEAPPLY</td>
-<td>LC</td>
-<td>U</td>
-<td><a class="reference external" href="../codes/S_document.html#document-list" title="(in WARES Codes v1.0)"><em>Document Type Codes</em></a></td>
-<td>&nbsp;</td>
-<td>L4</td>
-<td>&nbsp;</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="charges-lines-data-columns">
-<h1>CHARGES Lines Data Columns<a class="headerlink" href="#charges-lines-data-columns" title="Permalink to this headline">¶</a></h1>
-<table border="1" class="docutils">
-<colgroup>
-<col width="4%" />
-<col width="4%" />
-<col width="23%" />
-<col width="7%" />
-<col width="4%" />
-<col width="31%" />
-<col width="11%" />
-<col width="7%" />
-<col width="7%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">REQ</th>
-<th class="head">SM</th>
-<th class="head">COLUMN NAME</th>
-<th class="head">TYPE</th>
-<th class="head">UC</th>
-<th class="head">VALIDATE</th>
-<th class="head">DEFAULT</th>
-<th class="head">JUST</th>
-<th class="head">NOTE</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Keys</td>
-</tr>
-<tr class="row-odd"><td>M</td>
-<td>S</td>
-<td>LINEKEY</td>
-<td>A</td>
-<td>U</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>R12</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>M</td>
-<td>S</td>
-<td>IDENTIFIER</td>
-<td>SK</td>
-<td>U</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>L12</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>M</td>
-<td>S</td>
-<td>PAYER</td>
-<td>A</td>
-<td>U</td>
-<td>VT=ACCOUNTS</td>
-<td>&nbsp;</td>
-<td>L12</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Posting Control Entries</td>
-</tr>
-<tr class="row-odd"><td>M</td>
-<td>S</td>
-<td>STATUS</td>
-<td>A</td>
-<td>U</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>R2</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>M</td>
-<td>S</td>
-<td>POSTDATE</td>
-<td>A</td>
-<td>U</td>
-<td>DATE</td>
-<td>TODAY</td>
-<td>R10</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>M</td>
-<td>S</td>
-<td>ACCOUNT</td>
-<td>A</td>
-<td>U</td>
-<td>VT=ACCOUNTS</td>
-<td>&nbsp;</td>
-<td>L10</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Descriptive Entries</td>
-</tr>
-<tr class="row-odd"><td>O</td>
+<tr class="row-even"><td>O</td>
 <td>T</td>
 <td>SERVICE</td>
 <td>A</td>
@@ -373,7 +229,7 @@
 <td>L8</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>O</td>
+<tr class="row-odd"><td>O</td>
 <td>T</td>
 <td>RATE</td>
 <td>A</td>
@@ -383,7 +239,7 @@
 <td>L12</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>M</td>
+<tr class="row-even"><td>M</td>
 <td>S</td>
 <td>BILLUOM</td>
 <td>LC</td>
@@ -393,7 +249,7 @@
 <td>L4</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>O</td>
+<tr class="row-odd"><td>O</td>
 <td>T</td>
 <td>IDENTITY</td>
 <td>A</td>
@@ -403,7 +259,7 @@
 <td>T25</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>O</td>
+<tr class="row-even"><td>O</td>
 <td>T</td>
 <td>DESCRIPTION</td>
 <td>A</td>
@@ -413,9 +269,9 @@
 <td>T40</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Quantitative Entries</td>
+<tr class="row-odd"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Quantitative Entries</td>
 </tr>
-<tr class="row-odd"><td>O</td>
+<tr class="row-even"><td>O</td>
 <td>S</td>
 <td>QUANTITY</td>
 <td>N.2</td>
@@ -425,7 +281,7 @@
 <td>R8</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>O</td>
+<tr class="row-odd"><td>O</td>
 <td>S</td>
 <td>DEFICIT</td>
 <td>N.2</td>
@@ -435,7 +291,7 @@
 <td>R8</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>O</td>
+<tr class="row-even"><td>O</td>
 <td>S</td>
 <td>FACTOR</td>
 <td>N.4</td>
@@ -445,7 +301,7 @@
 <td>R8</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>O</td>
+<tr class="row-odd"><td>O</td>
 <td>S</td>
 <td>RATE</td>
 <td>N.4</td>
@@ -455,7 +311,7 @@
 <td>R8</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>M</td>
+<tr class="row-even"><td>M</td>
 <td>S</td>
 <td>EXTENDED</td>
 <td>N.2</td>
@@ -465,7 +321,7 @@
 <td>R12</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>M</td>
+<tr class="row-odd"><td>M</td>
 <td>S</td>
 <td>SURCHARGE_RATE</td>
 <td>N.4</td>
@@ -473,6 +329,38 @@
 <td>(MD4)</td>
 <td>&nbsp;</td>
 <td>R8</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Notes and Messages</td>
+</tr>
+<tr class="row-odd"><td>P</td>
+<td>AM</td>
+<td>NOTECODE</td>
+<td>LC</td>
+<td>U</td>
+<td><a class="reference external" href="../codes/S_note.html#note-list" title="(in WARES Codes v1.0)"><em>Note &amp; Message Codes</em></a></td>
+<td>&nbsp;</td>
+<td>L4</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>P</td>
+<td>AM</td>
+<td>NOTE</td>
+<td>A</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>T40</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>P</td>
+<td>AM</td>
+<td>NOTEAPPLY</td>
+<td>LC</td>
+<td>U</td>
+<td><a class="reference external" href="../codes/S_document.html#document-list" title="(in WARES Codes v1.0)"><em>Document Type Codes</em></a></td>
+<td>&nbsp;</td>
+<td>L4</td>
 <td>&nbsp;</td>
 </tr>
 </tbody>
@@ -561,7 +449,7 @@ paired entry or code is specified.</li>
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="08_invoices.html" title="INVOICES Header Data Columns"
+          <a href="08_recurring.html" title="RECURRING Lines Data Columns"
              >next</a></li>
         <li class="right" >
           <a href="06_rates.html" title="RATES Data Table Columns"

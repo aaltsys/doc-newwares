@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>CONTACTS Data Table Columns &mdash; WARES Resources 1.0 documentation</title>
+    <title>RECURRING Lines Data Columns &mdash; WARES Resources 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,18 +24,18 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="WARES Resources 1.0 documentation" href="index.html" />
-    <link rel="next" title="ACCOUNTS Data Table Columns" href="01_accounts.html" />
-    <link rel="prev" title="STANDARD CONTRACT TERMS AND CONDITIONS FOR MERCHANDISE WAREHOUSEMEN" href="form_terms-iwla.html" /> 
+    <link rel="next" title="INVOICES Header Data Columns" href="09_invoices.html" />
+    <link rel="prev" title="CHARGES Lines Data Columns" href="07_charges.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="01_accounts.html" title="ACCOUNTS Data Table Columns"
+          <a href="09_invoices.html" title="INVOICES Header Data Columns"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="form_terms-iwla.html" title="STANDARD CONTRACT TERMS AND CONDITIONS FOR MERCHANDISE WAREHOUSEMEN"
+          <a href="07_charges.html" title="CHARGES Lines Data Columns"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">WARES Resources 1.0 documentation</a> &raquo;</li> 
       </ul>
@@ -43,15 +43,15 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="form_terms-iwla.html"
-                        title="previous chapter">STANDARD CONTRACT TERMS AND CONDITIONS FOR MERCHANDISE WAREHOUSEMEN</a></p>
+  <p class="topless"><a href="07_charges.html"
+                        title="previous chapter">CHARGES Lines Data Columns</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="01_accounts.html"
-                        title="next chapter">ACCOUNTS Data Table Columns</a></p>
+  <p class="topless"><a href="09_invoices.html"
+                        title="next chapter">INVOICES Header Data Columns</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/00_contacts.txt"
+      <li><a href="_sources/08_recurring.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -76,16 +76,16 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="contacts-data-table-columns">
-<span id="contacts-schema"></span><h1>CONTACTS Data Table Columns<a class="headerlink" href="#contacts-data-table-columns" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="recurring-lines-data-columns">
+<span id="recurring-schema"></span><h1>RECURRING Lines Data Columns<a class="headerlink" href="#recurring-lines-data-columns" title="Permalink to this headline">¶</a></h1>
 <table border="1" class="docutils">
 <colgroup>
 <col width="4%" />
 <col width="4%" />
-<col width="22%" />
+<col width="23%" />
 <col width="7%" />
 <col width="4%" />
-<col width="33%" />
+<col width="31%" />
 <col width="11%" />
 <col width="7%" />
 <col width="7%" />
@@ -103,21 +103,61 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Keys and Associations</td>
+<tr class="row-even"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Keys</td>
 </tr>
 <tr class="row-odd"><td>M</td>
 <td>S</td>
-<td>CONTACTTYPE</td>
+<td>LINEKEY</td>
 <td>A</td>
 <td>U</td>
-<td><a class="reference external" href="../codes/A_contacts.html#contacts-list" title="(in WARES Codes v1.0)"><em>Contacts Type Codes</em></a></td>
+<td>sequenced</td>
 <td>&nbsp;</td>
-<td>L4</td>
+<td>R12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>C</td>
+<td>S</td>
+<td>BATCH</td>
+<td>N</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>R12</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>M</td>
 <td>S</td>
-<td>CONTACT</td>
+<td>PRODUCT</td>
+<td>LC</td>
+<td>U</td>
+<td><a class="reference external" href="../codes/B_activity.html#activity-list" title="(in WARES Codes v1.0)"><em>Transaction Activity Codes</em></a></td>
+<td>&nbsp;</td>
+<td>L4</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>M</td>
+<td>S</td>
+<td>VARIETY</td>
+<td>SK</td>
+<td>U</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>L12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>M</td>
+<td>S</td>
+<td>LOT</td>
 <td>A</td>
 <td>U</td>
 <td>&nbsp;</td>
@@ -125,180 +165,148 @@
 <td>L12</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>O</td>
+<tr class="row-odd"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Posting Control Entries</td>
+</tr>
+<tr class="row-even"><td>M</td>
+<td>S</td>
+<td>RUNDATE</td>
+<td>A</td>
+<td>U</td>
+<td>DATETIME</td>
+<td>NOW</td>
+<td>R16</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>M</td>
+<td>S</td>
+<td>STATUS</td>
+<td>A</td>
+<td>U</td>
+<td><a class="reference external" href="../codes/D_status.html#status-list" title="(in WARES Codes v1.0)"><em>Document Status Codes</em></a></td>
+<td>&nbsp;</td>
+<td>R2</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>C</td>
+<td>S</td>
+<td>INVOICE</td>
+<td>A</td>
+<td>U</td>
+<td>VT=INVOICES</td>
+<td>&nbsp;</td>
+<td>R12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>M</td>
 <td>S</td>
 <td>ACCOUNT</td>
 <td>A</td>
 <td>U</td>
 <td>VT=ACCOUNTS</td>
 <td>&nbsp;</td>
-<td>L12</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Name and Address</td>
-</tr>
-<tr class="row-odd"><td>M</td>
-<td>S</td>
-<td>NAME</td>
-<td>A</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>L30</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>O</td>
-<td>M</td>
-<td>STREET</td>
-<td>A</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>L30</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>O</td>
-<td>S</td>
-<td>CITY</td>
-<td>A</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>L17</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>O</td>
-<td>S</td>
-<td>STATE</td>
-<td>A</td>
-<td>U</td>
-<td><a class="reference external" href="../codes/A_state.html#state-list" title="(in WARES Codes v1.0)"><em>North American States Codes</em></a></td>
-<td>&nbsp;</td>
-<td>L4</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>O</td>
-<td>S</td>
-<td>POSTALCODE</td>
-<td>A</td>
-<td>U</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>L12</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>O</td>
-<td>S</td>
-<td>COUNTRY</td>
-<td>A</td>
-<td>U</td>
-<td><a class="reference external" href="../codes/A_country.html#country-list" title="(in WARES Codes v1.0)"><em>Country Codes</em></a></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Contact Information</td>
-</tr>
-<tr class="row-even"><td>O</td>
-<td>M</td>
-<td>CONTACT</td>
-<td>A</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>L20</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>O</td>
-<td>M</td>
-<td>SALUTATION</td>
-<td>A</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>L20</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>O</td>
-<td>M</td>
-<td>POSITION</td>
-<td>A</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>L15</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>O</td>
-<td>M</td>
-<td>EMAIL</td>
-<td>A</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>L30</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>O</td>
-<td>M</td>
-<td>PHONE</td>
-<td>A</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>L30</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Shipping Information</td>
-</tr>
-<tr class="row-even"><td>O</td>
-<td>S</td>
-<td>FREIGHTPAY</td>
-<td>A</td>
-<td>U</td>
-<td><a class="reference external" href="../codes/D_freightpay.html#freightpay-list" title="(in WARES Codes v1.0)"><em>Freight Payor Codes</em></a></td>
-<td>&nbsp;</td>
-<td>L4</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>O</td>
-<td>S</td>
-<td>FOB</td>
-<td>A</td>
-<td>U</td>
-<td><a class="reference external" href="../codes/A_fob.html#fob-list" title="(in WARES Codes v1.0)"><em>F.O.B. Location Codes</em></a></td>
-<td>&nbsp;</td>
-<td>L2</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>O</td>
-<td>S</td>
-<td>COD</td>
-<td>A</td>
-<td>U</td>
-<td><a class="reference external" href="../codes/A_cod.html#cod-list" title="(in WARES Codes v1.0)"><em>Collect Payment Codes</em></a></td>
-<td>&nbsp;</td>
-<td>L2</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>O</td>
-<td>S</td>
-<td>LINK</td>
-<td>A</td>
-<td>U</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
 <td>L10</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>O</td>
+<td>T</td>
+<td>GROUP</td>
+<td>A</td>
+<td>&nbsp;</td>
+<td>VT=RATES (code 1S)</td>
+<td>&nbsp;</td>
+<td>L12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>M</td>
 <td>S</td>
-<td>USERDATA</td>
+<td>BILLUOM</td>
+<td>LC</td>
+<td>U</td>
+<td><a class="reference external" href="../codes/P_code-uom.html#uom-list" title="(in WARES Codes v1.0)"><em>Units of Measure</em></a></td>
+<td>PL</td>
+<td>L4</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Quantitative Entries</td>
+</tr>
+<tr class="row-even"><td>M</td>
+<td>S</td>
+<td>STARTDATE</td>
 <td>A</td>
 <td>U</td>
+<td>DATETIME</td>
+<td>INPUT</td>
+<td>R16</td>
 <td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>O</td>
+<td>S</td>
+<td>ONHAND</td>
+<td>N.4</td>
 <td>&nbsp;</td>
-<td>T20</td>
+<td>(MD4L)</td>
+<td>&nbsp;</td>
+<td>R12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>O</td>
+<td>S</td>
+<td>RECEIVED</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>(MD4L)</td>
+<td>&nbsp;</td>
+<td>R12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>O</td>
+<td>S</td>
+<td>SHIPPED</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>(MD4L)</td>
+<td>&nbsp;</td>
+<td>R12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>O</td>
+<td>S</td>
+<td>ADJUSTED</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>(MD4L)</td>
+<td>&nbsp;</td>
+<td>R12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>M</td>
+<td>S</td>
+<td>BALANCE</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>(MD4L)</td>
+<td>&nbsp;</td>
+<td>R12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>M</td>
+<td>S</td>
+<td>ENDDATE</td>
+<td>A</td>
+<td>U</td>
+<td>DATETIME</td>
+<td>INPUT</td>
+<td>R16</td>
 <td>&nbsp;</td>
 </tr>
 </tbody>
@@ -387,10 +395,10 @@ paired entry or code is specified.</li>
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="01_accounts.html" title="ACCOUNTS Data Table Columns"
+          <a href="09_invoices.html" title="INVOICES Header Data Columns"
              >next</a></li>
         <li class="right" >
-          <a href="form_terms-iwla.html" title="STANDARD CONTRACT TERMS AND CONDITIONS FOR MERCHANDISE WAREHOUSEMEN"
+          <a href="07_charges.html" title="CHARGES Lines Data Columns"
              >previous</a> |</li>
         <li><a href="index.html">WARES Resources 1.0 documentation</a> &raquo;</li> 
       </ul>

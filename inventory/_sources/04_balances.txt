@@ -120,7 +120,7 @@ numbers are not used and do not exist for this product.
 
 .. image:: _images/PFG789-balances.png
 
-Lot Balances Columns
+Inventory Balances Columns
 =============================
 
 The database column schema for Balances is found at :ref:`balances-schema`.

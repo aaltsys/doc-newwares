@@ -7,20 +7,29 @@ Calculation Calendar
 WARES performs repeating operations, such as creating lease space charges or 
 calculating recurring storage, according to calendar settings. 
 
+Activities which are predefined to use calendars include recurring calculations 
+and repeating rates. Each account identifier represents a recurring group, 
+and all recurring calculations use service code **1S**. Repeating calendars are 
+identified by the group and service code of the corresponding rate record.
+
+A list of active calendars may be displayed according to the service code or 
+the group, and a selection of those calendars may be performed. Recurring 
+calculations and repeating rates can only be performed through calendars.
+
 Calendar items are activated when their next date comes due, and the action of
-the item is then processed according to request. Consequently calendar items 
-are not necessarily performed at a specific date or time. For example, a 
-recurring calendar item activated at the end of a month might be pended while 
-inventory is reconciled, and then performed some number of days later.
+the item is then performed by user request. Consequently calendar items are not necessarily performed at a specific date or time. For example, a recurring 
+calendar item activated at the end of a month might be pended while inventory 
+is reconciled, and then performed some number of days later.
 
 Calendar items track the last date an action was performed, and set a 
 **Next Date** for activating the item. Calendars may be perpetual, or a sunset 
 date may be entered when the calendar will expire. 
 
-When a calendar item is performed, the **Next Date** entry is moved to 
-**Last Date**, and a new **Next Date** entry is generated. There is also a 
-**Previous Date** entry, not shown in the entry page, which allows a calendar 
-item to be reversed (once) if the associated action is reversed or voided.
+When a calendar item is performed, the **Last Date** is archived as a 
+**Previous Date**, **Next Date** entry is moved to **Last Date**, and a new 
+**Next Date** entry is generated. The **Previous Date** entry, not shown in the 
+user interface, allows a calendar item's schedule to be reversed (once) when 
+the associated action is reversed or voided.
 
 A calendar entry page with example setting is shown following.
 
@@ -39,14 +48,14 @@ set of three related entry options.
 +--------------+---------------+-----------------------------------------------+
 | Repeat       | Options       | Values                                        |
 +==============+===============+===============================================+
-| Daily        | Every, Any,   | Day                                           |
+| Daily        | Every, Any,   | DAY                                           |
 |              | Current       |                                               |
 +--------------+---------------+-----------------------------------------------+
-| Weekly       |               | Sun, Mon, Tue, Wed, Thu, Fri, Sat             |
+| Weekly       |               | SUN, MON, TUE, WED, THU, FRI, SAT             |
 +--------------+---------------+-----------------------------------------------+
-| BiWeekly     | First, Second | Sun, Mon, Tue, Wed, Thu, Fri, Sat             |
+| BiWeekly     | First, Second | SUN, MON, TUE, WED, THU, FRI, SAT             |
 +--------------+---------------+-----------------------------------------------+
-| Monthly      | First, Second,| Sun, Mon, Tue, Wed, Thu, Fri, Sat,            |
+| Monthly      | First, Second,| SUN, MON, TUE, WED, THU, FRI, SAT,            |
 |              | Third, Fourth,| FIRST, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, |
 |              | Last          | 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23,   |
 |              |               | 24, 25, 26, 27, 28, 29, 30, LAST              |

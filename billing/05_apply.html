@@ -49,13 +49,9 @@
 <li><a class="reference internal" href="#optional-entered-charges">Optional Entered Charges</a></li>
 <li><a class="reference internal" href="#generated-charges">Generated Charges</a></li>
 <li><a class="reference internal" href="#mandatory-generated-charges">Mandatory Generated Charges</a></li>
-<li><a class="reference internal" href="#calculated-product-charges">Calculated Product Charges</a></li>
+<li><a class="reference internal" href="#product-calculated-charges">Product Calculated Charges</a></li>
 <li><a class="reference internal" href="#repeating-calendar-charges">Repeating Calendar Charges</a></li>
-<li><a class="reference internal" href="#recurring-product-charges">Recurring Product Charges</a><ul>
-<li><a class="reference internal" href="#recurring-process">Recurring Process</a></li>
-<li><a class="reference internal" href="#recurring-reporting">Recurring Reporting</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#recurring-calculated-charges">Recurring Calculated Charges</a></li>
 </ul>
 </li>
 </ul>
@@ -149,9 +145,9 @@ details on how charges are calculated.</p>
 <div class="section" id="generated-charges">
 <h2>Generated Charges<a class="headerlink" href="#generated-charges" title="Permalink to this headline">¶</a></h2>
 <p>The billing for an activity transaction can be hand-calculated by setting the
-transaction&#8217;s status, but this does not leave a calculation audit trail.
-further, hand changes are not a satisfactory method for updating charges on
-hundreds of transactions.</p>
+transaction&#8217;s status, but this does not leave a batch calculation audit trail.
+Further, changing status by hand is not a satisfactory method for updating
+charges on hundreds of transactions at a time.</p>
 <p>For all rates which are not optional, WARES uses batch methods to generate the
 charges. Each batch has a unique identifier, a record of the batch input, start
 and end datetimes, and a count of transactions processed. Also each charge
@@ -197,8 +193,8 @@ is written for the transaction if none exists</li>
 line. Where a mandatory rate refers to something like case picking, the <strong>Per</strong>
 code must calculate a total for the entire transaction.</p>
 </div>
-<div class="section" id="calculated-product-charges">
-<h2>Calculated Product Charges<a class="headerlink" href="#calculated-product-charges" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="product-calculated-charges">
+<h2>Product Calculated Charges<a class="headerlink" href="#product-calculated-charges" title="Permalink to this headline">¶</a></h2>
 <p>Once mandatory charges are applied to a transaction, another billing routine
 applies calculated charges to each line item of the transaction. Lines are read
 in sequence, and the product is checked to determine a rate group identifier.
@@ -224,11 +220,10 @@ rate group.</p>
 </div>
 <div class="section" id="repeating-calendar-charges">
 <h2>Repeating Calendar Charges<a class="headerlink" href="#repeating-calendar-charges" title="Permalink to this headline">¶</a></h2>
-<p>Repeating charges are calculated by selecting scheduled rates from the calendar
+<p>Repeating charges are applied by selecting scheduled rates from the calendar
 list, while calling a billing routine to apply the charges. Each calendar entry
-will generate one charge record with one line item. Charges calculated from
-calendar events do not have associated activity, and so each such charge is
-identified by a sequential charge number and the payer id.</p>
+will generate one charge line item. Charges calculated from calendar events are identified by a sequential charge number and the payer id, and there is no
+associated activity.</p>
 <p>An example calendar selection page for Repeating Rates follows:</p>
 <img alt="_images/cal-repeating.png" src="_images/cal-repeating.png" />
 <p>The <strong>Active By</strong> calendar date defaults to the current date for selection,
@@ -241,38 +236,20 @@ and codes used may vary. In this example, the accounting implications of a
 building lease are different from long-term machinery storage, and so the
 service codes for these two rates are different.</p>
 </div>
-<div class="section" id="recurring-product-charges">
-<h2>Recurring Product Charges<a class="headerlink" href="#recurring-product-charges" title="Permalink to this headline">¶</a></h2>
-<p>With the exception of anniversary recurring, warehouses apply recurring charges
-across an entire account based on the customer&#8217;s recurring schedule. Therefore
-recurring calendars are associated with the customer account, not the product
-rate. Recurring is calculated by selecting accounts from the calendar list
-while calling a routine to create an inventory balance audit and apply
-recurring storage charges to those balances.</p>
-<p>The following image shows the calendar selection page for Recurring Rates:</p>
+<div class="section" id="recurring-calculated-charges">
+<h2>Recurring Calculated Charges<a class="headerlink" href="#recurring-calculated-charges" title="Permalink to this headline">¶</a></h2>
+<p>For stored product, a routine calculates recurring product storage charges
+based on an account&#8217;s recurring calculation settings and calendar. Recurring
+storage charges are identified by a sequential charge number and the payer id.
+Each charge is associated with a single product, and the charge is linked to
+a recurring storage audit table which documents stock activity and balances for
+product and lot quantities.</p>
+<p>The following image shows the calendar selection page for recurring  Calculation:</p>
 <img alt="_images/cal-recurring.png" src="_images/cal-recurring.png" />
 <p>Note that the filter allows selection by <strong>Account</strong> rather than <strong>Group</strong>, and
 the code <strong>1S</strong> of associated rates is auto-filled.</p>
-<div class="section" id="recurring-process">
-<h3>Recurring Process<a class="headerlink" href="#recurring-process" title="Permalink to this headline">¶</a></h3>
-<p>Recurring selects inventory lots by account by rate group by product by lot.
-First the <a class="reference external" href="../inventory/04_balances.html#inv-balances" title="(in WARES Inventory v1.0)"><em>Inventory Balances Posting</em></a> is created for the selected inventory records,
-then a recurring charges record is created for the balance of each product or
-lot being tracked.</p>
-</div>
-<div class="section" id="recurring-reporting">
-<h3>Recurring Reporting<a class="headerlink" href="#recurring-reporting" title="Permalink to this headline">¶</a></h3>
-<p>Recurring calculations produce a pair of audit trails: The <a class="reference external" href="../inventory/04_balances.html#inv-balances" title="(in WARES Inventory v1.0)"><em>Inventory Balances Posting</em></a>,
-and the <a class="reference internal" href="06_audits.html#bill-recurring"><em>Recurring Charges Summary</em></a>. The customer should receive both reports with
-the storage invoice, one report for inventory management and the other for
-accounting.</p>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">Recurring charges are calculated and reported summarized by product. If the
-charges were calculated by lot, then products which were not tracked by lot
-would be left out of the calculation and the reporting.</p>
-</div>
-</div>
+<p>See the <a class="reference internal" href="08_recurring.html#bill-recurring"><em>Recurring Calculation Audits</em></a> article for more information on how recurring
+storage charges are calculated and audited.</p>
 </div>
 </div>
 

@@ -108,117 +108,142 @@
 <td>&#64;ID</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>F</td>
+<tr class="row-even"><td>F</td>
 <td>name</td>
 <td>S</td>
 <td>A</td>
 <td>NAME</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>N/A</td>
+<tr class="row-even"><td>N/A</td>
 <td>addresses</td>
 <td colspan="4">&nbsp;</td>
 </tr>
-<tr class="row-even"><td>N/A</td>
+<tr class="row-odd"><td>N/A</td>
 <td>addressCode</td>
 <td>S</td>
 <td>A</td>
 <td>&#8220;A&#8221;</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>F</td>
+<tr class="row-even"><td>F</td>
 <td>address</td>
 <td>S</td>
 <td>A</td>
 <td>ADDRESS</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>N/A</td>
+<tr class="row-odd"><td>N/A</td>
 <td>addressCode</td>
 <td>S</td>
 <td>A</td>
 <td>&#8220;ST&#8221;</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>F</td>
+<tr class="row-even"><td>F</td>
 <td>address</td>
 <td>S</td>
 <td>A</td>
 <td>ADDRESS_ST</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>N/A</td>
+<tr class="row-odd"><td>N/A</td>
 <td>addressCode</td>
 <td>S</td>
 <td>A</td>
 <td>&#8220;BT&#8221;</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>F</td>
+<tr class="row-even"><td>F</td>
 <td>address</td>
 <td>S</td>
 <td>A</td>
 <td>ADDRESS_BT</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>N/A</td>
+<tr class="row-odd"><td>N/A</td>
 <td>addressCode</td>
 <td>S</td>
 <td>A</td>
 <td>&#8220;PF&#8221;</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>F</td>
+<tr class="row-even"><td>F</td>
 <td>address</td>
 <td>S</td>
 <td>A</td>
 <td>ADDRESS_PF</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>N/A</td>
+<tr class="row-even"><td>N/A</td>
 <td>billing</td>
 <td colspan="4">&nbsp;</td>
 </tr>
-<tr class="row-even"><td>F</td>
+<tr class="row-odd"><td>F</td>
 <td>terms</td>
 <td>S</td>
 <td>A</td>
 <td>TERMS         (&#8220;30&#8221;)</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>F</td>
+<tr class="row-even"><td>F</td>
 <td>invoicing</td>
 <td>S</td>
 <td>A</td>
 <td>INVOICING      (&#8220;0&#8221;)</td>
 <td>&nbsp;</td>
 </tr>
+<tr class="row-odd"><td>F</td>
+<td>poNumber</td>
+<td>S</td>
+<td>A</td>
+<td>PO_NUMBER</td>
+<td>&nbsp;</td>
+</tr>
 <tr class="row-even"><td>F</td>
+<td>deferHandling</td>
+<td>S</td>
+<td>A</td>
+<td>DEFER        (&#8221;.50&#8221;)</td>
+<td>(MD24L)</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>N/A</td>
+<td>storage terms</td>
+<td colspan="4">&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
 <td>receiving</td>
 <td>S</td>
 <td>A</td>
 <td>RECEIVING      (&#8220;F&#8221;)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>recurring</td>
+<td>S</td>
+<td>A</td>
+<td>RECURRING      (&#8220;E&#8221;)</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>F</td>
@@ -236,77 +261,24 @@
 <td>(MD0)</td>
 </tr>
 <tr class="row-odd"><td>F</td>
-<td>recurring</td>
-<td>S</td>
-<td>A</td>
-<td>RECURRING      (&#8220;E&#8221;)</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>F</td>
-<td>recurMinimum</td>
-<td>S</td>
-<td>A</td>
-<td>RECUR_MIN</td>
-<td>(MD2L)</td>
-</tr>
-<tr class="row-odd"><td>F</td>
-<td>recurCalendar</td>
-<td>M</td>
-<td>A</td>
-<td>CLOSE_DATE</td>
-<td>(D-JS)</td>
-</tr>
-<tr class="row-even"><td>F</td>
-<td>recurClose</td>
-<td>M</td>
-<td>A</td>
-<td>PERIOD</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>F</td>
-<td>recurFlag</td>
-<td>S</td>
-<td>A</td>
-<td>RECUR_FLAG</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>N/A</td>
-<td>accounting</td>
-<td colspan="4">&nbsp;</td>
-</tr>
-<tr class="row-even"><td>F</td>
 <td>valueDeclared</td>
 <td>S</td>
 <td>A</td>
 <td>VALUE</td>
 <td>(MD2L)</td>
 </tr>
-<tr class="row-odd"><td>F</td>
+<tr class="row-even"><td>F</td>
 <td>valuePer</td>
 <td>S</td>
 <td>A</td>
 <td>VALUE_PER</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>F</td>
+<tr class="row-odd"><td>F</td>
 <td>valueSurcharge</td>
 <td>S</td>
 <td>A</td>
 <td>VALUE_SUR</td>
-<td>(MD24L)</td>
-</tr>
-<tr class="row-odd"><td>F</td>
-<td>deferHandling</td>
-<td>S</td>
-<td>A</td>
-<td>DEFER        (&#8221;.50&#8221;)</td>
 <td>(MD24L)</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
@@ -328,45 +300,38 @@
 <td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>F</td>
-<td>poNumber</td>
-<td>S</td>
-<td>A</td>
-<td>PO_NUMBER</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>F</td>
 <td>uniqueCheck</td>
 <td>S</td>
 <td>A</td>
 <td>UNIQCODE</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
+<tr class="row-even"><td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>N/A</td>
+<tr class="row-odd"><td>N/A</td>
 <td>notes</td>
 <td colspan="4">&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>F</td>
+<tr class="row-even"><td>F</td>
 <td>noteCode</td>
 <td>M</td>
 <td>A</td>
 <td>NOTECODE</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>F</td>
+<tr class="row-odd"><td>F</td>
 <td>note</td>
 <td>M</td>
 <td>A</td>
 <td>NOTE</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>N/A</td>
+<tr class="row-even"><td>N/A</td>
 <td>noteApply</td>
 <td>M</td>
 <td>A</td>
@@ -375,13 +340,6 @@
 </tr>
 </tbody>
 </table>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">An element could be added to the account record (or maybe to the products)
-to indicate the type of control numbers used on the account/product. Where
-The control type is DT (date), the control number would set the lot postdate,
-otherwise the postdate would be set by the first date of receipt on the lot.</p>
-</div>
 </div>
 
 

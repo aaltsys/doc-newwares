@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>JSON CONTACTS Export &mdash; WARES Resources 1.0 documentation</title>
+    <title>JSON RATES Export &mdash; WARES Resources 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,18 +24,18 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="WARES Resources 1.0 documentation" href="index.html" />
-    <link rel="next" title="JSON ACCOUNTS Export" href="json_01_accounts.html" />
-    <link rel="prev" title="STANDARD CONTRACT TERMS AND CONDITIONS FOR MERCHANDISE WAREHOUSEMEN" href="form_terms-iwla.html" /> 
+    <link rel="next" title="&lt;no title&gt;" href="legend.html" />
+    <link rel="prev" title="JSON DETAILS Export" href="json_11_lotdetails.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="json_01_accounts.html" title="JSON ACCOUNTS Export"
+          <a href="legend.html" title="&lt;no title&gt;"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="form_terms-iwla.html" title="STANDARD CONTRACT TERMS AND CONDITIONS FOR MERCHANDISE WAREHOUSEMEN"
+          <a href="json_11_lotdetails.html" title="JSON DETAILS Export"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">WARES Resources 1.0 documentation</a> &raquo;</li> 
       </ul>
@@ -43,15 +43,15 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="form_terms-iwla.html"
-                        title="previous chapter">STANDARD CONTRACT TERMS AND CONDITIONS FOR MERCHANDISE WAREHOUSEMEN</a></p>
+  <p class="topless"><a href="json_11_lotdetails.html"
+                        title="previous chapter">JSON DETAILS Export</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="json_01_accounts.html"
-                        title="next chapter">JSON ACCOUNTS Export</a></p>
+  <p class="topless"><a href="legend.html"
+                        title="next chapter">&lt;no title&gt;</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/json_00_contacts.txt"
+      <li><a href="_sources/json_13_calendars.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -76,8 +76,15 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="json-contacts-export">
-<span id="contacts-json"></span><h1>JSON CONTACTS Export<a class="headerlink" href="#json-contacts-export" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="json-rates-export">
+<span id="json-rates"></span><h1>JSON RATES Export<a class="headerlink" href="#json-rates-export" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Column F/S/J indicates a WARES data field (F), a synthetic field (S), or a
+synthetic column specific to the JSON export (J). Column S/M indicates
+whether a column is single-valued (S) or array multivalue (M). Column A/N
+refers to whether the data will be quoted string (A) or unquoted numeric (N).</p>
+</div>
 <table border="1" class="docutils">
 <colgroup>
 <col width="10%" />
@@ -102,123 +109,105 @@
 <td colspan="4">&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>F</td>
-<td>contactType</td>
+<td>group</td>
 <td>S</td>
 <td>A</td>
-<td>TYPE</td>
-<td>&lt;,&gt;</td>
-</tr>
-<tr class="row-even"><td>F</td>
-<td>Identifier</td>
-<td>S</td>
-<td>A</td>
-<td>&#64;ID</td>
+<td>IDENTIFIER</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>F</td>
+<tr class="row-even"><td>F</td>
+<td>service</td>
+<td>S</td>
+<td>A</td>
+<td>CODE</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>F</td>
 <td>account</td>
 <td>S</td>
 <td>A</td>
 <td>ACCOUNT</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
+<tr class="row-odd"><td>F</td>
+<td>applied</td>
+<td>S</td>
+<td>A</td>
+<td>APPLIED</td>
 <td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Data Reference</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>activity</td>
+<td>M</td>
+<td>A</td>
+<td>FILENAME</td>
 <td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>per</td>
+<td>M</td>
+<td>A</td>
+<td>PER</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>N/A</td>
-<td>address</td>
-<td colspan="4">&nbsp;</td>
+<td>qtyMethod</td>
+<td>M</td>
+<td>A</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>N/A</td>
+<td>payerMethod</td>
+<td>M</td>
+<td>A</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Rate Calculation</td>
 </tr>
 <tr class="row-even"><td>F</td>
-<td>name</td>
+<td>description</td>
 <td>S</td>
 <td>A</td>
-<td>NAME</td>
+<td>DESCRIPTION</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>F</td>
-<td>street</td>
-<td>M</td>
+<td>type</td>
+<td>S</td>
 <td>A</td>
-<td>STREET</td>
+<td>&#8220;S&#8221;</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>F</td>
-<td>city</td>
+<td>factor</td>
 <td>S</td>
 <td>A</td>
-<td>CITY</td>
+<td>FACTOR</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>F</td>
-<td>state</td>
+<td>surcharge</td>
 <td>S</td>
 <td>A</td>
-<td>STATE</td>
+<td>SURCHARGE</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>F</td>
-<td>postalCode</td>
+<td>itemMin</td>
 <td>S</td>
 <td>A</td>
-<td>ZIP</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>F</td>
-<td>country</td>
-<td>S</td>
-<td>A</td>
-<td>COUNTRY</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>N/A</td>
-<td>individual</td>
-<td colspan="4">&nbsp;</td>
-</tr>
-<tr class="row-even"><td>F</td>
-<td>contact</td>
-<td>M</td>
-<td>A</td>
-<td>CONTACT</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>F</td>
-<td>phone</td>
-<td>M</td>
-<td>A</td>
-<td>PHONE</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>F</td>
-<td>email</td>
-<td>M</td>
-<td>A</td>
-<td>EMAIL</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>F</td>
-<td>salutation</td>
-<td>M</td>
-<td>A</td>
-<td>SALUTATION</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>F</td>
-<td>position</td>
-<td>M</td>
-<td>A</td>
-<td>POSITION</td>
+<td>TR_MIN</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
@@ -229,42 +218,35 @@
 <td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>N/A</td>
-<td>logistics</td>
+<td>Rate Structure</td>
 <td colspan="4">&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>F</td>
-<td>freightPay</td>
-<td>S</td>
+<td>rate</td>
+<td>M</td>
 <td>A</td>
-<td>FREIGHT_PAY</td>
+<td>RATE</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>F</td>
-<td>fob</td>
-<td>S</td>
+<td>quantity</td>
+<td>M</td>
 <td>A</td>
-<td>FOB</td>
+<td>QUANTITY</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>F</td>
-<td>cod</td>
-<td>S</td>
+<td>minimum</td>
+<td>M</td>
 <td>A</td>
-<td>COD</td>
+<td>MINIMUM</td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>F</td>
-<td>link</td>
-<td>S</td>
+<td>billUom</td>
+<td>M</td>
 <td>A</td>
-<td>LINK</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>F</td>
-<td>userData</td>
-<td>S</td>
-<td>A</td>
-<td>USERDATA</td>
+<td>BILL_UOM</td>
 <td>&nbsp;</td>
 </tr>
 </tbody>
@@ -281,10 +263,10 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="json_01_accounts.html" title="JSON ACCOUNTS Export"
+          <a href="legend.html" title="&lt;no title&gt;"
              >next</a></li>
         <li class="right" >
-          <a href="form_terms-iwla.html" title="STANDARD CONTRACT TERMS AND CONDITIONS FOR MERCHANDISE WAREHOUSEMEN"
+          <a href="json_11_lotdetails.html" title="JSON DETAILS Export"
              >previous</a> |</li>
         <li><a href="index.html">WARES Resources 1.0 documentation</a> &raquo;</li> 
       </ul>

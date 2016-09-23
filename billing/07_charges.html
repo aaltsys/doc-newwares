@@ -25,7 +25,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="WARES Billing 1.0 documentation" href="index.html" />
-    <link rel="next" title="Customer Invoices" href="08_invoices.html" />
+    <link rel="next" title="Recurring Calculation Audits" href="08_recurring.html" />
     <link rel="prev" title="Charges Audit Reports" href="06_audits.html" /> 
   </head>
   <body role="document">
@@ -33,7 +33,7 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="08_invoices.html" title="Customer Invoices"
+          <a href="08_recurring.html" title="Recurring Calculation Audits"
              accesskey="N">next</a></li>
         <li class="right" >
           <a href="06_audits.html" title="Charges Audit Reports"
@@ -55,8 +55,8 @@
   <p class="topless"><a href="06_audits.html"
                         title="previous chapter">Charges Audit Reports</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="08_invoices.html"
-                        title="next chapter">Customer Invoices</a></p>
+  <p class="topless"><a href="08_recurring.html"
+                        title="next chapter">Recurring Calculation Audits</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -90,20 +90,19 @@
 <div class="section" id="common-questions-faq">
 <h2>Common Questions (FAQ)<a class="headerlink" href="#common-questions-faq" title="Permalink to this headline">¶</a></h2>
 <p><em>How can I set a minimum recurring invoice amount for an account?</em></p>
-<p>Answer:</p>
 <blockquote>
 <div><p>On the <strong>Rates</strong> page, enter a new rate record as follows:</p>
 <img alt="_images/rate-faq1-id.png" src="_images/rate-faq1-id.png" />
 <p>This rate will be evaluated as each invoice is generated for account <strong>ABF</strong>.
 The quantity method <strong>recurMinimum</strong> will select all invoice lines with code
 <strong>1S</strong> and this invoice number, and sum the extended column to determine an
-amount. Method logic will return <strong>Amount = 0</strong> when recurring exceeds 250.00,
-or when an invoice has no recurring charges.</p>
+amount. Method logic will return <strong>Amount = 0</strong> when recurring exceeds
+250.00, or when an invoice has no recurring charges.</p>
 <img alt="_images/rate-faq1-calc.png" src="_images/rate-faq1-calc.png" />
 <p>The <strong>Factor</strong>, <strong>Rate</strong>, and <strong>Quantity</strong> are all <strong>1.00</strong>, and the
 <strong>Minimum</strong> is the minimum amount of recurring to charge, if any.</p>
-<p>Applying this rate will result in a deficit charge line on an invoice where
-the recurring total is greater than zero, but less than $250.00.</p>
+<p>Applying the rate as shown will result in a deficit charge line on an invoice
+where the recurring total is greater than zero, but less than $250.00.</p>
 </div></blockquote>
 </div>
 </div>
@@ -118,7 +117,7 @@ the recurring total is greater than zero, but less than $250.00.</p>
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="08_invoices.html" title="Customer Invoices"
+          <a href="08_recurring.html" title="Recurring Calculation Audits"
              >next</a></li>
         <li class="right" >
           <a href="06_audits.html" title="Charges Audit Reports"
