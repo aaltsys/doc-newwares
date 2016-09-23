@@ -75,7 +75,7 @@ the report identifier section heading.
 The Quantitative data listed below matches the identifiers section presented 
 above:
 
-.. _image:: _images/audit-activity2.png
+.. image:: _images/audit-activity2.png
 
 Again, calculation range STARTING and ENDING apply to the entire report and so 
 these items appear in the data section heading. All data columns are listed 
