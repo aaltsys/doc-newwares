@@ -128,7 +128,7 @@ Rates are uniquely identified by the combination of a **Rate Group** and a
 **Service Code**. The **Rate Group** entry can be either the word GLOBAL, an 
 account identifier, or a user-defined rate group. 
 
-**Service Code** must be selected from the list of :ref:`services`.
+**Service Code** must be selected from the company's :ref:`services-example`.
 
 Service codes determine which rates **Apply** as Calculated or Repeating, and 
 the **Apply** code is filled and protected accordingly. Other rates should be
@@ -138,7 +138,8 @@ determine a charge.
 Optional rates are applied through user entry, while charges for mandatory 
 rates are created by billing calculations. Calculated rates are applied through 
 special routines. Finally, Repeating rates create charge records and accumulate 
-charges based on the repeating rate's calendar schedule. 
+charges based on the repeating rate's calendar schedule. Each repeating rate is
+associated with acalendar entry keyed by the rate's **Group** and **Service**.
 
 The **Account** entry is null for GLOBAL rates, filled with the account code 
 for rates in an account group, and otherwise either attached to an account or
@@ -151,6 +152,7 @@ to invoice for the charge.
 
 Calculation entries
 -----------------------------
+
 
 .. image:: ../billing/_images/rates-rate.png
 

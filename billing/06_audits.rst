@@ -12,8 +12,8 @@ either informational description, or presents the charge calculation details.
 Detailed Charge Reporting
 =============================
 
-WARES maintains charge information at the most detailed level so that charges 
-and invoice amounts are accurate and trustworthy. This detail means that for 
+WARES maintains charge information at a detailed level so that charges and 
+invoice amounts are accurate and trustworthy. This detail means that for 
 inventory amounts, charge calculation is based on units, if units are tracked, 
 or lots when tracked, or products when lot numbers are not used. Other charges 
 may be tracked by the individual transactions of an activity, such as one or 
@@ -87,24 +87,3 @@ an alternative CHARGES BY CODE report is available.
 This report has the same depth as the CHARGES DETAIL, while displaying the 
 columns of the CHARGES SUMMARY. Each TOTAL on the report matches one line item 
 on the invoice.
-
-.. _bill-recurring:
-
-Recurring Charges Summary
-=============================
-
-Recurring charges are always audited with the *Charges Summary* report, as 
-shown following. 
-
-.. note::
-   For recurring charges the **Activity** column contains the product 
-   identifier/variety and the **Description** contains the product description, 
-   not the charge description. 
-
-.. image:: _images/audit-recurring.png
-
-.. warning::
-   Recurring charges are calculated based on the Product Balances Summary 
-   records, as described in topic :ref:`inv-balances`. Lot detail cannot be 
-   used to calculate recurring, as then products which were not tracked by lot 
-   would not be included in the calculation.

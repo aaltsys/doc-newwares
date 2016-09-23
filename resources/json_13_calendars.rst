@@ -1,7 +1,7 @@
-.. _json-rates:
+.. _json-calendars:
 
 #############################
-JSON RATES Export
+JSON CALENDARS Export
 #############################
 
 .. note::
