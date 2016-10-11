@@ -24,8 +24,8 @@ Minimums and Deficits
 =============================
 
 Where a **Minimum** charge is part of a rate, and the calculated product of 
-**Amount** and **Rate** is less than the Minimum, WARES will apply a **Deficit** 
-to satisfy the minimum requirement. For single rates, a Deficit amount always 
+**Amount** and **Rate** is less than the minimum, WARES will apply a **Deficit** 
+to satisfy the minimum requirement. For single rates, a deficit amount always 
 increases the extension of a rate to meet a minimum. However, with tiered rates 
 a deficit amount may result in a decreased extension, that is, it may be to the 
 customer's benefit.
@@ -61,7 +61,8 @@ Part (1a): Straight Rate
 
 Where a quantity is 1, the rate will provide a default minimum. In the example, 
 a charge of $5.00 is applied to each qualifying activity (UOM = 1R represents 
-a transaction). The Minimum is the Rate, and therefore Deficit is always zero.
+a transaction). The **Minimum** is the **Rate**, and therefore **Deficit** is 
+always zero.
 
 Part (1b): Minimum Applies
 -----------------------------
@@ -82,7 +83,7 @@ labor. This changes the **Deficit** formula to the larger of::
    (a)  ( Minimum * Factor * Quantity / Rate ) - Amount
    (b)  0
 
-and the extended **charge** formula becomes::
+and the extended **Charge** formula becomes::
 
    Charge = Rate * ( Amount + Deficit ) / ( Quantity * Factor )
 

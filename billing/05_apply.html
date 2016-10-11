@@ -25,7 +25,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="WARES Billing 1.0 documentation" href="index.html" />
-    <link rel="next" title="Charges Audit Reports" href="06_audits.html" />
+    <link rel="next" title="Transaction Charges Auditing" href="06_audits.html" />
     <link rel="prev" title="Extending Rates to Charges" href="04_extend.html" /> 
   </head>
   <body role="document">
@@ -33,7 +33,7 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="06_audits.html" title="Charges Audit Reports"
+          <a href="06_audits.html" title="Transaction Charges Auditing"
              accesskey="N">next</a></li>
         <li class="right" >
           <a href="04_extend.html" title="Extending Rates to Charges"
@@ -61,7 +61,7 @@
                         title="previous chapter">Extending Rates to Charges</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="06_audits.html"
-                        title="next chapter">Charges Audit Reports</a></p>
+                        title="next chapter">Transaction Charges Auditing</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -98,7 +98,7 @@ accumulated for billing.</p>
 <p>Most charges are applied to activities, with the exception of charges which are
 generated from calendar events. Charge records are keyed by a combination of
 the transaction identifier of the source activity, and the payer of the charge.
-Usually, the payer is the account associated with the activity transaction.
+Usually the payer is the account associated with the activity transaction.
 Where a calendar event creates a charge, or where a charge is applied without
 an associated activity, a sequential counter supplies the charge identifier.</p>
 <p>WARES uses five mechanisms to capture charges: clerical entry, generation from
@@ -185,9 +185,8 @@ these charge identifiers are then selected and deleted.</p>
 <strong>Activity</strong></li>
 <li>If this <strong>Amount</strong> is not zero, it is used to calculate a <strong>Deficit</strong>, a
 <strong>Rate</strong>, and a <strong>Charge</strong> as described in <a class="reference internal" href="04_extend.html#rate-extend"><em>Extending Rates to Charges</em></a></li>
-<li>Using the transaction <strong>Identifier</strong> and <strong>Payer</strong>, a charge record header
-is written for the transaction if none exists</li>
-<li>A charge line is added for the mandatory charge.</li>
+<li>A charge transaction is written for the mandatory charge, identified by the
+transaction <strong>Identifier</strong>, the <strong>Payer</strong>, and the <strong>Service</strong> code.</li>
 </ol>
 <p>This description makes it clear that a mandatory rate creates a single charge
 line. Where a mandatory rate refers to something like case picking, the <strong>Per</strong>
@@ -200,7 +199,7 @@ applies calculated charges to each line item of the transaction. Lines are read
 in sequence, and the product is checked to determine a rate group identifier.
 Then rates are selected to apply based on the criteria:</p>
 <ul class="simple">
-<li>Only Calculated rates are considered</li>
+<li>Only calculated rates are considered</li>
 <li>Rates must belong to the product&#8217;s rate group</li>
 <li>Rates must reference the activity of the transaction</li>
 </ul>
@@ -210,20 +209,20 @@ Then rates are selected to apply based on the criteria:</p>
 calculated for the line</li>
 <li>If this <strong>Amount</strong> is not zero, it is used to calculate a <strong>Deficit</strong>, a
 <strong>Rate</strong>, and a <strong>Charge</strong> as described above</li>
-<li>Using the transaction <strong>Identifier</strong> and <strong>Payer</strong>, a charge record header
-is written for the transaction if none exists</li>
-<li>A charge line is added for the calculated charge.</li>
+<li>A charge transaction is written for the calculated charge, identified by the
+transaction <strong>Identifier</strong> and <strong>Line</strong>, the <strong>Payer</strong>, and the <strong>Service</strong>
+code.</li>
 </ol>
 <p>This sounds like the way Mandatory charges are applied, and it is. The
-difference is in applying rates one line at a time based on the line&#8217;s product
-rate group.</p>
+difference is in applying rates one transaction line at a time based on the
+line&#8217;s product rate group.</p>
 </div>
 <div class="section" id="repeating-calendar-charges">
 <h2>Repeating Calendar Charges<a class="headerlink" href="#repeating-calendar-charges" title="Permalink to this headline">¶</a></h2>
 <p>Repeating charges are applied by selecting scheduled rates from the calendar
 list, while calling a billing routine to apply the charges. Each calendar entry
-will generate one charge line item. Charges calculated from calendar events are identified by a sequential charge number and the payer id, and there is no
-associated activity.</p>
+will generate one charge line item. Charges calculated from calendar events are identified by a sequential charge number, the payer id, and the service code.
+There is no associated activity.</p>
 <p>An example calendar selection page for Repeating Rates follows:</p>
 <img alt="_images/cal-repeating.png" src="_images/cal-repeating.png" />
 <p>The <strong>Active By</strong> calendar date defaults to the current date for selection,
@@ -248,7 +247,7 @@ product and lot quantities.</p>
 <img alt="_images/cal-recurring.png" src="_images/cal-recurring.png" />
 <p>Note that the filter allows selection by <strong>Account</strong> rather than <strong>Group</strong>, and
 the code <strong>1S</strong> of associated rates is auto-filled.</p>
-<p>See the <a class="reference internal" href="08_recurring.html#bill-recurring"><em>Recurring Calculation Audits</em></a> article for more information on how recurring
+<p>See the <a class="reference internal" href="07_recurring.html#bill-recurring"><em>Recurring Calculation Audits</em></a> article for more information on how recurring
 storage charges are calculated and audited.</p>
 </div>
 </div>
@@ -263,7 +262,7 @@ storage charges are calculated and audited.</p>
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="06_audits.html" title="Charges Audit Reports"
+          <a href="06_audits.html" title="Transaction Charges Auditing"
              >next</a></li>
         <li class="right" >
           <a href="04_extend.html" title="Extending Rates to Charges"

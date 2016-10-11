@@ -125,8 +125,8 @@ listed in ascending order.</li>
 <div class="section" id="minimums-and-deficits">
 <h2>Minimums and Deficits<a class="headerlink" href="#minimums-and-deficits" title="Permalink to this headline">¶</a></h2>
 <p>Where a <strong>Minimum</strong> charge is part of a rate, and the calculated product of
-<strong>Amount</strong> and <strong>Rate</strong> is less than the Minimum, WARES will apply a <strong>Deficit</strong>
-to satisfy the minimum requirement. For single rates, a Deficit amount always
+<strong>Amount</strong> and <strong>Rate</strong> is less than the minimum, WARES will apply a <strong>Deficit</strong>
+to satisfy the minimum requirement. For single rates, a deficit amount always
 increases the extension of a rate to meet a minimum. However, with tiered rates
 a deficit amount may result in a decreased extension, that is, it may be to the
 customer&#8217;s benefit.</p>
@@ -156,7 +156,8 @@ similar rate entries to illustrate this point.</p>
 <h3>Part (1a): Straight Rate<a class="headerlink" href="#part-1a-straight-rate" title="Permalink to this headline">¶</a></h3>
 <p>Where a quantity is 1, the rate will provide a default minimum. In the example,
 a charge of $5.00 is applied to each qualifying activity (UOM = 1R represents
-a transaction). The Minimum is the Rate, and therefore Deficit is always zero.</p>
+a transaction). The <strong>Minimum</strong> is the <strong>Rate</strong>, and therefore <strong>Deficit</strong> is
+always zero.</p>
 </div>
 <div class="section" id="part-1b-minimum-applies">
 <h3>Part (1b): Minimum Applies<a class="headerlink" href="#part-1b-minimum-applies" title="Permalink to this headline">¶</a></h3>
@@ -175,7 +176,7 @@ labor. This changes the <strong>Deficit</strong> formula to the larger of:</p>
 (b)  0
 </pre></div>
 </div>
-<p>and the extended <strong>charge</strong> formula becomes:</p>
+<p>and the extended <strong>Charge</strong> formula becomes:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">Charge</span> <span class="o">=</span> <span class="n">Rate</span> <span class="o">*</span> <span class="p">(</span> <span class="n">Amount</span> <span class="o">+</span> <span class="n">Deficit</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="n">Quantity</span> <span class="o">*</span> <span class="n">Factor</span> <span class="p">)</span>
 </pre></div>
 </div>
@@ -343,7 +344,7 @@ receives no benefit from the rate break at or below 40,000 lbs.</p>
 <h2>Charges Auditing and Display<a class="headerlink" href="#charges-auditing-and-display" title="Permalink to this headline">¶</a></h2>
 <p>WARES produces invoices summarized by rate, and transaction details supporting
 the invoice are provided in audit reports. These reports are described in the
-documentation topic <a class="reference internal" href="06_audits.html#bill-audits"><em>Charges Audit Reports</em></a>.</p>
+documentation topic <a class="reference internal" href="06_audits.html#bill-audits"><em>Transaction Charges Auditing</em></a>.</p>
 </div>
 </div>
 

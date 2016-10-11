@@ -1,0 +1,316 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Calculating Recurring Charges &mdash; WARES Billing 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="WARES Billing 1.0 documentation" href="index.html" />
+    <link rel="next" title="Recurring Calculation Audits" href="07_recurring.html" />
+    <link rel="prev" title="Transaction Charges Auditing" href="06_audits.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="07_recurring.html" title="Recurring Calculation Audits"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="06_audits.html" title="Transaction Charges Auditing"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">WARES Billing 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Calculating Recurring Charges</a><ul>
+<li><a class="reference internal" href="#sources-of-recurring-data">Sources of Recurring Data</a><ul>
+<li><a class="reference internal" href="#setup-accounts">Setup &#8211;&gt; Accounts</a></li>
+<li><a class="reference internal" href="#setup-calendars">Setup &#8211;&gt; Calendars</a></li>
+<li><a class="reference internal" href="#setup-products">Setup &#8211;&gt; Products</a></li>
+<li><a class="reference internal" href="#entry-transactions">Entry &#8211;&gt; Transactions</a></li>
+<li><a class="reference internal" href="#inventory-lots">Inventory &#8211;&gt; Lots</a></li>
+<li><a class="reference internal" href="#billing-rates">Billing &#8211;&gt; Rates</a></li>
+<li><a class="reference internal" href="#billing-recurring">Billing &#8211;&gt; Recurring</a></li>
+<li><a class="reference internal" href="#billing-audits">Billing &#8211;&gt; Audits</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#recurring-calculation">Recurring Calculation</a></li>
+<li><a class="reference internal" href="#minimum-recurring-invoice">Minimum Recurring Invoice</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="06_audits.html"
+                        title="previous chapter">Transaction Charges Auditing</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="07_recurring.html"
+                        title="next chapter">Recurring Calculation Audits</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/07_recur-calc.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="calculating-recurring-charges">
+<span id="bill-charges"></span><h1>Calculating Recurring Charges<a class="headerlink" href="#calculating-recurring-charges" title="Permalink to this headline">¶</a></h1>
+<p>Recurring is calculated across a date interval or period. The balances of
+active lots are determined for the start of the period, and the transaction
+activity completed within the period is then accumulated to determine an ending balance.</p>
+<p>Recurring is audited by comparing the ending balance of a lot in one period to
+the starting balance in the succeeding period, and comparing the total of lot
+transactions in a period with the difference between starting and ending
+balances.</p>
+<div class="section" id="sources-of-recurring-data">
+<h2>Sources of Recurring Data<a class="headerlink" href="#sources-of-recurring-data" title="Permalink to this headline">¶</a></h2>
+<p>Storage fees are central to warehousing operations, and so recurring
+calculations rely on data elements scattered throughout WARES. The information
+recurring calculations use are listed here to clarify the calculation section
+which follows.</p>
+<div class="section" id="setup-accounts">
+<h3>Setup &#8211;&gt; Accounts<a class="headerlink" href="#setup-accounts" title="Permalink to this headline">¶</a></h3>
+<p>An <strong>Account</strong> identifier links the account setup to other program data.</p>
+<p>Storage <strong>Recur</strong> code may use calendar month anniversary, periodic starting
+balances, or periodic ending balances.</p>
+<p>Storage <strong>Receive</strong> code may be rated by full month, half month, or prorated.
+When the <strong>Recur</strong> method is anniversary, the <strong>Receive</strong> code will be changed
+to <strong>Full Month</strong> and the entry will be protected.</p>
+<p><strong>Freedays</strong> determines the date on which goods are rated for receiving storage
+charges.</p>
+</div>
+<div class="section" id="setup-calendars">
+<h3>Setup &#8211;&gt; Calendars<a class="headerlink" href="#setup-calendars" title="Permalink to this headline">¶</a></h3>
+<p>Every account which has recurring storage charges requires a corresponding
+calculation calendar.</p>
+<p>The <strong>Account</strong> code is used as the <em>Group</em> identifier of the calendar, and
+the <strong>Code</strong> identifier for recurring storage rates is always <em>1S</em>.</p>
+<p>Each calendar has <strong>Next</strong> and <strong>Last</strong> dates, and calculations are performed
+for the date interval from the <strong>Last</strong> date plus one through the <strong>Next</strong>
+date.</p>
+</div>
+<div class="section" id="setup-products">
+<h3>Setup &#8211;&gt; Products<a class="headerlink" href="#setup-products" title="Permalink to this headline">¶</a></h3>
+<p>The combination of <strong>Account</strong>, <strong>Product</strong>, and <strong>Variety</strong> identifies a
+unique inventory item. This combination will be used in transactions, lots,
+audits, and charges to identify and track items.</p>
+<p>Rate <strong>Group</strong> specifies the rates to use for receiving and recurring storage.</p>
+<p><strong>UOM</strong> entries for <em>Units</em>, <em>Packages</em>, <em>Inners</em>, <em>Weight</em>, and <em>DIM</em> describe
+inventory quantities, while rate entries transmute these values into billing
+quantities.</p>
+</div>
+<div class="section" id="entry-transactions">
+<h3>Entry &#8211;&gt; Transactions<a class="headerlink" href="#entry-transactions" title="Permalink to this headline">¶</a></h3>
+<p>Transaction <strong>Posted</strong> specifies the DateTime when the inventory was changed,
+and <strong>Entered</strong> DateTime is assigned at the time inventory records are verified
+in the WARES database. Transactions are commonly updated or verified in
+arrears, so that these two entries are not usually the same.</p>
+</div>
+<div class="section" id="inventory-lots">
+<h3>Inventory &#8211;&gt; Lots<a class="headerlink" href="#inventory-lots" title="Permalink to this headline">¶</a></h3>
+<p><strong>Account</strong>, <strong>Product</strong>, and <strong>Variety</strong> identify products in inventory.</p>
+<p>Lot <strong>Control</strong> numbers, entered when receiving, further separate inventory
+into lots.</p>
+<p><strong>Received</strong>, the final part of a lot identifier, is the date goods are entered
+into inventory, plus any <strong>Freedays</strong> allowed the account. This determines when
+receiving storage and anniversary recurring storage balances are calculated.</p>
+</div>
+<div class="section" id="billing-rates">
+<h3>Billing &#8211;&gt; Rates<a class="headerlink" href="#billing-rates" title="Permalink to this headline">¶</a></h3>
+<p>Each recurring rate is identified by a <strong>Group</strong> and the <strong>Code</strong> <em>1S</em>.</p>
+<p>These rates are always applied <em>Calculated</em>, with <strong>Per</strong> codes restricted to
+<em>Unit</em> <strong>U</strong>, <em>Package</em> <strong>P</strong>, <em>Inner</em> <strong>I</strong>, <em>Net Weight</em> <strong>W</strong>,
+<em>Gross Weight</em> <strong>G</strong>, and <em>Volume</em> <strong>V</strong> or <em>DIM</em>.</p>
+<p>Numerous rate entries convert inventory quantities to the <strong>UOM</strong> billing units
+and apply rates to calculate charges.</p>
+</div>
+<div class="section" id="billing-recurring">
+<h3>Billing &#8211;&gt; Recurring<a class="headerlink" href="#billing-recurring" title="Permalink to this headline">¶</a></h3>
+<p>The Recurring calculation</p>
+</div>
+<div class="section" id="billing-audits">
+<h3>Billing &#8211;&gt; Audits<a class="headerlink" href="#billing-audits" title="Permalink to this headline">¶</a></h3>
+<p><strong>Starting</strong>
+<strong>Ending</strong></p>
+</div>
+</div>
+<div class="section" id="recurring-calculation">
+<h2>Recurring Calculation<a class="headerlink" href="#recurring-calculation" title="Permalink to this headline">¶</a></h2>
+<p>While recurring selects multiple accounts to process in a batch, each account
+is calculated separately. This allows accounts which have outstanding issues to
+be skipped, while completing billing for other accounts.</p>
+<p>To calculate recurring, first unverified transactions for the account with
+<strong>Posted</strong> dates before and including the account&#8217;s recurring calendar <strong>Next</strong>
+date are selected. If any transactions are found the account is skipped; the
+recurring calendar for the account is not updated.</p>
+<p>For accounts which pass the preceding test, active inventory lot records, lots
+which are not <strong>Archived</strong>, are selected for the account by <strong>Product</strong>,
+<strong>Variety</strong>, lot <strong>Control</strong> number, and <strong>Received</strong> date. An accumulator
+array is initialized to keep inventory balance information by <strong>Product</strong> and
+<strong>Variety</strong>.</p>
+<p>For each lot, anniversary <strong>Starting</strong> and <strong>Ending</strong> dates are determined. <a class="footnote-reference" href="#id4" id="id1">[1]</a></p>
+<ol class="arabic simple">
+<li>If the account has free days <a class="footnote-reference" href="#id5" id="id2">[2]</a>, and if the <strong>Received</strong> date is within
+the recurring interval, then the anniversary <strong>Starting</strong> date is set to the
+free days expiration date, and a receiving calculation flag is raised.</li>
+<li>If the account uses <strong>Anniversary</strong> recurring: (1) if the receiving flag is
+raised then the <strong>Ending</strong> date is left blank, (2) if the lot anniversary
+falls within the recurring interval then the anniversary <strong>Ending</strong> date is
+set to that date and the <strong>Starting</strong> date is set to the previous
+anniversary plus one day, or (3) otherwise the lot is skipped. <a class="footnote-reference" href="#id6" id="id3">[3]</a></li>
+<li>If the account uses calendar <strong>Starting</strong> or <strong>Ending</strong> recurring, then the
+lot anniversary <strong>Starting</strong> date is set to the calendar <strong>Last</strong> date plus
+one, and the <strong>Ending</strong> date is set to the calendar <strong>Next</strong> date.</li>
+</ol>
+<p>Once lot anniversary dates are set, lot transactions are selected using the
+<strong>Account</strong>, <strong>Product</strong>, <strong>Variety</strong>, lot <strong>Control</strong> number, and <strong>Received</strong>
+date, and each lot is processed to determine balances.</p>
+<ol class="arabic simple">
+<li>Transactions with <strong>Posted</strong> date prior to the lot anniversary <strong>Starting</strong>
+date are selected, and transaction quantities are summed to obtain the
+starting balances for the lot. A starting balances array is stored.</li>
+<li>If an <strong>Ending</strong> date is set then receiving transactions are selected with
+<strong>Posted</strong> date from the <strong>Starting</strong> date through the <strong>Ending</strong> date. The
+transactions are summed and a received balances array is stored.</li>
+<li>In the same way as receiving, shipping and adjusting transactions are
+selected, summed, and stored in shipped and adjusted arrays.</li>
+<li>If a lot has zero balance on the <strong>Starting</strong> date, and no transactions
+occur before the ending date, then the lot and all associated transactions
+are set to <strong>Archived</strong> status and the lot is skipped.</li>
+</ol>
+<p>At this point, recurring audits and charges can be prepared for the lot.</p>
+<ol class="arabic simple">
+<li>The rate <strong>Group</strong> is determined from the lot&#8217;s <strong>Product</strong>/<strong>Variety</strong>
+information, and the recurring UOM (and the receiving UOM, if the account
+has freedays) is used to determine the quantities to use for the audit:
+Units, Packages, Inners, Net weight, Gross weight, or Volume.</li>
+<li>If the receiving calculation flag is raised, a receiving storage audit is
+written using the <strong>Starting</strong> balances of the receiving billing UOM.</li>
+<li>If recurring is calculated from <strong>Starting</strong> balances, and the receiving
+flag is not raised, then a recurring storage audit is written using the
+<strong>Starting</strong> balances and the recurring billing UOM.</li>
+<li>If recurring is calculated from <strong>Ending</strong> balances or by <strong>Anniversary</strong>,
+then a recurring storage audit is written using the <strong>Ending</strong> balances and
+the recurring UOM.</li>
+<li>The inventory quantity accumulator array is updated with the lot quantities.</li>
+</ol>
+<p>After calculating all the lots for a product, that is, when a product/variety
+break occurs, a recurring charge line is generated from the product accumulator
+array. If the account has free days, a separate charge line is generated for
+received quantities. Then the array is re-initialized for the next product.</p>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Where a <strong>Received</strong> monthday falls at the end of a month, subsequent
+months which do not include the day will use the last day of the month
+for the anniversary.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id5" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>A lot <strong>Received</strong> date is set to the <strong>Posted</strong> date unless the account
+has free days, in which case the lot <strong>Received</strong> date is set to the
+transaction <strong>Posted</strong> date plus one less than the number of free days.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id6" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>When <strong>Anniversary</strong> method recurring is used, the account&#8217;s recurring
+calculation calendar must preclude having two anniversary dates fall in
+the same calculation interval. This caution does not apply to calendar
+period recurring, where the calendar itself sets anniversary dates.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="minimum-recurring-invoice">
+<h2>Minimum Recurring Invoice<a class="headerlink" href="#minimum-recurring-invoice" title="Permalink to this headline">¶</a></h2>
+<p>To avoid expending warehouse resources on non-performing accounts, a warehouse
+may impose a recurring invoice minimum charge. The procedure for setting up
+this charge is shown in the following example.</p>
+<p>On the <strong>Rates</strong> page, enter a new rate record as follows:</p>
+<img alt="_images/rate-faq1-id.png" src="_images/rate-faq1-id.png" />
+<p>This rate will be evaluated as each invoice is generated for account <strong>ABF</strong>.
+The quantity method <strong>recurMinimum</strong> will select all invoice lines with code
+<strong>1S</strong> and this invoice number, and sum the extended column to determine an
+amount. Method logic will return <strong>Amount = 0</strong> when recurring exceeds 250.00,
+or when an invoice has no recurring charges.</p>
+<img alt="_images/rate-faq1-calc.png" src="_images/rate-faq1-calc.png" />
+<p>In the calculation part of the rate setup, the <strong>Factor</strong>, <strong>Rate</strong>, and
+<strong>Quantity</strong> are all <strong>1.00</strong>, and the <strong>Minimum</strong> is the minimum amount of
+recurring to charge, if any.</p>
+<p>Applying the rate as shown will result in adding a deficit charge line to an
+invoice provided the recurring total is greater than zero, but less than
+$250.00.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="07_recurring.html" title="Recurring Calculation Audits"
+             >next</a></li>
+        <li class="right" >
+          <a href="06_audits.html" title="Transaction Charges Auditing"
+             >previous</a> |</li>
+        <li><a href="index.html">WARES Billing 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Gerald Lovel.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b1.
+    </div>
+  </body>
+</html>
