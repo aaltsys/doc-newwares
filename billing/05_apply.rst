@@ -11,7 +11,7 @@ accumulated for billing.
 Most charges are applied to activities, with the exception of charges which are 
 generated from calendar events. Charge records are keyed by a combination of 
 the transaction identifier of the source activity, and the payer of the charge. 
-Usually, the payer is the account associated with the activity transaction. 
+Usually the payer is the account associated with the activity transaction. 
 Where a calendar event creates a charge, or where a charge is applied without 
 an associated activity, a sequential counter supplies the charge identifier. 
 
@@ -109,9 +109,8 @@ Rate calculation proceeds as follows for each mandatory rate record:
    **Activity**
 #. If this **Amount** is not zero, it is used to calculate a **Deficit**, a 
    **Rate**, and a **Charge** as described in :ref:`rate-extend`
-#. Using the transaction **Identifier** and **Payer**, a charge record header 
-   is written for the transaction if none exists
-#. A charge line is added for the mandatory charge.
+#. A charge transaction is written for the mandatory charge, identified by the
+   transaction **Identifier**, the **Payer**, and the **Service** code. 
 
 This description makes it clear that a mandatory rate creates a single charge 
 line. Where a mandatory rate refers to something like case picking, the **Per** 
@@ -125,7 +124,7 @@ applies calculated charges to each line item of the transaction. Lines are read
 in sequence, and the product is checked to determine a rate group identifier. 
 Then rates are selected to apply based on the criteria:
 
-*  Only Calculated rates are considered
+*  Only calculated rates are considered
 *  Rates must belong to the product's rate group
 *  Rates must reference the activity of the transaction
 
@@ -134,22 +133,22 @@ Now for the line, rates are applied as follows for each calculated rate record:
 #. Using the rate's **Per** unit for the **Activity**, an **Amount** is 
    calculated for the line
 #. If this **Amount** is not zero, it is used to calculate a **Deficit**, a 
-   **Rate**, and a **Charge** as described above
-#. Using the transaction **Identifier** and **Payer**, a charge record header 
-   is written for the transaction if none exists
-#. A charge line is added for the calculated charge.
+   **Rate**, and a **Charge** as described above 
+#. A charge transaction is written for the calculated charge, identified by the
+   transaction **Identifier** and **Line**, the **Payer**, and the **Service** 
+   code. 
 
 This sounds like the way Mandatory charges are applied, and it is. The 
-difference is in applying rates one line at a time based on the line's product 
-rate group.
+difference is in applying rates one transaction line at a time based on the 
+line's product rate group.
 
 Repeating Calendar Charges
 =============================
 
 Repeating charges are applied by selecting scheduled rates from the calendar 
 list, while calling a billing routine to apply the charges. Each calendar entry 
-will generate one charge line item. Charges calculated from calendar events are identified by a sequential charge number and the payer id, and there is no 
-associated activity.
+will generate one charge line item. Charges calculated from calendar events are identified by a sequential charge number, the payer id, and the service code. 
+There is no associated activity.
 
 An example calendar selection page for Repeating Rates follows:
 

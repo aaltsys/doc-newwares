@@ -1,7 +1,7 @@
 .. _bill-audits:
 
 #############################
-Charges Audit Reports
+Transaction Charges Auditing
 #############################
 
 Applying rates to activities results in charges, which are recorded on charges 
