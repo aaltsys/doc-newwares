@@ -21,61 +21,85 @@ calculations rely on data elements scattered throughout WARES. The information
 recurring calculations use are listed here to clarify the calculation section 
 which follows.
 
-.. Sidebar:: Recurring Storage Setup
+.. Sidebar:: Recurring Storage Configuration
 
-   :menuselection:`Setup --> Accounts`
+   +----------------------------------------------------+
+   | :menuselection:`Setup --> Accounts`                |
+   +----------------------------------------------------+
+   | **Account** identifier of the account              |
+   +-------------------+--------------------------------+
+   || **Recur** code   || anniversary                   |
+   ||                  || starting balances             |
+   ||                  || ending balances               |
+   +-------------------+--------------------------------+
+   || **Receive** code || full month                    |
+   ||                  || half month                    |
+   ||                  || prorated                      |
+   +-------------------+--------------------------------+
+   | **Freedays + Posted = Received** date              |
+   +----------------------------------------------------+
+   +----------------------------------------------------+
+   | :menuselection:`Setup --> Calendars`               |
+   +-------------------+--------------------------------+
+   || Identified by:   || **Group = Account**           |
+   ||                  || **Code = 1S**                 |
+   +-------------------+--------------------------------+
+   || **Last + 1** starts calculation interval          |
+   || **Next** ends calculation interval                |
+   +----------------------------------------------------+
+   +----------------------------------------------------+
+   | :menuselection:`Setup --> Products`                |
+   +----------------------------------------------------+
+   || identified by:                                    |
+   || **Account**, **Product**, and **Variety**         |
+   +----------------------------------------------------+
+   || **Group** rates for receiving and recurring       |
+   +-------------------+--------------------------------+
+   || **UOM** codes    || *Units*                       |
+   ||                  || *Packages*                    |
+   ||                  || *Inners*                      |
+   ||                  || *Weight*                      |
+   ||                  || *DIM*                         |
+   +-------------------+--------------------------------+
+   +----------------------------------------------------+
+   | :menuselection:`Entry --> Transactions`            |
+   +----------------------------------------------------+
+   || **Posted** DateTime of inventory change           |
+   || **Entered** DateTime transaction is verified      |
+   +----------------------------------------------------+
+   +----------------------------------------------------+
+   | :menuselection:`Inventory --> Lots`                |
+   +----------------------------------------------------+
+   || Identified by:                                    |
+   || **Account**, **Product**, **Variety**,            |
+   || **Control** and **Posted**                        |
+   +----------------------------------------------------+
+   | **Received = Posted + Freedays**                   |
+   +----------------------------------------------------+
+   +----------------------------------------------------+
+   | :menuselection:`Billing --> Rates`                 |
+   +-------------------+--------------------------------+
+   || Identified by:   || **Group**                     |
+   ||                  || **Code = 1S** (recurring) or  |
+   ||                  || **Code = 1R** (receiving)     |
+   +-------------------+--------------------------------+
+   || **Per** code     || **U** *(Unit)*                |
+   ||                  || **P** *(Package)*             |
+   ||                  || **I** *(Inner)*               |
+   ||                  || **W** *(Net Weight)*          |
+   ||                  || **G** *(Gross Weight)*        |
+   ||                  || **V** *Volume* or *DIM*       |
+   +-------------------+--------------------------------+
+   | :menuselection:`Billing --> Recurring Calculation` |
+   +----------------------------------------------------+
+   || **Starting** beginning of recurring interval      |
+   || **Ending** end of recurring period                |
+   +----------------------------------------------------+
 
-   **Account** identifier links the account setup to other program data. 
-
-   **Recur** code may be: anniversary, starting balances, or ending balances.
-
-   **Receive** code may be: full month, half month, or prorated.
-   
    .. note::
       When the **Recur** method is anniversary, the **Receive** code will be 
       changed to **Full Month** and the entry will be protected.
-
-   **Freedays** adds to posting date to determine **Received** date.
-
-   :menuselection:`Setup --> Calendars`
-
-   Every account which has recurring storage charges requires a corresponding 
-   calculation calendar, where *Group* identifier is the **Account** code, and 
-   **Code** identifier is *1S*.
-
-   **Last** (plus 1) and **Next** dates set the recurring calculation interval.
-
-   :menuselection:`Setup --> Products`
-
-   Inventory is identified by: **Account**, **Product**, and **Variety**.
-
-   **Group** specifies the rates to use for receiving and recurring storage.
-
-   **UOM** entries describe *Units*, *Packages*, *Inners*, *Weight*, and *DIM*.
-
-   :menuselection:`Entry --> Transactions`
-
-    **Posted** DateTime specifies when inventory was changed.
-    
-   **Entered** DateTime is assigned when transactions are verified.
-
-   :menuselection:`Inventory --> Lots
-
-   Identified by: **Account**, **Product**, **Variety**, **Control**, **Posted**
-
-   **Received** is **Posted** plus any **Freedays**.
-
-   :menuselection:`Billing --> Rates
-
-   Identified by: **Group** and **Code** *1S* (recurring) or *1R* (receiving). 
-
-   **Per** codes are restricted to *Unit* **U**, *Package* **P**, *Inner* **I**, 
-   *Net Weight* **W**, *Gross Weight* **G**, and *DIM* or *Volume* **V**.
-
-   :menuselection:`Billing --> Recurring Calculation`
-
-   **Starting** and **Ending** set the recurring calculation date range.
-
+   
 Recurring Calculation
 =============================
 

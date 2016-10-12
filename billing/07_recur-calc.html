@@ -103,39 +103,172 @@ calculations rely on data elements scattered throughout WARES. The information
 recurring calculations use are listed here to clarify the calculation section
 which follows.</p>
 <div class="sidebar">
-<p class="first sidebar-title">Recurring Storage Setup</p>
-<p><em class="menuselection">Setup ‣ Accounts</em></p>
-<p><strong>Account</strong> identifier links the account setup to other program data.</p>
-<p><strong>Recur</strong> code may be: anniversary, starting balances, or ending balances.</p>
-<p><strong>Receive</strong> code may be: full month, half month, or prorated.</p>
-<div class="admonition note">
+<p class="first sidebar-title">Recurring Storage Configuration</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="37%" />
+<col width="63%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td colspan="2"><em class="menuselection">Setup ‣ Accounts</em></td>
+</tr>
+<tr class="row-even"><td colspan="2"><strong>Account</strong> identifier of the account</td>
+</tr>
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line"><strong>Recur</strong> code</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">anniversary</div>
+<div class="line">starting balances</div>
+<div class="line">ending balances</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line"><strong>Receive</strong> code</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">full month</div>
+<div class="line">half month</div>
+<div class="line">prorated</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td colspan="2"><strong>Freedays + Posted = Received</strong> date</td>
+</tr>
+<tr class="row-even"><td colspan="2">&nbsp;</td>
+</tr>
+<tr class="row-odd"><td colspan="2"><em class="menuselection">Setup ‣ Calendars</em></td>
+</tr>
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">Identified by:</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line"><strong>Group = Account</strong></div>
+<div class="line"><strong>Code = 1S</strong></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td colspan="2"><div class="first last line-block">
+<div class="line"><strong>Last + 1</strong> starts calculation interval</div>
+<div class="line"><strong>Next</strong> ends calculation interval</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td colspan="2">&nbsp;</td>
+</tr>
+<tr class="row-odd"><td colspan="2"><em class="menuselection">Setup ‣ Products</em></td>
+</tr>
+<tr class="row-even"><td colspan="2"><div class="first last line-block">
+<div class="line">identified by:</div>
+<div class="line"><strong>Account</strong>, <strong>Product</strong>, and <strong>Variety</strong></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td colspan="2"><div class="first last line-block">
+<div class="line"><strong>Group</strong> rates for receiving and recurring</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line"><strong>UOM</strong> codes</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line"><em>Units</em></div>
+<div class="line"><em>Packages</em></div>
+<div class="line"><em>Inners</em></div>
+<div class="line"><em>Weight</em></div>
+<div class="line"><em>DIM</em></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td colspan="2">&nbsp;</td>
+</tr>
+<tr class="row-even"><td colspan="2"><em class="menuselection">Entry ‣ Transactions</em></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><div class="first last line-block">
+<div class="line"><strong>Posted</strong> DateTime of inventory change</div>
+<div class="line"><strong>Entered</strong> DateTime transaction is verified</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td colspan="2">&nbsp;</td>
+</tr>
+<tr class="row-odd"><td colspan="2"><em class="menuselection">Inventory ‣ Lots</em></td>
+</tr>
+<tr class="row-even"><td colspan="2"><div class="first last line-block">
+<div class="line">Identified by:</div>
+<div class="line"><strong>Account</strong>, <strong>Product</strong>, <strong>Variety</strong>,</div>
+<div class="line"><strong>Control</strong> and <strong>Posted</strong></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td colspan="2"><strong>Received = Posted + Freedays</strong></td>
+</tr>
+<tr class="row-even"><td colspan="2">&nbsp;</td>
+</tr>
+<tr class="row-odd"><td colspan="2"><em class="menuselection">Billing ‣ Rates</em></td>
+</tr>
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">Identified by:</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line"><strong>Group</strong></div>
+<div class="line"><strong>Code = 1S</strong> (recurring) or</div>
+<div class="line"><strong>Code = 1R</strong> (receiving)</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line"><strong>Per</strong> code</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line"><strong>U</strong> <em>(Unit)</em></div>
+<div class="line"><strong>P</strong> <em>(Package)</em></div>
+<div class="line"><strong>I</strong> <em>(Inner)</em></div>
+<div class="line"><strong>W</strong> <em>(Net Weight)</em></div>
+<div class="line"><strong>G</strong> <em>(Gross Weight)</em></div>
+<div class="line"><strong>V</strong> <em>Volume</em> or <em>DIM</em></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td colspan="2"><em class="menuselection">Billing ‣ Recurring Calculation</em></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><div class="first last line-block">
+<div class="line"><strong>Starting</strong> beginning of recurring interval</div>
+<div class="line"><strong>Ending</strong> end of recurring period</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="last admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">When the <strong>Recur</strong> method is anniversary, the <strong>Receive</strong> code will be
 changed to <strong>Full Month</strong> and the entry will be protected.</p>
 </div>
-<p><strong>Freedays</strong> adds to posting date to determine <strong>Received</strong> date.</p>
-<p><em class="menuselection">Setup ‣ Calendars</em></p>
-<p>Every account which has recurring storage charges requires a corresponding
-calculation calendar, where <em>Group</em> identifier is the <strong>Account</strong> code, and
-<strong>Code</strong> identifier is <em>1S</em>.</p>
-<p><strong>Last</strong> (plus 1) and <strong>Next</strong> dates set the recurring calculation interval.</p>
-<p><em class="menuselection">Setup ‣ Products</em></p>
-<p>Inventory is identified by: <strong>Account</strong>, <strong>Product</strong>, and <strong>Variety</strong>.</p>
-<p><strong>Group</strong> specifies the rates to use for receiving and recurring storage.</p>
-<p><strong>UOM</strong> entries describe <em>Units</em>, <em>Packages</em>, <em>Inners</em>, <em>Weight</em>, and <em>DIM</em>.</p>
-<p><em class="menuselection">Entry ‣ Transactions</em></p>
-<blockquote>
-<div><strong>Posted</strong> DateTime specifies when inventory was changed.</div></blockquote>
-<p><strong>Entered</strong> DateTime is assigned when transactions are verified.</p>
-<p>:menuselection:<a href="#id1"><span class="problematic" id="id2">`</span></a>Inventory &#8211;&gt; Lots</p>
-<p>Identified by: <strong>Account</strong>, <strong>Product</strong>, <strong>Variety</strong>, <strong>Control</strong>, <strong>Posted</strong></p>
-<p><strong>Received</strong> is <strong>Posted</strong> plus any <strong>Freedays</strong>.</p>
-<p>:menuselection:<a href="#id3"><span class="problematic" id="id4">`</span></a>Billing &#8211;&gt; Rates</p>
-<p>Identified by: <strong>Group</strong> and <strong>Code</strong> <em>1S</em> (recurring) or <em>1R</em> (receiving).</p>
-<p><strong>Per</strong> codes are restricted to <em>Unit</em> <strong>U</strong>, <em>Package</em> <strong>P</strong>, <em>Inner</em> <strong>I</strong>,
-<em>Net Weight</em> <strong>W</strong>, <em>Gross Weight</em> <strong>G</strong>, and <em>DIM</em> or <em>Volume</em> <strong>V</strong>.</p>
-<p><em class="menuselection">Billing ‣ Recurring Calculation</em></p>
-<p class="last"><strong>Starting</strong> and <strong>Ending</strong> set the recurring calculation date range.</p>
 </div>
 </div>
 <div class="section" id="recurring-calculation">
@@ -152,16 +285,16 @@ which are not <strong>Archived</strong>, are selected for the account by <strong
 <strong>Variety</strong>, lot <strong>Control</strong> number, and <strong>Received</strong> date. An accumulator
 array is initialized to keep inventory balance information by <strong>Product</strong> and
 <strong>Variety</strong>.</p>
-<p>For each lot, anniversary <strong>Starting</strong> and <strong>Ending</strong> dates are determined. <a class="footnote-reference" href="#id8" id="id5">[1]</a></p>
+<p>For each lot, anniversary <strong>Starting</strong> and <strong>Ending</strong> dates are determined. <a class="footnote-reference" href="#id4" id="id1">[1]</a></p>
 <ol class="arabic simple">
-<li>If the account has free days <a class="footnote-reference" href="#id9" id="id6">[2]</a>, and if the <strong>Received</strong> date is within
+<li>If the account has free days <a class="footnote-reference" href="#id5" id="id2">[2]</a>, and if the <strong>Received</strong> date is within
 the recurring interval, then the anniversary <strong>Starting</strong> date is set to the
 free days expiration date, and a receiving calculation flag is raised.</li>
 <li>If the account uses <strong>Anniversary</strong> recurring: (1) if the receiving flag is
 raised then the <strong>Ending</strong> date is left blank, (2) if the lot anniversary
 falls within the recurring interval then the anniversary <strong>Ending</strong> date is
 set to that date and the <strong>Starting</strong> date is set to the previous
-anniversary plus one day, or (3) otherwise the lot is skipped. <a class="footnote-reference" href="#id10" id="id7">[3]</a></li>
+anniversary plus one day, or (3) otherwise the lot is skipped. <a class="footnote-reference" href="#id6" id="id3">[3]</a></li>
 <li>If the account uses calendar <strong>Starting</strong> or <strong>Ending</strong> recurring, then the
 lot anniversary <strong>Starting</strong> date is set to the calendar <strong>Last</strong> date plus
 one, and the <strong>Ending</strong> date is set to the calendar <strong>Next</strong> date.</li>
@@ -202,26 +335,26 @@ the recurring UOM.</li>
 break occurs, a recurring charge line is generated from the product accumulator
 array. If the account has free days, a separate charge line is generated for
 received quantities. Then the array is re-initialized for the next product.</p>
-<table class="docutils footnote" frame="void" id="id8" rules="none">
+<table class="docutils footnote" frame="void" id="id4" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id5">[1]</a></td><td>Where a <strong>Received</strong> monthday falls at the end of a month, subsequent
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Where a <strong>Received</strong> monthday falls at the end of a month, subsequent
 months which do not include the day will use the last day of the month
 for the anniversary.</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id9" rules="none">
+<table class="docutils footnote" frame="void" id="id5" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id6">[2]</a></td><td>A lot <strong>Received</strong> date is set to the <strong>Posted</strong> date unless the account
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>A lot <strong>Received</strong> date is set to the <strong>Posted</strong> date unless the account
 has free days, in which case the lot <strong>Received</strong> date is set to the
 transaction <strong>Posted</strong> date plus one less than the number of free days.</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id10" rules="none">
+<table class="docutils footnote" frame="void" id="id6" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id7">[3]</a></td><td>When <strong>Anniversary</strong> method recurring is used, the account&#8217;s recurring
+<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>When <strong>Anniversary</strong> method recurring is used, the account&#8217;s recurring
 calculation calendar must preclude having two anniversary dates fall in
 the same calculation interval. This caution does not apply to calendar
 period recurring, where the calendar itself sets anniversary dates.</td></tr>
