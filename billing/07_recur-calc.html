@@ -176,11 +176,15 @@ recurring calendar for the account is not updated.</p>
 <tr class="row-even"><td colspan="2"><div class="first last line-block">
 <div class="line">identified by:</div>
 <div class="line"><strong>Account</strong>, <strong>Product</strong>, and <strong>Variety</strong></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td colspan="2"><div class="first last line-block">
 <div class="line"><strong>Group</strong> rates for receiving and recurring</div>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><div class="first last line-block">
+<tr class="row-even"><td><div class="first last line-block">
 <div class="line"><strong>UOM</strong> codes for</div>
 <div class="line"><br /></div>
 <div class="line"><br /></div>
@@ -197,40 +201,50 @@ recurring calendar for the account is not updated.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td colspan="2"><div class="first last line-block">
+<tr class="row-odd"><td colspan="2"><div class="first last line-block">
 <div class="line"><em class="menuselection">Entry ‣ Transactions</em></div>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td colspan="2"><div class="first last line-block">
+<tr class="row-even"><td colspan="2"><div class="first last line-block">
 <div class="line"><strong>Posted</strong> DateTime of inventory change</div>
 <div class="line"><strong>Entered</strong> DateTime transaction is verified</div>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td colspan="2"><div class="first last line-block">
+<tr class="row-odd"><td colspan="2"><div class="first last line-block">
 <div class="line"><em class="menuselection">Inventory ‣ Lots</em></div>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td colspan="2"><div class="first last line-block">
+<tr class="row-even"><td colspan="2"><div class="first last line-block">
 <div class="line">Identified by:</div>
 <div class="line"><strong>Account</strong>, <strong>Product</strong>, <strong>Variety</strong>,</div>
 <div class="line"><strong>Control</strong> and <strong>Posted</strong></div>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td colspan="2"><strong>Received = Posted + Freedays</strong></td>
+<tr class="row-odd"><td colspan="2"><strong>Received = Posted + Freedays</strong></td>
 </tr>
-<tr class="row-odd"><td colspan="2"><div class="first last line-block">
+<tr class="row-even"><td colspan="2"><div class="first last line-block">
 <div class="line"><em class="menuselection">Billing ‣ Rates</em></div>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><div class="first last line-block">
+<tr class="row-odd"><td><div class="first last line-block">
 <div class="line">Identified by:</div>
 <div class="line"><br /></div>
 <div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line"><strong>Group</strong></div>
+<div class="line"><strong>Code = 1S</strong> (recurring) or</div>
+<div class="line"><strong>Code = 1R</strong> (receiving)</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last line-block">
 <div class="line"><strong>Per</strong> code</div>
 <div class="line"><br /></div>
 <div class="line"><br /></div>
@@ -240,26 +254,12 @@ recurring calendar for the account is not updated.</p>
 </div>
 </td>
 <td><div class="first last line-block">
-<div class="line"><strong>Group</strong></div>
-<div class="line"><strong>Code = 1S</strong> (recurring) or</div>
-<div class="line"><strong>Code = 1R</strong> (receiving)</div>
 <div class="line"><strong>U</strong> <em>(Unit)</em></div>
 <div class="line"><strong>P</strong> <em>(Package)</em></div>
 <div class="line"><strong>I</strong> <em>(Inner)</em></div>
 <div class="line"><strong>W</strong> <em>(Net Weight)</em></div>
 <div class="line"><strong>G</strong> <em>(Gross Weight)</em></div>
 <div class="line"><strong>V</strong> <em>Volume</em> or <em>DIM</em></div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td colspan="2"><div class="first last line-block">
-<div class="line"><em class="menuselection">Billing ‣ Recurring Calculation</em></div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td colspan="2"><div class="first last line-block">
-<div class="line"><strong>Starting</strong> beginning of recurring interval</div>
-<div class="line"><strong>Ending</strong> end of recurring period</div>
 </div>
 </td>
 </tr>
@@ -287,8 +287,8 @@ falls within the recurring interval then the anniversary <strong>Ending</strong>
 set to that date and the <strong>Starting</strong> date is set to the previous
 anniversary plus one day, or (3) otherwise the lot is skipped. <a class="footnote-reference" href="#id6" id="id3">[3]</a></li>
 <li>If the account uses calendar <strong>Starting</strong> or <strong>Ending</strong> recurring, then the
-lot anniversary <strong>Starting</strong> date is set to the calendar <strong>Last</strong> date plus
-one, and the <strong>Ending</strong> date is set to the calendar <strong>Next</strong> date.</li>
+lot anniversary <strong>Starting</strong> date is set to the calendar date <strong>Last + 1</strong>,
+and the <strong>Ending</strong> date is set to the calendar <strong>Next</strong> date.</li>
 </ol>
 <p>Once lot anniversary dates are set, lot transactions are selected using the
 <strong>Account</strong>, <strong>Product</strong>, <strong>Variety</strong>, lot <strong>Control</strong> number, and <strong>Received</strong>

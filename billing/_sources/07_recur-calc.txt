@@ -59,6 +59,7 @@ recurring calendar for the account is not updated.
    +----------------------------------------------------+
    || identified by:                                    |
    || **Account**, **Product**, and **Variety**         |
+   +----------------------------------------------------+
    || **Group** rates for receiving and recurring       |
    +-------------------+--------------------------------+
    || **UOM** codes for|| *Units*                       |
@@ -85,6 +86,7 @@ recurring calendar for the account is not updated.
    || Identified by:   || **Group**                     |
    ||                  || **Code = 1S** (recurring) or  |
    ||                  || **Code = 1R** (receiving)     |
+   +-------------------+--------------------------------+
    || **Per** code     || **U** *(Unit)*                |
    ||                  || **P** *(Package)*             |
    ||                  || **I** *(Inner)*               |
@@ -92,11 +94,6 @@ recurring calendar for the account is not updated.
    ||                  || **G** *(Gross Weight)*        |
    ||                  || **V** *Volume* or *DIM*       |
    +-------------------+--------------------------------+
-   || :menuselection:`Billing --> Recurring Calculation`|
-   +----------------------------------------------------+
-   || **Starting** beginning of recurring interval      |
-   || **Ending** end of recurring period                |
-   +----------------------------------------------------+
 
    .. note::
       When the **Recur** method is anniversary, the **Receive** code will be 
@@ -119,8 +116,8 @@ For each lot, anniversary **Starting** and **Ending** dates are determined. [1]_
    set to that date and the **Starting** date is set to the previous 
    anniversary plus one day, or (3) otherwise the lot is skipped. [3]_
 #. If the account uses calendar **Starting** or **Ending** recurring, then the 
-   lot anniversary **Starting** date is set to the calendar **Last** date plus 
-   one, and the **Ending** date is set to the calendar **Next** date.
+   lot anniversary **Starting** date is set to the calendar date **Last + 1**, 
+   and the **Ending** date is set to the calendar **Next** date.
 
 Once lot anniversary dates are set, lot transactions are selected using the 
 **Account**, **Product**, **Variety**, lot **Control** number, and **Received** 
