@@ -20,6 +20,18 @@ Storage fees are central to warehousing operations, and so recurring
 calculations rely on data elements scattered throughout WARES. The information 
 recurring calculations use are listed here to clarify the calculation section 
 which follows.
+   
+Recurring Calculation
+=============================
+
+While recurring selects multiple accounts to process in a batch, each account 
+is calculated separately. This allows accounts which have outstanding issues to 
+be skipped, while completing billing for other accounts. 
+
+To calculate recurring, first unverified transactions for the account with 
+**Posted** dates before and including the account's recurring calendar **Next** 
+date are selected. If any transactions are found the account is skipped; the 
+recurring calendar for the account is not updated. 
 
 .. Sidebar:: Recurring Storage Configuration
 
@@ -89,22 +101,10 @@ which follows.
    .. note::
       When the **Recur** method is anniversary, the **Receive** code will be 
       changed to **Full Month** and the entry will be protected.
-   
-Recurring Calculation
-=============================
-
-While recurring selects multiple accounts to process in a batch, each account 
-is calculated separately. This allows accounts which have outstanding issues to 
-be skipped, while completing billing for other accounts. 
-
-To calculate recurring, first unverified transactions for the account with 
-**Posted** dates before and including the account's recurring calendar **Next** 
-date are selected. If any transactions are found the account is skipped; the 
-recurring calendar for the account is not updated. 
 
 For accounts which pass the preceding test, active inventory lot records, lots 
 which are not **Archived**, are selected for the account by **Product**, 
-**Variety**, lot **Control** number, and **Received** date. An accumulator 
+**Variety**, lot **Control** number, and **Posted** date. An accumulator 
 array is initialized to keep inventory balance information by **Product** and 
 **Variety**.
 

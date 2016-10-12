@@ -102,6 +102,16 @@ balances.</p>
 calculations rely on data elements scattered throughout WARES. The information
 recurring calculations use are listed here to clarify the calculation section
 which follows.</p>
+</div>
+<div class="section" id="recurring-calculation">
+<h2>Recurring Calculation<a class="headerlink" href="#recurring-calculation" title="Permalink to this headline">¶</a></h2>
+<p>While recurring selects multiple accounts to process in a batch, each account
+is calculated separately. This allows accounts which have outstanding issues to
+be skipped, while completing billing for other accounts.</p>
+<p>To calculate recurring, first unverified transactions for the account with
+<strong>Posted</strong> dates before and including the account&#8217;s recurring calendar <strong>Next</strong>
+date are selected. If any transactions are found the account is skipped; the
+recurring calendar for the account is not updated.</p>
 <div class="sidebar">
 <p class="first sidebar-title">Recurring Storage Configuration</p>
 <table border="1" class="docutils">
@@ -261,19 +271,9 @@ which follows.</p>
 changed to <strong>Full Month</strong> and the entry will be protected.</p>
 </div>
 </div>
-</div>
-<div class="section" id="recurring-calculation">
-<h2>Recurring Calculation<a class="headerlink" href="#recurring-calculation" title="Permalink to this headline">¶</a></h2>
-<p>While recurring selects multiple accounts to process in a batch, each account
-is calculated separately. This allows accounts which have outstanding issues to
-be skipped, while completing billing for other accounts.</p>
-<p>To calculate recurring, first unverified transactions for the account with
-<strong>Posted</strong> dates before and including the account&#8217;s recurring calendar <strong>Next</strong>
-date are selected. If any transactions are found the account is skipped; the
-recurring calendar for the account is not updated.</p>
 <p>For accounts which pass the preceding test, active inventory lot records, lots
 which are not <strong>Archived</strong>, are selected for the account by <strong>Product</strong>,
-<strong>Variety</strong>, lot <strong>Control</strong> number, and <strong>Received</strong> date. An accumulator
+<strong>Variety</strong>, lot <strong>Control</strong> number, and <strong>Posted</strong> date. An accumulator
 array is initialized to keep inventory balance information by <strong>Product</strong> and
 <strong>Variety</strong>.</p>
 <p>For each lot, anniversary <strong>Starting</strong> and <strong>Ending</strong> dates are determined. <a class="footnote-reference" href="#id4" id="id1">[1]</a></p>
