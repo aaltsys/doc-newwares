@@ -24,51 +24,43 @@ which follows.
 .. Sidebar:: Recurring Storage Configuration
 
    +----------------------------------------------------+
-   | :menuselection:`Setup --> Accounts`                |
+   || :menuselection:`Setup --> Accounts`               |
    +----------------------------------------------------+
    | **Account** identifier of the account              |
    +-------------------+--------------------------------+
    || **Recur** code   || anniversary                   |
    ||                  || starting balances             |
    ||                  || ending balances               |
-   +-------------------+--------------------------------+
    || **Receive** code || full month                    |
    ||                  || half month                    |
    ||                  || prorated                      |
    +-------------------+--------------------------------+
-   | **Freedays + Posted = Received** date              |
-   +----------------------------------------------------+
-   +----------------------------------------------------+
-   | :menuselection:`Setup --> Calendars`               |
+   || :menuselection:`Setup --> Calendars`              |
    +-------------------+--------------------------------+
-   || Identified by:   || **Group = Account**           |
-   ||                  || **Code = 1S**                 |
+   || Identified by:   || **Group** = **Account**       |
+   ||                  || **Code** = **1S**             |
    +-------------------+--------------------------------+
    || **Last + 1** starts calculation interval          |
    || **Next** ends calculation interval                |
    +----------------------------------------------------+
-   +----------------------------------------------------+
-   | :menuselection:`Setup --> Products`                |
+   || :menuselection:`Setup --> Products`               |
    +----------------------------------------------------+
    || identified by:                                    |
    || **Account**, **Product**, and **Variety**         |
-   +----------------------------------------------------+
    || **Group** rates for receiving and recurring       |
    +-------------------+--------------------------------+
-   || **UOM** codes    || *Units*                       |
+   || **UOM** codes for|| *Units*                       |
    ||                  || *Packages*                    |
    ||                  || *Inners*                      |
    ||                  || *Weight*                      |
    ||                  || *DIM*                         |
    +-------------------+--------------------------------+
-   +----------------------------------------------------+
-   | :menuselection:`Entry --> Transactions`            |
+   || :menuselection:`Entry --> Transactions`           |
    +----------------------------------------------------+
    || **Posted** DateTime of inventory change           |
    || **Entered** DateTime transaction is verified      |
    +----------------------------------------------------+
-   +----------------------------------------------------+
-   | :menuselection:`Inventory --> Lots`                |
+   || :menuselection:`Inventory --> Lots`               |
    +----------------------------------------------------+
    || Identified by:                                    |
    || **Account**, **Product**, **Variety**,            |
@@ -76,13 +68,11 @@ which follows.
    +----------------------------------------------------+
    | **Received = Posted + Freedays**                   |
    +----------------------------------------------------+
-   +----------------------------------------------------+
-   | :menuselection:`Billing --> Rates`                 |
+   || :menuselection:`Billing --> Rates`                |
    +-------------------+--------------------------------+
    || Identified by:   || **Group**                     |
    ||                  || **Code = 1S** (recurring) or  |
    ||                  || **Code = 1R** (receiving)     |
-   +-------------------+--------------------------------+
    || **Per** code     || **U** *(Unit)*                |
    ||                  || **P** *(Package)*             |
    ||                  || **I** *(Inner)*               |
@@ -90,7 +80,7 @@ which follows.
    ||                  || **G** *(Gross Weight)*        |
    ||                  || **V** *Volume* or *DIM*       |
    +-------------------+--------------------------------+
-   | :menuselection:`Billing --> Recurring Calculation` |
+   || :menuselection:`Billing --> Recurring Calculation`|
    +----------------------------------------------------+
    || **Starting** beginning of recurring interval      |
    || **Ending** end of recurring period                |
