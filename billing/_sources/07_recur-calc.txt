@@ -21,89 +21,60 @@ calculations rely on data elements scattered throughout WARES. The information
 recurring calculations use are listed here to clarify the calculation section 
 which follows.
 
-Setup --> Accounts
------------------------------
+.. Sidebar:: Recurring Storage Setup
 
-An **Account** identifier links the account setup to other program data. 
+   :menuselection:`Setup --> Accounts`
 
-Storage **Recur** code may use calendar month anniversary, periodic starting 
-balances, or periodic ending balances.
+   **Account** identifier links the account setup to other program data. 
 
-Storage **Receive** code may be rated by full month, half month, or prorated. 
-When the **Recur** method is anniversary, the **Receive** code will be changed 
-to **Full Month** and the entry will be protected.
+   **Recur** code may be: anniversary, starting balances, or ending balances.
 
-**Freedays** determines the date on which goods are rated for receiving storage 
-charges.
+   **Receive** code may be: full month, half month, or prorated.
+   
+   .. note::
+      When the **Recur** method is anniversary, the **Receive** code will be 
+      changed to **Full Month** and the entry will be protected.
 
-Setup --> Calendars
------------------------------
+   **Freedays** adds to posting date to determine **Received** date.
 
-Every account which has recurring storage charges requires a corresponding 
-calculation calendar.
+   :menuselection:`Setup --> Calendars`
 
-The **Account** code is used as the *Group* identifier of the calendar, and 
-the **Code** identifier for recurring storage rates is always *1S*.
+   Every account which has recurring storage charges requires a corresponding 
+   calculation calendar, where *Group* identifier is the **Account** code, and 
+   **Code** identifier is *1S*.
 
-Each calendar has **Next** and **Last** dates, and calculations are performed 
-for the date interval from the **Last** date plus one through the **Next** 
-date.
+   **Last** (plus 1) and **Next** dates set the recurring calculation interval.
 
-Setup --> Products
------------------------------
+   :menuselection:`Setup --> Products`
 
-The combination of **Account**, **Product**, and **Variety** identifies a
-unique inventory item. This combination will be used in transactions, lots, 
-audits, and charges to identify and track items.
+   Inventory is identified by: **Account**, **Product**, and **Variety**.
 
-Rate **Group** specifies the rates to use for receiving and recurring storage.
+   **Group** specifies the rates to use for receiving and recurring storage.
 
-**UOM** entries for *Units*, *Packages*, *Inners*, *Weight*, and *DIM* describe 
-inventory quantities, while rate entries transmute these values into billing 
-quantities.
+   **UOM** entries describe *Units*, *Packages*, *Inners*, *Weight*, and *DIM*.
 
-Entry --> Transactions
------------------------------
+   :menuselection:`Entry --> Transactions`
 
-Transaction **Posted** specifies the DateTime when the inventory was changed,
-and **Entered** DateTime is assigned at the time inventory records are verified 
-in the WARES database. Transactions are commonly updated or verified in 
-arrears, so that these two entries are not usually the same.
+    **Posted** DateTime specifies when inventory was changed.
+    
+   **Entered** DateTime is assigned when transactions are verified.
 
-Inventory --> Lots
------------------------------
+   :menuselection:`Inventory --> Lots
 
-**Account**, **Product**, and **Variety** identify products in inventory.
+   Identified by: **Account**, **Product**, **Variety**, **Control**, **Posted**
 
-Lot **Control** numbers, entered when receiving, further separate inventory 
-into lots.
+   **Received** is **Posted** plus any **Freedays**.
 
-**Received**, the final part of a lot identifier, is the date goods are entered 
-into inventory, plus any **Freedays** allowed the account. This determines when 
-receiving storage and anniversary recurring storage balances are calculated.
+   :menuselection:`Billing --> Rates
 
-Billing --> Rates
------------------------------
+   Identified by: **Group** and **Code** *1S* (recurring) or *1R* (receiving). 
 
-Each recurring rate is identified by a **Group** and the **Code** *1S*. 
+   **Per** codes are restricted to *Unit* **U**, *Package* **P**, *Inner* **I**, 
+   *Net Weight* **W**, *Gross Weight* **G**, and *DIM* or *Volume* **V**.
 
-These rates are always applied *Calculated*, with **Per** codes restricted to 
-*Unit* **U**, *Package* **P**, *Inner* **I**, *Net Weight* **W**, 
-*Gross Weight* **G**, and *Volume* **V** or *DIM*.
+   :menuselection:`Billing --> Recurring Calculation`
 
-Numerous rate entries convert inventory quantities to the **UOM** billing units 
-and apply rates to calculate charges.
-
-Billing --> Recurring
------------------------------
-
-The Recurring calculation 
-
-Billing --> Audits
------------------------------
-
-**Starting**
-**Ending**
+   **Starting** and **Ending** set the recurring calculation date range.
 
 Recurring Calculation
 =============================
