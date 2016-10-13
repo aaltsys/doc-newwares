@@ -12,14 +12,6 @@ Recurring is audited by comparing the ending balance of a lot in one period to
 the starting balance in the succeeding period, and comparing the total of lot 
 transactions in a period with the difference between starting and ending 
 balances.
-
-Sources of Recurring Data
-=============================
-
-Storage fees are central to warehousing operations, and so recurring 
-calculations rely on data elements scattered throughout WARES. The information 
-recurring calculations use are listed here to clarify the calculation section 
-which follows.
    
 Recurring Calculation
 =============================
@@ -33,7 +25,7 @@ To calculate recurring, first unverified transactions for the account with
 date are selected. If any transactions are found the account is skipped; the 
 recurring calendar for the account is not updated. 
 
-.. Sidebar:: Recurring Storage Configuration
+.. Sidebar:: Recurring Configuration Sources
 
    +----------------------------------------------------+
    || :menuselection:`Setup --> Accounts`               |
@@ -133,7 +125,8 @@ date, and each lot is processed to determine balances.
    selected, summed, and stored in shipped and adjusted arrays.
 #. If a lot has zero balance on the **Starting** date, and no transactions 
    occur before the ending date, then the lot and all associated transactions 
-   are set to **Archived** status and the lot is skipped.
+   are set to **Archived** status and the lot is skipped. Lots which have no 
+   transactions at all are deleted.
 
 At this point, recurring audits and charges can be prepared for the lot. 
 
@@ -164,12 +157,14 @@ received quantities. Then the array is re-initialized for the next product.
 
 .. [2] A lot **Received** date is set to the **Posted** date unless the account
        has free days, in which case the lot **Received** date is set to the 
-       transaction **Posted** date plus one less than the number of free days. 
+       transaction **Posted** date plus the number of free days. 
        
 .. [3] When **Anniversary** method recurring is used, the account's recurring 
        calculation calendar must preclude having two anniversary dates fall in 
-       the same calculation interval. This caution does not apply to calendar 
-       period recurring, where the calendar itself sets anniversary dates.
+       the same calculation interval. The interval **[Feb 1, Mar 3]** would be 
+       invalid, for example, while **[Feb 15, Mar 14]** would be valid. This 
+       caution does not apply to calendar period recurring, where the calendar 
+       itself sets anniversary dates.
 
 Minimum Recurring Invoice
 =============================

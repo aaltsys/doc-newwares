@@ -46,7 +46,6 @@
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Calculating Recurring Charges</a><ul>
-<li><a class="reference internal" href="#sources-of-recurring-data">Sources of Recurring Data</a></li>
 <li><a class="reference internal" href="#recurring-calculation">Recurring Calculation</a></li>
 <li><a class="reference internal" href="#minimum-recurring-invoice">Minimum Recurring Invoice</a></li>
 </ul>
@@ -96,13 +95,6 @@ activity completed within the period is then accumulated to determine an ending 
 the starting balance in the succeeding period, and comparing the total of lot
 transactions in a period with the difference between starting and ending
 balances.</p>
-<div class="section" id="sources-of-recurring-data">
-<h2>Sources of Recurring Data<a class="headerlink" href="#sources-of-recurring-data" title="Permalink to this headline">¶</a></h2>
-<p>Storage fees are central to warehousing operations, and so recurring
-calculations rely on data elements scattered throughout WARES. The information
-recurring calculations use are listed here to clarify the calculation section
-which follows.</p>
-</div>
 <div class="section" id="recurring-calculation">
 <h2>Recurring Calculation<a class="headerlink" href="#recurring-calculation" title="Permalink to this headline">¶</a></h2>
 <p>While recurring selects multiple accounts to process in a batch, each account
@@ -113,7 +105,7 @@ be skipped, while completing billing for other accounts.</p>
 date are selected. If any transactions are found the account is skipped; the
 recurring calendar for the account is not updated.</p>
 <div class="sidebar">
-<p class="first sidebar-title">Recurring Storage Configuration</p>
+<p class="first sidebar-title">Recurring Configuration Sources</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="37%" />
@@ -304,7 +296,8 @@ transactions are summed and a received balances array is stored.</li>
 selected, summed, and stored in shipped and adjusted arrays.</li>
 <li>If a lot has zero balance on the <strong>Starting</strong> date, and no transactions
 occur before the ending date, then the lot and all associated transactions
-are set to <strong>Archived</strong> status and the lot is skipped.</li>
+are set to <strong>Archived</strong> status and the lot is skipped. Lots which have no
+transactions at all are deleted.</li>
 </ol>
 <p>At this point, recurring audits and charges can be prepared for the lot.</p>
 <ol class="arabic simple">
@@ -339,7 +332,7 @@ for the anniversary.</td></tr>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>A lot <strong>Received</strong> date is set to the <strong>Posted</strong> date unless the account
 has free days, in which case the lot <strong>Received</strong> date is set to the
-transaction <strong>Posted</strong> date plus one less than the number of free days.</td></tr>
+transaction <strong>Posted</strong> date plus the number of free days.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="id6" rules="none">
@@ -347,8 +340,10 @@ transaction <strong>Posted</strong> date plus one less than the number of free d
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>When <strong>Anniversary</strong> method recurring is used, the account&#8217;s recurring
 calculation calendar must preclude having two anniversary dates fall in
-the same calculation interval. This caution does not apply to calendar
-period recurring, where the calendar itself sets anniversary dates.</td></tr>
+the same calculation interval. The interval <strong>[Feb 1, Mar 3]</strong> would be
+invalid, for example, while <strong>[Feb 15, Mar 14]</strong> would be valid. This
+caution does not apply to calendar period recurring, where the calendar
+itself sets anniversary dates.</td></tr>
 </tbody>
 </table>
 </div>
