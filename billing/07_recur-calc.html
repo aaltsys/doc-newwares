@@ -282,26 +282,26 @@ anniversary plus one day, or (3) otherwise the lot is skipped. <a class="footnot
 lot anniversary <strong>Starting</strong> date is set to the calendar date <strong>Last + 1</strong>,
 and the <strong>Ending</strong> date is set to the calendar <strong>Next</strong> date.</li>
 </ol>
-<p>Once lot anniversary dates are set, lot transactions are selected using the
-<strong>Account</strong>, <strong>Product</strong>, <strong>Variety</strong>, lot <strong>Control</strong> number, and <strong>Received</strong>
-date, and each lot is processed to determine balances.</p>
+<p>Once lot anniversary dates are set, transactions are selected for the lot (that
+is, by <strong>Account</strong>, <strong>Product</strong>, <strong>Variety</strong>, lot <strong>Control</strong>, and <strong>Posted</strong>
+date), and each lot is processed to determine balances.</p>
 <ol class="arabic simple">
-<li>Transactions with <strong>Posted</strong> date prior to the lot anniversary <strong>Starting</strong>
-date are selected, and transaction quantities are summed to obtain the
-starting balances for the lot. A starting balances array is stored.</li>
+<li>Transactions <strong>Posted</strong> prior to the lot anniversary <strong>Starting</strong> date are
+selected, and transaction quantities are summed to obtain the starting
+balances for the lot. A starting balances array is stored.</li>
 <li>If an <strong>Ending</strong> date is set then receiving transactions are selected with
 <strong>Posted</strong> date from the <strong>Starting</strong> date through the <strong>Ending</strong> date. The
 transactions are summed and a received balances array is stored.</li>
 <li>In the same way as receiving, shipping and adjusting transactions are
 selected, summed, and stored in shipped and adjusted arrays.</li>
 <li>If a lot has zero balance on the <strong>Starting</strong> date, and no transactions
-occur before the ending date, then the lot and all associated transactions
-are set to <strong>Archived</strong> status and the lot is skipped. Lots which have no
-transactions at all are deleted.</li>
+occur on or after the starting date, then the lot and all associated
+transactions are set to <strong>Archived</strong> status and the lot is skipped. Lots
+which have no transactions at all are deleted.</li>
 </ol>
 <p>At this point, recurring audits and charges can be prepared for the lot.</p>
 <ol class="arabic simple">
-<li>The rate <strong>Group</strong> is determined from the lot&#8217;s <strong>Product</strong>/<strong>Variety</strong>
+<li>The rate <strong>Group</strong> is determined from the lot&#8217;s <strong>ProductVariety</strong>
 information, and the recurring UOM (and the receiving UOM, if the account
 has freedays) is used to determine the quantities to use for the audit:
 Units, Packages, Inners, Net weight, Gross weight, or Volume.</li>

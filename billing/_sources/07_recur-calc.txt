@@ -111,26 +111,26 @@ For each lot, anniversary **Starting** and **Ending** dates are determined. [1]_
    lot anniversary **Starting** date is set to the calendar date **Last + 1**, 
    and the **Ending** date is set to the calendar **Next** date.
 
-Once lot anniversary dates are set, lot transactions are selected using the 
-**Account**, **Product**, **Variety**, lot **Control** number, and **Received** 
-date, and each lot is processed to determine balances.
+Once lot anniversary dates are set, transactions are selected for the lot (that 
+is, by **Account**, **Product**, **Variety**, lot **Control**, and **Posted** 
+date), and each lot is processed to determine balances.
 
-#. Transactions with **Posted** date prior to the lot anniversary **Starting** 
-   date are selected, and transaction quantities are summed to obtain the 
-   starting balances for the lot. A starting balances array is stored.
+#. Transactions **Posted** prior to the lot anniversary **Starting** date are
+   selected, and transaction quantities are summed to obtain the starting 
+   balances for the lot. A starting balances array is stored.
 #. If an **Ending** date is set then receiving transactions are selected with 
    **Posted** date from the **Starting** date through the **Ending** date. The 
    transactions are summed and a received balances array is stored. 
 #. In the same way as receiving, shipping and adjusting transactions are 
    selected, summed, and stored in shipped and adjusted arrays.
 #. If a lot has zero balance on the **Starting** date, and no transactions 
-   occur before the ending date, then the lot and all associated transactions 
-   are set to **Archived** status and the lot is skipped. Lots which have no 
-   transactions at all are deleted.
+   occur on or after the starting date, then the lot and all associated 
+   transactions are set to **Archived** status and the lot is skipped. Lots 
+   which have no transactions at all are deleted.
 
 At this point, recurring audits and charges can be prepared for the lot. 
 
-#. The rate **Group** is determined from the lot's **Product**/**Variety** 
+#. The rate **Group** is determined from the lot's **ProductVariety** 
    information, and the recurring UOM (and the receiving UOM, if the account 
    has freedays) is used to determine the quantities to use for the audit:
    Units, Packages, Inners, Net weight, Gross weight, or Volume.
