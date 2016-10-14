@@ -91,8 +91,9 @@
 calculating recurring storage, according to calendar settings.</p>
 <p>Activities which are predefined to use calendars include recurring calculations
 and repeating rates. Each account identifier represents a recurring group,
-and all recurring calculations use service code <strong>1S</strong>. Repeating calendars are
-identified by the group and service code of the corresponding rate record.</p>
+and all recurring calculations use service code <strong>1S</strong>. <a class="footnote-reference" href="#id2" id="id1">[1]</a> Repeating rate
+calendars are identified by the group and service code of the corresponding
+rate record.</p>
 <p>A list of active calendars may be displayed according to the service code or
 the group, and a selection of those calendars may be performed. Recurring
 calculations and repeating rates can only be performed through calendars.</p>
@@ -190,6 +191,15 @@ from the <strong>Last Date</strong> (plus 1) to today, and</li>
 <li><strong>Current</strong> allows the action to run once from <strong>Last Date</strong> (plus 1) to the
 end of the current open period or to today, which ever comes first.</li>
 </ul>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>When <strong>Anniversary</strong> method recurring is used, the account&#8217;s recurring
+calculation calendar must preclude having two anniversary dates fall in
+the same calculation interval. The interval <strong>[Feb 1, Mar 3]</strong> would be
+invalid, for example, while <strong>[Feb 15, Mar 14]</strong> would be valid.</td></tr>
+</tbody>
+</table>
 <div class="section" id="calendars-database-schema">
 <h2>Calendars Database Schema<a class="headerlink" href="#calendars-database-schema" title="Permalink to this headline">¶</a></h2>
 <p>Here is a link to the <a class="reference external" href="../resources/13_calendars.html#calendars-schema" title="(in WARES Resources v1.0)"><em>CALENDARS Data Table Columns</em></a> schema.</p>

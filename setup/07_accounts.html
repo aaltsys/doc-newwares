@@ -194,27 +194,34 @@ warehouse bills an additional storage charge for each unit of inventory received
 during a month.</p>
 <p>This section codifies the contractual terms for calculating storage charges on
 an account, as described by the following items.</p>
-<ul class="simple">
-<li><strong>Receiving Storage</strong> &#8211; The receiving storage charge may be determined by
+<ul>
+<li><p class="first"><strong>Recurring Type</strong> &#8211; Sets the recurring calculation method as one of the
+following options:
+<strong>(E)nding balance</strong> for advance billing of calendar month storage,
+<strong>(S)tarting balance</strong> for arrears billing of the previous month, and
+<strong>(A)nniversary</strong> for calculating the recurring storage on each lot according
+to the balance on succeeding month-days following the initial receipt.</p>
+<p>When Anniversary recurring is selected, the receiving code is set to
+(F)ull month, and that entry is disabled. <a class="footnote-reference" href="#id4" id="id2">[1]</a></p>
+</li>
+<li><p class="first"><strong>Receiving Storage</strong> &#8211; The receiving storage charge may be determined by
 one of three methods: <strong>(F)ull month</strong> applies a full charge regardless of
 day of receipt; <strong>(S)plit month</strong> applies a full charge for receiving on
 month days 1 through 15, and half that charge for receiving on days 16
 through the end of the month; <strong>(P)rorated</strong> multiplies the storage charge
 by the ratio of the days remaining in the month to the number of days in the
-month.</li>
-<li><strong>Recurring Type</strong> &#8211; Sets the recurring calculation method as one of the
-following options:
-<strong>(E)nding balance</strong> for advance billing of calendar month storage,
-<strong>(S)tarting balance</strong> for arrears billing of the previous month, and
-<strong>(A)nniversary</strong> for calculating the recurring storage on each lot according
-to the balance on succeeding month-days following the initial receipt. <a class="footnote-reference" href="#id4" id="id2">[1]</a></li>
-<li><strong>Free Days</strong> grants a customer a number of days before receiving and
-recurring storage charges will be applied to received goods, while</li>
-<li><strong>Grace Days</strong> waives receiving storage for goods within the grace period at
-the end of a month.</li>
-<li><strong>Declared Value</strong>, <strong>Per</strong>, and <strong>Surcharge</strong> specify a limitation to the
+month.</p>
+</li>
+<li><p class="first"><strong>Free Days</strong> grants a customer a number of days before receiving and
+recurring storage charges will be applied to received goods, while</p>
+</li>
+<li><p class="first"><strong>Grace Days</strong> waives receiving storage for goods within the grace period at
+the end of a month.</p>
+</li>
+<li><p class="first"><strong>Declared Value</strong>, <strong>Per</strong>, and <strong>Surcharge</strong> specify a limitation to the
 liability a warehouser has for an account&#8217;s goods, and expresses the storage
-rate increase when the declared value of goods exceeds that limitation. <a class="footnote-reference" href="#id5" id="id3">[2]</a></li>
+rate increase when the declared value of goods exceeds that limitation. <a class="footnote-reference" href="#id5" id="id3">[2]</a></p>
+</li>
 </ul>
 </div>
 <div class="section" id="account-basic-views">
@@ -239,23 +246,18 @@ information, as shown in the sidebar.</p>
 warehouses which handle brokered goods. However, the results for this
 calculation method are problematic for a number of reasons:</p>
 <ul class="last simple">
-<li>Anniversary recurring charges are disputable, as a customer may show
-after the fact that manipulating shipping dates between lots could
-reduce total storage charges. The Uniform Commercial Code states that
-where a charge may be disputed, the presumption of the dispute favors
-the customer.</li>
+<li>Shipping sequences for Anniversary recurring charges can be disputed,
+and The Uniform Commercial Code states that where a charge may be
+disputed, the presumption of the dispute favors the customer.</li>
 <li>Brokering involves ownership transfers which should be performed on
-the date of a sale. Transferring a lot prior to its anniversary causes
-a loss of paid storage for the transferee. To accomodate customers and
-avoid disputes, a warehouse may follow problematic transfer procedures
-which compromise inventory ownership accuracy, all the while losing
-storage revenue for the warehouse.</li>
-<li>Anniversary recurring is error-prone, complex, and unnecessary. As an
-alternative, use the <strong>Prorated</strong> receiving option in WARES to
-calculate an initial storage charge which shifts anniversaries to the
-beginning of the next calendar month. Then use recurring type <strong>E</strong> to
-calculate and bill recurring storage in advance. (Brokers may object,
-but that should not be the warehouser&#8217;s problem.)</li>
+the date of a sale, but transferring a lot prior to its anniversary
+causes a loss of paid storage for the transferee. Ownership transfer
+procedures which accomodate customers and avoid disputes will
+compromise inventory ownership accuracy, while losing storage revenue
+for the warehouse.</li>
+<li>The <strong>Prorated</strong> receiving option in WARES calculates an initial
+storage charge which shifts anniversaries to the beginning of the
+next calendar month, which makes Anniversary recurring unnecessary.</li>
 </ul>
 </td></tr>
 </tbody>

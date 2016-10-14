@@ -114,6 +114,15 @@ during a month.
 This section codifies the contractual terms for calculating storage charges on 
 an account, as described by the following items.
 
+*  **Recurring Type** -- Sets the recurring calculation method as one of the 
+   following options:
+   **(E)nding balance** for advance billing of calendar month storage, 
+   **(S)tarting balance** for arrears billing of the previous month, and 
+   **(A)nniversary** for calculating the recurring storage on each lot according 
+   to the balance on succeeding month-days following the initial receipt. 
+
+   When Anniversary recurring is selected, the receiving code is set to 
+   (F)ull month, and that entry is disabled. [1]_
 *  **Receiving Storage** -- The receiving storage charge may be determined by
    one of three methods: **(F)ull month** applies a full charge regardless of 
    day of receipt; **(S)plit month** applies a full charge for receiving on 
@@ -121,12 +130,6 @@ an account, as described by the following items.
    through the end of the month; **(P)rorated** multiplies the storage charge
    by the ratio of the days remaining in the month to the number of days in the 
    month.
-*  **Recurring Type** -- Sets the recurring calculation method as one of the 
-   following options:
-   **(E)nding balance** for advance billing of calendar month storage, 
-   **(S)tarting balance** for arrears billing of the previous month, and 
-   **(A)nniversary** for calculating the recurring storage on each lot according 
-   to the balance on succeeding month-days following the initial receipt. [1]_
 *  **Free Days** grants a customer a number of days before receiving and 
    recurring storage charges will be applied to received goods, while
 *  **Grace Days** waives receiving storage for goods within the grace period at
@@ -159,23 +162,18 @@ The Accounts database column schema can be found at :ref:`accounts-schema`.
        warehouses which handle brokered goods. However, the results for this
        calculation method are problematic for a number of reasons:
 
-       *  Anniversary recurring charges are disputable, as a customer may show 
-          after the fact that manipulating shipping dates between lots could  
-          reduce total storage charges. The Uniform Commercial Code states that 
-          where a charge may be disputed, the presumption of the dispute favors 
-          the customer.
+       *  Shipping sequences for Anniversary recurring charges can be disputed, 
+          and The Uniform Commercial Code states that where a charge may be 
+          disputed, the presumption of the dispute favors the customer.
        *  Brokering involves ownership transfers which should be performed on 
-          the date of a sale. Transferring a lot prior to its anniversary causes 
-          a loss of paid storage for the transferee. To accomodate customers and 
-          avoid disputes, a warehouse may follow problematic transfer procedures 
-          which compromise inventory ownership accuracy, all the while losing
-          storage revenue for the warehouse.
-       *  Anniversary recurring is error-prone, complex, and unnecessary. As an 
-          alternative, use the **Prorated** receiving option in WARES to 
-          calculate an initial storage charge which shifts anniversaries to the 
-          beginning of the next calendar month. Then use recurring type **E** to 
-          calculate and bill recurring storage in advance. (Brokers may object,
-          but that should not be the warehouser's problem.)
+          the date of a sale, but transferring a lot prior to its anniversary 
+          causes a loss of paid storage for the transferee. Ownership transfer 
+          procedures which accomodate customers and avoid disputes will 
+          compromise inventory ownership accuracy, while losing storage revenue 
+          for the warehouse.
+       *  The **Prorated** receiving option in WARES calculates an initial 
+          storage charge which shifts anniversaries to the beginning of the 
+          next calendar month, which makes Anniversary recurring unnecessary.
 
 .. [2] Section 7-204 of the Uniform Commercial Code sets forth the warehouser's 
        standard of care, and permits the warehouser to set a limit on the amount  

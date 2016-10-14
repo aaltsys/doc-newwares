@@ -106,7 +106,7 @@ date are selected. If any transactions are found the account is skipped; the
 recurring calendar for the account is not updated.</p>
 <div class="sidebar">
 <p class="first sidebar-title">Recurring Configuration Sources</p>
-<table border="1" class="docutils">
+<table border="1" class="last docutils">
 <colgroup>
 <col width="37%" />
 <col width="63%" />
@@ -138,12 +138,14 @@ recurring calendar for the account is not updated.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td colspan="2"><div class="first last line-block">
+<tr class="row-even"><td colspan="2"><strong>Freedays</strong> days before receiving is charged</td>
+</tr>
+<tr class="row-odd"><td colspan="2"><div class="first last line-block">
 <div class="line"><em class="menuselection">Setup ‣ Calendars</em></div>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><div class="first last line-block">
+<tr class="row-even"><td><div class="first last line-block">
 <div class="line">Identified by:</div>
 <div class="line"><br /></div>
 </div>
@@ -154,29 +156,29 @@ recurring calendar for the account is not updated.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td colspan="2"><div class="first last line-block">
+<tr class="row-odd"><td colspan="2"><div class="first last line-block">
 <div class="line"><strong>Last + 1</strong> starts calculation interval</div>
 <div class="line"><strong>Next</strong> ends calculation interval</div>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td colspan="2"><div class="first last line-block">
+<tr class="row-even"><td colspan="2"><div class="first last line-block">
 <div class="line"><em class="menuselection">Setup ‣ Products</em></div>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td colspan="2"><div class="first last line-block">
+<tr class="row-odd"><td colspan="2"><div class="first last line-block">
 <div class="line">identified by:</div>
 <div class="line"><strong>Account</strong>, <strong>Product</strong>, and <strong>Variety</strong></div>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td colspan="2"><div class="first last line-block">
+<tr class="row-even"><td colspan="2"><div class="first last line-block">
 <div class="line"><strong>Group</strong> rates for receiving and recurring</div>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><div class="first last line-block">
+<tr class="row-odd"><td><div class="first last line-block">
 <div class="line"><strong>UOM</strong> codes for</div>
 <div class="line"><br /></div>
 <div class="line"><br /></div>
@@ -193,37 +195,37 @@ recurring calendar for the account is not updated.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td colspan="2"><div class="first last line-block">
+<tr class="row-even"><td colspan="2"><div class="first last line-block">
 <div class="line"><em class="menuselection">Entry ‣ Transactions</em></div>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td colspan="2"><div class="first last line-block">
+<tr class="row-odd"><td colspan="2"><div class="first last line-block">
 <div class="line"><strong>Posted</strong> DateTime of inventory change</div>
 <div class="line"><strong>Entered</strong> DateTime transaction is verified</div>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td colspan="2"><div class="first last line-block">
+<tr class="row-even"><td colspan="2"><div class="first last line-block">
 <div class="line"><em class="menuselection">Inventory ‣ Lots</em></div>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td colspan="2"><div class="first last line-block">
+<tr class="row-odd"><td colspan="2"><div class="first last line-block">
 <div class="line">Identified by:</div>
 <div class="line"><strong>Account</strong>, <strong>Product</strong>, <strong>Variety</strong>,</div>
-<div class="line"><strong>Control</strong> and <strong>Posted</strong></div>
+<div class="line"><strong>Control</strong>, and <strong>Posted</strong></div>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td colspan="2"><strong>Received = Posted + Freedays</strong></td>
+<tr class="row-even"><td colspan="2"><strong>Received = Posted + Freedays</strong></td>
 </tr>
-<tr class="row-even"><td colspan="2"><div class="first last line-block">
+<tr class="row-odd"><td colspan="2"><div class="first last line-block">
 <div class="line"><em class="menuselection">Billing ‣ Rates</em></div>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><div class="first last line-block">
+<tr class="row-even"><td><div class="first last line-block">
 <div class="line">Identified by:</div>
 <div class="line"><br /></div>
 <div class="line"><br /></div>
@@ -236,7 +238,7 @@ recurring calendar for the account is not updated.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><div class="first last line-block">
+<tr class="row-odd"><td><div class="first last line-block">
 <div class="line"><strong>Per</strong> code</div>
 <div class="line"><br /></div>
 <div class="line"><br /></div>
@@ -251,17 +253,12 @@ recurring calendar for the account is not updated.</p>
 <div class="line"><strong>I</strong> <em>(Inner)</em></div>
 <div class="line"><strong>W</strong> <em>(Net Weight)</em></div>
 <div class="line"><strong>G</strong> <em>(Gross Weight)</em></div>
-<div class="line"><strong>V</strong> <em>Volume</em> or <em>DIM</em></div>
+<div class="line"><strong>V</strong> <em>(Volume</em> or <em>DIM)</em></div>
 </div>
 </td>
 </tr>
 </tbody>
 </table>
-<div class="last admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">When the <strong>Recur</strong> method is anniversary, the <strong>Receive</strong> code will be
-changed to <strong>Full Month</strong> and the entry will be protected.</p>
-</div>
 </div>
 <p>For accounts which pass the preceding test, active inventory lot records, lots
 which are not <strong>Archived</strong>, are selected for the account by <strong>Product</strong>,
@@ -301,7 +298,7 @@ which have no transactions at all are deleted.</li>
 </ol>
 <p>At this point, recurring audits and charges can be prepared for the lot.</p>
 <ol class="arabic simple">
-<li>The rate <strong>Group</strong> is determined from the lot&#8217;s <strong>ProductVariety</strong>
+<li>The rate <strong>Group</strong> is determined from the lot&#8217;s <strong>Product/Variety</strong>
 information, and the recurring UOM (and the receiving UOM, if the account
 has freedays) is used to determine the quantities to use for the audit:
 Units, Packages, Inners, Net weight, Gross weight, or Volume.</li>
@@ -311,14 +308,14 @@ written using the <strong>Starting</strong> balances of the receiving billing UO
 flag is not raised, then a recurring storage audit is written using the
 <strong>Starting</strong> balances and the recurring billing UOM.</li>
 <li>If recurring is calculated from <strong>Ending</strong> balances or by <strong>Anniversary</strong>,
-then a recurring storage audit is written using the <strong>Ending</strong> balances and
-the recurring UOM.</li>
+and the <strong>Ending</strong> date is not null, then a recurring storage audit is
+written using the <strong>Ending</strong> balances and the recurring UOM.</li>
 <li>The inventory quantity accumulator array is updated with the lot quantities.</li>
 </ol>
 <p>After calculating all the lots for a product, that is, when a product/variety
 break occurs, a recurring charge line is generated from the product accumulator
 array. If the account has free days, a separate charge line is generated for
-received quantities. Then the array is re-initialized for the next product.</p>
+any received quantities. Then the array is re-initialized for the next product.</p>
 <table class="docutils footnote" frame="void" id="id4" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
@@ -338,12 +335,8 @@ transaction <strong>Posted</strong> date plus the number of free days.</td></tr>
 <table class="docutils footnote" frame="void" id="id6" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>When <strong>Anniversary</strong> method recurring is used, the account&#8217;s recurring
-calculation calendar must preclude having two anniversary dates fall in
-the same calculation interval. The interval <strong>[Feb 1, Mar 3]</strong> would be
-invalid, for example, while <strong>[Feb 15, Mar 14]</strong> would be valid. This
-caution does not apply to calendar period recurring, where the calendar
-itself sets anniversary dates.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td><strong>Anniversary</strong> method recurring calendars must preclude having two
+anniversary dates fall in the same calculation interval.</td></tr>
 </tbody>
 </table>
 </div>

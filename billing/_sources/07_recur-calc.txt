@@ -39,6 +39,8 @@ recurring calendar for the account is not updated.
    ||                  || half month                    |
    ||                  || prorated                      |
    +-------------------+--------------------------------+
+   | **Freedays** days before receiving is charged      |
+   +-------------------+--------------------------------+
    || :menuselection:`Setup --> Calendars`              |
    +-------------------+--------------------------------+
    || Identified by:   || **Group** = **Account**       |
@@ -69,7 +71,7 @@ recurring calendar for the account is not updated.
    +----------------------------------------------------+
    || Identified by:                                    |
    || **Account**, **Product**, **Variety**,            |
-   || **Control** and **Posted**                        |
+   || **Control**, and **Posted**                       |
    +----------------------------------------------------+
    | **Received = Posted + Freedays**                   |
    +----------------------------------------------------+
@@ -84,12 +86,8 @@ recurring calendar for the account is not updated.
    ||                  || **I** *(Inner)*               |
    ||                  || **W** *(Net Weight)*          |
    ||                  || **G** *(Gross Weight)*        |
-   ||                  || **V** *Volume* or *DIM*       |
+   ||                  || **V** *(Volume* or *DIM)*     |
    +-------------------+--------------------------------+
-
-   .. note::
-      When the **Recur** method is anniversary, the **Receive** code will be 
-      changed to **Full Month** and the entry will be protected.
 
 For accounts which pass the preceding test, active inventory lot records, lots 
 which are not **Archived**, are selected for the account by **Product**, 
@@ -130,7 +128,7 @@ date), and each lot is processed to determine balances.
 
 At this point, recurring audits and charges can be prepared for the lot. 
 
-#. The rate **Group** is determined from the lot's **ProductVariety** 
+#. The rate **Group** is determined from the lot's **Product/Variety** 
    information, and the recurring UOM (and the receiving UOM, if the account 
    has freedays) is used to determine the quantities to use for the audit:
    Units, Packages, Inners, Net weight, Gross weight, or Volume.
@@ -140,16 +138,14 @@ At this point, recurring audits and charges can be prepared for the lot.
    flag is not raised, then a recurring storage audit is written using the 
    **Starting** balances and the recurring billing UOM. 
 #. If recurring is calculated from **Ending** balances or by **Anniversary**, 
-   then a recurring storage audit is written using the **Ending** balances and 
-   the recurring UOM.
+   and the **Ending** date is not null, then a recurring storage audit is 
+   written using the **Ending** balances and the recurring UOM.
 #. The inventory quantity accumulator array is updated with the lot quantities.
 
 After calculating all the lots for a product, that is, when a product/variety 
 break occurs, a recurring charge line is generated from the product accumulator 
 array. If the account has free days, a separate charge line is generated for 
-received quantities. Then the array is re-initialized for the next product.
-
-
+any received quantities. Then the array is re-initialized for the next product.
 
 .. [1] Where a **Received** monthday falls at the end of a month, subsequent
        months which do not include the day will use the last day of the month 
@@ -159,12 +155,8 @@ received quantities. Then the array is re-initialized for the next product.
        has free days, in which case the lot **Received** date is set to the 
        transaction **Posted** date plus the number of free days. 
        
-.. [3] When **Anniversary** method recurring is used, the account's recurring 
-       calculation calendar must preclude having two anniversary dates fall in 
-       the same calculation interval. The interval **[Feb 1, Mar 3]** would be 
-       invalid, for example, while **[Feb 15, Mar 14]** would be valid. This 
-       caution does not apply to calendar period recurring, where the calendar 
-       itself sets anniversary dates.
+.. [3] **Anniversary** method recurring calendars must preclude having two 
+       anniversary dates fall in the same calculation interval.
 
 Minimum Recurring Invoice
 =============================
