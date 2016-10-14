@@ -185,10 +185,10 @@ the same number of days. The following chart should clarify this situation:
 +--------------+-----------+-------------------+--------------------+
 | February 26  | 3         | March 1           | April 1            |
 +--------------+-----------+-------------------+--------------------+
-| February 26  | 3         | February 29  [#]_ | March 29      [#]_ |
+| February 26  | 3         | February 29  [1]_ | March 29      [1]_ |
 +--------------+-----------+-------------------+--------------------+
 
-.. [#] In a leap year the first anniversary would be February 29, followed by 
+.. [1] In a leap year the first anniversary would be February 29, followed by 
        March 29.
 
 
