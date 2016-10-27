@@ -21,6 +21,17 @@ Account Setup Lists
 | :ref:`terms-list`
 | :ref:`unique-list`
 
+Billing Setup Lists
+=============================
+
+| :ref:`activity-list`
+| :ref:`apply-list`
+| :ref:`category-list`
+| :ref:`option-list`
+| :ref:`repeat-list`
+| :ref:`type-list`
+| :ref:`value-list`
+
 Product Setup Lists
 =============================
 
