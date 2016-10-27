@@ -12,99 +12,7 @@ Recurring is audited by comparing the ending balance of a lot in one period to
 the starting balance in the succeeding period, and comparing the total of lot 
 transactions in a period with the difference between starting and ending 
 balances.
-
-Sources of Recurring Data
-=============================
-
-Storage fees are central to warehousing operations, and so recurring 
-calculations rely on data elements scattered throughout WARES. The information 
-recurring calculations use are listed here to clarify the calculation section 
-which follows.
-
-Setup --> Accounts
------------------------------
-
-An **Account** identifier links the account setup to other program data. 
-
-Storage **Recur** code may use calendar month anniversary, periodic starting 
-balances, or periodic ending balances.
-
-Storage **Receive** code may be rated by full month, half month, or prorated. 
-When the **Recur** method is anniversary, the **Receive** code will be changed 
-to **Full Month** and the entry will be protected.
-
-**Freedays** determines the date on which goods are rated for receiving storage 
-charges.
-
-Setup --> Calendars
------------------------------
-
-Every account which has recurring storage charges requires a corresponding 
-calculation calendar.
-
-The **Account** code is used as the *Group* identifier of the calendar, and 
-the **Code** identifier for recurring storage rates is always *1S*.
-
-Each calendar has **Next** and **Last** dates, and calculations are performed 
-for the date interval from the **Last** date plus one through the **Next** 
-date.
-
-Setup --> Products
------------------------------
-
-The combination of **Account**, **Product**, and **Variety** identifies a
-unique inventory item. This combination will be used in transactions, lots, 
-audits, and charges to identify and track items.
-
-Rate **Group** specifies the rates to use for receiving and recurring storage.
-
-**UOM** entries for *Units*, *Packages*, *Inners*, *Weight*, and *DIM* describe 
-inventory quantities, while rate entries transmute these values into billing 
-quantities.
-
-Entry --> Transactions
------------------------------
-
-Transaction **Posted** specifies the DateTime when the inventory was changed,
-and **Entered** DateTime is assigned at the time inventory records are verified 
-in the WARES database. Transactions are commonly updated or verified in 
-arrears, so that these two entries are not usually the same.
-
-Inventory --> Lots
------------------------------
-
-**Account**, **Product**, and **Variety** identify products in inventory.
-
-Lot **Control** numbers, entered when receiving, further separate inventory 
-into lots.
-
-**Received**, the final part of a lot identifier, is the date goods are entered 
-into inventory, plus any **Freedays** allowed the account. This determines when 
-receiving storage and anniversary recurring storage balances are calculated.
-
-Billing --> Rates
------------------------------
-
-Each recurring rate is identified by a **Group** and the **Code** *1S*. 
-
-These rates are always applied *Calculated*, with **Per** codes restricted to 
-*Unit* **U**, *Package* **P**, *Inner* **I**, *Net Weight* **W**, 
-*Gross Weight* **G**, and *Volume* **V** or *DIM*.
-
-Numerous rate entries convert inventory quantities to the **UOM** billing units 
-and apply rates to calculate charges.
-
-Billing --> Recurring
------------------------------
-
-The Recurring calculation 
-
-Billing --> Audits
------------------------------
-
-**Starting**
-**Ending**
-
+   
 Recurring Calculation
 =============================
 
@@ -117,9 +25,73 @@ To calculate recurring, first unverified transactions for the account with
 date are selected. If any transactions are found the account is skipped; the 
 recurring calendar for the account is not updated. 
 
+.. Sidebar:: Recurring Configuration Sources
+
+   +----------------------------------------------------+
+   || :menuselection:`Setup --> Accounts`               |
+   +----------------------------------------------------+
+   | **Account** identifier of the account              |
+   +-------------------+--------------------------------+
+   || **Recur** code   || anniversary                   |
+   ||                  || starting balances             |
+   ||                  || ending balances               |
+   || **Receive** code || full month                    |
+   ||                  || half month                    |
+   ||                  || prorated                      |
+   +-------------------+--------------------------------+
+   | **Freedays** days before receiving is charged      |
+   +-------------------+--------------------------------+
+   || :menuselection:`Setup --> Calendars`              |
+   +-------------------+--------------------------------+
+   || Identified by:   || **Group** = **Account**       |
+   ||                  || **Code** = **1S**             |
+   +-------------------+--------------------------------+
+   || **Last + 1** starts calculation interval          |
+   || **Next** ends calculation interval                |
+   +----------------------------------------------------+
+   || :menuselection:`Setup --> Products`               |
+   +----------------------------------------------------+
+   || identified by:                                    |
+   || **Account**, **Product**, and **Variety**         |
+   +----------------------------------------------------+
+   || **Group** rates for receiving and recurring       |
+   +-------------------+--------------------------------+
+   || **UOM** codes for|| *Units*                       |
+   ||                  || *Packages*                    |
+   ||                  || *Inners*                      |
+   ||                  || *Weight*                      |
+   ||                  || *DIM*                         |
+   +-------------------+--------------------------------+
+   || :menuselection:`Entry --> Transactions`           |
+   +----------------------------------------------------+
+   || **Posted** DateTime of inventory change           |
+   || **Entered** DateTime transaction is verified      |
+   +----------------------------------------------------+
+   || :menuselection:`Inventory --> Lots`               |
+   +----------------------------------------------------+
+   || Identified by:                                    |
+   || **Account**, **Product**, **Variety**,            |
+   || **Control**, and **Posted**                       |
+   +----------------------------------------------------+
+   | **Received = Posted + Freedays**                   |
+   +----------------------------------------------------+
+   || :menuselection:`Billing --> Rates`                |
+   +-------------------+--------------------------------+
+   || Identified by:   || **Group**                     |
+   ||                  || **Code = 1S** (recurring) or  |
+   ||                  || **Code = 1R** (receiving)     |
+   +-------------------+--------------------------------+
+   || **Per** code     || **U** *(Unit)*                |
+   ||                  || **P** *(Package)*             |
+   ||                  || **I** *(Inner)*               |
+   ||                  || **W** *(Net Weight)*          |
+   ||                  || **G** *(Gross Weight)*        |
+   ||                  || **V** *(Volume* or *DIM)*     |
+   +-------------------+--------------------------------+
+
 For accounts which pass the preceding test, active inventory lot records, lots 
 which are not **Archived**, are selected for the account by **Product**, 
-**Variety**, lot **Control** number, and **Received** date. An accumulator 
+**Variety**, lot **Control** number, and **Posted** date. An accumulator 
 array is initialized to keep inventory balance information by **Product** and 
 **Variety**.
 
@@ -134,28 +106,29 @@ For each lot, anniversary **Starting** and **Ending** dates are determined. [1]_
    set to that date and the **Starting** date is set to the previous 
    anniversary plus one day, or (3) otherwise the lot is skipped. [3]_
 #. If the account uses calendar **Starting** or **Ending** recurring, then the 
-   lot anniversary **Starting** date is set to the calendar **Last** date plus 
-   one, and the **Ending** date is set to the calendar **Next** date.
+   lot anniversary **Starting** date is set to the calendar date **Last + 1**, 
+   and the **Ending** date is set to the calendar **Next** date.
 
-Once lot anniversary dates are set, lot transactions are selected using the 
-**Account**, **Product**, **Variety**, lot **Control** number, and **Received** 
-date, and each lot is processed to determine balances.
+Once lot anniversary dates are set, transactions are selected for the lot (that 
+is, by **Account**, **Product**, **Variety**, lot **Control**, and **Posted** 
+date), and each lot is processed to determine balances.
 
-#. Transactions with **Posted** date prior to the lot anniversary **Starting** 
-   date are selected, and transaction quantities are summed to obtain the 
-   starting balances for the lot. A starting balances array is stored.
+#. Transactions **Posted** prior to the lot anniversary **Starting** date are
+   selected, and transaction quantities are summed to obtain the starting 
+   balances for the lot. A starting balances array is stored.
 #. If an **Ending** date is set then receiving transactions are selected with 
    **Posted** date from the **Starting** date through the **Ending** date. The 
    transactions are summed and a received balances array is stored. 
 #. In the same way as receiving, shipping and adjusting transactions are 
    selected, summed, and stored in shipped and adjusted arrays.
 #. If a lot has zero balance on the **Starting** date, and no transactions 
-   occur before the ending date, then the lot and all associated transactions 
-   are set to **Archived** status and the lot is skipped.
+   occur on or after the starting date, then the lot and all associated 
+   transactions are set to **Archived** status and the lot is skipped. Lots 
+   which have no transactions at all are deleted.
 
 At this point, recurring audits and charges can be prepared for the lot. 
 
-#. The rate **Group** is determined from the lot's **Product**/**Variety** 
+#. The rate **Group** is determined from the lot's **Product/Variety** 
    information, and the recurring UOM (and the receiving UOM, if the account 
    has freedays) is used to determine the quantities to use for the audit:
    Units, Packages, Inners, Net weight, Gross weight, or Volume.
@@ -165,16 +138,14 @@ At this point, recurring audits and charges can be prepared for the lot.
    flag is not raised, then a recurring storage audit is written using the 
    **Starting** balances and the recurring billing UOM. 
 #. If recurring is calculated from **Ending** balances or by **Anniversary**, 
-   then a recurring storage audit is written using the **Ending** balances and 
-   the recurring UOM.
+   and the **Ending** date is not null, then a recurring storage audit is 
+   written using the **Ending** balances and the recurring UOM.
 #. The inventory quantity accumulator array is updated with the lot quantities.
 
 After calculating all the lots for a product, that is, when a product/variety 
 break occurs, a recurring charge line is generated from the product accumulator 
 array. If the account has free days, a separate charge line is generated for 
-received quantities. Then the array is re-initialized for the next product.
-
-
+any received quantities. Then the array is re-initialized for the next product.
 
 .. [1] Where a **Received** monthday falls at the end of a month, subsequent
        months which do not include the day will use the last day of the month 
@@ -182,12 +153,10 @@ received quantities. Then the array is re-initialized for the next product.
 
 .. [2] A lot **Received** date is set to the **Posted** date unless the account
        has free days, in which case the lot **Received** date is set to the 
-       transaction **Posted** date plus one less than the number of free days. 
+       transaction **Posted** date plus the number of free days. 
        
-.. [3] When **Anniversary** method recurring is used, the account's recurring 
-       calculation calendar must preclude having two anniversary dates fall in 
-       the same calculation interval. This caution does not apply to calendar 
-       period recurring, where the calendar itself sets anniversary dates.
+.. [3] **Anniversary** method recurring calendars must preclude having two 
+       anniversary dates fall in the same calculation interval.
 
 Minimum Recurring Invoice
 =============================

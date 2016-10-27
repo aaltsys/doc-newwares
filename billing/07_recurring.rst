@@ -1,209 +1,135 @@
 .. _bill-recurring:
 
 #############################
-Recurring Calculation Audits
+Recurring Storage Billing
 #############################
 
-Recurring Reports
+Charging customers for using warehouse space is a fundamental part of warehouse operations. A customer may contract to lease a portion of a building at a fixed 
+price, but the more common practice, supported by law and contract, is to 
+charge a periodic recurring storage fee for each unit of product on hand.
+
+Recurring Calendars
 =============================
 
-Recurring calculations produce two audit trails. The :ref:`bill-activity` 
-details inventory stock movement during the recurring period, resulting in a 
-quantity balance to be billed. The :ref:`bill-storage` lists charges billed for
-the quantity balance.
+Each customer account requires a calendar to schedule recurring storage 
+calculations. While it is customary to calculate recurring on the last day of 
+each calendar month, recurring can be calculated on other schedules. 
 
-The customer should receive both reports with the recurring storage invoice, 
-one report for inventory management and the other for accounting.
+WARES can perform the recurring billing at any time. When the recurring process 
+is selected, WARES first displays a list of recurring calendars to use. This 
+list displays all the calendar schedules with a calculation **Next** date less 
+than or equal to the current recurring run date. Recurring calendars with dates 
+following the recurring batch rundate are not displayed and cannot be run. 
 
-.. note::
-   Inventory may be tracked by unit, lot, or product, but the stock activity is 
-   reported by lot or product using the units of the storage charges. Then 
-   charges are summarized and reported by product only.
+.. sidebar:: Recurring date descriptors 
 
-.. _bill-storage:
-
-Recurring Charges Audits
------------------------------
-
-Recurring charges are always audited with the *Charges Summary* report, as 
-shown following. 
-
-.. image:: _images/audit-recurring.png
-
-.. note::
-   Each row of this report lists charges for one product identifier/variety 
-   combination. The **Activity** column contains the product identifier; the
-   **Description** shows the product description, not the charge description. 
-
-.. _bill-activity:
-
-Stock Activity Audits
------------------------------
-
-Billing quantities for stock activity and balances are captured with the 
-**Stock Activity Audit**. This report is divided into two sections: identifying 
-information for each item on the left, and quantitative data on the right.
-
-Example identifying information for the Stock Activity follows:
-
-.. image:: _images/audit-activity1.png
-
-Columns for the report identifier section are:
-
-+-----------------+------------------------------------+
-| Column Name     | Description                        |
-+=================+====================================+
-| AUDIT           | (heading) Calculation Batch Number |
-+-----------------+------------------------------------+
-| RUN DATETIME    | (heading) Date Time batch started  |
-+-----------------+------------------------------------+
-+-----------------+------------------------------------+
-| ACCOUNT         | Customer Account Code              |
-+-----------------+------------------------------------+ 
-| UOM             | Billing Quantity Unit of Measure   |
-+-----------------+------------------------------------+
-| PRODUCT         | Product Code Identifier            |
-+-----------------+------------------------------------+
-| VARIETY         | Variety Code, if used              |
-+-----------------+------------------------------------+
-| LOT             | When tracking lots, the Lot Number |
-+-----------------+------------------------------------+
-
-**AUDIT** and **RUN** datetime apply to the entire report, and so these items 
-appear in the report identifier section heading.
-
-Activity Quantitative Data
------------------------------
-
-The Quantitative data listed below matches the identifiers section presented 
-above:
-
-.. image:: _images/audit-activity2.png
-
-Again, calendar range **STARTING** and **ENDING** apply to the entire report 
-and so these items appear in the data section heading. All data columns are 
-listed below.
-
-+-----------------+------------------------------------+
-| Column Name     | Description                        |
-+=================+====================================+
-| RANGE STARTING  | (heading) Calendar Starting Date   |
-+-----------------+------------------------------------+
-| RANGE ENDING    | (heading) Calendar Ending Date     |
-+-----------------+------------------------------------+
-+-----------------+------------------------------------+
-| START DATE      | Lot Anniversary Starting Date      |
-+-----------------+------------------------------------+ 
-| ON HAND         | Lot Balance on Starting Date       |
-+-----------------+------------------------------------+
-| RECEIVED        | Quantity Received during Period    |
-+-----------------+------------------------------------+
-| SHIPPED         | Quantity Shipped during Period     |
-+-----------------+------------------------------------+
-| ADJUSTED        | Quantity Adjusted during Period    |
-+-----------------+------------------------------------+
-| ENDING BALANCE  | Lot Balance at Period Ending Date  |
-+-----------------+------------------------------------+
-| END DATE        | Lot Anniversary Ending Date        |
-+-----------------+------------------------------------+
-
-
-For a lot to be included in a particular recurring calculation batch, the lot 
-anniversary **END DATE** must fall within the RANGE **STARTING** to **ENDING** 
-bracket of the calculation batch. Lot anniversary **START DATE** and 
-**END DATE** values are determined by the account's recurring calendar, and by 
-the account's recurring configuration. 
-
-Period Transaction Reporting
------------------------------
-
-The **Received**, **Shipped**, and **Adjusted** columns of an Activity report 
-are based on the inventory transactions posted in the period. A transaction 
-detail report may be produced to audit the Activity Report. 
+   Recurring calculation descriptions use a variety of dates, and the seeming 
+   similarities in names and uses can be confusing. The following table will 
+   clarify the date names:
+   
+   +-----------+---------------------+-------------------------+
+   | Date Name | Source              | Description             |
+   +===========+=====================+=========================+
+   | RUN       | Calculate Recurring | When calculation is run |
+   +-----------+---------------------+-------------------------+
+   | LAST      | Account Calendar    | Last calendar execution |
+   +-----------+---------------------+-------------------------+
+   | NEXT      | Account Calendar    | Next calendar execution |
+   +-----------+---------------------+-------------------------+
+   | POSTED    | Transaction Posting | When inventory changed  |
+   +-----------+---------------------+-------------------------+
+   | ENTERED   | Transaction Posting | Date/Time of entry      |
+   +-----------+---------------------+-------------------------+
+   | STARTING  | Lot Anniversary     | Set for lot in audit    |
+   +-----------+---------------------+-------------------------+
+   | ENDING    | Lot Anniversary     | Set for lot in audit    |
+   +-----------+---------------------+-------------------------+
+   | RECEIVED  | Recurring Audits    | POSTED + Freedays       |
+   +-----------+---------------------+-------------------------+
 
 Recurring Calculation Methods
 =============================
 
-Recurring balances may be determined either by calendar periods or by lot 
-anniversaries. 
+Recurring storage is determined either by periods or by the monthly anniversary 
+of the day lots are received, as described following:
 
-Calendar Period Recurring
+Periodic Recurring
 -----------------------------
 
-Where an account's recurring balances are calculated by calendar period, all 
-lots for the account will use the same anniversary starting and ending dates. 
-The lot anniversary dates are determined by the account's recurring calendar. 
-The next date of that calendar must fall within the **RANGE STARTING** 
-and **RANGE ENDING** calculation bracket, or else the account is excluded from 
-the recurring batch. The lot anniversary **START DATE** will be one day greater 
-than the last date of the account's recurring calendar, and the end date will 
-be the next date of the account's calendar.
+Where an account's recurring balances are calculated by period, all lots for 
+the account will use the same anniversary starting and ending dates, which are determined by the account's recurring calendar. The lot anniversary 
+**Starting** date will be one day greater than the **Last** date of the 
+account's recurring calendar, and the **Ending** date will be the **Next** date 
+of the account's calendar.
 
 Once lot balances are calculated, there are two options for determining charges 
-with calendar recurring: using ending balances (advance billing), or using 
+with period recurring: using ending balances (advance billing), or using 
 starting balances (arrears billing). There are a few southern warehouses still 
-clinging to this option, and so WARES supports it even though arrears recurring 
-is deprecated. 
+clinging to arrears billing, and so WARES supports this deprecated business 
+method. 
 
-Anniversary Recurring
+Anniversary Recurring 
 -----------------------------
 
-Where balances are calculated by anniversary, the lot anniversary ending date 
-will be the anniversary month day which falls within the calculation starting 
-and ending dates. Anniversaries may be calculated for any portion of a month, 
-and only lots with anniversaries within that portion will be included in the 
-calculation.
+Where balances are calculated by anniversary, the lot anniversary **Ending** 
+date will be the anniversary month day which falls within the calendar 
+**Last+1** to **Next** interval. The lot's anniversary **Starting** date will 
+be the equivalent day in the previous month.
 
-Where anniversary recurring is specified, an **ending** date must be bracketed 
-by the calculation starting and ending dates. The lot's anniversary **starting** 
-date will be the equivalent day in the previous month. 
+When using anniversary method, the recurring calendar must be monthly, but the 
+month may be divided up into weeks or other intervals. When only a portion of a 
+month is calculated, only lots with anniversaries within that portion will 
+be included in the calculation.
 
-Lot Anniversaries
+Anniversaries and Freedays
 -----------------------------
 
-The date a lot of goods is received into the warehouse is the starting date for 
-calculating anniversaries. When an account has free days, the free days add to 
-the starting date to determine anniversary dates. The first anniversary occurs 
-at the expiration of free days, when receiving storage is applied. Recurring 
-storage is applied for all subsequent anniversaries. 
+.. sidebar:: How Freedays effect anniversary dates
 
-Anniversaries and free days may cause confusion in that months do not all have 
-the same number of days. The following chart should clarify this situation:
+   Free days may cause confusion since months do not all have the same number 
+   of days. The following chart should clarify this situation:
 
-+--------------+-----------+-------------------+--------------------+
-| Receive date | Free days | First anniversary | Second anniverary  |
-+==============+===========+===================+====================+
-| January 15   | 5         | January 20        | February 20        |
-+--------------+-----------+-------------------+--------------------+
-| January 28   | 0         | February 28       | March 28           |
-+--------------+-----------+-------------------+--------------------+
-| January 29   | 0         | February LAST     | March 29           |
-+--------------+-----------+-------------------+--------------------+
-| January 28   | 3         | January 31        | February LAST      |
-+--------------+-----------+-------------------+--------------------+
-| February 29  | 0         | March 29          | April 29           |
-+--------------+-----------+-------------------+--------------------+
-| February 26  | 3         | March 1           | April 1            |
-+--------------+-----------+-------------------+--------------------+
-| February 26  | 3         | February 29  [*]  | March 29       [*] |
-+--------------+-----------+-------------------+--------------------+
+   +--------------+-----------+-------------------+--------------------+
+   | Posted date  | Free days | Received          | Next anniverary    |
+   +==============+===========+===================+====================+
+   | January 28   | 0         | February 28       | March 28           |
+   +--------------+-----------+-------------------+--------------------+
+   | January 29   | 0         | February LAST     | March 29           |
+   +--------------+-----------+-------------------+--------------------+
+   | January 15   | 15        | January 30        | February LAST      |
+   +--------------+-----------+-------------------+--------------------+
+   | February 26  | 3         | March 1           | April 1            |
+   +--------------+-----------+-------------------+--------------------+
+   | February 26  | 3         | Feb 29 (leap year)| March 29           |
+   +--------------+-----------+-------------------+--------------------+
 
-[*]_ In a leap year the first anniversary would be February 29, followed by 
-     March 29.
+Anniversaries are calculated from the date a lot of goods is **Received** into 
+the warehouse. When an account has free days, the free days add to the 
+transaction **Posted** date to determine the **Received** date. 
 
+When an account has freedays and a lot's **Received** date falls within the 
+recurring calculation interval, the lot **Starting** date is set to the 
+**Received** date and receiving storage is applied to the corresponding 
+starting balances. And since the **Received** date is used as the **Starting** 
+date, transactions posted prior to the **Starting** date are excluded from a 
+recurring audit. 
 
+Also, when the **Starting** date is the **Received** date, the **Ending** date 
+is left blank, since it will be processed in the next month. Put another way, 
+when anniversary storage is used, receiving and recurring charges for a lot 
+cannot occur in the same month. First goods are **Received**, and then 
+anniversaries are used for the lot **Ending** date and recurring storage is 
+applied in subsequent months. 
 
-Recurring Calculations
-=============================
+Periodic Method and Freedays
+-----------------------------
 
-Recurring calculations are
-
-Recurring charges are based on a **Stock Activity Audit**. This report is a 
-permanent record of the inventory changes during a recurring period, resulting 
-in the balances used for recurring charges. The Stock Activity Audit determines
-the starting balance of inventory, accumulates transactional changes from 
-receiving, shipping, and adjusting, and calculates a corresponding inventory 
-ending balance. 
+When freedays expire with periodic recurring, The **Received** date is used for 
+the **Starting** date, and starting balances are used to calculate receiving 
+storage. If the periodic storage is based on starting balances then the 
+**Ending** date is left blank and no recurring is calculated for the received 
+lot. If periodic storage is calculated from ending balances, the **Ending** 
+date is filled and ending balances are used to calculate recurring.
 
 Recurring Activity Issues
 =============================
@@ -212,7 +138,7 @@ Several factors can complicate recurring storage calculations:
 
 *  The units of measure for recurring storage can be different from the stock 
    units which track inventory movement. 
-*  Recurring may be based on calendar periods, or on lot anniversaries. 
+*  Recurring may be based on periods, or on lot anniversaries. 
 *  Accounts may specify custom period dates for recurring accounting. 
 *  Recurring may be calculated by month, or by alternative time periods such as 
    daily, weekly, or bi-weekly. 
@@ -221,20 +147,8 @@ Several factors can complicate recurring storage calculations:
    storage charges or calculating anniversaries, as well as requiring the 
    accumulation of both receiving and recurring charges during recurring 
    calculation. 
-
 *  Damaged goods are included in recurring storage but not reported in available
    inventory.
 
-Calculation Requirements.
 
-Recurring Process
------------------------------
 
-Recurring selects inventory lots by account by rate group by product by lot. 
-First the :ref:`inv-balances` is created for the selected inventory records, 
-then a recurring charges record is created for the balance of each product or 
-lot being tracked.
-Recurring is calculated by 
-selecting accounts from the recurring calendar list, then calling a routine to 
-create an inventory activity audit and apply recurring storage charges to the 
-resulting ending balances.

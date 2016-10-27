@@ -9,8 +9,9 @@ calculating recurring storage, according to calendar settings.
 
 Activities which are predefined to use calendars include recurring calculations 
 and repeating rates. Each account identifier represents a recurring group, 
-and all recurring calculations use service code **1S**. Repeating calendars are 
-identified by the group and service code of the corresponding rate record.
+and all recurring calculations use service code **1S**. [1]_ Repeating rate 
+calendars are identified by the group and service code of the corresponding 
+rate record.
 
 A list of active calendars may be displayed according to the service code or 
 the group, and a selection of those calendars may be performed. Recurring 
@@ -83,6 +84,11 @@ For **Daily** repeats, the options of Every, Any, and Current have the effect:
 *  **Current** allows the action to run once from **Last Date** (plus 1) to the 
    end of the current open period or to today, which ever comes first. 
 
+.. [1] When **Anniversary** method recurring is used, the account's recurring 
+       calculation calendar must preclude having two anniversary dates fall in 
+       the same calculation interval. The interval **[Feb 1, Mar 3]** would be 
+       invalid, for example, while **[Feb 15, Mar 14]** would be valid.
+   
 Calendars Database Schema
 =============================
 
