@@ -27,25 +27,25 @@ following the recurring batch rundate are not displayed and cannot be run.
    similarities in names and uses can be confusing. The following table will 
    clarify the date names:
    
-   +-----------+---------------------+-------------------------+
-   | Date Name | Source              | Description             |
-   +===========+=====================+=========================+
-   | RUN       | Calculate Recurring | When calculation is run |
-   +-----------+---------------------+-------------------------+
-   | LAST      | Account Calendar    | Last calendar execution |
-   +-----------+---------------------+-------------------------+
-   | NEXT      | Account Calendar    | Next calendar execution |
-   +-----------+---------------------+-------------------------+
-   | POSTED    | Transaction Posting | When inventory changed  |
-   +-----------+---------------------+-------------------------+
-   | ENTERED   | Transaction Posting | Date/Time of entry      |
-   +-----------+---------------------+-------------------------+
-   | STARTING  | Lot Anniversary     | Set for lot in audit    |
-   +-----------+---------------------+-------------------------+
-   | ENDING    | Lot Anniversary     | Set for lot in audit    |
-   +-----------+---------------------+-------------------------+
-   | RECEIVED  | Recurring Audits    | POSTED + Freedays       |
-   +-----------+---------------------+-------------------------+
+   +-----------+--------------+-------------------------+
+   | Date Name | Source       | Description             |
+   +===========+==============+=========================+
+   | RUN       | Calculation  | Calculation run date    |
+   +-----------+--------------+-------------------------+
+   | LAST      | Calendar     | Date last executed      |
+   +-----------+--------------+-------------------------+
+   | NEXT      | Calendar     | Next execution date     |
+   +-----------+--------------+-------------------------+
+   | POSTED    | Transaction  | Inventory changed       |
+   +-----------+--------------+-------------------------+
+   | ENTERED   | Transaction  | Date/Time of entry      |
+   +-----------+--------------+-------------------------+
+   | STARTING  | Lot date     | Set for lot in audit    |
+   +-----------+--------------+-------------------------+
+   | ENDING    | Lot date     | Set for lot in audit    |
+   +-----------+--------------+-------------------------+
+   | RECEIVED  | Audits       | POSTED + Freedays       |
+   +-----------+--------------+-------------------------+
 
 Recurring Calculation Methods
 =============================
@@ -57,7 +57,8 @@ Periodic Recurring
 -----------------------------
 
 Where an account's recurring balances are calculated by period, all lots for 
-the account will use the same anniversary starting and ending dates, which are determined by the account's recurring calendar. The lot anniversary 
+the account will use the same anniversary starting and ending dates, which are 
+determined by the account's recurring calendar. The lot anniversary 
 **Starting** date will be one day greater than the **Last** date of the 
 account's recurring calendar, and the **Ending** date will be the **Next** date 
 of the account's calendar.
@@ -89,19 +90,20 @@ Anniversaries and Freedays
    Free days may cause confusion since months do not all have the same number 
    of days. The following chart should clarify this situation:
 
-   +--------------+-----------+-------------------+--------------------+
-   | Posted date  | Free days | Received          | Next anniverary    |
-   +==============+===========+===================+====================+
-   | January 28   | 0         | February 28       | March 28           |
-   +--------------+-----------+-------------------+--------------------+
-   | January 29   | 0         | February LAST     | March 29           |
-   +--------------+-----------+-------------------+--------------------+
-   | January 15   | 15        | January 30        | February LAST      |
-   +--------------+-----------+-------------------+--------------------+
-   | February 26  | 3         | March 1           | April 1            |
-   +--------------+-----------+-------------------+--------------------+
-   | February 26  | 3         | Feb 29 (leap year)| March 29           |
-   +--------------+-----------+-------------------+--------------------+
+   +----------+------+--------------+--------------------+
+   | Posted   | Free | Received     | Next anniverary    |
+   +==========+======+==============+====================+
+   | Jan 28   | 0    | January 28   | February 28        |
+   +----------+------+--------------+--------------------+
+   | Jan 29   | 0    | January 29   | February LAST      |
+   +----------+------+--------------+--------------------+
+   | Jan 15   | 15   | January 30   | February LAST      |
+   +----------+------+--------------+--------------------+
+   | Feb 26   | 3    | March 1      | April 1            |
+   +----------+------+--------------+--------------------+
+   || Feb 26  || 3   || Feb 29      || March 29          |
+   ||         ||     || (leap year) |                    |
+   +----------+------+--------------+--------------------+
 
 Anniversaries are calculated from the date a lot of goods is **Received** into 
 the warehouse. When an account has free days, the free days add to the 

@@ -115,9 +115,9 @@ similarities in names and uses can be confusing. The following table will
 clarify the date names:</p>
 <table border="1" class="last docutils">
 <colgroup>
-<col width="19%" />
-<col width="37%" />
-<col width="44%" />
+<col width="22%" />
+<col width="28%" />
+<col width="50%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Date Name</th>
@@ -127,35 +127,35 @@ clarify the date names:</p>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>RUN</td>
-<td>Calculate Recurring</td>
-<td>When calculation is run</td>
+<td>Calculation</td>
+<td>Calculation run date</td>
 </tr>
 <tr class="row-odd"><td>LAST</td>
-<td>Account Calendar</td>
-<td>Last calendar execution</td>
+<td>Calendar</td>
+<td>Date last executed</td>
 </tr>
 <tr class="row-even"><td>NEXT</td>
-<td>Account Calendar</td>
-<td>Next calendar execution</td>
+<td>Calendar</td>
+<td>Next execution date</td>
 </tr>
 <tr class="row-odd"><td>POSTED</td>
-<td>Transaction Posting</td>
-<td>When inventory changed</td>
+<td>Transaction</td>
+<td>Inventory changed</td>
 </tr>
 <tr class="row-even"><td>ENTERED</td>
-<td>Transaction Posting</td>
+<td>Transaction</td>
 <td>Date/Time of entry</td>
 </tr>
 <tr class="row-odd"><td>STARTING</td>
-<td>Lot Anniversary</td>
+<td>Lot date</td>
 <td>Set for lot in audit</td>
 </tr>
 <tr class="row-even"><td>ENDING</td>
-<td>Lot Anniversary</td>
+<td>Lot date</td>
 <td>Set for lot in audit</td>
 </tr>
 <tr class="row-odd"><td>RECEIVED</td>
-<td>Recurring Audits</td>
+<td>Audits</td>
 <td>POSTED + Freedays</td>
 </tr>
 </tbody>
@@ -169,7 +169,8 @@ of the day lots are received, as described following:</p>
 <div class="section" id="periodic-recurring">
 <h3>Periodic Recurring<a class="headerlink" href="#periodic-recurring" title="Permalink to this headline">¶</a></h3>
 <p>Where an account&#8217;s recurring balances are calculated by period, all lots for
-the account will use the same anniversary starting and ending dates, which are determined by the account&#8217;s recurring calendar. The lot anniversary
+the account will use the same anniversary starting and ending dates, which are
+determined by the account&#8217;s recurring calendar. The lot anniversary
 <strong>Starting</strong> date will be one day greater than the <strong>Last</strong> date of the
 account&#8217;s recurring calendar, and the <strong>Ending</strong> date will be the <strong>Next</strong> date
 of the account&#8217;s calendar.</p>
@@ -198,43 +199,58 @@ be included in the calculation.</p>
 of days. The following chart should clarify this situation:</p>
 <table border="1" class="last docutils">
 <colgroup>
-<col width="22%" />
-<col width="17%" />
-<col width="30%" />
-<col width="31%" />
+<col width="20%" />
+<col width="12%" />
+<col width="28%" />
+<col width="40%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Posted date</th>
-<th class="head">Free days</th>
+<tr class="row-odd"><th class="head">Posted</th>
+<th class="head">Free</th>
 <th class="head">Received</th>
 <th class="head">Next anniverary</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>January 28</td>
+<tr class="row-even"><td>Jan 28</td>
 <td>0</td>
+<td>January 28</td>
 <td>February 28</td>
-<td>March 28</td>
 </tr>
-<tr class="row-odd"><td>January 29</td>
+<tr class="row-odd"><td>Jan 29</td>
 <td>0</td>
+<td>January 29</td>
 <td>February LAST</td>
-<td>March 29</td>
 </tr>
-<tr class="row-even"><td>January 15</td>
+<tr class="row-even"><td>Jan 15</td>
 <td>15</td>
 <td>January 30</td>
 <td>February LAST</td>
 </tr>
-<tr class="row-odd"><td>February 26</td>
+<tr class="row-odd"><td>Feb 26</td>
 <td>3</td>
 <td>March 1</td>
 <td>April 1</td>
 </tr>
-<tr class="row-even"><td>February 26</td>
-<td>3</td>
-<td>Feb 29 (leap year)</td>
-<td>March 29</td>
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">Feb 26</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">3</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Feb 29</div>
+<div class="line">(leap year)</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">March 29</div>
+</div>
+</td>
 </tr>
 </tbody>
 </table>
