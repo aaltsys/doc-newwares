@@ -118,5 +118,7 @@ Period Transaction Reporting
 
 The **Received**, **Shipped**, and **Adjusted** columns of an Activity report 
 are based on the inventory transactions posted in the period. A transaction 
-detail report may be produced to audit the Activity Report. 
+detail report may be produced to audit the Activity Report, as shown following: 
+
+.. image:: _images/audit-transactions.png
 
