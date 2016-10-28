@@ -1,4 +1,4 @@
-.. _bill--recurring:
+.. _bill_recurring:
 
 #############################
 Recurring Storage Billing
