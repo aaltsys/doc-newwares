@@ -264,5 +264,6 @@ Charges Auditing and Display
 =============================
 
 WARES produces invoices summarized by rate, and transaction details supporting 
-the invoice are provided in audit reports. These reports are described in the 
-documentation topic :ref:`bill-audits`.
+the invoice are provided in charges audit reports. These reports are described 
+in the 
+documentation topic :ref:`bill-charges`.
