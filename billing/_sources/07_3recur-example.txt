@@ -20,7 +20,7 @@ one report for inventory management and the other for accounting.
    reported by lot or product using the units of the storage charges. Then 
    charges are summarized and reported by product only.
 
-.. _bill-storage:
+
 
 Recurring Charges Audits
 -----------------------------
@@ -35,7 +35,7 @@ report, as shown following.
    combination. The **Activity** column contains the product identifier; the
    **Description** shows the product description, not the charge description. 
 
-.. _bill-activity:
+
 
 Stock Activity Audits
 -----------------------------
