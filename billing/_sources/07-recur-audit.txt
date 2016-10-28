@@ -68,7 +68,7 @@ Columns for the report identifier section are:
 +-----------------+------------------------------------+
 | LOT             | When tracking lots, the Lot Number |
 +-----------------+------------------------------------+
-| RECEIVED        | Inventory posting date (+ freedays)|
+| RECEIVED        | Inventory date Posted + freedays   |
 +-----------------+------------------------------------+
 | UOM             | Per code UOM (units, packages, ...)|
 +-----------------+------------------------------------+
@@ -91,12 +91,12 @@ listed below.
 +-----------------+------------------------------------+
 | Column Name     | Description                        |
 +=================+====================================+
-| RANGE STARTING  | (heading) Calendar Starting Date   |
+| RANGE BEGINNING | (heading) Calendar Last Date + 1   |
 +-----------------+------------------------------------+
-| RANGE ENDING    | (heading) Calendar Ending Date     |
+| RANGE ENDING    | (heading) Calendar Next Date       |
 +-----------------+------------------------------------+
 +-----------------+------------------------------------+
-| START DATE      | Lot Anniversary Starting Date      |
+| STARTING DATE   | Lot Anniversary Starting Date      |
 +-----------------+------------------------------------+ 
 | ON HAND         | Lot Balance on Starting Date       |
 +-----------------+------------------------------------+
@@ -108,7 +108,7 @@ listed below.
 +-----------------+------------------------------------+
 | ENDING BALANCE  | Lot Balance at Period Ending Date  |
 +-----------------+------------------------------------+
-| END DATE        | Lot Anniversary Ending Date        |
+| ENDING DATE     | Lot Anniversary Ending Date        |
 +-----------------+------------------------------------+
 
 
