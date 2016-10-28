@@ -1,4 +1,4 @@
-.. _bill-audits:
+.. _bill-charges:
 
 #############################
 Transaction Charges Auditing
@@ -87,3 +87,9 @@ an alternative CHARGES BY CODE report is available.
 This report has the same depth as the CHARGES DETAIL, while displaying the 
 columns of the CHARGES SUMMARY. Each TOTAL on the report matches one line item 
 on the invoice.
+
+
+Charges Transactions Columns
+=============================
+
+Here is a link to the :ref:`charges-schema` schema. 
