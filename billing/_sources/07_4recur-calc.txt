@@ -1,4 +1,4 @@
-.. _bill-charges:
+.. _bill-recur-calc:
 
 #############################
 Calculating Recurring Charges
