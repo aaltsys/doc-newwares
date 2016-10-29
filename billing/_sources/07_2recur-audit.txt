@@ -118,9 +118,9 @@ the account's recurring configuration.
    taken from the product setup, which has units of measure for Units, 
    Packages, Inners, Weights and Dimensions. 
 
-   Compare this to the Charges Audit, which is a billing report. The UOM code 
-   used there is *CW*, and the activity quantities have been divided by 100 to 
-   convert from *LB* to *CW*.
+   Compare this to the Charges Audit, which is a billing report. The rate 
+   provides billing UOM code *CW* and factor *100*, which are required to 
+   convert from activity quantities in *LB* to billing quantities in *CW*. 
 
 Period Transaction Reporting
 -----------------------------
