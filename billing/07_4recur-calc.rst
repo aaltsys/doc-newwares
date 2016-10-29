@@ -154,33 +154,7 @@ any received quantities. Then the array is re-initialized for the next product.
 .. [2] A lot **Received** date is set to the **Posted** date unless the account
        has free days, in which case the lot **Received** date is set to the 
        transaction **Posted** date plus the number of free days. 
-       
+
 .. [3] **Anniversary** method recurring calendars must preclude having two 
        anniversary dates fall in the same calculation interval.
 
-Minimum Recurring Invoice
-=============================
-
-To avoid expending warehouse resources on non-performing accounts, a warehouse 
-may impose a recurring invoice minimum charge. The procedure for setting up 
-this charge is shown in the following example.
-
-On the **Rates** page, enter a new rate record as follows:
-
-.. image:: _images/rate-faq1-id.png
-
-This rate will be evaluated as each invoice is generated for account **ABF**. 
-The quantity method **recurMinimum** will select all invoice lines with code 
-**1S** and this invoice number, and sum the extended column to determine an 
-amount. Method logic will return **Amount = 0** when recurring exceeds 250.00, 
-or when an invoice has no recurring charges. 
-
-.. image:: _images/rate-faq1-calc.png
-
-In the calculation part of the rate setup, the **Factor**, **Rate**, and 
-**Quantity** are all **1.00**, and the **Minimum** is the minimum amount of 
-recurring to charge, if any.
-
-Applying the rate as shown will result in adding a deficit charge line to an 
-invoice provided the recurring total is greater than zero, but less than 
-$250.00.
