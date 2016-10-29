@@ -18,8 +18,8 @@ each calendar month, recurring can be calculated on other schedules.
 WARES can perform the recurring billing at any time. When the recurring process 
 is selected, WARES first displays a list of recurring calendars to use. This 
 list displays all the calendar schedules with a calculation **Next** date less 
-than or equal to the current recurring run date. Recurring calendars with dates 
-following the recurring batch **Run** date are not displayed and cannot be run. 
+than or equal to the current **Run** date. Recurring calendars with dates 
+following the **Run** date are not displayed and cannot be run. 
 
 .. sidebar:: Recurring date descriptors 
 

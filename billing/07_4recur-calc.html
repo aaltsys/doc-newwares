@@ -47,7 +47,6 @@
   <ul>
 <li><a class="reference internal" href="#">Calculating Recurring Charges</a><ul>
 <li><a class="reference internal" href="#recurring-calculation">Recurring Calculation</a></li>
-<li><a class="reference internal" href="#minimum-recurring-invoice">Minimum Recurring Invoice</a></li>
 </ul>
 </li>
 </ul>
@@ -339,26 +338,6 @@ transaction <strong>Posted</strong> date plus the number of free days.</td></tr>
 anniversary dates fall in the same calculation interval.</td></tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="minimum-recurring-invoice">
-<h2>Minimum Recurring Invoice<a class="headerlink" href="#minimum-recurring-invoice" title="Permalink to this headline">¶</a></h2>
-<p>To avoid expending warehouse resources on non-performing accounts, a warehouse
-may impose a recurring invoice minimum charge. The procedure for setting up
-this charge is shown in the following example.</p>
-<p>On the <strong>Rates</strong> page, enter a new rate record as follows:</p>
-<img alt="_images/rate-faq1-id.png" src="_images/rate-faq1-id.png" />
-<p>This rate will be evaluated as each invoice is generated for account <strong>ABF</strong>.
-The quantity method <strong>recurMinimum</strong> will select all invoice lines with code
-<strong>1S</strong> and this invoice number, and sum the extended column to determine an
-amount. Method logic will return <strong>Amount = 0</strong> when recurring exceeds 250.00,
-or when an invoice has no recurring charges.</p>
-<img alt="_images/rate-faq1-calc.png" src="_images/rate-faq1-calc.png" />
-<p>In the calculation part of the rate setup, the <strong>Factor</strong>, <strong>Rate</strong>, and
-<strong>Quantity</strong> are all <strong>1.00</strong>, and the <strong>Minimum</strong> is the minimum amount of
-recurring to charge, if any.</p>
-<p>Applying the rate as shown will result in adding a deficit charge line to an
-invoice provided the recurring total is greater than zero, but less than
-$250.00.</p>
 </div>
 </div>
 
