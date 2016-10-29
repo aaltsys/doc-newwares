@@ -4,10 +4,12 @@
 Recurring Issues and Examples
 #############################
 
-Recurring storage calculations are complicated. Many warehousing programs which 
-attempt to calculate billing are yet unable to produce a correct bill which 
-combines anniversary method with freedays. Fortunately, WARES exists to solve 
-this problem, and many other issues with inventory tracking and billing.
+Many warehousing programs which attempt to calculate billing are yet unable to 
+produce a correct bill combining anniversary method with freedays. Fortunately 
+there is WARES. Examples provided here address this and many other issues with 
+storage billing, activity reconciliation, and more.
+
+(Screen shots and transaction details to be added later.)
 
 Tracking 
 =============================
@@ -18,8 +20,27 @@ on the received date for goods, independent of the tracking method.
 Inventory Reconciliation
 =============================
 
-Damaged goods are included in recurring storage but not reported in available 
-inventory.
+Damaged goods included in recurring storage are not reported in available 
+inventory. 
+
+Arrears Corrections
+=============================
+
+Transactions may be posted in arrears, including to previous months, to correct 
+errors such as: receiving to a wrong product code, receiving an incorrect lot 
+number, recording hidden damage, transferring ownership, and similar problems. 
+
+When a correction entered today is posted into a calculated period, then the 
+starting balances of new recurring activity will not match the ending balances 
+from the previous period. Specifically, transactions may create a recurring 
+audit discrepancy when the span between **Posted** and **Entered** dates cross 
+a recurring period boundary, and the **Entered** datetime is after the previous 
+recurring calculation **Run** datetime.
+
+When auditing recurring, transactions are selected for **Posted** (or 
+**Received**) dates within the period and then sorted by **Entered** datetime. 
+Knowing the **Run** datetime for the calculation, out of period transaction 
+exceptions can be identified and accounted for.
 
 Units of Measure
 =============================
@@ -48,3 +69,7 @@ for reconciling inventory and calculating charges.
 
 Recurring may be calculated by month, or by alternative time periods such as 
 daily, weekly, or bi-weekly. 
+
+Specifically with anniversary billing, monthly charges for recurring storage 
+may be calculated incrementally throughout the month depending on **Received** 
+dates.
