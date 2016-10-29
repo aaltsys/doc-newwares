@@ -113,6 +113,15 @@ bracket of the calculation batch. Lot anniversary **START DATE** and
 **END DATE** values are determined by the account's recurring calendar, and by 
 the account's recurring configuration. 
 
+.. note:: 
+   Since the Stock Activity Audit is a product report, the UOM code *LB* is 
+   taken from the product setup, which has units of measure for Units, 
+   Packages, Inners, Weights and Dimensions. 
+
+   Compare this to the Charges Audit, which is a billing report. The UOM code 
+   used there is *CW*, and the activity quantities have been divided by 100 to 
+   convert from *LB* to *CW*.
+
 Period Transaction Reporting
 -----------------------------
 
