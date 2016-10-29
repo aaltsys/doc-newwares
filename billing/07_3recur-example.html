@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Recurring Calculation Audits &mdash; WARES Billing 1.0 documentation</title>
+    <title>Recurring Issues and Examples &mdash; WARES Billing 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -45,22 +45,13 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Recurring Calculation Audits</a><ul>
-<li><a class="reference internal" href="#recurring-reports">Recurring Reports</a><ul>
-<li><a class="reference internal" href="#recurring-charges-audits">Recurring Charges Audits</a></li>
-<li><a class="reference internal" href="#stock-activity-audits">Stock Activity Audits</a></li>
-<li><a class="reference internal" href="#activity-quantitative-data">Activity Quantitative Data</a></li>
-<li><a class="reference internal" href="#period-transaction-reporting">Period Transaction Reporting</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#recurring-calculation-methods">Recurring Calculation Methods</a><ul>
-<li><a class="reference internal" href="#calendar-period-recurring">Calendar Period Recurring</a></li>
-<li><a class="reference internal" href="#anniversary-recurring">Anniversary Recurring</a></li>
-<li><a class="reference internal" href="#lot-anniversaries">Lot Anniversaries</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#recurring-calculations">Recurring Calculations</a></li>
-<li><a class="reference internal" href="#recurring-activity-issues">Recurring Activity Issues</a></li>
+<li><a class="reference internal" href="#">Recurring Issues and Examples</a><ul>
+<li><a class="reference internal" href="#tracking">Tracking</a></li>
+<li><a class="reference internal" href="#inventory-reconciliation">Inventory Reconciliation</a></li>
+<li><a class="reference internal" href="#units-of-measure">Units of Measure</a></li>
+<li><a class="reference internal" href="#recurring-methods">Recurring Methods</a></li>
+<li><a class="reference internal" href="#free-days">Free Days</a></li>
+<li><a class="reference internal" href="#custom-periods">Custom Periods</a></li>
 </ul>
 </li>
 </ul>
@@ -99,280 +90,44 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="recurring-calculation-audits">
-<span id="bill-recur-example"></span><h1>Recurring Calculation Audits<a class="headerlink" href="#recurring-calculation-audits" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="recurring-reports">
-<h2>Recurring Reports<a class="headerlink" href="#recurring-reports" title="Permalink to this headline">¶</a></h2>
-<p>Recurring calculations produce two audit trails. The <a class="reference internal" href="07_2recur-audit.html#bill-activity"><em>Stock Activity Audits</em></a>
-details inventory stock movement during the recurring period, resulting in a
-quantity balance to be billed. The <a class="reference internal" href="07_2recur-audit.html#bill-storage"><em>Recurring Charges Audits</em></a> lists charges billed for
-the quantity balance.</p>
-<p>The customer should receive both reports with the recurring storage invoice,
-one report for inventory management and the other for accounting.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Inventory may be tracked by unit, lot, or product, but the stock activity is
-reported by lot or product using the units of the storage charges. Then
-charges are summarized and reported by product only.</p>
+  <div class="section" id="recurring-issues-and-examples">
+<span id="bill-recur-example"></span><h1>Recurring Issues and Examples<a class="headerlink" href="#recurring-issues-and-examples" title="Permalink to this headline">¶</a></h1>
+<p>Recurring storage calculations are complicated. Many warehousing programs which
+attempt to calculate billing are yet unable to produce a correct bill which
+combines anniversary method with freedays. Fortunately, WARES exists to solve
+this problem, and many other issues with inventory tracking and billing.</p>
+<div class="section" id="tracking">
+<h2>Tracking<a class="headerlink" href="#tracking" title="Permalink to this headline">¶</a></h2>
+<p>Inventory tracking may be by unit, lot, or product. Recurring billing depends
+on the received date for goods, independent of the tracking method.</p>
 </div>
-<div class="section" id="recurring-charges-audits">
-<h3>Recurring Charges Audits<a class="headerlink" href="#recurring-charges-audits" title="Permalink to this headline">¶</a></h3>
-<p>Recurring charges are always audited with a version of the <em>Charges Summary</em>
-report, as shown following.</p>
-<img alt="_images/audit-recurring.png" src="_images/audit-recurring.png" />
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Each row of this report lists charges for one product identifier/variety
-combination. The <strong>Activity</strong> column contains the product identifier; the
-<strong>Description</strong> shows the product description, not the charge description.</p>
+<div class="section" id="inventory-reconciliation">
+<h2>Inventory Reconciliation<a class="headerlink" href="#inventory-reconciliation" title="Permalink to this headline">¶</a></h2>
+<p>Damaged goods are included in recurring storage but not reported in available
+inventory.</p>
 </div>
+<div class="section" id="units-of-measure">
+<h2>Units of Measure<a class="headerlink" href="#units-of-measure" title="Permalink to this headline">¶</a></h2>
+<p>The units of measure for billing storage and handling can be different from the
+stock units for inventory movement.</p>
 </div>
-<div class="section" id="stock-activity-audits">
-<h3>Stock Activity Audits<a class="headerlink" href="#stock-activity-audits" title="Permalink to this headline">¶</a></h3>
-<p>Billing quantities for stock activity and balances are captured with the
-<strong>Stock Activity Audit</strong>. This report is divided into two sections: identifying
-information for each item on the left, and quantitative data on the right.</p>
-<p>Example identifying information for the Stock Activity follows:</p>
-<img alt="_images/audit-activity1.png" src="_images/audit-activity1.png" />
-<p>Columns for the report identifier section are:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="32%" />
-<col width="68%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Column Name</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>AUDIT</td>
-<td>(heading) Calculation Batch Number</td>
-</tr>
-<tr class="row-odd"><td>RUN DATETIME</td>
-<td>(heading) Date Time batch started</td>
-</tr>
-<tr class="row-even"><td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>ACCOUNT</td>
-<td>Customer Account Code</td>
-</tr>
-<tr class="row-even"><td>UOM</td>
-<td>Billing Quantity Unit of Measure</td>
-</tr>
-<tr class="row-odd"><td>PRODUCT</td>
-<td>Product Code Identifier</td>
-</tr>
-<tr class="row-even"><td>VARIETY</td>
-<td>Variety Code, if used</td>
-</tr>
-<tr class="row-odd"><td>LOT</td>
-<td>When tracking lots, the Lot Number</td>
-</tr>
-<tr class="row-even"><td>RECEIVED</td>
-<td>Inventory date Posted + freedays</td>
-</tr>
-<tr class="row-odd"><td>UOM</td>
-<td>Per code UOM (units, packages, ...)</td>
-</tr>
-</tbody>
-</table>
-<p><strong>AUDIT</strong> and <strong>RUN</strong> datetime apply to the entire report, and so these items
-appear in the report identifier section heading.</p>
+<div class="section" id="recurring-methods">
+<h2>Recurring Methods<a class="headerlink" href="#recurring-methods" title="Permalink to this headline">¶</a></h2>
+<p>Recurring may be based on calendar periods, or on lot anniversaries.</p>
 </div>
-<div class="section" id="activity-quantitative-data">
-<h3>Activity Quantitative Data<a class="headerlink" href="#activity-quantitative-data" title="Permalink to this headline">¶</a></h3>
-<p>The Quantitative data listed below matches the identifiers section presented
-above:</p>
-<img alt="_images/audit-activity2.png" src="_images/audit-activity2.png" />
-<p>Again, calendar range <strong>STARTING</strong> and <strong>ENDING</strong> apply to the entire report
-and so these items appear in the data section heading. All data columns are
-listed below.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="32%" />
-<col width="68%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Column Name</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>RANGE BEGINNING</td>
-<td>(heading) Calendar Last Date + 1</td>
-</tr>
-<tr class="row-odd"><td>RANGE ENDING</td>
-<td>(heading) Calendar Next Date</td>
-</tr>
-<tr class="row-even"><td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>STARTING DATE</td>
-<td>Lot Anniversary Starting Date</td>
-</tr>
-<tr class="row-even"><td>ON HAND</td>
-<td>Lot Balance on Starting Date</td>
-</tr>
-<tr class="row-odd"><td>RECEIVED</td>
-<td>Quantity Received during Period</td>
-</tr>
-<tr class="row-even"><td>SHIPPED</td>
-<td>Quantity Shipped during Period</td>
-</tr>
-<tr class="row-odd"><td>ADJUSTED</td>
-<td>Quantity Adjusted during Period</td>
-</tr>
-<tr class="row-even"><td>ENDING BALANCE</td>
-<td>Lot Balance at Period Ending Date</td>
-</tr>
-<tr class="row-odd"><td>ENDING DATE</td>
-<td>Lot Anniversary Ending Date</td>
-</tr>
-</tbody>
-</table>
-<p>For a lot to be included in a particular recurring calculation batch, the lot
-anniversary <strong>END DATE</strong> must fall within the RANGE <strong>STARTING</strong> to <strong>ENDING</strong>
-bracket of the calculation batch. Lot anniversary <strong>START DATE</strong> and
-<strong>END DATE</strong> values are determined by the account&#8217;s recurring calendar, and by
-the account&#8217;s recurring configuration.</p>
-</div>
-<div class="section" id="period-transaction-reporting">
-<h3>Period Transaction Reporting<a class="headerlink" href="#period-transaction-reporting" title="Permalink to this headline">¶</a></h3>
-<p>The <strong>Received</strong>, <strong>Shipped</strong>, and <strong>Adjusted</strong> columns of an Activity report
-are based on the inventory transactions posted in the period. A transaction
-detail report may be produced to audit the Activity Report.</p>
-</div>
-</div>
-<div class="section" id="recurring-calculation-methods">
-<h2>Recurring Calculation Methods<a class="headerlink" href="#recurring-calculation-methods" title="Permalink to this headline">¶</a></h2>
-<p>Recurring balances may be determined either by calendar periods or by lot
-anniversaries.</p>
-<div class="section" id="calendar-period-recurring">
-<h3>Calendar Period Recurring<a class="headerlink" href="#calendar-period-recurring" title="Permalink to this headline">¶</a></h3>
-<p>Where an account&#8217;s recurring balances are calculated by calendar period, all
-lots for the account will use the same anniversary starting and ending dates.
-The lot anniversary dates are determined by the account&#8217;s recurring calendar.
-The next date of that calendar must fall within the <strong>RANGE STARTING</strong>
-and <strong>RANGE ENDING</strong> calculation bracket, or else the account is excluded from
-the recurring batch. The lot anniversary <strong>START DATE</strong> will be one day greater
-than the last date of the account&#8217;s recurring calendar, and the end date will
-be the next date of the account&#8217;s calendar.</p>
-<p>Once lot balances are calculated, there are two options for determining charges
-with calendar recurring: using ending balances (advance billing), or using
-starting balances (arrears billing). There are a few southern warehouses still
-clinging to this option, and so WARES supports it even though arrears recurring
-is deprecated.</p>
-</div>
-<div class="section" id="anniversary-recurring">
-<h3>Anniversary Recurring<a class="headerlink" href="#anniversary-recurring" title="Permalink to this headline">¶</a></h3>
-<p>Where balances are calculated by anniversary, the lot anniversary ending date
-will be the anniversary month day which falls within the calculation starting
-and ending dates. Anniversaries may be calculated for any portion of a month,
-and only lots with anniversaries within that portion will be included in the
-calculation.</p>
-<p>Where anniversary recurring is specified, an <strong>Ending</strong> date must be bracketed
-by the calculation starting and ending dates. The lot&#8217;s anniversary <strong>Starting</strong>
-date will be the equivalent day in the previous month.</p>
-</div>
-<div class="section" id="lot-anniversaries">
-<h3>Lot Anniversaries<a class="headerlink" href="#lot-anniversaries" title="Permalink to this headline">¶</a></h3>
-<p>The date a lot of goods is received into the warehouse is the starting date for
-calculating anniversaries. When an account has free days, the free days add to
-the starting date to determine anniversary dates. The first anniversary occurs
-at the expiration of free days, when receiving storage is applied. Recurring
-storage is applied for all subsequent anniversaries.</p>
-<p>Anniversaries and free days may cause confusion in that months do not all have
-the same number of days. The following chart should clarify this situation:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="22%" />
-<col width="17%" />
-<col width="30%" />
-<col width="31%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Receive date</th>
-<th class="head">Free days</th>
-<th class="head">First anniversary</th>
-<th class="head">Second anniverary</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>January 15</td>
-<td>5</td>
-<td>January 20</td>
-<td>February 20</td>
-</tr>
-<tr class="row-odd"><td>January 28</td>
-<td>0</td>
-<td>February 28</td>
-<td>March 28</td>
-</tr>
-<tr class="row-even"><td>January 29</td>
-<td>0</td>
-<td>February LAST</td>
-<td>March 29</td>
-</tr>
-<tr class="row-odd"><td>January 28</td>
-<td>3</td>
-<td>January 31</td>
-<td>February LAST</td>
-</tr>
-<tr class="row-even"><td>February 29</td>
-<td>0</td>
-<td>March 29</td>
-<td>April 29</td>
-</tr>
-<tr class="row-odd"><td>February 26</td>
-<td>3</td>
-<td>March 1</td>
-<td>April 1</td>
-</tr>
-<tr class="row-even"><td>February 26</td>
-<td>3</td>
-<td>February 29</td>
-<td>March 29      <a class="footnote-reference" href="#id2" id="id1">[1]</a></td>
-</tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id2" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>In a leap year the first anniversary would be February 29, followed by
-March 29.</td></tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="section" id="recurring-calculations">
-<h2>Recurring Calculations<a class="headerlink" href="#recurring-calculations" title="Permalink to this headline">¶</a></h2>
-<p>Recurring charges are based on a <strong>Stock Activity Audit</strong>. This report is a
-permanent record of the inventory changes during a recurring period, resulting
-in the balances used for recurring charges. The Stock Activity Audit determines
-the starting balance of inventory, accumulates transactional changes from
-receiving, shipping, and adjusting, and calculates a corresponding inventory
-ending balance.</p>
-</div>
-<div class="section" id="recurring-activity-issues">
-<h2>Recurring Activity Issues<a class="headerlink" href="#recurring-activity-issues" title="Permalink to this headline">¶</a></h2>
-<p>Several factors can complicate recurring storage calculations:</p>
-<ul class="simple">
-<li>The units of measure for recurring storage can be different from the stock
-units which track inventory movement.</li>
-<li>Recurring may be based on calendar periods, or on lot anniversaries.</li>
-<li>Accounts may specify custom period dates for recurring accounting.</li>
-<li>Recurring may be calculated by month, or by alternative time periods such as
-daily, weekly, or bi-weekly.</li>
-<li>Inventory movement may be tracked by unit, lot, or product.</li>
-<li>Accounts may be offered free days affecting the starting date for applying
+<div class="section" id="free-days">
+<h2>Free Days<a class="headerlink" href="#free-days" title="Permalink to this headline">¶</a></h2>
+<p>Accounts may be offered free days affecting the starting date for applying
 storage charges or calculating anniversaries, as well as requiring the
 accumulation of both receiving and recurring charges during recurring
-calculation.</li>
-<li>Damaged goods are included in recurring storage but not reported in available
-inventory.</li>
-</ul>
+calculation.</p>
+</div>
+<div class="section" id="custom-periods">
+<h2>Custom Periods<a class="headerlink" href="#custom-periods" title="Permalink to this headline">¶</a></h2>
+<p>Accounts may require a warehouse to use their proprietary calendar period dates
+for reconciling inventory and calculating charges.</p>
+<p>Recurring may be calculated by month, or by alternative time periods such as
+daily, weekly, or bi-weekly.</p>
 </div>
 </div>
 

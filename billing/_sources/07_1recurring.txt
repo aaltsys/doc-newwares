@@ -19,33 +19,32 @@ WARES can perform the recurring billing at any time. When the recurring process
 is selected, WARES first displays a list of recurring calendars to use. This 
 list displays all the calendar schedules with a calculation **Next** date less 
 than or equal to the current recurring run date. Recurring calendars with dates 
-following the recurring batch rundate are not displayed and cannot be run. 
+following the recurring batch **Run** date are not displayed and cannot be run. 
 
 .. sidebar:: Recurring date descriptors 
 
-   Recurring calculation descriptions use a variety of dates, and the seeming 
-   similarities in names and uses can be confusing. The following table will 
-   clarify the date names:
-   
-   +-----------+--------------+-------------------------+
-   | Date Name | Source       | Description             |
-   +===========+==============+=========================+
-   | RUN       | Calculation  | Calculation run date    |
-   +-----------+--------------+-------------------------+
-   | LAST      | Calendar     | Date last executed      |
-   +-----------+--------------+-------------------------+
-   | NEXT      | Calendar     | Next execution date     |
-   +-----------+--------------+-------------------------+
-   | POSTED    | Transaction  | Inventory changed       |
-   +-----------+--------------+-------------------------+
-   | ENTERED   | Transaction  | Date/Time of entry      |
-   +-----------+--------------+-------------------------+
-   | STARTING  | Lot date     | Set for lot in audit    |
-   +-----------+--------------+-------------------------+
-   | ENDING    | Lot date     | Set for lot in audit    |
-   +-----------+--------------+-------------------------+
-   | RECEIVED  | Audits       | POSTED + Freedays       |
-   +-----------+--------------+-------------------------+
+   To avoid confusion, this reference table lists the variety of date names and 
+   their sources which are used in recurring calculations.
+
+   +-----------+--------------+-----------------------+
+   | Date Name | Source       | Description           |
+   +===========+==============+=======================+
+   | RUN       | Calculation  | Calculation run date  |
+   +-----------+--------------+-----------------------+
+   | LAST      | Calendar     | Date last executed    |
+   +-----------+--------------+-----------------------+
+   | NEXT      | Calendar     | Next execution date   |
+   +-----------+--------------+-----------------------+
+   | POSTED    | Transaction  | Inventory changed     |
+   +-----------+--------------+-----------------------+
+   | ENTERED   | Transaction  | Date/Time of entry    |
+   +-----------+--------------+-----------------------+
+   | STARTING  | Lot date     | Set for lot in audit  |
+   +-----------+--------------+-----------------------+
+   | ENDING    | Lot date     | Set for lot in audit  |
+   +-----------+--------------+-----------------------+
+   | RECEIVED  | Audits       | POSTED + Freedays     |
+   +-----------+--------------+-----------------------+
 
 Recurring Calculation Methods
 =============================
@@ -85,25 +84,25 @@ be included in the calculation.
 Anniversaries and Freedays
 -----------------------------
 
-.. sidebar:: How Freedays effect anniversary dates
+.. sidebar:: Freedays and anniversary dates
 
-   Free days may cause confusion since months do not all have the same number 
-   of days. The following chart should clarify this situation:
+   Since months do not all have the same number of days, this chart shows how 
+   anniversaries are determined from month to month.
 
-   +----------+------+--------------+--------------------+
-   | Posted   | Free | Received     | Next anniverary    |
-   +==========+======+==============+====================+
-   | Jan 28   | 0    | January 28   | February 28        |
-   +----------+------+--------------+--------------------+
-   | Jan 29   | 0    | January 29   | February LAST      |
-   +----------+------+--------------+--------------------+
-   | Jan 15   | 15   | January 30   | February LAST      |
-   +----------+------+--------------+--------------------+
-   | Feb 26   | 3    | March 1      | April 1            |
-   +----------+------+--------------+--------------------+
-   || Feb 26  || 3   || Feb 29      || March 29          |
-   ||         ||     || (leap year) |                    |
-   +----------+------+--------------+--------------------+
+   +----------+------+--------------+------------------+
+   | Posted   | Free | Received     | Next anniverary  |
+   +==========+======+==============+==================+
+   | Jan 28   | 0    | January 28   | February 28      |
+   +----------+------+--------------+------------------+
+   | Jan 29   | 0    | January 29   | February LAST    |
+   +----------+------+--------------+------------------+
+   | Jan 15   | 15   | January 30   | February LAST    |
+   +----------+------+--------------+------------------+
+   | Feb 26   | 3    | March 1      | April 1          |
+   +----------+------+--------------+------------------+
+   || Feb 26  || 3   || Feb 29      || March 29        |
+   ||         ||     || (leap year) |                  |
+   +----------+------+--------------+------------------+
 
 Anniversaries are calculated from the date a lot of goods is **Received** into 
 the warehouse. When an account has free days, the free days add to the 
@@ -128,29 +127,11 @@ Periodic Method and Freedays
 
 When freedays expire with periodic recurring, The **Received** date is used for 
 the **Starting** date, and starting balances are used to calculate receiving 
-storage. If the periodic storage is based on starting balances then the 
-**Ending** date is left blank and no recurring is calculated for the received 
-lot. If periodic storage is calculated from ending balances, the **Ending** 
-date is filled and ending balances are used to calculate recurring.
+storage. Hence when freedays expire in periodic recurring, a lot's calculation 
+**Starting** date will not be the beginning of the recurring period.
 
-Recurring Activity Issues
-=============================
-
-Several factors can complicate recurring storage calculations:
-
-*  The units of measure for recurring storage can be different from the stock 
-   units which track inventory movement. 
-*  Recurring may be based on periods, or on lot anniversaries. 
-*  Accounts may specify custom period dates for recurring accounting. 
-*  Recurring may be calculated by month, or by alternative time periods such as 
-   daily, weekly, or bi-weekly. 
-*  Inventory movement may be tracked by unit, lot, or product. 
-*  Accounts may be offered free days affecting the starting date for applying 
-   storage charges or calculating anniversaries, as well as requiring the 
-   accumulation of both receiving and recurring charges during recurring 
-   calculation. 
-*  Damaged goods are included in recurring storage but not reported in available
-   inventory.
-
-
-
+For lots received with freedays, if the periodic storage is based on starting 
+balances, then the **Ending** date is left blank and no recurring is calculated 
+for the lot. When periodic storage is calculated from ending balances, the 
+**Ending** date is filled and ending balances are used to calculate recurring 
+as usual.

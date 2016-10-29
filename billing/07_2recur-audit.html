@@ -25,7 +25,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="WARES Billing 1.0 documentation" href="index.html" />
-    <link rel="next" title="Recurring Calculation Audits" href="07_3recur-example.html" />
+    <link rel="next" title="Recurring Issues and Examples" href="07_3recur-example.html" />
     <link rel="prev" title="Recurring Storage Billing" href="07_1recurring.html" /> 
   </head>
   <body role="document">
@@ -33,7 +33,7 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="07_3recur-example.html" title="Recurring Calculation Audits"
+          <a href="07_3recur-example.html" title="Recurring Issues and Examples"
              accesskey="N">next</a></li>
         <li class="right" >
           <a href="07_1recurring.html" title="Recurring Storage Billing"
@@ -62,7 +62,7 @@
                         title="previous chapter">Recurring Storage Billing</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="07_3recur-example.html"
-                        title="next chapter">Recurring Calculation Audits</a></p>
+                        title="next chapter">Recurring Issues and Examples</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -96,16 +96,16 @@
 <div class="section" id="recurring-reports">
 <h2>Recurring Reports<a class="headerlink" href="#recurring-reports" title="Permalink to this headline">¶</a></h2>
 <p>Recurring calculations produce two audit trails. The <a class="reference internal" href="#bill-activity"><em>Stock Activity Audits</em></a>
-details inventory stock movement during the recurring period, resulting in a
-quantity balance to be billed. The <a class="reference internal" href="#bill-storage"><em>Recurring Charges Audits</em></a> lists charges billed for
+detail inventory stock movement during the recurring period, resulting in a
+quantity balance to be billed. The <a class="reference internal" href="#bill-storage"><em>Recurring Charges Audits</em></a> list charges billed for
 the quantity balance.</p>
 <p>The customer should receive both reports with the recurring storage invoice,
 one report for inventory management and the other for accounting.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Inventory may be tracked by unit, lot, or product, but the stock activity is
-reported by lot or product using the units of the storage charges. Then
-charges are summarized and reported by product only.</p>
+reported by lot or product using the billing units of the storage charges.
+Then charges are summarized and reported by product only.</p>
 </div>
 <div class="section" id="recurring-charges-audits">
 <span id="bill-storage"></span><h3>Recurring Charges Audits<a class="headerlink" href="#recurring-charges-audits" title="Permalink to this headline">¶</a></h3>
@@ -234,6 +234,9 @@ the account&#8217;s recurring configuration.</p>
 are based on the inventory transactions posted in the period. A transaction
 detail report may be produced to audit the Activity Report, as shown following:</p>
 <img alt="_images/audit-transactions.png" src="_images/audit-transactions.png" />
+<p>The preceding report images drill down from a recurring bill to the charges
+which constitute the invoice amount, to the audit of inventory lots and their
+activity, and to the individual transactions which determine lot balances.</p>
 </div>
 </div>
 </div>
@@ -248,7 +251,7 @@ detail report may be produced to audit the Activity Report, as shown following:<
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="07_3recur-example.html" title="Recurring Calculation Audits"
+          <a href="07_3recur-example.html" title="Recurring Issues and Examples"
              >next</a></li>
         <li class="right" >
           <a href="07_1recurring.html" title="Recurring Storage Billing"

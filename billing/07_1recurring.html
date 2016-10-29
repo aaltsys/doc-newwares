@@ -54,7 +54,6 @@
 <li><a class="reference internal" href="#periodic-method-and-freedays">Periodic Method and Freedays</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#recurring-activity-issues">Recurring Activity Issues</a></li>
 </ul>
 </li>
 </ul>
@@ -107,17 +106,16 @@ each calendar month, recurring can be calculated on other schedules.</p>
 is selected, WARES first displays a list of recurring calendars to use. This
 list displays all the calendar schedules with a calculation <strong>Next</strong> date less
 than or equal to the current recurring run date. Recurring calendars with dates
-following the recurring batch rundate are not displayed and cannot be run.</p>
+following the recurring batch <strong>Run</strong> date are not displayed and cannot be run.</p>
 <div class="sidebar">
 <p class="first sidebar-title">Recurring date descriptors</p>
-<p>Recurring calculation descriptions use a variety of dates, and the seeming
-similarities in names and uses can be confusing. The following table will
-clarify the date names:</p>
+<p>To avoid confusion, this reference table lists the variety of date names and
+their sources which are used in recurring calculations.</p>
 <table border="1" class="last docutils">
 <colgroup>
-<col width="22%" />
-<col width="28%" />
-<col width="50%" />
+<col width="23%" />
+<col width="29%" />
+<col width="48%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Date Name</th>
@@ -194,15 +192,15 @@ be included in the calculation.</p>
 <div class="section" id="anniversaries-and-freedays">
 <h3>Anniversaries and Freedays<a class="headerlink" href="#anniversaries-and-freedays" title="Permalink to this headline">¶</a></h3>
 <div class="sidebar">
-<p class="first sidebar-title">How Freedays effect anniversary dates</p>
-<p>Free days may cause confusion since months do not all have the same number
-of days. The following chart should clarify this situation:</p>
+<p class="first sidebar-title">Freedays and anniversary dates</p>
+<p>Since months do not all have the same number of days, this chart shows how
+anniversaries are determined from month to month.</p>
 <table border="1" class="last docutils">
 <colgroup>
-<col width="20%" />
-<col width="12%" />
-<col width="28%" />
-<col width="40%" />
+<col width="21%" />
+<col width="13%" />
+<col width="29%" />
+<col width="38%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Posted</th>
@@ -275,30 +273,14 @@ applied in subsequent months.</p>
 <h3>Periodic Method and Freedays<a class="headerlink" href="#periodic-method-and-freedays" title="Permalink to this headline">¶</a></h3>
 <p>When freedays expire with periodic recurring, The <strong>Received</strong> date is used for
 the <strong>Starting</strong> date, and starting balances are used to calculate receiving
-storage. If the periodic storage is based on starting balances then the
-<strong>Ending</strong> date is left blank and no recurring is calculated for the received
-lot. If periodic storage is calculated from ending balances, the <strong>Ending</strong>
-date is filled and ending balances are used to calculate recurring.</p>
+storage. Hence when freedays expire in periodic recurring, a lot&#8217;s calculation
+<strong>Starting</strong> date will not be the beginning of the recurring period.</p>
+<p>For lots received with freedays, if the periodic storage is based on starting
+balances, then the <strong>Ending</strong> date is left blank and no recurring is calculated
+for the lot. When periodic storage is calculated from ending balances, the
+<strong>Ending</strong> date is filled and ending balances are used to calculate recurring
+as usual.</p>
 </div>
-</div>
-<div class="section" id="recurring-activity-issues">
-<h2>Recurring Activity Issues<a class="headerlink" href="#recurring-activity-issues" title="Permalink to this headline">¶</a></h2>
-<p>Several factors can complicate recurring storage calculations:</p>
-<ul class="simple">
-<li>The units of measure for recurring storage can be different from the stock
-units which track inventory movement.</li>
-<li>Recurring may be based on periods, or on lot anniversaries.</li>
-<li>Accounts may specify custom period dates for recurring accounting.</li>
-<li>Recurring may be calculated by month, or by alternative time periods such as
-daily, weekly, or bi-weekly.</li>
-<li>Inventory movement may be tracked by unit, lot, or product.</li>
-<li>Accounts may be offered free days affecting the starting date for applying
-storage charges or calculating anniversaries, as well as requiring the
-accumulation of both receiving and recurring charges during recurring
-calculation.</li>
-<li>Damaged goods are included in recurring storage but not reported in available
-inventory.</li>
-</ul>
 </div>
 </div>
 

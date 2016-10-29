@@ -8,8 +8,8 @@ Recurring Reports
 =============================
 
 Recurring calculations produce two audit trails. The :ref:`bill-activity` 
-details inventory stock movement during the recurring period, resulting in a 
-quantity balance to be billed. The :ref:`bill-storage` lists charges billed for
+detail inventory stock movement during the recurring period, resulting in a 
+quantity balance to be billed. The :ref:`bill-storage` list charges billed for
 the quantity balance.
 
 The customer should receive both reports with the recurring storage invoice, 
@@ -17,8 +17,8 @@ one report for inventory management and the other for accounting.
 
 .. note::
    Inventory may be tracked by unit, lot, or product, but the stock activity is 
-   reported by lot or product using the units of the storage charges. Then 
-   charges are summarized and reported by product only.
+   reported by lot or product using the billing units of the storage charges. 
+   Then charges are summarized and reported by product only.
 
 .. _bill-storage:
 
@@ -122,3 +122,6 @@ detail report may be produced to audit the Activity Report, as shown following:
 
 .. image:: _images/audit-transactions.png
 
+The preceding report images drill down from a recurring bill to the charges 
+which constitute the invoice amount, to the audit of inventory lots and their 
+activity, and to the individual transactions which determine lot balances.
