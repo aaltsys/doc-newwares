@@ -147,7 +147,8 @@ Repeating Calendar Charges
 
 Repeating charges are applied by selecting scheduled rates from the calendar 
 list, while calling a billing routine to apply the charges. Each calendar entry 
-will generate one charge line item. Charges calculated from calendar events are identified by a sequential charge number, the payer id, and the service code. 
+will generate one charge line item. Charges calculated from calendar events are 
+identified by a sequential charge number, the payer id, and the service code. 
 There is no associated activity.
 
 An example calendar selection page for Repeating Rates follows:
@@ -182,5 +183,5 @@ The following image shows the calendar selection page for recurring  Calculation
 Note that the filter allows selection by **Account** rather than **Group**, and 
 the code **1S** of associated rates is auto-filled.
 
-See the :ref:`bill-recurring` article for more information on how recurring 
+See the :ref:`bill_recurring` article for more information on how recurring 
 storage charges are calculated and audited.

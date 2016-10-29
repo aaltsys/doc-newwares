@@ -1,4 +1,4 @@
-.. _bill-audits:
+.. _bill-charges:
 
 #############################
 Transaction Charges Auditing
@@ -33,7 +33,7 @@ Descriptive information on a charge audit report consists of:
 These entries are illustrated in the following left-side CHARGES DETAIL report 
 sample which shows charges from a warehouse receipt.
 
-.. image:: _images/audit-detail-1.png
+.. image:: _images/charge-detail-1.png
 
 Charge Calculation Details
 -----------------------------
@@ -51,7 +51,7 @@ Each charge results from the following entries:
 The right-side CHARGES DETAIL report sample, showing these receiving charges, 
 is presented here.
 
-.. image:: _images/audit-detail-2.png
+.. image:: _images/charge-detail-2.png
 
 Summary Charges Reporting
 =============================
@@ -68,7 +68,7 @@ Deficit, and Factor by the formula::
 Then individual rate codes are summed by **Activity** to eliminate itemization. 
 An example SUMMARY CHARGES report follows.
 
-.. image:: _images/audit-summary.png
+.. image:: _images/charge-summary.png
 
 Where fractional charges are summarized, the addition of charges rounded to the 
 nearest cent may result in (slight) inconsistencies if Quantity*Rate is extended
@@ -82,8 +82,14 @@ The invoice is organized by Rate Group and Service Code, while the previous
 reports are arranged by activity transaction. This makes auditing onerous, so 
 an alternative CHARGES BY CODE report is available. 
 
-.. image:: _images/audit-code.png
+.. image:: _images/charge-code.png
 
 This report has the same depth as the CHARGES DETAIL, while displaying the 
 columns of the CHARGES SUMMARY. Each TOTAL on the report matches one line item 
 on the invoice.
+
+
+Charges Transactions Columns
+=============================
+
+Here is a link to the :ref:`charges-schema` schema. 
