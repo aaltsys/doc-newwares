@@ -47,12 +47,12 @@
   <ul>
 <li><a class="reference internal" href="#">Recurring Issues and Examples</a><ul>
 <li><a class="reference internal" href="#tracking">Tracking</a></li>
-<li><a class="reference internal" href="#inventory-reconciliation">Inventory Reconciliation</a></li>
-<li><a class="reference internal" href="#arrears-corrections">Arrears Corrections</a></li>
-<li><a class="reference internal" href="#units-of-measure">Units of Measure</a></li>
 <li><a class="reference internal" href="#recurring-methods">Recurring Methods</a></li>
 <li><a class="reference internal" href="#free-days">Free Days</a></li>
 <li><a class="reference internal" href="#custom-periods">Custom Periods</a></li>
+<li><a class="reference internal" href="#inventory-reconciliation">Inventory Reconciliation</a></li>
+<li><a class="reference internal" href="#arrears-corrections">Arrears Corrections</a></li>
+<li><a class="reference internal" href="#units-of-measure">Units of Measure</a></li>
 <li><a class="reference internal" href="#minimum-recurring-invoice">Minimum Recurring Invoice</a></li>
 </ul>
 </li>
@@ -94,41 +94,15 @@
             
   <div class="section" id="recurring-issues-and-examples">
 <span id="bill-recur-example"></span><h1>Recurring Issues and Examples<a class="headerlink" href="#recurring-issues-and-examples" title="Permalink to this headline">¶</a></h1>
-<p>Many warehousing programs which attempt to calculate billing are yet unable to
-produce a correct bill combining anniversary method with freedays. Fortunately
-there is WARES. Examples provided here address this and many other issues with
-storage billing, activity reconciliation, and more.</p>
 <p>(Screen shots and transaction details to be added later.)</p>
+<p>Many programs which attempt to calculate 3PL warehouse billing are not able to
+produce a correct bill for some common recurring methods. Fortunately there is
+WARES. This section provides examples of issues with recurring storage billing,
+activity reconciliation, and similar topics.</p>
 <div class="section" id="tracking">
 <h2>Tracking<a class="headerlink" href="#tracking" title="Permalink to this headline">¶</a></h2>
 <p>Inventory tracking may be by unit, lot, or product. Recurring billing depends
 on the received date for goods, independent of the tracking method.</p>
-</div>
-<div class="section" id="inventory-reconciliation">
-<h2>Inventory Reconciliation<a class="headerlink" href="#inventory-reconciliation" title="Permalink to this headline">¶</a></h2>
-<p>Damaged goods included in recurring storage are not reported in available
-inventory.</p>
-</div>
-<div class="section" id="arrears-corrections">
-<h2>Arrears Corrections<a class="headerlink" href="#arrears-corrections" title="Permalink to this headline">¶</a></h2>
-<p>Transactions may be posted in arrears, including to previous months, to correct
-errors such as: receiving to a wrong product code, receiving an incorrect lot
-number, recording hidden damage, transferring ownership, and similar problems.</p>
-<p>When a correction entered today is posted into a calculated period, then the
-starting balances of new recurring activity will not match the ending balances
-from the previous period. Specifically, transactions may create a recurring
-audit discrepancy when the span between <strong>Posted</strong> and <strong>Entered</strong> dates cross
-a recurring period boundary, and the <strong>Entered</strong> datetime is after the previous
-recurring calculation <strong>Run</strong> datetime.</p>
-<p>When auditing recurring, transactions are selected for <strong>Posted</strong> (or
-<strong>Received</strong>) dates within the period and then sorted by <strong>Entered</strong> datetime.
-Knowing the <strong>Run</strong> datetime for the calculation, out of period transaction
-exceptions can be identified and accounted for.</p>
-</div>
-<div class="section" id="units-of-measure">
-<h2>Units of Measure<a class="headerlink" href="#units-of-measure" title="Permalink to this headline">¶</a></h2>
-<p>The units of measure for billing storage and handling can be different from the
-stock units for inventory movement.</p>
 </div>
 <div class="section" id="recurring-methods">
 <h2>Recurring Methods<a class="headerlink" href="#recurring-methods" title="Permalink to this headline">¶</a></h2>
@@ -150,6 +124,34 @@ daily, weekly, or bi-weekly.</p>
 <p>Specifically with anniversary billing, monthly charges for recurring storage
 may be calculated incrementally throughout the month depending on <strong>Received</strong>
 dates.</p>
+</div>
+<div class="section" id="inventory-reconciliation">
+<h2>Inventory Reconciliation<a class="headerlink" href="#inventory-reconciliation" title="Permalink to this headline">¶</a></h2>
+<p>Damaged goods included in recurring storage are not reported in available
+inventory.</p>
+<p>Inventory reports list current balances, while <em>Stock Activity</em> reports audit
+balances at specific dates and times.</p>
+</div>
+<div class="section" id="arrears-corrections">
+<h2>Arrears Corrections<a class="headerlink" href="#arrears-corrections" title="Permalink to this headline">¶</a></h2>
+<p>Transactions may be posted in arrears, including to previous months, to correct
+errors such as: receiving to a wrong product code, receiving an incorrect lot
+number, recording hidden damage, transferring ownership, and similar problems.</p>
+<p>When a correction entered today is posted into a calculated period, then the
+starting balances of a new recurring audit will not match the ending balances
+from the previous period. Specifically, transactions may create a recurring
+audit discrepancy when the span between <strong>Posted</strong> and <strong>Entered</strong> dates cross
+a recurring period boundary, and the <strong>Entered</strong> datetime is after the previous
+recurring calculation <strong>Run</strong> datetime.</p>
+<p>When auditing recurring, transactions are selected for <strong>Posted</strong> (or
+<strong>Received</strong>) dates within the period and then sorted by <strong>Entered</strong> datetime.
+Knowing the <strong>Run</strong> datetime for the calculation, out of period transaction
+exceptions can be identified and accounted for.</p>
+</div>
+<div class="section" id="units-of-measure">
+<h2>Units of Measure<a class="headerlink" href="#units-of-measure" title="Permalink to this headline">¶</a></h2>
+<p>The units of measure for storage and handling charges can be different from the
+stock units for inventory movement.</p>
 </div>
 <div class="section" id="minimum-recurring-invoice">
 <h2>Minimum Recurring Invoice<a class="headerlink" href="#minimum-recurring-invoice" title="Permalink to this headline">¶</a></h2>

@@ -89,7 +89,8 @@
 <span id="bill-recur-calc"></span><h1>Calculating Recurring Charges<a class="headerlink" href="#calculating-recurring-charges" title="Permalink to this headline">¶</a></h1>
 <p>Recurring is calculated across a date interval or period. The balances of
 active lots are determined for the start of the period, and the transaction
-activity completed within the period is then accumulated to determine an ending balance.</p>
+activity completed within the period is then accumulated to determine an ending
+balance.</p>
 <p>Recurring is audited by comparing the ending balance of a lot in one period to
 the starting balance in the succeeding period, and comparing the total of lot
 transactions in a period with the difference between starting and ending
@@ -97,8 +98,8 @@ balances.</p>
 <div class="section" id="recurring-calculation">
 <h2>Recurring Calculation<a class="headerlink" href="#recurring-calculation" title="Permalink to this headline">¶</a></h2>
 <p>While recurring selects multiple accounts to process in a batch, each account
-is calculated separately. This allows accounts which have outstanding issues to
-be skipped, while completing billing for other accounts.</p>
+is calculated and reported separately. This allows accounts with outstanding
+issues to be skipped, while completing billing for other accounts.</p>
 <p>To calculate recurring, first unverified transactions for the account with
 <strong>Posted</strong> dates before and including the account&#8217;s recurring calendar <strong>Next</strong>
 date are selected. If any transactions are found the account is skipped; the
@@ -269,14 +270,16 @@ array is initialized to keep inventory balance information by <strong>Product</s
 <li>If the account has free days <a class="footnote-reference" href="#id5" id="id2">[2]</a>, and if the <strong>Received</strong> date is within
 the recurring interval, then the anniversary <strong>Starting</strong> date is set to the
 free days expiration date, and a receiving calculation flag is raised.</li>
-<li>If the account uses <strong>Anniversary</strong> recurring: (1) if the receiving flag is
-raised then the <strong>Ending</strong> date is left blank, (2) if the lot anniversary
+<li>If the account uses anniversary recurring: (1) if the receiving flag is
+raised then the <strong>Ending</strong> date is left blank, or (2) if the lot anniversary
 falls within the recurring interval then the anniversary <strong>Ending</strong> date is
 set to that date and the <strong>Starting</strong> date is set to the previous
 anniversary plus one day, or (3) otherwise the lot is skipped. <a class="footnote-reference" href="#id6" id="id3">[3]</a></li>
-<li>If the account uses calendar <strong>Starting</strong> or <strong>Ending</strong> recurring, then the
-lot anniversary <strong>Starting</strong> date is set to the calendar date <strong>Last + 1</strong>,
-and the <strong>Ending</strong> date is set to the calendar <strong>Next</strong> date.</li>
+<li>If the account uses periodic recurring, (1) if the receiving flag is raised
+and the account bills from starting balances then the <strong>Ending</strong> date is
+left blank, else the <strong>Ending</strong> date is set to the calendar <strong>Next</strong> date,
+and if the receiving flag is not raised, the lot anniversary <strong>Starting</strong>
+date is set to the calendar date <strong>Last + 1</strong>.</li>
 </ol>
 <p>Once lot anniversary dates are set, transactions are selected for the lot (that
 is, by <strong>Account</strong>, <strong>Product</strong>, <strong>Variety</strong>, lot <strong>Control</strong>, and <strong>Posted</strong>
@@ -298,23 +301,25 @@ which have no transactions at all are deleted.</li>
 <p>At this point, recurring audits and charges can be prepared for the lot.</p>
 <ol class="arabic simple">
 <li>The rate <strong>Group</strong> is determined from the lot&#8217;s <strong>Product/Variety</strong>
-information, and the recurring UOM (and the receiving UOM, if the account
-has freedays) is used to determine the quantities to use for the audit:
-Units, Packages, Inners, Net weight, Gross weight, or Volume.</li>
+information, and the recurring per code (and the receiving per code, if the
+receiving flag is raised) is used to determine the quantities to use for the
+stock activity audit: Units, Packages, Inners, Net weight, Gross weight, or
+Volume.</li>
 <li>If the receiving calculation flag is raised, a receiving storage audit is
-written using the <strong>Starting</strong> balances of the receiving billing UOM.</li>
+written using <strong>Starting</strong> balances for the receiving per code.</li>
 <li>If recurring is calculated from <strong>Starting</strong> balances, and the receiving
 flag is not raised, then a recurring storage audit is written using the
-<strong>Starting</strong> balances and the recurring billing UOM.</li>
+<strong>Starting</strong> balances for the recurring per code.</li>
 <li>If recurring is calculated from <strong>Ending</strong> balances or by <strong>Anniversary</strong>,
 and the <strong>Ending</strong> date is not null, then a recurring storage audit is
-written using the <strong>Ending</strong> balances and the recurring UOM.</li>
+written using the <strong>Ending</strong> balances for the recurring per code.</li>
 <li>The inventory quantity accumulator array is updated with the lot quantities.</li>
 </ol>
 <p>After calculating all the lots for a product, that is, when a product/variety
 break occurs, a recurring charge line is generated from the product accumulator
 array. If the account has free days, a separate charge line is generated for
-any received quantities. Then the array is re-initialized for the next product.</p>
+any received quantities. _[4] Then the array is re-initialized for the next
+product.</p>
 <table class="docutils footnote" frame="void" id="id4" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
@@ -336,6 +341,15 @@ transaction <strong>Posted</strong> date plus the number of free days.</td></tr>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td><strong>Anniversary</strong> method recurring calendars must preclude having two
 anniversary dates fall in the same calculation interval.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id7" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[4]</td><td>A billing UOM is specified in the rate, separate from the inventory per
+code. A factor or deficit formula is applied to inventory quantities to
+calculate billing quantities, so that the amounts billed may not match
+the exact inventory shown on the corresponding Stock Activity report.</td></tr>
 </tbody>
 </table>
 </div>

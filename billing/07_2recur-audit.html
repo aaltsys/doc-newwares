@@ -122,7 +122,7 @@ combination. The <strong>Activity</strong> column contains the product identifie
 <div class="section" id="stock-activity-audits">
 <span id="bill-activity"></span><h3>Stock Activity Audits<a class="headerlink" href="#stock-activity-audits" title="Permalink to this headline">¶</a></h3>
 <p>Billing quantities for stock activity and balances are captured with the
-<strong>Stock Activity Audit</strong>. This report is divided into two sections: identifying
+<em>Stock Activity Audit</em>. This report is divided into two sections: identifying
 information for each item on the left, and quantitative data on the right.</p>
 <p>Columns for the report identifier section are:</p>
 <table border="1" class="docutils">
@@ -148,27 +148,24 @@ information for each item on the left, and quantitative data on the right.</p>
 <tr class="row-odd"><td>ACCOUNT</td>
 <td>Customer Account Code</td>
 </tr>
-<tr class="row-even"><td>UOM</td>
-<td>Billing Quantity Unit of Measure</td>
-</tr>
-<tr class="row-odd"><td>PRODUCT</td>
+<tr class="row-even"><td>PRODUCT</td>
 <td>Product Code Identifier</td>
 </tr>
-<tr class="row-even"><td>VARIETY</td>
+<tr class="row-odd"><td>VARIETY</td>
 <td>Variety Code, if used</td>
 </tr>
-<tr class="row-odd"><td>LOT</td>
+<tr class="row-even"><td>LOT</td>
 <td>When tracking lots, the Lot Number</td>
 </tr>
-<tr class="row-even"><td>RECEIVED</td>
+<tr class="row-odd"><td>RECEIVED</td>
 <td>Inventory date Posted + freedays</td>
 </tr>
-<tr class="row-odd"><td>UOM</td>
+<tr class="row-even"><td>UOM</td>
 <td>Per code UOM (units, packages, ...)</td>
 </tr>
 </tbody>
 </table>
-<p><strong>AUDIT</strong> and <strong>RUN</strong> datetime apply to the entire report, and so these items
+<p><strong>Audit</strong> and <strong>Run</strong> datetime apply to the entire report, and so these items
 appear in the report identifier section heading, as shown in the following
 sample Stock Activity report:</p>
 <img alt="_images/audit-activity.png" src="_images/audit-activity.png" />
@@ -176,8 +173,8 @@ sample Stock Activity report:</p>
 <div class="section" id="activity-quantitative-data">
 <h3>Activity Quantitative Data<a class="headerlink" href="#activity-quantitative-data" title="Permalink to this headline">¶</a></h3>
 <p>The following table lists quantitative data from the right side of the activity
-report. Again, calendar range <strong>BEGINNING</strong> and <strong>ENDING</strong> apply to the entire
-report and so these items appear in the data section heading. All data columns
+report. Again, calendar range <strong>Beginning</strong> and <strong>Ending</strong> apply to the entire
+account and so these items appear in the data section heading. All data columns
 are listed below.</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -223,10 +220,10 @@ are listed below.</p>
 </tbody>
 </table>
 <p>For a lot to be included in a particular recurring calculation batch, the lot
-anniversary <strong>END DATE</strong> must fall within the RANGE <strong>STARTING</strong> to <strong>ENDING</strong>
-bracket of the calculation batch. Lot anniversary <strong>START DATE</strong> and
-<strong>END DATE</strong> values are determined by the account&#8217;s recurring calendar, and by
-the account&#8217;s recurring configuration.</p>
+anniversary <strong>End Date</strong> must fall within the Range <strong>Beginning</strong> to <strong>Ending</strong>
+bracket of the calculation. Lot anniversary <strong>End Date</strong> values are determined
+either by the account&#8217;s recurring calendar, for periodic recurring accounts, or
+by the individual lot&#8217;s <strong>Received</strong> date for anniversary accounts.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p>Since the Stock Activity Audit is a product report, the UOM code <em>LB</em> is
