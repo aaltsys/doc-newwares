@@ -41,7 +41,7 @@ Stock Activity Audits
 -----------------------------
 
 Billing quantities for stock activity and balances are captured with the 
-**Stock Activity Audit**. This report is divided into two sections: identifying 
+*Stock Activity Audit*. This report is divided into two sections: identifying 
 information for each item on the left, and quantitative data on the right.
 
 Columns for the report identifier section are:
@@ -56,8 +56,6 @@ Columns for the report identifier section are:
 +-----------------+------------------------------------+
 | ACCOUNT         | Customer Account Code              |
 +-----------------+------------------------------------+ 
-| UOM             | Billing Quantity Unit of Measure   |
-+-----------------+------------------------------------+
 | PRODUCT         | Product Code Identifier            |
 +-----------------+------------------------------------+
 | VARIETY         | Variety Code, if used              |
@@ -69,7 +67,7 @@ Columns for the report identifier section are:
 | UOM             | Per code UOM (units, packages, ...)|
 +-----------------+------------------------------------+
 
-**AUDIT** and **RUN** datetime apply to the entire report, and so these items 
+**Audit** and **Run** datetime apply to the entire report, and so these items 
 appear in the report identifier section heading, as shown in the following 
 sample Stock Activity report:
 
@@ -79,8 +77,8 @@ Activity Quantitative Data
 -----------------------------
 
 The following table lists quantitative data from the right side of the activity
-report. Again, calendar range **BEGINNING** and **ENDING** apply to the entire 
-report and so these items appear in the data section heading. All data columns 
+report. Again, calendar range **Beginning** and **Ending** apply to the entire 
+account and so these items appear in the data section heading. All data columns 
 are listed below.
 
 +-----------------+------------------------------------+
@@ -106,12 +104,11 @@ are listed below.
 | ENDING DATE     | Lot Anniversary Ending Date        |
 +-----------------+------------------------------------+
 
-
 For a lot to be included in a particular recurring calculation batch, the lot 
-anniversary **END DATE** must fall within the RANGE **STARTING** to **ENDING** 
-bracket of the calculation batch. Lot anniversary **START DATE** and 
-**END DATE** values are determined by the account's recurring calendar, and by 
-the account's recurring configuration. 
+anniversary **End Date** must fall within the Range **Beginning** to **Ending** 
+bracket of the calculation. Lot anniversary **End Date** values are determined 
+either by the account's recurring calendar, for periodic recurring accounts, or 
+by the individual lot's **Received** date for anniversary accounts. 
 
 .. note:: 
    Since the Stock Activity Audit is a product report, the UOM code *LB* is 
