@@ -47,7 +47,7 @@ recurring calendar for the account is not updated.
    || Identified by:   || **Group** = **Account**       |
    ||                  || **Code** = **1S**             |
    +-------------------+--------------------------------+
-   || **Last + 1** starts calculation interval          |
+   || **Last + 1** begins calculation interval          |
    || **Next** ends calculation interval                |
    +----------------------------------------------------+
    || :menuselection:`Setup --> Products`               |
@@ -149,7 +149,7 @@ At this point, recurring audits and charges can be prepared for the lot.
 After calculating all the lots for a product, that is, when a product/variety 
 break occurs, a recurring charge line is generated from the product accumulator 
 array. If the account has free days, a separate charge line is generated for 
-any received quantities. _[4] Then the array is re-initialized for the next 
+any received quantities. [4]_ Then the array is re-initialized for the next 
 product. 
 
 .. [1] Where a **Received** monthday falls at the end of a month, subsequent
