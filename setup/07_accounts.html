@@ -183,14 +183,10 @@ services which have been invoiced, but which are yet to be performed.</li>
 </div>
 <div class="section" id="account-storage">
 <span id="id1"></span><h2>Account Storage<a class="headerlink" href="#account-storage" title="Permalink to this headline">¶</a></h2>
-<div class="sidebar">
-<p class="first sidebar-title">Storage Settings</p>
-<img alt="_images/account-storage.png" class="last" src="_images/account-storage.png" />
-</div>
 <p>Third-party warehouses bill for the storage space an account uses. Customarily
 a warehouse calculates the number of units of inventory in the warehouse at the
 start of each month, and bills in advance for recurring storage. Similarly the
-warehouse bills an additional storage charge for each unit of inventory received
+warehouse bills an additional storage charge for each inventory unit received
 during a month.</p>
 <p>This section codifies the contractual terms for calculating storage charges on
 an account, as described by the following items.</p>
@@ -199,7 +195,7 @@ an account, as described by the following items.</p>
 following options:
 <strong>(E)nding balance</strong> for advance billing of calendar month storage,
 <strong>(S)tarting balance</strong> for arrears billing of the previous month, and
-<strong>(A)nniversary</strong> for calculating the recurring storage on each lot according
+<strong>(A)nniversary</strong> for calculating the recurring storage by lot according
 to the balance on succeeding month-days following the initial receipt.</p>
 <p>When Anniversary recurring is selected, the receiving code is set to
 (F)ull month, and that entry is disabled. <a class="footnote-reference" href="#id4" id="id2">[1]</a></p>
@@ -218,9 +214,10 @@ recurring storage charges will be applied to received goods, while</p>
 <li><p class="first"><strong>Grace Days</strong> waives receiving storage for goods within the grace period at
 the end of a month.</p>
 </li>
-<li><p class="first"><strong>Declared Value</strong>, <strong>Per</strong>, and <strong>Surcharge</strong> specify a limitation to the
-liability a warehouser has for an account&#8217;s goods, and expresses the storage
-rate increase when the declared value of goods exceeds that limitation. <a class="footnote-reference" href="#id5" id="id3">[2]</a></p>
+<li><p class="first"><strong>Declared Value</strong> and <strong>Per</strong> specify a limitation to the liability a
+warehouser has for an account&#8217;s goods. Additionally the storage rate for
+goods may be increased when the declared value of goods exceeds that
+limitation. <a class="footnote-reference" href="#id5" id="id3">[2]</a></p>
 </li>
 </ul>
 </div>
@@ -237,7 +234,7 @@ information, as shown in the sidebar.</p>
 </div>
 <div class="section" id="accounts-database-schema">
 <h2>Accounts Database Schema<a class="headerlink" href="#accounts-database-schema" title="Permalink to this headline">¶</a></h2>
-<p>The Accounts database column schema can be found at <a class="reference external" href="../resources/01_accounts.html#accounts-schema" title="(in WARES Resources v1.0)"><em>ACCOUNTS Data Table Columns</em></a>.</p>
+<p>The Accounts database column schema can be found at <a class="reference external" href="../resources/14_accounts.html#accounts-schema" title="(in WARES Resources v1.0)"><em>ACCOUNTS Data Table Columns</em></a>.</p>
 <hr class="docutils" />
 <table class="docutils footnote" frame="void" id="id4" rules="none">
 <colgroup><col class="label" /><col /></colgroup>

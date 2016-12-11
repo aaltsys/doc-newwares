@@ -46,13 +46,13 @@
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Recurring Issues and Examples</a><ul>
-<li><a class="reference internal" href="#tracking">Tracking</a></li>
+<li><a class="reference internal" href="#inventory-in-recurring">Inventory in Recurring</a></li>
+<li><a class="reference internal" href="#inventory-reconciliation">Inventory Reconciliation</a></li>
 <li><a class="reference internal" href="#recurring-methods">Recurring Methods</a></li>
 <li><a class="reference internal" href="#free-days">Free Days</a></li>
+<li><a class="reference internal" href="#inventory-adjustments">Inventory Adjustments</a></li>
 <li><a class="reference internal" href="#custom-periods">Custom Periods</a></li>
-<li><a class="reference internal" href="#inventory-reconciliation">Inventory Reconciliation</a></li>
 <li><a class="reference internal" href="#arrears-corrections">Arrears Corrections</a></li>
-<li><a class="reference internal" href="#units-of-measure">Units of Measure</a></li>
 <li><a class="reference internal" href="#minimum-recurring-invoice">Minimum Recurring Invoice</a></li>
 </ul>
 </li>
@@ -99,10 +99,25 @@
 produce a correct bill for some common recurring methods. Fortunately there is
 WARES. This section provides examples of issues with recurring storage billing,
 activity reconciliation, and similar topics.</p>
-<div class="section" id="tracking">
-<h2>Tracking<a class="headerlink" href="#tracking" title="Permalink to this headline">¶</a></h2>
-<p>Inventory tracking may be by unit, lot, or product. Recurring billing depends
-on the received date for goods, independent of the tracking method.</p>
+<div class="section" id="inventory-in-recurring">
+<h2>Inventory in Recurring<a class="headerlink" href="#inventory-in-recurring" title="Permalink to this headline">¶</a></h2>
+<p>Measuring inventory for recurring storage differs from reporting stock on hand
+and available for a number of reasons, as follows.</p>
+<ul class="simple">
+<li><strong>Tracking</strong> may be used to report inventory by bulk product, but stock
+rotation and recurring billing depend on received dates, and therefore inventory is always accounted for by receipt date.</li>
+<li><strong>Reporting</strong> of inventory may be by package or unit while calculating
+and reporting storage charges by weight or cube.</li>
+<li><strong>Minimum</strong> fees may imply deficit quantities or rounding, so that billed
+quantities do not match reported inventory.</li>
+<li><strong>Damaged</strong> or <strong>quarantined</strong> goods are not reported in available inventory
+but all goods are included in recurring regardless of condition.</li>
+</ul>
+</div>
+<div class="section" id="inventory-reconciliation">
+<h2>Inventory Reconciliation<a class="headerlink" href="#inventory-reconciliation" title="Permalink to this headline">¶</a></h2>
+<p>Inventory reports list current balances, while <em>Stock Activity</em> reports audit
+balances at specific dates and times.</p>
 </div>
 <div class="section" id="recurring-methods">
 <h2>Recurring Methods<a class="headerlink" href="#recurring-methods" title="Permalink to this headline">¶</a></h2>
@@ -115,6 +130,22 @@ storage charges or calculating anniversaries, as well as requiring the
 accumulation of both receiving and recurring charges during recurring
 calculation.</p>
 </div>
+<div class="section" id="inventory-adjustments">
+<h2>Inventory Adjustments<a class="headerlink" href="#inventory-adjustments" title="Permalink to this headline">¶</a></h2>
+<p>With anniversary billing, adjusting goods out of a lot and into a new lot will
+result in the loss of recurring storage charges unless the posting date of the
+new lot reflects the original <strong>Received</strong> date of the goods.</p>
+<p>Receiving charges and free days apply to receiving only. When adjusting goods
+from one lot or product to another, if the goods have not yet reached the <strong>Received</strong> date because of free days, then the warehouse will lose the
+receiving charges.</p>
+<p>Therefore adjustments should not be used to create new lots when either
+anniversary billing or free days apply to an account. A receipt should be
+issued instead, according to the <em>Standard Contract Terms (Sec 5.a)</em>:</p>
+<blockquote>
+<div>When goods in storage are transferred from one party to another through
+issuance of a new warehouse receipt, a new storage date is established on
+the date of transfer.</div></blockquote>
+</div>
 <div class="section" id="custom-periods">
 <h2>Custom Periods<a class="headerlink" href="#custom-periods" title="Permalink to this headline">¶</a></h2>
 <p>Accounts may require a warehouse to use their proprietary calendar period dates
@@ -122,15 +153,8 @@ for reconciling inventory and calculating charges.</p>
 <p>Recurring may be calculated by month, or by alternative time periods such as
 daily, weekly, or bi-weekly.</p>
 <p>Specifically with anniversary billing, monthly charges for recurring storage
-may be calculated incrementally throughout the month depending on <strong>Received</strong>
-dates.</p>
-</div>
-<div class="section" id="inventory-reconciliation">
-<h2>Inventory Reconciliation<a class="headerlink" href="#inventory-reconciliation" title="Permalink to this headline">¶</a></h2>
-<p>Damaged goods included in recurring storage are not reported in available
-inventory.</p>
-<p>Inventory reports list current balances, while <em>Stock Activity</em> reports audit
-balances at specific dates and times.</p>
+may be calculated incrementally throughout the month depending on anniversaries
+of <strong>Received</strong> dates.</p>
 </div>
 <div class="section" id="arrears-corrections">
 <h2>Arrears Corrections<a class="headerlink" href="#arrears-corrections" title="Permalink to this headline">¶</a></h2>
@@ -148,13 +172,8 @@ recurring calculation <strong>Run</strong> datetime.</p>
 Knowing the <strong>Run</strong> datetime for the calculation, out of period transaction
 exceptions can be identified and accounted for.</p>
 </div>
-<div class="section" id="units-of-measure">
-<h2>Units of Measure<a class="headerlink" href="#units-of-measure" title="Permalink to this headline">¶</a></h2>
-<p>The units of measure for storage and handling charges can be different from the
-stock units for inventory movement.</p>
-</div>
 <div class="section" id="minimum-recurring-invoice">
-<h2>Minimum Recurring Invoice<a class="headerlink" href="#minimum-recurring-invoice" title="Permalink to this headline">¶</a></h2>
+<span id="bill-recur-minimum"></span><h2>Minimum Recurring Invoice<a class="headerlink" href="#minimum-recurring-invoice" title="Permalink to this headline">¶</a></h2>
 <p>To avoid expending warehouse resources on non-performing accounts, a warehouse
 may impose a recurring invoice minimum charge. The procedure for setting up
 this charge is shown in the following example.</p>

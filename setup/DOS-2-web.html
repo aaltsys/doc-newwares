@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Changed from DOS to webWARES &mdash; WARES Company 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="WARES Company 1.0 documentation" href="index.html" />
+    <link rel="next" title="Service Codes List" href="services-example.html" />
+    <link rel="prev" title="Products and Varieties" href="09_products.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="services-example.html" title="Service Codes List"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="09_products.html" title="Products and Varieties"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">WARES Company 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Changed from DOS to webWARES</a><ul>
+<li><a class="reference internal" href="#account-setup">Account Setup</a></li>
+<li><a class="reference internal" href="#recurring-audits">Recurring Audits</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="09_products.html"
+                        title="previous chapter">Products and Varieties</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="services-example.html"
+                        title="next chapter">Service Codes List</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/DOS-2-web.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="changed-from-dos-to-webwares">
+<span id="dos2web"></span><h1>Changed from DOS to webWARES<a class="headerlink" href="#changed-from-dos-to-webwares" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="account-setup">
+<h2>Account Setup<a class="headerlink" href="#account-setup" title="Permalink to this headline">¶</a></h2>
+<p>Exceptional accounting functions in DOSWARES are rationalized in webWARES, and
+so setup of these functions has been removed from the Accounts window. These
+are:</p>
+<ul class="simple">
+<li><strong>Recurring calendar</strong> and the corresponding <strong>Recur Flag</strong> are removed, as
+webWARES incorporates a generic billing calendar feature. Each account in
+webWARES requires a recurring billing calendar, and the calendar shows LAST
+and NEXT dates, eliminating the recurring flag. See <em class="xref std std-ref">bill_recurring</em>.</li>
+<li><strong>Recurring Minimum</strong> is now implemented through a standard rate record
+which requires a built-in custom billing method, as documented in
+<em class="xref std std-ref">bill_recur_minimum</em>.</li>
+<li><strong>Value Surcharge</strong> as a percentage of storage rate could be implemnted as a
+rate record and built-in custom billing method, as documented in ... <em>(not
+done yet, and documentation not updated in :ref:`07_accounts`)</em>. The better
+implementation is simply to set the account&#8217;s storage rates to reflect the
+increased rates.</li>
+</ul>
+</div>
+<div class="section" id="recurring-audits">
+<h2>Recurring Audits<a class="headerlink" href="#recurring-audits" title="Permalink to this headline">¶</a></h2>
+<p>Recurring auditing in webWARES is significantly different than in DOSWARES. To
+simplify the generation of reports, a single recurring audit report documents
+the billing quantity of the recurring (or deferred receiving) quantities. Now
+the audit tracks only the quantity being billed, as one of the following:
+Units, Packages, Inners, Net Weight, Gross Weight, or Volume/DIM.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="services-example.html" title="Service Codes List"
+             >next</a></li>
+        <li class="right" >
+          <a href="09_products.html" title="Products and Varieties"
+             >previous</a> |</li>
+        <li><a href="index.html">WARES Company 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Gerald Lovel.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b1.
+    </div>
+  </body>
+</html>

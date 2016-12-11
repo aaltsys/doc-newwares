@@ -98,14 +98,15 @@ array is initialized to keep inventory balance information by **Product** and
 
 For each lot, anniversary **Starting** and **Ending** dates are determined. [1]_
 
-#. If the account has free days [2]_, and if the **Received** date is within 
-   the recurring interval, then the anniversary **Starting** date is set to the 
-   free days expiration date, and a receiving calculation flag is raised.
+#. If the account has free days [2]_, and if the **Received** date (meaning the 
+   Posted date + Free days) is within the recurring interval, then the 
+   **Starting** anniversary date is set to the **Received** date, and a 
+   receiving calculation flag is raised.
 #. If the account uses anniversary recurring: (1) if the receiving flag is 
    raised then the **Ending** date is left blank, or (2) if the lot anniversary 
-   falls within the recurring interval then the anniversary **Ending** date is 
-   set to that date and the **Starting** date is set to the previous 
-   anniversary plus one day, or (3) otherwise the lot is skipped. [3]_
+   falls within the recurring interval then the **Ending** date is set to the 
+   anniversary **Date - 1** and the **Starting** date is set to the previous 
+   month's anniversary day, or (3) otherwise the lot is skipped. [3]_
 #. If the account uses periodic recurring, (1) if the receiving flag is raised 
    and the account bills from starting balances then the **Ending** date is 
    left blank, else the **Ending** date is set to the calendar **Next** date, 
@@ -116,15 +117,15 @@ Once lot anniversary dates are set, transactions are selected for the lot (that
 is, by **Account**, **Product**, **Variety**, lot **Control**, and **Posted** 
 date), and each lot is processed to determine balances.
 
-#. Transactions **Posted** prior to the lot anniversary **Starting** date are
+#. Transactions **Received** prior to the lot anniversary **Starting** date are
    selected, and transaction quantities are summed to obtain the starting 
    balances for the lot. A starting balances array is stored.
 #. If an **Ending** date is set then receiving transactions are selected with 
-   **Posted** date from the **Starting** date through the **Ending** date. The 
-   transactions are summed and a received balances array is stored. 
+   **Received** date from the **Starting** date through the **Ending** date. 
+   The transactions are summed and a received balances array is stored. 
 #. In the same way as receiving, shipping and adjusting transactions are 
    selected, summed, and stored in shipped and adjusted arrays.
-#. If a lot has zero balance on the **Starting** date, and no transactions 
+#. If a lot has zero balance at the **Starting** date, and no transactions 
    occur on or after the starting date, then the lot and all associated 
    transactions are set to **Archived** status and the lot is skipped. Lots 
    which have no transactions at all are deleted.
@@ -135,7 +136,7 @@ At this point, recurring audits and charges can be prepared for the lot.
    information, and the recurring per code (and the receiving per code, if the 
    receiving flag is raised) is used to determine the quantities to use for the 
    stock activity audit: Units, Packages, Inners, Net weight, Gross weight, or 
-   Volume.
+   DIM/Volume.
 #. If the receiving calculation flag is raised, a receiving storage audit is 
    written using **Starting** balances for the receiving per code.
 #. If recurring is calculated from **Starting** balances, and the receiving 
@@ -157,8 +158,9 @@ product.
        for the anniversary.
 
 .. [2] A lot **Received** date is set to the **Posted** date unless the account
-       has free days, in which case the lot **Received** date is set to the 
-       transaction **Posted** date plus the number of free days. 
+       has free days and the posting is from a receipt, in which case the lot 
+       **Received** date is set to the transaction **Posted** date plus the 
+       number of free days. 
 
 .. [3] **Anniversary** method recurring calendars must preclude having two 
        anniversary dates fall in the same calculation interval.

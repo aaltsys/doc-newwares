@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>JSON CODES Export &mdash; WARES Resources 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="WARES Resources 1.0 documentation" href="index.html" />
+    <link rel="next" title="JSON CONTACTS Export" href="json_15_contacts.html" />
+    <link rel="prev" title="JSON ACCOUNTS Export" href="json_14_accounts.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="json_15_contacts.html" title="JSON CONTACTS Export"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="json_14_accounts.html" title="JSON ACCOUNTS Export"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">WARES Resources 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="json_14_accounts.html"
+                        title="previous chapter">JSON ACCOUNTS Export</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="json_15_contacts.html"
+                        title="next chapter">JSON CONTACTS Export</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/json_14_codes.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="json-codes-export">
+<span id="json-codes"></span><h1>JSON CODES Export<a class="headerlink" href="#json-codes-export" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Column F/S/J indicates a WARES data field (F), a synthetic field (S), or a
+synthetic column specific to the JSON export (J). Column S/M indicates
+whether a column is single-valued (S) or array multivalue (M). Column A/N
+refers to whether the data will be quoted string (A) or unquoted numeric (N).</p>
+</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="25%" />
+<col width="7%" />
+<col width="7%" />
+<col width="30%" />
+<col width="22%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">F/S/J</th>
+<th class="head">JSON NAME</th>
+<th class="head">M/S</th>
+<th class="head">A/N</th>
+<th class="head">DICTIONARY (&#8220;value&#8221;)</th>
+<th class="head">COMMANDS</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>N/A</td>
+<td>keys</td>
+<td colspan="4">&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>identifier</td>
+<td>S</td>
+<td>A</td>
+<td>IDENTIFIER</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Properties</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>format</td>
+<td>S</td>
+<td>A</td>
+<td>FORMAT</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>columns</td>
+<td>S</td>
+<td>N</td>
+<td>NUM</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td colspan="6">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Values List</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>code</td>
+<td>M</td>
+<td>A</td>
+<td>CODE</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>description</td>
+<td>M</td>
+<td>A</td>
+<td>DESCRIPTION</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>column3</td>
+<td>M</td>
+<td>A</td>
+<td>COL3</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>column4</td>
+<td>M</td>
+<td>A</td>
+<td>COL4</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>F</td>
+<td>column5</td>
+<td>M</td>
+<td>A</td>
+<td>COL5</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>column6</td>
+<td>M</td>
+<td>A</td>
+<td>COL6</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="json_15_contacts.html" title="JSON CONTACTS Export"
+             >next</a></li>
+        <li class="right" >
+          <a href="json_14_accounts.html" title="JSON ACCOUNTS Export"
+             >previous</a> |</li>
+        <li><a href="index.html">WARES Resources 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Gerald Lovel.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b1.
+    </div>
+  </body>
+</html>

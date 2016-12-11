@@ -101,14 +101,10 @@ the following entries:
 Account Storage
 =============================
 
-.. sidebar:: Storage Settings
-
-   .. image:: _images/account-storage.png
-
 Third-party warehouses bill for the storage space an account uses. Customarily 
 a warehouse calculates the number of units of inventory in the warehouse at the 
 start of each month, and bills in advance for recurring storage. Similarly the 
-warehouse bills an additional storage charge for each unit of inventory received 
+warehouse bills an additional storage charge for each inventory unit received 
 during a month. 
 
 This section codifies the contractual terms for calculating storage charges on 
@@ -118,7 +114,7 @@ an account, as described by the following items.
    following options:
    **(E)nding balance** for advance billing of calendar month storage, 
    **(S)tarting balance** for arrears billing of the previous month, and 
-   **(A)nniversary** for calculating the recurring storage on each lot according 
+   **(A)nniversary** for calculating the recurring storage by lot according 
    to the balance on succeeding month-days following the initial receipt. 
 
    When Anniversary recurring is selected, the receiving code is set to 
@@ -134,9 +130,10 @@ an account, as described by the following items.
    recurring storage charges will be applied to received goods, while
 *  **Grace Days** waives receiving storage for goods within the grace period at
    the end of a month.
-*  **Declared Value**, **Per**, and **Surcharge** specify a limitation to the 
-   liability a warehouser has for an account's goods, and expresses the storage 
-   rate increase when the declared value of goods exceeds that limitation. [2]_
+*  **Declared Value** and **Per** specify a limitation to the liability a 
+   warehouser has for an account's goods. Additionally the storage rate for 
+   goods may be increased when the declared value of goods exceeds that 
+   limitation. [2]_
 
 Account Basic views
 =============================
