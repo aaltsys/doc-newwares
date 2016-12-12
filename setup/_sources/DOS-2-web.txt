@@ -16,10 +16,10 @@ are:
 *  **Recurring calendar** and the corresponding **Recur Flag** are removed, as
    webWARES incorporates a generic billing calendar feature. Each account in 
    webWARES requires a recurring billing calendar, and the calendar shows LAST 
-   and NEXT dates, eliminating the recurring flag. See :ref:`bill_recurring`.
+   and NEXT dates, eliminating the recurring flag. See recurring documentation.
 *  **Recurring Minimum** is now implemented through a standard rate record 
-   which requires a built-in custom billing method, as documented in 
-   :ref:`bill_recur_minimum`.
+   which requires a built-in custom billing method, as documented in recurring
+   section.
 *  **Value Surcharge** as a percentage of storage rate could be implemnted as a 
    rate record and built-in custom billing method, as documented in ... *(not 
    done yet, and documentation not updated in :ref:`07_accounts`)*. The better 
