@@ -62,10 +62,10 @@ Product Setup Code Lists
 Document Entry Lists
 =============================
 
-| :ref:`document-list`
 | :ref:`condition-list`
 | :ref:`date-list`
 | :ref:`datetime-list`
+| :ref:`document-list`
 | :ref:`freightpay-list`
 | :ref:`loading-list`
 | :ref:`quantity-list`

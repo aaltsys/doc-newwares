@@ -15,7 +15,7 @@ This article provides basic information about service codes, and the billing
 documentation provides additional details on using services. Please see that 
 section for more information. 
 
-.. _services-example:
+.. _services-list:
 
 .. include:: services-example.rst
 

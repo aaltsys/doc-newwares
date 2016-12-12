@@ -1,7 +1,7 @@
 .. _lots-schema:
 
 #############################
-DETAILS Data Table Columns
+LOT DETAILS Data Columns
 #############################
 
 Lot detail record entries are divided into the following sections:
