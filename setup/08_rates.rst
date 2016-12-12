@@ -128,7 +128,7 @@ Rates are uniquely identified by the combination of a **Rate Group** and a
 **Service Code**. The **Rate Group** entry can be either the word GLOBAL, an 
 account identifier, or a user-defined rate group. 
 
-**Service Code** must be selected from the company's :ref:`services-example`.
+**Service Code** must be selected from the company's :ref:`services-list`.
 
 Service codes determine which rates **Apply** as Calculated or Repeating, and 
 the **Apply** code is filled and protected accordingly. Other rates should be
