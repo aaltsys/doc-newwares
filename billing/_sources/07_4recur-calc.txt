@@ -150,7 +150,7 @@ At this point, recurring audits and charges can be prepared for the lot.
 After calculating all the lots for a product, that is, when a product/variety 
 break occurs, a recurring charge line is generated from the product accumulator 
 array. If the account has free days, a separate charge line is generated for 
-any received quantities. [4]_ Then the array is re-initialized for the next 
+any received quantities. [5]_ Then the array is re-initialized for the next 
 product. 
 
 ---------
@@ -193,11 +193,11 @@ product.
           in the preceding month.
 
 .. [4] Note that the contract defines **Anniversary** method recurring as by 
-       calendar month. Accounts using Anniversary recurring must have 
-       calculation calendar must be monthly, although s must preclude having two 
+       calendar month. Accounts using Anniversary recurring must have a 
+       calculation calendar which repeats monthly, which precludes having two 
        anniversary dates fall in the same calculation interval.
 
-.. [4] A billing UOM is specified in the rate, separate from the inventory per 
+.. [5] A billing UOM is specified in the rate, separate from the inventory per 
        code. A factor or deficit formula is applied to inventory quantities to 
        calculate billing quantities, so that the amounts billed may not match 
        the exact inventory shown on the corresponding Stock Activity report.

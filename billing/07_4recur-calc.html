@@ -275,7 +275,7 @@ receiving calculation flag is raised.</li>
 raised then the <strong>Ending</strong> date is left blank, or (2) if the lot anniversary
 falls within the recurring interval then the <strong>Ending</strong> date is set to the
 anniversary <strong>Date - 1</strong> and the <strong>Starting</strong> date is set to the previous
-month&#8217;s anniversary day, or (3) otherwise the lot is skipped. <a class="footnote-reference" href="#id8" id="id3">[3]</a> <a href="#id11"><span class="problematic" id="id12"><span id="id4"></span>[4]_</span></a></li>
+month&#8217;s anniversary day, or (3) otherwise the lot is skipped. <a class="footnote-reference" href="#id8" id="id3">[3]</a> <a class="footnote-reference" href="#id9" id="id4">[4]</a></li>
 <li>If the account uses periodic recurring, (1) if the receiving flag is raised
 and the account bills from starting balances then the <strong>Ending</strong> date is
 left blank, else the <strong>Ending</strong> date is set to the calendar <strong>Next</strong> date,
@@ -319,7 +319,7 @@ written using the <strong>Ending</strong> balances for the recurring per code.</
 <p>After calculating all the lots for a product, that is, when a product/variety
 break occurs, a recurring charge line is generated from the product accumulator
 array. If the account has free days, a separate charge line is generated for
-any received quantities. <a href="#id13"><span class="problematic" id="id14"><span id="id5"></span>[4]_</span></a> Then the array is re-initialized for the next
+any received quantities. <a class="footnote-reference" href="#id10" id="id5">[5]</a> Then the array is re-initialized for the next
 product.</p>
 <hr class="docutils" />
 <p class="rubric">Footnotes</p>
@@ -374,16 +374,16 @@ in the preceding month.</li>
 <table class="docutils footnote" frame="void" id="id9" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[4]</td><td>Note that the contract defines <strong>Anniversary</strong> method recurring as by
-calendar month. Accounts using Anniversary recurring must have
-calculation calendar must be monthly, although s must preclude having two
+<tr><td class="label"><a class="fn-backref" href="#id4">[4]</a></td><td>Note that the contract defines <strong>Anniversary</strong> method recurring as by
+calendar month. Accounts using Anniversary recurring must have a
+calculation calendar which repeats monthly, which precludes having two
 anniversary dates fall in the same calculation interval.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="id10" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[4]</td><td>A billing UOM is specified in the rate, separate from the inventory per
+<tr><td class="label"><a class="fn-backref" href="#id5">[5]</a></td><td>A billing UOM is specified in the rate, separate from the inventory per
 code. A factor or deficit formula is applied to inventory quantities to
 calculate billing quantities, so that the amounts billed may not match
 the exact inventory shown on the corresponding Stock Activity report.</td></tr>
