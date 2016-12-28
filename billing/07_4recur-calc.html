@@ -321,6 +321,8 @@ break occurs, a recurring charge line is generated from the product accumulator
 array. If the account has free days, a separate charge line is generated for
 any received quantities. <a class="footnote-reference" href="#id8" id="id4">[4]</a> Then the array is re-initialized for the next
 product.</p>
+<hr class="docutils" />
+<p class="rubric">Footnotes</p>
 <table class="docutils footnote" frame="void" id="id5" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
@@ -352,6 +354,38 @@ anniversary dates fall in the same calculation interval.</td></tr>
 code. A factor or deficit formula is applied to inventory quantities to
 calculate billing quantities, so that the amounts billed may not match
 the exact inventory shown on the corresponding Stock Activity report.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id9" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[5]</td><td><p class="first">Section 5.c. of <strong>INTERNATIONAL REFRIGERATED WAREHOUSE CONTRACT TERMS
+AND CONDITIONS</strong> states:</p>
+<blockquote>
+<div><em>If storage rates are quoted on an “ANNIVERSARY BASIS” the storage
+month shall extend from date of receipt in one calendar month to, but
+not including, the same date of the next month.</em></div></blockquote>
+<p>This rule is applied to determine anniversary audit <strong>Starting</strong> and
+<strong>Ending</strong> dates as follows:</p>
+<ol class="last arabic simple">
+<li>The calculation month and year is taken from the calendar <strong>Next</strong>
+date.</li>
+<li>The <strong>Received</strong> day is combined with the calendar <strong>Next</strong> month and
+year to determine the next lot anniversary, although if the
+<strong>Received</strong> month day is the first then the month is advanced one
+month.</li>
+<li>An audit <strong>Ending</strong> date is calculated as the day preceding the
+anniversary.</li>
+<li>If the lot is received after the first day of the current calendar
+month it is skipped, and <strong>Ending</strong> is left blank.</li>
+<li>If the <strong>Ending</strong> date is less than or equal to the <strong>Last</strong>
+calculation date, or it is greater than the <strong>Next</strong> date, the lot is
+skipped and <strong>Ending</strong> is left blank. (The calculation spans only
+part of the month, excluding this lot.)</li>
+<li>Otherwise an audit <strong>Starting</strong> date is calculated as the anniversary
+in the preceding month.</li>
+</ol>
+</td></tr>
 </tbody>
 </table>
 </div>

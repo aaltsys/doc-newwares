@@ -217,7 +217,81 @@
 <td>R16</td>
 <td>&nbsp;</td>
 </tr>
+<tr class="row-odd"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Audit Entries</td>
+</tr>
+<tr class="row-even"><td>M</td>
+<td>S</td>
+<td>STARTDATE</td>
+<td>DT</td>
+<td>U</td>
+<td>DATETIME</td>
+<td>&nbsp;</td>
+<td>R16</td>
+<td>&nbsp;</td>
+</tr>
 <tr class="row-odd"><td>O</td>
+<td>S</td>
+<td>ONHAND</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>(MD4L)</td>
+<td>&nbsp;</td>
+<td>R12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>O</td>
+<td>S</td>
+<td>RECEIVED</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>(MD4L)</td>
+<td>&nbsp;</td>
+<td>R12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>O</td>
+<td>S</td>
+<td>SHIPPED</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>(MD4L)</td>
+<td>&nbsp;</td>
+<td>R12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>O</td>
+<td>S</td>
+<td>ADJUSTED</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>(MD4L)</td>
+<td>&nbsp;</td>
+<td>R12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>M</td>
+<td>S</td>
+<td>BALANCE</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>(MD4L)</td>
+<td>&nbsp;</td>
+<td>R12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>M</td>
+<td>S</td>
+<td>ENDDATE</td>
+<td>DT</td>
+<td>U</td>
+<td>DATETIME</td>
+<td>&nbsp;</td>
+<td>R16</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td colspan="9">&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; Rate Entries</td>
+</tr>
+<tr class="row-even"><td>O</td>
 <td>T</td>
 <td>GROUP</td>
 <td>A</td>
@@ -227,7 +301,7 @@
 <td>L12</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>O</td>
+<tr class="row-odd"><td>O</td>
 <td>T</td>
 <td>SERVICE</td>
 <td>LC</td>
@@ -237,7 +311,7 @@
 <td>L4</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>M</td>
+<tr class="row-even"><td>M</td>
 <td>S</td>
 <td>PERCODE</td>
 <td>LC</td>
@@ -247,7 +321,7 @@
 <td>L4</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>M</td>
+<tr class="row-odd"><td>M</td>
 <td>S</td>
 <td>BILLUOM</td>
 <td>LC</td>
@@ -257,9 +331,39 @@
 <td>L4</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>M</td>
+<tr class="row-even"><td>M</td>
 <td>S</td>
 <td>FACTOR</td>
+<td>N.4</td>
+<td>U</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>R12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>M</td>
+<td>S</td>
+<td>QUANTITY</td>
+<td>N.4</td>
+<td>U</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>R12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>M</td>
+<td>S</td>
+<td>DEFICIT</td>
+<td>N.4</td>
+<td>U</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>R12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>M</td>
+<td>S</td>
+<td>RATE</td>
 <td>N.4</td>
 <td>U</td>
 <td>&nbsp;</td>
@@ -271,27 +375,7 @@
 </tr>
 <tr class="row-odd"><td>M</td>
 <td>S</td>
-<td>STARTDATE</td>
-<td>DT</td>
-<td>U</td>
-<td>DATETIME</td>
-<td>&nbsp;</td>
-<td>R16</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>O</td>
-<td>S</td>
-<td>ONHAND</td>
-<td>N.4</td>
-<td>&nbsp;</td>
-<td>(MD4L)</td>
-<td>&nbsp;</td>
-<td>R12</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>O</td>
-<td>S</td>
-<td>RECEIVED</td>
+<td>OH_UNITS</td>
 <td>N.4</td>
 <td>&nbsp;</td>
 <td>(MD4L)</td>
@@ -301,27 +385,7 @@
 </tr>
 <tr class="row-even"><td>O</td>
 <td>S</td>
-<td>SHIPPED</td>
-<td>N.4</td>
-<td>&nbsp;</td>
-<td>(MD4L)</td>
-<td>&nbsp;</td>
-<td>R12</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>O</td>
-<td>S</td>
-<td>ADJUSTED</td>
-<td>N.4</td>
-<td>&nbsp;</td>
-<td>(MD4L)</td>
-<td>&nbsp;</td>
-<td>R12</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>M</td>
-<td>S</td>
-<td>BALANCE</td>
+<td>OH_PACKAGES</td>
 <td>N.4</td>
 <td>&nbsp;</td>
 <td>(MD4L)</td>
@@ -331,12 +395,222 @@
 </tr>
 <tr class="row-odd"><td>M</td>
 <td>S</td>
-<td>ENDDATE</td>
-<td>DT</td>
-<td>U</td>
-<td>DATETIME</td>
+<td>OH_INNERS</td>
+<td>N.4</td>
 <td>&nbsp;</td>
-<td>R16</td>
+<td>(MD4L)</td>
+<td>&nbsp;</td>
+<td>R12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>O</td>
+<td>S</td>
+<td>OH_NETWEIGHT</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>(MD4L)</td>
+<td>&nbsp;</td>
+<td>R12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>M</td>
+<td>S</td>
+<td>OH_GROSSWEIGHT</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>(MD4L)</td>
+<td>&nbsp;</td>
+<td>R12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>O</td>
+<td>S</td>
+<td>OH_DIMVOLUME</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>(MD4L)</td>
+<td>&nbsp;</td>
+<td>R12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>M</td>
+<td>S</td>
+<td>RC_UNITS</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>(MD4L)</td>
+<td>&nbsp;</td>
+<td>R12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>O</td>
+<td>S</td>
+<td>RC_PACKAGES</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>(MD4L)</td>
+<td>&nbsp;</td>
+<td>R12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>M</td>
+<td>S</td>
+<td>RC_INNERS</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>(MD4L)</td>
+<td>&nbsp;</td>
+<td>R12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>O</td>
+<td>S</td>
+<td>RC_NETWEIGHT</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>(MD4L)</td>
+<td>&nbsp;</td>
+<td>R12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>M</td>
+<td>S</td>
+<td>RC_GROSSWEIGHT</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>(MD4L)</td>
+<td>&nbsp;</td>
+<td>R12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>O</td>
+<td>S</td>
+<td>RC_DIMVOLUME</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>(MD4L)</td>
+<td>&nbsp;</td>
+<td>R12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>M</td>
+<td>S</td>
+<td>SH_UNITS</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>(MD4L)</td>
+<td>&nbsp;</td>
+<td>R12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>O</td>
+<td>S</td>
+<td>SH_PACKAGES</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>(MD4L)</td>
+<td>&nbsp;</td>
+<td>R12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>M</td>
+<td>S</td>
+<td>SH_INNERS</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>(MD4L)</td>
+<td>&nbsp;</td>
+<td>R12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>O</td>
+<td>S</td>
+<td>SH_NETWEIGHT</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>(MD4L)</td>
+<td>&nbsp;</td>
+<td>R12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>M</td>
+<td>S</td>
+<td>SH_GROSSWEIGHT</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>(MD4L)</td>
+<td>&nbsp;</td>
+<td>R12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>O</td>
+<td>S</td>
+<td>SH_DIMVOLUME</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>(MD4L)</td>
+<td>&nbsp;</td>
+<td>R12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>M</td>
+<td>S</td>
+<td>AJ_UNITS</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>(MD4L)</td>
+<td>&nbsp;</td>
+<td>R12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>O</td>
+<td>S</td>
+<td>AJ_PACKAGES</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>(MD4L)</td>
+<td>&nbsp;</td>
+<td>R12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>M</td>
+<td>S</td>
+<td>AJ_INNERS</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>(MD4L)</td>
+<td>&nbsp;</td>
+<td>R12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>O</td>
+<td>S</td>
+<td>AJ_NETWEIGHT</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>(MD4L)</td>
+<td>&nbsp;</td>
+<td>R12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>M</td>
+<td>S</td>
+<td>AJ_GROSSWEIGHT</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>(MD4L)</td>
+<td>&nbsp;</td>
+<td>R12</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>O</td>
+<td>S</td>
+<td>AJ_DIMVOLUME</td>
+<td>N.4</td>
+<td>&nbsp;</td>
+<td>(MD4L)</td>
+<td>&nbsp;</td>
+<td>R12</td>
 <td>&nbsp;</td>
 </tr>
 </tbody>

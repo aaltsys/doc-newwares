@@ -17,10 +17,11 @@ A list of active calendars may be displayed according to the service code or
 the group, and a selection of those calendars may be performed. Recurring 
 calculations and repeating rates can only be performed through calendars.
 
-Calendar items are activated when their next date comes due, and the action of
-the item is then performed by user request. Consequently calendar items are not necessarily performed at a specific date or time. For example, a recurring 
+Calendar items are activated when their next date comes due, and the action of 
+the item is then performed by user request. Consequently calendar items are not 
+necessarily performed at a specific date or time. For example, a recurring 
 calendar item activated at the end of a month might be pended while inventory 
-is reconciled, and then performed some number of days later.
+is reconciled, and then performed some number of days later. 
 
 Calendar items track the last date an action was performed, and set a 
 **Next Date** for activating the item. Calendars may be perpetual, or a sunset 
@@ -30,9 +31,9 @@ When a calendar item is performed, the **Last Date** is archived as a
 **Previous Date**, **Next Date** entry is moved to **Last Date**, and a new 
 **Next Date** entry is generated. The **Previous Date** entry, not shown in the 
 user interface, allows a calendar item's schedule to be reversed (once) when 
-the associated action is reversed or voided.
+the associated action is reversed or voided. 
 
-A calendar entry page with example setting is shown following.
+A calendar entry page with example setting is shown following. 
 
 .. image:: _images/calendar.png
 

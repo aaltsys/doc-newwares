@@ -94,7 +94,8 @@
             
   <div class="section" id="recurring-storage-billing">
 <span id="bill-recurring"></span><h1>Recurring Storage Billing<a class="headerlink" href="#recurring-storage-billing" title="Permalink to this headline">¶</a></h1>
-<p>Charging customers for using warehouse space is a fundamental part of warehouse operations. A customer may contract to lease a portion of a building at a fixed
+<p>Charging customers for using warehouse space is a fundamental part of warehouse
+operations. A customer may contract to lease a portion of a building at a fixed
 price, but the more common practice, supported by law and contract, is to
 charge a periodic recurring storage fee for each unit of product on hand.</p>
 <div class="section" id="recurring-calendars">
@@ -136,25 +137,25 @@ their sources which are used in recurring calculations.</p>
 <td>Calendar</td>
 <td>Next execution date</td>
 </tr>
-<tr class="row-odd"><td>POSTED</td>
-<td>Transaction</td>
-<td>Inventory changed</td>
-</tr>
-<tr class="row-even"><td>ENTERED</td>
+<tr class="row-odd"><td>ENTERED</td>
 <td>Transaction</td>
 <td>Date/Time of entry</td>
 </tr>
-<tr class="row-odd"><td>STARTING</td>
-<td>Lot date</td>
-<td>Set for lot in audit</td>
-</tr>
-<tr class="row-even"><td>ENDING</td>
-<td>Lot date</td>
-<td>Set for lot in audit</td>
+<tr class="row-even"><td>POSTED</td>
+<td>Transaction</td>
+<td>Inventory changed</td>
 </tr>
 <tr class="row-odd"><td>RECEIVED</td>
 <td>Audits</td>
 <td>POSTED + Freedays</td>
+</tr>
+<tr class="row-even"><td>STARTING</td>
+<td>Lot date</td>
+<td>Set for lot in audit</td>
+</tr>
+<tr class="row-odd"><td>ENDING</td>
+<td>Lot date</td>
+<td>Set for lot in audit</td>
 </tr>
 </tbody>
 </table>
@@ -170,8 +171,8 @@ of the day lots are received, as described following:</p>
 the account will use the same anniversary starting and ending dates, which are
 determined by the account&#8217;s recurring calendar. The lot anniversary
 <strong>Starting</strong> date will be one day greater than the <strong>Last</strong> date of the
-account&#8217;s recurring calendar, and the <strong>Ending</strong> date will be the <strong>Next</strong> date
-of the account&#8217;s calendar.</p>
+account&#8217;s recurring calendar, and the <strong>Ending</strong> date will be the <strong>Next</strong>
+date of the account&#8217;s calendar.</p>
 <p>Once lot balances are calculated, there are two options for determining charges
 with period recurring: using ending balances (advance billing), or using
 starting balances (arrears billing). There are a few southern warehouses still
@@ -181,13 +182,13 @@ method.</p>
 <div class="section" id="anniversary-recurring">
 <h3>Anniversary Recurring<a class="headerlink" href="#anniversary-recurring" title="Permalink to this headline">¶</a></h3>
 <p>Where balances are calculated by anniversary, the lot anniversary <strong>Ending</strong>
-date will be the anniversary month day which falls within the calendar
-<strong>Last+1</strong> to <strong>Next</strong> interval. The lot&#8217;s anniversary <strong>Starting</strong> date will
-be the equivalent day in the previous month.</p>
+date will be the day within the calendar <strong>Last+1</strong> to <strong>Next</strong> interval which
+is one less than the anniversary day. The lot&#8217;s anniversary <strong>Starting</strong> date
+will be the previous month day equivalent to the <strong>Received</strong> day.</p>
 <p>When using anniversary method, the recurring calendar must be monthly, but the
 month may be divided up into weeks or other intervals. When only a portion of a
-month is calculated, only lots with anniversaries within that portion will
-be included in the calculation.</p>
+month is calculated, only lots with storage months ending  within that portion
+will be included in the calculation.</p>
 </div>
 <div class="section" id="anniversaries-and-freedays">
 <h3>Anniversaries and Freedays<a class="headerlink" href="#anniversaries-and-freedays" title="Permalink to this headline">¶</a></h3>
