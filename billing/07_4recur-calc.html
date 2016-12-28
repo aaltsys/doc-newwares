@@ -265,9 +265,9 @@ which are not <strong>Archived</strong>, are selected for the account by <strong
 <strong>Variety</strong>, lot <strong>Control</strong> number, and <strong>Posted</strong> date. An accumulator
 array is initialized to keep inventory balance information by <strong>Product</strong> and
 <strong>Variety</strong>.</p>
-<p>For each lot, anniversary <strong>Starting</strong> and <strong>Ending</strong> dates are determined. <a class="footnote-reference" href="#id5" id="id1">[1]</a></p>
+<p>For each lot, anniversary <strong>Starting</strong> and <strong>Ending</strong> dates are determined. <a class="footnote-reference" href="#id6" id="id1">[1]</a></p>
 <ol class="arabic simple">
-<li>If the account has free days <a class="footnote-reference" href="#id6" id="id2">[2]</a>, and if the <strong>Received</strong> date (meaning the
+<li>If the account has free days <a class="footnote-reference" href="#id7" id="id2">[2]</a>, and if the <strong>Received</strong> date (meaning the
 Posted date + Free days) is within the recurring interval, then the
 <strong>Starting</strong> anniversary date is set to the <strong>Received</strong> date, and a
 receiving calculation flag is raised.</li>
@@ -275,7 +275,7 @@ receiving calculation flag is raised.</li>
 raised then the <strong>Ending</strong> date is left blank, or (2) if the lot anniversary
 falls within the recurring interval then the <strong>Ending</strong> date is set to the
 anniversary <strong>Date - 1</strong> and the <strong>Starting</strong> date is set to the previous
-month&#8217;s anniversary day, or (3) otherwise the lot is skipped. <a class="footnote-reference" href="#id7" id="id3">[3]</a></li>
+month&#8217;s anniversary day, or (3) otherwise the lot is skipped. <a class="footnote-reference" href="#id8" id="id3">[3]</a> <a href="#id11"><span class="problematic" id="id12"><span id="id4"></span>[4]_</span></a></li>
 <li>If the account uses periodic recurring, (1) if the receiving flag is raised
 and the account bills from starting balances then the <strong>Ending</strong> date is
 left blank, else the <strong>Ending</strong> date is set to the calendar <strong>Next</strong> date,
@@ -319,11 +319,11 @@ written using the <strong>Ending</strong> balances for the recurring per code.</
 <p>After calculating all the lots for a product, that is, when a product/variety
 break occurs, a recurring charge line is generated from the product accumulator
 array. If the account has free days, a separate charge line is generated for
-any received quantities. <a class="footnote-reference" href="#id8" id="id4">[4]</a> Then the array is re-initialized for the next
+any received quantities. <a href="#id13"><span class="problematic" id="id14"><span id="id5"></span>[4]_</span></a> Then the array is re-initialized for the next
 product.</p>
 <hr class="docutils" />
 <p class="rubric">Footnotes</p>
-<table class="docutils footnote" frame="void" id="id5" rules="none">
+<table class="docutils footnote" frame="void" id="id6" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Where a <strong>Received</strong> monthday falls at the end of a month, subsequent
@@ -331,7 +331,7 @@ months which do not include the day will use the last day of the month
 for the anniversary.</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id6" rules="none">
+<table class="docutils footnote" frame="void" id="id7" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>A lot <strong>Received</strong> date is set to the <strong>Posted</strong> date unless the account
@@ -340,26 +340,10 @@ has free days and the posting is from a receipt, in which case the lot
 number of free days.</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id7" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td><strong>Anniversary</strong> method recurring calendars must preclude having two
-anniversary dates fall in the same calculation interval.</td></tr>
-</tbody>
-</table>
 <table class="docutils footnote" frame="void" id="id8" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id4">[4]</a></td><td>A billing UOM is specified in the rate, separate from the inventory per
-code. A factor or deficit formula is applied to inventory quantities to
-calculate billing quantities, so that the amounts billed may not match
-the exact inventory shown on the corresponding Stock Activity report.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id9" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[5]</td><td><p class="first">Section 5.c. of <strong>INTERNATIONAL REFRIGERATED WAREHOUSE CONTRACT TERMS
+<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td><p class="first">Section 5.c. of <strong>INTERNATIONAL REFRIGERATED WAREHOUSE CONTRACT TERMS
 AND CONDITIONS</strong> states:</p>
 <blockquote>
 <div><em>If storage rates are quoted on an “ANNIVERSARY BASIS” the storage
@@ -378,14 +362,31 @@ month.</li>
 anniversary.</li>
 <li>If the lot is received after the first day of the current calendar
 month it is skipped, and <strong>Ending</strong> is left blank.</li>
-<li>If the <strong>Ending</strong> date is less than or equal to the <strong>Last</strong>
-calculation date, or it is greater than the <strong>Next</strong> date, the lot is
-skipped and <strong>Ending</strong> is left blank. (The calculation spans only
-part of the month, excluding this lot.)</li>
+<li>If the closed interval <strong>[Last+1,Next]</strong> does not contain the
+<strong>Ending</strong> date, the lot is skipped and <strong>Ending</strong> is left blank.
+(The calculation spans only part of the month, excluding this lot.)</li>
 <li>Otherwise an audit <strong>Starting</strong> date is calculated as the anniversary
 in the preceding month.</li>
 </ol>
 </td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id9" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[4]</td><td>Note that the contract defines <strong>Anniversary</strong> method recurring as by
+calendar month. Accounts using Anniversary recurring must have
+calculation calendar must be monthly, although s must preclude having two
+anniversary dates fall in the same calculation interval.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id10" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[4]</td><td>A billing UOM is specified in the rate, separate from the inventory per
+code. A factor or deficit formula is applied to inventory quantities to
+calculate billing quantities, so that the amounts billed may not match
+the exact inventory shown on the corresponding Stock Activity report.</td></tr>
 </tbody>
 </table>
 </div>
