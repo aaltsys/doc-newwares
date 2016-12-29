@@ -106,7 +106,7 @@ For each lot, anniversary **Starting** and **Ending** dates are determined. [1]_
    raised then the **Ending** date is left blank, or (2) if the lot anniversary 
    falls within the recurring interval then the **Ending** date is set to the 
    anniversary **Date - 1** and the **Starting** date is set to the previous 
-   month's anniversary day, or (3) otherwise the lot is skipped. [3]_
+   month's anniversary day, or (3) otherwise the lot is skipped. [3]_ [4]_
 #. If the account uses periodic recurring, (1) if the receiving flag is raised 
    and the account bills from starting balances then the **Ending** date is 
    left blank, else the **Ending** date is set to the calendar **Next** date, 
@@ -150,8 +150,12 @@ At this point, recurring audits and charges can be prepared for the lot.
 After calculating all the lots for a product, that is, when a product/variety 
 break occurs, a recurring charge line is generated from the product accumulator 
 array. If the account has free days, a separate charge line is generated for 
-any received quantities. [4]_ Then the array is re-initialized for the next 
+any received quantities. [5]_ Then the array is re-initialized for the next 
 product. 
+
+---------
+
+.. rubric:: Footnotes
 
 .. [1] Where a **Received** monthday falls at the end of a month, subsequent
        months which do not include the day will use the last day of the month 
@@ -162,10 +166,38 @@ product.
        **Received** date is set to the transaction **Posted** date plus the 
        number of free days. 
 
-.. [3] **Anniversary** method recurring calendars must preclude having two 
+.. [3] Section 5.c. of **INTERNATIONAL REFRIGERATED WAREHOUSE CONTRACT TERMS 
+       AND CONDITIONS** states:
+
+          *If storage rates are quoted on an “ANNIVERSARY BASIS” the storage 
+          month shall extend from date of receipt in one calendar month to, but 
+          not including, the same date of the next month.*
+
+       This rule is applied to determine anniversary audit **Starting** and 
+       **Ending** dates as follows:
+
+       #. The calculation month and year is taken from the calendar **Next** 
+          date. 
+       #. The **Received** day is combined with the calendar **Next** month and 
+          year to determine the next lot anniversary, although if the 
+          **Received** month day is the first then the month is advanced one 
+          month.
+       #. An audit **Ending** date is calculated as the day preceding the 
+          anniversary.
+       #. If the lot is received after the first day of the current calendar 
+          month it is skipped, and **Ending** is left blank.
+       #. If the closed interval **[Last+1,Next]** does not contain the 
+          **Ending** date, the lot is skipped and **Ending** is left blank. 
+          (The calculation spans only part of the month, excluding this lot.) 
+       #. Otherwise an audit **Starting** date is calculated as the anniversary 
+          in the preceding month.
+
+.. [4] Note that the contract defines **Anniversary** method recurring as by 
+       calendar month. Accounts using Anniversary recurring must have a 
+       calculation calendar which repeats monthly, which precludes having two 
        anniversary dates fall in the same calculation interval.
 
-.. [4] A billing UOM is specified in the rate, separate from the inventory per 
+.. [5] A billing UOM is specified in the rate, separate from the inventory per 
        code. A factor or deficit formula is applied to inventory quantities to 
        calculate billing quantities, so that the amounts billed may not match 
        the exact inventory shown on the corresponding Stock Activity report.

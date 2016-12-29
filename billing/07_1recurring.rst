@@ -4,7 +4,8 @@
 Recurring Storage Billing
 #############################
 
-Charging customers for using warehouse space is a fundamental part of warehouse operations. A customer may contract to lease a portion of a building at a fixed 
+Charging customers for using warehouse space is a fundamental part of warehouse 
+operations. A customer may contract to lease a portion of a building at a fixed 
 price, but the more common practice, supported by law and contract, is to 
 charge a periodic recurring storage fee for each unit of product on hand.
 
@@ -35,15 +36,15 @@ following the **Run** date are not displayed and cannot be run.
    +-----------+--------------+-----------------------+
    | NEXT      | Calendar     | Next execution date   |
    +-----------+--------------+-----------------------+
+   | ENTERED   | Transaction  | Date/Time of entry    |
+   +-----------+--------------+-----------------------+
    | POSTED    | Transaction  | Inventory changed     |
    +-----------+--------------+-----------------------+
-   | ENTERED   | Transaction  | Date/Time of entry    |
+   | RECEIVED  | Audits       | POSTED + Freedays     |
    +-----------+--------------+-----------------------+
    | STARTING  | Lot date     | Set for lot in audit  |
    +-----------+--------------+-----------------------+
    | ENDING    | Lot date     | Set for lot in audit  |
-   +-----------+--------------+-----------------------+
-   | RECEIVED  | Audits       | POSTED + Freedays     |
    +-----------+--------------+-----------------------+
 
 Recurring Calculation Methods
@@ -59,8 +60,8 @@ Where an account's recurring balances are calculated by period, all lots for
 the account will use the same anniversary starting and ending dates, which are 
 determined by the account's recurring calendar. The lot anniversary 
 **Starting** date will be one day greater than the **Last** date of the 
-account's recurring calendar, and the **Ending** date will be the **Next** date 
-of the account's calendar.
+account's recurring calendar, and the **Ending** date will be the **Next** 
+date of the account's calendar.
 
 Once lot balances are calculated, there are two options for determining charges 
 with period recurring: using ending balances (advance billing), or using 
@@ -72,14 +73,14 @@ Anniversary Recurring
 -----------------------------
 
 Where balances are calculated by anniversary, the lot anniversary **Ending** 
-date will be the anniversary month day which falls within the calendar 
-**Last+1** to **Next** interval. The lot's anniversary **Starting** date will 
-be the equivalent day in the previous month.
+date will be the day within the calendar **Last+1** to **Next** interval which 
+is one less than the anniversary day. The lot's anniversary **Starting** date 
+will be the previous month day equivalent to the **Received** day. 
 
 When using anniversary method, the recurring calendar must be monthly, but the 
 month may be divided up into weeks or other intervals. When only a portion of a 
-month is calculated, only lots with anniversaries within that portion will 
-be included in the calculation.
+month is calculated, only lots with storage months ending  within that portion 
+will be included in the calculation.
 
 Anniversaries and Freedays
 -----------------------------
