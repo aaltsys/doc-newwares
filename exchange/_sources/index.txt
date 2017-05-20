@@ -2,16 +2,32 @@
 
 .. _index:
 
-EDI & Data Exchange Documentation
+Data Exchange Documentation
 =================================
 
 Contents:
+
+WARES on the web uses web-oriented formatting standards based on JSON (Java 
+Script Object Notation) to exchange data internally and with external partners. 
+JSON is a public standard and extensive resources for validation and exchange 
+of data are freely available on a variety of websites.
 
 .. toctree::
    :maxdepth: 2
    :glob:
    
    [0-9]*
+
+WARES has supported EDI data exchange in the past, but ANSI-X12 EDI is now 
+deprecated due to the proprietary nature of these standards and their lack of 
+adaptability to web services. However, full documentation of EDI standards 
+and their use in a warehouse context is provided in articles listed below.
+
+.. toctree::
+   :maxdepth: 2
+   :glob:
+
+   ../../doc-edi/[0-9]*
 
 Indices and tables
 ==================

@@ -173,7 +173,7 @@ sample Stock Activity report:</p>
 <div class="section" id="activity-quantitative-data">
 <h3>Activity Quantitative Data<a class="headerlink" href="#activity-quantitative-data" title="Permalink to this headline">¶</a></h3>
 <p>The following table lists quantitative data from the right side of the activity
-report. Again, calendar range <strong>Beginning</strong> and <strong>Ending</strong> apply to the entire
+report. Again, calendar range <strong>Last+1</strong> and <strong>Next</strong> apply to the entire
 account and so these items appear in the data section heading. All data columns
 are listed below.</p>
 <table border="1" class="docutils">
@@ -187,10 +187,10 @@ are listed below.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>RANGE BEGINNING</td>
+<tr class="row-even"><td>RANGE LAST+1</td>
 <td>(heading) Calendar Last Date + 1</td>
 </tr>
-<tr class="row-odd"><td>RANGE ENDING</td>
+<tr class="row-odd"><td>RANGE NEXT</td>
 <td>(heading) Calendar Next Date</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
@@ -211,7 +211,7 @@ are listed below.</p>
 <tr class="row-odd"><td>ADJUSTED</td>
 <td>Quantity Adjusted during Period</td>
 </tr>
-<tr class="row-even"><td>ENDING BALANCE</td>
+<tr class="row-even"><td>BALANCE</td>
 <td>Lot Balance at Period Ending Date</td>
 </tr>
 <tr class="row-odd"><td>ENDING DATE</td>
@@ -220,10 +220,10 @@ are listed below.</p>
 </tbody>
 </table>
 <p>For a lot to be included in a particular recurring calculation batch, the lot
-anniversary <strong>End Date</strong> must fall within the Range <strong>Beginning</strong> to <strong>Ending</strong>
-bracket of the calculation. Lot anniversary <strong>End Date</strong> values are determined
-either by the account&#8217;s recurring calendar, for periodic recurring accounts, or
-by the individual lot&#8217;s <strong>Received</strong> date for anniversary accounts.</p>
+anniversary <strong>End Date</strong> must fall within the Range <strong>Last+1</strong> to <strong>Next</strong>
+bracket of the calculation. An account&#8217;s recurring calendar determines lot
+anniversary <strong>Ending</strong> values for periodic recurring accounts; while the
+individual lot&#8217;s <strong>Received</strong> date is used for anniversary accounts.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p>Since the Stock Activity Audit is a product report, the UOM code <em>LB</em> is

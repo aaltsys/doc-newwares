@@ -1,0 +1,316 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>JSON Formatting Guidelines &mdash; WARES Exchange 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="WARES Exchange 1.0 documentation" href="index.html" />
+    <link rel="next" title="JSON Exchange Procedures" href="02_JSON-exchange.html" />
+    <link rel="prev" title="Data Exchange Documentation" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="02_JSON-exchange.html" title="JSON Exchange Procedures"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="index.html" title="Data Exchange Documentation"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">WARES Exchange 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">JSON Formatting Guidelines</a><ul>
+<li><a class="reference internal" href="#basic-json-formatting-rules">Basic JSON Formatting Rules</a></li>
+<li><a class="reference internal" href="#escape-sequences">Escape Sequences</a></li>
+<li><a class="reference internal" href="#sample-json-exchange-file">Sample JSON Exchange File</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Data Exchange Documentation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="02_JSON-exchange.html"
+                        title="next chapter">JSON Exchange Procedures</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/01_JSON-guidelines.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="json-formatting-guidelines">
+<span id="json-guidelines"></span><h1>JSON Formatting Guidelines<a class="headerlink" href="#json-formatting-guidelines" title="Permalink to this headline">¶</a></h1>
+<p>The following general guidelines for preparing JSON documents is not intended
+to replace a proper JSON specification. Documentation of JSON specifications is
+available at <a class="reference external" href="http://json.org/">http://json.org/</a>, but this guide and a few examples of files which
+meet JSON specifications may be adequate for instruction in developing JSON
+data exchange files.</p>
+<div class="section" id="basic-json-formatting-rules">
+<h2>Basic JSON Formatting Rules<a class="headerlink" href="#basic-json-formatting-rules" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>JSON ignores indentation and white-space during interpretation. WARES
+exports include programming style indentation for clarity.</li>
+<li>Each complete JSON transmission is enclosed in brackets, and repeated
+structures within a JSON message are enclosed in brackets ([]).</li>
+<li>Each simple data element is named by a preceding identifier label enclosed
+in quotes (&#8221;) and terminated with a colon (:).</li>
+<li>Successive data elements are separated by commas (,).</li>
+<li>Where multiple data elements are grouped into a data structure, the
+structure grouping is enclosed in braces ({}).</li>
+<li>Where a data structure may be repeated, the set of repeated structures is
+given a label and the set is enclosed in brackets ([]).</li>
+<li>Each element is enclosed in quotes (&#8221;). Use an escape sequence (\&#8221;) to
+include a quote within the element text.</li>
+<li><em>null</em> values: JSON does not permit labels associated with blank elements.
+Either omit the label and element, or provide a <em>null</em> value.</li>
+<li>Control characters such as new lines (\n) may be included in the data
+stream as escape sequences. Each escape code must be preceded by an
+additional escape indicator, the &#8220;&#8221;. See the Escape Sequences table below.</li>
+</ol>
+</div>
+<div class="section" id="escape-sequences">
+<h2>Escape Sequences<a class="headerlink" href="#escape-sequences" title="Permalink to this headline">¶</a></h2>
+<p>Following is a reference list of standard escape sequences used to embed
+special characters or control codes within text strings. While these sequences
+are valid within JSON data strings, only a few will be meaningful in the
+context of data exchange.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="45%" />
+<col width="39%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Sequence</th>
+<th class="head">Description</th>
+<th class="head">Representation</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>&#8216;</td>
+<td>single quote</td>
+<td>byte 0x27 in ASCII encoding</td>
+</tr>
+<tr class="row-odd"><td>&#8220;</td>
+<td>double quote</td>
+<td>byte 0x22 in ASCII encoding</td>
+</tr>
+<tr class="row-even"><td>?</td>
+<td>question mark</td>
+<td>byte 0x3f in ASCII encoding</td>
+</tr>
+<tr class="row-odd"><td>\</td>
+<td>backslash</td>
+<td>byte 0x5c in ASCII encoding</td>
+</tr>
+<tr class="row-even"><td>a</td>
+<td>audible bell</td>
+<td>byte 0x07 in ASCII encoding</td>
+</tr>
+<tr class="row-odd"><td>b</td>
+<td>backspace</td>
+<td>byte 0x08 in ASCII encoding</td>
+</tr>
+<tr class="row-even"><td>f</td>
+<td>form feed - new page</td>
+<td>byte 0x0c in ASCII encoding</td>
+</tr>
+<tr class="row-odd"><td>n</td>
+<td>line feed - new line</td>
+<td>byte 0x0a in ASCII encoding</td>
+</tr>
+<tr class="row-even"><td>r</td>
+<td>carriage return</td>
+<td>byte 0x0d in ASCII encoding</td>
+</tr>
+<tr class="row-odd"><td>t</td>
+<td>horizontal tab</td>
+<td>byte 0x09 in ASCII encoding</td>
+</tr>
+<tr class="row-even"><td>v</td>
+<td>vertical tab</td>
+<td>byte 0x0b in ASCII encoding</td>
+</tr>
+<tr class="row-odd"><td>nnn</td>
+<td>arbitrary octal value</td>
+<td>byte nnn</td>
+</tr>
+<tr class="row-even"><td>xnn</td>
+<td>arbitrary hexadecimal value</td>
+<td>byte nn</td>
+</tr>
+<tr class="row-odd"><td>unnnn</td>
+<td><div class="first last line-block">
+<div class="line">universal character name</div>
+<div class="line">(arbitrary Unicode value);</div>
+<div class="line">may result in several characters</div>
+</div>
+</td>
+<td>code point U+nnnn</td>
+</tr>
+<tr class="row-even"><td>Unnnnnnnn</td>
+<td><div class="first last line-block">
+<div class="line">universal character name</div>
+<div class="line">(arbitrary Unicode value);</div>
+<div class="line">may result in several characters</div>
+</div>
+</td>
+<td>code point U+nnnnnnnn</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="sample-json-exchange-file">
+<h2>Sample JSON Exchange File<a class="headerlink" href="#sample-json-exchange-file" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-JSON"><div class="highlight"><pre>[
+
+  {
+    &quot;postDate&quot;: &quot;2003-01-12TZ&quot;,
+    &quot;account&quot;: &quot;BMC&quot;,
+    &quot;references&quot;: [
+      {
+        &quot;referenceCode&quot;: &quot;6A&quot;,
+        &quot;reference&quot;: &quot;6733&quot;
+      },
+      {
+        &quot;referenceCode&quot;: &quot;CO&quot;,
+        &quot;poNumber&quot;: &quot;6852&quot;
+      }
+    ],
+    &quot;carrier&quot;: &quot;SUXP&quot;,
+    &quot;freightPay&quot;: &quot;PP&quot;,
+    &quot;dateCodes&quot;: [
+      {
+        &quot;dateCode&quot;: &quot;10&quot;,
+        &quot;dateShip&quot;: &quot;2002-01-15TZ&quot;
+      },
+      {
+        &quot;dateCode&quot;: &quot;02&quot;,
+        &quot;dateDeliver&quot;: &quot;2002-01-17TZ&quot;
+      },
+      {
+        &quot;dateCode&quot;: &quot;01&quot;,
+        &quot;dateCancel&quot;: &quot;2002-01-21TZ&quot;
+      }
+    ],
+    &quot;notes&quot;: [
+      {
+        &quot;noteCode&quot;: &quot;WHI&quot;,
+        &quot;instructions&quot;: null
+      }
+    ],
+    &quot;addresses&quot;: [
+      {
+        &quot;addressType&quot;: &quot;ST&quot;,
+        &quot;addressKey&quot;: &quot;10017&quot;,
+        &quot;addressName&quot;: &quot;Pitch Pipes Refinery, Inc.&quot;,
+        &quot;addressStreet&quot;: &quot;5270 Industrial Boulevard&quot;,
+        &quot;addressCity&quot;: &quot;Lubbock&quot;,
+        &quot;addressState&quot;: &quot;TX&quot;,
+        &quot;addressZip&quot;: &quot;79411&quot;,
+        &quot;addressPhone&quot;: &quot;8065554411&quot;
+      }
+    ],
+    &quot;detail&quot;: [
+      {
+        &quot;lineKey&quot;: &quot;001&quot;,
+        &quot;stockNumber&quot;: &quot;BMC001&quot;,
+        &quot;description&quot;: &quot;21x13x08 single white KDC&quot;,
+        &quot;orderUom&quot;: &quot;BD&quot;,
+        &quot;orderQty&quot;: 2
+      },
+      {
+        &quot;lineKey&quot;: &quot;002&quot;,
+        &quot;stockNumber&quot;: &quot;BMC002&quot;,
+        &quot;description&quot;: &quot;14x12x21 single brown KDC&quot;,
+        &quot;orderUom&quot;: &quot;BD&quot;,
+        &quot;orderQty&quot;: 3
+      },
+      {
+        &quot;lineKey&quot;: &quot;003&quot;,
+        &quot;stockNumber&quot;: &quot;BMC003&quot;,
+        &quot;description&quot;: &quot;18x16x24 double brown KDC&quot;,
+        &quot;orderUom&quot;: &quot;BD&quot;,
+        &quot;orderQty&quot;: 4&quot;l
+      }
+    ]
+  }
+
+]
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="02_JSON-exchange.html" title="JSON Exchange Procedures"
+             >next</a></li>
+        <li class="right" >
+          <a href="index.html" title="Data Exchange Documentation"
+             >previous</a> |</li>
+        <li><a href="index.html">WARES Exchange 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Gerald Lovel.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b1.
+    </div>
+  </body>
+</html>

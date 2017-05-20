@@ -77,16 +77,16 @@ Activity Quantitative Data
 -----------------------------
 
 The following table lists quantitative data from the right side of the activity
-report. Again, calendar range **Beginning** and **Ending** apply to the entire 
+report. Again, calendar range **Last+1** and **Next** apply to the entire 
 account and so these items appear in the data section heading. All data columns 
 are listed below.
 
 +-----------------+------------------------------------+
 | Column Name     | Description                        |
 +=================+====================================+
-| RANGE BEGINNING | (heading) Calendar Last Date + 1   |
+| RANGE LAST+1    | (heading) Calendar Last Date + 1   |
 +-----------------+------------------------------------+
-| RANGE ENDING    | (heading) Calendar Next Date       |
+| RANGE NEXT      | (heading) Calendar Next Date       |
 +-----------------+------------------------------------+
 +-----------------+------------------------------------+
 | STARTING DATE   | Lot Anniversary Starting Date      |
@@ -99,16 +99,16 @@ are listed below.
 +-----------------+------------------------------------+
 | ADJUSTED        | Quantity Adjusted during Period    |
 +-----------------+------------------------------------+
-| ENDING BALANCE  | Lot Balance at Period Ending Date  |
+| BALANCE         | Lot Balance at Period Ending Date  |
 +-----------------+------------------------------------+
 | ENDING DATE     | Lot Anniversary Ending Date        |
 +-----------------+------------------------------------+
 
 For a lot to be included in a particular recurring calculation batch, the lot 
-anniversary **End Date** must fall within the Range **Beginning** to **Ending** 
-bracket of the calculation. Lot anniversary **End Date** values are determined 
-either by the account's recurring calendar, for periodic recurring accounts, or 
-by the individual lot's **Received** date for anniversary accounts. 
+anniversary **End Date** must fall within the Range **Last+1** to **Next** 
+bracket of the calculation. An account's recurring calendar determines lot 
+anniversary **Ending** values for periodic recurring accounts; while the 
+individual lot's **Received** date is used for anniversary accounts. 
 
 .. note:: 
    Since the Stock Activity Audit is a product report, the UOM code *LB* is 

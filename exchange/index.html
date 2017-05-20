@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>EDI &amp; Data Exchange Documentation &mdash; WARES Exchange 1.0 documentation</title>
+    <title>Data Exchange Documentation &mdash; WARES Exchange 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -23,12 +23,16 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="WARES Exchange 1.0 documentation" href="#" /> 
+    <link rel="top" title="WARES Exchange 1.0 documentation" href="#" />
+    <link rel="next" title="JSON Formatting Guidelines" href="01_JSON-guidelines.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="01_JSON-guidelines.html" title="JSON Formatting Guidelines"
+             accesskey="N">next</a></li>
         <li><a class="external reference" href="../index.html">AAltsys Project Main Index</a>  &raquo;</li> 
       </ul>
     </div>
@@ -36,10 +40,15 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="#">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">EDI &amp; Data Exchange Documentation</a></li>
+<li><a class="reference internal" href="#">Data Exchange Documentation</a><ul>
+</ul>
+</li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
 </ul>
 
+  <h4>Next topic</h4>
+  <p class="topless"><a href="01_JSON-guidelines.html"
+                        title="next chapter">JSON Formatting Guidelines</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -68,9 +77,33 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="edi-data-exchange-documentation">
-<span id="index"></span><h1>EDI &amp; Data Exchange Documentation<a class="headerlink" href="#edi-data-exchange-documentation" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="data-exchange-documentation">
+<span id="index"></span><h1>Data Exchange Documentation<a class="headerlink" href="#data-exchange-documentation" title="Permalink to this headline">¶</a></h1>
 <p>Contents:</p>
+<p>WARES on the web uses web-oriented formatting standards based on JSON (Java
+Script Object Notation) to exchange data internally and with external partners.
+JSON is a public standard and extensive resources for validation and exchange
+of data are freely available on a variety of websites.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="01_JSON-guidelines.html">JSON Formatting Guidelines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="01_JSON-guidelines.html#basic-json-formatting-rules">Basic JSON Formatting Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_JSON-guidelines.html#escape-sequences">Escape Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_JSON-guidelines.html#sample-json-exchange-file">Sample JSON Exchange File</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="02_JSON-exchange.html">JSON Exchange Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_JSON-orders.html">DOSWARES JSON Orders Exchange</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="03_JSON-orders.html#order-response-data-elements">ORDER Response Data Elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_JSON-orders.html#notes">Notes</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>WARES has supported EDI data exchange in the past, but ANSI-X12 EDI is now
+deprecated due to the proprietary nature of these standards and their lack of
+adaptability to web services. However, full documentation of EDI standards
+and their use in a warehouse context is provided in articles listed below.</p>
 <div class="toctree-wrapper compound">
 <ul class="simple">
 </ul>
@@ -94,6 +127,9 @@
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="01_JSON-guidelines.html" title="JSON Formatting Guidelines"
+             >next</a></li>
         <li><a class="external reference" href="../index.html">AAltsys Project Main Index</a>  &raquo;</li> 
       </ul>
     </div>
