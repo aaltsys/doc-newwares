@@ -30,7 +30,7 @@ Basic JSON Formatting Rules
    Either omit the label and element, or provide a *null* value.
 #. Control characters such as new lines (\\n) may be included in the data 
    stream as escape sequences. Each escape code must be preceded by an 
-   additional escape indicator, the "\". See the Escape Sequences table below.
+   additional escape indicator, the "\\". See the Escape Sequences table below.
 
 Escape Sequences
 =============================
@@ -40,43 +40,43 @@ special characters or control codes within text strings. While these sequences
 are valid within JSON data strings, only a few will be meaningful in the 
 context of data exchange.
 
-+------------+----------------------------------+-----------------------------+
-| Sequence   | Description                      | Representation              |
-+============+==================================+=============================+
-| \'         | single quote                     | byte 0x27 in ASCII encoding |
-+------------+----------------------------------+-----------------------------+
-| \"         | double quote                     | byte 0x22 in ASCII encoding |
-+------------+----------------------------------+-----------------------------+
-| \?         | question mark                    | byte 0x3f in ASCII encoding |
-+------------+----------------------------------+-----------------------------+
-| \\         | backslash                        | byte 0x5c in ASCII encoding |
-+------------+----------------------------------+-----------------------------+
-| \a         | audible bell                     | byte 0x07 in ASCII encoding |
-+------------+----------------------------------+-----------------------------+
-| \b         | backspace                        | byte 0x08 in ASCII encoding |
-+------------+----------------------------------+-----------------------------+
-| \f         | form feed - new page             | byte 0x0c in ASCII encoding |
-+------------+----------------------------------+-----------------------------+
-| \n         | line feed - new line             | byte 0x0a in ASCII encoding |
-+------------+----------------------------------+-----------------------------+
-| \r         | carriage return                  | byte 0x0d in ASCII encoding |
-+------------+----------------------------------+-----------------------------+
-| \t         | horizontal tab                   | byte 0x09 in ASCII encoding |
-+------------+----------------------------------+-----------------------------+
-| \v         | vertical tab                     | byte 0x0b in ASCII encoding |
-+------------+----------------------------------+-----------------------------+
-| \nnn       | arbitrary octal value            | byte nnn                    |
-+------------+----------------------------------+-----------------------------+
-| \xnn       | arbitrary hexadecimal value      | byte nn                     |
-+------------+----------------------------------+-----------------------------+
-| \unnnn     || universal character name        |                             |
-|            || (arbitrary Unicode value);      |                             |
-|            || may result in several characters| code point U+nnnn           |
-+------------+----------------------------------+-----------------------------+
-| \Unnnnnnnn || universal character name        |                             |
-|            || (arbitrary Unicode value);      |                             |
-|            || may result in several characters| code point U+nnnnnnnn       |
-+------------+----------------------------------+-----------------------------+
++-------------+----------------------------------+-----------------------------+
+| Sequence    | Description                      | Representation              |
++=============+==================================+=============================+
+| \\'         | single quote                     | byte 0x27 in ASCII encoding |
++-------------+----------------------------------+-----------------------------+
+| \\"         | double quote                     | byte 0x22 in ASCII encoding |
++-------------+----------------------------------+-----------------------------+
+| \\?         | question mark                    | byte 0x3f in ASCII encoding |
++-------------+----------------------------------+-----------------------------+
+| \\\         | backslash                        | byte 0x5c in ASCII encoding |
++-------------+----------------------------------+-----------------------------+
+| \\a         | audible bell                     | byte 0x07 in ASCII encoding |
++-------------+----------------------------------+-----------------------------+
+| \\b         | backspace                        | byte 0x08 in ASCII encoding |
++-------------+----------------------------------+-----------------------------+
+| \\f         | form feed - new page             | byte 0x0c in ASCII encoding |
++-------------+----------------------------------+-----------------------------+
+| \\n         | line feed - new line             | byte 0x0a in ASCII encoding |
++-------------+----------------------------------+-----------------------------+
+| \\r         | carriage return                  | byte 0x0d in ASCII encoding |
++-------------+----------------------------------+-----------------------------+
+| \\t         | horizontal tab                   | byte 0x09 in ASCII encoding |
++-------------+----------------------------------+-----------------------------+
+| \\v         | vertical tab                     | byte 0x0b in ASCII encoding |
++-------------+----------------------------------+-----------------------------+
+| \\nnn       | arbitrary octal value            | byte nnn                    |
++-------------+----------------------------------+-----------------------------+
+| \\xnn       | arbitrary hexadecimal value      | byte nn                     |
++-------------+----------------------------------+-----------------------------+
+| \\unnnn     || universal character name        |                             |
+|             || (arbitrary Unicode value);      |                             |
+|             || may result in several characters| code point U+nnnn           |
++-------------+----------------------------------+-----------------------------+
+| \\Unnnnnnnn || universal character name        |                             |
+|             || (arbitrary Unicode value);      |                             |
+|             || may result in several characters| code point U+nnnnnnnn       |
++-------------+----------------------------------+-----------------------------+
 
 Sample JSON Exchange File
 =============================
@@ -125,7 +125,7 @@ Sample JSON Exchange File
           "addressType": "ST",
           "addressKey": "10017",
           "addressName": "Pitch Pipes Refinery, Inc.",
-          "addressStreet": "5270 Industrial Boulevard",
+          "addressStreet": "5270 Industrial Boulevard\\nSuite 401",
           "addressCity": "Lubbock",
           "addressState": "TX",
           "addressZip": "79411",

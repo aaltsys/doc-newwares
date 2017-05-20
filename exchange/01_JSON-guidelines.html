@@ -113,7 +113,7 @@ include a quote within the element text.</li>
 Either omit the label and element, or provide a <em>null</em> value.</li>
 <li>Control characters such as new lines (\n) may be included in the data
 stream as escape sequences. Each escape code must be preceded by an
-additional escape indicator, the &#8220;&#8221;. See the Escape Sequences table below.</li>
+additional escape indicator, the &#8220;\&#8221;. See the Escape Sequences table below.</li>
 </ol>
 </div>
 <div class="section" id="escape-sequences">
@@ -124,9 +124,9 @@ are valid within JSON data strings, only a few will be meaningful in the
 context of data exchange.</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="16%" />
+<col width="17%" />
 <col width="45%" />
-<col width="39%" />
+<col width="38%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Sequence</th>
@@ -135,15 +135,15 @@ context of data exchange.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>&#8216;</td>
+<tr class="row-even"><td>\&#8217;</td>
 <td>single quote</td>
 <td>byte 0x27 in ASCII encoding</td>
 </tr>
-<tr class="row-odd"><td>&#8220;</td>
+<tr class="row-odd"><td>\&#8221;</td>
 <td>double quote</td>
 <td>byte 0x22 in ASCII encoding</td>
 </tr>
-<tr class="row-even"><td>?</td>
+<tr class="row-even"><td>\?</td>
 <td>question mark</td>
 <td>byte 0x3f in ASCII encoding</td>
 </tr>
@@ -151,43 +151,43 @@ context of data exchange.</p>
 <td>backslash</td>
 <td>byte 0x5c in ASCII encoding</td>
 </tr>
-<tr class="row-even"><td>a</td>
+<tr class="row-even"><td>\a</td>
 <td>audible bell</td>
 <td>byte 0x07 in ASCII encoding</td>
 </tr>
-<tr class="row-odd"><td>b</td>
+<tr class="row-odd"><td>\b</td>
 <td>backspace</td>
 <td>byte 0x08 in ASCII encoding</td>
 </tr>
-<tr class="row-even"><td>f</td>
+<tr class="row-even"><td>\f</td>
 <td>form feed - new page</td>
 <td>byte 0x0c in ASCII encoding</td>
 </tr>
-<tr class="row-odd"><td>n</td>
+<tr class="row-odd"><td>\n</td>
 <td>line feed - new line</td>
 <td>byte 0x0a in ASCII encoding</td>
 </tr>
-<tr class="row-even"><td>r</td>
+<tr class="row-even"><td>\r</td>
 <td>carriage return</td>
 <td>byte 0x0d in ASCII encoding</td>
 </tr>
-<tr class="row-odd"><td>t</td>
+<tr class="row-odd"><td>\t</td>
 <td>horizontal tab</td>
 <td>byte 0x09 in ASCII encoding</td>
 </tr>
-<tr class="row-even"><td>v</td>
+<tr class="row-even"><td>\v</td>
 <td>vertical tab</td>
 <td>byte 0x0b in ASCII encoding</td>
 </tr>
-<tr class="row-odd"><td>nnn</td>
+<tr class="row-odd"><td>\nnn</td>
 <td>arbitrary octal value</td>
 <td>byte nnn</td>
 </tr>
-<tr class="row-even"><td>xnn</td>
+<tr class="row-even"><td>\xnn</td>
 <td>arbitrary hexadecimal value</td>
 <td>byte nn</td>
 </tr>
-<tr class="row-odd"><td>unnnn</td>
+<tr class="row-odd"><td>\unnnn</td>
 <td><div class="first last line-block">
 <div class="line">universal character name</div>
 <div class="line">(arbitrary Unicode value);</div>
@@ -196,7 +196,7 @@ context of data exchange.</p>
 </td>
 <td>code point U+nnnn</td>
 </tr>
-<tr class="row-even"><td>Unnnnnnnn</td>
+<tr class="row-even"><td>\Unnnnnnnn</td>
 <td><div class="first last line-block">
 <div class="line">universal character name</div>
 <div class="line">(arbitrary Unicode value);</div>
@@ -252,7 +252,7 @@ context of data exchange.</p>
         &quot;addressType&quot;: &quot;ST&quot;,
         &quot;addressKey&quot;: &quot;10017&quot;,
         &quot;addressName&quot;: &quot;Pitch Pipes Refinery, Inc.&quot;,
-        &quot;addressStreet&quot;: &quot;5270 Industrial Boulevard&quot;,
+        &quot;addressStreet&quot;: &quot;5270 Industrial Boulevard\\nSuite 401&quot;,
         &quot;addressCity&quot;: &quot;Lubbock&quot;,
         &quot;addressState&quot;: &quot;TX&quot;,
         &quot;addressZip&quot;: &quot;79411&quot;,
