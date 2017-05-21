@@ -1,0 +1,78 @@
+
+.. code-block:: JSON
+
+  [
+
+    {
+      "postDate": "2003-01-12TZ",
+      "account": "BMC",
+      "references": [
+        {
+          "referenceCode": "6A",
+          "reference": "6733"
+        },
+        {
+          "referenceCode": "CO",
+          "poNumber": "6852"
+        }
+      ],
+      "carrier": "SUXP",
+      "freightPay": "PP",
+      "dateCodes": [
+        {
+          "dateCode": "10",
+          "dateShip": "2002-01-15TZ"
+        },
+        {
+          "dateCode": "02",
+          "dateDeliver": "2002-01-17TZ"
+        },
+        {
+          "dateCode": "01",
+          "dateCancel": "2002-01-21TZ"
+        }
+      ],
+      "notes": [ 
+        {
+          "noteCode": "WHI",
+          "instructions": null
+        }
+      ],
+      "addresses": [
+        {
+          "addressType": "ST",
+          "addressKey": "10017",
+          "addressName": "Pitch Pipes Refinery, Inc.",
+          "addressStreet": "5270 Industrial Boulevard\\nSuite 401",
+          "addressCity": "Lubbock",
+          "addressState": "TX",
+          "addressZip": "79411",
+          "addressPhone": "8065554411"
+        }
+      ],
+      "detail": [
+        {
+          "lineKey": "001",
+          "stockNumber": "BMC001",
+          "description": "21x13x08 single white KDC",
+          "orderUom": "BD",
+          "orderQty": 2
+        },
+        {
+          "lineKey": "002",
+          "stockNumber": "BMC002",
+          "description": "14x12x21 single brown KDC",
+          "orderUom": "BD",
+          "orderQty": 3
+        },
+        {
+          "lineKey": "003",
+          "stockNumber": "BMC003",
+          "description": "18x16x24 double brown KDC",
+          "orderUom": "BD",
+          "orderQty": 4
+        }
+      ]
+    }
+
+  ] 
