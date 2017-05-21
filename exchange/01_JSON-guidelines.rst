@@ -108,4 +108,6 @@ escaped newline escape sequence (\\\\n).
 Note that numeric order quantities are not quoted, and the integer quantities 
 do not include decimal points. Dates are quoted and terminated with "TZ".
 
-.. include:: sample_order.txt
+.. code-block:: JSON
+
+.. include:: sample_order.json
