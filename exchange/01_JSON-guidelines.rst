@@ -109,5 +109,4 @@ Note that numeric order quantities are not quoted, and the integer quantities
 do not include decimal points. Dates are quoted and terminated with "TZ".
 
 .. code-block:: JSON
-
-   .. include:: sample_order.json
+.. include:: sample_order.json
