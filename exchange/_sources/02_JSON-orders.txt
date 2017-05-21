@@ -36,6 +36,10 @@ ORDER Response Data Elements
 +----------------+--------------------------------+----+---------+------+------+
 | freightPay     | Pay Code "PP", "CC", or "TP"   | M  | String  | Cust | Order|
 +----------------+--------------------------------+----+---------+------+------+
+| receiveName    | Warehouse data file reference  | M  | String  | Whse | Resp |
++----------------+--------------------------------+----+---------+------+------+
+| shipment       | Whse shipment (BOL) identifier | M  | Numeric | Whse | Resp |
++----------------+--------------------------------+----+---------+------+------+
 | dateCode       | "10"                           | O  | String  | Whse | Order|
 +----------------+--------------------------------+----+---------+------+------+
 | dateShip       | Requested shipment date        | M  | Date    | Cust | Order|
@@ -55,10 +59,6 @@ ORDER Response Data Elements
 | noteCode       | "BOL"                          | O  | String  | Whse | Order|
 +----------------+--------------------------------+----+---------+------+------+
 | comments       | Statement for Bill of Lading   | O  | Text    | Cust | Order|
-+----------------+--------------------------------+----+---------+------+------+
-| received       | Warehouse data file reference  | M  | String  | Whse | Resp |
-+----------------+--------------------------------+----+---------+------+------+
-| shipment       | Whse shipment (BOL) identifier | M  | Numeric | Whse | Resp |
 +----------------+--------------------------------+----+---------+------+------+
 +----------------+--------------------------------+----+---------+------+------+
 | addressType    | "ST"                           | M  | String  | Cust | Order|
