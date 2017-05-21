@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="WARES Exchange 1.0 documentation" href="index.html" />
-    <link rel="next" title="JSON Exchange Procedures" href="02_JSON-exchange.html" />
+    <link rel="next" title="WARES JSON Orders Exchange" href="02_JSON-orders.html" />
     <link rel="prev" title="Data Exchange Documentation" href="index.html" /> 
   </head>
   <body role="document">
@@ -32,7 +32,7 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="02_JSON-exchange.html" title="JSON Exchange Procedures"
+          <a href="02_JSON-orders.html" title="WARES JSON Orders Exchange"
              accesskey="N">next</a></li>
         <li class="right" >
           <a href="index.html" title="Data Exchange Documentation"
@@ -56,8 +56,8 @@
   <p class="topless"><a href="index.html"
                         title="previous chapter">Data Exchange Documentation</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="02_JSON-exchange.html"
-                        title="next chapter">JSON Exchange Procedures</a></p>
+  <p class="topless"><a href="02_JSON-orders.html"
+                        title="next chapter">WARES JSON Orders Exchange</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -90,30 +90,56 @@
 <span id="json-guidelines"></span><h1>JSON Formatting Guidelines<a class="headerlink" href="#json-formatting-guidelines" title="Permalink to this headline">¶</a></h1>
 <p>The following general guidelines for preparing JSON documents is not intended
 to replace a proper JSON specification. Documentation of JSON specifications is
-available at <a class="reference external" href="http://json.org/">http://json.org/</a>, but this guide and a few examples of files which
-meet JSON specifications may be adequate for instruction in developing JSON
-data exchange files.</p>
+available at <a class="reference external" href="http://www.json.org/">http://www.json.org/</a>, but this guide and a few examples of files
+which meet JSON specifications may be adequate for instruction in developing
+JSON data exchange files.</p>
 <div class="section" id="basic-json-formatting-rules">
 <h2>Basic JSON Formatting Rules<a class="headerlink" href="#basic-json-formatting-rules" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple">
-<li>JSON ignores indentation and white-space during interpretation. WARES
-exports include programming style indentation for clarity.</li>
-<li>Each complete JSON transmission is enclosed in brackets, and repeated
-structures within a JSON message are enclosed in brackets ([]).</li>
-<li>Each simple data element is named by a preceding identifier label enclosed
-in quotes (&#8221;) and terminated with a colon (:).</li>
-<li>Successive data elements are separated by commas (,).</li>
-<li>Where multiple data elements are grouped into a data structure, the
-structure grouping is enclosed in braces ({}).</li>
-<li>Where a data structure may be repeated, the set of repeated structures is
-given a label and the set is enclosed in brackets ([]).</li>
-<li>Each element is enclosed in quotes (&#8221;). Use an escape sequence (\&#8221;) to
-include a quote within the element text.</li>
-<li><em>null</em> values: JSON does not permit labels associated with blank elements.
-Either omit the label and element, or provide a <em>null</em> value.</li>
-<li>Control characters such as new lines (\n) may be included in the data
+<ol class="arabic">
+<li><p class="first">JSON ignores indentation and white-space during interpretation. WARES
+exports include programming style indentation for clarity.</p>
+</li>
+<li><p class="first">Each complete JSON transmission is enclosed in brackets, and repeated
+structures within a JSON message are enclosed in brackets ([]).</p>
+</li>
+<li><p class="first">Each data element is named with a preceding identifier label enclosed in
+quotes (&#8220;&#8221;) and terminated with a colon (:).</p>
+</li>
+<li><p class="first">Successive data elements are separated by commas (,).</p>
+</li>
+<li><p class="first">The order of elements in a JSON structure is not important, as all elements
+are labeled.</p>
+</li>
+<li><p class="first">Where multiple data elements are grouped into a data structure, the
+structure grouping is enclosed in braces ({}).</p>
+</li>
+<li><p class="first">Where a data structure may be repeated, the set of repeated structures is
+given a label and the set is enclosed in brackets ([]).</p>
+</li>
+<li><p class="first"><em>null</em> values: JSON does not permit labels associated with blank elements.
+Either omit the label and element, or provide a <em>null</em> value.</p>
+</li>
+<li><p class="first">Control characters such as new lines (\n) may be included in the data
 stream as escape sequences. Each escape code must be preceded by an
-additional escape indicator, the &#8220;\&#8221;. See the Escape Sequences table below.</li>
+additional escape indicator, the &#8220;\&#8221;. See the Escape Sequences table below.</p>
+</li>
+<li><p class="first">Each string element is enclosed in quotes (&#8220;&#8221;). Use an escape sequence (\&#8221;)
+to include a quote within the element text.</p>
+</li>
+<li><p class="first">JSON numeric elements are not quoted. Where a decimal point is used in a
+number, digits (or zero) must occur to the left and right of the decimal.</p>
+</li>
+<li><p class="first">JSON date strings conform to <cite>ISO8601 &lt;http://www.w3.org/TR/NOTE-datetime&gt;</cite>.
+The general ISO datetime specification is:</p>
+<blockquote>
+<div><p>YYYY-MM-DDThh:mmTZD</p>
+</div></blockquote>
+<p>but the time (hh:mm) and the time zone designator (D) would be omitted when
+sending only a date as a quoted string:</p>
+<blockquote>
+<div><p>&#8220;YYY-MM-DDTZ&#8221;</p>
+</div></blockquote>
+</li>
 </ol>
 </div>
 <div class="section" id="escape-sequences">
@@ -209,82 +235,91 @@ context of data exchange.</p>
 </table>
 </div>
 <div class="section" id="sample-json-exchange-file">
-<h2>Sample JSON Exchange File<a class="headerlink" href="#sample-json-exchange-file" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-JSON"><div class="highlight"><pre>[
+<span id="json-order"></span><h2>Sample JSON Exchange File<a class="headerlink" href="#sample-json-exchange-file" title="Permalink to this headline">¶</a></h2>
+<p>The following JSON example is a warehouse order record. The entire transmission
+is enclosed in brackets ([]), and then the individual order record is enclosed
+in braces ({}) because a transmission may contain multiple orders.</p>
+<p>Similarly, <strong>notes</strong> and <strong>addresses</strong> sections are enclosed in brackets, as
+multiple notes or addresses structures might occur in the record. Within the
+address, the street is multi-line text and the newline is represented by the
+escaped newline escape sequence (\n).</p>
+<p>Note that numeric order quantities are not quoted, and the integer quantities
+do not include decimal points. Dates are quoted and terminated with &#8220;TZ&#8221;.</p>
+<div class="highlight-JSON"><div class="highlight"><pre><span class="p">[</span>
 
-  {
-    &quot;postDate&quot;: &quot;2003-01-12TZ&quot;,
-    &quot;account&quot;: &quot;BMC&quot;,
-    &quot;references&quot;: [
-      {
-        &quot;referenceCode&quot;: &quot;6A&quot;,
-        &quot;reference&quot;: &quot;6733&quot;
-      },
-      {
-        &quot;referenceCode&quot;: &quot;CO&quot;,
-        &quot;poNumber&quot;: &quot;6852&quot;
-      }
-    ],
-    &quot;carrier&quot;: &quot;SUXP&quot;,
-    &quot;freightPay&quot;: &quot;PP&quot;,
-    &quot;dateCodes&quot;: [
-      {
-        &quot;dateCode&quot;: &quot;10&quot;,
-        &quot;dateShip&quot;: &quot;2002-01-15TZ&quot;
-      },
-      {
-        &quot;dateCode&quot;: &quot;02&quot;,
-        &quot;dateDeliver&quot;: &quot;2002-01-17TZ&quot;
-      },
-      {
-        &quot;dateCode&quot;: &quot;01&quot;,
-        &quot;dateCancel&quot;: &quot;2002-01-21TZ&quot;
-      }
-    ],
-    &quot;notes&quot;: [
-      {
-        &quot;noteCode&quot;: &quot;WHI&quot;,
-        &quot;instructions&quot;: null
-      }
-    ],
-    &quot;addresses&quot;: [
-      {
-        &quot;addressType&quot;: &quot;ST&quot;,
-        &quot;addressKey&quot;: &quot;10017&quot;,
-        &quot;addressName&quot;: &quot;Pitch Pipes Refinery, Inc.&quot;,
-        &quot;addressStreet&quot;: &quot;5270 Industrial Boulevard\\nSuite 401&quot;,
-        &quot;addressCity&quot;: &quot;Lubbock&quot;,
-        &quot;addressState&quot;: &quot;TX&quot;,
-        &quot;addressZip&quot;: &quot;79411&quot;,
-        &quot;addressPhone&quot;: &quot;8065554411&quot;
-      }
-    ],
-    &quot;detail&quot;: [
-      {
-        &quot;lineKey&quot;: &quot;001&quot;,
-        &quot;stockNumber&quot;: &quot;BMC001&quot;,
-        &quot;description&quot;: &quot;21x13x08 single white KDC&quot;,
-        &quot;orderUom&quot;: &quot;BD&quot;,
-        &quot;orderQty&quot;: 2
-      },
-      {
-        &quot;lineKey&quot;: &quot;002&quot;,
-        &quot;stockNumber&quot;: &quot;BMC002&quot;,
-        &quot;description&quot;: &quot;14x12x21 single brown KDC&quot;,
-        &quot;orderUom&quot;: &quot;BD&quot;,
-        &quot;orderQty&quot;: 3
-      },
-      {
-        &quot;lineKey&quot;: &quot;003&quot;,
-        &quot;stockNumber&quot;: &quot;BMC003&quot;,
-        &quot;description&quot;: &quot;18x16x24 double brown KDC&quot;,
-        &quot;orderUom&quot;: &quot;BD&quot;,
-        &quot;orderQty&quot;: 4&quot;l
-      }
-    ]
-  }
+  <span class="p">{</span>
+    <span class="nt">&quot;postDate&quot;</span><span class="p">:</span> <span class="s2">&quot;2003-01-12TZ&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;account&quot;</span><span class="p">:</span> <span class="s2">&quot;BMC&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;references&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;referenceCode&quot;</span><span class="p">:</span> <span class="s2">&quot;6A&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;6733&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;referenceCode&quot;</span><span class="p">:</span> <span class="s2">&quot;CO&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;poNumber&quot;</span><span class="p">:</span> <span class="s2">&quot;6852&quot;</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;carrier&quot;</span><span class="p">:</span> <span class="s2">&quot;SUXP&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;freightPay&quot;</span><span class="p">:</span> <span class="s2">&quot;PP&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;dateCodes&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;dateCode&quot;</span><span class="p">:</span> <span class="s2">&quot;10&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;dateShip&quot;</span><span class="p">:</span> <span class="s2">&quot;2002-01-15TZ&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;dateCode&quot;</span><span class="p">:</span> <span class="s2">&quot;02&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;dateDeliver&quot;</span><span class="p">:</span> <span class="s2">&quot;2002-01-17TZ&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;dateCode&quot;</span><span class="p">:</span> <span class="s2">&quot;01&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;dateCancel&quot;</span><span class="p">:</span> <span class="s2">&quot;2002-01-21TZ&quot;</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;notes&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;noteCode&quot;</span><span class="p">:</span> <span class="s2">&quot;WHI&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;instructions&quot;</span><span class="p">:</span> <span class="kc">null</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;addresses&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;addressType&quot;</span><span class="p">:</span> <span class="s2">&quot;ST&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;addressKey&quot;</span><span class="p">:</span> <span class="s2">&quot;10017&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;addressName&quot;</span><span class="p">:</span> <span class="s2">&quot;Pitch Pipes Refinery, Inc.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;addressStreet&quot;</span><span class="p">:</span> <span class="s2">&quot;5270 Industrial Boulevard\\nSuite 401&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;addressCity&quot;</span><span class="p">:</span> <span class="s2">&quot;Lubbock&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;addressState&quot;</span><span class="p">:</span> <span class="s2">&quot;TX&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;addressZip&quot;</span><span class="p">:</span> <span class="s2">&quot;79411&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;addressPhone&quot;</span><span class="p">:</span> <span class="s2">&quot;8065554411&quot;</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;detail&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;lineKey&quot;</span><span class="p">:</span> <span class="s2">&quot;001&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;stockNumber&quot;</span><span class="p">:</span> <span class="s2">&quot;BMC001&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;21x13x08 single white KDC&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;orderUom&quot;</span><span class="p">:</span> <span class="s2">&quot;BD&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;orderQty&quot;</span><span class="p">:</span> <span class="mi">2</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;lineKey&quot;</span><span class="p">:</span> <span class="s2">&quot;002&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;stockNumber&quot;</span><span class="p">:</span> <span class="s2">&quot;BMC002&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;14x12x21 single brown KDC&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;orderUom&quot;</span><span class="p">:</span> <span class="s2">&quot;BD&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;orderQty&quot;</span><span class="p">:</span> <span class="mi">3</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;lineKey&quot;</span><span class="p">:</span> <span class="s2">&quot;003&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;stockNumber&quot;</span><span class="p">:</span> <span class="s2">&quot;BMC003&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;18x16x24 double brown KDC&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;orderUom&quot;</span><span class="p">:</span> <span class="s2">&quot;BD&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;orderQty&quot;</span><span class="p">:</span> <span class="mi">4</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
 
-]
+<span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -300,7 +335,7 @@ context of data exchange.</p>
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="02_JSON-exchange.html" title="JSON Exchange Procedures"
+          <a href="02_JSON-orders.html" title="WARES JSON Orders Exchange"
              >next</a></li>
         <li class="right" >
           <a href="index.html" title="Data Exchange Documentation"

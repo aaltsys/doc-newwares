@@ -6,9 +6,9 @@ JSON Formatting Guidelines
 
 The following general guidelines for preparing JSON documents is not intended 
 to replace a proper JSON specification. Documentation of JSON specifications is 
-available at http://json.org/, but this guide and a few examples of files which 
-meet JSON specifications may be adequate for instruction in developing JSON 
-data exchange files.
+available at http://www.json.org/, but this guide and a few examples of files 
+which meet JSON specifications may be adequate for instruction in developing 
+JSON data exchange files.
 
 Basic JSON Formatting Rules
 =============================
@@ -17,20 +17,33 @@ Basic JSON Formatting Rules
    exports include programming style indentation for clarity.
 #. Each complete JSON transmission is enclosed in brackets, and repeated 
    structures within a JSON message are enclosed in brackets ([]).
-#. Each simple data element is named by a preceding identifier label enclosed 
-   in quotes (") and terminated with a colon (:). 
+#. Each data element is named with a preceding identifier label enclosed in
+   quotes ("") and terminated with a colon (:). 
 #. Successive data elements are separated by commas (,).
+#. The order of elements in a JSON structure is not important, as all elements 
+   are labeled.
 #. Where multiple data elements are grouped into a data structure, the 
    structure grouping is enclosed in braces ({}).
 #. Where a data structure may be repeated, the set of repeated structures is 
    given a label and the set is enclosed in brackets ([]).
-#. Each element is enclosed in quotes ("). Use an escape sequence (\\") to 
-   include a quote within the element text.
 #. *null* values: JSON does not permit labels associated with blank elements. 
    Either omit the label and element, or provide a *null* value.
 #. Control characters such as new lines (\\n) may be included in the data 
    stream as escape sequences. Each escape code must be preceded by an 
    additional escape indicator, the "\\". See the Escape Sequences table below.
+#. Each string element is enclosed in quotes (""). Use an escape sequence (\\") 
+   to include a quote within the element text.
+#. JSON numeric elements are not quoted. Where a decimal point is used in a 
+   number, digits (or zero) must occur to the left and right of the decimal.
+#. JSON date strings conform to `ISO8601 <http://www.w3.org/TR/NOTE-datetime>`. 
+   The general ISO datetime specification is:
+
+      YYYY-MM-DDThh:mmTZD
+
+   but the time (hh:mm) and the time zone designator (D) would be omitted when 
+   sending only a date as a quoted string: 
+
+      "YYY-MM-DDTZ"
 
 Escape Sequences
 =============================
@@ -78,8 +91,22 @@ context of data exchange.
 |             || may result in several characters| code point U+nnnnnnnn       |
 +-------------+----------------------------------+-----------------------------+
 
+.. _JSON-order:
+
 Sample JSON Exchange File
 =============================
+
+The following JSON example is a warehouse order record. The entire transmission 
+is enclosed in brackets ([]), and then the individual order record is enclosed 
+in braces ({}) because a transmission may contain multiple orders. 
+
+Similarly, **notes** and **addresses** sections are enclosed in brackets, as 
+multiple notes or addresses structures might occur in the record. Within the 
+address, the street is multi-line text and the newline is represented by the 
+escaped newline escape sequence (\\\n).
+
+Note that numeric order quantities are not quoted, and the integer quantities 
+do not include decimal points. Dates are quoted and terminated with "TZ".
 
 .. code-block:: JSON
 
@@ -152,7 +179,7 @@ Sample JSON Exchange File
           "stockNumber": "BMC003",
           "description": "18x16x24 double brown KDC",
           "orderUom": "BD",
-          "orderQty": 4"l
+          "orderQty": 4
         }
       ]
     }
