@@ -22,8 +22,8 @@ WARES has supported EDI data exchange in the past, but ANSI-X12 EDI is now
 deprecated due to the proprietary nature of these standards and their lack of 
 adaptability to web services. 
 
-However, the `WARES EDI Documentation <edi.aaltsys.info>`_ site fully documents 
-EDI standards and their use in a warehouse context.
+However, the `WARES EDI Documentation <http://edi.aaltsys.info>`_ site fully 
+documents EDI standards and their use in a warehouse context.
 
 Indices and tables
 ==================
