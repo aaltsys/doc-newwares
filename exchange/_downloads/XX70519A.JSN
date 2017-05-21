@@ -7,12 +7,41 @@
   "account": "ABF",
   "references": [
     {
-      "referenceCode": "CO",
-      "poNumber": "464542"
-    },
-    {
       "referenceCode": "6A",
       "reference": "PO5644"
+    },
+    {
+      "referenceCode": "CO",
+      "poNumber": "464542"
+    }
+  ],
+  "carrier": "FAJF",
+  "route": null,
+  "freightPay": "PP",
+  "receiveName": null,
+  "shipment": null,
+  "dateCodes": [
+    {
+      "dateCode": "10",
+      "dateShip": "2002-01-08TZ"
+    },
+    {
+      "dateCode": "02",
+      "dateDeliver": "null      TZ"
+    },
+    {
+      "dateCode": "01",
+      "dateCancel": "null      TZ"
+    }
+  ],
+  "notes": [
+    {
+      "noteCode": "WHI",
+      "instructions": "PLEASE PACK CAREFULLY."
+    },
+    {
+      "noteCode": "BOL",
+      "comments": null
     }
   ],
   "addresses": [
@@ -35,41 +64,15 @@
       "addressCity": "Memphis",
       "addressState": "TN",
       "addressZip": "38104",
-      "addressPhone": "8007274587"
-    }
-  ],
-  "carrier": "FAJF",
-  "route": null,
-  "freightPay": "PP",
-  "dateCodes": [
-    {
-      "dateCode": "01",
-      "dateCancel": "null      TZ"
-    },
-    {
-      "dateCode": "02",
-      "dateDeliver": "null      TZ"
-    },
-    {
-      "dateCode": "10",
-      "dateShip": "2002-01-08TZ"
-    }
-  ],
-  "notes": [
-    {
-      "noteCode": "WHI",
-      "instructions": "PLEASE PACK CAREFULLY."
-    },
-    {
-      "noteCode": "BOL",
-      "comments": null
+      "addressPhone": "8007274587",
+      "addressContact": "Mr. Gerald Lovel"
     }
   ],
   "detail": [
     {
       "lineKey": "90000069",
       "stockNumber": "TTP0133",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0133",
       "control": null,
       "description": "Herbal Tonic Toothpaste",
@@ -86,7 +89,7 @@
     {
       "lineKey": "90000070",
       "stockNumber": "HHS0145",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0145",
       "control": null,
       "description": "Herbal Harvest Hair Spray",
@@ -103,7 +106,7 @@
     {
       "lineKey": "90000071",
       "stockNumber": "FFB0155",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0155",
       "control": null,
       "description": "Herbal Fantasy Foot Bath",
@@ -120,7 +123,7 @@
     {
       "lineKey": "90000072",
       "stockNumber": "MMW0172",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0172",
       "control": null,
       "description": "Herbal Mist Mouthwash",
@@ -143,12 +146,41 @@
   "account": "ABF",
   "references": [
     {
-      "referenceCode": "CO",
-      "poNumber": "4642524"
-    },
-    {
       "referenceCode": "6A",
       "reference": "PO3545"
+    },
+    {
+      "referenceCode": "CO",
+      "poNumber": "4642524"
+    }
+  ],
+  "carrier": "FAJF",
+  "route": null,
+  "freightPay": "PP",
+  "receiveName": null,
+  "shipment": null,
+  "dateCodes": [
+    {
+      "dateCode": "10",
+      "dateShip": "2002-01-08TZ"
+    },
+    {
+      "dateCode": "02",
+      "dateDeliver": "null      TZ"
+    },
+    {
+      "dateCode": "01",
+      "dateCancel": "null      TZ"
+    }
+  ],
+  "notes": [
+    {
+      "noteCode": "WHI",
+      "instructions": "PLEASE PACK CAREFULLY."
+    },
+    {
+      "noteCode": "BOL",
+      "comments": null
     }
   ],
   "addresses": [
@@ -171,41 +203,15 @@
       "addressCity": "Memphis",
       "addressState": "TN",
       "addressZip": "38104",
-      "addressPhone": "8007274587"
-    }
-  ],
-  "carrier": "FAJF",
-  "route": null,
-  "freightPay": "PP",
-  "dateCodes": [
-    {
-      "dateCode": "01",
-      "dateCancel": "null      TZ"
-    },
-    {
-      "dateCode": "02",
-      "dateDeliver": "null      TZ"
-    },
-    {
-      "dateCode": "10",
-      "dateShip": "2002-01-08TZ"
-    }
-  ],
-  "notes": [
-    {
-      "noteCode": "WHI",
-      "instructions": "PLEASE PACK CAREFULLY."
-    },
-    {
-      "noteCode": "BOL",
-      "comments": null
+      "addressPhone": "8007274587",
+      "addressContact": "Mr. Gerald Lovel"
     }
   ],
   "detail": [
     {
       "lineKey": "90000059",
       "stockNumber": "BBS0132",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0132",
       "control": null,
       "description": "Herbal Blossom Bath Salts",
@@ -222,7 +228,7 @@
     {
       "lineKey": "90000060",
       "stockNumber": "TTP0133",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0133",
       "control": null,
       "description": "Herbal Tonic Toothpaste",
@@ -239,7 +245,7 @@
     {
       "lineKey": "90000062",
       "stockNumber": "FFB0155",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0155",
       "control": null,
       "description": "Herbal Fantasy Foot Bath",
@@ -256,7 +262,7 @@
     {
       "lineKey": "90000063",
       "stockNumber": "MMW0172",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0172",
       "control": null,
       "description": "Herbal Mist Mouthwash",
@@ -273,7 +279,7 @@
     {
       "lineKey": "90000064",
       "stockNumber": "SSR0182",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0182",
       "control": null,
       "description": "Herbal Seasons Sinus Remedy",
@@ -296,12 +302,41 @@
   "account": "ABF",
   "references": [
     {
-      "referenceCode": "CO",
-      "poNumber": "46421"
-    },
-    {
       "referenceCode": "6A",
       "reference": "PO13345"
+    },
+    {
+      "referenceCode": "CO",
+      "poNumber": "46421"
+    }
+  ],
+  "carrier": "FAJF",
+  "route": null,
+  "freightPay": "PP",
+  "receiveName": null,
+  "shipment": null,
+  "dateCodes": [
+    {
+      "dateCode": "10",
+      "dateShip": "2002-01-09TZ"
+    },
+    {
+      "dateCode": "02",
+      "dateDeliver": "null      TZ"
+    },
+    {
+      "dateCode": "01",
+      "dateCancel": "null      TZ"
+    }
+  ],
+  "notes": [
+    {
+      "noteCode": "WHI",
+      "instructions": "PLEASE PACK CAREFULLY."
+    },
+    {
+      "noteCode": "BOL",
+      "comments": null
     }
   ],
   "addresses": [
@@ -324,41 +359,15 @@
       "addressCity": "Memphis",
       "addressState": "TN",
       "addressZip": "38104",
-      "addressPhone": "8007274587"
-    }
-  ],
-  "carrier": "FAJF",
-  "route": null,
-  "freightPay": "PP",
-  "dateCodes": [
-    {
-      "dateCode": "01",
-      "dateCancel": "null      TZ"
-    },
-    {
-      "dateCode": "02",
-      "dateDeliver": "null      TZ"
-    },
-    {
-      "dateCode": "10",
-      "dateShip": "2002-01-09TZ"
-    }
-  ],
-  "notes": [
-    {
-      "noteCode": "WHI",
-      "instructions": "PLEASE PACK CAREFULLY."
-    },
-    {
-      "noteCode": "BOL",
-      "comments": null
+      "addressPhone": "8007274587",
+      "addressContact": "Mr. Gerald Lovel"
     }
   ],
   "detail": [
     {
       "lineKey": "90000001",
       "stockNumber": "BBS0132",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0132",
       "control": null,
       "description": "Herbal Blossom Bath Salts",
@@ -375,7 +384,7 @@
     {
       "lineKey": "90000002",
       "stockNumber": "TTP0133",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0133",
       "control": null,
       "description": "Herbal Tonic Toothpaste",
@@ -392,7 +401,7 @@
     {
       "lineKey": "90000003",
       "stockNumber": "HHS0145",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0145",
       "control": null,
       "description": "Herbal Harvest Hair Spray",
@@ -409,7 +418,7 @@
     {
       "lineKey": "90000005",
       "stockNumber": "MMW0172",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0172",
       "control": null,
       "description": "Herbal Mist Mouthwash",
@@ -426,7 +435,7 @@
     {
       "lineKey": "90000006",
       "stockNumber": "SSR0182",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0182",
       "control": null,
       "description": "Herbal Seasons Sinus Remedy",
@@ -449,12 +458,41 @@
   "account": "ABF",
   "references": [
     {
-      "referenceCode": "CO",
-      "poNumber": "3421121"
-    },
-    {
       "referenceCode": "6A",
       "reference": "PO13360"
+    },
+    {
+      "referenceCode": "CO",
+      "poNumber": "3421121"
+    }
+  ],
+  "carrier": "FAJF",
+  "route": null,
+  "freightPay": "PP",
+  "receiveName": null,
+  "shipment": null,
+  "dateCodes": [
+    {
+      "dateCode": "10",
+      "dateShip": "2002-01-09TZ"
+    },
+    {
+      "dateCode": "02",
+      "dateDeliver": "null      TZ"
+    },
+    {
+      "dateCode": "01",
+      "dateCancel": "null      TZ"
+    }
+  ],
+  "notes": [
+    {
+      "noteCode": "WHI",
+      "instructions": "PLEASE PACK CAREFULLY."
+    },
+    {
+      "noteCode": "BOL",
+      "comments": null
     }
   ],
   "addresses": [
@@ -475,41 +513,15 @@
       "addressCity": "Memphis",
       "addressState": "TN",
       "addressZip": "38104",
-      "addressPhone": "8007274587"
-    }
-  ],
-  "carrier": "FAJF",
-  "route": null,
-  "freightPay": "PP",
-  "dateCodes": [
-    {
-      "dateCode": "01",
-      "dateCancel": "null      TZ"
-    },
-    {
-      "dateCode": "02",
-      "dateDeliver": "null      TZ"
-    },
-    {
-      "dateCode": "10",
-      "dateShip": "2002-01-09TZ"
-    }
-  ],
-  "notes": [
-    {
-      "noteCode": "WHI",
-      "instructions": "PLEASE PACK CAREFULLY."
-    },
-    {
-      "noteCode": "BOL",
-      "comments": null
+      "addressPhone": "8007274587",
+      "addressContact": "Mr. Gerald Lovel"
     }
   ],
   "detail": [
     {
       "lineKey": "90000010",
       "stockNumber": "BBS0132",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0132",
       "control": null,
       "description": "Herbal Blossom Bath Salts",
@@ -526,7 +538,7 @@
     {
       "lineKey": "90000012",
       "stockNumber": "HHS0145",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0145",
       "control": null,
       "description": "Herbal Harvest Hair Spray",
@@ -543,7 +555,7 @@
     {
       "lineKey": "90000013",
       "stockNumber": "FFB0155",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0155",
       "control": null,
       "description": "Herbal Fantasy Foot Bath",
@@ -560,7 +572,7 @@
     {
       "lineKey": "90000014",
       "stockNumber": "MMW0172",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0172",
       "control": null,
       "description": "Herbal Mist Mouthwash",
@@ -577,7 +589,7 @@
     {
       "lineKey": "90000015",
       "stockNumber": "SSR0182",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0182",
       "control": null,
       "description": "Herbal Seasons Sinus Remedy",
@@ -600,12 +612,41 @@
   "account": "ABF",
   "references": [
     {
-      "referenceCode": "CO",
-      "poNumber": "645241"
-    },
-    {
       "referenceCode": "6A",
       "reference": "PO14321"
+    },
+    {
+      "referenceCode": "CO",
+      "poNumber": "645241"
+    }
+  ],
+  "carrier": "FAJF",
+  "route": null,
+  "freightPay": "PP",
+  "receiveName": null,
+  "shipment": null,
+  "dateCodes": [
+    {
+      "dateCode": "10",
+      "dateShip": "2002-01-10TZ"
+    },
+    {
+      "dateCode": "02",
+      "dateDeliver": "null      TZ"
+    },
+    {
+      "dateCode": "01",
+      "dateCancel": "null      TZ"
+    }
+  ],
+  "notes": [
+    {
+      "noteCode": "WHI",
+      "instructions": "PLEASE PACK CAREFULLY."
+    },
+    {
+      "noteCode": "BOL",
+      "comments": null
     }
   ],
   "addresses": [
@@ -628,41 +669,15 @@
       "addressCity": "Memphis",
       "addressState": "TN",
       "addressZip": "38104",
-      "addressPhone": "8007274587"
-    }
-  ],
-  "carrier": "FAJF",
-  "route": null,
-  "freightPay": "PP",
-  "dateCodes": [
-    {
-      "dateCode": "01",
-      "dateCancel": "null      TZ"
-    },
-    {
-      "dateCode": "02",
-      "dateDeliver": "null      TZ"
-    },
-    {
-      "dateCode": "10",
-      "dateShip": "2002-01-10TZ"
-    }
-  ],
-  "notes": [
-    {
-      "noteCode": "WHI",
-      "instructions": "PLEASE PACK CAREFULLY."
-    },
-    {
-      "noteCode": "BOL",
-      "comments": null
+      "addressPhone": "8007274587",
+      "addressContact": "Mr. Gerald Lovel"
     }
   ],
   "detail": [
     {
       "lineKey": "90000019",
       "stockNumber": "BBS0132",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0132",
       "control": null,
       "description": "Herbal Blossom Bath Salts",
@@ -679,7 +694,7 @@
     {
       "lineKey": "90000020",
       "stockNumber": "TTP0133",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0133",
       "control": null,
       "description": "Herbal Tonic Toothpaste",
@@ -696,7 +711,7 @@
     {
       "lineKey": "90000021",
       "stockNumber": "HHS0145",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0145",
       "control": null,
       "description": "Herbal Harvest Hair Spray",
@@ -713,7 +728,7 @@
     {
       "lineKey": "90000022",
       "stockNumber": "FFB0155",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0155",
       "control": null,
       "description": "Herbal Fantasy Foot Bath",
@@ -730,7 +745,7 @@
     {
       "lineKey": "90000024",
       "stockNumber": "MMW0172",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0172",
       "control": null,
       "description": "Herbal Mist Mouthwash",
@@ -753,12 +768,41 @@
   "account": "ABF",
   "references": [
     {
-      "referenceCode": "CO",
-      "poNumber": "42332"
-    },
-    {
       "referenceCode": "6A",
       "reference": "PO12554"
+    },
+    {
+      "referenceCode": "CO",
+      "poNumber": "42332"
+    }
+  ],
+  "carrier": "FAJF",
+  "route": null,
+  "freightPay": "PP",
+  "receiveName": null,
+  "shipment": null,
+  "dateCodes": [
+    {
+      "dateCode": "10",
+      "dateShip": "2002-01-10TZ"
+    },
+    {
+      "dateCode": "02",
+      "dateDeliver": "null      TZ"
+    },
+    {
+      "dateCode": "01",
+      "dateCancel": "null      TZ"
+    }
+  ],
+  "notes": [
+    {
+      "noteCode": "WHI",
+      "instructions": "PLEASE PACK CAREFULLY."
+    },
+    {
+      "noteCode": "BOL",
+      "comments": null
     }
   ],
   "addresses": [
@@ -779,41 +823,15 @@
       "addressCity": "Memphis",
       "addressState": "TN",
       "addressZip": "38104",
-      "addressPhone": "8007274587"
-    }
-  ],
-  "carrier": "FAJF",
-  "route": null,
-  "freightPay": "PP",
-  "dateCodes": [
-    {
-      "dateCode": "01",
-      "dateCancel": "null      TZ"
-    },
-    {
-      "dateCode": "02",
-      "dateDeliver": "null      TZ"
-    },
-    {
-      "dateCode": "10",
-      "dateShip": "2002-01-10TZ"
-    }
-  ],
-  "notes": [
-    {
-      "noteCode": "WHI",
-      "instructions": "PLEASE PACK CAREFULLY."
-    },
-    {
-      "noteCode": "BOL",
-      "comments": null
+      "addressPhone": "8007274587",
+      "addressContact": "Mr. Gerald Lovel"
     }
   ],
   "detail": [
     {
       "lineKey": "90000030",
       "stockNumber": "TTP0133",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0133",
       "control": null,
       "description": "Herbal Tonic Toothpaste",
@@ -830,7 +848,7 @@
     {
       "lineKey": "90000031",
       "stockNumber": "HHS0145",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0145",
       "control": null,
       "description": "Herbal Harvest Hair Spray",
@@ -847,7 +865,7 @@
     {
       "lineKey": "90000032",
       "stockNumber": "FFB0155",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0155",
       "control": null,
       "description": "Herbal Fantasy Foot Bath",
@@ -864,7 +882,7 @@
     {
       "lineKey": "90000033",
       "stockNumber": "GGW0162",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0162",
       "control": null,
       "description": "Herbal Garden Gargle",
@@ -881,7 +899,7 @@
     {
       "lineKey": "90000034",
       "stockNumber": "MMW0172",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0172",
       "control": null,
       "description": "Herbal Mist Mouthwash",
@@ -898,7 +916,7 @@
     {
       "lineKey": "90000035",
       "stockNumber": "SSR0182",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0182",
       "control": null,
       "description": "Herbal Seasons Sinus Remedy",
@@ -915,7 +933,7 @@
     {
       "lineKey": "90000037",
       "stockNumber": "DDO0245",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0245",
       "control": null,
       "description": "Herbal Desire Deodorant",
@@ -932,7 +950,7 @@
     {
       "lineKey": "90000038",
       "stockNumber": "PPL0911",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0911",
       "control": null,
       "description": "Herbal Passion Pantry Liners",
@@ -955,12 +973,41 @@
   "account": "ABF",
   "references": [
     {
-      "referenceCode": "CO",
-      "poNumber": "5453342"
-    },
-    {
       "referenceCode": "6A",
       "reference": "PO035U03"
+    },
+    {
+      "referenceCode": "CO",
+      "poNumber": "5453342"
+    }
+  ],
+  "carrier": "FAJF",
+  "route": null,
+  "freightPay": "PP",
+  "receiveName": null,
+  "shipment": null,
+  "dateCodes": [
+    {
+      "dateCode": "10",
+      "dateShip": "2002-01-11TZ"
+    },
+    {
+      "dateCode": "02",
+      "dateDeliver": "null      TZ"
+    },
+    {
+      "dateCode": "01",
+      "dateCancel": "null      TZ"
+    }
+  ],
+  "notes": [
+    {
+      "noteCode": "WHI",
+      "instructions": "PLEASE PACK CAREFULLY."
+    },
+    {
+      "noteCode": "BOL",
+      "comments": null
     }
   ],
   "addresses": [
@@ -981,41 +1028,15 @@
       "addressCity": "Memphis",
       "addressState": "TN",
       "addressZip": "38104",
-      "addressPhone": "8007274587"
-    }
-  ],
-  "carrier": "FAJF",
-  "route": null,
-  "freightPay": "PP",
-  "dateCodes": [
-    {
-      "dateCode": "01",
-      "dateCancel": "null      TZ"
-    },
-    {
-      "dateCode": "02",
-      "dateDeliver": "null      TZ"
-    },
-    {
-      "dateCode": "10",
-      "dateShip": "2002-01-11TZ"
-    }
-  ],
-  "notes": [
-    {
-      "noteCode": "WHI",
-      "instructions": "PLEASE PACK CAREFULLY."
-    },
-    {
-      "noteCode": "BOL",
-      "comments": null
+      "addressPhone": "8007274587",
+      "addressContact": "Mr. Gerald Lovel"
     }
   ],
   "detail": [
     {
       "lineKey": "90000039",
       "stockNumber": "BBS0132",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0132",
       "control": null,
       "description": "Herbal Blossom Bath Salts",
@@ -1032,7 +1053,7 @@
     {
       "lineKey": "90000041",
       "stockNumber": "HHS0145",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0145",
       "control": null,
       "description": "Herbal Harvest Hair Spray",
@@ -1049,7 +1070,7 @@
     {
       "lineKey": "90000042",
       "stockNumber": "FFB0155",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0155",
       "control": null,
       "description": "Herbal Fantasy Foot Bath",
@@ -1066,7 +1087,7 @@
     {
       "lineKey": "90000043",
       "stockNumber": "GGW0162",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0162",
       "control": null,
       "description": "Herbal Garden Gargle",
@@ -1083,7 +1104,7 @@
     {
       "lineKey": "90000044",
       "stockNumber": "MMW0172",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0172",
       "control": null,
       "description": "Herbal Mist Mouthwash",
@@ -1100,7 +1121,7 @@
     {
       "lineKey": "90000045",
       "stockNumber": "SSR0182",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0182",
       "control": null,
       "description": "Herbal Seasons Sinus Remedy",
@@ -1117,7 +1138,7 @@
     {
       "lineKey": "90000046",
       "stockNumber": "NNS0211",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0211",
       "control": null,
       "description": "Herbal Nature Nasal Spray",
@@ -1134,7 +1155,7 @@
     {
       "lineKey": "90000048",
       "stockNumber": "PPL0911",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0911",
       "control": null,
       "description": "Herbal Passion Pantry Liners",
@@ -1157,12 +1178,41 @@
   "account": "ABF",
   "references": [
     {
-      "referenceCode": "CO",
-      "poNumber": "851342"
-    },
-    {
       "referenceCode": "6A",
       "reference": "PO57552"
+    },
+    {
+      "referenceCode": "CO",
+      "poNumber": "851342"
+    }
+  ],
+  "carrier": "FAJF",
+  "route": null,
+  "freightPay": "PP",
+  "receiveName": null,
+  "shipment": null,
+  "dateCodes": [
+    {
+      "dateCode": "10",
+      "dateShip": "2002-01-11TZ"
+    },
+    {
+      "dateCode": "02",
+      "dateDeliver": "null      TZ"
+    },
+    {
+      "dateCode": "01",
+      "dateCancel": "null      TZ"
+    }
+  ],
+  "notes": [
+    {
+      "noteCode": "WHI",
+      "instructions": "PLEASE PACK CAREFULLY."
+    },
+    {
+      "noteCode": "BOL",
+      "comments": null
     }
   ],
   "addresses": [
@@ -1183,41 +1233,15 @@
       "addressCity": "Memphis",
       "addressState": "TN",
       "addressZip": "38104",
-      "addressPhone": "8007274587"
-    }
-  ],
-  "carrier": "FAJF",
-  "route": null,
-  "freightPay": "PP",
-  "dateCodes": [
-    {
-      "dateCode": "01",
-      "dateCancel": "null      TZ"
-    },
-    {
-      "dateCode": "02",
-      "dateDeliver": "null      TZ"
-    },
-    {
-      "dateCode": "10",
-      "dateShip": "2002-01-11TZ"
-    }
-  ],
-  "notes": [
-    {
-      "noteCode": "WHI",
-      "instructions": "PLEASE PACK CAREFULLY."
-    },
-    {
-      "noteCode": "BOL",
-      "comments": null
+      "addressPhone": "8007274587",
+      "addressContact": "Mr. Gerald Lovel"
     }
   ],
   "detail": [
     {
       "lineKey": "90000049",
       "stockNumber": "BBS0132",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0132",
       "control": null,
       "description": "Herbal Blossom Bath Salts",
@@ -1234,7 +1258,7 @@
     {
       "lineKey": "90000050",
       "stockNumber": "TTP0133",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0133",
       "control": null,
       "description": "Herbal Tonic Toothpaste",
@@ -1251,7 +1275,7 @@
     {
       "lineKey": "90000052",
       "stockNumber": "FFB0155",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0155",
       "control": null,
       "description": "Herbal Fantasy Foot Bath",
@@ -1268,7 +1292,7 @@
     {
       "lineKey": "90000053",
       "stockNumber": "GGW0162",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0162",
       "control": null,
       "description": "Herbal Garden Gargle",
@@ -1285,7 +1309,7 @@
     {
       "lineKey": "90000055",
       "stockNumber": "SSR0182",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0182",
       "control": null,
       "description": "Herbal Seasons Sinus Remedy",
@@ -1302,7 +1326,7 @@
     {
       "lineKey": "90000056",
       "stockNumber": "NNS0211",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0211",
       "control": null,
       "description": "Herbal Nature Nasal Spray",
@@ -1319,7 +1343,7 @@
     {
       "lineKey": "90000057",
       "stockNumber": "DDO0245",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0245",
       "control": null,
       "description": "Herbal Desire Deodorant",
@@ -1336,7 +1360,7 @@
     {
       "lineKey": "90000058",
       "stockNumber": "PPL0911",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0911",
       "control": null,
       "description": "Herbal Passion Pantry Liners",
@@ -1359,12 +1383,41 @@
   "account": "ABF",
   "references": [
     {
-      "referenceCode": "CO",
-      "poNumber": "674532"
-    },
-    {
       "referenceCode": "6A",
       "reference": "PO2546"
+    },
+    {
+      "referenceCode": "CO",
+      "poNumber": "674532"
+    }
+  ],
+  "carrier": "FAJF",
+  "route": null,
+  "freightPay": "PP",
+  "receiveName": null,
+  "shipment": null,
+  "dateCodes": [
+    {
+      "dateCode": "10",
+      "dateShip": "2002-01-12TZ"
+    },
+    {
+      "dateCode": "02",
+      "dateDeliver": "null      TZ"
+    },
+    {
+      "dateCode": "01",
+      "dateCancel": "null      TZ"
+    }
+  ],
+  "notes": [
+    {
+      "noteCode": "WHI",
+      "instructions": null
+    },
+    {
+      "noteCode": "BOL",
+      "comments": null
     }
   ],
   "addresses": [
@@ -1386,41 +1439,15 @@
       "addressCity": "Memphis",
       "addressState": "TN",
       "addressZip": "38104",
-      "addressPhone": "8007274587"
-    }
-  ],
-  "carrier": "FAJF",
-  "route": null,
-  "freightPay": "PP",
-  "dateCodes": [
-    {
-      "dateCode": "01",
-      "dateCancel": "null      TZ"
-    },
-    {
-      "dateCode": "02",
-      "dateDeliver": "null      TZ"
-    },
-    {
-      "dateCode": "10",
-      "dateShip": "2002-01-12TZ"
-    }
-  ],
-  "notes": [
-    {
-      "noteCode": "WHI",
-      "instructions": null
-    },
-    {
-      "noteCode": "BOL",
-      "comments": null
+      "addressPhone": "8007274587",
+      "addressContact": "Mr. Gerald Lovel"
     }
   ],
   "detail": [
     {
       "lineKey": "90000077",
       "stockNumber": "BBS0132",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0132",
       "control": null,
       "description": "Herbal Blossom Bath Salts",
@@ -1437,7 +1464,7 @@
     {
       "lineKey": "90000078",
       "stockNumber": "TTP0133",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0133",
       "control": null,
       "description": "Herbal Tonic Toothpaste",
@@ -1454,7 +1481,7 @@
     {
       "lineKey": "90000079",
       "stockNumber": "HHS0145",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0145",
       "control": null,
       "description": "Herbal Harvest Hair Spray",
@@ -1471,7 +1498,7 @@
     {
       "lineKey": "90000081",
       "stockNumber": "GGW0162",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0162",
       "control": null,
       "description": "Herbal Garden Gargle",
@@ -1488,7 +1515,7 @@
     {
       "lineKey": "90000082",
       "stockNumber": "MMW0172",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0172",
       "control": null,
       "description": "Herbal Mist Mouthwash",
@@ -1505,7 +1532,7 @@
     {
       "lineKey": "90000083",
       "stockNumber": "SSR0182",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0182",
       "control": null,
       "description": "Herbal Seasons Sinus Remedy",
@@ -1522,7 +1549,7 @@
     {
       "lineKey": "90000084",
       "stockNumber": "NNS0211",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0211",
       "control": null,
       "description": "Herbal Nature Nasal Spray",
@@ -1539,7 +1566,7 @@
     {
       "lineKey": "90000086",
       "stockNumber": "PPL0911",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0911",
       "control": null,
       "description": "Herbal Passion Pantry Liners",
@@ -1562,12 +1589,41 @@
   "account": "ABF",
   "references": [
     {
-      "referenceCode": "CO",
-      "poNumber": "442545"
-    },
-    {
       "referenceCode": "6A",
       "reference": "PO77464"
+    },
+    {
+      "referenceCode": "CO",
+      "poNumber": "442545"
+    }
+  ],
+  "carrier": "FAJF",
+  "route": null,
+  "freightPay": "PP",
+  "receiveName": null,
+  "shipment": null,
+  "dateCodes": [
+    {
+      "dateCode": "10",
+      "dateShip": "2002-01-13TZ"
+    },
+    {
+      "dateCode": "02",
+      "dateDeliver": "null      TZ"
+    },
+    {
+      "dateCode": "01",
+      "dateCancel": "null      TZ"
+    }
+  ],
+  "notes": [
+    {
+      "noteCode": "WHI",
+      "instructions": "PLEASE PACK CAREFULLY."
+    },
+    {
+      "noteCode": "BOL",
+      "comments": null
     }
   ],
   "addresses": [
@@ -1588,41 +1644,15 @@
       "addressCity": "Memphis",
       "addressState": "TN",
       "addressZip": "38104",
-      "addressPhone": "8007274587"
-    }
-  ],
-  "carrier": "FAJF",
-  "route": null,
-  "freightPay": "PP",
-  "dateCodes": [
-    {
-      "dateCode": "01",
-      "dateCancel": "null      TZ"
-    },
-    {
-      "dateCode": "02",
-      "dateDeliver": "null      TZ"
-    },
-    {
-      "dateCode": "10",
-      "dateShip": "2002-01-13TZ"
-    }
-  ],
-  "notes": [
-    {
-      "noteCode": "WHI",
-      "instructions": "PLEASE PACK CAREFULLY."
-    },
-    {
-      "noteCode": "BOL",
-      "comments": null
+      "addressPhone": "8007274587",
+      "addressContact": "Mr. Gerald Lovel"
     }
   ],
   "detail": [
     {
       "lineKey": "90000087",
       "stockNumber": "BBS0132",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0132",
       "control": null,
       "description": "Herbal Blossom Bath Salts",
@@ -1639,7 +1669,7 @@
     {
       "lineKey": "90000088",
       "stockNumber": "TTP0133",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0133",
       "control": null,
       "description": "Herbal Tonic Toothpaste",
@@ -1656,7 +1686,7 @@
     {
       "lineKey": "90000089",
       "stockNumber": "HHS0145",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0145",
       "control": null,
       "description": "Herbal Harvest Hair Spray",
@@ -1673,7 +1703,7 @@
     {
       "lineKey": "90000090",
       "stockNumber": "FFB0155",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0155",
       "control": null,
       "description": "Herbal Fantasy Foot Bath",
@@ -1690,7 +1720,7 @@
     {
       "lineKey": "90000091",
       "stockNumber": "GGW0162",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0162",
       "control": null,
       "description": "Herbal Garden Gargle",
@@ -1707,7 +1737,7 @@
     {
       "lineKey": "90000092",
       "stockNumber": "MMW0172",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0172",
       "control": null,
       "description": "Herbal Mist Mouthwash",
@@ -1724,7 +1754,7 @@
     {
       "lineKey": "90000093",
       "stockNumber": "SSR0182",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0182",
       "control": null,
       "description": "Herbal Seasons Sinus Remedy",
@@ -1741,7 +1771,7 @@
     {
       "lineKey": "90000094",
       "stockNumber": "NNS0211",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0211",
       "control": null,
       "description": "Herbal Nature Nasal Spray",
@@ -1758,7 +1788,7 @@
     {
       "lineKey": "90000095",
       "stockNumber": "DDO0245",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0245",
       "control": null,
       "description": "Herbal Desire Deodorant",
@@ -1775,7 +1805,7 @@
     {
       "lineKey": "90000096",
       "stockNumber": "PPL0911",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0911",
       "control": null,
       "description": "Herbal Passion Pantry Liners",
@@ -1798,12 +1828,41 @@
   "account": "ABF",
   "references": [
     {
-      "referenceCode": "CO",
-      "poNumber": "6867634"
-    },
-    {
       "referenceCode": "6A",
       "reference": "PO42546"
+    },
+    {
+      "referenceCode": "CO",
+      "poNumber": "6867634"
+    }
+  ],
+  "carrier": "FAJF",
+  "route": null,
+  "freightPay": "PP",
+  "receiveName": null,
+  "shipment": null,
+  "dateCodes": [
+    {
+      "dateCode": "10",
+      "dateShip": "2002-01-13TZ"
+    },
+    {
+      "dateCode": "02",
+      "dateDeliver": "null      TZ"
+    },
+    {
+      "dateCode": "01",
+      "dateCancel": "null      TZ"
+    }
+  ],
+  "notes": [
+    {
+      "noteCode": "WHI",
+      "instructions": "PLEASE PACK CAREFULLY."
+    },
+    {
+      "noteCode": "BOL",
+      "comments": null
     }
   ],
   "addresses": [
@@ -1824,41 +1883,15 @@
       "addressCity": "Memphis",
       "addressState": "TN",
       "addressZip": "38104",
-      "addressPhone": "8007274587"
-    }
-  ],
-  "carrier": "FAJF",
-  "route": null,
-  "freightPay": "PP",
-  "dateCodes": [
-    {
-      "dateCode": "01",
-      "dateCancel": "null      TZ"
-    },
-    {
-      "dateCode": "02",
-      "dateDeliver": "null      TZ"
-    },
-    {
-      "dateCode": "10",
-      "dateShip": "2002-01-13TZ"
-    }
-  ],
-  "notes": [
-    {
-      "noteCode": "WHI",
-      "instructions": "PLEASE PACK CAREFULLY."
-    },
-    {
-      "noteCode": "BOL",
-      "comments": null
+      "addressPhone": "8007274587",
+      "addressContact": "Mr. Gerald Lovel"
     }
   ],
   "detail": [
     {
       "lineKey": "90000097",
       "stockNumber": "BBS0132",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0132",
       "control": null,
       "description": "Herbal Blossom Bath Salts",
@@ -1875,7 +1908,7 @@
     {
       "lineKey": "90000098",
       "stockNumber": "TTP0133",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0133",
       "control": null,
       "description": "Herbal Tonic Toothpaste",
@@ -1892,7 +1925,7 @@
     {
       "lineKey": "90000099",
       "stockNumber": "HHS0145",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0145",
       "control": null,
       "description": "Herbal Harvest Hair Spray",
@@ -1909,7 +1942,7 @@
     {
       "lineKey": "90000100",
       "stockNumber": "FFB0155",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0155",
       "control": null,
       "description": "Herbal Fantasy Foot Bath",
@@ -1926,7 +1959,7 @@
     {
       "lineKey": "90000101",
       "stockNumber": "GGW0162",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0162",
       "control": null,
       "description": "Herbal Garden Gargle",
@@ -1943,7 +1976,7 @@
     {
       "lineKey": "90000102",
       "stockNumber": "MMW0172",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0172",
       "control": null,
       "description": "Herbal Mist Mouthwash",
@@ -1960,7 +1993,7 @@
     {
       "lineKey": "90000103",
       "stockNumber": "SSR0182",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0182",
       "control": null,
       "description": "Herbal Seasons Sinus Remedy",
@@ -1977,7 +2010,7 @@
     {
       "lineKey": "90000104",
       "stockNumber": "NNS0211",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0211",
       "control": null,
       "description": "Herbal Nature Nasal Spray",
@@ -1994,7 +2027,7 @@
     {
       "lineKey": "90000105",
       "stockNumber": "DDO0245",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0245",
       "control": null,
       "description": "Herbal Desire Deodorant",
@@ -2011,7 +2044,7 @@
     {
       "lineKey": "90000106",
       "stockNumber": "PPL0911",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "ABF0911",
       "control": null,
       "description": "Herbal Passion Pantry Liners",
@@ -2034,12 +2067,41 @@
   "account": "PTW",
   "references": [
     {
-      "referenceCode": "CO",
-      "poNumber": "1004"
-    },
-    {
       "referenceCode": "6A",
       "reference": "43422"
+    },
+    {
+      "referenceCode": "CO",
+      "poNumber": "1004"
+    }
+  ],
+  "carrier": "SUXP",
+  "route": null,
+  "freightPay": "CC",
+  "receiveName": null,
+  "shipment": null,
+  "dateCodes": [
+    {
+      "dateCode": "10",
+      "dateShip": "2002-01-15TZ"
+    },
+    {
+      "dateCode": "02",
+      "dateDeliver": "null      TZ"
+    },
+    {
+      "dateCode": "01",
+      "dateCancel": "null      TZ"
+    }
+  ],
+  "notes": [
+    {
+      "noteCode": "WHI",
+      "instructions": null
+    },
+    {
+      "noteCode": "BOL",
+      "comments": null
     }
   ],
   "addresses": [
@@ -2062,41 +2124,15 @@
       "addressCity": "Miami",
       "addressState": "FL",
       "addressZip": "33167",
-      "addressPhone": "3055551919"
-    }
-  ],
-  "carrier": "SUXP",
-  "route": null,
-  "freightPay": "CC",
-  "dateCodes": [
-    {
-      "dateCode": "01",
-      "dateCancel": "null      TZ"
-    },
-    {
-      "dateCode": "02",
-      "dateDeliver": "null      TZ"
-    },
-    {
-      "dateCode": "10",
-      "dateShip": "2002-01-15TZ"
-    }
-  ],
-  "notes": [
-    {
-      "noteCode": "WHI",
-      "instructions": null
-    },
-    {
-      "noteCode": "BOL",
-      "comments": null
+      "addressPhone": "3055551919",
+      "addressContact": "Mr. Casper Guilotta"
     }
   ],
   "detail": [
     {
       "lineKey": "90000107",
       "stockNumber": "PTW001",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "PTW001",
       "control": null,
       "description": "Soya Sensation Ink",
@@ -2113,7 +2149,7 @@
     {
       "lineKey": "90000108",
       "stockNumber": "PTW002",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "PTW002",
       "control": null,
       "description": "Pro Hanger All Natural Paste",
@@ -2136,12 +2172,41 @@
   "account": "OCI",
   "references": [
     {
-      "referenceCode": "CO",
-      "poNumber": "45324"
-    },
-    {
       "referenceCode": "6A",
       "reference": "45454"
+    },
+    {
+      "referenceCode": "CO",
+      "poNumber": "45324"
+    }
+  ],
+  "carrier": "ATIW",
+  "route": null,
+  "freightPay": "CC",
+  "receiveName": null,
+  "shipment": null,
+  "dateCodes": [
+    {
+      "dateCode": "10",
+      "dateShip": "2002-01-15TZ"
+    },
+    {
+      "dateCode": "02",
+      "dateDeliver": "null      TZ"
+    },
+    {
+      "dateCode": "01",
+      "dateCancel": "null      TZ"
+    }
+  ],
+  "notes": [
+    {
+      "noteCode": "WHI",
+      "instructions": null
+    },
+    {
+      "noteCode": "BOL",
+      "comments": null
     }
   ],
   "addresses": [
@@ -2164,38 +2229,11 @@
       "addressZip": "33152"
     }
   ],
-  "carrier": "ATIW",
-  "route": null,
-  "freightPay": "CC",
-  "dateCodes": [
-    {
-      "dateCode": "01",
-      "dateCancel": "null      TZ"
-    },
-    {
-      "dateCode": "02",
-      "dateDeliver": "null      TZ"
-    },
-    {
-      "dateCode": "10",
-      "dateShip": "2002-01-15TZ"
-    }
-  ],
-  "notes": [
-    {
-      "noteCode": "WHI",
-      "instructions": null
-    },
-    {
-      "noteCode": "BOL",
-      "comments": null
-    }
-  ],
   "detail": [
     {
       "lineKey": "90000109",
       "stockNumber": "OCI006",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "OCI006",
       "control": null,
       "description": "Moly Bearing Grease",
@@ -2218,12 +2256,41 @@
   "account": "BMC",
   "references": [
     {
-      "referenceCode": "CO",
-      "poNumber": "6852"
-    },
-    {
       "referenceCode": "6A",
       "reference": "6733"
+    },
+    {
+      "referenceCode": "CO",
+      "poNumber": "6852"
+    }
+  ],
+  "carrier": "SUXP",
+  "route": null,
+  "freightPay": "PP",
+  "receiveName": null,
+  "shipment": null,
+  "dateCodes": [
+    {
+      "dateCode": "10",
+      "dateShip": "2002-01-15TZ"
+    },
+    {
+      "dateCode": "02",
+      "dateDeliver": "null      TZ"
+    },
+    {
+      "dateCode": "01",
+      "dateCancel": "null      TZ"
+    }
+  ],
+  "notes": [
+    {
+      "noteCode": "WHI",
+      "instructions": null
+    },
+    {
+      "noteCode": "BOL",
+      "comments": null
     }
   ],
   "addresses": [
@@ -2245,41 +2312,15 @@
       "addressCity": "Flint",
       "addressState": "MI",
       "addressZip": "48505",
-      "addressPhone": "8725556348\\n8725556240FAX"
-    }
-  ],
-  "carrier": "SUXP",
-  "route": null,
-  "freightPay": "PP",
-  "dateCodes": [
-    {
-      "dateCode": "01",
-      "dateCancel": "null      TZ"
-    },
-    {
-      "dateCode": "02",
-      "dateDeliver": "null      TZ"
-    },
-    {
-      "dateCode": "10",
-      "dateShip": "2002-01-15TZ"
-    }
-  ],
-  "notes": [
-    {
-      "noteCode": "WHI",
-      "instructions": null
-    },
-    {
-      "noteCode": "BOL",
-      "comments": null
+      "addressPhone": "8725556348\\n8725556240FAX",
+      "addressContact": "Ms. Penny Z. Daugherty\\nMr. Ed Zellerbox, Jr.\\nMr. James Daugherty"
     }
   ],
   "detail": [
     {
       "lineKey": "90000110",
       "stockNumber": "BMC001",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "BMC001",
       "control": null,
       "description": "21x13x08 single white KDC",
@@ -2296,7 +2337,7 @@
     {
       "lineKey": "90000111",
       "stockNumber": "BMC002",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "BMC002",
       "control": null,
       "description": "14x12x21 single brown KDC",
@@ -2313,7 +2354,7 @@
     {
       "lineKey": "90000112",
       "stockNumber": "BMC003",
-      "alternateCode": null,
+      "alternateId": null,
       "product": "BMC003",
       "control": null,
       "description": "18x16x24 double brown KDC",
