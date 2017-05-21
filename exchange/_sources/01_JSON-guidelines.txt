@@ -14,7 +14,7 @@ Basic JSON Formatting Rules
 =============================
 
 #. JSON ignores indentation and white-space during interpretation. WARES 
-   exports include programming style indentation for clarity.
+   JSON exports include programming style indentation for clarity.
 #. Each complete JSON transmission is enclosed in brackets, and repeated 
    structures within a JSON message are enclosed in brackets ([]).
 #. Each data element is named with a preceding identifier label enclosed in
@@ -35,7 +35,7 @@ Basic JSON Formatting Rules
    to include a quote within the element text.
 #. JSON numeric elements are not quoted. Where a decimal point is used in a 
    number, digits (or zero) must occur to the left and right of the decimal.
-#. JSON date strings conform to `ISO8601 <http://www.w3.org/TR/NOTE-datetime>`. 
+#. JSON date strings conform to `ISO8601 <http://www.w3.org/TR/NOTE-datetime>`_. 
    The general ISO datetime specification is:
 
       YYYY-MM-DDThh:mmTZD
@@ -43,7 +43,7 @@ Basic JSON Formatting Rules
    but the time (hh:mm) and the time zone designator (D) would be omitted when 
    sending only a date as a quoted string: 
 
-      "YYY-MM-DDTZ"
+      "2017-05-22TZ"
 
 Escape Sequences
 =============================
@@ -103,7 +103,7 @@ in braces ({}) because a transmission may contain multiple orders.
 Similarly, **notes** and **addresses** sections are enclosed in brackets, as 
 multiple notes or addresses structures might occur in the record. Within the 
 address, the street is multi-line text and the newline is represented by the 
-escaped newline escape sequence (\\\n).
+escaped newline escape sequence (\\\\n).
 
 Note that numeric order quantities are not quoted, and the integer quantities 
 do not include decimal points. Dates are quoted and terminated with "TZ".

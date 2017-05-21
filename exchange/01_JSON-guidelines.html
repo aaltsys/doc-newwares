@@ -97,7 +97,7 @@ JSON data exchange files.</p>
 <h2>Basic JSON Formatting Rules<a class="headerlink" href="#basic-json-formatting-rules" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p class="first">JSON ignores indentation and white-space during interpretation. WARES
-exports include programming style indentation for clarity.</p>
+JSON exports include programming style indentation for clarity.</p>
 </li>
 <li><p class="first">Each complete JSON transmission is enclosed in brackets, and repeated
 structures within a JSON message are enclosed in brackets ([]).</p>
@@ -129,7 +129,7 @@ to include a quote within the element text.</p>
 <li><p class="first">JSON numeric elements are not quoted. Where a decimal point is used in a
 number, digits (or zero) must occur to the left and right of the decimal.</p>
 </li>
-<li><p class="first">JSON date strings conform to <cite>ISO8601 &lt;http://www.w3.org/TR/NOTE-datetime&gt;</cite>.
+<li><p class="first">JSON date strings conform to <a class="reference external" href="http://www.w3.org/TR/NOTE-datetime">ISO8601</a>.
 The general ISO datetime specification is:</p>
 <blockquote>
 <div><p>YYYY-MM-DDThh:mmTZD</p>
@@ -137,7 +137,7 @@ The general ISO datetime specification is:</p>
 <p>but the time (hh:mm) and the time zone designator (D) would be omitted when
 sending only a date as a quoted string:</p>
 <blockquote>
-<div><p>&#8220;YYY-MM-DDTZ&#8221;</p>
+<div><p>&#8220;2017-05-22TZ&#8221;</p>
 </div></blockquote>
 </li>
 </ol>
@@ -242,7 +242,7 @@ in braces ({}) because a transmission may contain multiple orders.</p>
 <p>Similarly, <strong>notes</strong> and <strong>addresses</strong> sections are enclosed in brackets, as
 multiple notes or addresses structures might occur in the record. Within the
 address, the street is multi-line text and the newline is represented by the
-escaped newline escape sequence (\n).</p>
+escaped newline escape sequence (\\n).</p>
 <p>Note that numeric order quantities are not quoted, and the integer quantities
 do not include decimal points. Dates are quoted and terminated with &#8220;TZ&#8221;.</p>
 <div class="highlight-JSON"><div class="highlight"><pre><span class="p">[</span>
