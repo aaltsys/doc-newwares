@@ -255,7 +255,5 @@ Sample Customer Order
 
 Following is a sample customer order to the warehouse.
 
-.. code-block:: JSON
-
 .. include:: sample_order.txt
 
