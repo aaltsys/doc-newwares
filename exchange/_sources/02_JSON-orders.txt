@@ -129,7 +129,7 @@ ORDER Response Data Elements
 | optionalValue  | Customer optional value data   | O  | Numeric | Cust | Order|
 +----------------+--------------------------------+----+---------+------+------+ 
 
-.. Notes::
+.. note::
    #. Mandatory/Optional (M/O) indicates whether a data element is required or 
       can be omitted in either the original order or the warehouse response. 
       Some elements are conditional (C), as with addresses which may be either 
