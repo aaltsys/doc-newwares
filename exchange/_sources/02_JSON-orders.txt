@@ -61,7 +61,7 @@ ORDER Response Data Elements
 | shipment       | Whse shipment (BOL) identifier | M  | Numeric | Whse | Resp |
 +----------------+--------------------------------+----+---------+------+------+
 +----------------+--------------------------------+----+---------+------+------+
-| addressType    | "ST"                           | M  | String  | Whse | Order|
+| addressType    | "ST"                           | M  | String  | Cust | Order|
 +----------------+--------------------------------+----+---------+------+------+
 | addressKey     | Identifier for consignee addr. | M  | String  | Cust | Order|
 +----------------+--------------------------------+----+---------+------+------+
@@ -79,7 +79,7 @@ ORDER Response Data Elements
 +----------------+--------------------------------+----+---------+------+------+
 | addressContact | Ship to contact                | O  | Text    | Cust | Order|
 +----------------+--------------------------------+----+---------+------+------+
-| addressType    | "PF"                           | O  | String  | Whse | Order|
+| addressType    | "PF"                           | O  | String  | Cust | Order|
 +----------------+--------------------------------+----+---------+------+------+
 | addressKey     | Freight Payor identifier (TP)  | O  | String  | Cust | Order|
 +----------------+--------------------------------+----+---------+------+------+
@@ -129,17 +129,130 @@ ORDER Response Data Elements
 | optionalValue  | Customer optional value data   | O  | Numeric | Cust | Order|
 +----------------+--------------------------------+----+---------+------+------+ 
 
-Notes
+.. Notes::
+   #. Mandatory/Optional (M/O) indicates whether a data element is required or 
+      can be omitted in either the original order or the warehouse response. 
+      Some elements are conditional (C), as with addresses which may be either 
+      domestic or foreign. Only domestic addresses use City/State/ZIP elements.
+   #. Code elements (referenceCode, dateCode, noteCode) are used to distinguish 
+      the meaning of following values. Currently code elements may be omitted 
+      because the subsequent values are associated with unique database entries. 
+      (This may change in future versions of WARES.) Code values may seem odd, 
+      as they conform to **EDI X12** standards. (WARES supports EDI data 
+      exchange as well as JSON.)
+   #. **FreightPay** codes are either *PP* (prepaid), *CC* (Collect), or *TP* 
+      (Third Party). When using third-party freight payment, a freight payment 
+      address (code *PF*) should be provided in the **Addresses** section. 
+      Otherwise the freight payment address should be omitted.
+   #. Some elements are typed as **Text** instead of **String**. These elements 
+      may contain escape sequences such as newline (\\n), while WARES does not 
+      expect escape sequences in simple strings.
+
+Sample Response File
 =============================
 
-#. Mandatory/Optional (M/O) indicates whether a data element is required or can 
-   be omitted in either the original customer order or the warehouse response.
-#. Code elements (referenceCode, dateCode, noteCode) are used to distinguish 
-   the meaning of following values. Currently code elements may be omitted 
-   because the following values are assigned to unique database entries. (This 
-   may change in future versions of WARES.) Code values may seem odd, as they 
-   conform to **EDI X12** standards. (WARES supports EDI data exchange as well 
-   as JSON.)
-#. Some elements are typed as **Text** instead of **String**. These elements 
-   may contain escape sequences such as newline (\\n), while WARES does not 
-   expect escape sequences in simple strings.
+Sample JSON order response file containing 12 records may be downloaded:
+
+   :download:`..\response_sample <../download/XX70519A.JSN>`
+   
+Customer Order Data Elements
+=============================
+
+A customer order would contain a subset of the data elements in the warehouse 
+response, as most elements which originate with the warehouse would be omitted. 
+The resulting data specification is listed following.
+
++----------------+--------------------------------+----+---------+------+------+
+| Label          | Description                    | M/O| Datatype| By   | When |
++================+================================+====+=========+======+======+
+| postDate       | Document transmitted date      | M  | Date    | Whse | Resp |
++----------------+--------------------------------+----+---------+------+------+
+| account        | Warehouse customer identifier  | M  | String  | Whse | Order|
++----------------+--------------------------------+----+---------+------+------+
+| reference      | Customer's sales order number  | M  | String  | Cust | Order|
++----------------+--------------------------------+----+---------+------+------+
+| poNumber       | Consignee purchase order no.   | O  | String  | Cust | Order|
++----------------+--------------------------------+----+---------+------+------+
+| carrier        | Customer/warehouse carrier SCAC| O  | String  | Cust | Order|
++----------------+--------------------------------+----+---------+------+------+
+| route          | Customer carrier text          | O  | Text    | Cust | Order|
++----------------+--------------------------------+----+---------+------+------+
+| freightPay     | Pay Code "PP", "CC", or "TP"   | M  | String  | Cust | Order|
++----------------+--------------------------------+----+---------+------+------+
+| dateShip       | Requested shipment date        | M  | Date    | Cust | Order|
++----------------+--------------------------------+----+---------+------+------+
+| dateDeliver    | Requested delivery date        | O  | Date    | Cust | Order|
++----------------+--------------------------------+----+---------+------+------+
+| dateCancel     | Cancel if not shipped  date    | O  | Date    | Cust | Order|
++----------------+--------------------------------+----+---------+------+------+
+| instructions   | Customer message to warehouse  | O  | Text    | Cust | Order|
++----------------+--------------------------------+----+---------+------+------+
+| comments       | Statement for Bill of Lading   | O  | Text    | Cust | Order|
++----------------+--------------------------------+----+---------+------+------+
++----------------+--------------------------------+----+---------+------+------+
+| addressType    | "ST"                           | M  | String  | Cust | Order|
++----------------+--------------------------------+----+---------+------+------+
+| addressKey     | Identifier for consignee addr. | M  | String  | Cust | Order|
++----------------+--------------------------------+----+---------+------+------+
+| addressName    | Ship to address name           | M  | Text    | Cust | Order|
++----------------+--------------------------------+----+---------+------+------+
+| addressStreet  | Ship to street address (\\n)   | M  | Text    | Cust | Order|
++----------------+--------------------------------+----+---------+------+------+
+| addressCity    | Ship to city (domestic)        | C  | String  | Cust | Order|
++----------------+--------------------------------+----+---------+------+------+
+| addressState   | Ship to state (domestic)       | C  | String  | Cust | Order|
++----------------+--------------------------------+----+---------+------+------+
+| addressZip     | Ship to ZIP (domestic)         | C  | String  | Cust | Order|
++----------------+--------------------------------+----+---------+------+------+
+| addressPhone   | Ship to phone                  | O  | Text    | Cust | Order|
++----------------+--------------------------------+----+---------+------+------+
+| addressContact | Ship to contact                | O  | Text    | Cust | Order|
++----------------+--------------------------------+----+---------+------+------+
+| addressType    | "PF"                           | O  | String  | Cust | Order|
++----------------+--------------------------------+----+---------+------+------+
+| addressKey     | Freight Payor identifier (TP)  | O  | String  | Cust | Order|
++----------------+--------------------------------+----+---------+------+------+
+| addressName    | Freight payor address name     | O  | Text    | Cust | Order|
++----------------+--------------------------------+----+---------+------+------+
+| addressStreet  | Freight payor street (\\n)     | O  | Text    | Cust | Order|
++----------------+--------------------------------+----+---------+------+------+
+| addressCity    | Freight payor city (domestic)  | C  | String  | Cust | Order|
++----------------+--------------------------------+----+---------+------+------+
+| addressState   | Freight payor state (domestic) | C  | String  | Cust | Order|
++----------------+--------------------------------+----+---------+------+------+
+| addressZip     | Freight payor ZIP (domestic)   | C  | String  | Cust | Order|
++----------------+--------------------------------+----+---------+------+------+
+| addressPhone   | Freight payor phone            | O  | Text    | Cust | Order|
++----------------+--------------------------------+----+---------+------+------+
+| addressContact | Freight payor contact          | O  | Text    | Cust | Order|
++----------------+--------------------------------+----+---------+------+------+
++----------------+--------------------------------+----+---------+------+------+
+| lineKey        | Sequential line identifier     | M  | Numeric | Whse | Resp |
++----------------+--------------------------------+----+---------+------+------+
+| stockNumber    | Product/Variety identifier     | M  | String  | Cust | Order|
++----------------+--------------------------------+----+---------+------+------+
+| alternateId    | UPC/Consignee product code     | O  | String  | Cust | Order|
++----------------+--------------------------------+----+---------+------+------+
+| control        | Customer/Warehouse lot code    | O  | String  | Both | Both |
++----------------+--------------------------------+----+---------+------+------+
+| description    | Customer product description   | O  | Text    | Cust | Order|
++----------------+--------------------------------+----+---------+------+------+
+| orderUom       | Customer order unit of measure | M  | String  | Cust | Order|
++----------------+--------------------------------+----+---------+------+------+
+| orderQty       | Customer order quantity        | M  | Numeric | Cust | Order|
++----------------+--------------------------------+----+---------+------+------+
+| optionalQty    | Customer optional qty data     | O  | Numeric | Cust | Order|
++----------------+--------------------------------+----+---------+------+------+
+| optionalValue  | Customer optional value data   | O  | Numeric | Cust | Order|
++----------------+--------------------------------+----+---------+------+------+ 
+
+.. note::
+   Where *Whse* appears in the **By** column, the warehouse response document 
+   will overwrite data sent by the customer.
+
+Sample Customer Order
+=============================
+
+Following is a sample customer order to the warehouse.
+
+.. include:: `sample_order.txt`
