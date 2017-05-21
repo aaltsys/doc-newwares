@@ -154,7 +154,7 @@ JSON Sample Files
 Download a JSON :download:`customer orders file <_downloads/YY70519A.json>` for 
 an example of 14 orders originating from the customer.
 
-Download a JSON :download:`warehouse response file <_downloads/XX70519A.JSN>`
+Download a JSON :download:`warehouse response file <_downloads/XX70519A.json>`
 to see the warehouse response to the same 14 orders.
 
 Customer Order Data Elements
