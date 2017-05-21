@@ -153,7 +153,7 @@ Sample Response File
 
 Sample JSON order response file containing 12 records may be downloaded:
 
-   :download:`..\response_sample <../download/XX70519A.JSN>`
+   :download:`response_sample <../download/XX70519A.JSN>`
    
 Customer Order Data Elements
 =============================
@@ -255,4 +255,4 @@ Sample Customer Order
 
 Following is a sample customer order to the warehouse.
 
-.. include:: `sample_order.txt`
+.. include:: sample_order.txt
