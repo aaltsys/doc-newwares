@@ -148,13 +148,15 @@ ORDER Response Data Elements
       may contain escape sequences such as newline (\\n), while WARES does not 
       expect escape sequences in simple strings.
 
-Sample Response File
+JSON Sample Files
 =============================
 
-Sample JSON order response file containing 12 records may be downloaded:
+Download a JSON :download:`customer orders file <_downloads/YY70519A.json>` for 
+an example of 14 orders originating from the customer.
 
-   :download:`response_sample <_downloads/XX70519A.JSN>`
-   
+Download a JSON :download:`warehouse response file <_downloads/XX70519A.json>`
+to see the warehouse response to the same 14 orders.
+
 Customer Order Data Elements
 =============================
 
@@ -255,5 +257,5 @@ Sample Customer Order
 
 Following is a sample customer order to the warehouse.
 
-.. include:: sample_order.txt
+.. include:: sample_order.json
 
