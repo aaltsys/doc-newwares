@@ -20,14 +20,10 @@ of data are freely available on a variety of websites.
 
 WARES has supported EDI data exchange in the past, but ANSI-X12 EDI is now 
 deprecated due to the proprietary nature of these standards and their lack of 
-adaptability to web services. However, full documentation of EDI standards 
-and their use in a warehouse context is provided in articles listed below.
+adaptability to web services. 
 
-.. toctree::
-   :maxdepth: 2
-   :glob:
-
-   ../../doc-edi/[0-9]*
+However, the `WARES EDI Documentation <edi.aaltsys.info>`_ site fully documents 
+EDI standards and their use in a warehouse context.
 
 Indices and tables
 ==================
