@@ -42,7 +42,8 @@ archives the order.
 At the warehouse customer's end:
 
 #. An order is entered through a web portal, telephone, FAX, or other means.
-#. When completed, the order is assigned a sequential **reference** number.
+#. When completed, the order is assigned a sequential **reference** number of
+   eight or fewer characters.
 #. A JSON export document of the order is created.
 #. The JSON text is saved in the exchange **ORDERS** folder under filename 
    **(reference).JSN**. 
