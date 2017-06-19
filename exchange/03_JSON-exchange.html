@@ -38,6 +38,17 @@
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">JSON Exchange Procedures</a><ul>
+<li><a class="reference internal" href="#orders-customer-setup">Orders Customer Setup</a></li>
+<li><a class="reference internal" href="#single-orders">Single Orders</a></li>
+<li><a class="reference internal" href="#batched-orders">Batched Orders</a></li>
+<li><a class="reference internal" href="#orders-process-recap">Orders Process Recap</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="02_JSON-orders.html"
                         title="previous chapter">WARES JSON Orders Exchange</a></p>
@@ -71,8 +82,87 @@
             
   <div class="section" id="json-exchange-procedures">
 <span id="json-exchange"></span><h1>JSON Exchange Procedures<a class="headerlink" href="#json-exchange-procedures" title="Permalink to this headline">¶</a></h1>
-<p>JSON exchange procedures using DropBox or similar service should be documented
-here.</p>
+<p>JSON exchange will support exchanging order records and their completed
+shipment information between warehouses and customers. Data will be exchanged
+using file repositories on public services, with each exchange site hosted by
+either the warehouse or the customer.</p>
+<p>Warehousing logistics is a batch process, where multiple orders are picked and shipped at the same time. As a consequence, the customer usually submits
+approved orders to the warehouse in a batch, and the warehouse replies with
+shipping information as carriers pick up order batches. There are two ways to
+submit orders to the warehouse consistent with this understanding:
+<strong>Single Orders</strong>, and <strong>Batched Orders</strong>.</p>
+<p>The warehouse customer must choose whether orders will be submitted singly or
+as a batch when the data exchange is initially configured. Data exchange
+procedures for each method of data transfer are described following.</p>
+<div class="section" id="orders-customer-setup">
+<h2>Orders Customer Setup<a class="headerlink" href="#orders-customer-setup" title="Permalink to this headline">¶</a></h2>
+<p>The customer must add sales order software features which provide data exchange
+using JSON formatted files. Besides the JSON formatting, the data files to be
+exchanged would satisfy one or the other of the following transfer methods.</p>
+<p>Additionally, either the customer or the warehouse must host a data exchange
+service which provides security and accessibility to both partners, and which
+offers a repository of exchanged documents. Currently we recommend
+<em class="xref std std-ref">DropBox</em> for this service.</p>
+</div>
+<div class="section" id="single-orders">
+<h2>Single Orders<a class="headerlink" href="#single-orders" title="Permalink to this headline">¶</a></h2>
+<p><strong>Single Orders</strong> are submitted one at a time, where each order is identified
+by a perpetually unique reference number filename of 8 or fewer characters.
+Each order will retain its reference filename when the warehouse processes and
+archives the order.</p>
+<p>At the warehouse customer&#8217;s end:</p>
+<ol class="arabic simple">
+<li>An order is entered through a web portal, telephone, FAX, or other means.</li>
+<li>When completed, the order is assigned a sequential <strong>reference</strong> number of
+eight or fewer characters.</li>
+<li>A JSON export document of the order is created.</li>
+<li>The JSON text is saved in the exchange <strong>ORDERS</strong> folder under filename
+<strong>(reference).JSN</strong>.</li>
+<li>The sales order is marked as submitted, and cannot be changed afterwards.</li>
+</ol>
+<p>At the warehouse:</p>
+<ol class="arabic simple">
+<li>Periodically the warehouse selects all files in the orders exchange inbox.</li>
+<li>Order files are concatenated into a single input file <strong>ORDERS.JSN</strong> for
+processing.</li>
+<li>Original order files are moved to the orders exchange archive folder.</li>
+<li>The input file is imported to the WARES software to create shipment orders.</li>
+<li>Orders are processed in a batch for picking and shipping.</li>
+</ol>
+</div>
+<div class="section" id="batched-orders">
+<h2>Batched Orders<a class="headerlink" href="#batched-orders" title="Permalink to this headline">¶</a></h2>
+<p><strong>Batched Orders</strong> may be submitted in a batch with a generic filename, and
+the warehouse will create a timestamp filename when archiving and processing
+the batch of orders.</p>
+<p>At the warehouse customer&#8217;s end:</p>
+<ol class="arabic simple">
+<li>Orders are submitted through a web portal, telephone, FAX, or other means.</li>
+<li>Each order is assigned a sales order <strong>reference</strong> number.</li>
+<li>Periodically orders which are not yet submitted are selected, and a JSON
+export file is created containing the JSON exports of the orders.</li>
+<li>The JSON file is saved in the exchange <strong>ORDERS</strong> folder, concatenated with
+filename <strong>ORDERS.JSN</strong> (or similar agreed name).</li>
+<li>The submitted sales orders are marked as submitted, and cannot be changed
+afterwards.</li>
+</ol>
+<p>At the warehouse:</p>
+<ol class="arabic simple">
+<li>Periodically the warehouse retrieves input file <strong>ORDERS.JSN</strong> from the
+orders exchange inbox.</li>
+<li>File <strong>ORDERS.JSN</strong> is moved to the order exchange archive folder, renaming
+the file to <strong>(datetimestamp).JSN</strong> in the process.</li>
+<li>The input file <strong>ORDERS.JSN</strong> is imported to the WARES software to create
+shipment orders.</li>
+<li>Orders are processed in a batch for picking and shipping.</li>
+</ol>
+</div>
+<div class="section" id="orders-process-recap">
+<h2>Orders Process Recap<a class="headerlink" href="#orders-process-recap" title="Permalink to this headline">¶</a></h2>
+<p>The previous explanations make it evident that the warehouse processes orders
+in a batch, regardless of whether the customer is submitting orders singly or
+in a batch.</p>
+</div>
 </div>
 
 
