@@ -147,9 +147,9 @@ scheme is employed to include date and time information in this name, and to
 arrange streams in chronological order when sorting (left-aligned). Following 
 is the decoding to determine date and time of a stream from its filename.
 
-   Year  Month  Day  Second
-   ====  =====  ===  ======
-   YY    M      DD   TTT
+|  Year  Month  Day  Second
+|  ====  =====  ===  ======
+|  YY    M      DD   TTT
 
 *  Year: Add century digits **20** in front of the year to complete the year.
 *  Month: Letters [A,B,C,D,E,F,G,H,I,J,K,L] represent consecutive months 
