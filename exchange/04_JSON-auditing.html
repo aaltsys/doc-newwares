@@ -48,6 +48,7 @@
 <li><a class="reference internal" href="#document-counts-and-lengths">Document Counts and Lengths</a></li>
 <li><a class="reference internal" href="#document-acknowledgments">Document Acknowledgments</a></li>
 <li><a class="reference internal" href="#stream-process-auditing">Stream Process Auditing</a></li>
+<li><a class="reference internal" href="#stream-datetime-decoding">Stream DateTime Decoding</a></li>
 <li><a class="reference internal" href="#exchange-validation-tldr">Exchange Validation TLDR;</a></li>
 </ul>
 </li>
@@ -204,21 +205,29 @@ the stream is ready, the order stream might not get processed.</p>
 written to <em>ORDERS/STREAMS/streamname.ls</em> to audit the stream process. Code to
 create <em>ORDERS/STREAMS/streamname.ls</em> and <em>ORDERS/STREAMS/streamname.jsn</em>
 using BASH on Linux follows:</p>
-<div class="code bash highlight-python"><div class="highlight"><pre>/bin/bash
-STREAM=$1
-DROPBOX=~/Dropbox/dermpro/ORDERS
-cd $DROPBOX
-(insert check for directory exists, else exit)
-mkdir ./WORKING
-touch ./WORKING/orders.jsn
-mv ./*.JSN ./WORKING
-ls -al ./WORKING/ &gt;&gt;./STREAMS/$STREAM.ls
-touch ./WORKING/orders.jsn
-find ./WORKING -type f -name &#39;*.JSN&#39; -exec cat {} + &gt;&gt; ./WORKING/orders.jsn
-cp ./WORKING/orders.jsn ./STREAMS/$STREAM.JSN
-mv ./WORKING/*.JSN ./HISTORY/
+<div class="code bash highlight-python"><div class="highlight"><pre>(To be added later)
 </pre></div>
 </div>
+</div>
+<div class="section" id="stream-datetime-decoding">
+<h2>Stream DateTime Decoding<a class="headerlink" href="#stream-datetime-decoding" title="Permalink to this headline">¶</a></h2>
+<p>WARES limits stream filenames to no more than eight characters, and an encoding
+scheme is employed to include date and time information in this name, and to
+arrange streams in chronological order when sorting (left-aligned). Following
+is the decoding to determine date and time of a stream from its filename.</p>
+<blockquote>
+<div>Year  Month  Day  Second
+====  =====  ===  ======
+YY    M      DD   TTT</div></blockquote>
+<ul class="simple">
+<li>Year: Add century digits <strong>20</strong> in front of the year to complete the year.</li>
+<li>Month: Letters [A,B,C,D,E,F,G,H,I,J,K,L] represent consecutive months
+January through December.</li>
+<li>Day: The day of month is displayed in two right-aligned, zero-filled digits.</li>
+<li>Time: 36 symbols: [0,1,...,9,A,B,...,Z] are used to encode time in base 36.
+Convert from base 36 to base 10 and then multiply by 3 to get the time in
+seconds after midnight.</li>
+</ul>
 </div>
 <div class="section" id="exchange-validation-tldr">
 <h2>Exchange Validation TLDR;<a class="headerlink" href="#exchange-validation-tldr" title="Permalink to this headline">¶</a></h2>
