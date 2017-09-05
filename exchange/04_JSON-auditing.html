@@ -215,19 +215,18 @@ using BASH on Linux follows:</p>
 scheme is employed to include date and time information in this name, and to
 arrange streams in chronological order when sorting (left-aligned). Following
 is the decoding to determine date and time of a stream from its filename.</p>
-<div class="line-block">
-<div class="line">Year  Month  Day  Second</div>
-<div class="line">====  =====  ===  ======</div>
-<div class="line">YY    M      DD   TTT</div>
-</div>
+<p>Year, Month, Day, and Seconds since midnight are presented in 8 characters:
+<strong>YYMDDTTT</strong></p>
 <ul class="simple">
-<li>Year: Add century digits <strong>20</strong> in front of the year to complete the year.</li>
-<li>Month: Letters [A,B,C,D,E,F,G,H,I,J,K,L] represent consecutive months
+<li><strong>YY</strong> Year: Add century digits <strong>20</strong> in front of the year to complete the
+year.</li>
+<li><strong>M</strong> Month: Letters [A,B,C,D,E,F,G,H,I,J,K,L] represent consecutive months
 January through December.</li>
-<li>Day: The day of month is displayed in two right-aligned, zero-filled digits.</li>
-<li>Time: 36 symbols: [0,1,...,9,A,B,...,Z] are used to encode time in base 36.
-Convert from base 36 to base 10 and then multiply by 3 to get the time in
-seconds after midnight.</li>
+<li><strong>DD</strong> Day: The day of month is displayed in two right-aligned, zero-filled
+digits.</li>
+<li><strong>TTT</strong> Time: 36 symbols: [0,1,...,9,A,B,...,Z] are used to encode time in
+base 36. Convert from base 36 to base 10 and then multiply by 3 to get the
+time in seconds after midnight.</li>
 </ul>
 </div>
 <div class="section" id="exchange-validation-tldr">
