@@ -137,19 +137,27 @@ using BASH on Linux follows:
 
 .. code:: bash
 
-   /bin/bash
-   STREAM=$1
-   DROPBOX=~/Dropbox/dermpro/ORDERS
-   cd $DROPBOX
-   (insert check for directory exists, else exit)
-   mkdir ./WORKING
-   touch ./WORKING/orders.jsn
-   mv ./*.JSN ./WORKING
-   ls -al ./WORKING/ >>./STREAMS/$STREAM.ls
-   touch ./WORKING/orders.jsn
-   find ./WORKING -type f -name '*.JSN' -exec cat {} + >> ./WORKING/orders.jsn
-   cp ./WORKING/orders.jsn ./STREAMS/$STREAM.JSN
-   mv ./WORKING/*.JSN ./HISTORY/
+   (To be added later)
+
+Stream DateTime Decoding
+=============================
+
+WARES limits stream filenames to no more than eight characters, and an encoding 
+scheme is employed to include date and time information in this name, and to 
+arrange streams in chronological order when sorting (left-aligned). Following 
+is the decoding to determine date and time of a stream from its filename.
+
+   Year  Month  Day  Second
+   ====  =====  ===  ======
+   YY    M      DD   TTT
+
+*  Year: Add century digits **20** in front of the year to complete the year.
+*  Month: Letters [A,B,C,D,E,F,G,H,I,J,K,L] represent consecutive months 
+   January through December.
+*  Day: The day of month is displayed in two right-aligned, zero-filled digits.
+*  Time: 36 symbols: [0,1,...,9,A,B,...,Z] are used to encode time in base 36. 
+   Convert from base 36 to base 10 and then multiply by 3 to get the time in 
+   seconds after midnight.
 
 Exchange Validation TLDR;
 =============================
