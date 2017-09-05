@@ -1,0 +1,172 @@
+.. _JSON_validate:
+
+#############################
+JSON Exchange Validation
+#############################
+
+JSON specifies a way to encode data objects for web services, particularly when 
+used with JavaScript. JSON does not describe a way to stream a set of data 
+objects or to perform reliable data exchange, as such protocols are external to 
+JSON's purpose. 
+
+This article details the WARES components and methods which implement reliable 
+data exchange with JSON structured document files.
+
+Directory Sharing
+=============================
+
+Directory sharing services are the Internet's answer for data transfer between 
+partners. These services replace EDI's proprietary Value-Added Networks (VANs), 
+dial-up storage systems, FTP sites, and email attachments. 
+`DropBox <https://www.dropbox.com/help/files-folders>`_ provides a shared file 
+system which, when mounted, appears as a native directory structure on any 
+computer or server using an Apple, Linux, or Microsoft operating system.
+
+When a directory is shared for data exchange, within the directory should be 
+a folder for each document type to be exchanged, and corresponding sub-folders 
+to archive files which have been picked up. To exchange warehouse orders, for 
+example, there would be an *ORDERS* folder, an *ORDERS/HISTORY* sub-folder, an 
+ORDERS/STREAMS sub-folder, a *SHIPPERS* folder, and a *SHIPPERS/HISTORY* 
+sub-folder.
+
+Transaction Numbering
+=============================
+
+Traditional EDI uses sequential counters to track documents, groups, and 
+exchanges. The WARES implementation of EDI maintains a perpetual document 
+history, and if a document number of a specific type is received twice, the 
+second receipt is detected as a duplicate. JSON does not have streaming 
+protocols to which the concept of sequenced transmission documents would apply.
+
+.. note::
+   The EDI numbering model is applied externally to the exchanged documents, so 
+   the retransmission of an exchange is detected this way but duplications due 
+   to resubmitting a document, which produces a new sequence number, is not. 
+
+Detecting Duplicate Documents
+=============================
+
+When WARES imports an order, combinations of the internal consignee identifier 
+and the document reference numbers are indexed to look for duplications. When 
+a reference number is repeated the order is marked as a duplicate, and a human 
+operator must resolve this conflict. This methodology detects duplications 
+whether a file is retransmitted or a document is resubmitted. (Order Status 0 
+is used to indicate orders received with errors, including order duplicates.)
+
+Using JSON, when a warehouse client writes individual order documents into a 
+file share using a reference number as the filename, resubmitting an order will 
+just replace the file -- up to the point when the warehouse picks up the files. 
+There is no such thing as a "transmission duplication," and WARES duplicate 
+detection catches resubmissions that occur once an original order is streamed. 
+
+.. warning::
+   This process has a consequence: if a JSON order is shipped from the 
+   warehouse, and then it is resubmitted by the client, the resubmitted order 
+   will overwrite the original in the fileshare history.
+
+.. note::
+   EDI transaction numbering is sequential, so that it is possible to detect a 
+   missing or faulty document by number and request resubmission. No one does 
+   this in my experience, as automatic resubmission of failed documents would 
+   be pointless when the document is faulty to begin with.
+
+Batch Numbering
+=============================
+
+WARES processes streams, not individual order files. When WARES selects a group 
+of JSON orders for processing, the group is compiled into a stream file and 
+written to a file processing history, separate from the exchange share. The 
+stream file is named with a datetime stamp when the files are selected.  
+
+.. note::
+   Stream files are never overwritten by the client, so resubmitting a document 
+   after it has been processed saves the original and its resubmission in 
+   separate streams, and no information is lost in stream history.
+
+Document Counts and Lengths
+=============================
+
+Measuring the reliability of document exchange is an issue.
+
+EDI transmission standards include counts of groups and document counts within 
+groups. Further, the footer of each document has a count of the included data 
+segments. Nothing in JSON or any other structured data presentation corresponds 
+to the EDI concept of data segments. Similarly, character counts which are used 
+in transmission are not a reliable measure of structured textual content in 
+either EDI or JSON, as reformatting can either add or eliminate white space. 
+
+So, we are left with counting documents while processing. WARES does this quite 
+well, reporting the number of processed documents at the end of import or 
+export. This should be compared with the number of records written to the WARES 
+Orders file for example, and to the directory of documents which were processed
+and moved to the ORDERS/HISTORY fileshare. To this end, WARES writes both the 
+stream file and a directory listing of processed document files to the 
+ORDERS/STREAMS folder. The directory listing has file extension ".ls", while 
+".JSN" is the stream extension.
+
+Document Acknowledgments
+=============================
+
+EDI specifies the form of Acknowledgments (set 997) which may return counts for 
+documents accepted without errors, accepted with errors, and rejected. Classic 
+EDI is a standalone application, and so documents are checked for syntactical 
+compliance with standards, but semantic implications of documents cannot be 
+reviewed. A document which is accepted without errors may contain entirely 
+useless information, as for instance ordering products which are not a part of 
+inventory, or requesting an expired delivery date.
+
+Because JSON exchange includes importing actual documents, it may be possible 
+to add semantic checks as part of acknowledgment, as is mentioned previously 
+with duplicate detection. However, such semantic checks will likely be limited 
+to comparing values to datatype and formatting specifications, which is just 
+what EDI does.
+
+THE NATURE OF SUCH JSON ACKNOWLEDGMENTS IS YET TO BE DETERMINED.
+
+Stream Process Auditing
+=============================
+
+The process of creating a stream file, moving individual documents to history, 
+and importing the stream has latency so that if importing is attempted before 
+the stream is ready, the order stream might not get processed. 
+
+Before creating the stream, a listing for the streaming work directory will be
+written to *ORDERS/STREAMS/streamname.ls* to audit the stream process. Code to 
+create *ORDERS/STREAMS/streamname.ls* and *ORDERS/STREAMS/streamname.jsn*
+using BASH on Linux follows:
+
+.. code:: bash
+
+   /bin/bash
+   STREAM=$1
+   DROPBOX=~/Dropbox/dermpro/ORDERS
+   cd $DROPBOX
+   (insert check for directory exists, else exit)
+   mkdir ./WORKING
+   touch ./WORKING/orders.jsn
+   mv ./*.JSN ./WORKING
+   ls -al ./WORKING/ >>./STREAMS/$STREAM.ls
+   touch ./WORKING/orders.jsn
+   find ./WORKING -type f -name '*.JSN' -exec cat {} + >> ./WORKING/orders.jsn
+   cp ./WORKING/orders.jsn ./STREAMS/$STREAM.JSN
+   mv ./WORKING/*.JSN ./HISTORY/
+
+Exchange Validation TLDR;
+=============================
+
+JSON exchange through file sharing bypasses the concept of data transmission, 
+so there is no sequence numbering for transmissions as in EDI. Similarly each 
+document type being exchanged uses a different folder in the fileshare, 
+replacing the EDI concept of document groups. Also, documents are grouped into 
+streams by the recipient, not the sender. Group sequence numbering is replaced 
+by process timestamps on stream files. Reference numbers extracted from 
+document data are used as filenames for individual documents, replacing 
+document transmission sequence numbers. Responsibility for reporting documents 
+received and processed successfully is entirely the recipients responsibility.
+
+------
+
+rubric:: Footnotes
+
+.. [#] `BOLD VAN <https://boldvan.com/>`_ is an inexpensive alternative to
+       traditional VANs at a fixed price of $49.00 per month per partner.

@@ -1,0 +1,107 @@
+.. _JSON-exchange:
+
+#############################
+JSON Exchange Protocols
+#############################
+
+Automated data exchange between unconnected computer software systems presents 
+a number of challenges. This article compares the strengths and weaknesses of 
+legacy EDI and web-based data exchange alternatives to explain how WARES can 
+achieve reliable data transfer using modern, simple, and familiar data format 
+standards and exchange protocols.
+
+Data Formats -- ASC-X12 EDI
+=============================
+
+ASC-X12 EDI IS A legacy system based on standards for structuring data into a 
+fixed set of business documents such as invoices, payments, purchase orders, 
+and so forth. Many large enterprises have adopted ASC-X12 EDI expecting that 
+the formal procedures inherent in this technology will avoid exchange problems. 
+However, the data structuring aspect of traditional EDI is problematic:
+
+*  EDI is limited in its ability to exchange characters outside of the symbols 
+   found on a standard typewriter, and text elements are length-limited. 
+*  EDI uses in-stream data separators which are not restricted from inclusion 
+   in data elements by traditional EDI implementations. 
+*  EDI data is not labeled, so it is not human readable and interpretation is
+   dependent on reference to external standards. 
+*  Reference to external standards prevents EDI from being incorporated in any 
+   programming language as an extension or otherwise. 
+*  Messages are limited to the predefined documents included in the standards.
+*  Document structures are inherently archaic, having been developed prior to 
+   the introduction of modern relational databases, newer structured schema 
+   data systems, and any modern programming languages. 
+*  Periodically new versions of document standards are issued, and the 
+   structure of each document varies from version to version.
+*  Each document definition attempts to cover all possible content variations,
+   resulting in an implementation craft guaranteeing employment to a cadre of 
+   EDI mapping specialists who are otherwise unskilled in IT. 
+*  X12 standards are proprietary, and the table data for any one version of the 
+   standards costs $20,000 or more. [#]_ 
+
+Any one of the above issues would be a stumbling block in the current world of 
+web-based systems and open-source software and standards. 
+
+Legacy EDI does have a few strengths:
+
+*  Compactness: the EDI data stream is almost pure data.
+*  Typing: EDI standards impose data typing and format specifications for every 
+   data element. Format specifications are usually limited to min/max length, 
+   although specific forms are used for items such as dates and times. 
+*  Code validation: EDI standards include extensive lists of code values for 
+   adding semantic content to data. Codes precede many data elements to remove 
+   ambiguity.
+
+Data Formats -- JSON & XML
+=============================
+
+Hypertext Markup Language (HTML) With Cascading Style Sheets (CSS) and 
+JavaScript form a triad of cornerstone technologies for the World Wide Web. [#]_
+Of these technologies, JavaScript constitutes a programming paradigm capable of
+adding dynamic content for web browsers. 
+
+Independent of programming languages, two competing methods for representing 
+structured data in both human-readable and machine-readable form are **XML** 
+(eXtensible Markup Language) and **JSON** (JavaScript Object Notation). XML 
+provides a structured extension to HTML's static web markup, while JSON was 
+developed to provide structured data for JavaScript implementations. While JSON 
+is a much newer development than XML, it should be obvious why it is now the 
+*de facto* preferred format for data exchange using web services: it works with 
+JavaScript.
+
+JSON has a few weaknesses:
+
+*  While XML has the concept of data schema, JSON does not. 
+*  JSON data is weakly typed, as is its target language JavaScript.
+*  JSON parsing does not address vulnerabilities such as injection attacks.
+*  JSON has a few minor incompatibilities with superset encodings such as YAML.
+*  JSON encodes an object, but there is no general specification for streaming 
+   multiple objects as would be required in data exchange.
+
+Exchange Protocols -- EDI
+=============================
+
+EDI is designed to stream data documents over unreliable connections, and there 
+are extensive features incorporated in EDI specifications to guarantee reliable
+data delivery. EDI is based on the concept of store-and-forward mail delivery 
+and batch processing of data streams.
+
+Exchange Protocols -- JSON
+=============================
+
+
+
+------
+
+.. rubric:: Footnotes
+
+.. [#] http://store.x12.org/store/asc-x12-generic-table-data-subscriptions
+
+.. [#] Flanagan, David. JavaScript - The definitive guide (6 ed.). p. 1. 
+       JavaScript is part of the triad of technologies that all Web developers 
+       must learn: HTML to specify the content of web pages, CSS to specify the 
+       presentation of web pages, and JavaScript to specify the behaviour of 
+       web pages.
+
+.. [#] 
+

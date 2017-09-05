@@ -9,7 +9,8 @@ shipment information between warehouses and customers. Data will be exchanged
 using file repositories on public services, with each exchange site hosted by 
 either the warehouse or the customer.
 
-Warehousing logistics is a batch process, where multiple orders are picked and shipped at the same time. As a consequence, the customer usually submits 
+Warehousing logistics is a batch process, where multiple orders are picked and 
+shipped at the same time. As a consequence, the customer usually submits 
 approved orders to the warehouse in a batch, and the warehouse replies with 
 shipping information as carriers pick up order batches. There are two ways to 
 submit orders to the warehouse consistent with this understanding: 
