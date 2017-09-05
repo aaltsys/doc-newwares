@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>JSON Exchange Validation &mdash; WARES Exchange 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="WARES Exchange 1.0 documentation" href="index.html" />
+    <link rel="prev" title="JSON Exchange Procedures" href="03_JSON-exchange.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="03_JSON-exchange.html" title="JSON Exchange Procedures"
+             accesskey="P">previous</a></li>
+        <li><a href="index.html">WARES Exchange 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">JSON Exchange Validation</a><ul>
+<li><a class="reference internal" href="#directory-sharing">Directory Sharing</a></li>
+<li><a class="reference internal" href="#transaction-numbering">Transaction Numbering</a></li>
+<li><a class="reference internal" href="#detecting-duplicate-documents">Detecting Duplicate Documents</a></li>
+<li><a class="reference internal" href="#batch-numbering">Batch Numbering</a></li>
+<li><a class="reference internal" href="#document-counts-and-lengths">Document Counts and Lengths</a></li>
+<li><a class="reference internal" href="#document-acknowledgments">Document Acknowledgments</a></li>
+<li><a class="reference internal" href="#stream-process-auditing">Stream Process Auditing</a></li>
+<li><a class="reference internal" href="#exchange-validation-tldr">Exchange Validation TLDR;</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="03_JSON-exchange.html"
+                        title="previous chapter">JSON Exchange Procedures</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/04_JSON-auditing.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="json-exchange-validation">
+<span id="json-validate"></span><h1>JSON Exchange Validation<a class="headerlink" href="#json-exchange-validation" title="Permalink to this headline">¶</a></h1>
+<p>JSON specifies a way to encode data objects for web services, particularly when
+used with JavaScript. JSON does not describe a way to stream a set of data
+objects or to perform reliable data exchange, as such protocols are external to
+JSON&#8217;s purpose.</p>
+<p>This article details the WARES components and methods which implement reliable
+data exchange with JSON structured document files.</p>
+<div class="section" id="directory-sharing">
+<h2>Directory Sharing<a class="headerlink" href="#directory-sharing" title="Permalink to this headline">¶</a></h2>
+<p>Directory sharing services are the Internet&#8217;s answer for data transfer between
+partners. These services replace EDI&#8217;s proprietary Value-Added Networks (VANs),
+dial-up storage systems, FTP sites, and email attachments.
+<a class="reference external" href="https://www.dropbox.com/help/files-folders">DropBox</a> provides a shared file
+system which, when mounted, appears as a native directory structure on any
+computer or server using an Apple, Linux, or Microsoft operating system.</p>
+<p>When a directory is shared for data exchange, within the directory should be
+a folder for each document type to be exchanged, and corresponding sub-folders
+to archive files which have been picked up. To exchange warehouse orders, for
+example, there would be an <em>ORDERS</em> folder, an <em>ORDERS/HISTORY</em> sub-folder, an
+ORDERS/STREAMS sub-folder, a <em>SHIPPERS</em> folder, and a <em>SHIPPERS/HISTORY</em>
+sub-folder.</p>
+</div>
+<div class="section" id="transaction-numbering">
+<h2>Transaction Numbering<a class="headerlink" href="#transaction-numbering" title="Permalink to this headline">¶</a></h2>
+<p>Traditional EDI uses sequential counters to track documents, groups, and
+exchanges. The WARES implementation of EDI maintains a perpetual document
+history, and if a document number of a specific type is received twice, the
+second receipt is detected as a duplicate. JSON does not have streaming
+protocols to which the concept of sequenced transmission documents would apply.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The EDI numbering model is applied externally to the exchanged documents, so
+the retransmission of an exchange is detected this way but duplications due
+to resubmitting a document, which produces a new sequence number, is not.</p>
+</div>
+</div>
+<div class="section" id="detecting-duplicate-documents">
+<h2>Detecting Duplicate Documents<a class="headerlink" href="#detecting-duplicate-documents" title="Permalink to this headline">¶</a></h2>
+<p>When WARES imports an order, combinations of the internal consignee identifier
+and the document reference numbers are indexed to look for duplications. When
+a reference number is repeated the order is marked as a duplicate, and a human
+operator must resolve this conflict. This methodology detects duplications
+whether a file is retransmitted or a document is resubmitted. (Order Status 0
+is used to indicate orders received with errors, including order duplicates.)</p>
+<p>Using JSON, when a warehouse client writes individual order documents into a
+file share using a reference number as the filename, resubmitting an order will
+just replace the file &#8211; up to the point when the warehouse picks up the files.
+There is no such thing as a &#8220;transmission duplication,&#8221; and WARES duplicate
+detection catches resubmissions that occur once an original order is streamed.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This process has a consequence: if a JSON order is shipped from the
+warehouse, and then it is resubmitted by the client, the resubmitted order
+will overwrite the original in the fileshare history.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">EDI transaction numbering is sequential, so that it is possible to detect a
+missing or faulty document by number and request resubmission. No one does
+this in my experience, as automatic resubmission of failed documents would
+be pointless when the document is faulty to begin with.</p>
+</div>
+</div>
+<div class="section" id="batch-numbering">
+<h2>Batch Numbering<a class="headerlink" href="#batch-numbering" title="Permalink to this headline">¶</a></h2>
+<p>WARES processes streams, not individual order files. When WARES selects a group
+of JSON orders for processing, the group is compiled into a stream file and
+written to a file processing history, separate from the exchange share. The
+stream file is named with a datetime stamp when the files are selected.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Stream files are never overwritten by the client, so resubmitting a document
+after it has been processed saves the original and its resubmission in
+separate streams, and no information is lost in stream history.</p>
+</div>
+</div>
+<div class="section" id="document-counts-and-lengths">
+<h2>Document Counts and Lengths<a class="headerlink" href="#document-counts-and-lengths" title="Permalink to this headline">¶</a></h2>
+<p>Measuring the reliability of document exchange is an issue.</p>
+<p>EDI transmission standards include counts of groups and document counts within
+groups. Further, the footer of each document has a count of the included data
+segments. Nothing in JSON or any other structured data presentation corresponds
+to the EDI concept of data segments. Similarly, character counts which are used
+in transmission are not a reliable measure of structured textual content in
+either EDI or JSON, as reformatting can either add or eliminate white space.</p>
+<p>So, we are left with counting documents while processing. WARES does this quite
+well, reporting the number of processed documents at the end of import or
+export. This should be compared with the number of records written to the WARES
+Orders file for example, and to the directory of documents which were processed
+and moved to the ORDERS/HISTORY fileshare. To this end, WARES writes both the
+stream file and a directory listing of processed document files to the
+ORDERS/STREAMS folder. The directory listing has file extension &#8221;.ls&#8221;, while
+&#8221;.JSN&#8221; is the stream extension.</p>
+</div>
+<div class="section" id="document-acknowledgments">
+<h2>Document Acknowledgments<a class="headerlink" href="#document-acknowledgments" title="Permalink to this headline">¶</a></h2>
+<p>EDI specifies the form of Acknowledgments (set 997) which may return counts for
+documents accepted without errors, accepted with errors, and rejected. Classic
+EDI is a standalone application, and so documents are checked for syntactical
+compliance with standards, but semantic implications of documents cannot be
+reviewed. A document which is accepted without errors may contain entirely
+useless information, as for instance ordering products which are not a part of
+inventory, or requesting an expired delivery date.</p>
+<p>Because JSON exchange includes importing actual documents, it may be possible
+to add semantic checks as part of acknowledgment, as is mentioned previously
+with duplicate detection. However, such semantic checks will likely be limited
+to comparing values to datatype and formatting specifications, which is just
+what EDI does.</p>
+<p>THE NATURE OF SUCH JSON ACKNOWLEDGMENTS IS YET TO BE DETERMINED.</p>
+</div>
+<div class="section" id="stream-process-auditing">
+<h2>Stream Process Auditing<a class="headerlink" href="#stream-process-auditing" title="Permalink to this headline">¶</a></h2>
+<p>The process of creating a stream file, moving individual documents to history,
+and importing the stream has latency so that if importing is attempted before
+the stream is ready, the order stream might not get processed.</p>
+<p>Before creating the stream, a listing for the streaming work directory will be
+written to <em>ORDERS/STREAMS/streamname.ls</em> to audit the stream process. Code to
+create <em>ORDERS/STREAMS/streamname.ls</em> and <em>ORDERS/STREAMS/streamname.jsn</em>
+using BASH on Linux follows:</p>
+<div class="code bash highlight-python"><div class="highlight"><pre>/bin/bash
+STREAM=$1
+DROPBOX=~/Dropbox/dermpro/ORDERS
+cd $DROPBOX
+(insert check for directory exists, else exit)
+mkdir ./WORKING
+touch ./WORKING/orders.jsn
+mv ./*.JSN ./WORKING
+ls -al ./WORKING/ &gt;&gt;./STREAMS/$STREAM.ls
+touch ./WORKING/orders.jsn
+find ./WORKING -type f -name &#39;*.JSN&#39; -exec cat {} + &gt;&gt; ./WORKING/orders.jsn
+cp ./WORKING/orders.jsn ./STREAMS/$STREAM.JSN
+mv ./WORKING/*.JSN ./HISTORY/
+</pre></div>
+</div>
+</div>
+<div class="section" id="exchange-validation-tldr">
+<h2>Exchange Validation TLDR;<a class="headerlink" href="#exchange-validation-tldr" title="Permalink to this headline">¶</a></h2>
+<p>JSON exchange through file sharing bypasses the concept of data transmission,
+so there is no sequence numbering for transmissions as in EDI. Similarly each
+document type being exchanged uses a different folder in the fileshare,
+replacing the EDI concept of document groups. Also, documents are grouped into
+streams by the recipient, not the sender. Group sequence numbering is replaced
+by process timestamps on stream files. Reference numbers extracted from
+document data are used as filenames for individual documents, replacing
+document transmission sequence numbers. Responsibility for reporting documents
+received and processed successfully is entirely the recipients responsibility.</p>
+<hr class="docutils" />
+<p>rubric:: Footnotes</p>
+<table class="docutils footnote" frame="void" id="id1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td><a class="reference external" href="https://boldvan.com/">BOLD VAN</a> is an inexpensive alternative to
+traditional VANs at a fixed price of $49.00 per month per partner.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="03_JSON-exchange.html" title="JSON Exchange Procedures"
+             >previous</a></li>
+        <li><a href="index.html">WARES Exchange 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Gerald Lovel.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b1.
+    </div>
+  </body>
+</html>
