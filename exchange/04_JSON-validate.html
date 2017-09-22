@@ -24,6 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="WARES Exchange 1.0 documentation" href="index.html" />
+    <link rel="next" title="JSON Exchange Integration" href="05_JSON-integrate.html" />
     <link rel="prev" title="JSON Exchange Procedures" href="03_JSON-exchange.html" /> 
   </head>
   <body role="document">
@@ -31,8 +32,11 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
+          <a href="05_JSON-integrate.html" title="JSON Exchange Integration"
+             accesskey="N">next</a></li>
+        <li class="right" >
           <a href="03_JSON-exchange.html" title="JSON Exchange Procedures"
-             accesskey="P">previous</a></li>
+             accesskey="P">previous</a> |</li>
         <li><a href="index.html">WARES Exchange 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
@@ -47,7 +51,6 @@
 <li><a class="reference internal" href="#batch-numbering">Batch Numbering</a></li>
 <li><a class="reference internal" href="#document-counts-and-lengths">Document Counts and Lengths</a></li>
 <li><a class="reference internal" href="#document-acknowledgments">Document Acknowledgments</a></li>
-<li><a class="reference internal" href="#stream-process-auditing">Stream Process Auditing</a></li>
 <li><a class="reference internal" href="#stream-datetime-decoding">Stream DateTime Decoding</a></li>
 <li><a class="reference internal" href="#exchange-validation-tldr">Exchange Validation TLDR;</a></li>
 </ul>
@@ -57,10 +60,13 @@
   <h4>Previous topic</h4>
   <p class="topless"><a href="03_JSON-exchange.html"
                         title="previous chapter">JSON Exchange Procedures</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="05_JSON-integrate.html"
+                        title="next chapter">JSON Exchange Integration</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/04_JSON-auditing.txt"
+      <li><a href="_sources/04_JSON-validate.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -105,20 +111,25 @@ computer or server using an Apple, Linux, or Microsoft operating system.</p>
 a folder for each document type to be exchanged, and corresponding sub-folders
 to archive files which have been picked up. To exchange warehouse orders, for
 example, there would be an <em>ORDERS</em> folder, an <em>ORDERS/HISTORY</em> sub-folder, an
-ORDERS/STREAMS sub-folder, a <em>SHIPPERS</em> folder, and a <em>SHIPPERS/HISTORY</em>
-sub-folder.</p>
+<em>ORDERS/STREAMS</em> sub-folder, a <em>SHIPPERS</em> folder, and a <em>SHIPPERS/HISTORY</em>
+sub-folder, as shown in <a class="reference internal" href="05_JSON-integrate.html#json-integrate-view"><em>View or Setup JSON Share</em></a>.</p>
+<p>DropBox uses file system extensions to make the exchange fileshare appear as a
+part of the local file system. This allows WARES to perform file operations
+directly on the shared files during JSON import, unlike using FTP sites or EDI
+VANs which require a separate communications program for file exchange.</p>
 </div>
 <div class="section" id="transaction-numbering">
 <h2>Transaction Numbering<a class="headerlink" href="#transaction-numbering" title="Permalink to this headline">¶</a></h2>
 <p>Traditional EDI uses sequential counters to track documents, groups, and
 exchanges. The WARES implementation of EDI maintains a perpetual document
 history, and if a document number of a specific type is received twice, the
-second receipt is detected as a duplicate. JSON does not have streaming
-protocols to which the concept of sequenced transmission documents would apply.</p>
+second receipt is detected as a duplicate by the EDI software. By comparison,
+JSON does not have streaming protocols to which the concept of sequenced
+transmission documents would apply.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">The EDI numbering model is applied externally to the exchanged documents, so
-the retransmission of an exchange is detected this way but duplications due
+the retransmission of an exchange is detected this way but a duplication due
 to resubmitting a document, which produces a new sequence number, is not.</p>
 </div>
 </div>
@@ -144,17 +155,17 @@ will overwrite the original in the fileshare history.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">EDI transaction numbering is sequential, so that it is possible to detect a
-missing or faulty document by number and request resubmission. No one does
-this in my experience, as automatic resubmission of failed documents would
-be pointless when the document is faulty to begin with.</p>
+missing or faulty document by number and request resubmission automatically.
+No one does this actually, as automatic resubmission of failed documents
+would be pointless when a document is faulty to begin with.</p>
 </div>
 </div>
 <div class="section" id="batch-numbering">
 <h2>Batch Numbering<a class="headerlink" href="#batch-numbering" title="Permalink to this headline">¶</a></h2>
 <p>WARES processes streams, not individual order files. When WARES selects a group
 of JSON orders for processing, the group is compiled into a stream file and
-written to a file processing history, separate from the exchange share. The
-stream file is named with a datetime stamp when the files are selected.</p>
+written to a file processing stream history, separate from the exchange share.
+The stream filename is a datetime stamp of when the files were selected.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Stream files are never overwritten by the client, so resubmitting a document
@@ -196,27 +207,14 @@ to comparing values to datatype and formatting specifications, which is just
 what EDI does.</p>
 <p>THE NATURE OF SUCH JSON ACKNOWLEDGMENTS IS YET TO BE DETERMINED.</p>
 </div>
-<div class="section" id="stream-process-auditing">
-<h2>Stream Process Auditing<a class="headerlink" href="#stream-process-auditing" title="Permalink to this headline">¶</a></h2>
-<p>The process of creating a stream file, moving individual documents to history,
-and importing the stream has latency so that if importing is attempted before
-the stream is ready, the order stream might not get processed.</p>
-<p>Before creating the stream, a listing for the streaming work directory will be
-written to <em>ORDERS/STREAMS/streamname.ls</em> to audit the stream process. Code to
-create <em>ORDERS/STREAMS/streamname.ls</em> and <em>ORDERS/STREAMS/streamname.jsn</em>
-using BASH on Linux follows:</p>
-<div class="code bash highlight-python"><div class="highlight"><pre>(To be added later)
-</pre></div>
-</div>
-</div>
 <div class="section" id="stream-datetime-decoding">
 <h2>Stream DateTime Decoding<a class="headerlink" href="#stream-datetime-decoding" title="Permalink to this headline">¶</a></h2>
-<p>WARES limits stream filenames to no more than eight characters, and an encoding
+<p>WARES limits stream filenames to no more than eight characters. An encoding
 scheme is employed to include date and time information in this name, and to
 arrange streams in chronological order when sorting (left-aligned). Following
 is the decoding to determine date and time of a stream from its filename.</p>
 <p>Year, Month, Day, and Seconds since midnight are presented in 8 characters:
-<strong>YYMDDTTT</strong></p>
+<strong>YYMDDTTT</strong>.</p>
 <ul class="simple">
 <li><strong>YY</strong> Year: Add century digits <strong>20</strong> in front of the year to complete the
 year.</li>
@@ -228,27 +226,30 @@ digits.</li>
 base 36. Convert from base 36 to base 10 and then multiply by 3 to get the
 time in seconds after midnight.</li>
 </ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The five-character date portion of stream names will always sort correctly.
+The chronology of times within a date may be out of sequence if the
+operating system encodes letters before numbers in character sequence.</p>
+</div>
 </div>
 <div class="section" id="exchange-validation-tldr">
 <h2>Exchange Validation TLDR;<a class="headerlink" href="#exchange-validation-tldr" title="Permalink to this headline">¶</a></h2>
 <p>JSON exchange through file sharing bypasses the concept of data transmission,
 so there is no sequence numbering for transmissions as in EDI. Similarly each
 document type being exchanged uses a different folder in the fileshare,
-replacing the EDI concept of document groups. Also, documents are grouped into
-streams by the recipient, not the sender. Group sequence numbering is replaced
-by process timestamps on stream files. Reference numbers extracted from
-document data are used as filenames for individual documents, replacing
-document transmission sequence numbers. Responsibility for reporting documents
-received and processed successfully is entirely the recipients responsibility.</p>
-<hr class="docutils" />
-<p>rubric:: Footnotes</p>
-<table class="docutils footnote" frame="void" id="id1" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[1]</td><td><a class="reference external" href="https://boldvan.com/">BOLD VAN</a> is an inexpensive alternative to
-traditional VANs at a fixed price of $49.00 per month per partner.</td></tr>
-</tbody>
-</table>
+replacing the EDI concept of document groups. Also, documents are placed into
+streams by the recipient, not the sender, so group sequence numbering is
+replaced by process timestamps on stream files. Reference numbers extracted
+from document data are used as filenames for individual documents, replacing
+document transmission sequence numbers.</p>
+<p>File sharing allows programs to manipulate exchanged datafiles directly, which
+eliminates unreliable interplays between programming and system functions.
+Each recipient is responsible for reporting documents received and processed to
+the sender, so that the sender can verify the success of data exchange. All
+data are available for review, providing transparency in exchange. The customer
+can guarantee the confidentiality and security of data by owning the DropBox
+session used for data exchange.</p>
 </div>
 </div>
 
@@ -262,8 +263,11 @@ traditional VANs at a fixed price of $49.00 per month per partner.</td></tr>
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
+          <a href="05_JSON-integrate.html" title="JSON Exchange Integration"
+             >next</a></li>
+        <li class="right" >
           <a href="03_JSON-exchange.html" title="JSON Exchange Procedures"
-             >previous</a></li>
+             >previous</a> |</li>
         <li><a href="index.html">WARES Exchange 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>

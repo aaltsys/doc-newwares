@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>JSON Exchange Integration &mdash; WARES Exchange 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/aaltsys.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="WARES Exchange 1.0 documentation" href="index.html" />
+    <link rel="next" title="JSON Exchange Technical Info" href="06_JSON-technical.html" />
+    <link rel="prev" title="JSON Exchange Validation" href="04_JSON-validate.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="06_JSON-technical.html" title="JSON Exchange Technical Info"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="04_JSON-validate.html" title="JSON Exchange Validation"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">WARES Exchange 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">JSON Exchange Integration</a><ul>
+<li><a class="reference internal" href="#update-windows-workstations">Update Windows Workstations</a><ul>
+<li><a class="reference internal" href="#mount-dropbox-in-user-space">Mount Dropbox in User Space</a></li>
+<li><a class="reference internal" href="#view-or-setup-json-share">View or Setup JSON Share</a></li>
+<li><a class="reference internal" href="#commands-to-link-a-folder">Commands to Link a Folder</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#add-json-import-to-wares">Add JSON Import to WARES</a><ul>
+<li><a class="reference internal" href="#add-json-import-features">Add JSON Import Features</a></li>
+<li><a class="reference internal" href="#configure-wares-pathnames">Configure WARES Pathnames</a></li>
+<li><a class="reference internal" href="#add-wares-process-selections">Add WARES Process Selections</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="04_JSON-validate.html"
+                        title="previous chapter">JSON Exchange Validation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="06_JSON-technical.html"
+                        title="next chapter">JSON Exchange Technical Info</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/05_JSON-integrate.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="json-exchange-integration">
+<span id="json-integrate"></span><h1>JSON Exchange Integration<a class="headerlink" href="#json-exchange-integration" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="update-windows-workstations">
+<h2>Update Windows Workstations<a class="headerlink" href="#update-windows-workstations" title="Permalink to this headline">¶</a></h2>
+<p>Although WARES runs entirely from a server fileshare, using Dropbox for file
+exchange will require administrative changes for each computer or user who will
+perform a Dropbox exchange.</p>
+<div class="section" id="mount-dropbox-in-user-space">
+<h3>Mount Dropbox in User Space<a class="headerlink" href="#mount-dropbox-in-user-space" title="Permalink to this headline">¶</a></h3>
+<p>For every user requiring access to a Dropbox share, follow this link to the <a class="reference external" href="https://www.dropbox.com/install">Dropbox installer</a> to add Dropbox to their
+user path.</p>
+</div>
+<div class="section" id="view-or-setup-json-share">
+<span id="json-integrate-view"></span><h3>View or Setup JSON Share<a class="headerlink" href="#view-or-setup-json-share" title="Permalink to this headline">¶</a></h3>
+<p>Open Windows File Explorer to view the contents of your Dropbox directory.
+Identify the JSON share {foldername} which will be used for JSON orders
+exchange. Verify the contents of this folder. The following directory tree is
+required:</p>
+<div class="highlight-python"><div class="highlight"><pre>┌────────────────────────────────────────────────────────────────────────────┐
+│                          ┌────────────┐                    ┌────────────┐  │
+│                        ┌─┤  Folder 1  │                  ┌─┤  HISTORY   │  │
+│                        │ └────────────┘   ┌────────────┐ │ └────────────┘  │
+│                        │     . . .      ┌─┤  ORDERS    ├─┤ ┌────────────┐  │
+│                        │ ┌────────────┐ │ └────────────┘ └─┤  STREAMS   │  │
+│ User\\Name\\Dropbox\\ ─┼─┤ JSON share ├─┤                  └────────────┘  │
+│                        │ └────────────┘ │ ┌────────────┐   ┌────────────┐  │
+│                        │     . . .      └─┤  SHIPPERS  ├───┤  HISTORY   │  │
+│                        │ ┌────────────┐   └────────────┘   └────────────┘  │
+│                        └─┤  Folder n  │                                    │
+│                          └────────────┘                                    │
+└────────────────────────────────────────────────────────────────────────────┘
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>You can move a folder tree from your local drive to Dropbox using File
+Explorer. Right-drag the folder to Dropbox and select &#8220;Move here&#8221; to create
+the share. Then setup sharing in Dropbox to configure the folder, or, you
+could use the following command:</p>
+<div class="last highlight-python"><div class="highlight"><pre>move &quot;C:\\path\\to\\folder&quot; &quot;%userprofile%\\Dropbox&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="commands-to-link-a-folder">
+<h3>Commands to Link a Folder<a class="headerlink" href="#commands-to-link-a-folder" title="Permalink to this headline">¶</a></h3>
+<p>Search for <strong class="command">CMD.EXE</strong> on your start menu, and right-click to select
+&#8220;Run as Administrator.&#8221; In the DOS command window, type the following commands
+to set a permanent link to a shared Dropbox folder: <a class="footnote-reference" href="#id2" id="id1">[1]</a></p>
+<div class="highlight-python"><div class="highlight"><pre>mkdir C:\Dropbox
+mklink /J &quot;C:\\Dropbox\\{JSONshare}&quot; &quot;%userprofile%\\Dropbox\\{JSONshare}&quot;
+dir C:\Dropbox\\{JSONshare}
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The <strong class="command">mklink</strong> command works with WINDOWS Vista and higher, and
+Windows must have been installed using file system NTFS. Links may also be
+created with the command:</p>
+<div class="highlight-python"><div class="highlight"><pre>fsutil hardlink create &quot;C:\\Dropbox\\{JSONshare}&quot; &quot;%userprofile%\\Dropbox\\{JSONshare}&quot;
+</pre></div>
+</div>
+<p class="last">If you are using WindowsXP it is probably time for an upgrade. Call for
+advice on Windows upgrades.</p>
+</div>
+</div>
+</div>
+<div class="section" id="add-json-import-to-wares">
+<h2>Add JSON Import to WARES<a class="headerlink" href="#add-json-import-to-wares" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="add-json-import-features">
+<h3>Add JSON Import Features<a class="headerlink" href="#add-json-import-features" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="configure-wares-pathnames">
+<h3>Configure WARES Pathnames<a class="headerlink" href="#configure-wares-pathnames" title="Permalink to this headline">¶</a></h3>
+<p>WARES saves import and export configuration data in control records. Use menu
+selections <em class="menuselection">eXchange ‣ Export-Import ‣ Exports</em> and
+<em class="menuselection">eXchange ‣ Export-Import ‣ JSON Imports</em> to access control
+records and change path settings.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="26%" />
+<col width="55%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td rowspan="2"><blockquote class="first">
+<div>Control Name</div></blockquote>
+<div class="last line-block">
+<div class="line">JSONIMPORT</div>
+<div class="line">ORDERS</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td rowspan="2"><blockquote class="first">
+<div>Entry Label</div></blockquote>
+<div class="last line-block">
+<div class="line">Export FileName</div>
+<div class="line">Export Directory</div>
+<div class="line">History Directory</div>
+</div>
+</td>
+<td rowspan="2"><blockquote class="first">
+<div>Entry values to check</div></blockquote>
+<div class="last line-block">
+<div class="line">null</div>
+<div class="line">C:\DROPBOX\{share}\ORDERS\</div>
+<div class="line">C:\DROPBOX\{share}\ORDERS\HISTORY\</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">EXPORT</div>
+<div class="line">JSONSHIPPERS</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Export FileName</div>
+<div class="line">Export Directory</div>
+<div class="line">History Directory</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">{PO_NUMBER}</div>
+<div class="line">C:\DROPBOX\{share}\SHIPPERS\</div>
+<div class="line">null</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The control names given above are generic; actual control record names will be
+different and unique for each account. Replace {share} with an account ID and
+append the account identifier to the control name to generate these controls.
+For example, account-specific controls for account <strong>ABC</strong> might be
+<strong>JSONIMPORT*ORDERS_ABC</strong> and <strong>EXPORT*JSONSHIPPERS_ABC</strong>.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">Menu selection <em class="menuselection">Tools ‣ Define ‣ Controls</em> may be used to edit import controls (and any other controls) just as selections on the
+<em class="menuselection">eXchange ‣ Export-Import</em> menu are used.</p>
+</div>
+</div>
+<div class="section" id="add-wares-process-selections">
+<h3>Add WARES Process Selections<a class="headerlink" href="#add-wares-process-selections" title="Permalink to this headline">¶</a></h3>
+<p>JSON orders import includes new processes <strong>JSONIMPORT_ORDERS</strong> and
+<strong>EXPORT_JSONSHIPPERS</strong> to import orders and create response documents. Custom versions of these processes are needed for each participating account. Use menu item <em class="menuselection">Tools ‣ Processes ‣ Processes Setup</em> to create the new
+processes, as described here:</p>
+<ul class="simple">
+<li>Display the <em class="guilabel">Processes</em> window from the menu.</li>
+<li>Retrieve the first process, <strong>JSONIMPORT_ORDERS</strong>, then rename the process
+by appending the account ID: for example, <strong>JSONIMPORT_ORDERS_ABC</strong>. Press
+<code class="kbd docutils literal"><span class="pre">&lt;return&gt;</span></code> to start the new record.</li>
+<li>Press <code class="kbd docutils literal"><span class="pre">&lt;Alt-C&gt;,</span> <span class="pre">&lt;return&gt;</span></code> to copy the last-displayed record into the
+new record.</li>
+<li>Change the <em class="guilabel">Execution</em> command to use the control name from the
+previous section; that is, <strong>ORDERS_ABC</strong> instead of <strong>ORDERS</strong>. Change the
+process title to reflect the customer account, as you will see this title in
+the selection options.</li>
+<li>Save the process.</li>
+<li>Repeat the previous steps for process <strong>JSON*EXPORTSHIPPERS</strong>, where the
+control name might be <strong>JSONSHIPPERS_ABC</strong> instead of just <strong>JSONSHIPPERS</strong>.</li>
+</ul>
+<p>The options list at <em class="menuselection">eXchange ‣ Export-Import ‣ Processes</em>
+should be used to list these account-specific process choices, as follows:</p>
+<ul class="simple">
+<li>At menu item <em class="menuselection">Tools ‣ Define ‣ Popups</em>, enter
+<em class="guilabel">File name</em> <strong>POPUPS</strong> and <em class="guilabel">Popup name</em> <strong>ECOM_PROCESS</strong>
+to display the exchange processes list.</li>
+<li>Add process names created above to the process list, and save the changes.</li>
+</ul>
+<hr class="docutils" />
+<p class="rubric">footnotes</p>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><a class="reference external" href="https://www.howtogeek.com/howto/16226/complete-guide-to-symbolic-links-symlinks-on-windows-or-linux/">https://www.howtogeek.com/howto/16226/complete-guide-to-symbolic-links-symlinks-on-windows-or-linux/</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="06_JSON-technical.html" title="JSON Exchange Technical Info"
+             >next</a></li>
+        <li class="right" >
+          <a href="04_JSON-validate.html" title="JSON Exchange Validation"
+             >previous</a> |</li>
+        <li><a href="index.html">WARES Exchange 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Gerald Lovel.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b1.
+    </div>
+  </body>
+</html>

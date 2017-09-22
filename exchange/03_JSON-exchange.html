@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="WARES Exchange 1.0 documentation" href="index.html" />
-    <link rel="next" title="JSON Exchange Validation" href="04_JSON-auditing.html" />
+    <link rel="next" title="JSON Exchange Validation" href="04_JSON-validate.html" />
     <link rel="prev" title="WARES JSON Orders Exchange" href="02_JSON-orders.html" /> 
   </head>
   <body role="document">
@@ -32,7 +32,7 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="04_JSON-auditing.html" title="JSON Exchange Validation"
+          <a href="04_JSON-validate.html" title="JSON Exchange Validation"
              accesskey="N">next</a></li>
         <li class="right" >
           <a href="02_JSON-orders.html" title="WARES JSON Orders Exchange"
@@ -57,7 +57,7 @@
   <p class="topless"><a href="02_JSON-orders.html"
                         title="previous chapter">WARES JSON Orders Exchange</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="04_JSON-auditing.html"
+  <p class="topless"><a href="04_JSON-validate.html"
                         title="next chapter">JSON Exchange Validation</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
@@ -131,7 +131,7 @@ eight or fewer characters.</li>
 <p>At the warehouse:</p>
 <ol class="arabic simple">
 <li>Periodically the warehouse selects all files in the orders exchange inbox.</li>
-<li>Order files are concatenated into a single input file <strong>ORDERS.JSN</strong> for
+<li>Order files are concatenated into a single input file <strong>(stream).JSN</strong> for
 processing.</li>
 <li>Original order files are moved to the orders exchange archive folder.</li>
 <li>The input file is imported to the WARES software to create shipment orders.</li>
@@ -149,18 +149,17 @@ the batch of orders.</p>
 <li>Each order is assigned a sales order <strong>reference</strong> number.</li>
 <li>Periodically orders which are not yet submitted are selected, and a JSON
 export file is created containing the JSON exports of the orders.</li>
-<li>The JSON file is saved in the exchange <strong>ORDERS</strong> folder, concatenated with
-filename <strong>ORDERS.JSN</strong> (or similar agreed name).</li>
+<li>The JSON <strong>(batch).JSN</strong> file is saved in the exchange <strong>ORDERS</strong> folder.</li>
 <li>The submitted sales orders are marked as submitted, and cannot be changed
 afterwards.</li>
 </ol>
 <p>At the warehouse:</p>
 <ol class="arabic simple">
-<li>Periodically the warehouse retrieves input file <strong>ORDERS.JSN</strong> from the
+<li>Periodically the warehouse retrieves the <strong>(batch).JSN</strong> from the
 orders exchange inbox.</li>
-<li>File <strong>ORDERS.JSN</strong> is moved to the order exchange archive folder, renaming
-the file to <strong>(datetimestamp).JSN</strong> in the process.</li>
-<li>The input file <strong>ORDERS.JSN</strong> is imported to the WARES software to create
+<li><strong>(batch).JSN</strong> files are moved to the order exchange archive folder,
+and a <strong>(stream).JSN</strong> is created for processing.</li>
+<li>The input file <strong>(stream).JSN</strong> is imported to the WARES software to create
 shipment orders.</li>
 <li>Orders are processed in a batch for picking and shipping.</li>
 </ol>
@@ -183,7 +182,7 @@ in a batch.</p>
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="04_JSON-auditing.html" title="JSON Exchange Validation"
+          <a href="04_JSON-validate.html" title="JSON Exchange Validation"
              >next</a></li>
         <li class="right" >
           <a href="02_JSON-orders.html" title="WARES JSON Orders Exchange"

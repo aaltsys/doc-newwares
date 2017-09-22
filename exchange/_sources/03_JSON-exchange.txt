@@ -53,7 +53,7 @@ At the warehouse customer's end:
 At the warehouse:
 
 #. Periodically the warehouse selects all files in the orders exchange inbox.
-#. Order files are concatenated into a single input file **ORDERS.JSN** for 
+#. Order files are concatenated into a single input file **(stream).JSN** for 
    processing.
 #. Original order files are moved to the orders exchange archive folder.
 #. The input file is imported to the WARES software to create shipment orders.
@@ -72,18 +72,17 @@ At the warehouse customer's end:
 #. Each order is assigned a sales order **reference** number.
 #. Periodically orders which are not yet submitted are selected, and a JSON 
    export file is created containing the JSON exports of the orders.
-#. The JSON file is saved in the exchange **ORDERS** folder, concatenated with 
-   filename **ORDERS.JSN** (or similar agreed name). 
+#. The JSON **(batch).JSN** file is saved in the exchange **ORDERS** folder. 
 #. The submitted sales orders are marked as submitted, and cannot be changed 
    afterwards.
 
 At the warehouse:
 
-#. Periodically the warehouse retrieves input file **ORDERS.JSN** from the 
+#. Periodically the warehouse retrieves the **(batch).JSN** from the 
    orders exchange inbox.
-#. File **ORDERS.JSN** is moved to the order exchange archive folder, renaming 
-   the file to **(datetimestamp).JSN** in the process.
-#. The input file **ORDERS.JSN** is imported to the WARES software to create 
+#. **(batch).JSN** files are moved to the order exchange archive folder, 
+   and a **(stream).JSN** is created for processing.
+#. The input file **(stream).JSN** is imported to the WARES software to create 
    shipment orders.
 #. Orders are processed in a batch for picking and shipping.
 

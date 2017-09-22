@@ -1,4 +1,4 @@
-.. _JSON_validate:
+.. _JSON-validate:
 
 #############################
 JSON Exchange Validation
@@ -26,8 +26,13 @@ When a directory is shared for data exchange, within the directory should be
 a folder for each document type to be exchanged, and corresponding sub-folders 
 to archive files which have been picked up. To exchange warehouse orders, for 
 example, there would be an *ORDERS* folder, an *ORDERS/HISTORY* sub-folder, an 
-ORDERS/STREAMS sub-folder, a *SHIPPERS* folder, and a *SHIPPERS/HISTORY* 
-sub-folder.
+*ORDERS/STREAMS* sub-folder, a *SHIPPERS* folder, and a *SHIPPERS/HISTORY* 
+sub-folder, as shown in :ref:`JSON-integrate-view`.
+
+DropBox uses file system extensions to make the exchange fileshare appear as a 
+part of the local file system. This allows WARES to perform file operations 
+directly on the shared files during JSON import, unlike using FTP sites or EDI 
+VANs which require a separate communications program for file exchange. 
 
 Transaction Numbering
 =============================
@@ -35,12 +40,13 @@ Transaction Numbering
 Traditional EDI uses sequential counters to track documents, groups, and 
 exchanges. The WARES implementation of EDI maintains a perpetual document 
 history, and if a document number of a specific type is received twice, the 
-second receipt is detected as a duplicate. JSON does not have streaming 
-protocols to which the concept of sequenced transmission documents would apply.
+second receipt is detected as a duplicate by the EDI software. By comparison, 
+JSON does not have streaming protocols to which the concept of sequenced 
+transmission documents would apply.
 
 .. note::
    The EDI numbering model is applied externally to the exchanged documents, so 
-   the retransmission of an exchange is detected this way but duplications due 
+   the retransmission of an exchange is detected this way but a duplication due 
    to resubmitting a document, which produces a new sequence number, is not. 
 
 Detecting Duplicate Documents
@@ -66,22 +72,22 @@ detection catches resubmissions that occur once an original order is streamed.
 
 .. note::
    EDI transaction numbering is sequential, so that it is possible to detect a 
-   missing or faulty document by number and request resubmission. No one does 
-   this in my experience, as automatic resubmission of failed documents would 
-   be pointless when the document is faulty to begin with.
+   missing or faulty document by number and request resubmission automatically. 
+   No one does this actually, as automatic resubmission of failed documents 
+   would be pointless when a document is faulty to begin with.
 
 Batch Numbering
 =============================
 
 WARES processes streams, not individual order files. When WARES selects a group 
 of JSON orders for processing, the group is compiled into a stream file and 
-written to a file processing history, separate from the exchange share. The 
-stream file is named with a datetime stamp when the files are selected.  
+written to a file processing stream history, separate from the exchange share. 
+The stream filename is a datetime stamp of when the files were selected.  
 
 .. note::
    Stream files are never overwritten by the client, so resubmitting a document 
    after it has been processed saves the original and its resubmission in 
-   separate streams, and no information is lost in stream history.
+   separate streams, and no information is lost in stream history. 
 
 Document Counts and Lengths
 =============================
@@ -123,26 +129,10 @@ what EDI does.
 
 THE NATURE OF SUCH JSON ACKNOWLEDGMENTS IS YET TO BE DETERMINED.
 
-Stream Process Auditing
-=============================
-
-The process of creating a stream file, moving individual documents to history, 
-and importing the stream has latency so that if importing is attempted before 
-the stream is ready, the order stream might not get processed. 
-
-Before creating the stream, a listing for the streaming work directory will be
-written to *ORDERS/STREAMS/streamname.ls* to audit the stream process. Code to 
-create *ORDERS/STREAMS/streamname.ls* and *ORDERS/STREAMS/streamname.jsn*
-using BASH on Linux follows:
-
-.. code:: bash
-
-   (To be added later)
-
 Stream DateTime Decoding
 =============================
 
-WARES limits stream filenames to no more than eight characters, and an encoding 
+WARES limits stream filenames to no more than eight characters. An encoding 
 scheme is employed to include date and time information in this name, and to 
 arrange streams in chronological order when sorting (left-aligned). Following 
 is the decoding to determine date and time of a stream from its filename.
@@ -159,6 +149,11 @@ Year, Month, Day, and Seconds since midnight are presented in 8 characters:
 *  **TTT** Time: 36 symbols: [0,1,...,9,A,B,...,Z] are used to encode time in 
    base 36. Convert from base 36 to base 10 and then multiply by 3 to get the 
    time in seconds after midnight.
+   
+.. note::
+   The five-character date portion of stream names will always sort correctly. 
+   The chronology of times within a date may be out of sequence if the 
+   operating system encodes letters before numbers in character sequence.
 
 Exchange Validation TLDR;
 =============================
@@ -166,16 +161,17 @@ Exchange Validation TLDR;
 JSON exchange through file sharing bypasses the concept of data transmission, 
 so there is no sequence numbering for transmissions as in EDI. Similarly each 
 document type being exchanged uses a different folder in the fileshare, 
-replacing the EDI concept of document groups. Also, documents are grouped into 
-streams by the recipient, not the sender. Group sequence numbering is replaced 
-by process timestamps on stream files. Reference numbers extracted from 
-document data are used as filenames for individual documents, replacing 
-document transmission sequence numbers. Responsibility for reporting documents 
-received and processed successfully is entirely the recipients responsibility.
+replacing the EDI concept of document groups. Also, documents are placed into 
+streams by the recipient, not the sender, so group sequence numbering is 
+replaced by process timestamps on stream files. Reference numbers extracted 
+from document data are used as filenames for individual documents, replacing 
+document transmission sequence numbers. 
 
-------
+File sharing allows programs to manipulate exchanged datafiles directly, which 
+eliminates unreliable interplays between programming and system functions. 
+Each recipient is responsible for reporting documents received and processed to 
+the sender, so that the sender can verify the success of data exchange. All 
+data are available for review, providing transparency in exchange. The customer 
+can guarantee the confidentiality and security of data by owning the DropBox 
+session used for data exchange.
 
-rubric:: Footnotes
-
-.. [#] `BOLD VAN <https://boldvan.com/>`_ is an inexpensive alternative to
-       traditional VANs at a fixed price of $49.00 per month per partner.
