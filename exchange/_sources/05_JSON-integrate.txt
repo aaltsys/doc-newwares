@@ -88,7 +88,7 @@ records and change path settings.
 
 +--------------+--------------------+------------------------------------------+
 | Control Name | Entry Label        | Entry values to check                    |
-|==============+====================+==========================================+
++==============+====================+==========================================+
 || JSONIMPORT  || Export FileName   || null                                    |
 || ORDERS      || Export Directory  || C:\\DROPBOX\\{share}\\ORDERS\\          |
 ||             || History Directory || C:\\DROPBOX\\{share}\\ORDERS\\HISTORY\\ |
