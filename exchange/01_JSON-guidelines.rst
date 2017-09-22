@@ -97,8 +97,8 @@ Sample JSON Exchange File
 =============================
 
 The following JSON example is a warehouse order record. The entire transmission 
-is enclosed in brackets ([]), and then the individual order record is enclosed 
-in braces ({}) because a transmission may contain multiple orders. 
+is enclosed in brackets ([]), with the individual order record(s) enclosed in 
+braces ({}) because a transmission may contain multiple orders. 
 
 Similarly, **notes** and **addresses** sections are enclosed in brackets, as 
 multiple notes or addresses structures might occur in the record. Within the 
