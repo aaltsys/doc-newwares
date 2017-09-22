@@ -27,19 +27,19 @@ Identify the JSON share {foldername} which will be used for JSON orders
 exchange. Verify the contents of this folder. The following directory tree is 
 required::
 
- ┌────────────────────────────────────────────────────────────────────────────┐
- │                          ┌────────────┐                    ┌────────────┐  │
- │                        ┌─┤  Folder 1  │                  ┌─┤  HISTORY   │  │
- │                        │ └────────────┘   ┌────────────┐ │ └────────────┘  │
- │                        │     . . .      ┌─┤  ORDERS    ├─┤ ┌────────────┐  │
- │                        │ ┌────────────┐ │ └────────────┘ └─┤  STREAMS   │  │
- │ User\\Name\\Dropbox\\ ─┼─┤ JSON share ├─┤                  └────────────┘  │
- │                        │ └────────────┘ │ ┌────────────┐   ┌────────────┐  │
- │                        │     . . .      └─┤  SHIPPERS  ├───┤  HISTORY   │  │
- │                        │ ┌────────────┐   └────────────┘   └────────────┘  │
- │                        └─┤  Folder n  │                                    │
- │                          └────────────┘                                    │
- └────────────────────────────────────────────────────────────────────────────┘
+ ┌─────────────────────────────────────────────────────────────────────────┐
+ │                       ┌────────────┐                    ┌────────────┐  │
+ │                     ┌─┤  Folder 1  │                  ┌─┤  HISTORY   │  │
+ │                     │ └────────────┘   ┌────────────┐ │ └────────────┘  │
+ │                     │     . . .      ┌─┤  ORDERS    ├─┤ ┌────────────┐  │
+ │                     │ ┌────────────┐ │ └────────────┘ └─┤  STREAMS   │  │
+ │ User\Name\Dropbox\ ─┼─┤ JSON share ├─┤                  └────────────┘  │
+ │                     │ └────────────┘ │ ┌────────────┐   ┌────────────┐  │
+ │                     │     . . .      └─┤  SHIPPERS  ├───┤  HISTORY   │  │
+ │                     │ ┌────────────┐   └────────────┘   └────────────┘  │
+ │                     └─┤  Folder n  │                                    │
+ │                       └────────────┘                                    │
+ └─────────────────────────────────────────────────────────────────────────┘
 
 .. note::
    You can move a folder tree from your local drive to Dropbox using File 
@@ -47,7 +47,7 @@ required::
    the share. Then setup sharing in Dropbox to configure the folder, or, you 
    could use the following command::
    
-      move "C:\\path\\to\\folder" "%userprofile%\\Dropbox"
+      move "C:\path\to\folder" "%userprofile%\Dropbox"
 
 Commands to Link a Folder
 -----------------------------
@@ -57,15 +57,15 @@ Search for :command:`CMD.EXE` on your start menu, and right-click to select
 to set a permanent link to a shared Dropbox folder: [#]_ ::
 
    mkdir C:\Dropbox
-   mklink /J "C:\\Dropbox\\{JSONshare}" "%userprofile%\\Dropbox\\{JSONshare}"
-   dir C:\Dropbox\\{JSONshare}
+   mklink /J "C:\Dropbox\{JSONshare}" "%userprofile%\Dropbox\{JSONshare}"
+   dir C:\Dropbox\{JSONshare}
 
 .. note::
    The :command:`mklink` command works with WINDOWS Vista and higher, and 
    Windows must have been installed using file system NTFS. Links may also be 
    created with the command::
 
-      fsutil hardlink create "C:\\Dropbox\\{JSONshare}" "%userprofile%\\Dropbox\\{JSONshare}"
+      fsutil hardlink create "C:\Dropbox\{JSONshare}" "%userprofile%\Dropbox\{JSONshare}"
 
    If you are using WindowsXP it is probably time for an upgrade. Call for 
    advice on Windows upgrades.

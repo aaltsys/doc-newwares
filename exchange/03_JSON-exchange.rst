@@ -30,7 +30,7 @@ exchanged would satisfy one or the other of the following transfer methods.
 Additionally, either the customer or the warehouse must host a data exchange 
 service which provides security and accessibility to both partners, and which 
 offers a repository of exchanged documents. Currently we recommend 
-`DropBox <DropBox <https://www.dropbox.com/>`_ for this service.
+`DropBox <https://www.dropbox.com/>`_ for this service.
 
 Single Orders
 =============================
