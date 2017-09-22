@@ -113,19 +113,19 @@ user path.</p>
 Identify the JSON share {foldername} which will be used for JSON orders
 exchange. Verify the contents of this folder. The following directory tree is
 required:</p>
-<div class="highlight-python"><div class="highlight"><pre>┌────────────────────────────────────────────────────────────────────────────┐
-│                          ┌────────────┐                    ┌────────────┐  │
-│                        ┌─┤  Folder 1  │                  ┌─┤  HISTORY   │  │
-│                        │ └────────────┘   ┌────────────┐ │ └────────────┘  │
-│                        │     . . .      ┌─┤  ORDERS    ├─┤ ┌────────────┐  │
-│                        │ ┌────────────┐ │ └────────────┘ └─┤  STREAMS   │  │
-│ User\\Name\\Dropbox\\ ─┼─┤ JSON share ├─┤                  └────────────┘  │
-│                        │ └────────────┘ │ ┌────────────┐   ┌────────────┐  │
-│                        │     . . .      └─┤  SHIPPERS  ├───┤  HISTORY   │  │
-│                        │ ┌────────────┐   └────────────┘   └────────────┘  │
-│                        └─┤  Folder n  │                                    │
-│                          └────────────┘                                    │
-└────────────────────────────────────────────────────────────────────────────┘
+<div class="highlight-python"><div class="highlight"><pre>┌─────────────────────────────────────────────────────────────────────────┐
+│                       ┌────────────┐                    ┌────────────┐  │
+│                     ┌─┤  Folder 1  │                  ┌─┤  HISTORY   │  │
+│                     │ └────────────┘   ┌────────────┐ │ └────────────┘  │
+│                     │     . . .      ┌─┤  ORDERS    ├─┤ ┌────────────┐  │
+│                     │ ┌────────────┐ │ └────────────┘ └─┤  STREAMS   │  │
+│ User\Name\Dropbox\ ─┼─┤ JSON share ├─┤                  └────────────┘  │
+│                     │ └────────────┘ │ ┌────────────┐   ┌────────────┐  │
+│                     │     . . .      └─┤  SHIPPERS  ├───┤  HISTORY   │  │
+│                     │ ┌────────────┐   └────────────┘   └────────────┘  │
+│                     └─┤  Folder n  │                                    │
+│                       └────────────┘                                    │
+└─────────────────────────────────────────────────────────────────────────┘
 </pre></div>
 </div>
 <div class="admonition note">
@@ -134,7 +134,7 @@ required:</p>
 Explorer. Right-drag the folder to Dropbox and select &#8220;Move here&#8221; to create
 the share. Then setup sharing in Dropbox to configure the folder, or, you
 could use the following command:</p>
-<div class="last highlight-python"><div class="highlight"><pre>move &quot;C:\\path\\to\\folder&quot; &quot;%userprofile%\\Dropbox&quot;
+<div class="last highlight-python"><div class="highlight"><pre>move &quot;C:\path\to\folder&quot; &quot;%userprofile%\Dropbox&quot;
 </pre></div>
 </div>
 </div>
@@ -145,8 +145,8 @@ could use the following command:</p>
 &#8220;Run as Administrator.&#8221; In the DOS command window, type the following commands
 to set a permanent link to a shared Dropbox folder: <a class="footnote-reference" href="#id2" id="id1">[1]</a></p>
 <div class="highlight-python"><div class="highlight"><pre>mkdir C:\Dropbox
-mklink /J &quot;C:\\Dropbox\\{JSONshare}&quot; &quot;%userprofile%\\Dropbox\\{JSONshare}&quot;
-dir C:\Dropbox\\{JSONshare}
+mklink /J &quot;C:\Dropbox\{JSONshare}&quot; &quot;%userprofile%\Dropbox\{JSONshare}&quot;
+dir C:\Dropbox\{JSONshare}
 </pre></div>
 </div>
 <div class="admonition note">
@@ -154,7 +154,7 @@ dir C:\Dropbox\\{JSONshare}
 <p>The <strong class="command">mklink</strong> command works with WINDOWS Vista and higher, and
 Windows must have been installed using file system NTFS. Links may also be
 created with the command:</p>
-<div class="highlight-python"><div class="highlight"><pre>fsutil hardlink create &quot;C:\\Dropbox\\{JSONshare}&quot; &quot;%userprofile%\\Dropbox\\{JSONshare}&quot;
+<div class="highlight-python"><div class="highlight"><pre>fsutil hardlink create &quot;C:\Dropbox\{JSONshare}&quot; &quot;%userprofile%\Dropbox\{JSONshare}&quot;
 </pre></div>
 </div>
 <p class="last">If you are using WindowsXP it is probably time for an upgrade. Call for
