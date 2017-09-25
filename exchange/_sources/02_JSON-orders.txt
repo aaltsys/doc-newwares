@@ -22,6 +22,8 @@ ORDER Response Data Elements
 +----------------+--------------------------------+----+---------+------+------+
 | account        | Warehouse customer identifier  | M  | String  | Whse | Order|
 +----------------+--------------------------------+----+---------+------+------+
+| source         | Customer tracking source       | O  | String  | Cust | Order|
++----------------+--------------------------------+----+---------+------+------+
 | referenceCode  | "6A"                           | O  | String  | Whse | Order|
 +----------------+--------------------------------+----+---------+------+------+
 | reference      | Customer's sales order number  | M  | String  | Cust | Order|
@@ -170,6 +172,8 @@ The resulting data specification is listed following.
 | postDate       | Document transmitted date      | M  | Date    | Whse | Resp |
 +----------------+--------------------------------+----+---------+------+------+
 | account        | Warehouse customer identifier  | M  | String  | Whse | Order|
++----------------+--------------------------------+----+---------+------+------+
+| source         | Customer tracking source       | O  | String  | Cust | Order|
 +----------------+--------------------------------+----+---------+------+------+
 | reference      | Customer's sales order number  | M  | String  | Cust | Order|
 +----------------+--------------------------------+----+---------+------+------+
